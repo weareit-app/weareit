@@ -1,0 +1,35 @@
+# It
+
+It is a shared path from the lives people want to the practical work that can make those lives possible. This repository is the open source MVP for the universal web and iOS app.
+
+## Current MVP slice
+
+The first build starts with an exploratory onboarding: people can explore personal and societal pains, choose possible futures, and see ways to help It or support its work. Before the persistence gate, selections stay on the device. Email verification is requested only when someone chooses to save their progress.
+
+The product is not a generic goal tracker, a crisis service, or a paid membership. Support is optional and presented as **Support It**.
+
+## Development
+
+Requirements: Node.js 24 LTS and pnpm 11. The repository uses pnpm workspaces. `mise` is an optional convenience; it is used for the project owner's local setup but is not required for contributors.
+
+```sh
+corepack enable
+pnpm install
+cp .env.example .env
+cp apps/app/.env.example apps/app/.env
+pnpm db:migrate
+pnpm db:seed
+pnpm dev
+```
+
+For your OrbStack setup, create/start a PostgreSQL 17 container in the OrbStack app with port `5432` forwarded to the Mac, a persistent volume mounted at `/var/lib/postgresql/data`, and these values: database `it_dev`, user `it`, password `it`. Set `DATABASE_URL=postgres://it:it@localhost:5432/it_dev` in `.env`. The API and app run directly on your Mac with `pnpm dev`.
+
+Contributors who prefer Docker can instead run `pnpm db:up:docker`; this starts the same PostgreSQL configuration from `compose.yaml`. Stop it with `pnpm db:down:docker`. Neither database option runs the API in a container. Set a long random `CMS_ADMIN_TOKEN` in `.env`, then open `/cms` in the web app to edit, validate, preview, publish, and roll back onboarding content. The app calls the API at `EXPO_PUBLIC_API_URL`; change that value to a reachable host address when using a physical iPhone. For Neon, put its pooled PostgreSQL connection URL in `DATABASE_URL`.
+
+The seed command is intentionally one-time: it imports the sourced Tier 1 corpus and publishes version 1 only when the content database is empty. Later runs fail instead of overwriting CMS edits. Use the CMS for subsequent changes.
+
+The app lives in `apps/app`; shared product content and behavior live in packages under `packages/`. See [CONTRIBUTING.md](CONTRIBUTING.md) and [docs/architecture/decisions.md](docs/architecture/decisions.md) for current project conventions and choices.
+
+## Status
+
+The CMS and published-content API are now scaffolded. Email OTP and persistence of a person's onboarding draft, payment processing, and deployment are still open. CMS access currently uses a server-side bootstrap token; replace it with role-based authentication before inviting outside editors. See [docs/roadmap/mvp.md](docs/roadmap/mvp.md) for the remaining sequence.

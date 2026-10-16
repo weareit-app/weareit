@@ -1,0 +1,17 @@
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css";
+@import "nativewind/theme";
+
+@theme {
+  --color-ink: #171717;
+  --color-muted: #555555;
+  --color-paper: #ffffff;
+  --color-card: #ffffff;
+  --color-leaf: #2871b8;
+  --color-blue: #2871b8;
+  --color-sun: #2871b8;
+  --color-coral: #e47961;
+  --font-sans: "Avenir Next", "Avenir", ui-sans-serif, system-ui;
+  --font-serif: Georgia, "Times New Roman", serif;
+}

@@ -1,0 +1,199 @@
+import { z } from "zod";
+
+const idSchema = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
+const copySchema = z.string().trim().min(1).max(4000);
+
+export const contentDomainSchema = z
+  .object({
+    id: idSchema,
+    scope: z.enum(["personal", "world"]),
+    title: copySchema,
+    sortOrder: z.number().int().nonnegative(),
+  })
+  .strict();
+
+export const contentPainSchema = z
+  .object({
+    id: idSchema,
+    domainId: idSchema,
+    title: copySchema,
+    description: copySchema,
+    sortOrder: z.number().int().nonnegative(),
+  })
+  .strict();
+
+export const contentDreamSchema = z
+  .object({
+    id: idSchema,
+    title: copySchema,
+    description: copySchema,
+    sortOrder: z.number().int().nonnegative(),
+  })
+  .strict();
+
+export const contentFirstActionSchema = z
+  .object({
+    id: idSchema,
+    title: copySchema,
+    description: copySchema,
+    firstStep: copySchema,
+    effortMinutes: z.number().int().positive().max(120),
+    evidence: z.enum(["candidate", "practical"]),
+    safetyNote: copySchema.optional(),
+    sortOrder: z.number().int().nonnegative(),
+  })
+  .strict();
+
+export const contentSourceSchema = z
+  .object({
+    id: idSchema,
+    title: copySchema,
+    documentPath: copySchema,
+    sourceType: z.enum(["research_registry", "content_spec", "fix_corpus"]),
+    rights: copySchema,
+  })
+  .strict();
+
+export const contentProvenanceSchema = z
+  .object({
+    entityType: z.enum(["domain", "pain", "dream", "first_action"]),
+    entityId: idSchema,
+    sourceId: idSchema,
+    locator: copySchema,
+    evidenceType: copySchema,
+    rights: z.enum(["CC0-1.0", "CC-BY-SA-4.0"]),
+    reviewStatus: z.enum(["unreviewed", "reviewed", "approved"]),
+  })
+  .strict();
+
+export const contentGraphSchema = z
+  .object({
+    domains: z.array(contentDomainSchema),
+    pains: z.array(contentPainSchema),
+    dreams: z.array(contentDreamSchema),
+    painDreamLinks: z.array(
+      z.object({ painId: idSchema, dreamId: idSchema }).strict(),
+    ),
+    firstActions: z.array(contentFirstActionSchema),
+    actionPainLinks: z.array(
+      z.object({ actionId: idSchema, painId: idSchema }).strict(),
+    ),
+    sources: z.array(contentSourceSchema),
+    provenance: z.array(contentProvenanceSchema),
+  })
+  .strict()
+  .superRefine((graph, context) => {
+    const uniqueIds = (key: string, ids: string[]) => {
+      if (new Set(ids).size !== ids.length) {
+        context.addIssue({
+          code: "custom",
+          path: [key],
+          message: `${key} IDs must be unique.`,
+        });
+      }
+    };
+
+    uniqueIds(
+      "domains",
+      graph.domains.map(({ id }) => id),
+    );
+    uniqueIds(
+      "pains",
+      graph.pains.map(({ id }) => id),
+    );
+    uniqueIds(
+      "dreams",
+      graph.dreams.map(({ id }) => id),
+    );
+    uniqueIds(
+      "firstActions",
+      graph.firstActions.map(({ id }) => id),
+    );
+    uniqueIds(
+      "sources",
+      graph.sources.map(({ id }) => id),
+    );
+    uniqueIds(
+      "painDreamLinks",
+      graph.painDreamLinks.map(({ painId, dreamId }) => `${painId}:${dreamId}`),
+    );
+    uniqueIds(
+      "actionPainLinks",
+      graph.actionPainLinks.map(
+        ({ actionId, painId }) => `${actionId}:${painId}`,
+      ),
+    );
+    uniqueIds(
+      "provenance",
+      graph.provenance.map(
+        ({ entityType, entityId, sourceId, locator }) =>
+          `${entityType}:${entityId}:${sourceId}:${locator}`,
+      ),
+    );
+
+    const domainIds = new Set(graph.domains.map(({ id }) => id));
+    const painIds = new Set(graph.pains.map(({ id }) => id));
+    const dreamIds = new Set(graph.dreams.map(({ id }) => id));
+    const actionIds = new Set(graph.firstActions.map(({ id }) => id));
+    const sourceIds = new Set(graph.sources.map(({ id }) => id));
+
+    graph.pains.forEach((pain, index) => {
+      if (!domainIds.has(pain.domainId)) {
+        context.addIssue({
+          code: "custom",
+          path: ["pains", index, "domainId"],
+          message: `Unknown domain ${pain.domainId}.`,
+        });
+      }
+    });
+    graph.painDreamLinks.forEach((link, index) => {
+      if (!painIds.has(link.painId))
+        context.addIssue({
+          code: "custom",
+          path: ["painDreamLinks", index, "painId"],
+          message: `Unknown pain ${link.painId}.`,
+        });
+      if (!dreamIds.has(link.dreamId))
+        context.addIssue({
+          code: "custom",
+          path: ["painDreamLinks", index, "dreamId"],
+          message: `Unknown dream ${link.dreamId}.`,
+        });
+    });
+    graph.actionPainLinks.forEach((link, index) => {
+      if (!actionIds.has(link.actionId))
+        context.addIssue({
+          code: "custom",
+          path: ["actionPainLinks", index, "actionId"],
+          message: `Unknown action ${link.actionId}.`,
+        });
+      if (!painIds.has(link.painId))
+        context.addIssue({
+          code: "custom",
+          path: ["actionPainLinks", index, "painId"],
+          message: `Unknown pain ${link.painId}.`,
+        });
+    });
+    graph.provenance.forEach((reference, index) => {
+      const entityIds = {
+        domain: domainIds,
+        pain: painIds,
+        dream: dreamIds,
+        first_action: actionIds,
+      }[reference.entityType];
+      if (!entityIds.has(reference.entityId))
+        context.addIssue({
+          code: "custom",
+          path: ["provenance", index, "entityId"],
+          message: `Unknown ${reference.entityType} ${reference.entityId}.`,
+        });
+      if (!sourceIds.has(reference.sourceId))
+        context.addIssue({
+          code: "custom",
+          path: ["provenance", index, "sourceId"],
+          message: `Unknown source ${reference.sourceId}.`,
+        });
+    });
+  });
+
+export type ContentGraph = z.infer<typeof contentGraphSchema>;

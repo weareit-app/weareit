@@ -1,0 +1,61 @@
+import {
+  Image,
+  type ImageSourcePropType,
+  Pressable,
+  Text,
+  View,
+} from "react-native";
+
+type ChoiceCardProps = {
+  title: string;
+  description: string;
+  selected: boolean;
+  onPress: () => void;
+  illustration?: ImageSourcePropType | undefined;
+};
+
+export function ChoiceCard({
+  title,
+  description,
+  selected,
+  onPress,
+  illustration,
+}: ChoiceCardProps) {
+  return (
+    <Pressable
+      accessibilityRole="checkbox"
+      accessibilityState={{ checked: selected }}
+      aria-checked={selected}
+      onPress={onPress}
+      className={`min-h-[76px] flex-row items-center gap-4 border-b border-[#e8e8e8] py-3 ${selected ? "bg-[#f4f8fc]" : "bg-white"}`}
+    >
+      <View
+        className={`h-6 w-6 items-center justify-center rounded-full border-2 ${selected ? "border-blue" : "border-[#777777]"}`}
+      >
+        {selected ? <View className="h-3 w-3 rounded-full bg-blue" /> : null}
+      </View>
+      {illustration ? (
+        <View className="relative h-[72px] w-[72px] overflow-hidden bg-white">
+          <Image
+            source={illustration}
+            resizeMode="contain"
+            accessibilityLabel={`${title} illustration`}
+            style={{
+              position: "absolute",
+              top: -28,
+              left: -28,
+              width: 128,
+              height: 128,
+            }}
+          />
+        </View>
+      ) : null}
+      <View className="flex-1 gap-1">
+        <Text className="text-base font-bold text-ink">{title}</Text>
+        <Text className="font-serif text-base leading-5 text-ink">
+          {description}
+        </Text>
+      </View>
+    </Pressable>
+  );
+}

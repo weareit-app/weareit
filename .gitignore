@@ -1,0 +1,17 @@
+node_modules/
+.pnpm-store/
+.expo/
+dist/
+web-build/
+coverage/
+playwright-report/
+test-results/
+.turbo/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+*.tsbuildinfo
+ios/
+android/

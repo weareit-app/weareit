@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "It",
+    "slug": "we-are-it",
+    "scheme": "weareit",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "web": {
+      "output": "static"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-sqlite",
+      "./plugins/with-quoted-rn-xcode-script"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "ios": {
+      "bundleIdentifier": "com.joshsmith.we-are-it"
+    }
+  }
+}
