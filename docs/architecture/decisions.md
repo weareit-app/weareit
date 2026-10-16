@@ -5,8 +5,8 @@ This file records decisions made with the project owner. Source architecture pro
 ## Product
 
 - It helps people imagine a better personal and shared future, see a path toward it, and take part with others.
-- Onboarding is an exploratory waitlist and a roadmap for It. It can offer personal possibilities, ways to help It, ways to invite others, and optional support.
-- MVP includes the Support It flow. Use contribution language; do not claim charitable donation status.
+- Onboarding is an exploratory waitlist and a roadmap for It. It offers personal possibilities, ways to help It, and optional support. Invitations are optional for v0.1 (2026-10-16).
+- MVP includes the Support It flow. Call giving money "support" (2026-10-16); never "donation" or charitable status.
 - First platforms are web and iOS.
 
 ## Platform and stack
@@ -26,17 +26,18 @@ This file records decisions made with the project owner. Source architecture pro
 
 - Pre-signup answers remain on-device.
 - On-device drafts do not expire automatically; the person can explicitly clear them.
-- Ask for email OTP only when the user chooses to persist their work.
-- Use self-hosted Better Auth for email OTP and sessions, backed by PostgreSQL through its Kysely adapter. Send codes through configurable SMTP; development can log codes locally, while production must have SMTP configured. Authentication and content persistence remain on infrastructure It controls.
-- Avoid a stable anonymous user/session. Any pre-signup measurement must be coarse aggregate counts and described in the interface.
+- Signup is required after the personal and societal pages to continue (2026-10-16). Those two pages work without an account.
+- Sign-in offers email OTP and email + password (2026-10-16).
+- Use self-hosted Better Auth for email OTP, passwords and sessions, backed by PostgreSQL through its Kysely adapter. Send codes through configurable SMTP; development can log codes locally, while production must have SMTP configured. Authentication and content persistence remain on infrastructure It controls.
+- Avoid a stable anonymous user/session. Pre-signup measurement is limited to coarse aggregate counts plus a per-visit stage funnel (stages only, never which pains/dreams/ideas; the visit ID lives in memory for one visit and is never stored on the device). Both are described in the interface (2026-10-16).
 - Keep private answers and sensitive derivatives out of public artifacts by default.
 
 ## Payments
 
-- Stripe is It's primary web payment platform for Checkout, recurring support, customers, invoices, refunds, and subscription self-service.
+- Stripe is It's primary web payment platform for recurring support, customers, invoices, refunds, and subscription self-service. Web payment uses an embedded Stripe form inside It, replacing hosted Checkout (2026-10-16); the customer portal stays for self-service.
 - It keeps its own provider-neutral contribution/transaction records and mappings to Stripe and store transaction IDs. Provider webhooks are signature-verified and idempotent.
 - RevenueCat is optional and handles native App Store/Play Store purchases. Store payments bypass Stripe; RevenueCat does not own It account/access data or product entitlements.
-- Web support uses Stripe directly. The iOS MVP offers one-time StoreKit tips through RevenueCat; monthly patronage remains on web until It offers ongoing subscription value in the app.
+- Web support uses Stripe directly. Support can be one-time, monthly or annual on both web and iOS (2026-10-16); iOS is optional for v0.1. VERIFY App Store rules for recurring support without in-app benefits before building iOS recurring.
 - Support grants no product access and is not described as a charitable donation.
 
 ## Rendering
@@ -46,10 +47,14 @@ Expo Router now documents static and request-time server rendering. Start with s
 ## Open implementation decisions
 
 - Production SMTP provider and sender identity.
-- Hosting/runtime and deployment setup.
+- Hosting/runtime and deployment setup. Lean: SST on AWS if it is the cheapest and easiest to change later; keep app code host-neutral (2026-10-16).
 - Role-based CMS authorization before inviting additional or outside editors; the initial single-admin token is a bootstrap gate.
 - Stripe product identifiers and sandbox/live account setup.
 - App Store Connect and RevenueCat product/webhook configuration before the first native purchase.
 - Scope and text of the AGPL App Store exception.
 - DCO versus CLA for outside contributions.
 - Corporate form, mission protections, and trademark policy.
+
+## Change log
+
+- 2026-10-16: founder resolved conflicts with an earlier spec draft (see `docs/spec/CONFLICTS.md`). Changed: signup required after personal + societal pages; email OTP plus password; embedded Stripe form on web; one-time/monthly/annual support on web and iOS; pre-signup stage funnel added (privacy invariant change); invitations optional; "support" wording; hosting lean SST. Kept: oRPC, Kysely, database + CMS.

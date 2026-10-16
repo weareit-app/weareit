@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://we-are-it.example/spec/pieces.schema.json",
+  "title": "It pieces inventory",
+  "description": "Concepts, synchronizations, algorithms, renderers and connectors that make up It. Read by the research pipeline to prioritize papers.",
+  "type": "object",
+  "required": ["version", "pieces"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "updated": { "type": "string", "format": "date" },
+    "pieces": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/piece" } }
+  },
+  "$defs": {
+    "nonEmptyStrings": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "piece": {
+      "type": "object",
+      "required": ["id", "purpose", "capability_kind", "inputs", "outputs",
+                   "guarantees_required", "guarantees_relied_on", "mvp", "research_questions"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$", "description": "Stable kebab-case id. Never rename; deprecate instead." },
+        "piece_type": { "enum": ["concept", "synchronization", "algorithm", "renderer", "connector"] },
+        "purpose": { "type": "string", "minLength": 10, "description": "One sentence: why this piece exists, in user terms." },
+        "capability_kind": { "enum": ["ui_renderer", "pure_calculation", "query", "authorized_action", "long_running_process"],
+                             "description": "Architecture plan §8 (plus UI renderer)." },
+        "state": { "$ref": "#/$defs/nonEmptyStrings" },
+        "actions": { "$ref": "#/$defs/nonEmptyStrings" },
+        "inputs": { "$ref": "#/$defs/nonEmptyStrings" },
+        "outputs": { "$ref": "#/$defs/nonEmptyStrings" },
+        "guarantees_required": { "$ref": "#/$defs/nonEmptyStrings", "description": "Obligations this piece must uphold for its consumers (its contract)." },
+        "guarantees_relied_on": { "$ref": "#/$defs/nonEmptyStrings", "description": "What this piece assumes from the platform or other pieces." },
+        "composes": { "type": "array", "items": { "type": "string" }, "description": "Synchronizations only: ids of the pieces they connect." },
+        "mvp": { "type": "boolean", "description": "true = in v0.1 scope." },
+        "research_questions": { "$ref": "#/$defs/nonEmptyStrings" },
+        "sources": { "$ref": "#/$defs/nonEmptyStrings", "description": "Spec sections or citekeys/paper ids." },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,665 @@
+# It pieces inventory — DRAFT for founder review.
+# Export of spec/concepts.md. Contract with the research pipeline: keep ids stable.
+# Validate: uv run scripts/validate_pieces.py
+version: 0.1.0
+updated: "2026-10-16"
+pieces:
+
+  # ---------- Concepts (independent; never call each other) ----------
+
+  - id: catalog
+    piece_type: concept
+    purpose: Publish a versioned, curated set of pains, dreams and ideas so people can explore possibilities written in everyday words.
+    capability_kind: query
+    state:
+      - "pains by scope and group"
+      - "dreams per pain"
+      - "ideas linked to one or more dreams"
+      - "idea type and availability status"
+      - "source/evidence per idea"
+      - "content version"
+    actions:
+      - "publish(version)"
+      - "retire(itemId)"
+    inputs:
+      - "content version"
+    outputs:
+      - "pains"
+      - "dreams"
+      - "ideas with type"
+      - "availability status and sources"
+    guarantees_required:
+      - Every published version is immutable; earlier choices are never silently reinterpreted.
+      - Every idea carries a type and an honest availability status (real now / existing resource / proposed It feature / cooperative / societal proposal).
+      - Every dream offers more than one legitimate future per pain where the content allows.
+    guarantees_relied_on:
+      - Content is hand-authored and reviewed before publish.
+    mvp: true
+    research_questions:
+      - How do content-versioning schemes keep user selections interpretable across schema and content changes?
+      - What provenance representation is minimal yet sufficient for claims about real-world resources?
+    sources:
+      - "product spec §3.4"
+      - "§11"
+      - "§12"
+      - "architecture plan §5"
+
+  - id: selection
+    piece_type: concept
+    purpose: Remember which better futures someone chose for each pain, so they can revisit and change them without starting over.
+    capability_kind: authorized_action
+    state:
+      - "owner ref (session or account)"
+      - "per pain the set of selected dream ids"
+      - "content version at selection time"
+      - "timestamps"
+    actions:
+      - "selectDream(owner, painId, dreamId)"
+      - "unselectDream(owner, painId, dreamId)"
+      - "transfer(fromOwner, toOwner)"
+      - "forget(owner)"
+    inputs:
+      - "owner ref"
+      - "pain id"
+      - "dream id"
+    outputs:
+      - "selected dreams per pain"
+      - "selection events"
+    guarantees_required:
+      - Multiple dreams per pain may be selected; selection order does not matter.
+      - Selections are private to the owner by default.
+      - forget removes all selections for the owner.
+    guarantees_relied_on:
+      - Owner refs are opaque and supplied by identity/session pieces; selection never inspects them.
+      - Dream ids exist in the content version recorded with the selection.
+    mvp: true
+    research_questions:
+      - Event-log versus state-snapshot persistence for small user-choice models — what do audits and migrations need?
+      - How do polymorphic owner references avoid coupling concepts to an identity provider?
+    sources:
+      - "product spec §3.7"
+      - "§6"
+      - "§12"
+      - "arXiv:2508.14511"
+
+  - id: interest
+    piece_type: concept
+    purpose: Let people say how interested they are in an idea (including ideas not built yet) without that counting as a commitment.
+    capability_kind: authorized_action
+    state:
+      - "owner ref"
+      - "target id"
+      - "context (e.g. dream id)"
+      - "level (yes / maybe / no / selected)"
+      - "timestamp"
+    actions:
+      - "express(owner, target, context, level)"
+      - "withdraw(owner, target, context)"
+      - "transfer(fromOwner, toOwner)"
+      - "forget(owner)"
+    inputs:
+      - "owner ref"
+      - "idea or roadmap-card id"
+      - "optional context id"
+      - "level"
+    outputs:
+      - "interest records"
+      - "aggregate counts per target"
+    guarantees_required:
+      - Interest is never presented as a commitment or a pledge.
+      - Aggregates suppress small groups that could reveal individuals.
+      - Repeated expressions by the same owner count once.
+    guarantees_relied_on:
+      - Targets are opaque ids; the catalog or roadmap supplies meaning.
+    mvp: true
+    research_questions:
+      - What aggregation thresholds or differential-privacy techniques suit very small early cohorts?
+    sources:
+      - "product spec §3.7"
+      - "§8.3"
+      - "§12"
+      - "§13.2"
+
+  - id: disclosure
+    piece_type: concept
+    purpose: Let a person open and collapse items so they can focus on one pain at a time without losing work.
+    capability_kind: ui_renderer
+    state:
+      - "set of expanded item ids"
+    actions:
+      - "expand(itemId)"
+      - "collapse(itemId)"
+    inputs:
+      - "item ids"
+    outputs:
+      - "expanded/collapsed state"
+      - "accessible disclosure attributes"
+    guarantees_required:
+      - Collapsing never alters selections.
+      - Disclosure state is announced to assistive technology and operable by keyboard.
+    guarantees_relied_on:
+      - Purely local state; no persistence required.
+    mvp: true
+    research_questions:
+      - Which accessible disclosure patterns work consistently on React Native Web and native screen readers?
+    sources:
+      - "product spec §3.2"
+      - "§3.7"
+
+  - id: visitor-session
+    piece_type: concept
+    purpose: Let someone explore the personal and societal pages without an account, with everything kept on their own device until they sign up.
+    capability_kind: pure_calculation
+    state:
+      - "anonymous session id"
+      - "created at"
+    actions:
+      - "start()"
+      - "end(sessionId)"
+    inputs:
+      - "device storage"
+    outputs:
+      - "opaque session owner ref"
+    guarantees_required:
+      - No account is needed before or during Page 1.
+      - Session ids carry no personal data.
+    guarantees_relied_on:
+      - Browser storage may be cleared; loss is acceptable before signup.
+    mvp: true
+    research_questions:
+      - Patterns for anonymous-to-authenticated state handoff without cross-device tracking.
+    sources:
+      - "product spec §6"
+      - "decisions D12"
+
+  - id: identity
+    piece_type: concept
+    purpose: Let a person prove it is them so their possibilities are saved and restored later.
+    capability_kind: authorized_action
+    state:
+      - "account id"
+      - "provider reference"
+      - "roles"
+      - "timestamps"
+    actions:
+      - "signIn(method)"
+      - "signOut()"
+      - "deleteAccount()"
+      - "grantRole(account, role)"
+    inputs:
+      - "password, passwordless credential or OAuth assertion"
+    outputs:
+      - "opaque account owner ref"
+      - "roles"
+    guarantees_required:
+      - Not needed for the personal and societal pages; required to continue past them (founder decision 2026-10-16).
+      - Provider-specific details stay behind the identity port.
+      - deleteAccount triggers removal of the account's data through synchronizations.
+    guarantees_relied_on:
+      - Auth library (Better Auth, decision D9) behind the port; password and passwordless methods.
+    mvp: true
+    research_questions:
+      - How thin can an identity port be while supporting later data portability and provider switching?
+    sources:
+      - "product spec §6"
+      - "decisions D9"
+
+  - id: consent
+    piece_type: concept
+    purpose: Record exactly what a person has allowed — being contacted, use of anonymized aggregates — so It only does what they agreed to.
+    capability_kind: authorized_action
+    state:
+      - "owner ref"
+      - "purpose (contact / aggregate-use / ...)"
+      - "granted bool"
+      - "policy version"
+      - "timestamp"
+    actions:
+      - "grant(owner, purpose, policyVersion)"
+      - "revoke(owner, purpose)"
+    inputs:
+      - "owner ref"
+      - "purpose"
+      - "policy version"
+    outputs:
+      - "current consent per purpose"
+      - "consent history"
+    guarantees_required:
+      - Default is not granted.
+      - Revocation takes effect for all future reads.
+      - History is retained to show what was agreed under which policy version.
+    guarantees_relied_on:
+      - Other pieces check consent through synchronizations, not by reading its tables.
+    mvp: true
+    research_questions:
+      - Purpose-based access control that survives data transformation (permission/provenance preservation).
+    sources:
+      - "product spec §6"
+      - "§8.2"
+      - "§13.3"
+      - "architecture plan §5"
+
+  - id: donation
+    piece_type: concept
+    purpose: Let people who want to support It give money once or monthly, and cancel easily, without pressure.
+    capability_kind: long_running_process
+    state:
+      - "donation id"
+      - "owner ref (account; signed-in donors only for v0.1)"
+      - "amount"
+      - "currency"
+      - "frequency"
+      - "processor reference"
+      - "status (pending / succeeded / failed / cancelled)"
+      - "timestamps"
+    actions:
+      - "startDonation(amount, frequency) -> clientSecret"
+      - "recordOutcome(processorEvent)"
+      - "cancelRecurring(donationId)"
+    inputs:
+      - "amount"
+      - "frequency"
+      - "processor webhook events"
+    outputs:
+      - "client secret for payment confirmation"
+      - "donation records"
+      - "receipt trigger"
+    guarantees_required:
+      - Frequency (one-time vs monthly) is explicit before payment; no surprise recurring.
+      - Webhook handling is idempotent; replays never double-record.
+      - Using It never depends on donating.
+    guarantees_relied_on:
+      - Stripe handles card data and receipts (decision D10); card data stays in Stripe's Payment Element / PaymentSheet.
+      - Donor is signed in (identity); one Stripe customer per account.
+      - Recipient KYC/merchant onboarding is complete.
+    mvp: true
+    research_questions:
+      - Idempotency and replay patterns for payment webhooks in serverless functions.
+      - How durable-workflow models (e.g. Temporal-style histories) map onto subscription lifecycles at tiny scale.
+    sources:
+      - "product spec §7.4"
+      - "§13.3"
+      - "architecture plan §8"
+      - "decisions D10"
+
+  - id: offer
+    piece_type: concept
+    purpose: Let people offer what they could help with — skills, experience, time — and know the offer was received and not yet matched.
+    capability_kind: authorized_action
+    state:
+      - "offer id"
+      - "owner ref"
+      - "free text"
+      - "tags"
+      - "availability"
+      - "preferred contact"
+      - "follow-up status (new / contacted / matched / closed)"
+    actions:
+      - "submit(owner, text, tags, availability)"
+      - "withdraw(offerId)"
+      - "setFollowUp(offerId, status)"
+    inputs:
+      - "offer text and tags"
+      - "availability"
+      - "contact preference"
+    outputs:
+      - "acknowledgement"
+      - "offer records for admin"
+    guarantees_required:
+      - An offer is never shown as matched until a human matched it.
+      - setFollowUp requires the admin role.
+    guarantees_relied_on:
+      - Contact happens only if consent(contact) is granted.
+    mvp: true
+    research_questions:
+      - Lightweight capability/skill description schemas that could later support matching without forcing taxonomies now.
+    sources:
+      - "product spec §8.2"
+      - "§12"
+
+  - id: telemetry
+    piece_type: concept
+    purpose: Count how people move through the experience so the founder can learn what helps, without monetizing attention.
+    capability_kind: authorized_action
+    state:
+      - "event name"
+      - "session-scoped id"
+      - "timestamp"
+      - "minimal properties"
+    actions:
+      - "record(event)"
+    inputs:
+      - "funnel events (page view, pain opened, dream selected, idea seen, saved, donated, offered)"
+    outputs:
+      - "aggregate funnel counts"
+    guarantees_required:
+      - No third-party trackers; no cross-site identifiers.
+      - Properties never include free text or pain/dream ids tied to an account.
+    guarantees_relied_on:
+      - Events are fire-and-forget; loss is acceptable.
+    mvp: true
+    research_questions:
+      - Privacy-preserving product analytics designs suited to small, sensitive cohorts.
+    sources:
+      - "product spec §13.2"
+      - "decisions D13"
+
+  - id: funding-ledger
+    piece_type: concept
+    purpose: Show truthful, dated figures about It's actual funding and team next to big-company comparisons.
+    capability_kind: query
+    state:
+      - "realized monthly receipts"
+      - "annualized recurring donations"
+      - "operating costs"
+      - "team size"
+      - "as-of dates"
+      - "sourced company figures"
+    actions:
+      - "refresh()"
+      - "setCompanyFigures(sourcedTable)"
+    inputs:
+      - "succeeded donations"
+      - "manually entered costs and sourced figures"
+    outputs:
+      - "comparison sidebar data with sources and dates"
+    guarantees_required:
+      - Realized revenue and annualized recurring are never conflated; no invented ARR.
+      - Every company figure has year, source and denominator.
+    guarantees_relied_on:
+      - Donation records are authoritative.
+    mvp: false
+    research_questions:
+      - Provenance tracking for published figures derived from transactional data.
+    sources:
+      - "product spec §7.5"
+      - "§17.7"
+
+  # ---------- Algorithms ----------
+
+  - id: propose-ideas
+    piece_type: algorithm
+    purpose: For the dreams someone chose, return the ideas that could help, grouped under each dream and ranked honestly.
+    capability_kind: pure_calculation
+    inputs:
+      - "selected dream ids"
+      - "catalog version"
+    outputs:
+      - "ideas grouped by dream with type"
+      - "status and rationale"
+    guarantees_required:
+      - Deterministic for a given catalog version and input.
+      - Never merges ideas from different dreams into one unlabeled pool.
+      - Only returns ideas actually linked to the chosen dream.
+    guarantees_relied_on:
+      - Catalog links between ideas and dreams are curated.
+    mvp: true
+    research_questions:
+      - What contract lets a curated lookup be swapped for graph search, a solver, or an LLM without changing callers (replaceability test)?
+      - How should uncertainty and limitations be represented in ranking outputs?
+    sources:
+      - "product spec §3.2"
+      - "§14.1 test 3"
+      - "architecture plan §6"
+      - "§7"
+      - "§8"
+
+  # ---------- Renderers ----------
+
+  - id: journey-view
+    piece_type: renderer
+    purpose: Show pains, multi-select dreams and grouped ideas, with the chosen dream taking over a collapsed item.
+    capability_kind: ui_renderer
+    inputs:
+      - "catalog slice"
+      - "selections"
+      - "proposed ideas"
+      - "disclosure state"
+    outputs:
+      - "intents (open, close, selectDream, unselectDream, expressInterest)"
+    guarantees_required:
+      - Receives data as props and emits intents; never writes durable records.
+      - Collapsed item shows selected dream text dominant, pain smaller — never a count.
+      - Keyboard, screen-reader and reduced-motion support; colour-independent meaning.
+    guarantees_relied_on:
+      - Intents are handled by synchronizations in the composition root.
+    mvp: true
+    research_questions:
+      - How do component workbenches with recorded fixture states support agent-driven UI development?
+    sources:
+      - "product spec §3.2"
+      - "§3.7"
+      - "architecture plan §6"
+      - "§9"
+
+  - id: admin-view
+    piece_type: renderer
+    purpose: Give the founder an orderly view of selections in aggregate, idea demand, donations and help offers for manual follow-up.
+    capability_kind: ui_renderer
+    inputs:
+      - "aggregate interest"
+      - "donation records"
+      - "offers"
+      - "telemetry counts"
+    outputs:
+      - "intents (setFollowUp)"
+    guarantees_required:
+      - Visible only to the admin role.
+      - Shows aggregates, not individual pain selections.
+    guarantees_relied_on:
+      - Underlying queries enforce role and small-group suppression.
+    mvp: true
+    research_questions:
+      - Minimal auditability for admin access to sensitive records.
+    sources:
+      - "product spec §1.1"
+      - "§14.1 test 15"
+
+  # ---------- Connectors ----------
+
+  - id: payment-connector
+    piece_type: connector
+    purpose: Hide Stripe behind It's own support port so checkout and subscription management can change with limited impact.
+    capability_kind: authorized_action
+    inputs:
+      - "donation request (amount, frequency, account)"
+      - "raw webhook"
+    outputs:
+      - "client secret (works with Payment Element on web and PaymentSheet on native)"
+      - "normalized donation events"
+    guarantees_required:
+      - Webhook signatures verified; provider errors translated to It's error types.
+      - Provider SDK imported nowhere else.
+    guarantees_relied_on:
+      - Processor test mode for development.
+    mvp: true
+    research_questions:
+      - Adapter patterns that keep provider-specific retries and errors inside the connector.
+    sources:
+      - "architecture plan §4 connectors"
+      - "decisions D10"
+
+  # ---------- Synchronizations (compose concepts; when / where / then) ----------
+
+  - id: sync-claim-on-signin
+    piece_type: synchronization
+    purpose: When someone signs in after exploring, move their anonymous choices into their account so nothing is lost.
+    capability_kind: authorized_action
+    composes:
+      - "identity"
+      - "visitor-session"
+      - "selection"
+      - "interest"
+    inputs:
+      - "\"when identity.signIn -> account a"
+      - "where visitor-session s is current\""
+    outputs:
+      - "\"then selection.transfer(s, a); interest.transfer(s, a); visitor-session.end(s)\""
+    guarantees_required:
+      - Transfer is idempotent; conflicting selections merge as a union.
+    guarantees_relied_on:
+      - Both concepts accept opaque owner refs.
+    mvp: true
+    research_questions:
+      - Conflict semantics for merging local and server state on account claim.
+    sources:
+      - "product spec §6"
+      - "arXiv:2508.14511"
+
+  - id: sync-propose-on-select
+    piece_type: synchronization
+    purpose: As soon as a dream is chosen, show ideas that could help under it.
+    capability_kind: pure_calculation
+    composes:
+      - "selection"
+      - "propose-ideas"
+      - "journey-view"
+    inputs:
+      - "\"when selection.selectDream or unselectDream\""
+    outputs:
+      - "\"then propose-ideas(selected dreams) -> journey-view props\""
+    guarantees_required:
+      - Ideas update on the first dream selection, without an extra click.
+    guarantees_relied_on:
+      - propose-ideas is pure and fast enough for interactive use.
+    mvp: true
+    research_questions:
+      - Client-side versus server-side evaluation of synchronizations for latency-sensitive UI.
+    sources:
+      - "product spec §3.2"
+      - "§14.1 test 4"
+
+  - id: sync-contact-requires-consent
+    piece_type: synchronization
+    purpose: Make sure nobody is contacted about their help offer unless they said yes.
+    capability_kind: authorized_action
+    composes:
+      - "offer"
+      - "consent"
+    inputs:
+      - "\"when offer.setFollowUp(contacted)\""
+    outputs:
+      - "\"where consent(owner, contact) granted"
+      - "then allow; else reject with reason\""
+    guarantees_required:
+      - Contact without consent is impossible through the app.
+    guarantees_relied_on:
+      - Admin follows up only via the app's recorded status.
+    mvp: true
+    research_questions:
+      - Enforcing purpose limitation in the execution layer rather than in types.
+    sources:
+      - "product spec §8.2"
+      - "architecture plan §13 security through types alone"
+
+  - id: sync-forget-on-delete
+    piece_type: synchronization
+    purpose: When someone deletes their account, remove their choices, interests, offers and consents.
+    capability_kind: long_running_process
+    composes:
+      - "identity"
+      - "selection"
+      - "interest"
+      - "offer"
+      - "consent"
+    inputs:
+      - "\"when identity.deleteAccount(a)\""
+    outputs:
+      - "\"then selection.forget(a); interest.forget(a); offer.withdraw(all of a); consent.revoke(all of a)\""
+    guarantees_required:
+      - Completes or is retried until it completes; partial deletion is visible to admin.
+    guarantees_relied_on:
+      - Donation records required for accounting are retained but de-linked from the account.
+    mvp: true
+    research_questions:
+      - Saga/compensation patterns for multi-concept deletion without distributed transactions.
+    sources:
+      - "product spec §6"
+
+  - id: sync-ledger-on-donation
+    piece_type: synchronization
+    purpose: Keep the public funding figures in step with actual donations.
+    capability_kind: authorized_action
+    composes:
+      - "donation"
+      - "funding-ledger"
+    inputs:
+      - "\"when donation.recordOutcome(succeeded or cancelled)\""
+    outputs:
+      - "\"then funding-ledger.refresh()\""
+    guarantees_required:
+      - Only succeeded transactions count toward realized receipts.
+    guarantees_relied_on:
+      - Donation events are idempotent.
+    mvp: false
+    research_questions:
+      - Event-driven derivation of public metrics with auditable lineage.
+    sources:
+      - "product spec §7.5"
+
+  # ---------- Deferred (keep the door open, do not build) ----------
+
+  - id: story
+    piece_type: concept
+    purpose: Turn someone's chosen futures and paths into a personal story they can keep.
+    capability_kind: pure_calculation
+    inputs:
+      - "selections"
+      - "proposed ideas"
+    outputs:
+      - "story representation renderable as screen"
+      - "image or message"
+    guarantees_required:
+      - "Private by default; never generated without request."
+    guarantees_relied_on:
+      - "Selections carry content version."
+    mvp: false
+    research_questions:
+      - "One representation, many renderings — how to avoid duplicating meaning across outputs?"
+    sources:
+      - "product spec §10"
+      - "architecture plan §7 shareable artifact"
+
+  - id: invitation
+    piece_type: concept
+    purpose: Let someone invite people they care about to explore It for themselves.
+    capability_kind: authorized_action
+    inputs:
+      - "inviter"
+      - "contact"
+    outputs:
+      - "invitation"
+      - "acceptance"
+    guarantees_required:
+      - "Never implies endorsement of the inviter's chosen future."
+    guarantees_relied_on:
+      - "Consent for contacting invitees."
+    mvp: false
+    research_questions:
+      - "Honest growth modelling and non-manipulative referral design."
+    sources:
+      - "product spec §10"
+      - "§10.2"
+
+  - id: matching
+    piece_type: algorithm
+    purpose: Suggest connections between people's goals, offers and needs.
+    capability_kind: pure_calculation
+    inputs:
+      - "goals"
+      - "offers"
+      - "constraints"
+      - "permissions"
+    outputs:
+      - "candidate matches with uncertainty"
+    guarantees_required:
+      - "Uses only information it is authorized to see; supports partial results and budgets."
+    guarantees_relied_on:
+      - "Consent and permission metadata travel with inputs."
+    mvp: false
+    research_questions:
+      - "Permission-aware matching; solver contracts with budgets, timeouts and failure reasons."
+    sources:
+      - "product spec §9"
+      - "architecture plan §7"
+      - "§8"

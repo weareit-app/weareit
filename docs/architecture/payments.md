@@ -1,5 +1,7 @@
 # Support payments
 
+> **Update 2026-10-16 (founder):** web payment moves from hosted Checkout to an embedded Stripe form inside It; support can be one-time, monthly or annual on web and iOS. Sections below still describe the hosted-Checkout implementation and need revising. See `docs/architecture/decisions.md`.
+
 ## Provider boundaries
 
 - Stripe is It's web payments platform. Stripe owns Checkout, recurring billing, customer records, invoices, refunds, and customer-portal actions.

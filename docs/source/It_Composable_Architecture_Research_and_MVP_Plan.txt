@@ -1,0 +1,264 @@
+IT  /  ENGINEERING STRATEGY
+Composable Architecture & Developer Experience
+Research survey, design principles, and an MVP-first refactor plan
+Prepared 16 October 2026  |  Status: working proposal, not a repository audit
+
+CENTRAL HYPOTHESIS  Build It as a modular product before building a platform for constructing products. Use the MVP to prove that UI, algorithms, data access, integrations, and workflows can evolve with small, isolated changes.
+
+Executive summary
+The opportunity is broader than adopting component libraries. It could become a system built from individually understandable and replaceable capabilities: ways of representing goals and circumstances, proposing possible actions, displaying choices, communicating with services, and coordinating people. The same internal interfaces might later support alternative algorithms, developer extensions, and user-controlled clients. That future should inform early decisions without becoming an MVP prerequisite.
+Recommendation: retain the planned TypeScript / pnpm / Turborepo / Expo / tRPC / Zod / Drizzle / PostgreSQL direction, subject to verification against the actual scaffold. Implement a modular monolith in a monorepo, not an early microservice network. Start with a behavior-preserving refactor of the current scaffold, then make the pain → dreams → fixes onboarding flow the first empirical test of modularity. The repository has not been inspected for this report; file layout and commands below are proposals, not findings.
+Design objective.  The effort required to change an idea should scale mainly with the scope of that idea, rather than with the accumulated size of It.
+Developer objective.  A developer or coding agent should be able to change, run, test, and understand a small feature without starting unrelated services or reading the whole system.
+Product objective.  New algorithms, UI renderings, data sources, and workflows should compose through explicit contracts while preserving permissions, provenance, and informed user control.
+Implementation objective.  Test modularity before generalizing it. Avoid empty packages, speculative plugin SDKs, dynamic code loading, and a universal ontology for now.
+1. Scope, method, and evidence boundaries
+This report consolidates the architecture discussion and rechecks the named examples against public product documentation and selected open-source repositories. Each example describes a visible extension mechanism or documented development practice—not a reverse-engineered account of a closed platform’s internal architecture. “Observed” below refers to documented mechanisms; “Proposed for It” refers to recommendations. Documentation and repositories can change after the research date.
+The comparisons span eleven principal products and supporting infrastructure: Retool, Bubble, Appsmith, ToolJet, Budibase, n8n, Backstage, LangGraph, Temporal, Storybook, plus Expo, tRPC, and Turborepo. These products solve different problems; their patterns are not interchangeable wholesale.
+2. Comparative survey: who is doing something similar?
+Platform
+Documented pattern
+Usefulness / caution for It
+Retool
+Reusable modules (UI + queries); custom React component libraries; query/transformer separation. [1–4]
+Borrow independently reusable functional slices and local previews. Its cited components/modules are in the classic builder; new app builder is now the preferred direction.
+Bubble
+Plugins add elements, exposed state, events, API connections, and client-/server-side actions. [5–7]
+Borrow common extension vocabulary across different capability kinds; do not inherit implicit app-wide mutable state.
+Appsmith
+UI Packages and Code Packages; UI, Query, and JavaScript modules shared across applications. [8]
+Probably the cleanest evidence for treating presentation, data access, and reusable logic as separate reuse categories.
+ToolJet
+TypeScript datasource plugins use manifest.json, operations.json, types and QueryService; custom component libraries with version pinning. [9–10]
+Borrow machine-readable capability descriptions and generate forms/docs/tests from contracts; component libraries are labeled beta.
+Budibase
+Component schemas and contexts; data providers feed visual consumers independently of storage choice. [12–13]
+Borrow the independence of “what is displayed” from “where the data came from.”
+n8n
+Node packages, workflow engine, editor and design system separated; declarative REST nodes and programmatic nodes. [14–16]
+Borrow executable operations with explicit I/O, traceability between inputs and outputs, and starter tooling.
+Backstage
+Plugins, modules, services, extension points and plugin-scoped persistence. [17–19]
+Borrow clear ownership and replaceable dependencies; do not adopt mandatory network-only plugin communication for MVP.
+LangGraph
+Small state-reading/writing nodes, routing, checkpoints, resumable human input. [20]
+Borrow explicit state transitions and inspection of work between steps; do not assume an LLM orchestration framework is required.
+Temporal
+Durable workflows, event-history replay, deterministic orchestration separated from side-effecting activities. [21–22]
+Borrow discipline around retries, replay, and actions that must not repeat; defer platform adoption.
+Storybook
+Component states rendered and tested against fixtures without launching the whole product. [23]
+Make isolated UI development a normal part of the workflow.
+
+3. Specific lessons from the examples
+3.1 Retool: reuse at more than one scale
+Retool’s classic modules are collections of components and code that accept data from a parent app and expose outputs back. The documentation explicitly cites reducing maintenance and allowing different teams to maintain a portion of a larger app. Custom React libraries have local development mode, deployment, and an event/property API. It also exposes executable queries and synchronous transformers separately. [1–4]
+For It: the reusable unit can be larger than a primitive button but smaller than a complete experience. A “Next Steps” panel could accept candidate actions, render them, and emit a selection without knowing whether candidates came from rules, search, or an AI model. Warning: Retool itself notes that nesting and hidden-module complexity can hurt debugging or performance. [1]
+3.2 Bubble: extension kinds can cooperate
+Bubble separates plugin-created visual elements, exposed states, events, API calls, and client-/server-side actions. A server-side action can run computations or external calls and return results to a subsequent workflow; an element has initialize/update lifecycles. [5–7]
+For It: use different contracts for renderers, pure calculations, network connectors, and durable actions while still letting them cooperate. Do not assume that the element lifecycle and state propagation suited to a visual app builder are appropriate for domain reasoning.
+3.3 Appsmith: UI, queries, and JavaScript are different reusable goods
+Appsmith’s current package documentation separately names UI Modules, Query Modules, and JavaScript Modules. UI Modules combine widgets with configurable inputs and outputs; Code Packages can contain Query and JavaScript Modules. [8]
+For It: avoid a generic “plugin” interface that makes a ranking function carry a React lifecycle or makes a database connector look like a pure function. Distinct interfaces can still be discoverable through one capability catalog later.
+3.4 ToolJet and Budibase: schema-guided extension
+ToolJet’s datasource plugin example is concrete: manifest.json declares connection fields, operations.json declares operations and their input fields, types.ts models values, and index.ts implements QueryService. ToolJet’s custom component library tooling separately supports React components and workspace-pinned library versions; the docs warn that these libraries are beta. [9–10]
+Budibase documents schema-defined custom component settings and context/data-provider bindings. Components can consume data without hard-coding one particular datasource. [12–13]
+For It: make contracts machine-readable where doing so is useful. A single small schema could later drive input validation, mock generation, preview forms, documentation, and compatibility checks. Do not invent a comprehensive new schema language in advance.
+3.5 n8n: node composition is more important than its editor
+n8n’s visible monorepo separates a core execution engine, workflow types, UI editor, integration nodes, and design system. It describes declarative node definitions for ordinary REST requests and more flexible programmatic implementations for triggers, transformations, and complex APIs. [14–15]
+Its item-linking rules are a useful additional example: a node may need to preserve information linking output items to the input items that produced them. [16] For It, we may require richer lineage: which observations, assumptions, permissions, algorithms, and versions contributed to a proposal.
+For It: start with independent operations and standard test scenarios; postpone node-and-arrow editors until composition itself is proven.
+3.6 Backstage: independence with an explicit place for shared services
+Backstage has a clear backend vocabulary: plugins implement features, modules extend them through extension points, and services provide common facilities. It gives plugin-scoped database clients and provides examples of isolated plugin tests. [17–19]
+Its production convention that plugins communicate only through the network is more isolation than It’s MVP needs. We should borrow owned interfaces and persistence boundaries without turning simple in-process calls into distributed systems.
+3.7 LangGraph and Temporal: state belongs where it is genuinely needed
+LangGraph documentation recommends keeping in state what must survive between steps, while recomputing cheap derivable values. Small nodes allow checkpoints and observable transitions. Temporal formalizes durable orchestration with event histories and distinguishes replayable workflow logic from side-effecting activities. [20–22]
+For It: goal analysis and ranking can often be pure; approvals, invitations, commitments, and retries need durable records. A proposed invitation is not a sent invitation. It must pass through authorization and an effectful handler, with idempotency and audit information.
+3.8 Storybook, ToolJet, Expo, tRPC and Turborepo: DX as architecture
+Storybook establishes isolated UI examples using mock props and states. [23] ToolJet’s public AGENTS.md documents layered agent context, local commands, worktree operations, per-module guidance, and architectural import rules—direct evidence that AI-agent onboarding and local environment isolation are becoming explicit engineering concerns. [11]
+Expo documents pnpm-workspace monorepos and automatic Metro configuration, while noting tooling complications and the risks of duplicate React/native dependencies. [24] tRPC supports independently declared routers merged into one API. [25] Turborepo supports focused execution across workspace packages. [26] These are supporting mechanisms, not reasons to multiply packages prematurely.
+4. Architecture recommended for It’s MVP
+ARCHITECTURAL STARTING POINT  A modular monolith in a monorepo: one primary Expo application, one backend composition point, and a limited set of explicitly owned domain features and shared services. Code boundaries first; separate processes only where actual operational needs demand them.
+
+A monorepo is not inherently a monolith, and a directory tree is not inherently modular. The desired property is that each capability can be understood and changed with limited knowledge of its consumers, storage engine, and neighboring features. Enforce dependency direction and test replaceability in practice.
+Layer
+Responsibility
+Boundary rule
+Experiences / UI
+Native and web screens; reusable visual components; local interactive state.
+Components receive explicit data and emit intent. They do not write durable domain records directly.
+Domain features
+Goals, journeys, proposed next steps, sharing, contributions, commitments.
+Each owns its rules and exposes a narrow public interface; no imports from a neighbor’s private internals.
+Algorithms
+Ranking, decomposition, matching, feasibility checks, simulations, prediction updates.
+Inputs, outputs, uncertainty and resource budgets are explicit; pure where practical.
+Connectors
+Calendars, payments, outside information/services.
+Provider-specific credentials, formats, errors and retries stay inside adapter modules.
+Persistence / execution
+Storage, permissions, transactions, jobs, event recording.
+Server owns authoritative state and authorized effects; feature code depends on narrow ports.
+Common contracts
+Shared schemas and identifiers when there are real cross-feature consumers.
+Small and stable; do not turn core into a dumping ground for all domain logic.
+
+5. Data structures: useful common meaning without a universal ontology
+Early domain records are likely to include agents, goals, information/observations, capabilities, resources, constraints, relationships, permissions, proposals, commitments, and outcomes. These are candidate concepts, not an attempt to fix a complete theory of all possible goals and social activity.
+Begin with typed records, stable identifiers, explicit relationships and an owner for each schema. PostgreSQL can support ordinary relational and many graph-shaped queries without introducing a graph database at MVP stage. Shared schema extraction should follow real multi-feature reuse, not precede it.
+Provenance.  Keep track of who supplied a claim or observation, how it was obtained, when it applied, and when it became known. A repeated disclosure should not masquerade as independent evidence.
+Permissions.  An algorithm receives only the information it is authorized to use. Transformations must not silently strip purpose restrictions or reveal sensitive inputs through supposedly harmless results.
+Epistemic status.  Represent observations, user preferences, inferred hypotheses, predictions, and confirmed agreements differently. Do not conflate a suggestion with a commitment.
+Evolution.  Version evolving journey definitions and consequential algorithms so a person’s earlier choices are not silently reinterpreted when a deployment changes.
+6. MVP proof case: pain → dreams → fixes
+This is not a generic survey wizard. The actual proposed experience starts with collapsed pain items. Opening one pain presents several possible dreams. A person may select more than one dream; “show fixes” reveals possible fixes grouped under each selected dream, and the person may select alternatives for each. The entire subtree can collapse so the selected dream language and illustration dominate the collapsed representation, while the original pain becomes smaller. The person can open another pain and repeat.
+Example: “I can’t find work” need not force “get a job” as the only successful future. Alternative dreams include sufficient paid work, a meaningful career, and living well independently of employment; the latter can expose social alternatives such as universal basic income without making them mandatory answers.
+An independently testable implementation
+Concern
+Possible owned responsibility
+Test without…
+Journey model
+Pain/dream/fix definitions, selection rules, explicit transitions, version of content.
+Expo, API or database
+Journey renderer
+Expanded/collapsed UI, selection gestures, selected-dream visual takeover, accessibility.
+Live server or database
+Fix/step proposal
+Return alternatives for a selected dream; initially can be simple curated data.
+Any model provider or UI
+Persistence adapter
+Load/save journey progress and content version.
+Networked outside services; possibly use in-memory adapter
+API feature router
+Authorized commands and reads exposed to clients.
+Unrelated feature implementations
+
+The first end-to-end experiment should demonstrate: (1) changing a visual layout without editing the transition logic, (2) substituting a different proposal algorithm without editing the display, (3) rerunning journey-state tests from fixtures with no database, (4) replacing an in-memory repository with PostgreSQL without altering domain logic, and (5) running the native/web build after each small change.
+7. Concrete composability examples beyond onboarding
+Next Steps card.  A renderer takes candidate actions and emits selected/dismissed/request-details events. It does not require direct knowledge of whether actions came from a human curator, graph search, a solver, or AI.
+Ranking algorithm.  Implementations can use deterministic preferences, learned estimates, or multi-criteria evaluation behind one problem-specific contract, provided outputs include meaningful uncertainty and limitations.
+Calendar integration.  A connector can expose availability lookup and event creation. The coordination feature decides when to propose an event; permission checks authorize the attempt; the effect handler records success/failure and supports safe retries.
+Shareable artifact.  One representation of a selected dream and possible next actions can be rendered as a screen, social image, or invitation message without duplicating its underlying meaning in three separate feature implementations.
+Composable path libraries, later.  From “pick up a guitar” to “play it,” a path may branch because the guitar is out of tune, strings require replacement, or the instrument type changes the necessary steps. Each path segment could declare prerequisites, results, alternatives, and compatibility with later segments; curated routes could still be published. This is a promising post-MVP capability, not a reason to build a general planner now.
+Independent plan algorithm.  If a solver is too expensive on a large problem, its contract should support partial results, budgets, timeouts, and failure reasons. It should not be forced to return a spurious fully feasible plan.
+8. Interfaces and execution: intentionally different kinds of capability
+Do not force every module into one lifecycle. UI renderers, pure computations, async data queries, external actions, and durable workflows each have different semantics. Composition works when these differences are made explicit, not disguised.
+Pure calculation.  An input object produces an output object, ideally deterministically under a known algorithm version. No implicit global state, storage, clock, or network dependency.
+Query.  A potentially asynchronous read may fail, be stale, or depend on credentials. Report provenance, timestamps, and authorization context as needed.
+Authorized action.  A command can affect the world: send a message, save a commitment, initiate a payment. It needs permission, idempotency/retry handling, and durable acknowledgment.
+Long-running process.  Can pause for consent or external events. Persist progress and ensure a restart does not duplicate real-world effects.
+Illustrative TypeScript contract (not implementation code):
+interface NextStepRanker {   rank(input: {     candidates: CandidateAction[];     preferences: RankingPreferences;     budget?: { maxMs: number };   }): Promise<RankingResult> | RankingResult; } // A separate service handles authorization, persistence, and effects. 
+9. Practical developer experience requirements
+Small imports and abstractions are necessary but insufficient. If a UI change requires a live database, Redis, API server, workers, and AI provider, the architecture is not practically isolated. Developer experience should be designed and measured as a product property.
+Component workbench.  Preview goal, dream, fix, roadmap, and sharing components against recorded sample states; include error, empty, multi-selection, and accessibility scenarios.
+Algorithm workbench.  Run one algorithm with canonical fixtures; inspect inputs/outputs, cost, runtime, memory, failure modes, and differences between implementations.
+Integration workbench.  Use fake providers, recorded results, and optional sandbox accounts to check credentials, timeouts, retries, error translation, and side-effect safety.
+Code-adjacent context.  Keep each feature’s purpose, public interface, constraints, local test command, fixtures, and ownership in or beside that feature. Avoid giant docs that agents must read in full.
+Parallel agents.  Use independent Git worktrees and task scopes; minimize shared-file edits, generated-file conflicts, central registries, and unnecessary service ports. ToolJet’s public repository provides a concrete precedent. [11]
+Progressive validation.  Fastest focused tests first, dependency-boundary checks second, broader integration/build checks before merging. Report exact commands and results.
+Illustrative command goals—not yet verified against It’s scaffold:
+pnpm --filter @it/journey test pnpm --filter @it/journey typecheck pnpm --filter @it/ui dev:workbench pnpm check:boundaries pnpm test:affected 
+10. Suggested initial repository organization
+The following is an illustrative end state; do not create empty folders simply to satisfy this diagram. Keep one deployable application and introduce package boundaries only when they buy targeted testing, real reuse, or enforceable ownership.
+it/   apps/     app/                 # Expo iOS + web     api/                 # Server composition / tRPC   packages/     ui/                  # Shared presentation primitives     contracts/           # Cross-feature schemas only     testing/             # Fixtures and test utilities     features/       journey/            # Pain/dream/fix domain + UI       next-steps/         # Proposed actions and their views       sharing/            # Shareable representations       participation/      # Invitations, contributions     algorithms/          # Only when real separate consumers appear     integrations/        # Provider adapters     platform/            # Auth, persistence, execution ports   tooling/               # Boundary checks, workbench helpers   docs/                  # High-level maps, ADRs, onboarding 
+The app and API packages should be thin composition roots. No domain feature should depend on the entry point that wires the whole product together. Avoid import cycles, cross-feature access to private tables, and leakage of server-only libraries into native bundles.
+11. MVP refactor sequence and pass/fail gates
+Pass
+Change
+Verification / exit condition
+0 — Inventory
+Inspect real repo, package graph, build/test scripts, data schemas, implicit state, imports, generated files.
+Document actual facts and baseline green/failing tests. Do not describe a planned stack as installed.
+1 — Baseline
+Reproduce existing onboarding behavior on web/native; save fixtures/screenshots and build results.
+Known starting behavior and deterministic comparison cases.
+2 — Pure journey
+Extract selection/transition logic and flow definitions from rendering/persistence.
+Run transition tests in isolation, including multiple selected dreams and grouped fixes.
+3 — UI isolation
+Make the journey renderer accept props/event callbacks, with local preview stories.
+Preview expanded, collapsed, multiple-choice and selected-dream takeover states with no server.
+4 — Persistence port
+Create load/save interface; use in-memory test adapter; real DB adapter owned by server.
+Same domain tests run using fake storage; DB integration tests separately.
+5 — API composition
+Place journey procedures in feature router and merge through app router.
+Existing client works; authorized reads/writes; no duplicate business rules.
+6 — Enforce boundaries
+Add import rules, focused commands, CI validation, and local module guidance.
+Illegal dependency test fails; targeted test works; full native/web build passes.
+7 — Replaceability demo
+Swap one rendering or proposal implementation without editing consumers.
+Small diff, local test, no unrelated service required.
+
+Prefer small behavior-preserving commits over a speculative wholesale redesign. Do not move schemas or rewrite persistence until there is a clear contract and a rollback path. Any file organization suggested here remains contingent on checking the actual scaffold.
+12. How to evaluate success
+DX / architecture measure
+Desired behavior
+Time to first passing feature test
+A new developer or agent can start with one documented command, not a full-system setup.
+Edit-to-feedback latency
+Fast, focused checks for most local changes; broader checks only as required.
+Services required for one feature test
+Zero outside services for pure algorithms and presentation; only local fakes where possible.
+Unrelated packages/files touched
+Most scoped changes do not require edits to other features or central registries.
+Replaceability test
+At least one algorithm and one renderer can be exchanged without editing callers.
+Parallel-work collision rate
+Independent branches/worktrees rarely contend on generated config or shared data.
+Runtime and memory of algorithms
+Recorded by problem size; distinguish solvable from computationally affordable.
+Permission/provenance preservation
+Information access and source lineage survive transformations and cross-feature calls.
+
+13. Costs, failure modes, and things to defer
+Over-fragmentation.  Tiny packages and highly generic interfaces multiply maintenance and slow refactors. Extract only across real ownership boundaries or real reuse.
+False decoupling.  Shared mutable singletons, hidden event buses, giant “common” packages, and direct database cross-access recreate coupling behind new folders.
+Premature schema freeze.  A universal ontology could make changing simple product concepts harder. Evolve types from witnessed use cases.
+Side-effect confusion.  Treating authorized external actions as pure transforms risks duplicate messages, actions without consent, and broken retries.
+Unnecessary distributed systems.  Microservices, event streaming, and orchestration engines introduce network, deployment, observability, and transaction costs before there is evidence they are needed.
+Expensive abstract computation.  A swappable algorithm may still be unusable at scale; compare resource demands, input sensitivity, and graceful partial outcomes.
+Security through types alone.  Static interfaces do not enforce what data an algorithm is permitted to see. Authorization must be enforced by the execution environment.
+Explicitly defer: third-party plugin marketplace; general visual app builder; dynamic untrusted-code execution; universal type system/ontology; dedicated graph database; distributed service mesh; replacing user-chosen software providers automatically; and full external portability. Preserve credible interfaces toward these possibilities but do not let them block the MVP.
+14. Open decisions for the actual scaffold
+What is already present in the scaffold, and what is merely part of our planned stack?
+Which two or three modules have the strongest real ownership boundaries?
+Which state changes must be durable in the first release, and which are local or derived?
+Should package boundaries be actual workspace packages immediately, or feature folders with enforced imports first?
+How should native/web previews be implemented in this version of Expo and React Native?
+What is the minimum permissions/provenance representation needed to avoid retrofitting everything later?
+Which one algorithm substitution and which one renderer substitution will be the explicit architecture acceptance tests?
+Conclusion
+It should not begin as a universal platform. It should begin as a product whose own developers can independently improve the capabilities it is built from. Retool and Appsmith show reusable units above the widget level; Bubble and ToolJet show multiple types of extension; Budibase shows separation of data sources and visual consumption; n8n demonstrates typed independent operations; Backstage demonstrates ownership and service boundaries; LangGraph and Temporal clarify where state and consequential effects belong; Storybook and ToolJet show why isolated previews and agent-friendly DX matter.
+The immediate investment is modest in scope but demanding in discipline: refactor the MVP’s first journey into independently testable logic, presentation, persistence, and API boundaries, then prove that swapping one part does not require changing all the others. That result—not the elegance of a directory tree—will tell us whether this architecture is succeeding.
+
+Sources and reference links
+Primary sources are official documentation and public repositories unless noted. Bracketed numbers throughout the document refer to the links below. Source pages were reviewed 16 October 2026. A product’s published extension API is evidence about the API, not necessarily about its proprietary internal implementation.
+[1]  Retool — Modules and reusable components/queries.  Open documentation / repository
+[2]  Retool — Custom React component libraries.  Open documentation / repository
+[3]  Retool — Custom component development mode.  Open documentation / repository
+[4]  Retool — Queries, transformers, and code.  Open documentation / repository
+[5]  Bubble — Plugin editor.  Open documentation / repository
+[6]  Bubble — Elements, states, events and actions.  Open documentation / repository
+[7]  Bubble — Client-side and server-side actions.  Open documentation / repository
+[8]  Appsmith — Packages and UI/Query/JavaScript modules.  Open documentation / repository
+[9]  ToolJet — Marketplace plugin structure.  Open documentation / repository
+[10]  ToolJet — Custom component libraries (beta).  Open documentation / repository
+[11]  ToolJet — Repository agent context and worktree DX.  Open documentation / repository
+[12]  Budibase — Custom component contexts/schema.  Open documentation / repository
+[13]  Budibase — Data providers.  Open documentation / repository
+[14]  n8n — Repository AGENTS.md and package structure.  Open documentation / repository
+[15]  n8n — Declarative versus programmatic nodes.  Open documentation / repository
+[16]  n8n — Item linking and provenance across nodes.  Open documentation / repository
+[17]  Backstage — Backend plugins/modules/services.  Open documentation / repository
+[18]  Backstage — Extension points.  Open documentation / repository
+[19]  Backstage — Plugin-scoped database service.  Open documentation / repository
+[20]  LangGraph — State and nodes design.  Open documentation / repository
+[21]  Temporal — Workflow execution, event histories and replay.  Open documentation / repository
+[22]  Temporal — Deterministic workflows and external activities.  Open documentation / repository
+[23]  Storybook — Build and test UI in isolation.  Open documentation / repository
+[24]  Expo — Monorepo and pnpm workspace support.  Open documentation / repository
+[25]  tRPC — Merging independent routers.  Open documentation / repository
+[26]  Turborepo — Running and filtering package tasks.  Open documentation / repository
