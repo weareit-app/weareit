@@ -36,6 +36,8 @@ Help people see a better personal and shared future as possible, find a concrete
 ## Specs (Spec Kit)
 
 - Spec Kit is installed for Claude (`.claude/skills/speckit-*`) and Codex (`.agents/skills/speckit-*`). Principles: `.specify/memory/constitution.md` (draft).
+- Add-ons (2026-10-16): `assess` bundle (GitHub, verified) for fuzzy ideas before specify; `roadmap` (srobroek/speckit-roadmap @ f67f790) and `wireframe` (TortoiseWolfe/spec-kit-extension-wireframe @ 4dcfd23), both reviewed and installed from local clones; `claude-ask-questions` preset (0xrafasec @ 85bdb50), which replaces clarify/checklist; Codex copies carry a Markdown fallback note that a `specify` upgrade can remove — re-add it if so. Skipped: Epic (needs Spec Kit <1.2.0), adrkit (too large to review), Preview (needs a use-case input). Review the source before adding any community component; pin to a commit.
+- Spec template override: `.specify/templates/overrides/spec-template.md` adds "What People See and Do" plus It checks (privacy, honest status, must-not-block, accessibility, research questions).
 - Feature input: `docs/spec/features.md`. Feature specs are generated under `specs/` by `speckit-specify`.
 - Open conflicts between earlier spec drafts and these decisions: `docs/spec/CONFLICTS.md`. Until resolved, the decisions in this file win.
 - `docs/spec/pieces.yaml` is read by the research pipeline (`~/Research/research-pipeline`). Keep ids stable and validate with `uv run docs/spec/tools/validate_pieces.py`.

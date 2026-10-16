@@ -1,0 +1,65 @@
+installed:
+- assess
+- roadmap
+- wireframe
+settings:
+  auto_execute_hooks: true
+hooks:
+  after_implement:
+  - extension: roadmap
+    command: speckit.roadmap.debrief
+    enabled: true
+    optional: true
+    priority: 10
+    prompt: Check the implementation against the roadmap?
+    description: Verify the implemented spec matches its roadmap entry's outcome and
+      scope
+    condition: null
+  - extension: wireframe
+    command: speckit.wireframe.screenshots
+    enabled: true
+    optional: true
+    priority: 10
+    prompt: Capture implementation screenshots and compare to signed-off wireframes?
+    description: 'Regression check: compare implementation to approved wireframes'
+    condition: null
+  after_constitution:
+  - extension: roadmap
+    command: speckit.roadmap.write
+    enabled: true
+    optional: true
+    priority: 10
+    prompt: Draft or update the spec roadmap now? (captures spec-specific decisions
+      and future-spec intent from the constitution discussion)
+    description: Capture a durable roadmap so constitution-phase decisions and not-yet-written-spec
+      intent are not lost
+    condition: null
+  before_implement:
+  - extension: roadmap
+    command: speckit.roadmap.brief
+    enabled: true
+    optional: true
+    priority: 10
+    prompt: Review the roadmap for this spec before implementing?
+    description: Surface the roadmap's expectations (outcome, scope, governing decisions,
+      dependencies) for the spec about to be built
+    condition: null
+  after_specify:
+  - extension: wireframe
+    command: speckit.wireframe.generate
+    enabled: true
+    optional: true
+    priority: 10
+    prompt: Generate wireframes for this feature now?
+    description: Offer wireframe generation after spec creation
+    condition: null
+  before_plan:
+  - extension: wireframe
+    command: speckit.wireframe.review
+    enabled: true
+    optional: true
+    priority: 10
+    prompt: Review and sign off wireframes before planning? (signed-off wireframes
+      become spec constraints)
+    description: Ensure wireframes are reviewed and signed off before plan is written
+    condition: null

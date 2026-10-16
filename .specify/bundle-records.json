@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-10-16T23:09:15Z",
+  "bundles": [
+    {
+      "bundle_id": "assess",
+      "version": "1.0.0",
+      "installed_at": "2026-10-16T23:09:15Z",
+      "contributed_components": [
+        {
+          "kind": "extensions",
+          "id": "assess",
+          "version": "1.0.1"
+        },
+        {
+          "kind": "workflows",
+          "id": "assess",
+          "version": "1.0.0"
+        }
+      ],
+      "required_components": [
+        {
+          "kind": "extensions",
+          "id": "assess",
+          "version": "1.0.1"
+        },
+        {
+          "kind": "workflows",
+          "id": "assess",
+          "version": "1.0.0"
+        }
+      ],
+      "installed_versions": {
+        "extensions:assess": "1.0.1",
+        "workflows:assess": "1.0.0"
+      }
+    }
+  ]
+}

@@ -8,6 +8,14 @@
       "source": "bundled",
       "installed_at": "2026-10-16T22:48:26.693188+00:00",
       "updated_at": "2026-10-16T22:48:26.693193+00:00"
+    },
+    "assess": {
+      "name": "Idea Assessment Pipeline",
+      "version": "1.0.0",
+      "description": "Runs intake \u2192 research \u2192 define \u2192 shape \u2192 decide with a verdict review gate before a manual /speckit.specify handoff",
+      "source": "/Users/joshsmith/.cache/uv/archive-v0/uuCcp6z-rBwCQlaz/lib/python3.12/site-packages/specify_cli/core_pack/workflows/assess/workflow.yml",
+      "installed_at": "2026-10-16T23:09:15.508282+00:00",
+      "updated_at": "2026-10-16T23:09:15.508287+00:00"
     }
   }
 }
