@@ -8,8 +8,8 @@ import {
 } from "../src/watercolor/watercolor-loader";
 
 // The dot itself is drawn by Skia or Reanimated; here it only needs to exist.
-jest.mock("../src/watercolor/watercolor-dot", () => ({
-  WatercolorDot: () => {
+jest.mock("../src/watercolor/gather-dot", () => ({
+  GatherDot: () => {
     const { View: MockView } = jest.requireActual("react-native");
     return <MockView testID="watercolor-dot" />;
   },

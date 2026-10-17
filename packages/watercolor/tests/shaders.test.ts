@@ -4,6 +4,7 @@ import { PALETTES } from "../src/palettes.ts";
 import {
   DOT_B_SKSL,
   DOT_E_SKSL,
+  GATHER_SKSL,
   paletteUniforms,
 } from "../src/shaders/index.ts";
 
@@ -24,6 +25,7 @@ describe("SkSL shaders", () => {
   it.each([
     ["Option B", DOT_B_SKSL],
     ["Option E", DOT_E_SKSL],
+    ["Gathering loader", GATHER_SKSL],
   ])("%s compiles", (_name, source) => {
     const { effect, errors } = compile(source);
     expect(errors).toEqual([]);

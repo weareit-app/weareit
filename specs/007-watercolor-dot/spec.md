@@ -18,7 +18,7 @@ Two audiences see this feature: the founder (and contributors) reviewing the fid
 
 - **Screen: Fidelity proof (founder only, not part of the shipped app)** - Three dots side by side, the same size: the painted orb, the look-alike dot (Option B) and the physics-painted dot (Option E). Each is shown still and playing as a loader, first in It's palette and then in one other palette. Under each dot: its name, how it was made, and its measured smoothness on a laptop browser and an iPhone, for one large dot and for a screen of about 30 small dots. A note says which pieces are generated and which are paint. - The founder can switch palettes, switch between still and moving, look at any dot full size, and record which one is "the same family" as the painted orb (or that none is).
 - **Screen: Welcome** - The It mark is the watercolor dot instead of a fixed picture, gently alive: it slowly blooms and settles like paint drying, then rests completely still, like a dried painting. Until the generated dot is ready, the painted orb is shown in the same place and size, so nothing jumps. - The person reads the welcome and goes on as today; the dot never needs a tap and never delays the "start" action.
-- **Screen: Any page while its content loads** - Where It today shows a plain loading state, a small watercolor dot appears beside a short line such as "Loading…". It blooms into place with a crisp painted edge (dot B), rests, softly fades, and blooms again while loading continues. If loading fails, the dot stops and the existing error message and retry appear. - The person waits or leaves; nothing changes about what they can do.
+- **Screen: Any page while its content loads** - Where It today shows a plain loading state, a small watercolor dot appears beside a short line such as "Loading…". Drops of different sizes, in It's colors, drift in from around the edge, touch and run together into one dot. While loading continues, new drops keep drifting in slowly and bloom into it, bringing sunrise and dusk colors that marble into the wash; the dot keeps its size. When content arrives the loader simply disappears. If loading fails, the dot stops and the existing error message and retry appear. - The person waits or leaves; nothing changes about what they can do.
 - **Screen: Moving between onboarding steps** (welcome → personal → societal → futures) - The page changes as it does today, and a small watercolor dot blooms once in a corner of the new page, then rests or fades. It is short and never holds the next page back. - The person keeps tapping on; going back works the same way.
 - **With reduced motion on (any screen above)** - Every dot shows its still, "dried" end state: the same picture, no movement. Loading still says "Loading…" in words. Step changes happen without the corner bloom.
 
@@ -146,6 +146,19 @@ It's team can give the dot a different set of pigments (for a season, a page, or
 - Q: How does the loader move? → A: A bloom loop: the dot blooms from small and soft to full and settled, rests, then dissolves well back (to about 40% of its width, very soft-edged, at least 45% visible) into the next bloom, while its pigments keep slowly swirling and drifting so the colors trade places (one full turn every 20 s; the outline does not turn). Not a breath, no fade-out.
 - Q: Should the loader read as paint? → A: Yes: it must look like blooming and drying, not a fade. Each loop the drop spreads wet (dark, glossy, feathered edge creeping outward), then dries (paler and matte, the rim darkens, the bloom line forms late, granulation shows), rests, re-wets and draws back into a fresh drop.
 - Q: Only It's colors? → A: No: the loader travels through other palettes too (It orb → sunrise → dusk → It orb), changing to the next palette while the drop is small and re-wetting, so each bloom is in one palette's own colors.
+
+### Loader chosen 2026-10-17: gathering
+
+After the living-loader experiments were parked, the founder storyboarded four ideas (ink in water, brushstroke, gathering drops, glazing), chose **gathering**, and refined it in the lab (branch `explore/living-loader`):
+
+- Drops come in varied sizes; each looks like a small dot-B watercolor drop.
+- The first drops are It's colors and gather into one dot; afterwards new drops keep arriving (about every 1.5 s, drifting in over about 3.4 s) and bloom in with sunrise and dusk pigments, staying vivid for a while before marbling in.
+- The first drops look wet while they travel; drops join with no gap, along a ragged seam with a pale halo.
+- The dot keeps its size: a drop shapes the outline only until it has run in.
+- Colors change smoothly; nothing changes all at once.
+- When content arrives the loader simply disappears (founder's choice; drying on arrival not wanted).
+
+This supersedes the bloom-loop loader and the "Loader redefined" answers below.
 
 ### Loader redefined 2026-10-17 — on hold
 

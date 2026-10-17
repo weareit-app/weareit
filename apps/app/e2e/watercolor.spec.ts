@@ -49,34 +49,46 @@ test("shows the watercolor loader while content loads, then the content (US2)", 
   expect(canvasKit).toEqual([]);
 });
 
-test("draws dot B with WebGL on web, blooming in a loop", async ({ page }) => {
+test("draws the gathering loader with WebGL on web: it keeps changing, not growing", async ({
+  page,
+}) => {
   const canvasKit = recordCanvasKit(page);
   await page.route("**/rpc/**", () => new Promise(() => {}));
   await page.goto("/onboarding/personal");
   const canvas = page.locator(`${DOT} canvas`);
   await expect(canvas).toBeVisible();
 
-  // Paint coverage (share of non-transparent pixels) over one loop.
-  const coverage = () =>
+  // Coverage (share of painted pixels) and a coarse fingerprint of the colors.
+  const sample = () =>
     canvas.evaluate((el: HTMLCanvasElement) => {
       const c = document.createElement("canvas");
-      c.width = el.width;
-      c.height = el.height;
+      c.width = 32;
+      c.height = 32;
       const ctx = c.getContext("2d")!;
-      ctx.drawImage(el, 0, 0);
-      const px = ctx.getImageData(0, 0, c.width, c.height).data;
+      ctx.drawImage(el, 0, 0, 32, 32);
+      const px = ctx.getImageData(0, 0, 32, 32).data;
       let painted = 0;
-      for (let i = 3; i < px.length; i += 4) if (px[i]! > 20) painted += 1;
-      return painted / (px.length / 4);
+      for (let i = 3; i < px.length; i += 4) if (px[i]! > 128) painted += 1;
+      return { coverage: painted / (px.length / 4), px: Array.from(px) };
     });
-  const samples: number[] = [];
-  for (let i = 0; i < 10; i += 1) {
-    samples.push(await coverage());
-    await page.waitForTimeout(450);
+  // Let the first drops gather into one dot.
+  await page.waitForTimeout(4500);
+  const samples = [];
+  for (let i = 0; i < 8; i += 1) {
+    samples.push(await sample());
+    await page.waitForTimeout(800);
   }
-  // It is drawn, and it changes: blooming, resting, fading.
-  expect(Math.max(...samples)).toBeGreaterThan(0.3);
-  expect(Math.max(...samples) - Math.min(...samples)).toBeGreaterThan(0.2);
+  const coverages = samples.map((s) => s.coverage);
+  // Drawn, and the gathered dot keeps its size (drops drifting in add a
+  // little at the edge, but it never grows away).
+  expect(Math.min(...coverages)).toBeGreaterThan(0.15);
+  expect(Math.max(...coverages) - Math.min(...coverages)).toBeLessThan(0.15);
+  // Its colors keep changing as new drops arrive.
+  const first = samples[0]!.px;
+  const last = samples[samples.length - 1]!.px;
+  const change =
+    first.reduce((sum, v, i) => sum + Math.abs(v - last[i]!), 0) / first.length;
+  expect(change).toBeGreaterThan(2);
   expect(canvasKit).toEqual([]);
 });
 

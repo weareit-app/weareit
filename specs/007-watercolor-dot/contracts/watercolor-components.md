@@ -31,7 +31,7 @@ Replaces the loading branch of `ContentQueryState` (FR-007).
 | `label` | string | `"Loading…"` |
 | `size` | number | 56 |
 
-Motion: `bloom-loop`, the original B bloom (founder, 2026-10-17; the living-loader direction is on hold, see `explore/living-loader`). Guarantees: appears only after 300 ms (research R8; no minimum display time, because holding the loader would hold back content); text label always visible; announced once; dot itself hidden from screen readers (FR-020, FR-021); no percentage or progress (FR-012). Error state unchanged and the dot is gone (FR-013).
+Dot: the gathering loader (`GatherDot`: Skia on iOS, WebGL on web, painted orb as fallback; founder, 2026-10-17). It disappears when content arrives. Guarantees: appears only after 300 ms (research R8; no minimum display time, because holding the loader would hold back content); text label always visible; announced once; dot itself hidden from screen readers (FR-020, FR-021); no percentage or progress (FR-012). Error state unchanged and the dot is gone (FR-013).
 
 ## `<WelcomeMark>`
 

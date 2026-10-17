@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { AccessibilityInfo, Platform, Text, View } from "react-native";
-import { WatercolorDot } from "./watercolor-dot";
+import { GatherDot } from "./gather-dot";
 
 // Wait this long before showing the loader, so quick loads don't flash it.
 export const LOADER_DELAY_MS = 300;
 
-// The watercolor dot breathing while content loads, with the words saying so
+// The gathering watercolor dot while content loads, with the words saying so
 // (contract: WatercolorLoader). The dot is decorative; the text carries the
 // meaning and is announced once. It never shows progress it doesn't have.
 export function WatercolorLoader({
@@ -32,7 +32,7 @@ export function WatercolorLoader({
 
   return (
     <View className="flex-row items-center gap-4" style={{ minHeight: size }}>
-      <WatercolorDot size={size} motion="bloom-loop" />
+      <GatherDot size={size} />
       <Text
         className="font-serif text-lg text-muted"
         accessibilityLiveRegion="polite"

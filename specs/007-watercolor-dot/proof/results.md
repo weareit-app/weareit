@@ -90,3 +90,7 @@ Founder's choice: —
 ## Loader direction (2026-10-17)
 
 After the verdict, the loader went through several versions: a subtle breath, a visible breath with turning, a bloom loop, a deeper dissolve with swirling pigment, a wet-to-dry loop moving through It orb, sunrise and dusk palettes, and finally a "living" dot B (drops of new color blooming into a wet wash) beside a live GPU paint simulation. None matched what the founder had in mind. The loader is back to the original B bloom loop (crisp bloom, rest, soft fade, repeat) on web and iOS; the experiments are kept on branch `explore/living-loader`, and alternative ideas are being storyboarded (T056).
+
+## Gathering loader chosen (2026-10-17)
+
+From four storyboarded ideas the founder chose gathering, refined it in the lab (varied drop sizes, slow arrivals in sunrise and dusk colors, wet first drops, gap-free ragged seams), and asked for it as the app's loader. Two problems found while refining, both fixed and covered by tests: the dot grew with every arrival (drops kept shaping the outline after running in), and colors jumped once per arrival (old drops faded by list position; new drops appeared full size). At 30 fps over 20 s the largest frame-to-frame change fell from 9.4 to 2.1 with no single-frame jumps. iOS (Skia) is typechecked but not yet run, as the iOS build does not link.

@@ -132,7 +132,7 @@ Clean-room rule for every task: write simulation and color code from Curtis et a
 
 ## Phase 7b: Living loader (redefined 2026-10-17, FR-022–FR-025) — on hold
 
-**On hold (founder, 2026-10-17):** the loader returns to the original B bloom loop; T051–T053 work lives on branch `explore/living-loader`. T054–T055 wait for a new direction.
+**On hold (founder, 2026-10-17):** the loader returns to the original B bloom loop; T051–T053 work lives on branch `explore/living-loader`. T054–T055 are done with the gathering loader (T057).
 
 **Goal**: The loader arrives as paint spreading, stays wet and alive with colors flowing and new drops blooming in, and dries when a noticed load ends. Two versions compared in the lab before one ships.
 
@@ -141,10 +141,11 @@ Clean-room rule for every task: write simulation and color code from Curtis et a
 - [ ] T051 [US2] Shader B living mode in `packages/watercolor/src/shaders/dot-b.ts` and `packages/watercolor/src/motion.ts`: restore the crisp first-bloom edge; add up to 4 recent "drops" as uniforms (center, radius growth, pigment, landing time) that push existing pigment outward and mix in a new color; continuous marbling flow; a `dry` input driven by the loader's end instead of a timer. Replace `bloom-loop` with `alive` and `dry-out` motions; keep the timeline worklet-safe
 - [ ] T052 [P] [US2] Live simulation prototype for one dot on web: WebGL2 ping-pong version of the Curtis-style model from `tools/watercolor-sim/sim.ts` at about 128², with drops added over time and pigments colored by Kubelka-Munk, in `apps/app/src/watercolor/lab/live-dot.web.tsx` (lab only)
 - [ ] T053 [US2] Lab section "Living loader": both versions side by side at 56 pt and 200 pt, a "Content arrived" button that triggers drying, frame time and download size for each
-- [ ] T054 [US2] Founder compares and chooses (FR-025); record in `specs/007-watercolor-dot/proof/results.md`
-- [ ] T055 [US2] Wire the chosen version into `WatercolorLoader`: dries on end only if shown ≥ 1.5 s, without delaying content (FR-024); update `apps/app/tests/watercolor-loader.test.tsx` and `apps/app/e2e/watercolor.spec.ts`
+- [X] T054 [US2] Founder compares and chooses (FR-025); record in `specs/007-watercolor-dot/proof/results.md`
+- [X] T055 [US2] Wire the chosen version into `WatercolorLoader`: dries on end only if shown ≥ 1.5 s, without delaying content (FR-024); update `apps/app/tests/watercolor-loader.test.tsx` and `apps/app/e2e/watercolor.spec.ts`
 
-- [ ] T056 Storyboard alternative loader ideas (ink in water, brushstroke, gathering drops, glazing / filmed paint) on branch `explore/living-loader`: `tools/watercolor-sim/storyboards.ts` writes `specs/007-watercolor-dot/explore/storyboard-*.png`
+- [X] T056 Storyboard alternative loader ideas (ink in water, brushstroke, gathering drops, glazing / filmed paint) on branch `explore/living-loader`: `tools/watercolor-sim/storyboards.ts` writes `specs/007-watercolor-dot/explore/storyboard-*.png`
+- [X] T057 [US2] Gathering loader (founder's choice, 2026-10-17): `packages/watercolor/src/gather.ts` (timeline) and `shaders/gather.ts`; `apps/app/src/watercolor/gather-dot.tsx` (Skia, iOS) and `gather-dot.web.tsx` (WebGL), painted orb as fallback; `WatercolorLoader` uses it and disappears when content arrives. Tests: `packages/watercolor/tests/gather.test.ts`, shader compile, loader component test, web e2e (keeps changing, keeps its size, no Skia download)
 
 ## If the verdict is neither
 

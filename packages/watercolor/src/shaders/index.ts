@@ -3,6 +3,7 @@ import { hexToLinear } from "../pigment.ts";
 
 export { DOT_B_SKSL } from "./dot-b.ts";
 export { DOT_E_SKSL } from "./dot-e.ts";
+export { GATHER_SKSL } from "./gather.ts";
 export { DOT_B_GLSL, FULLSCREEN_VERTEX_GLSL, skslToGlsl } from "./glsl.ts";
 export { KM_SKSL, NOISE_SKSL } from "./km.ts";
 
@@ -82,4 +83,41 @@ export function cyclePaletteUniforms(
   const i = ((Math.floor(position) % n) + n) % n;
   const f = position - Math.floor(position);
   return blendPaletteUniforms(cycle[i]!, cycle[(i + 1) % n]!, f);
+}
+
+// Uniforms for the gathering loader: It's palette in slots 0–2 and a guest
+// palette in slots 3–5, plus the drops from gather.ts.
+export function gatherUniforms(
+  it: PaletteUniforms,
+  guest: PaletteUniforms,
+  drops: readonly number[],
+) {
+  "worklet";
+  const u: Record<string, number[]> = {
+    uK0: it.uK0,
+    uK1: it.uK1,
+    uK2: it.uK2,
+    uS0: it.uS0,
+    uS1: it.uS1,
+    uS2: it.uS2,
+    uK3: guest.uK0,
+    uK4: guest.uK1,
+    uK5: guest.uK2,
+    uS3: guest.uS0,
+    uS4: guest.uS1,
+    uS5: guest.uS2,
+    uPaper: it.uPaper,
+    uGran: it.uGran,
+  };
+  for (let i = 0; i < 10; i += 1) {
+    const o = i * 8;
+    u[`uDropA${i}`] = [drops[o]!, drops[o + 1]!, drops[o + 2]!, drops[o + 3]!];
+    u[`uDropB${i}`] = [
+      drops[o + 4]!,
+      drops[o + 5]!,
+      drops[o + 6]!,
+      drops[o + 7]!,
+    ];
+  }
+  return u;
 }

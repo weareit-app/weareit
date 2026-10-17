@@ -9,7 +9,8 @@
     "./palettes": "./src/palettes.ts",
     "./manifest": "./src/manifest.ts",
     "./shaders": "./src/shaders/index.ts",
-    "./motion": "./src/motion.ts"
+    "./motion": "./src/motion.ts",
+    "./gather": "./src/gather.ts"
   },
   "dependencies": {
     "zod": "4.6.7"
