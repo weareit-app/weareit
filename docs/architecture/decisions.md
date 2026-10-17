@@ -40,6 +40,18 @@ This file records decisions made with the project owner. Source architecture pro
 - Web support uses Stripe directly. Support can be one-time, monthly or annual on both web and iOS (2026-10-16); iOS is optional for v0.1. VERIFY App Store rules for recurring support without in-app benefits before building iOS recurring.
 - Support grants no product access and is not described as a charitable donation.
 
+## Content graph: Thing / Type / Relation
+
+Decided 2026-10-16; assessment in `.specify/assessments/thing-type-relation/`.
+
+- It will have a shared layer where any record can be linked to a **Thing** (e.g. Basketball) of a **Type** (e.g. Sport) through a named **Relation**. The vocabulary is Thing / Type / Relation.
+- Types and Things sit on stacked levels: a Type can be described as a Thing only at the level above, never on the same level (as with universes in type theory).
+- Existing records (pains, dreams, ideas, skills, occupations, roadmap items) keep their own form and link to Things; they do not become Things.
+- Every link is a claim that records who or what made it, its confidence, and its review state. LLM-proposed links above a confidence threshold are used without review; the rest are queued. The threshold starts high and is lowered only as founder audits of random samples show precision.
+- The same subject from different sources is linked by a recorded equivalence, not merged.
+- The layer must not block v0.1 and is built after launch. v0.1 must give every published record a stable ID, store outside references (pain frameworks, ESCO, Wikidata) in one consistent shape, store Help answers as ESCO references, and keep content versions on picks.
+- It stays on PostgreSQL + Kysely. A graph database, graph extension or formal tool needs its own decision record. Tagging people's own data by LLM needs a separate privacy decision.
+
 ## Rendering
 
 Expo Router now documents static and request-time server rendering. Start with static output for public content and app routes; evaluate server output for dynamic share previews before adding a separate web framework or custom metadata server. Dynamic server rendering requires a production server runtime, so this decision also depends on the hosting path.
@@ -58,3 +70,4 @@ Expo Router now documents static and request-time server rendering. Start with s
 ## Change log
 
 - 2026-10-16: founder resolved conflicts with an earlier spec draft (see `docs/spec/CONFLICTS.md`). Changed: signup required after personal + societal pages; email OTP plus password; embedded Stripe form on web; one-time/monthly/annual support on web and iOS; pre-signup stage funnel added (privacy invariant change); invitations optional; "support" wording; hosting lean SST. Kept: oRPC, Kysely, database + CMS.
+- 2026-10-16: added the Thing / Type / Relation content graph decision (stacked levels; link, don't convert; links as claims with a confidence threshold; must not block v0.1).
