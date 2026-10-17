@@ -52,7 +52,17 @@ Skia's web runtime is loaded only in the dev lab.
 
 ## iOS build (2026-10-17)
 
-The iOS dev build does not link: Expo's dev launcher references `RCTPackagerConnection`, which the React Native core in the build doesn't provide (`Undefined symbols … _OBJC_CLASS_$_RCTPackagerConnection`). Skia is not involved, and updating Expo to 57.0.30 did not fix it. Left for later (founder, 2026-10-17); the iPhone measurements wait on it.
+The iOS dev build did not link: Expo's dev launcher references `RCTPackagerConnection`, which the React Native core in the build didn't provide (`Undefined symbols … _OBJC_CLASS_$_RCTPackagerConnection`). Skia was not involved, and updating Expo to 57.0.30 did not fix it.
+
+Cause: `Pods/React-Core-prebuilt` held the Release build of React Native's prebuilt core, which leaves out the dev-only classes, and had no `.last_build_configuration` marker. React Native's `replace-rncore-version.js` assumes Debug when the marker is missing, so it never swapped in the Debug core. Fix (local; `ios/` is generated and not committed): write `Release` to `apps/app/ios/Pods/React-Core-prebuilt/.last_build_configuration` and build again; the script then swaps in Debug and the build links. If it recurs after `pod install` or prebuild, repeat that step.
+
+Running it on the simulator with Xcode 27 (no Simulator.app; DeviceHub instead): taps and swipes from the simulator panel don't reach the simulator, so the dev launcher can't be used. Everything can be opened by deep link instead:
+
+- Approve the app's URL schemes once so iOS doesn't ask "Open in It?": add `com.apple.CoreSimulator.CoreSimulatorBridge-->weareit` (and `-->exp+we-are-it`) = `com.joshsmith.we-are-it` to the device's `data/Library/Preferences/com.apple.launchservices.schemeapproval.plist` while it is shut down.
+- Skip the dev menu intro: `xcrun simctl spawn <device> defaults write com.joshsmith.we-are-it EXDevMenuIsOnboardingFinished -bool YES`.
+- Load the bundle: `xcrun simctl openurl <device> "weareit://expo-development-client/?url=http%3A%2F%2Flocalhost%3A8081"`, then open a page, for example `weareit:///lab/loader` (the gathering loader alone, development only).
+
+The gathering loader runs on iPhone 15 Pro (simulator) through Skia. iPhone frame measurements still wait on a real device.
 
 ## iOS binary growth
 
@@ -93,4 +103,4 @@ After the verdict, the loader went through several versions: a subtle breath, a 
 
 ## Gathering loader chosen (2026-10-17)
 
-From four storyboarded ideas the founder chose gathering, refined it in the lab (varied drop sizes, slow arrivals in sunrise and dusk colors, wet first drops, gap-free ragged seams), and asked for it as the app's loader. Two problems found while refining, both fixed and covered by tests: the dot grew with every arrival (drops kept shaping the outline after running in), and colors jumped once per arrival (old drops faded by list position; new drops appeared full size). At 30 fps over 20 s the largest frame-to-frame change fell from 9.4 to 2.1 with no single-frame jumps. iOS (Skia) is typechecked but not yet run, as the iOS build does not link.
+From four storyboarded ideas the founder chose gathering, refined it in the lab (varied drop sizes, slow arrivals in sunrise and dusk colors, wet first drops, gap-free ragged seams), and asked for it as the app's loader. Two problems found while refining, both fixed and covered by tests: the dot grew with every arrival (drops kept shaping the outline after running in), and colors jumped once per arrival (old drops faded by list position; new drops appeared full size). At 30 fps over 20 s the largest frame-to-frame change fell from 9.4 to 2.1 with no single-frame jumps. iOS (Skia) now runs too; see iOS build.
