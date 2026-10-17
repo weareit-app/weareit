@@ -1,6 +1,6 @@
 # UI Contract: watercolor components (007)
 
-Components in `apps/app/src/watercolor/`. Each has a native file (Skia) and a `.web.tsx` file (animated painted orb, research R2). Props are the contract; both platforms accept the same props.
+Components in `apps/app/src/watercolor/`. `WatercolorDot` has a native file (Skia) and a `.web.tsx` file (the same dot B shader drawn with WebGL; the animated painted orb only if WebGL is unavailable). Props are the contract; both platforms accept the same props.
 
 ## `<WatercolorDot>`
 
@@ -12,7 +12,7 @@ The primitive. Decorative by default.
 | `palette` | `Palette` id | `"it-orb"` | FR-014, FR-016 |
 | `approach` | `"B" \| "E"` | chosen by proof (constant `WATERCOLOR_APPROACH`) | only the lab overrides it |
 | `dot` | PaintedDot id | `"orb-01"` | Option E only |
-| `motion` | `"still" \| "bloom-once" \| "breathe"` | `"still"` | `bloom-once` ends settled and still |
+| `motion` | `"still" \| "bloom-once" \| "bloom-loop" \| "breathe"` | `"still"` | `bloom-once` ends settled and still; `bloom-loop` blooms (crisp edge), rests, softly fades and blooms again (timeline in `packages/watercolor/src/motion.ts`) |
 | `seed` | number | `0` | Option B variation |
 | `accessibilityLabel` | string | none | if absent, the dot is hidden from assistive tech |
 
@@ -31,7 +31,7 @@ Replaces the loading branch of `ContentQueryState` (FR-007).
 | `label` | string | `"Loading…"` |
 | `size` | number | 56 |
 
-Guarantees: appears only after 300 ms, stays at least 600 ms once shown (research R8); text label always visible; announced once; dot itself hidden from screen readers (FR-020, FR-021); no percentage or progress (FR-012). Error state unchanged and the dot is gone (FR-013).
+Motion: `bloom-loop`, the original B bloom (founder, 2026-10-17; the living-loader direction is on hold, see `explore/living-loader`). Guarantees: appears only after 300 ms (research R8; no minimum display time, because holding the loader would hold back content); text label always visible; announced once; dot itself hidden from screen readers (FR-020, FR-021); no percentage or progress (FR-012). Error state unchanged and the dot is gone (FR-013).
 
 ## `<WelcomeMark>`
 

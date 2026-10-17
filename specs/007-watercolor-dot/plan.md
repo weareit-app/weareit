@@ -6,7 +6,7 @@
 
 ## Summary
 
-Build It's watercolor mark as a generated dot in two steps. First, a **fidelity proof**: a development-only lab screen showing the painted orb, a look-alike shader dot (B) and a physics-painted dot coloured live with Kubelka-Munk (E), with frame-time and download measurements on iPhone 12 and a laptop browser; the founder picks B, E or neither. Second, ship the winner on **iOS** in three places — content loading states, the welcome mark (blooms once, then completely still) and a corner bloom on onboarding step changes — with palettes as data and It's orb palette as the default. **Web** uses the animated painted orb in those places for v0.1, because Skia's web runtime (~2.9 MB) is over the 1 MB budget (approved fallback). Pigment maths and schemas sit in a new framework-free package; the physics simulation is an offline tool whose output (pigment-density atlases with CC0 provenance) ships as assets.
+Build It's watercolor mark as a generated dot in two steps. First, a **fidelity proof**: a development-only lab screen showing the painted orb, a look-alike shader dot (B) and a physics-painted dot colored live with Kubelka-Munk (E), with frame-time and download measurements on iPhone 12 and a laptop browser; the founder picks B, E or neither. Second, ship the winner on **iOS** in three places — content loading states, the welcome mark (blooms once, then completely still) and a corner bloom on onboarding step changes — with palettes as data and It's orb palette as the default. **Web** uses the animated painted orb in those places for v0.1, because Skia's web runtime (~2.9 MB) is over the 1 MB budget (approved fallback). Pigment maths and schemas sit in a new framework-free package; the physics simulation is an offline tool whose output (pigment-density atlases with CC0 provenance) ships as assets.
 
 ## Technical Context
 
@@ -77,7 +77,7 @@ tools/watercolor-sim/           # NEW, offline tool, not shipped
 ├── README.md                   # method + clean-room note (Curtis 1997, K-M)
 ├── sim.ts                      # CPU shallow-water/pigment model (deterministic)
 ├── paint.ts                    # CLI → atlas.png + manifest.json
-├── preview.ts                  # coloured contact sheet for tuning
+├── preview.ts                  # colored contact sheet for tuning
 └── png.ts                      # minimal RGB PNG encoder
 
 apps/app/

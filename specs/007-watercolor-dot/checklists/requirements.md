@@ -35,7 +35,7 @@
 - [x] Privacy: what stays on device / is sent / stored / never public is stated
 - [x] Honest status: loader never shows fake progress; proof labels paint vs generated
 - [x] Must not block: soon/optional items from features.md and later watercolor work listed
-- [x] Accessibility: keyboard, screen reader, reduced motion (FR-019, SC-006), text alternatives (FR-020, SC-007), meaning never by colour alone
+- [x] Accessibility: keyboard, screen reader, reduced motion (FR-019, SC-006), text alternatives (FR-020, SC-007), meaning never by color alone
 - [x] Research questions listed
 
 ## Notes
@@ -44,4 +44,4 @@
 - The 1 MB web budget is well below the ~2.9 MB Skia figure in research.md, so web will likely use the animated painted orb unless the proof finds a lighter way; FR-011 and SC-002a cover this, and the proof reports it.
 - Implementation names show up only where the founder's scope requires them: "Option B/E" and "Kubelka-Munk" (what the proof compares), the sudoaquarelle/Mixbox licensing ban (FR-005), and the Skia download figure (Assumptions, as the reason for the fallback). Requirements and success criteria are written as outcomes.
 - Before `/speckit-plan`: the decision record for adding the GPU drawing library (decision.md, "Required before or during specification").
-- Follow-up outside this spec: bring the app's colour tokens in line with the orb palette.
+- Follow-up outside this spec: bring the app's color tokens in line with the orb palette.

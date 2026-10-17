@@ -6,18 +6,18 @@
 
 ## Problem Statement
 
-It's feeling — hopeful, dreamlike, a shared picture book — lives today in a handful of fixed watercolor images. Those images cannot change with a person's choices or chosen colours, cannot move to show what is happening (waiting, coming together, becoming something), and each new one needs new painted or AI-generated art with unclear rights. As It grows past onboarding, the gap between what It wants to show and what fixed images can show will widen.
+It's feeling — hopeful, dreamlike, a shared picture book — lives today in a handful of fixed watercolor images. Those images cannot change with a person's choices or chosen colors, cannot move to show what is happening (waiting, coming together, becoming something), and each new one needs new painted or AI-generated art with unclear rights. As It grows past onboarding, the gap between what It wants to show and what fixed images can show will widen.
 
 ## Affected Users & Stakeholders
 
 - **Users**: people going through onboarding on web and iOS — they meet the watercolor mark first and see watercolor scenes on the futures page. [NEEDS CLARIFICATION: no research yet on how people respond to these visuals.]
-- **Users (later)**: signed-in people who could see their own choices reflected in a picture, choose colours, and see shared progress. [NEEDS CLARIFICATION: theming and shared views are not in v0.1 features.]
+- **Users (later)**: signed-in people who could see their own choices reflected in a picture, choose colors, and see shared progress. [NEEDS CLARIFICATION: theming and shared views are not in v0.1 features.]
 - **Stakeholders**: the founder — owns the brand and tone, decides scope and stack changes. Future contributors and illustrators — would have to work within whatever system exists. The licensing policy — illustrations are CC0 with provenance; app code is AGPL.
 
 ## Goals
 
-- One recognisable watercolor language that feels like It's existing mark, and that It owns outright.
-- Visuals that can respond: to a person's choices, to colours they choose, and to what the app is doing (loading, gathering, becoming).
+- One recognizable watercolor language that feels like It's existing mark, and that It owns outright.
+- Visuals that can respond: to a person's choices, to colors they choose, and to what the app is doing (loading, gathering, becoming).
 - New pictures without commissioning or generating new raster art each time.
 - Works on web and iOS without making the app feel slow or heavy.
 - Meaning never depends on the image alone: reduced motion is respected and images have text alternatives.
@@ -28,7 +28,7 @@ It's feeling — hopeful, dreamlike, a shared picture book — lives today in a 
 - Physically exact watercolor everywhere.
 - Replacing the charcoal line figures in this assessment.
 - Showing anyone's personal choices to other people.
-- A colour picker for people in v0.1.
+- A color picker for people in v0.1.
 
 ## Success Metrics
 
@@ -36,7 +36,7 @@ It's feeling — hopeful, dreamlike, a shared picture book — lives today in a 
 - **Smoothness:** generated visuals hold 60 fps on [NEEDS CLARIFICATION: target iPhone] and a mid-range laptop browser, including ~30 small dots at once. (baseline: unknown)
 - **Web weight:** first onboarding screen shows within today's load time; any extra download loads after it. (baseline: current welcome screen load time, unmeasured)
 - **Reach:** number of places in the app that use a generated visual instead of a fixed image. (baseline: 0)
-- **Art cost:** a new scene or colour variant can be made by changing data, not by producing a new image. (baseline: every variant needs a new image)
+- **Art cost:** a new scene or color variant can be made by changing data, not by producing a new image. (baseline: every variant needs a new image)
 
 ## Cost of Inaction
 
@@ -49,7 +49,7 @@ It keeps using its seven or so watercolor JPEGs. Onboarding still works. But the
 - **Timing:** part of v0.1.
 - **First uses:** the loader and theming.
 - **Loader placements in v0.1:** content loading states, the welcome mark (the orb gently alive), and transitions between onboarding steps.
-- **Theming in v0.1:** the dot can take any palette and It uses its own; people cannot choose colours yet.
+- **Theming in v0.1:** the dot can take any palette and It uses its own; people cannot choose colors yet.
 - **Approach:** prove it first — compare a look-alike shader with a physics-painted dot side by side before choosing.
 
 ## Open Questions

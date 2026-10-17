@@ -38,7 +38,7 @@ apps/app/assets/watercolor/<id>/
 Rules:
 - `frames ≥ 1`; the last frame is the still, dried state.
 - `breathe.from..to` is played back and forth (ping-pong), so the loop has no seam; the sim takes it from the last, slowest-changing frames of drying.
-- `pigmentSlots` 2–3 (RGB only: alpha cannot carry data because decoders premultiply colour by alpha). A palette's 4th pigment, if any, is not used by Option E dots.
+- `pigmentSlots` 2–3 (RGB only: alpha cannot carry data because decoders premultiply color by alpha). A palette's 4th pigment, if any, is not used by Option E dots.
 - `densityScale` > 0: stored byte value v means density v / 255 × densityScale.
 - `atlas.png` dimensions = `size × columns` by `size × ceil(frames / columns)`.
 - Re-running the sim with the same `seed`, `simVersion` and `settings` reproduces the atlas (provenance, FR-006).

@@ -49,7 +49,7 @@ describe("Kubelka-Munk pigments", () => {
     expect(luminance(wash)).toBeCloseTo(luminance(hexToLinear(blue.tint)), 3);
   });
 
-  it("returns the paper colour when no pigment is present", () => {
+  it("returns the paper color when no pigment is present", () => {
     expect(mix([deriveKS(blue)], [0], paper)).toEqual(paper);
   });
 

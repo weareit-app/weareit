@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-// A pigment is authored as two colours a designer can pick: its masstone
+// A pigment is authored as two colors a designer can pick: its masstone
 // (full strength) and its tint (a thin wash over white paper). Kubelka-Munk
 // absorption (K) and scattering (S) are derived from those, so palettes stay
 // data and mixes behave like paint. The masstone sets the hue; the tint sets
@@ -88,8 +88,8 @@ export function layerReflectance(
 const MIN_R = 0.001;
 const MAX_R = 0.999;
 
-// Watercolor pigments are mostly transparent: they colour by absorbing light
-// and let the paper do most of the reflecting. So each pigment gets one grey
+// Watercolor pigments are mostly transparent: they color by absorbing light
+// and let the paper do most of the reflecting. So each pigment gets one gray
 // scattering value, its absorption per channel follows the masstone's K/S
 // ratio, and the scattering is scaled so a thin wash matches the tint's
 // lightness. (Fitting S per channel let bright channels of one pigment

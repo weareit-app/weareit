@@ -5,7 +5,7 @@
 // the wet area, which pulls pigment outward into a darker rim.
 //
 // Written from the paper's description for It, simplified: water moves
-// between neighbouring cells from a higher surface (water + paper relief) to a
+// between neighboring cells from a higher surface (water + paper relief) to a
 // lower one, carrying its share of suspended pigment. That keeps water and
 // pigment conserved, so pigment really piles up where the flow takes it. It
 // runs on the CPU with Float32Arrays so the same seed and settings always
@@ -13,7 +13,7 @@
 
 export interface Rewet {
   step: number;
-  x: number; // centre, fraction of size from the middle
+  x: number; // center, fraction of size from the middle
   y: number;
   radius: number; // fraction of size
   water: number;
@@ -32,7 +32,7 @@ export interface SimSettings {
   evaporation: number; // water lost per step everywhere wet
   edgeEvaporation: number; // extra loss at the wet edge (edge darkening)
   edgeReach: number; // cells over which the edge counts as "edge"
-  spreadDepth: number; // water depth needed to wet a dry neighbour
+  spreadDepth: number; // water depth needed to wet a dry neighbor
   spreadSteps: number; // after this the edge is pinned (it no longer grows)
   absorption: number; // water drawn into the paper per step
   settle: number; // pigment deposition rate as the film thins
@@ -240,7 +240,7 @@ export function simulate(
       }
     }
 
-    // 1. Spreading: deep enough water wets a dry neighbour, unevenly,
+    // 1. Spreading: deep enough water wets a dry neighbor, unevenly,
     //    following the tooth. Afterwards the edge is pinned.
     if (step < settings.spreadSteps) {
       for (let y = 2; y < N - 2; y += 1) {
@@ -259,7 +259,7 @@ export function simulate(
       for (let i = 0; i < cells; i += 1) if (wet[i] === 2) wet[i] = 1;
     }
 
-    // 2. Flow: water runs from a higher surface to a lower neighbour,
+    // 2. Flow: water runs from a higher surface to a lower neighbor,
     //    carrying its share of suspended pigment.
     dWater.fill(0);
     for (let k = 0; k < P; k += 1) dSus[k]!.fill(0);

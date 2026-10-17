@@ -35,7 +35,7 @@ export function encodeRgbPng(
   ihdr.writeUInt32BE(width, 0);
   ihdr.writeUInt32BE(height, 4);
   ihdr[8] = 8; // bit depth
-  ihdr[9] = 2; // colour type: RGB
+  ihdr[9] = 2; // color type: RGB
   const stride = width * 3;
   const raw = Buffer.alloc(height * (stride + 1));
   for (let y = 0; y < height; y += 1) {

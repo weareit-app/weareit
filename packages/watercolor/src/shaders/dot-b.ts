@@ -4,7 +4,8 @@ import { KM_SKSL, NOISE_SKSL } from "./km.ts";
 // each watercolor mark is imitated directly (research R3).
 //   uBloom   0 → 1  the drop spreading out to full size
 //   uDry     0 → 1  wet to dried (rim and bloom fronts darken as it dries)
-//   uBreathe 0 → 1  amplitude of the slow loader movement
+//   uBreathe 0 → 1  amplitude of the slow pigment drift
+//   uOpacity 0 → 1  for fading in and out
 export const DOT_B_SKSL = /* sksl */ `
 uniform float2 uSize;
 uniform float uTime;
@@ -12,6 +13,7 @@ uniform float uBloom;
 uniform float uDry;
 uniform float uBreathe;
 uniform float uSeed;
+uniform float uOpacity;
 uniform float3 uGran;
 ${KM_SKSL}
 ${NOISE_SKSL}
@@ -27,7 +29,9 @@ half4 main(float2 xy) {
   float tooth = fbm(p * 18.0 + seed);
   float breathe = 1.0 + uBreathe * 0.015 * sin(uTime * 1.1);
   float radius = (0.6 + 0.3 * uBloom) * (1.0 + 0.11 * (wobble - 0.5) + 0.03 * (tooth - 0.5)) * breathe;
-  float inside = 1.0 - smoothstep(radius - 0.01, radius + 0.006, r);
+  // A soft edge while the drop is still spreading; crisp once it has bloomed.
+  float soft = mix(0.08, 0.01, uBloom);
+  float inside = 1.0 - smoothstep(radius - soft, radius + 0.006, r);
   if (inside <= 0.0) { return half4(0.0); }
   float depth = clamp((radius - r) / radius, 0.0, 1.0);
 
@@ -55,13 +59,14 @@ half4 main(float2 xy) {
   float3 dens = float3(d0, d1, d2) * (1.0 + 1.5 * rim + front);
   dens *= 1.0 + uGran * (0.5 - paper) * 1.6;
 
-  // Uneven wash and a thinner film while the drop is still spreading.
-  // Mostly a thin wash, as in the painted orb, with paler and deeper patches.
+  // Mostly a thin wash, as in the painted orb, with paler and deeper patches,
+  // and a thinner film while the drop is still spreading.
   float wash = fbm(p * 3.0 + seed + 2.0);
   dens *= 0.12 + 0.5 * wash * wash;
   dens *= 0.5 + 0.5 * uBloom;
 
   float3 c = toSrgb(kmMix(float4(dens, 0.0)));
-  return half4(half3(c) * half(inside), half(inside));
+  float a = inside * uOpacity;
+  return half4(half3(c) * half(a), half(a));
 }
 `;

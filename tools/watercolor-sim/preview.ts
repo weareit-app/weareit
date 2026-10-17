@@ -1,4 +1,4 @@
-// Colour a painted dot's frames with a palette and write a contact sheet, so
+// Color a painted dot's frames with a palette and write a contact sheet, so
 // the simulation can be judged by eye while tuning.
 //
 //   node --experimental-strip-types tools/watercolor-sim/preview.ts --seed 1729 --palette it-orb --out /tmp/orb.png

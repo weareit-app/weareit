@@ -95,6 +95,76 @@ const roseViolet = paletteSchema.parse({
   ],
 } satisfies PaletteInput);
 
-export const PALETTES = { "it-orb": itOrb, "rose-violet": roseViolet } as const;
+// Palettes the loader travels through (founder, 2026-10-17: "other pigments,
+// too, not just the brand"). Three pigments each, one per slot of dot B.
+const sunrise = paletteSchema.parse({
+  id: "sunrise",
+  name: "Sunrise",
+  pigments: [
+    {
+      id: "rose",
+      name: "Rose",
+      masstone: "#c2304d",
+      tint: "#f7c3c8",
+      granulation: 0.2,
+    },
+    {
+      id: "coral",
+      name: "Coral",
+      masstone: "#e2643a",
+      tint: "#fbd0b8",
+      granulation: 0.3,
+    },
+    {
+      id: "gold",
+      name: "Gold",
+      masstone: "#d9a21b",
+      tint: "#f6e3a4",
+      granulation: 0.1,
+    },
+  ],
+} satisfies PaletteInput);
+
+const dusk = paletteSchema.parse({
+  id: "dusk",
+  name: "Dusk",
+  pigments: [
+    {
+      id: "violet",
+      name: "Violet",
+      masstone: "#4b2a8a",
+      tint: "#cdbdf0",
+      granulation: 0.7,
+    },
+    {
+      id: "ultramarine",
+      name: "Ultramarine",
+      masstone: "#1f4fa3",
+      tint: "#b7cdf2",
+      granulation: 0.6,
+    },
+    {
+      id: "pink",
+      name: "Pink",
+      masstone: "#c74a8c",
+      tint: "#f3c2dc",
+      granulation: 0.2,
+    },
+  ],
+} satisfies PaletteInput);
+
+export const PALETTES = {
+  "it-orb": itOrb,
+  "rose-violet": roseViolet,
+  sunrise,
+  dusk,
+} as const;
 export type PaletteId = keyof typeof PALETTES;
 export const DEFAULT_PALETTE_ID: PaletteId = "it-orb";
+
+// The order the loader's colors travel in, returning to It's own.
+export const LOADER_PALETTES: readonly PaletteId[] = [
+  "it-orb",
+  "sunrise",
+  "dusk",
+];

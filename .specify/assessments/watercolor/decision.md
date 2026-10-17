@@ -10,7 +10,7 @@
 | Criterion | Rating | Justification |
 |-----------|--------|---------------|
 | Problem validity | adequate | Fixed images can't take new palettes, show waiting, or move with meaning, and each new image raises rights questions (problem.md, research.md). The founder has put the loader and palette-readiness into v0.1. |
-| Evidence strength | adequate | Good technique evidence: a working browser reference, Curtis 1997 for physics, Bousseau 2006 and Montesdeoca for look-alikes, Kubelka-Munk for colour, an Expo-supported renderer. Demand is the founder's, which suits a brand decision they own. Whether either generated approach looks like real watercolor is unproven — hence the proof. |
+| Evidence strength | adequate | Good technique evidence: a working browser reference, Curtis 1997 for physics, Bousseau 2006 and Montesdeoca for look-alikes, Kubelka-Munk for color, an Expo-supported renderer. Demand is the founder's, which suits a brand decision they own. Whether either generated approach looks like real watercolor is unproven — hence the proof. |
 | Value vs. inaction | adequate | Without it v0.1 keeps a still orb and plain loading states; with it the mark comes alive where people wait and can take any palette later. |
 | Feasibility / appetite | adequate | Proof is small; the winner is medium (weeks). E's simulation is a tool, not shipped. v0.1 has three placements to fill, all with the painted orb as fallback. |
 | Strategic fit | strong | Matches It's mark and tone, moves away from AI imagery, fits licensing (own code; no sudoaquarelle or Mixbox code) and privacy. |
@@ -18,7 +18,7 @@
 
 ## Verdict & Rationale
 
-**Go, proof first.** The founder's bar is that it looks like watercolor, "same family" as the painted orb. Physics produces the marks that make watercolor read as real, so the lean is Option E: paint with It's own simulation ahead of time, colour live with pigment optics. Option B (look-alike shader) stays in the proof because it is simpler if it passes. The founder picks the winner from a side-by-side; anything v0.1 needs falls back to the animated painted orb (Option A) if neither passes.
+**Go, proof first.** The founder's bar is that it looks like watercolor, "same family" as the painted orb. Physics produces the marks that make watercolor read as real, so the lean is Option E: paint with It's own simulation ahead of time, color live with pigment optics. Option B (look-alike shader) stays in the proof because it is simpler if it passes. The founder picks the winner from a side-by-side; anything v0.1 needs falls back to the animated painted orb (Option A) if neither passes.
 
 ## v0.1 commitments (founder, 2026-10-17)
 
@@ -36,7 +36,7 @@
 - **Problem**: It's watercolor feeling lives in a few fixed images that can't take new palettes or show what the app is doing.
 - **Chosen approach**: fidelity proof comparing B and E (lean E), then the winner as a watercolor dot loader and palette system.
 - **In scope (v0.1)**: the proof; the dot; loader in content loading, welcome mark and step transitions; It's palette plus palette-readiness; painted-orb fallback; reduced-motion still state; text alternatives.
-- **Out of scope**: colour picker; shapes beyond the dot; gathering animation; scene kit; live simulation; line figures; showing personal choices to others.
+- **Out of scope**: color picker; shapes beyond the dot; gathering animation; scene kit; live simulation; line figures; showing personal choices to others.
 - **Success metrics**: founder judges "same family" side by side; 60 fps with ~30 small dots on target iPhone and laptop browser; first onboarding screen no slower; download added by painted sequences within a target to set.
 - **Carried-forward open questions**:
   - Target devices and acceptable extra web download?

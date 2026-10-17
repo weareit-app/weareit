@@ -8,7 +8,8 @@
     "./mix": "./src/mix.ts",
     "./palettes": "./src/palettes.ts",
     "./manifest": "./src/manifest.ts",
-    "./shaders": "./src/shaders/index.ts"
+    "./shaders": "./src/shaders/index.ts",
+    "./motion": "./src/motion.ts"
   },
   "dependencies": {
     "zod": "4.6.7"

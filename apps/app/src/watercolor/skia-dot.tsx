@@ -17,19 +17,19 @@ import {
 } from "@it/watercolor/shaders";
 import { useEffect, useMemo, useState } from "react";
 import { AppState, View } from "react-native";
+import { dotMotionAt } from "@it/watercolor/motion";
 import {
-  Easing,
   useDerivedValue,
   useReducedMotion,
   useSharedValue,
-  withTiming,
   type SharedValue,
 } from "react-native-reanimated";
 import type { WatercolorApproach } from "./approach";
 import { PaintedOrb } from "./painted-orb";
-import { DEFAULT_DOT_ID, PAINTED_DOTS } from "./painted-dots";
+import { DOT_TEST_ID, dotAccessibility, type DotMotion } from "./types";
 
-export type DotMotion = "still" | "bloom-once" | "breathe";
+export type { DotMotion };
+import { DEFAULT_DOT_ID, PAINTED_DOTS } from "./painted-dots";
 
 export interface SkiaDotProps {
   size: number;
@@ -40,8 +40,6 @@ export interface SkiaDotProps {
   seed?: number;
   accessibilityLabel?: string;
 }
-
-const BLOOM_MS = 2400;
 
 // Compiled once per app run; null if the device cannot compile them, in which
 // case the painted orb is shown instead.
@@ -61,8 +59,9 @@ function useAppActive() {
   return active;
 }
 
-// Shared state for one canvas of dots: whether they move, the clock, the
-// bloom progress (0 → 1, where 1 is dried and still) and the atlas.
+// Shared state for one canvas of dots: how they move (still when reduced
+// motion is on or the app is in the background), the clock and when the
+// motion started, and the atlas.
 function useDotCanvas(
   approach: WatercolorApproach,
   dot: string,
@@ -78,24 +77,16 @@ function useDotCanvas(
     effect !== null &&
     (approach === "B" || (painted !== undefined && atlas !== null));
   const clock = useClock();
-  const progress = useSharedValue(motion === "bloom-once" && moving ? 0 : 1);
+  const start = useSharedValue(0);
   useEffect(() => {
-    if (motion === "bloom-once" && moving) {
-      progress.value = 0;
-      progress.value = withTiming(1, {
-        duration: BLOOM_MS,
-        easing: Easing.out(Easing.cubic),
-      });
-    } else {
-      progress.value = 1;
-    }
-  }, [motion, moving, progress]);
+    start.value = clock.value;
+  }, [motion, moving, start, clock]);
   return {
     ready,
     atlas,
     clock,
-    progress,
-    breathing: motion === "breathe" && moving,
+    start,
+    motion: moving ? motion : ("still" as const),
   };
 }
 
@@ -109,8 +100,8 @@ interface DotShapeProps {
   seed: number;
   atlas: SkImage | null;
   clock: SharedValue<number>;
-  progress: SharedValue<number>;
-  breathing: boolean;
+  start: SharedValue<number>;
+  motion: DotMotion;
 }
 
 // One dot inside a Skia canvas. Many can share a canvas, which matters: each
@@ -125,30 +116,32 @@ function DotShape({
   seed,
   atlas,
   clock,
-  progress,
-  breathing,
+  start,
+  motion,
 }: DotShapeProps) {
   const effect = EFFECTS[approach]!;
   const pal = useMemo(() => paletteUniforms(PALETTES[palette]), [palette]);
   const m = PAINTED_DOTS[dot]?.manifest;
 
   const uniforms = useDerivedValue(() => {
+    const st = dotMotionAt(motion, clock.value - start.value);
     // Offset each dot's clock so a field of dots doesn't move in lockstep.
-    const t = breathing ? clock.value / 1000 + seed * 1.37 : 0;
+    const t = motion === "still" ? 0 : clock.value / 1000 + seed * 1.37;
     if (approach === "B") {
       return {
         ...pal,
         uSize: [size, size],
         uTime: t,
-        uBloom: progress.value,
-        uDry: progress.value,
-        uBreathe: breathing ? 1 : 0,
+        uBloom: st.bloom,
+        uDry: st.dry,
+        uBreathe: st.breathe,
+        uOpacity: st.opacity,
         uSeed: seed,
       };
     }
     const frames = m?.frames ?? 1;
-    let frame = progress.value * (frames - 1);
-    if (breathing && m?.breathe) {
+    let frame = st.bloom * (frames - 1);
+    if (st.breathe > 0 && m?.breathe) {
       // Back and forth through the last frames of drying: a seamless loop.
       const phase = (t / m.breathe.periodSeconds) % 1;
       const pingPong = phase < 0.5 ? phase * 2 : 2 - phase * 2;
@@ -189,20 +182,6 @@ function DotShape({
   );
 }
 
-function a11yProps(accessibilityLabel?: string) {
-  return accessibilityLabel
-    ? {
-        accessible: true,
-        accessibilityRole: "image" as const,
-        accessibilityLabel,
-      }
-    : {
-        accessible: false,
-        accessibilityElementsHidden: true,
-        importantForAccessibility: "no-hide-descendants" as const,
-      };
-}
-
 // A generated watercolor dot drawn with Skia (contract: WatercolorDot in
 // specs/007-watercolor-dot/contracts/watercolor-components.md). The painted
 // orb is shown until the dot is ready, and stays if it fails.
@@ -220,7 +199,8 @@ export function SkiaDot({
     <View
       style={{ width: size, height: size }}
       pointerEvents="none"
-      {...a11yProps(accessibilityLabel)}
+      testID={DOT_TEST_ID}
+      {...dotAccessibility(accessibilityLabel)}
     >
       {!c.ready ? (
         <PaintedOrb size={size} />
@@ -236,8 +216,8 @@ export function SkiaDot({
             seed={seed}
             atlas={c.atlas}
             clock={c.clock}
-            progress={c.progress}
-            breathing={c.breathing}
+            start={c.start}
+            motion={c.motion}
           />
         </Canvas>
       )}
@@ -271,7 +251,11 @@ export function SkiaDotField({
   const width = columns * dotSize + (columns - 1) * gap;
   const height = rows * dotSize + (rows - 1) * gap;
   return (
-    <View style={{ width, height }} pointerEvents="none" {...a11yProps()}>
+    <View
+      style={{ width, height }}
+      pointerEvents="none"
+      {...dotAccessibility()}
+    >
       {c.ready ? (
         <Canvas style={{ width, height }}>
           {Array.from({ length: columns * rows }, (_, i) => (
@@ -286,8 +270,8 @@ export function SkiaDotField({
               seed={i}
               atlas={c.atlas}
               clock={c.clock}
-              progress={c.progress}
-              breathing={c.breathing}
+              start={c.start}
+              motion={c.motion}
             />
           ))}
         </Canvas>

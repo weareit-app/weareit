@@ -15,7 +15,7 @@ description: "Task list for the watercolor dot (spec 007)"
 - **[P]**: can run in parallel (different files, no dependency on unfinished tasks)
 - **[Story]**: US1–US5 from spec.md
 
-Clean-room rule for every task: write simulation and colour code from Curtis et al. 1997 and the Kubelka-Munk equations only. Do not open, copy or adapt code or data from sudoaquarelle.com or Mixbox (FR-005).
+Clean-room rule for every task: write simulation and color code from Curtis et al. 1997 and the Kubelka-Munk equations only. Do not open, copy or adapt code or data from sudoaquarelle.com or Mixbox (FR-005).
 
 ---
 
@@ -32,12 +32,12 @@ Clean-room rule for every task: write simulation and colour code from Curtis et 
 ## Phase 2: Foundational (blocks all stories)
 
 - [X] T006 [P] Implement `Pigment` in `packages/watercolor/src/pigment.ts`: Zod schema with `id` (kebab-case), `name`, `masstone` (sRGB hex), `tint` (sRGB hex, "must be lighter than `masstone`"), `granulation` ("number 0–1"); function `deriveKS(pigment)` returning `k`, `s` as `[r,g,b]` numbers ≥ 0 from masstone and tint using single-constant Kubelka-Munk inversion over white (research R5)
-- [X] T007 [P] Implement the mixer in `packages/watercolor/src/mix.ts`: sRGB↔linear conversion; `mix(pigments, densities, paper)` summing density-weighted K and S and returning sRGB reflectance with the K-M finite-layer formula over the paper colour
+- [X] T007 [P] Implement the mixer in `packages/watercolor/src/mix.ts`: sRGB↔linear conversion; `mix(pigments, densities, paper)` summing density-weighted K and S and returning sRGB reflectance with the K-M finite-layer formula over the paper color
 - [X] T008 Implement palettes in `packages/watercolor/src/palettes.ts`: Zod `Palette` schema (`id`, `name`, `pigments` "2–4", `paper` defaulting to It's paper `#ffffff`); `isVisible(palette)` failing when any pigment at mid density over paper differs in luminance from paper by < 0.15 (research R6); palette `rose-violet` (rose and violet pigments); palette `it-orb` as a placeholder to be fitted in T009; export `DEFAULT_PALETTE_ID = "it-orb"` (FR-016)
 - [X] T009 Fit `it-orb` pigments (teal-blue, cyan-green, warm yellow) by sampling dense and thin areas of `.specify/assessments/watercolor/reference-dot.png` with a script `packages/watercolor/scripts/fit-orb-palette.ts`, and write the resulting hex values into `packages/watercolor/src/palettes.ts`
 - [X] T010 [P] Implement the painted-dot manifest Zod schema in `packages/watercolor/src/manifest.ts` exactly per `specs/007-watercolor-dot/contracts/painted-dot-manifest.md`: `schema: 1`, `frames ≥ 1`, `pigmentSlots` 2–3 (RGB only), `densityScale > 0`, `columns ≥ 1`, `breathe.from < breathe.to < frames`, `provenance` with `seed`, `simVersion`, `settings`, `pigmentsUsed`, `createdAt`, `license: "CC0-1.0"`, `method`; helper `atlasSize(manifest)` returning `size × columns` by `size × ceil(frames / columns)`
-- [X] T011 [P] Write the SkSL K-M colouring function in `packages/watercolor/src/shaders/km.ts` (exported string) mirroring `mix.ts`, taking up to 4 pigments' K/S as uniforms
-- [X] T012 [P] Unit tests in `packages/watercolor/tests/mix.test.ts`: blue + yellow pigments mix to a hue between them and darker than either tint (FR-015); zero density returns paper colour
+- [X] T011 [P] Write the SkSL K-M coloring function in `packages/watercolor/src/shaders/km.ts` (exported string) mirroring `mix.ts`, taking up to 4 pigments' K/S as uniforms
+- [X] T012 [P] Unit tests in `packages/watercolor/tests/mix.test.ts`: blue + yellow pigments mix to a hue between them and darker than either tint (FR-015); zero density returns paper color
 - [X] T013 [P] Unit tests in `packages/watercolor/tests/palettes.test.ts`: `it-orb` and `rose-violet` pass `isVisible`; a near-white pigment fails; palettes with 1 or 5 pigments are rejected (FR-014, FR-018)
 - [X] T014 [P] Unit tests in `packages/watercolor/tests/manifest.test.ts`: sample manifest from the contract passes; `frames: 0`, `pigmentSlots: 4`, missing `provenance.seed` and wrong `license` fail
 
@@ -61,13 +61,13 @@ Clean-room rule for every task: write simulation and colour code from Curtis et 
 
 ### Option B: look-alike shader
 
-- [X] T020 [P] [US1] Write SkSL for Option B in `packages/watercolor/src/shaders/dot-b.ts`: noise-warped circular distance for the bled edge, edge-darkening term, layered-noise pigment density with bloom fronts, granulation from a paper-noise term, time uniforms for breathe and bloom-and-settle, colour via the `km.ts` function (research R3)
-- [X] T021 [P] [US1] Write SkSL for Option E in `packages/watercolor/src/shaders/dot-e.ts`: sample the atlas frame (frame index and columns as uniforms), map RGBA densities to pigment slots, colour via `km.ts`
+- [X] T020 [P] [US1] Write SkSL for Option B in `packages/watercolor/src/shaders/dot-b.ts`: noise-warped circular distance for the bled edge, edge-darkening term, layered-noise pigment density with bloom fronts, granulation from a paper-noise term, time uniforms for breathe and bloom-and-settle, color via the `km.ts` function (research R3)
+- [X] T021 [P] [US1] Write SkSL for Option E in `packages/watercolor/src/shaders/dot-e.ts`: sample the atlas frame (frame index and columns as uniforms), map RGBA densities to pigment slots, color via `km.ts`
 
 ### Lab
 
 - [X] T022 [US1] Create shared native renderer `apps/app/src/watercolor/watercolor-dot.tsx` with Skia `Canvas` + `RuntimeEffect`, props per `contracts/watercolor-components.md` (`size`, `palette`, `approach`, `dot`, `motion`, `seed`, `accessibilityLabel`), Reanimated shared values for time; painted-orb fallback until ready or on error (FR-010); `useReducedMotion()` → still settled frame; pause on `AppState` background
-- [X] T023 [US1] Create the lab route `apps/app/app/lab/watercolor.tsx`, rendered only when `__DEV__` (redirect to `/` otherwise): painted orb (labelled "Reference — paint"), B and E side by side at the same size with names and "how it was made"; toggles for palette (`it-orb` / `rose-violet`, painted orb never re-coloured) and still / loader (FR-001, FR-002)
+- [X] T023 [US1] Create the lab route `apps/app/app/lab/watercolor.tsx`, rendered only when `__DEV__` (redirect to `/` otherwise): painted orb (labeled "Reference — paint"), B and E side by side at the same size with names and "how it was made"; toggles for palette (`it-orb` / `rose-violet`, painted orb never re-colored) and still / loader (FR-001, FR-002)
 - [X] T024 [US1] Add measurement to `apps/app/app/lab/watercolor.tsx`: per approach, "one large" (1 dot, 240 pt) and "thirty small" (6×5 grid, 40 pt) scenes, `useFrameCallback` sampling 10 s after 1 s warm-up, showing p99 and max frame ms (research R9)
 - [X] T025 [US1] Add web measurement to the lab: on web only, lazy-load Skia/CanvasKit inside the lab route (`apps/app/app/lab/watercolor.web.tsx` if a separate file is needed) and report bytes for CanvasKit wasm + shader + atlas and whether ≤ 1 MB (FR-003, FR-011); confirm CanvasKit is not in the main web bundle (research R11)
 - [X] T026 [US1] Add verdict buttons (B / E / neither) and "Copy results" producing JSON with device, scenario, `frameMsP99`, `frameMsMax`, `webDownloadBytes`, `fitsWebBudget`, verdict and date (FR-004) in `apps/app/app/lab/watercolor.tsx`
@@ -84,23 +84,23 @@ Clean-room rule for every task: write simulation and colour code from Curtis et 
 
 **Independent test**: slow the network on a content page; dot + "Loading…" appear after 300 ms and give way to content; reduced motion → still; error → retry, no dot (quickstart §4–5).
 
-- [ ] T029 [P] [US2] Create web fallback `apps/app/src/watercolor/watercolor-dot.web.tsx`: same props; renders `watercolor-orb.jpg` at `size`, animating `breathe` and `bloom-once` with Reanimated opacity/scale only; still with reduced motion; never imports Skia (research R2)
-- [ ] T030 [US2] Create `apps/app/src/watercolor/watercolor-loader.tsx`: shows after 300 ms, stays ≥ 600 ms once shown (R8); `WatercolorDot motion="breathe"` hidden from assistive tech; visible text label (default "Loading…") announced once (`accessibilityLiveRegion="polite"`, iOS `announceForAccessibility`); no percentage (FR-007, FR-012, FR-020, FR-021)
-- [ ] T031 [US2] Replace the loading branches in `apps/app/src/components/content-query-state.tsx` with `WatercolorLoader` inside the existing `Page`; keep the error branch unchanged with no dot (FR-013)
-- [ ] T032 [P] [US2] Component tests in `apps/app/tests/watercolor-loader.test.tsx`: nothing at 200 ms; dot + "Loading…" after 300 ms; dot hidden from accessibility; reduced motion renders still; asset load failure shows the painted orb
-- [ ] T033 [P] [US2] E2E in `apps/app/e2e/watercolor.spec.ts`: throttled network on a content page shows "Loading…" then content; failed load shows "Try again" and no dot; no CanvasKit/wasm request outside `/lab`
+- [X] T029 [P] [US2] Create web fallback `apps/app/src/watercolor/watercolor-dot.web.tsx`: same props; renders `watercolor-orb.jpg` at `size`, animating `breathe` and `bloom-once` with Reanimated opacity/scale only; still with reduced motion; never imports Skia (research R2)
+- [X] T030 [US2] Create `apps/app/src/watercolor/watercolor-loader.tsx`: shows after 300 ms (R8; minimum display dropped, see research); `WatercolorDot motion="breathe"` hidden from assistive tech; visible text label (default "Loading…") announced once (`accessibilityLiveRegion="polite"`, iOS `announceForAccessibility`); no percentage (FR-007, FR-012, FR-020, FR-021)
+- [X] T031 [US2] Replace the loading branches in `apps/app/src/components/content-query-state.tsx` with `WatercolorLoader` inside the existing `Page`; keep the error branch unchanged with no dot (FR-013)
+- [X] T032 [P] [US2] Component tests in `apps/app/tests/watercolor-loader.test.tsx`: nothing at 200 ms; dot + "Loading…" after 300 ms; dot hidden from accessibility; reduced motion renders still; asset load failure shows the painted orb
+- [X] T033 [P] [US2] E2E in `apps/app/e2e/watercolor.spec.ts`: throttled network on a content page shows "Loading…" then content; failed load shows "Try again" and no dot; no CanvasKit/wasm request outside `/lab`
 
 ---
 
 ## Phase 5: User Story 5 — Any palette as data, no picker (P2)
 
-**Goal**: The dot redraws in any valid palette from data; people can't change colours.
+**Goal**: The dot redraws in any valid palette from data; people can't change colors.
 
-**Independent test**: switch the app's palette constant to `rose-violet`; every dot redraws with paint-like mixing; no colour control exists (quickstart §2–3).
+**Independent test**: switch the app's palette constant to `rose-violet`; every dot redraws with paint-like mixing; no color control exists (quickstart §2–3).
 
 - [ ] T034 [US5] Add `apps/app/src/watercolor/palette.ts` exporting the app's current palette id (default `DEFAULT_PALETTE_ID`) used by all watercolor components; invalid or invisible palettes fall back to `it-orb` and log a development warning (FR-014, FR-018)
 - [ ] T035 [P] [US5] Component test in `apps/app/tests/watercolor-palette.test.tsx`: changing the palette id re-renders `WatercolorDot` uniforms with the new pigments' K/S; an invisible palette falls back to `it-orb`
-- [ ] T036 [P] [US5] Add a check in `apps/app/e2e/watercolor.spec.ts` that welcome and onboarding pages contain no colour or palette control (FR-017)
+- [ ] T036 [P] [US5] Add a check in `apps/app/e2e/watercolor.spec.ts` that welcome and onboarding pages contain no color or palette control (FR-017)
 
 ---
 
@@ -130,9 +130,25 @@ Clean-room rule for every task: write simulation and colour code from Curtis et 
 
 ---
 
+## Phase 7b: Living loader (redefined 2026-10-17, FR-022–FR-025) — on hold
+
+**On hold (founder, 2026-10-17):** the loader returns to the original B bloom loop; T051–T053 work lives on branch `explore/living-loader`. T054–T055 wait for a new direction.
+
+**Goal**: The loader arrives as paint spreading, stays wet and alive with colors flowing and new drops blooming in, and dries when a noticed load ends. Two versions compared in the lab before one ships.
+
+**Independent test**: in the lab, both versions run side by side for 30 s: the edge looks like the first B bloom, colors keep changing, new drops land and bloom, nothing shrinks or fades between; "Content arrived" makes each dry in place.
+
+- [ ] T051 [US2] Shader B living mode in `packages/watercolor/src/shaders/dot-b.ts` and `packages/watercolor/src/motion.ts`: restore the crisp first-bloom edge; add up to 4 recent "drops" as uniforms (center, radius growth, pigment, landing time) that push existing pigment outward and mix in a new color; continuous marbling flow; a `dry` input driven by the loader's end instead of a timer. Replace `bloom-loop` with `alive` and `dry-out` motions; keep the timeline worklet-safe
+- [ ] T052 [P] [US2] Live simulation prototype for one dot on web: WebGL2 ping-pong version of the Curtis-style model from `tools/watercolor-sim/sim.ts` at about 128², with drops added over time and pigments colored by Kubelka-Munk, in `apps/app/src/watercolor/lab/live-dot.web.tsx` (lab only)
+- [ ] T053 [US2] Lab section "Living loader": both versions side by side at 56 pt and 200 pt, a "Content arrived" button that triggers drying, frame time and download size for each
+- [ ] T054 [US2] Founder compares and chooses (FR-025); record in `specs/007-watercolor-dot/proof/results.md`
+- [ ] T055 [US2] Wire the chosen version into `WatercolorLoader`: dries on end only if shown ≥ 1.5 s, without delaying content (FR-024); update `apps/app/tests/watercolor-loader.test.tsx` and `apps/app/e2e/watercolor.spec.ts`
+
+- [ ] T056 Storyboard alternative loader ideas (ink in water, brushstroke, gathering drops, glazing / filmed paint) on branch `explore/living-loader`: `tools/watercolor-sim/storyboards.ts` writes `specs/007-watercolor-dot/explore/storyboard-*.png`
+
 ## If the verdict is neither
 
-- [ ] T045 Use `watercolor-dot.web.tsx` behaviour (animated painted orb) on iOS too by re-exporting it from `apps/app/src/watercolor/watercolor-dot.tsx`, then do T030–T033, T037–T044; record in `proof/results.md` that palette-readiness (FR-014–FR-016) is not met for v0.1
+- [ ] T045 Use `watercolor-dot.web.tsx` behavior (animated painted orb) on iOS too by re-exporting it from `apps/app/src/watercolor/watercolor-dot.tsx`, then do T030–T033, T037–T044; record in `proof/results.md` that palette-readiness (FR-014–FR-016) is not met for v0.1
 
 ---
 

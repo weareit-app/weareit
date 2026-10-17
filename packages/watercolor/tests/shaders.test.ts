@@ -30,7 +30,7 @@ describe("SkSL shaders", () => {
     expect(effect).not.toBeNull();
   });
 
-  it("Option B draws a coloured dot on transparent surroundings", () => {
+  it("Option B draws a colored dot on transparent surroundings", () => {
     const { effect } = compile(DOT_B_SKSL);
     const u = paletteUniforms(PALETTES["it-orb"]);
     const values: Record<string, number[]> = {
@@ -40,6 +40,7 @@ describe("SkSL shaders", () => {
       uDry: [1],
       uBreathe: [0],
       uSeed: [1],
+      uOpacity: [1],
       uGran: u.uGran,
       uK0: u.uK0,
       uK1: u.uK1,
@@ -69,8 +70,8 @@ describe("SkSL shaders", () => {
     const at = (x: number, y: number) =>
       Array.from(px.slice((y * 64 + x) * 4, (y * 64 + x) * 4 + 4));
     expect(at(1, 1)[3]).toBe(0); // corner: outside the dot
-    const centre = at(32, 32);
-    expect(centre[3]).toBe(255);
-    expect(centre[2]! + centre[1]!).toBeGreaterThan(centre[0]! * 2); // blue-green, not grey or red
+    const center = at(32, 32);
+    expect(center[3]).toBe(255);
+    expect(center[2]! + center[1]!).toBeGreaterThan(center[0]! * 2); // blue-green, not gray or red
   });
 });

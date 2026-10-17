@@ -1,18 +1,11 @@
 import type { PaletteId } from "@it/watercolor/palettes";
 import { useEffect, useRef, useState } from "react";
 import { Platform, Pressable, ScrollView, Text, View } from "react-native";
-import Animated, {
-  Easing,
-  useAnimatedStyle,
-  useFrameCallback,
-  useReducedMotion,
-  useSharedValue,
-  withRepeat,
-  withTiming,
-} from "react-native-reanimated";
+import { useFrameCallback, useSharedValue } from "react-native-reanimated";
 import type { WatercolorApproach } from "../approach";
-import { PaintedOrb } from "../painted-orb";
+import { AnimatedPaintedOrb } from "../animated-painted-orb";
 import { SkiaDot, SkiaDotField, type DotMotion } from "../skia-dot";
+import { WatercolorLoader } from "../watercolor-loader";
 import { measureWebDownload, type WebDownload } from "./web-download";
 
 // Fidelity proof for spec 007 (US1): the painted orb, Option B and Option E
@@ -74,38 +67,6 @@ function Toggle<T extends string>({
   );
 }
 
-// The painted orb as a loader: the same gentle breathing, by scale and fade.
-function AnimatedPaintedOrb({
-  size,
-  moving,
-}: {
-  size: number;
-  moving: boolean;
-}) {
-  const reduce = useReducedMotion();
-  const t = useSharedValue(0);
-  useEffect(() => {
-    if (moving && !reduce) {
-      t.value = withRepeat(
-        withTiming(1, { duration: 3000, easing: Easing.inOut(Easing.sin) }),
-        -1,
-        true,
-      );
-    } else {
-      t.value = 0;
-    }
-  }, [moving, reduce, t]);
-  const style = useAnimatedStyle(() => ({
-    opacity: 1 - 0.12 * t.value,
-    transform: [{ scale: 0.985 + 0.03 * t.value }],
-  }));
-  return (
-    <Animated.View style={style}>
-      <PaintedOrb size={size} />
-    </Animated.View>
-  );
-}
-
 function Column({
   title,
   how,
@@ -132,7 +93,7 @@ function MeasureScene({
   scenario: Scenario;
 }) {
   if (scenario === "one-large") {
-    return <SkiaDot size={240} approach={approach} motion="breathe" />;
+    return <SkiaDot size={240} approach={approach} motion="bloom-loop" />;
   }
   // Thirty small dots share one canvas (one GPU surface).
   return (
@@ -142,7 +103,7 @@ function MeasureScene({
       dotSize={40}
       gap={4}
       approach={approach}
-      motion="breathe"
+      motion="bloom-loop"
     />
   );
 }
@@ -266,7 +227,7 @@ export default function LabScreen() {
     verdict,
   };
 
-  const dotMotion: DotMotion = motion === "still" ? "still" : "breathe";
+  const dotMotion: DotMotion = motion;
 
   return (
     <ScrollView
@@ -304,7 +265,7 @@ export default function LabScreen() {
           value={
             motion === "bloom-once"
               ? "bloom"
-              : motion === "breathe"
+              : motion === "bloom-loop"
                 ? "loader"
                 : "still"
           }
@@ -313,7 +274,7 @@ export default function LabScreen() {
               v === "bloom"
                 ? "bloom-once"
                 : v === "loader"
-                  ? "breathe"
+                  ? "bloom-loop"
                   : "still",
             );
             setReplay((n) => n + 1);
@@ -324,9 +285,12 @@ export default function LabScreen() {
       <View className="flex-row flex-wrap justify-center gap-6" key={replay}>
         <Column
           title="Reference — paint"
-          how="The hand-painted orb. Never re-coloured."
+          how="The hand-painted orb. Never re-colored."
         >
-          <AnimatedPaintedOrb size={200} moving={motion !== "still"} />
+          <AnimatedPaintedOrb
+            size={200}
+            motion={motion === "still" ? "still" : motion}
+          />
         </Column>
         <Column
           title="B — look-alike"
@@ -342,7 +306,7 @@ export default function LabScreen() {
         </Column>
         <Column
           title="E — physics-painted"
-          how="Painted ahead of time by It's simulation; coloured live with pigment optics."
+          how="Painted ahead of time by It's simulation; colored live with pigment optics."
         >
           <SkiaDot
             size={200}
@@ -351,6 +315,21 @@ export default function LabScreen() {
             motion={motion === "bloom-once" ? "bloom-once" : dotMotion}
           />
         </Column>
+      </View>
+
+      <View className="gap-3">
+        <Text className="text-xl font-semibold text-ink">
+          Loader, as shipped
+        </Text>
+        <Text className="text-muted">
+          The real loading state, running until you leave.{" "}
+          {Platform.OS === "web"
+            ? "On web this is dot B drawn with the browser's WebGL (no Skia)."
+            : "On iOS this is the chosen generated dot."}
+        </Text>
+        <View className="rounded-xl bg-paper py-2">
+          <WatercolorLoader />
+        </View>
       </View>
 
       <View className="gap-3">

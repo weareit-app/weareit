@@ -64,7 +64,7 @@ palettes.forEach((id, row) => {
   const y = row * CELL + (CELL - DOT) / 2;
   const x0 = (CELL - DOT) / 2;
 
-  // Reference: the painted orb, cropped to its dot (never re-coloured).
+  // Reference: the painted orb, cropped to its dot (never re-colored).
   const paint = new CK.Paint();
   canvas.drawImageRect(
     reference,
@@ -87,13 +87,14 @@ palettes.forEach((id, row) => {
         uDry: [1],
         uBreathe: [0],
         uSeed: [3],
+        uOpacity: [1],
       }),
     ),
   );
   canvas.drawRect(CK.XYWHRect(0, 0, DOT, DOT), pb);
   canvas.restore();
 
-  // Option E: physics-painted atlas, coloured live.
+  // Option E: physics-painted atlas, colored live.
   canvas.save();
   canvas.translate(2 * CELL + x0, y);
   const pe = new CK.Paint();

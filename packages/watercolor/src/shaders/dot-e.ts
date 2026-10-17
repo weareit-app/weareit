@@ -2,7 +2,7 @@ import { KM_SKSL } from "./km.ts";
 
 // Option E: a dot painted ahead of time by tools/watercolor-sim. The atlas
 // holds where each pigment ended up (RGB = pigment slots 0–2); this shader
-// only plays the frames and colours them with Kubelka-Munk (research R4).
+// only plays the frames and colors them with Kubelka-Munk (research R4).
 export const DOT_E_SKSL = /* sksl */ `
 uniform shader uAtlas;
 uniform float2 uSize;

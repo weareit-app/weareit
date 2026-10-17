@@ -4,14 +4,14 @@ All of this is static, bundled data and in-memory state. Nothing is stored on a 
 
 ## Pigment
 
-One paint colour.
+One paint color.
 
 | Field | Type | Rules |
 |---|---|---|
 | `id` | string | kebab-case, unique within a palette |
 | `name` | string | human name, e.g. "Teal blue" |
-| `masstone` | sRGB hex | colour at full strength |
-| `tint` | sRGB hex | colour when thinly diluted over white paper; must be lighter than `masstone` |
+| `masstone` | sRGB hex | color at full strength |
+| `tint` | sRGB hex | color when thinly diluted over white paper; must be lighter than `masstone` |
 | `granulation` | number 0–1 | how much it settles in paper valleys (used by B shader; E bakes it in) |
 | `k`, `s` | [r,g,b] numbers ≥ 0 | derived from `masstone` + `tint` (research R5); not hand-authored |
 
@@ -22,7 +22,7 @@ One paint colour.
 | `id` | string | e.g. `it-orb`, `rose-violet` |
 | `name` | string | |
 | `pigments` | Pigment[2–4] | FR-014 |
-| `paper` | sRGB hex | defaults to It's paper colour |
+| `paper` | sRGB hex | defaults to It's paper color |
 | `visible` | derived boolean | passes the visibility check (research R6, FR-018); a palette that fails cannot be used at runtime and fails its unit test |
 
 v0.1 has exactly two palettes: `it-orb` (default, FR-016) and `rose-violet` (proof only).
@@ -36,7 +36,7 @@ A dot painted ahead of time by `tools/watercolor-sim`. Stored as `apps/app/asset
 | `id` | string | e.g. `orb-01` |
 | `size` | integer px | square frame size, e.g. 256 |
 | `frames` | integer ≥ 1 | bloom-and-settle sequence; last frame is the still "dried" state |
-| `pigmentSlots` | 2–3 | atlas RGB channels used; slot n is coloured by palette pigment n (alpha unused: premultiplication would corrupt it) |
+| `pigmentSlots` | 2–3 | atlas RGB channels used; slot n is colored by palette pigment n (alpha unused: premultiplication would corrupt it) |
 | `densityScale` | number > 0 | byte v → density v / 255 × densityScale |
 | `fps` | number | playback rate for the sequence |
 | `breathe` | object | optional slow loop: frame range and period, seamless (FR-012) |

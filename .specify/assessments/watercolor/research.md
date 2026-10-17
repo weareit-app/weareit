@@ -26,10 +26,10 @@
 - **Model**, as its own comments describe it, "after Curtis et al. 1997", three layers per texel:
   - *Surface water*: height and velocity, moved by semi-Lagrangian advection, pushed downhill by water height plus paper relief, slowed by drag, and drained into the paper.
   - *Pigment*: 8 pigment channels, each split into *suspended* (moves with the water) and *deposited* (settled on the paper). Pigment settles as the film thins, settles more in paper valleys (granulation), and lifts back up in fast water unless the pigment is "staining".
-  - *Capillary layer*: paper saturation that spreads through fibres, optionally as invasion percolation for feathered edges.
-  - *Paper*: generated from layered value noise (fbm) as height, absorbency, fibre direction and pore threshold.
+  - *Capillary layer*: paper saturation that spreads through fibers, optionally as invasion percolation for feathered edges.
+  - *Paper*: generated from layered value noise (fbm) as height, absorbency, fiber direction and pore threshold.
   - *Edge darkening*: evaporation at the wet/dry boundary drives an outward flow that carries pigment to the rim, which is what makes the darker ring.
-  - *Optics*: Kubelka-Munk (K-M). Each pigment has absorption K and scattering S per colour channel; layers composite physically; wet paint is drawn darker and richer; dried washes are "baked" into the paper as a transmittance filter so later glazes sit on top. Also a backlit (transmitted light) view and salt, alcohol and rain effects.
+  - *Optics*: Kubelka-Munk (K-M). Each pigment has absorption K and scattering S per color channel; layers composite physically; wet paint is drawn darker and richer; dried washes are "baked" into the paper as a transmittance filter so later glazes sit on top. Also a backlit (transmitted light) view and salt, alcohol and rain effects.
   - — [source: sudoaquarelle.com/js/sim.js] (confidence: high)
 - **License: none published.** `https://sudoaquarelle.com/LICENSE` returns 404 and the source files carry no license header. Unlicensed code is all-rights-reserved by default, so **none of it can be copied into It**. It is useful as proof the approach runs in a browser and as a checklist of effects. Anything It builds must be written from the published papers and K-M maths. — [source: HTTP check 2026-10-17; ASSUMPTION about default copyright, not legal advice] (confidence: high on the finding, medium on the conclusion)
 - **Cost signal:** a full-screen multi-pass sim with 4+ float textures and many steps per frame is a heavy GPU load. It suits one canvas, not dozens of small dots across a UI. — [ASSUMPTION: from the shader structure; not measured] (confidence: medium)
@@ -40,8 +40,8 @@
 - **Bousseau, Kaplan, Thollot & Sillion, "Interactive watercolor rendering with temporal coherence and abstraction", NPAR 2006.** Not a fluid sim: an image filter. Abstract the image into flat regions, then apply watercolor effects (paper texture, pigment density variation, edge darkening, wobbling edges) as image-space filters, with methods to keep animation coherent. — [source: artis.inrialpes.fr/Publications/2006/BKTS06] (confidence: high) *Relevance: the "look-alike without physics" route, built for animation.*
 - **Montesdeoca et al. (real-time watercolor in Maya).** Edge darkening by difference-of-Gaussians with gradual pigment build-up, and a split paper granulation filter that controls paper roughness and pigment pooling in the paper's valleys. — [source: dr.ntu.edu.sg bitstreams, NTU] (confidence: medium)
 - **Other real-time work** uses a Sobel filter for edge darkening and per-pigment granulation constants. — [source: cs.nthu.edu.tw/~chunfa/pcm2004.pdf] (confidence: medium)
-- **Layered polygon deformation** (the technique popularised by generative artist Tyler Hobbs): many low-opacity copies of a recursively jittered polygon give soft, bled watercolor shapes with no shader at all. — [ASSUMPTION: from memory of his published essay; not re-checked this session] (confidence: medium)
-- **Mixbox (Secret Weapons).** Pigment-like colour mixing via K-M with an RGB-in/RGB-out API; ships GLSL plus a lookup texture. **License: CC BY-NC 4.0, non-commercial only**; commercial use needs a separate agreement. — [source: github.com/scrtwpns/mixbox, scrtwpns.com/mixbox/docs] (confidence: high) *Relevance: not usable as-is under It's AGPL app license; a small K-M mixer for 2–4 known pigments can be written from the maths instead.*
+- **Layered polygon deformation** (the technique popularized by generative artist Tyler Hobbs): many low-opacity copies of a recursively jittered polygon give soft, bled watercolor shapes with no shader at all. — [ASSUMPTION: from memory of his published essay; not re-checked this session] (confidence: medium)
+- **Mixbox (Secret Weapons).** Pigment-like color mixing via K-M with an RGB-in/RGB-out API; ships GLSL plus a lookup texture. **License: CC BY-NC 4.0, non-commercial only**; commercial use needs a separate agreement. — [source: github.com/scrtwpns/mixbox, scrtwpns.com/mixbox/docs] (confidence: high) *Relevance: not usable as-is under It's AGPL app license; a small K-M mixer for 2–4 known pigments can be written from the maths instead.*
 
 ### Rendering options in It's stack
 
@@ -53,7 +53,7 @@
 
 ## Market & Context
 
-- Today It uses static JPEGs. Doing nothing costs nothing now, but every new scene, colour theme or animation needs new painted (or generated) art, and AI-generated images bring rights and consistency questions the licensing policy already flags. — [source: brand README, licensing.md] (confidence: medium)
+- Today It uses static JPEGs. Doing nothing costs nothing now, but every new scene, color theme or animation needs new painted (or generated) art, and AI-generated images bring rights and consistency questions the licensing policy already flags. — [source: brand README, licensing.md] (confidence: medium)
 - Few apps generate their illustration style procedurally; most ship static or Lottie art. A consistent generated watercolor language would be distinctive. — [ASSUMPTION] (confidence: low)
 - Key technical finding: most of the founder's named uses (loader, themed dot, gathering, morphing) do not need live physics. A **procedural** shader — a noise-warped shape, a darker edge ring, soft blooms from layered noise, paper grain, K-M-style mixing of a few pigments — can give the look for many small instances at once. A real sim can be kept for rare full-screen moments, or run ahead of time to bake textures. — [ASSUMPTION: from the techniques above; to be proven by a prototype] (confidence: medium)
 
@@ -64,13 +64,13 @@
 - **Dependencies:** adding Skia is a change to the agreed stack and needs a decision record; versions must come from `expo install`. — [source: AGENTS.md, dependency-policy.md] (confidence: high)
 - **Licensing:** rendering code must be AGPL-compatible (rules out copying sudoaquarelle and using Mixbox without a deal); generated illustrations are CC0 with provenance. — [source: licensing.md] (confidence: high)
 - **Privacy:** a dot or scene built from a person's pre-signup choices is personal data drawn on screen. It may be shown to that person on device; it must not appear in shared or public images by default. — [source: AGENTS.md privacy invariants] (confidence: high)
-- **Accessibility:** the spec template requires a reduced-motion behaviour; generated images need text alternatives that say what they mean. — [source: `.specify/templates/overrides/spec-template.md`] (confidence: high)
+- **Accessibility:** the spec template requires a reduced-motion behavior; generated images need text alternatives that say what they mean. — [source: `.specify/templates/overrides/spec-template.md`] (confidence: high)
 - **Performance:** no measurements yet. Budget questions: frame time for 1 large dot, for ~30 small dots at once, and battery cost of an always-on loader. [NEEDS CLARIFICATION: target devices]
 
 ## Evidence Against the Idea
 
 - **No demand evidence** beyond the founder. Visual polish may matter less for v0.1 than the core personal and societal pages. — [ASSUMPTION] (confidence: medium)
-- **Matching hand-painted quality is hard.** Procedural watercolor can look "digital" (too regular, too smooth, wrong colour mixing). The founder's reference is a real painting with real pigment behaviour; a look-alike shader may fall short and a real sim is expensive. — [ASSUMPTION] (confidence: medium)
+- **Matching hand-painted quality is hard.** Procedural watercolor can look "digital" (too regular, too smooth, wrong color mixing). The founder's reference is a real painting with real pigment behavior; a look-alike shader may fall short and a real sim is expensive. — [ASSUMPTION] (confidence: medium)
 - **Web cost.** ~2.9 MB of CanvasKit before the first generated pixel is a real cost on a mobile-web onboarding flow. — [source: Skia docs] (confidence: medium)
 - **New dependency and skill.** Shader code is a specialist area; it adds a native module, a decision record, and maintenance. — [ASSUMPTION] (confidence: medium)
 - **Style split.** The charcoal line figures are a second style; a generated watercolor system does not cover them, and mixing generated washes with hand-drawn lines needs care. — [source: brand assets] (confidence: medium)

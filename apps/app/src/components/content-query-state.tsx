@@ -1,4 +1,5 @@
-import { Pressable, Text, View } from "react-native";
+import { Pressable, Text } from "react-native";
+import { WatercolorLoader } from "../watercolor/watercolor-loader";
 import { Page } from "./page";
 
 export function ContentQueryState({
@@ -16,7 +17,7 @@ export function ContentQueryState({
         title="Loading the roadmap"
         description="Getting the latest published content…"
       >
-        <View />
+        <WatercolorLoader />
       </Page>
     );
   }
@@ -40,7 +41,7 @@ export function ContentQueryState({
       title="Loading the roadmap"
       description="Getting the latest published content…"
     >
-      <View />
+      <WatercolorLoader />
     </Page>
   );
 }

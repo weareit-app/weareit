@@ -8,7 +8,7 @@ How to run the proof: `specs/007-watercolor-dot/quickstart.md` §3. Open `/lab/w
 
 ![Side by side, 2026-10-17](side-by-side-2026-10-17.png)
 
-Columns: the painted orb (reference, never re-coloured); **B**, the look-alike shader drawn live from noise; **E**, the dot painted ahead of time by `tools/watercolor-sim` and coloured live with pigment optics. Rows: It's palette (`it-orb`) and the proof palette (`rose-violet`). Rendered with the same shaders as the app, through Skia's CanvasKit (`tools/watercolor-sim/compare.ts`).
+Columns: the painted orb (reference, never re-colored); **B**, the look-alike shader drawn live from noise; **E**, the dot painted ahead of time by `tools/watercolor-sim` and colored live with pigment optics. Rows: It's palette (`it-orb`) and the proof palette (`rose-violet`). Rendered with the same shaders as the app, through Skia's CanvasKit (`tools/watercolor-sim/compare.ts`).
 
 Notes from building it (2026-10-17, not a verdict):
 
@@ -42,7 +42,13 @@ Fill from the lab's "Results" JSON. A run made while the window is hidden is inv
 | **Total for E on web** | | **≈ 3.6 MB — over the 1 MB budget** |
 | **Total for B on web** | | **≈ 3.2 MB — over the 1 MB budget** |
 
-Per FR-011 and the approved decision, web uses the animated painted orb in v0.1 whichever approach wins. A raw WebGL route for web (the shaders are a few KB) is the first thing to try after v0.1.
+After the verdict the founder asked for B on web too. B's shader is now translated to GLSL and drawn with the browser's WebGL, so web needs neither CanvasKit nor the atlas:
+
+| Item | Size |
+|---|---|
+| **B on web via WebGL** (shader source and the small renderer in the app bundle) | a few KB — within the 1 MB budget |
+
+Skia's web runtime is loaded only in the dev lab.
 
 ## iOS build (2026-10-17)
 
@@ -70,3 +76,17 @@ To measure: compare the release `.ipa` size before and after Skia (T047).
 | # | Feels like | What is happening | Calmer or slower |
 |---|---|---|---|
 | 1 | | | |
+
+## Living loader comparison (T053, 2026-10-17)
+
+Lab section "Living loader — compare" at `/lab/watercolor`.
+
+- **1 — Shader B, living**: crisp first-bloom edge; pigments flow and marble; a drop of new color lands every 2.6 s and blooms in, pushing paint to a darker ring and merging over a few seconds; the palette drifts It orb → sunrise → dusk over about 14 s each; "Content arrived" dries it (rim, bloom line, granulation) over 1.4 s, then it fades. Runs on web (WebGL) and iOS (Skia).
+- **2 — Live paint simulation** (prototype, web only): a 192² GPU simulation of wet paint. Paint is applied and spreads, drops push into the wash, a slow current marbles the pigment, and "Content arrived" dries it. Behaves like paint but is not yet tuned: ragged edge with holes, colors lean cyan and pale, and it dries faint. More tuning would be needed if chosen.
+- Download on web: shader code only for both (a few KB).
+
+Founder's choice: —
+
+## Loader direction (2026-10-17)
+
+After the verdict, the loader went through several versions: a subtle breath, a visible breath with turning, a bloom loop, a deeper dissolve with swirling pigment, a wet-to-dry loop moving through It orb, sunrise and dusk palettes, and finally a "living" dot B (drops of new color blooming into a wet wash) beside a live GPU paint simulation. None matched what the founder had in mind. The loader is back to the original B bloom loop (crisp bloom, rest, soft fade, repeat) on web and iOS; the experiments are kept on branch `explore/living-loader`, and alternative ideas are being storyboarded (T056).

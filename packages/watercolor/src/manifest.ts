@@ -8,7 +8,7 @@ export const manifestSchema = z
     size: z.number().int().positive(),
     frames: z.number().int().min(1),
     columns: z.number().int().min(1),
-    // RGB only: alpha would be premultiplied into the colour channels on decode.
+    // RGB only: alpha would be premultiplied into the color channels on decode.
     pigmentSlots: z.number().int().min(2).max(3),
     densityScale: z.number().positive(),
     fps: z.number().positive(),
