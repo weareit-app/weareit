@@ -7,7 +7,7 @@ Produced by `tools/watercolor-sim`, consumed by `<WatercolorDot approach="E">`. 
 ```
 apps/app/assets/watercolor/<id>/
 ├── manifest.json
-└── atlas.png      # frames laid out left→right, top→bottom; RGBA channel n = pigment slot n density (0–255 → 0–1)
+└── atlas.png      # frames laid out left→right, top→bottom; RGB channel n = pigment slot n density (0–255 → 0–densityScale); alpha always 255
 ```
 
 ## `manifest.json`
@@ -20,6 +20,7 @@ apps/app/assets/watercolor/<id>/
   "frames": 20,
   "columns": 5,
   "pigmentSlots": 3,
+  "densityScale": 2,
   "fps": 12,
   "breathe": { "from": 16, "to": 19, "periodSeconds": 6 },
   "provenance": {
@@ -36,7 +37,8 @@ apps/app/assets/watercolor/<id>/
 
 Rules:
 - `frames ≥ 1`; the last frame is the still, dried state.
-- `breathe.from..to` must loop with no visible seam (checked by eye in the lab; the sim paints the loop as a closed cycle).
-- `pigmentSlots` 2–4 and ≤ the palette's pigment count.
+- `breathe.from..to` is played back and forth (ping-pong), so the loop has no seam; the sim takes it from the last, slowest-changing frames of drying.
+- `pigmentSlots` 2–3 (RGB only: alpha cannot carry data because decoders premultiply colour by alpha). A palette's 4th pigment, if any, is not used by Option E dots.
+- `densityScale` > 0: stored byte value v means density v / 255 × densityScale.
 - `atlas.png` dimensions = `size × columns` by `size × ceil(frames / columns)`.
 - Re-running the sim with the same `seed`, `simVersion` and `settings` reproduces the atlas (provenance, FR-006).

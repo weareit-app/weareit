@@ -10,9 +10,9 @@ Build It's watercolor mark as a generated dot in two steps. First, a **fidelity 
 
 ## Technical Context
 
-**Language/Version**: TypeScript 5.9.3; SkSL (Skia shading language); GLSL ES 3.0 in the offline sim tool
+**Language/Version**: TypeScript 5.9.3; SkSL (Skia shading language); TypeScript on Node for the offline sim tool
 
-**Primary Dependencies**: Expo SDK 57, React Native 0.86.3, Reanimated 4.5, `@shopify/react-native-skia` (new, approved 2026-10-17; version from `expo install`), Zod 4.6.7, Playwright (existing dev dependency, runs the sim headless)
+**Primary Dependencies**: Expo SDK 57, React Native 0.86.3, Reanimated 4.5, `@shopify/react-native-skia` (new, approved 2026-10-17; version from `expo install`), Zod 4.6.7, Node 24 (runs the sim tool's TypeScript directly)
 
 **Storage**: Bundled static assets only (`apps/app/assets/watercolor/`); no server or device storage
 
@@ -75,8 +75,10 @@ packages/watercolor/            # NEW, framework-free (no Expo/RN imports)
 
 tools/watercolor-sim/           # NEW, offline tool, not shipped
 ├── README.md                   # method + clean-room note (Curtis 1997, K-M)
-├── sim.html, sim.js            # WebGL2 shallow-water/pigment/capillary model
-└── paint.ts                    # Playwright headless runner → atlas.png + manifest.json
+├── sim.ts                      # CPU shallow-water/pigment model (deterministic)
+├── paint.ts                    # CLI → atlas.png + manifest.json
+├── preview.ts                  # coloured contact sheet for tuning
+└── png.ts                      # minimal RGB PNG encoder
 
 apps/app/
 ├── assets/watercolor/orb-01/   # NEW painted dot (E)

@@ -10,13 +10,16 @@
     "ios": "expo run:ios",
     "test:expo": "jest --config jest.config.cjs --runInBand",
     "typecheck": "tsc --noEmit",
-    "lint": "prettier --check app src tests e2e jest.config.cjs playwright.config.ts"
+    "lint": "prettier --check app src tests e2e jest.config.cjs playwright.config.ts",
+    "skia:web": "setup-skia-web public"
   },
   "dependencies": {
     "@better-auth/expo": "1.7.8",
     "@it/api": "workspace:*",
     "@it/content": "workspace:*",
     "@it/domain": "workspace:*",
+    "@it/watercolor": "workspace:*",
+    "@shopify/react-native-skia": "2.6.2",
     "@tanstack/react-query": "^5.104.2",
     "better-auth": "1.7.8",
     "expo": "~57.0.29",

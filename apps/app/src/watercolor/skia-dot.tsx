@@ -1,0 +1,297 @@
+import {
+  Canvas,
+  Group,
+  ImageShader,
+  Rect,
+  Shader,
+  Skia,
+  useClock,
+  useImage,
+  type SkImage,
+} from "@shopify/react-native-skia";
+import { PALETTES, type PaletteId } from "@it/watercolor/palettes";
+import {
+  DOT_B_SKSL,
+  DOT_E_SKSL,
+  paletteUniforms,
+} from "@it/watercolor/shaders";
+import { useEffect, useMemo, useState } from "react";
+import { AppState, View } from "react-native";
+import {
+  Easing,
+  useDerivedValue,
+  useReducedMotion,
+  useSharedValue,
+  withTiming,
+  type SharedValue,
+} from "react-native-reanimated";
+import type { WatercolorApproach } from "./approach";
+import { PaintedOrb } from "./painted-orb";
+import { DEFAULT_DOT_ID, PAINTED_DOTS } from "./painted-dots";
+
+export type DotMotion = "still" | "bloom-once" | "breathe";
+
+export interface SkiaDotProps {
+  size: number;
+  approach: WatercolorApproach;
+  palette?: PaletteId;
+  dot?: string;
+  motion?: DotMotion;
+  seed?: number;
+  accessibilityLabel?: string;
+}
+
+const BLOOM_MS = 2400;
+
+// Compiled once per app run; null if the device cannot compile them, in which
+// case the painted orb is shown instead.
+const EFFECTS = {
+  B: Skia.RuntimeEffect.Make(DOT_B_SKSL),
+  E: Skia.RuntimeEffect.Make(DOT_E_SKSL),
+};
+
+function useAppActive() {
+  const [active, setActive] = useState(AppState.currentState === "active");
+  useEffect(() => {
+    const sub = AppState.addEventListener("change", (s) =>
+      setActive(s === "active"),
+    );
+    return () => sub.remove();
+  }, []);
+  return active;
+}
+
+// Shared state for one canvas of dots: whether they move, the clock, the
+// bloom progress (0 → 1, where 1 is dried and still) and the atlas.
+function useDotCanvas(
+  approach: WatercolorApproach,
+  dot: string,
+  motion: DotMotion,
+) {
+  const reduceMotion = useReducedMotion();
+  const active = useAppActive();
+  const moving = motion !== "still" && !reduceMotion && active;
+  const painted = PAINTED_DOTS[dot];
+  const atlas = useImage(approach === "E" ? (painted?.atlas ?? null) : null);
+  const effect = EFFECTS[approach];
+  const ready =
+    effect !== null &&
+    (approach === "B" || (painted !== undefined && atlas !== null));
+  const clock = useClock();
+  const progress = useSharedValue(motion === "bloom-once" && moving ? 0 : 1);
+  useEffect(() => {
+    if (motion === "bloom-once" && moving) {
+      progress.value = 0;
+      progress.value = withTiming(1, {
+        duration: BLOOM_MS,
+        easing: Easing.out(Easing.cubic),
+      });
+    } else {
+      progress.value = 1;
+    }
+  }, [motion, moving, progress]);
+  return {
+    ready,
+    atlas,
+    clock,
+    progress,
+    breathing: motion === "breathe" && moving,
+  };
+}
+
+interface DotShapeProps {
+  x: number;
+  y: number;
+  size: number;
+  approach: WatercolorApproach;
+  palette: PaletteId;
+  dot: string;
+  seed: number;
+  atlas: SkImage | null;
+  clock: SharedValue<number>;
+  progress: SharedValue<number>;
+  breathing: boolean;
+}
+
+// One dot inside a Skia canvas. Many can share a canvas, which matters: each
+// canvas is its own GPU surface, and browsers allow only a handful.
+function DotShape({
+  x,
+  y,
+  size,
+  approach,
+  palette,
+  dot,
+  seed,
+  atlas,
+  clock,
+  progress,
+  breathing,
+}: DotShapeProps) {
+  const effect = EFFECTS[approach]!;
+  const pal = useMemo(() => paletteUniforms(PALETTES[palette]), [palette]);
+  const m = PAINTED_DOTS[dot]?.manifest;
+
+  const uniforms = useDerivedValue(() => {
+    // Offset each dot's clock so a field of dots doesn't move in lockstep.
+    const t = breathing ? clock.value / 1000 + seed * 1.37 : 0;
+    if (approach === "B") {
+      return {
+        ...pal,
+        uSize: [size, size],
+        uTime: t,
+        uBloom: progress.value,
+        uDry: progress.value,
+        uBreathe: breathing ? 1 : 0,
+        uSeed: seed,
+      };
+    }
+    const frames = m?.frames ?? 1;
+    let frame = progress.value * (frames - 1);
+    if (breathing && m?.breathe) {
+      // Back and forth through the last frames of drying: a seamless loop.
+      const phase = (t / m.breathe.periodSeconds) % 1;
+      const pingPong = phase < 0.5 ? phase * 2 : 2 - phase * 2;
+      frame = m.breathe.from + pingPong * (m.breathe.to - m.breathe.from);
+    }
+    return {
+      ...pal,
+      uSize: [size, size],
+      uFrame: frame,
+      uFrames: frames,
+      uColumns: m?.columns ?? 1,
+      uFrameSize: m?.size ?? 1,
+      uDensityScale: m?.densityScale ?? 1,
+    };
+  });
+
+  return (
+    <Group transform={[{ translateX: x }, { translateY: y }]}>
+      <Rect x={0} y={0} width={size} height={size}>
+        <Shader source={effect} uniforms={uniforms}>
+          {approach === "E" && atlas ? (
+            <ImageShader
+              image={atlas}
+              fit="none"
+              rect={{
+                x: 0,
+                y: 0,
+                width: atlas.width(),
+                height: atlas.height(),
+              }}
+              tx="clamp"
+              ty="clamp"
+            />
+          ) : null}
+        </Shader>
+      </Rect>
+    </Group>
+  );
+}
+
+function a11yProps(accessibilityLabel?: string) {
+  return accessibilityLabel
+    ? {
+        accessible: true,
+        accessibilityRole: "image" as const,
+        accessibilityLabel,
+      }
+    : {
+        accessible: false,
+        accessibilityElementsHidden: true,
+        importantForAccessibility: "no-hide-descendants" as const,
+      };
+}
+
+// A generated watercolor dot drawn with Skia (contract: WatercolorDot in
+// specs/007-watercolor-dot/contracts/watercolor-components.md). The painted
+// orb is shown until the dot is ready, and stays if it fails.
+export function SkiaDot({
+  size,
+  approach,
+  palette = "it-orb",
+  dot = DEFAULT_DOT_ID,
+  motion = "still",
+  seed = 0,
+  accessibilityLabel,
+}: SkiaDotProps) {
+  const c = useDotCanvas(approach, dot, motion);
+  return (
+    <View
+      style={{ width: size, height: size }}
+      pointerEvents="none"
+      {...a11yProps(accessibilityLabel)}
+    >
+      {!c.ready ? (
+        <PaintedOrb size={size} />
+      ) : (
+        <Canvas style={{ width: size, height: size }}>
+          <DotShape
+            x={0}
+            y={0}
+            size={size}
+            approach={approach}
+            palette={palette}
+            dot={dot}
+            seed={seed}
+            atlas={c.atlas}
+            clock={c.clock}
+            progress={c.progress}
+            breathing={c.breathing}
+          />
+        </Canvas>
+      )}
+    </View>
+  );
+}
+
+export interface SkiaDotFieldProps {
+  columns: number;
+  rows: number;
+  dotSize: number;
+  gap: number;
+  approach: WatercolorApproach;
+  palette?: PaletteId;
+  dot?: string;
+  motion?: DotMotion;
+}
+
+// Many dots in one canvas. Decorative.
+export function SkiaDotField({
+  columns,
+  rows,
+  dotSize,
+  gap,
+  approach,
+  palette = "it-orb",
+  dot = DEFAULT_DOT_ID,
+  motion = "still",
+}: SkiaDotFieldProps) {
+  const c = useDotCanvas(approach, dot, motion);
+  const width = columns * dotSize + (columns - 1) * gap;
+  const height = rows * dotSize + (rows - 1) * gap;
+  return (
+    <View style={{ width, height }} pointerEvents="none" {...a11yProps()}>
+      {c.ready ? (
+        <Canvas style={{ width, height }}>
+          {Array.from({ length: columns * rows }, (_, i) => (
+            <DotShape
+              key={i}
+              x={(i % columns) * (dotSize + gap)}
+              y={Math.floor(i / columns) * (dotSize + gap)}
+              size={dotSize}
+              approach={approach}
+              palette={palette}
+              dot={dot}
+              seed={i}
+              atlas={c.atlas}
+              clock={c.clock}
+              progress={c.progress}
+              breathing={c.breathing}
+            />
+          ))}
+        </Canvas>
+      ) : null}
+    </View>
+  );
+}

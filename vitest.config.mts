@@ -8,6 +8,8 @@ export default defineConfig({
       "packages/database/tests/**/*.test.ts",
       "apps/api-server/tests/**/*.test.ts",
       "apps/app/src/payments/**/*.test.ts",
+      "packages/watercolor/tests/**/*.test.ts",
+      "tools/watercolor-sim/tests/**/*.test.ts",
     ],
     environment: "node",
   },

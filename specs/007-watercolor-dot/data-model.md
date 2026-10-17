@@ -36,7 +36,8 @@ A dot painted ahead of time by `tools/watercolor-sim`. Stored as `apps/app/asset
 | `id` | string | e.g. `orb-01` |
 | `size` | integer px | square frame size, e.g. 256 |
 | `frames` | integer ≥ 1 | bloom-and-settle sequence; last frame is the still "dried" state |
-| `pigmentSlots` | 2–4 | atlas RGBA channels used; slot n is coloured by palette pigment n |
+| `pigmentSlots` | 2–3 | atlas RGB channels used; slot n is coloured by palette pigment n (alpha unused: premultiplication would corrupt it) |
+| `densityScale` | number > 0 | byte v → density v / 255 × densityScale |
 | `fps` | number | playback rate for the sequence |
 | `breathe` | object | optional slow loop: frame range and period, seamless (FR-012) |
 | `provenance` | object | `seed`, `simVersion`, `settings` (all sim parameters), `pigmentsUsed` (the palette ids/densities painted with), `createdAt`, `license: "CC0-1.0"` (FR-006) |
