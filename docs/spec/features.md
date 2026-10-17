@@ -16,6 +16,14 @@ DRAFT. ✔ = founder decided · ? = open / from the unchecked draft spec · **co
 
 - ✔ **core** Same as personal, for society-wide problems.
 
+## 2b. Entry links (no account)
+
+- ✔ **core** A link that opens the personal or societal page with one pain already open ("/p/housing", "/s/ai-and-jobs"), so a post about housing lands on housing.
+- ✔ **core** The link carries no personal data and no identifier of who shared or clicked it. Arriving by link counts in the coarse totals like any other visit, nothing more.
+- ✔ **core** Every pain has a stable, readable slug that doesn't change when its wording does.
+- ? Which pains get links first: all of them, or a launch set matched to the outreach list.
+- ✗ Not in v0.1: custom landing pages per topic (headline, sourced context, counts of people who share the pain). Soon: the link format must not block them.
+
 ## 3. Sign up (required to go further)
 
 - ✔ **core** Email code (OTP) or email + password.
