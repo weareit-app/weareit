@@ -3,4 +3,5 @@
 // until then nothing outside the lab draws a generated dot.
 export type WatercolorApproach = "B" | "E";
 
-export const WATERCOLOR_APPROACH: WatercolorApproach | null = null;
+// Founder verdict 2026-10-17: B.
+export const WATERCOLOR_APPROACH: WatercolorApproach | null = "B";

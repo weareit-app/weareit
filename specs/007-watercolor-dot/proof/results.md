@@ -1,6 +1,6 @@
 # Fidelity proof results — watercolor dot (007)
 
-Status: **waiting for the founder's verdict and on-device measurements** (T027–T028).
+Status: **verdict B recorded (2026-10-17); on-device measurements still to do** (T027).
 
 How to run the proof: `specs/007-watercolor-dot/quickstart.md` §3. Open `/lab/watercolor` in a development build, on screen (not in a hidden window or background tab), on an iPhone 12 and on a laptop in Chrome and Safari.
 
@@ -59,9 +59,9 @@ To measure: compare the release `.ipa` size before and after Skia (T047).
 
 ## Verdict
 
-- Choice: _B / E / neither_ —
-- Date: —
-- Notes:
+- Choice: **B — the look-alike shader is "the same family" as the painted orb.**
+- Date: 2026-10-17
+- Notes: chosen by the founder in the lab on web (laptop, Chrome in the Claude app's browser pane), still view in It's palette. Smoothness on iPhone 12 is still to be measured once the iOS build links; on web, v0.1 uses the animated painted orb regardless (download budget). Option E's simulation tool stays in the repo for later work (painted textures, scenes).
 
 ## People check (SC-008, before shipping)
 

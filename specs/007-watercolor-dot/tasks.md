@@ -72,7 +72,7 @@ Clean-room rule for every task: write simulation and colour code from Curtis et 
 - [X] T025 [US1] Add web measurement to the lab: on web only, lazy-load Skia/CanvasKit inside the lab route (`apps/app/app/lab/watercolor.web.tsx` if a separate file is needed) and report bytes for CanvasKit wasm + shader + atlas and whether ≤ 1 MB (FR-003, FR-011); confirm CanvasKit is not in the main web bundle (research R11)
 - [X] T026 [US1] Add verdict buttons (B / E / neither) and "Copy results" producing JSON with device, scenario, `frameMsP99`, `frameMsMax`, `webDownloadBytes`, `fitsWebBudget`, verdict and date (FR-004) in `apps/app/app/lab/watercolor.tsx`
 - [ ] T027 [US1] Create `specs/007-watercolor-dot/proof/results.md` with a table for measurements, sections for the verdict and the people check, and fill measurements from iPhone 12 and laptop Chrome and Safari
-- [ ] T028 [US1] Founder reviews the lab and records the verdict and date in `specs/007-watercolor-dot/proof/results.md`; set `WATERCOLOR_APPROACH` in `apps/app/src/watercolor/approach.ts` to the chosen value
+- [X] T028 [US1] Founder reviews the lab and records the verdict and date in `specs/007-watercolor-dot/proof/results.md`; set `WATERCOLOR_APPROACH` in `apps/app/src/watercolor/approach.ts` to the chosen value
 
 **Checkpoint (gate)**: verdict recorded. B or E → continue. Neither → "If the verdict is neither".
 
