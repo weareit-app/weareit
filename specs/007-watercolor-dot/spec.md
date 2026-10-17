@@ -4,7 +4,7 @@
 
 **Created**: 2026-10-17
 
-**Status**: Draft (clarified 2026-10-17)
+**Status**: Reviewed by the founder 2026-10-17
 
 **Input**: User description: "Watercolor dot (short name: watercolor-dot). Input: .specify/assessments/watercolor/decision.md handoff. Scope: (1) fidelity proof comparing painted orb (apps/app/assets/brand/watercolor-orb.jpg), Option B look-alike shader dot, Option E dot painted by physics ahead of time and coloured live with Kubelka-Munk, side by side, still and as loader, in It's palette and one other palette, with frame-time measurements for 1 large dot and ~30 small dots on web and iPhone; (2) v0.1 loader in content loading states, welcome mark, between onboarding steps; (3) dot that takes any palette, no colour picker for people. Use It spec template override; include reduced-motion and text-alternative checks. Turn decision's open questions into [NEEDS CLARIFICATION] markers. No app code."
 
@@ -17,7 +17,7 @@ This spec has no item of its own in `docs/spec/features.md`; it adds the founder
 Two audiences see this feature: the founder (and contributors) reviewing the fidelity proof, and every person using It.
 
 - **Screen: Fidelity proof (founder only, not part of the shipped app)** - Three dots side by side, the same size: the painted orb, the look-alike dot (Option B) and the physics-painted dot (Option E). Each is shown still and playing as a loader, first in It's palette and then in one other palette. Under each dot: its name, how it was made, and its measured smoothness on a laptop browser and an iPhone, for one large dot and for a screen of about 30 small dots. A note says which pieces are generated and which are paint. - The founder can switch palettes, switch between still and moving, look at any dot full size, and record which one is "the same family" as the painted orb (or that none is).
-- **Screen: Welcome** - The It mark is the watercolor dot instead of a fixed picture, gently alive: it slowly blooms and settles like paint drying, then rests. Until the generated dot is ready, the painted orb is shown in the same place and size, so nothing jumps. - The person reads the welcome and goes on as today; the dot never needs a tap and never delays the "start" action.
+- **Screen: Welcome** - The It mark is the watercolor dot instead of a fixed picture, gently alive: it slowly blooms and settles like paint drying, then rests completely still, like a dried painting. Until the generated dot is ready, the painted orb is shown in the same place and size, so nothing jumps. - The person reads the welcome and goes on as today; the dot never needs a tap and never delays the "start" action.
 - **Screen: Any page while its content loads** - Where It today shows a plain loading state, a small watercolor dot breathes in its place with a short line such as "Loading…". If loading fails, the dot stops and the existing error message and retry appear. - The person waits or leaves; nothing changes about what they can do.
 - **Screen: Moving between onboarding steps** (welcome → personal → societal → futures) - The page changes as it does today, and a small watercolor dot blooms once in a corner of the new page, then rests or fades. It is short and never holds the next page back. - The person keeps tapping on; going back works the same way.
 - **With reduced motion on (any screen above)** - Every dot shows its still, "dried" end state: the same picture, no movement. Loading still says "Loading…" in words. Step changes happen without the corner bloom.
@@ -72,7 +72,7 @@ A first-time visitor lands on the welcome screen and sees It's watercolor mark s
 
 1. **Given** a first visit on any device, **When** the welcome screen appears, **Then** the mark is visible straight away (painted orb if the generated dot is not ready yet) and the welcome screen is no slower to appear than today.
 2. **Given** the generated dot becomes ready, **When** it replaces the painted orb, **Then** it appears in the same place and size with a soft fade, not a jump.
-3. **Given** the dot has bloomed, **When** the person stays on the screen, **Then** the dot rests or breathes very slowly and does not loop attention-grabbing motion.
+3. **Given** the dot has bloomed, **When** the person stays on the screen, **Then** the dot rests completely still in its dried end state, with no further motion.
 4. **Given** reduced motion is on, **When** the welcome screen appears, **Then** the mark shows its still end state and never animates.
 5. **Given** a screen reader is on, **When** focus reaches the mark, **Then** it is described in words that say what it is (It's watercolor mark), matching today's label in meaning.
 
@@ -132,6 +132,13 @@ It's team can give the dot a different set of pigments (for a season, a page, or
 - Q: Target devices and acceptable extra web download? → A: iPhone 12 or newer; up to 1 MB extra on web, loaded after the first screen.
 - Q: Do generated images count as CC0 illustrations with seed and settings as provenance? → A: Yes.
 
+### Founder review 2026-10-17
+
+- Q: After the welcome dot blooms and settles, what does it do? → A: Rests completely still, like a dried painting.
+- Q: Which second palette does the proof use? → A: Rose and violet.
+- Q: Should people besides the founder see the loader before it ships? → A: Yes, a quick check with 3–5 people.
+- Q: If the chosen dot can't fit the 1 MB web budget, is web with the animated painted orb acceptable for v0.1? → A: Yes; revisit after v0.1.
+
 ## Requirements *(mandatory)*
 
 ### Functional Requirements
@@ -148,7 +155,7 @@ It's team can give the dot a different set of pigments (for a season, a page, or
 **v0.1 loader (built with the approach the founder chooses)**
 
 - **FR-007**: Every content loading state in the app MUST show the watercolor dot with a text label saying content is loading, in place of today's loading indicator.
-- **FR-008**: The welcome screen's mark MUST be the watercolor dot, playing a slow bloom-and-settle and then resting.
+- **FR-008**: The welcome screen's mark MUST be the watercolor dot, playing a slow bloom-and-settle once and then resting completely still in its dried end state.
 - **FR-009**: On each change between onboarding steps, the page MUST change as it does today, and a small watercolor dot MUST bloom once in a corner of the new page; no full-screen wash and no dot travelling between pages in v0.1.
 - **FR-010**: Wherever a generated dot is not ready or cannot be drawn, the painted orb MUST be shown in the same place and size, and no screen or action MUST ever wait for the generated dot to be ready.
 - **FR-011**: The first onboarding screen MUST appear no slower than it does today; any extra web download for the generated dot MUST load after it and MUST NOT exceed 1 MB (compressed). If the chosen approach cannot fit in 1 MB on web, web MUST use the animated painted orb in all three placements, and iOS MUST still use the generated dot.
@@ -188,6 +195,7 @@ It's team can give the dot a different set of pigments (for a season, a page, or
 - **SC-005**: A new palette can be applied by changing data only, and the dot shows paint-like mixing in at least It's palette and one other palette, as judged by the founder.
 - **SC-006**: With reduced motion on, no dot moves on any of the three placements (checked on web and iOS).
 - **SC-007**: Every dot placement has a text alternative or is correctly hidden as decorative, verified with a screen reader on web and iOS.
+- **SC-008**: Before the loader ships, 3–5 people besides the founder watch the loader and welcome dot and say what it feels like; their responses are recorded with the proof results, and any reading of the motion as anxious, broken or slow is resolved before shipping.
 
 ## It Checks *(mandatory)*
 
@@ -227,7 +235,7 @@ N/A for ideas — no ideas are shown. The loader itself must be honest: it never
 
 - The proof is a founder-facing review, not a screen people see in the shipped app.
 - The founder's verdict on the proof decides between B and E; the rest of this spec is built only with the chosen approach. If neither passes, v0.1 uses the animated painted orb in all three placements and FR-014–FR-016 are reported as not met.
-- The second palette for the proof is chosen by the proof author to be clearly different from It's (for example rose and violet), so mixing can be judged.
+- The second palette for the proof is rose and violet (founder, 2026-10-17), clearly different from It's, so mixing can be judged.
 - Adding a GPU drawing library for the dot is a change to the agreed stack and needs a decision record before planning (decision.md). The research names `@shopify/react-native-skia` at about 2.9 MB extra on web, well over the 1 MB web budget (FR-011), so web will likely use the animated painted orb unless the proof finds a way to draw the chosen dot on web within 1 MB; the proof must report this.
 - The simulation used to paint Option E dots is a tool kept outside the shipped app; only its output ships.
 - Generated dots are CC0 illustrations under `docs/architecture/licensing.md`, with seed, simulation settings and pigments as their provenance, while the drawing code is AGPL app code (founder confirmed 2026-10-17).
