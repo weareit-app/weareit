@@ -44,6 +44,10 @@ Fill from the lab's "Results" JSON. A run made while the window is hidden is inv
 
 Per FR-011 and the approved decision, web uses the animated painted orb in v0.1 whichever approach wins. A raw WebGL route for web (the shaders are a few KB) is the first thing to try after v0.1.
 
+## iOS build (2026-10-17)
+
+The iOS dev build does not link: Expo's dev launcher references `RCTPackagerConnection`, which the React Native core in the build doesn't provide (`Undefined symbols … _OBJC_CLASS_$_RCTPackagerConnection`). Skia is not involved, and updating Expo to 57.0.30 did not fix it. Left for later (founder, 2026-10-17); the iPhone measurements wait on it.
+
 ## iOS binary growth
 
 To measure: compare the release `.ipa` size before and after Skia (T047).
