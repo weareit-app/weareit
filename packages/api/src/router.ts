@@ -23,7 +23,10 @@ export interface ApiContext {
       frequency: "once" | "monthly";
       userId: string | null;
     }): Promise<{ url: string; reference: string }>;
-    getStatus(reference: string): Promise<{
+    getStatus(
+      reference: string,
+      userId: string,
+    ): Promise<{
       frequency: "once" | "monthly";
       status:
         | "pending"
@@ -36,7 +39,7 @@ export interface ApiContext {
         | "failed"
         | "refunded";
     }>;
-    createPortal(reference: string): Promise<{ url: string }>;
+    createPortal(reference: string, userId: string): Promise<{ url: string }>;
   };
 }
 
@@ -48,12 +51,23 @@ function requireCmsActor(actor: string | null) {
   return actor;
 }
 
-function requireUserId(userId: string | null) {
-  if (!userId)
-    throw new ORPCError("UNAUTHORIZED", {
-      message: "Sign in with an email code before saving your exploration.",
-    });
+function requireUserId(
+  userId: string | null,
+  message = "Sign in with an email code before saving your exploration.",
+) {
+  if (!userId) throw new ORPCError("UNAUTHORIZED", { message });
   return userId;
+}
+
+const supportSignInMessage = "Sign in with the account you used to support It.";
+
+// Support references travel in Checkout return URLs, so a reference alone
+// never grants access. Records owned by another account (or by no account)
+// are reported as not found so references cannot be probed.
+function supportNotFound() {
+  return new ORPCError("NOT_FOUND", {
+    message: "Support checkout was not found.",
+  });
 }
 
 export function createApiRouter(db: ItDatabase) {
@@ -108,24 +122,35 @@ export function createApiRouter(db: ItDatabase) {
         },
       ),
       getStatus: os.support.getStatus.handler(async ({ context, input }) => {
+        const userId = requireUserId(context.userId, supportSignInMessage);
         try {
-          return await context.supportPayments.getStatus(input.reference);
+          return await context.supportPayments.getStatus(
+            input.reference,
+            userId,
+          );
         } catch (error) {
           if (
             error instanceof Error &&
             error.message === "SUPPORT_CONTRIBUTION_NOT_FOUND"
           )
-            throw new ORPCError("NOT_FOUND", {
-              message: "Support checkout was not found.",
-            });
+            throw supportNotFound();
           throw error;
         }
       }),
       createPortal: os.support.createPortal.handler(
         async ({ context, input }) => {
+          const userId = requireUserId(context.userId, supportSignInMessage);
           try {
-            return await context.supportPayments.createPortal(input.reference);
+            return await context.supportPayments.createPortal(
+              input.reference,
+              userId,
+            );
           } catch (error) {
+            if (
+              error instanceof Error &&
+              error.message === "SUPPORT_CONTRIBUTION_NOT_FOUND"
+            )
+              throw supportNotFound();
             if (
               error instanceof Error &&
               error.message === "SUPPORT_PORTAL_NOT_AVAILABLE"

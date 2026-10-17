@@ -130,19 +130,21 @@ export function createStripeSupport(db: ItDatabase) {
         throw error;
       }
     },
-    async getStatus(reference: string) {
-      const record = await readSupportContributionStatus(db, reference);
+    async getStatus(reference: string, userId: string) {
+      const record = await readSupportContributionStatus(db, reference, userId);
       if (!record) throw new Error("SUPPORT_CONTRIBUTION_NOT_FOUND");
       return record;
     },
-    async createPortal(reference: string) {
+    async createPortal(reference: string, userId: string) {
       if (!stripe) throw new Error("STRIPE_NOT_CONFIGURED");
       const contribution = await readSupportContributionForPortal(
         db,
         reference,
+        userId,
       );
+      if (!contribution) throw new Error("SUPPORT_CONTRIBUTION_NOT_FOUND");
       if (
-        !contribution?.stripe_customer_id ||
+        !contribution.stripe_customer_id ||
         !contribution.stripe_subscription_id
       )
         throw new Error("SUPPORT_PORTAL_NOT_AVAILABLE");

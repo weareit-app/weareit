@@ -99,22 +99,26 @@ export async function attachStripeCheckout(
 export async function readSupportContributionStatus(
   db: ItDatabase,
   reference: string,
+  userId: string,
 ) {
   return db
     .selectFrom("support_contributions")
     .select(["status", "frequency"])
     .where("id", "=", reference)
+    .where("user_id", "=", userId)
     .executeTakeFirst();
 }
 
 export async function readSupportContributionForPortal(
   db: ItDatabase,
   reference: string,
+  userId: string,
 ) {
   return db
     .selectFrom("support_contributions")
     .select(["stripe_customer_id", "stripe_subscription_id"])
     .where("id", "=", reference)
+    .where("user_id", "=", userId)
     .where("processor", "=", "stripe")
     .where("frequency", "=", "monthly")
     .executeTakeFirst();

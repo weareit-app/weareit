@@ -14,6 +14,12 @@ const iosStoreLevels = [
 ];
 const iosStore = Platform.OS === "ios";
 
+function errorCode(error: unknown) {
+  return error && typeof error === "object" && "code" in error
+    ? String(error.code)
+    : "";
+}
+
 export default function SupportItScreen() {
   const params = useLocalSearchParams<{ status?: string; ref?: string }>();
   const [amount, setAmount] = useState("$15");
@@ -27,6 +33,9 @@ export default function SupportItScreen() {
     queryKey: ["support", "status", reference],
     queryFn: () => apiClient.support.getStatus({ reference: reference! }),
     enabled: isWebSuccess && Boolean(reference),
+    retry: (failureCount, error) =>
+      !["UNAUTHORIZED", "NOT_FOUND"].includes(errorCode(error)) &&
+      failureCount < 3,
     refetchInterval: (query) =>
       query.state.data?.status === "pending" ? 2000 : false,
   });
@@ -105,9 +114,11 @@ export default function SupportItScreen() {
           ? "Your monthly support has ended."
           : status === "failed" || status === "expired"
             ? "No payment was taken. You can try again whenever you’re ready."
-            : paymentStatus.isError
-              ? "Your payment is being confirmed. You can close this page; Stripe will send the receipt."
-              : "We’re waiting for Stripe to confirm the payment.";
+            : errorCode(paymentStatus.error) === "UNAUTHORIZED"
+              ? "Sign in with the account you used to support It to see this confirmation. Stripe will still email your receipt."
+              : paymentStatus.isError
+                ? "Your payment is being confirmed. You can close this page; Stripe will send the receipt."
+                : "We’re waiting for Stripe to confirm the payment.";
   const canceled = params.status === "cancelled";
 
   async function manageSubscription() {
