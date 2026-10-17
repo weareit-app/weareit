@@ -1,0 +1,2655 @@
+# Pain inventory. See pain-inventory.md for field meanings and the framework key.
+# Generated 2026-10-16; edit by hand from here on.
+pains:
+  - id: poor-sleep
+    name: "Sleep"
+    line: "I don't sleep well."
+    draft_name: "Poor sleep"  # earlier name
+    page: personal
+    heading: "Body"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Health"]
+      whoqol: ["Q16", "Q10"]
+      sdg: ["3.4"]
+      maxneef: ["Subsistence"]
+      gallup: ["Physical"]
+      wikidata: {qid: Q1869874, label: "insomnia"}
+    evidence: "PROMIS sleep disturbance domain; Pittsburgh Sleep Quality Index"
+    overlaps: ["always-tired"]
+    founder_pool: "sleep_energy/sleep"
+  - id: out-of-shape
+    name: "Fitness"
+    line: "I don't feel as fit or active as I'd like."
+    draft_name: "Out of shape"  # earlier name
+    draft_line: "I don't move enough."  # earlier line
+    page: personal
+    heading: "Body"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Health"]
+      whoqol: ["Q10", "Q17"]
+      sdg: ["3.4"]
+      maxneef: ["Subsistence"]
+      gallup: ["Physical"]
+      wikidata: {qid: Q1349358, label: "sedentary lifestyle"}
+    evidence: "WHO physical-activity estimates (~1 in 3 adults insufficiently active); PROMIS physical function"
+    overlaps: []
+    founder_pool: "physical_health/functional_limitations"
+  - id: always-tired
+    name: "Tired"
+    line: "I'm tired all the time."
+    draft_name: "Always tired"  # earlier name
+    draft_line: "I'm exhausted all the time."  # earlier line
+    page: personal
+    heading: "Body"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Health"]
+      whoqol: ["Q10"]
+      sdg: []
+      maxneef: ["Subsistence"]
+      gallup: ["Physical"]
+      wikidata: {qid: Q9690, label: "fatigue"}
+    evidence: "PROMIS fatigue; Fix Corpus 4.2"
+    overlaps: ["poor-sleep", "burnout"]
+    founder_pool: "sleep_energy/energy"
+    founder_choice: keep  # batch 1, 2026-10-16
+  - id: health-runs-my-life
+    name: "Illness"
+    line: "I'm living with a condition that limits me."
+    draft_name: "My health runs my life"  # earlier name
+    draft_line: "A condition decides what I can do."  # earlier line
+    page: personal
+    heading: "Body"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Health"]
+      whoqol: ["Q4", "Q17", "Q18"]
+      sdg: ["3.4", "3.8"]
+      maxneef: ["Subsistence", "Freedom"]
+      gallup: ["Physical"]
+      wikidata: {qid: Q383126, label: "chronic condition"}
+    evidence: "CDC: 6 in 10 U.S. adults have a chronic disease; Multimorbidity Treatment Burden Questionnaire"
+    overlaps: ["chronic-pain", "cant-get-care"]
+    founder_pool: "healthcare/treatment_burden"
+    founder_choice: keep  # batch 1, 2026-10-16
+  - id: chronic-pain
+    name: "Pain"
+    line: "I hurt most days."
+    draft_name: "Chronic pain"  # earlier name
+    draft_line: "My body hurts most days."  # earlier line
+    page: personal
+    heading: "Body"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: ["health-runs-my-life"]
+    maps:
+      oecd: ["Health"]
+      whoqol: ["Q3", "Q4"]
+      sdg: ["3.4"]
+      maxneef: ["Subsistence"]
+      gallup: ["Physical"]
+      wikidata: {qid: Q1088113, label: "chronic pain"}
+    evidence: "CDC NHIS: about 1 in 5 U.S. adults have chronic pain; Brief Pain Inventory; Tier 2 list"
+    overlaps: ["health-runs-my-life"]
+    founder_pool: "physical_health/health_symptoms"
+    founder_choice: keep  # batch 1, 2026-10-16
+  - id: womens-health
+    name: "Hormones"
+    line: "I lose days every month to my cycle or menopause."
+    draft_name: "Women's health"  # earlier name
+    draft_line: "My periods or menopause run my month."  # earlier line
+    page: personal
+    heading: "Body"
+    status: candidate
+    gap: true
+    main: false
+    more_like_this_under: ["health-runs-my-life"]
+    maps:
+      oecd: ["Health"]
+      whoqol: ["Q3", "Q17"]
+      sdg: ["3.7"]
+      maxneef: ["Subsistence"]
+      gallup: ["Physical"]
+      wikidata: {qid: Q177708, label: "menopause", note: "covers only part of the pain"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). Menopause Rating Scale; menstrual QoL studies (founder pool)"
+    overlaps: ["health-runs-my-life"]
+    founder_pool: "physical_health/health_symptoms"
+    founder_choice: later  # batch 5, 2026-10-16
+  - id: seeing-hearing
+    name: "Senses"
+    line: "I can't see or hear like I used to."
+    draft_name: "Seeing and hearing"  # earlier name
+    page: personal
+    heading: "Body"
+    status: candidate
+    gap: true
+    main: false
+    more_like_this_under: ["health-runs-my-life", "not-built-for-me"]
+    maps:
+      oecd: ["Health"]
+      whoqol: ["Q17", "Q15"]
+      sdg: ["3.8"]
+      maxneef: ["Subsistence", "Participation"]
+      gallup: ["Physical"]
+      wikidata: {qid: Q16035842, label: "hearing loss", note: "covers only part of the pain"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). WHO World Report on Hearing; NEI VFQ-25 (founder pool)"
+    overlaps: ["not-built-for-me"]
+    founder_pool: "physical_health/functional_limitations"
+    founder_choice: later  # batch 5, 2026-10-16
+  - id: cant-get-care
+    name: "Healthcare"
+    line: "I can't see a doctor when I need one."
+    draft_name: "Can't get care"  # earlier name
+    page: personal
+    heading: "Body"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Health"]
+      whoqol: ["Q24"]
+      sdg: ["3.8"]
+      maxneef: ["Protection"]
+      gallup: ["Physical"]
+      wikidata: {qid: Q67075251, label: "health services accessibility"}
+    evidence: "Federal Reserve SHED 2025 (representative U.S. survey): 24% of insured and 45% of uninsured skipped care over cost; CAHPS"
+    overlaps: ["one-illness-away"]
+    founder_pool: "healthcare/care_access"
+    founder_choice: keep  # batch 1, 2026-10-16
+  - id: teeth
+    name: "Teeth"
+    line: "I can't afford the dentist."
+    page: personal
+    heading: "Body"
+    status: candidate
+    gap: true
+    main: false
+    more_like_this_under: ["cant-get-care"]
+    maps:
+      oecd: ["Health"]
+      whoqol: ["Q24", "Q3"]
+      sdg: ["3.8"]
+      maxneef: ["Subsistence"]
+      gallup: ["Physical"]
+      wikidata: {qid: Q51764646, label: "dental care"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). Dental care is the most commonly skipped care for cost (NHIS)"
+    overlaps: ["cant-get-care"]
+    founder_pool: "healthcare/care_access"
+    founder_choice: later  # batch 5, 2026-10-16
+  - id: eating-badly
+    name: "Diet"
+    line: "I don't eat the way I want to."
+    draft_name: "Eating badly"  # earlier name
+    page: personal
+    heading: "Body"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Health"]
+      whoqol: ["Q2"]
+      sdg: ["2.2", "3.4"]
+      maxneef: ["Subsistence"]
+      gallup: ["Physical"]
+      wikidata: {qid: Q5906358, label: "healthy diet"}
+    evidence: "Dietary surveys (NHANES); not in founder's top rows"
+    overlaps: ["running-out-of-food", "out-of-shape"]
+    founder_pool: "food"
+    founder_choice: keep  # batch 1, 2026-10-16
+  - id: not-built-for-me
+    name: "Disability"
+    line: "I can't access things I need."
+    draft_name: "Not built for me"  # earlier name
+    draft_line: "Places and services shut me out."  # earlier line
+    page: personal
+    heading: "Body"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Health", "Civic engagement"]
+      whoqol: ["Q15", "Q17"]
+      sdg: ["10.2", "11.2"]
+      maxneef: ["Participation", "Freedom"]
+      gallup: ["Community"]
+      wikidata: {qid: Q555097, label: "accessibility"}
+    evidence: "CDC 2026: about 1 in 4 U.S. adults have a disability; ADA Title III residuals"
+    overlaps: ["treated-differently"]
+    founder_pool: "accessibility/accommodations"
+    founder_choice: keep  # batch 1, 2026-10-16
+  - id: anxiety
+    name: "Anxiety"
+    line: "I worry too much."
+    page: personal
+    heading: "Mind"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Subjective well-being", "Health"]
+      whoqol: ["Q26"]
+      sdg: ["3.4"]
+      maxneef: ["Protection"]
+      gallup: ["Physical"]
+      wikidata: {qid: Q154430, label: "anxiety"}
+    evidence: "GAD-7; PROMIS anxiety; Census Household Pulse anxiety items"
+    overlaps: ["overwhelmed"]
+    founder_pool: "mental_emotional/anxiety_worry"
+  - id: overwhelmed
+    name: "Stress"
+    line: "I'm overwhelmed."
+    draft_name: "Overwhelmed"  # earlier name
+    draft_line: "There's too much at once."  # earlier line
+    page: personal
+    heading: "Mind"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Subjective well-being", "Work-life balance"]
+      whoqol: ["Q26"]
+      sdg: []
+      maxneef: ["Leisure"]
+      gallup: ["Physical"]
+      wikidata: {qid: Q3500368, label: "psychological stress"}
+    evidence: "Perceived Stress Scale; information-overload literature"
+    overlaps: ["anxiety", "life-admin"]
+    founder_pool: "life_management/coordination_time"
+  - id: short-fuse
+    name: "Anger"
+    line: "I snap at people I love."
+    draft_name: "Short fuse"  # earlier name
+    page: personal
+    heading: "Mind"
+    status: candidate
+    gap: true
+    main: false
+    more_like_this_under: ["overwhelmed", "home-tension"]
+    maps:
+      oecd: ["Subjective well-being", "Social connections"]
+      whoqol: ["Q26", "Q20"]
+      sdg: []
+      maxneef: ["Affection", "Protection"]
+      gallup: ["Social"]
+      wikidata: null  # searched for "anger"; no good item
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). Difficulties in Emotion Regulation Scale (founder pool)"
+    overlaps: ["home-tension", "overwhelmed"]
+    founder_pool: "mental_emotional/mood_emotion"
+    founder_choice: later  # batch 5, 2026-10-16
+  - id: feeling-down
+    name: "Depression"
+    line: "I feel low most days."
+    draft_name: "Feeling down"  # earlier name
+    draft_line: "Most days feel heavy."  # earlier line
+    page: personal
+    heading: "Mind"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Subjective well-being", "Health"]
+      whoqol: ["Q5", "Q26"]
+      sdg: ["3.4"]
+      maxneef: ["Affection", "Identity"]
+      gallup: ["Physical"]
+      wikidata: {qid: Q42844, label: "major depressive disorder", note: "approximate: clinical term, the pain is broader"}
+    evidence: "PHQ-2/PHQ-9; Census Household Pulse depression items; the largest mental-health gap in the current set"
+    overlaps: ["anxiety", "burnout"]
+    founder_pool: "mental_emotional/mood_emotion"
+    founder_choice: keep  # batch 1, 2026-10-16
+  - id: hard-on-myself
+    name: "Self-esteem"
+    line: "I'm never good enough for myself."
+    draft_name: "Hard on myself"  # earlier name
+    draft_line: "I'm never good enough for me."  # earlier line
+    page: personal
+    heading: "Mind"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: ["feeling-down"]
+    maps:
+      oecd: ["Subjective well-being"]
+      whoqol: ["Q19", "Q11"]
+      sdg: []
+      maxneef: ["Identity"]
+      gallup: ["Physical"]
+      wikidata: {qid: Q10981881, label: "self-esteem"}
+    evidence: "PROMIS self-criticism/worthlessness items; body-image constructs"
+    overlaps: ["feeling-down"]
+    founder_pool: "mental_emotional/mood_emotion"
+    founder_choice: keep  # batch 1, 2026-10-16
+  - id: past-still-hurts
+    name: "Trauma"
+    line: "I'm still living with something that happened."
+    draft_name: "Past still hurts"  # earlier name
+    draft_line: "Something that happened still runs me."  # earlier line
+    page: personal
+    heading: "Mind"
+    status: candidate
+    gap: true
+    main: false
+    more_like_this_under: ["feeling-down", "anxiety"]
+    maps:
+      oecd: ["Health", "Subjective well-being"]
+      whoqol: ["Q26"]
+      sdg: ["3.4"]
+      maxneef: ["Protection", "Identity"]
+      gallup: ["Physical"]
+      wikidata: {qid: Q654426, label: "psychological trauma"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). PTSD lifetime prevalence ~6% (U.S. VA). Needs careful routing to professional help"
+    overlaps: ["feeling-down", "anxiety"]
+    founder_pool: "mental_emotional"
+    founder_choice: later  # batch 5, 2026-10-16
+  - id: cant-focus
+    name: "Focus"
+    line: "I can't keep my mind on one thing."
+    draft_name: "Can't focus"  # earlier name
+    draft_line: "My mind won't stay on one thing."  # earlier line
+    page: personal
+    heading: "Mind"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Subjective well-being"]
+      whoqol: ["Q7"]
+      sdg: []
+      maxneef: ["Understanding", "Creation"]
+      gallup: ["Career"]
+      wikidata: {qid: Q6501338, label: "attention"}
+    evidence: "PROMIS cognitive function; BRIEF-A; Fix Corpus 4.1; Tier 2 list"
+    overlaps: ["procrastination", "doomscrolling"]
+    founder_pool: "cognition_executive/attention_memory"
+    founder_choice: keep  # batch 1, 2026-10-16
+  - id: grief
+    name: "Grief"
+    line: "I'm missing someone I lost."
+    page: personal
+    heading: "Mind"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Subjective well-being", "Social connections"]
+      whoqol: ["Q26"]
+      sdg: []
+      maxneef: ["Affection"]
+      gallup: ["Social"]
+      wikidata: {qid: Q1026040, label: "grief"}
+    evidence: "Prolonged grief constructs; near-universal life event"
+    overlaps: ["loneliness"]
+    founder_pool: "mental_emotional/grief_loss"
+    founder_choice: keep  # batch 1, 2026-10-16
+  - id: drinking-too-much
+    name: "Addiction"
+    line: "I can't stop something that's hurting me."
+    draft_name: "Drinking too much"  # earlier name
+    draft_line: "I drink more than I want to."  # earlier line
+    page: personal
+    heading: "Mind"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: ["addiction-here"]
+    maps:
+      oecd: ["Health"]
+      whoqol: []
+      sdg: ["3.5"]
+      maxneef: ["Subsistence", "Freedom"]
+      gallup: ["Physical"]
+      wikidata: {qid: Q7331102, label: "alcohol abuse"}
+    evidence: "NSDUH alcohol-use-disorder estimates; Tier 2 list. Could widen to 'a habit I want to quit' (smoking, vaping, gambling)"
+    overlaps: []
+    founder_pool: "self_regulation"
+    founder_choice: keep  # batch 1, 2026-10-16
+  - id: broke
+    name: "Broke"
+    line: "I'm always short on money."
+    draft_line: "Money is always tight."  # earlier line
+    page: personal
+    heading: "Money"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Income and wealth"]
+      whoqol: ["Q12"]
+      sdg: ["1.2"]
+      maxneef: ["Subsistence", "Protection"]
+      gallup: ["Financial"]
+      wikidata: {qid: Q10294, label: "poverty"}
+    evidence: "Federal Reserve SHED 2025 (representative U.S. survey): about 1 in 3 adults would not cover a $400 emergency with cash"
+    overlaps: ["debt", "no-cushion", "running-out-of-food"]
+    founder_pool: "money/income_bills"
+  - id: no-cushion
+    name: "Savings"
+    line: "I have nothing put aside."
+    draft_name: "No cushion"  # earlier name
+    draft_line: "One surprise bill would sink me."  # earlier line
+    page: personal
+    heading: "Money"
+    status: candidate
+    gap: false
+    main: false
+    more_like_this_under: ["broke"]
+    maps:
+      oecd: ["Income and wealth"]
+      whoqol: ["Q12"]
+      sdg: ["1.5"]
+      maxneef: ["Protection"]
+      gallup: ["Financial"]
+      wikidata: {qid: Q85759142, label: "emergency fund"}
+    evidence: "Federal Reserve SHED 2025 (representative U.S. survey) $400 question"
+    overlaps: ["broke", "one-illness-away"]
+    founder_pool: "money/income_bills"
+    founder_choice: keep  # batch 1, 2026-10-16
+  - id: running-out-of-food
+    name: "Food"
+    line: "I worry the food won't last the month."
+    draft_name: "Running out of food"  # earlier name
+    page: personal
+    heading: "Money"
+    status: candidate
+    gap: true
+    main: false
+    more_like_this_under: ["broke"]
+    maps:
+      oecd: ["Income and wealth"]
+      whoqol: ["Q12"]
+      sdg: ["2.1"]
+      maxneef: ["Subsistence"]
+      gallup: ["Financial"]
+      wikidata: {qid: Q112206305, label: "food insecurity"}
+    evidence: "USDA Household Food Security Survey (13.5% of U.S. households food insecure, 2023)"
+    overlaps: ["broke", "hunger"]
+    founder_pool: "food/food_insecurity"
+    founder_choice: keep  # batch 1, 2026-10-16
+  - id: scammed
+    name: "Scams"
+    line: "I lost money to a scam."
+    draft_name: "Scammed"  # earlier name
+    page: personal
+    heading: "Money"
+    status: candidate
+    gap: true
+    main: false
+    more_like_this_under: ["broke"]
+    maps:
+      oecd: ["Safety", "Income and wealth"]
+      whoqol: ["Q8", "Q12"]
+      sdg: ["16.4"]
+      maxneef: ["Protection"]
+      gallup: ["Financial"]
+      wikidata: {qid: Q28813, label: "fraud", note: "approximate: scams are one kind"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). FTC Consumer Sentinel fraud reports; CFPB complaint taxonomy"
+    overlaps: ["watched-by-companies"]
+    founder_pool: "community_services"
+    founder_choice: later  # batch 5, 2026-10-16
+  - id: debt
+    name: "Debt"
+    line: "I owe more than I can pay down."
+    page: personal
+    heading: "Money"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Income and wealth"]
+      whoqol: ["Q12"]
+      sdg: ["1.2"]
+      maxneef: ["Subsistence", "Freedom"]
+      gallup: ["Financial"]
+      wikidata: {qid: Q3196867, label: "debt"}
+    evidence: "Federal Reserve SHED 2025 (representative U.S. survey) (18% medical debt; student loans); CFPB complaint taxonomy; Tier 2 list. Largest area in founder's pool (74 pains)"
+    overlaps: ["broke"]
+    founder_pool: "money/debt_credit"
+    founder_choice: keep  # batch 1, 2026-10-16
+  - id: cant-stop-working
+    name: "Retirement"
+    line: "I won't have enough to retire."
+    draft_name: "Can't ever stop"  # earlier name
+    page: personal
+    heading: "Money"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Income and wealth"]
+      whoqol: ["Q12"]
+      sdg: ["1.3"]
+      maxneef: ["Protection"]
+      gallup: ["Financial"]
+      wikidata: {qid: Q156223, label: "pension", note: "approximate"}
+    evidence: "Federal Reserve SHED 2025 (representative U.S. survey): retirement-savings self-assessment"
+    overlaps: ["broke"]
+    founder_pool: "money/income_bills"
+    founder_choice: keep  # batch 1, 2026-10-16
+  - id: unemployment
+    name: "Unemployment"
+    line: "I can't find work."
+    page: personal
+    heading: "Work"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Work and job quality", "Income and wealth"]
+      whoqol: ["Q12", "Q18"]
+      sdg: ["8.5", "8.6"]
+      maxneef: ["Subsistence", "Identity", "Participation"]
+      gallup: ["Career", "Financial"]
+      wikidata: {qid: Q41171, label: "unemployment"}
+    evidence: "ILO and national labor-force surveys; SHED 2025 job-loss worry. Added by founder (FR-019)"
+    overlaps: ["job-could-go", "ai-and-jobs"]
+    founder_pool: "work/job_quality"
+  - id: underpaid
+    name: "Underpaid"
+    line: "I'm paid less than my work is worth."
+    draft_line: "My work is worth more."  # earlier line
+    page: personal
+    heading: "Work"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Income and wealth", "Work and job quality"]
+      whoqol: ["Q12"]
+      sdg: ["8.5"]
+      maxneef: ["Subsistence", "Identity"]
+      gallup: ["Financial", "Career"]
+      wikidata: {qid: Q649011, label: "working poor", note: "approximate"}
+    evidence: "Pew 2024 job satisfaction: pay is the aspect workers are least satisfied with"
+    overlaps: ["broke"]
+    founder_pool: "work/job_quality"
+  - id: bad-job
+    name: "Mistreatment"
+    line: "I'm treated badly at work."
+    draft_name: "Bad job"  # earlier name
+    draft_line: "My job treats me badly."  # earlier line
+    page: personal
+    heading: "Work"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Work and job quality"]
+      whoqol: ["Q18"]
+      sdg: ["8.8"]
+      maxneef: ["Protection", "Identity"]
+      gallup: ["Career"]
+      wikidata: {qid: Q2273650, label: "workplace bullying", note: "approximate: one kind of bad job"}
+    evidence: "NIOSH WellBQ; Pew 2024; founder pool job_quality has 62 pains (schedules, bosses, safety)"
+    overlaps: ["burnout", "underpaid"]
+    founder_pool: "work/job_quality"
+    founder_choice: keep  # batch 2, 2026-10-16
+  - id: job-could-go
+    name: "Layoffs"
+    line: "I could lose my job any day."
+    draft_name: "Job could go"  # earlier name
+    page: personal
+    heading: "Work"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: ["unemployment", "ai-and-jobs"]
+    maps:
+      oecd: ["Work and job quality", "Income and wealth"]
+      whoqol: ["Q12"]
+      sdg: ["8.5", "1.3"]
+      maxneef: ["Protection"]
+      gallup: ["Career", "Financial"]
+      wikidata: {qid: Q124381631, label: "job insecurity"}
+    evidence: "Federal Reserve SHED 2025 (representative U.S. survey) job-loss worry; Pew 2024 job security"
+    overlaps: ["unemployment", "ai-and-jobs"]
+    founder_pool: "work/job_quality"
+    founder_choice: keep  # batch 2, 2026-10-16
+  - id: meaningless-work
+    name: "Meaning"
+    line: "I don't think my work matters."
+    draft_name: "Meaningless work"  # earlier name
+    draft_line: "My work doesn't matter."  # earlier line
+    page: personal
+    heading: "Work"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Work and job quality"]
+      whoqol: ["Q6"]
+      sdg: ["8.5"]
+      maxneef: ["Creation", "Identity"]
+      gallup: ["Career"]
+      wikidata: null  # searched for "meaningful work"; no good item
+    evidence: "Pew 2024 job satisfaction; Meaning in Life Questionnaire"
+    overlaps: ["wrong-career"]
+    founder_pool: "work/job_quality"
+  - id: wrong-career
+    name: "Career"
+    line: "I'm in the wrong line of work."
+    draft_name: "Wrong career"  # earlier name
+    page: personal
+    heading: "Work"
+    status: candidate
+    gap: false
+    main: false
+    more_like_this_under: ["meaningless-work"]
+    maps:
+      oecd: ["Work and job quality"]
+      whoqol: ["Q6"]
+      sdg: ["8.5"]
+      maxneef: ["Identity", "Creation"]
+      gallup: ["Career"]
+      wikidata: {qid: Q3330939, label: "career change"}
+    evidence: "Pew 2024 job satisfaction; Tier 2 list"
+    overlaps: ["meaningless-work", "no-path"]
+    founder_pool: "work/job_quality"
+    founder_choice: keep  # batch 2, 2026-10-16
+  - id: burnout
+    name: "Burnout"
+    line: "I've got nothing left."
+    page: personal
+    heading: "Work"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Work and job quality", "Work-life balance"]
+      whoqol: ["Q10", "Q18"]
+      sdg: ["8.8"]
+      maxneef: ["Leisure", "Protection"]
+      gallup: ["Career", "Physical"]
+      wikidata: {qid: Q327988, label: "occupational burnout"}
+    evidence: "Maslach burnout framework; NIOSH WellBQ"
+    overlaps: ["always-tired", "no-free-time"]
+    founder_pool: "work/job_quality"
+  - id: homeless
+    name: "Homeless"
+    line: "I don't have a reliable place to stay."
+    page: personal
+    heading: "Home"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: ["might-lose-my-home", "homelessness"]
+    maps:
+      oecd: ["Housing"]
+      whoqol: ["Q23", "Q8"]
+      sdg: ["11.1", "1.4"]
+      maxneef: ["Subsistence", "Protection"]
+      gallup: ["Financial"]
+      wikidata: {qid: Q131327, label: "homelessness"}
+    evidence: "Batch 6, from outside review. HUD Point-in-Time count; personal side of Homelessness"
+    overlaps: ["might-lose-my-home", "homelessness"]
+    founder_pool: "housing/housing_stability"
+    founder_choice: keep  # batch 6, 2026-10-16
+  - id: home-is-hard
+    name: "Housing"
+    line: "I live somewhere cramped, broken or noisy."
+    draft_name: "Home is hard"  # earlier name
+    draft_line: "My place is cramped, broken or noisy."  # earlier line
+    page: personal
+    heading: "Home"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Housing", "Environmental quality"]
+      whoqol: ["Q23", "Q9"]
+      sdg: ["11.1"]
+      maxneef: ["Subsistence", "Protection"]
+      gallup: ["Community"]
+      wikidata: {qid: Q112207514, label: "housing quality", note: "a second item Q124358742 exists"}
+    evidence: "American Housing Survey; NYC311 housing complaints; Tier 2 list"
+    overlaps: ["rent-eats-everything"]
+    founder_pool: "housing/home_quality"
+    founder_choice: keep  # batch 2, 2026-10-16
+  - id: cold-home
+    name: "Heating"
+    line: "I can't afford to heat my home."
+    draft_name: "Cold or hot home"  # earlier name
+    page: personal
+    heading: "Home"
+    status: candidate
+    gap: true
+    main: false
+    more_like_this_under: ["home-is-hard", "broke"]
+    maps:
+      oecd: ["Housing", "Income and wealth"]
+      whoqol: ["Q23", "Q12"]
+      sdg: ["7.1"]
+      maxneef: ["Subsistence", "Protection"]
+      gallup: ["Financial"]
+      wikidata: {qid: Q1341244, label: "energy poverty"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). Census Household Pulse energy-insecurity items; EU-SILC 'unable to keep home adequately warm'"
+    overlaps: ["home-is-hard", "cost-of-living"]
+    founder_pool: "housing/home_quality"
+    founder_choice: keep  # batch 5, 2026-10-16
+  - id: offline
+    name: "Internet"
+    line: "I can't get decent internet."
+    draft_name: "Offline"  # earlier name
+    draft_line: "My internet is too slow or too expensive."  # earlier line
+    page: personal
+    heading: "Home"
+    status: candidate
+    gap: true
+    main: false
+    more_like_this_under: ["home-is-hard"]
+    maps:
+      oecd: ["Knowledge and skills"]
+      whoqol: ["Q13"]
+      sdg: ["9.c", "17.8"]
+      maxneef: ["Understanding", "Participation"]
+      gallup: ["Community"]
+      wikidata: {qid: Q244752, label: "digital divide"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). Founder pool (digital_info: broadband); Pew home broadband"
+    overlaps: ["getting-around"]
+    founder_pool: "digital_info"
+    founder_choice: later  # batch 5, 2026-10-16
+  - id: might-lose-my-home
+    name: "Eviction"
+    line: "I might lose my home."
+    draft_name: "Might lose my home"  # earlier name
+    draft_line: "I don't know where I'll live next."  # earlier line
+    page: personal
+    heading: "Home"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Housing"]
+      whoqol: ["Q23", "Q8"]
+      sdg: ["11.1", "1.4"]
+      maxneef: ["Protection", "Subsistence"]
+      gallup: ["Financial"]
+      wikidata: {qid: Q1893186, label: "eviction"}
+    evidence: "Census Household Pulse housing-insecurity items; Eviction Lab"
+    overlaps: ["rent-eats-everything", "homelessness"]
+    founder_pool: "housing/housing_stability"
+    founder_choice: keep  # batch 2, 2026-10-16
+  - id: unsafe-near-me
+    name: "Safety"
+    line: "I don't feel safe where I live."
+    draft_name: "Not safe here"  # earlier name
+    page: personal
+    heading: "Home"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Safety"]
+      whoqol: ["Q8"]
+      sdg: ["16.1", "11.7"]
+      maxneef: ["Protection"]
+      gallup: ["Community"]
+      wikidata: {qid: Q1788984, label: "fear of crime"}
+    evidence: "OECD 'feeling safe walking alone at night'; BJS NCVS"
+    overlaps: ["crime-and-violence"]
+    founder_pool: "safety/personal_safety"
+    founder_choice: keep  # batch 2, 2026-10-16
+  - id: getting-around
+    name: "Transport"
+    line: "I struggle to get where I need to go."
+    draft_name: "Getting around"  # earlier name
+    draft_line: "Getting places is a struggle."  # earlier line
+    page: personal
+    heading: "Home"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Environmental quality", "Work-life balance"]
+      whoqol: ["Q25", "Q15"]
+      sdg: ["11.2"]
+      maxneef: ["Freedom", "Participation"]
+      gallup: ["Community"]
+      wikidata: {qid: Q133170314, label: "transport poverty"}
+    evidence: "Transportation Security Index; AARP older-adult transport"
+    overlaps: ["car-or-nothing"]
+    founder_pool: "transport/transport_access"
+    founder_choice: keep  # batch 2, 2026-10-16
+  - id: no-free-time
+    name: "Busy"
+    line: "I have no time that's mine."
+    draft_name: "No free time"  # earlier name
+    draft_line: "None of it is mine."  # earlier line
+    page: personal
+    heading: "Time"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Work-life balance"]
+      whoqol: ["Q14"]
+      sdg: ["5.4"]
+      maxneef: ["Leisure", "Freedom"]
+      gallup: ["Physical"]
+      wikidata: {qid: Q135971254, label: "time poverty"}
+    evidence: "BLS American Time Use Survey 2025 (leisure, work, childcare hours); OECD work-life balance"
+    overlaps: ["burnout", "chores", "caregiving"]
+    founder_pool: "life_management/coordination_time"
+  - id: chores
+    name: "Chores"
+    line: "I spend my days cooking and cleaning."
+    draft_name: "Chores never end"  # earlier name
+    draft_line: "Cooking and cleaning eat my day."  # earlier line
+    page: personal
+    heading: "Time"
+    status: candidate
+    gap: true
+    main: false
+    more_like_this_under: ["no-free-time"]
+    maps:
+      oecd: ["Work-life balance"]
+      whoqol: ["Q14"]
+      sdg: ["5.4"]
+      maxneef: ["Leisure"]
+      gallup: ["Physical"]
+      wikidata: {qid: Q708514, label: "housekeeping"}
+    evidence: "BLS American Time Use Survey 2025: 81% do household activities on an average day, about 2 hours"
+    overlaps: ["no-free-time"]
+    founder_pool: "self_regulation/household_routines"
+    founder_choice: keep  # batch 2, 2026-10-16
+  - id: life-admin
+    name: "Paperwork"
+    line: "I lose my week to forms, bills and phone queues."
+    draft_name: "Life admin"  # earlier name
+    draft_line: "Forms, bills and phone queues eat my week."  # earlier line
+    page: personal
+    heading: "Time"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Work-life balance"]
+      whoqol: ["Q13"]
+      sdg: ["16.6"]
+      maxneef: ["Leisure", "Understanding"]
+      gallup: ["Financial"]
+      wikidata: null  # searched for "administrative burden"; no good item
+    evidence: "Administrative Burden framework; CFPB complaints; patient admin friction. Founder pool has 120+ life-management pains"
+    overlaps: ["overwhelmed"]
+    founder_pool: "administration/paperwork_bureaucracy"
+    founder_choice: keep  # batch 2, 2026-10-16
+  - id: legal-mess
+    name: "Legal trouble"
+    line: "I'm stuck in a legal problem I can't afford."
+    draft_name: "Legal mess"  # earlier name
+    draft_line: "I'm stuck in a legal problem and can't afford help."  # earlier line
+    page: personal
+    heading: "Time"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: ["life-admin"]
+    maps:
+      oecd: ["Safety", "Civic engagement"]
+      whoqol: ["Q8"]
+      sdg: ["16.3"]
+      maxneef: ["Protection"]
+      gallup: ["Financial"]
+      wikidata: {qid: Q707748, label: "legal aid"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). Civil Legal Aid taxonomy; LSC Justice Gap: most low-income people get no or too little help with civil legal problems"
+    overlaps: ["life-admin", "justice-unfair"]
+    founder_pool: "administration"
+    founder_choice: keep  # batch 5, 2026-10-16
+  - id: doomscrolling
+    name: "Doomscrolling"
+    line: "I lose my nights to my phone."
+    page: personal
+    heading: "Time"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Work-life balance", "Subjective well-being"]
+      whoqol: ["Q14"]
+      sdg: []
+      maxneef: ["Leisure", "Freedom"]
+      gallup: ["Physical"]
+      wikidata: {qid: Q101244400, label: "doomscrolling"}
+    evidence: "Digital Stress Scale; Pew teens and adults screen-time surveys"
+    overlaps: ["cant-focus"]
+    founder_pool: "digital_info/digital_overload"
+  - id: no-fun
+    name: "Fun"
+    line: "I can't remember the last time I played."
+    draft_name: "No fun"  # earlier name
+    page: personal
+    heading: "Time"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Subjective well-being", "Work-life balance"]
+      whoqol: ["Q14", "Q5"]
+      sdg: []
+      maxneef: ["Leisure", "Creation"]
+      gallup: ["Social"]
+      wikidata: null  # searched for "play"; no good item
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). WHOQOL Q14 (leisure); Max-Neef Leisure. No survey names 'fun' directly"
+    overlaps: ["no-free-time", "nobody-to-do-things-with"]
+    founder_pool: null
+    founder_choice: keep  # batch 5, 2026-10-16
+  - id: unsafe-at-home
+    name: "Safety at home"
+    line: "I don't feel safe with someone in my life."
+    page: personal
+    heading: "People"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: ["home-tension", "relationship-strain", "unsafe-near-me"]
+    maps:
+      oecd: ["Safety", "Social connections"]
+      whoqol: ["Q8", "Q20"]
+      sdg: ["5.2", "16.1"]
+      maxneef: ["Protection"]
+      gallup: ["Social"]
+      wikidata: {qid: Q156537, label: "domestic violence", note: "approximate: pain is wider (coercion, stalking, threats)"}
+    evidence: "Batch 6, from outside review. CDC NISVS: about 1 in 3 women and 1 in 4 men experience intimate-partner violence. SENSITIVE: never shared or matched; ideas route to help lines first"
+    overlaps: ["home-tension", "relationship-strain"]
+    founder_pool: "safety/personal_safety"
+    founder_choice: keep  # batch 6, 2026-10-16
+  - id: loneliness
+    name: "Loneliness"
+    line: "I feel alone."
+    page: personal
+    heading: "People"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Social connections"]
+      whoqol: ["Q20", "Q22"]
+      sdg: []
+      maxneef: ["Affection", "Identity"]
+      gallup: ["Social"]
+      wikidata: {qid: Q223270, label: "loneliness"}
+    evidence: "Pew 2025: 16% of U.S. adults feel lonely or isolated all or most of the time; WHO Commission on Social Connection"
+    overlaps: ["nobody-to-do-things-with", "no-one-to-lean-on"]
+    founder_pool: "social_connection/loneliness_belonging"
+  - id: belonging
+    name: "Belonging"
+    line: "I don't feel like I belong anywhere."
+    page: personal
+    heading: "People"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Social connections", "Subjective well-being"]
+      whoqol: ["Q20", "Q22"]
+      sdg: ["10.2"]
+      maxneef: ["Identity", "Affection", "Participation"]
+      gallup: ["Social", "Community"]
+      wikidata: null  # searched for "sense of belonging"; no good item
+    evidence: "Batch 6, from outside review. Different from Loneliness: friends but no place, or a place but lonely. PROMIS 'I feel excluded'"
+    overlaps: ["loneliness", "lost-faith-community"]
+    founder_pool: "social_connection/loneliness_belonging"
+    founder_choice: keep  # batch 6, 2026-10-16
+  - id: intimacy
+    name: "Intimacy"
+    line: "I'm missing closeness with someone."
+    page: personal
+    heading: "People"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Social connections"]
+      whoqol: ["Q20", "Q21"]
+      sdg: []
+      maxneef: ["Affection"]
+      gallup: ["Social"]
+      wikidata: {qid: Q16358629, label: "intimacy"}
+    evidence: "Batch 6, from outside review. PROMIS sexual satisfaction; Couples Satisfaction Index (founder pool romance_intimacy)"
+    overlaps: ["want-a-partner", "relationship-strain"]
+    founder_pool: "romance_intimacy"
+    founder_choice: keep  # batch 6, 2026-10-16
+  - id: want-a-partner
+    name: "Dating"
+    line: "I want a partner and it isn't happening."
+    draft_name: "Want a partner"  # earlier name
+    draft_line: "I want someone and it isn't happening."  # earlier line
+    page: personal
+    heading: "People"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: ["loneliness", "intimacy"]
+    maps:
+      oecd: ["Social connections"]
+      whoqol: ["Q20", "Q21"]
+      sdg: []
+      maxneef: ["Affection"]
+      gallup: ["Social"]
+      wikidata: {qid: Q612825, label: "online dating service", note: "approximate: names a means, not the pain"}
+    evidence: "Pew single-adults surveys (about 3 in 10 U.S. adults single); not in founder's top rows"
+    overlaps: ["loneliness"]
+    founder_pool: "romance_intimacy"
+    founder_choice: keep  # batch 2, 2026-10-16
+  - id: no-one-to-lean-on
+    name: "Support"
+    line: "I have no one to call when I need help."
+    draft_name: "No one to lean on"  # earlier name
+    draft_line: "If I needed help, I'm not sure who I'd call."  # earlier line
+    page: personal
+    heading: "People"
+    status: candidate
+    gap: true
+    main: false
+    more_like_this_under: ["loneliness"]
+    maps:
+      oecd: ["Social connections"]
+      whoqol: ["Q22"]
+      sdg: []
+      maxneef: ["Protection", "Affection"]
+      gallup: ["Social"]
+      wikidata: {qid: Q1778765, label: "social isolation"}
+    evidence: "OECD 'having friends or relatives to count on' indicator; PROMIS emotional and instrumental support; founder raw row 5"
+    overlaps: ["loneliness"]
+    founder_pool: "social_connection/loneliness_belonging"
+    founder_choice: keep  # batch 2, 2026-10-16
+  - id: new-here
+    name: "Moving"
+    line: "I just moved and know nobody."
+    draft_name: "New here"  # earlier name
+    page: personal
+    heading: "People"
+    status: candidate
+    gap: true
+    main: false
+    more_like_this_under: ["loneliness", "belonging"]
+    maps:
+      oecd: ["Social connections"]
+      whoqol: ["Q20", "Q22"]
+      sdg: []
+      maxneef: ["Affection", "Participation"]
+      gallup: ["Social"]
+      wikidata: {qid: Q177626, label: "human migration", note: "approximate"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). About 1 in 10 U.S. adults move each year (Census CPS)"
+    overlaps: ["loneliness", "nobody-to-do-things-with"]
+    founder_pool: "social_connection"
+    founder_choice: later  # batch 5, 2026-10-16
+  - id: lost-faith-community
+    name: "Belonging"
+    line: "I've lost the community I belonged to."
+    draft_name: "Lost my faith or community"  # earlier name
+    draft_line: "The place I belonged isn't mine any more."  # earlier line
+    page: personal
+    heading: "People"
+    status: candidate
+    gap: true
+    main: false
+    more_like_this_under: ["belonging"]
+    maps:
+      oecd: ["Social connections"]
+      whoqol: ["Q6"]
+      sdg: []
+      maxneef: ["Identity", "Affection", "Participation"]
+      gallup: ["Social"]
+      wikidata: {qid: Q2742167, label: "religious community"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). Pew religious switching surveys; WHOQOL-SRPB module"
+    overlaps: ["loneliness"]
+    founder_pool: "meaning_identity"
+    founder_choice: later  # batch 5, 2026-10-16
+  - id: nobody-to-do-things-with
+    name: "Invitations"
+    line: "I'd go out if someone asked."
+    draft_name: "Nobody to do things with"  # earlier name
+    draft_line: "I'd go if someone asked."  # earlier line
+    page: personal
+    heading: "People"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Social connections"]
+      whoqol: ["Q14", "Q22"]
+      sdg: []
+      maxneef: ["Leisure", "Participation"]
+      gallup: ["Social"]
+      wikidata: {qid: Q1778765, label: "social isolation"}
+    evidence: "PROMIS ability to participate in social activities"
+    overlaps: ["loneliness"]
+    founder_pool: "social_connection/friendship"
+  - id: nobody-into-my-thing
+    name: "Interests"
+    line: "I can't find people who love what I love."
+    draft_name: "Nobody into my thing"  # earlier name
+    page: personal
+    heading: "People"
+    status: candidate
+    gap: true
+    main: false
+    more_like_this_under: ["nobody-to-do-things-with", "belonging"]
+    maps:
+      oecd: ["Social connections"]
+      whoqol: ["Q14", "Q22"]
+      sdg: []
+      maxneef: ["Leisure", "Identity", "Affection"]
+      gallup: ["Social"]
+      wikidata: {qid: Q47728, label: "hobby"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). From It's thesis; links to the future tag layer"
+    overlaps: ["nobody-to-do-things-with"]
+    founder_pool: "social_connection/friendship"
+    founder_choice: keep  # batch 5, 2026-10-16
+  - id: drifted-apart
+    name: "Friends"
+    line: "I've lost touch with people who matter."
+    draft_name: "Drifted apart"  # earlier name
+    page: personal
+    heading: "People"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Social connections"]
+      whoqol: ["Q20"]
+      sdg: []
+      maxneef: ["Affection"]
+      gallup: ["Social"]
+      wikidata: {qid: Q491, label: "friendship"}
+    evidence: "Pew 2023 friendship survey"
+    overlaps: ["loneliness"]
+    founder_pool: "social_connection/friendship"
+  - id: relationship-strain
+    name: "Relationship"
+    line: "I'm struggling with my partner."
+    draft_name: "Us two"  # earlier name
+    draft_line: "My partner and I aren't okay."  # earlier line
+    page: personal
+    heading: "People"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Social connections", "Subjective well-being"]
+      whoqol: ["Q20", "Q21"]
+      sdg: []
+      maxneef: ["Affection"]
+      gallup: ["Social"]
+      wikidata: {qid: Q223642, label: "interpersonal relationship", note: "approximate"}
+    evidence: "Couples Satisfaction Index; PROMIS sexual satisfaction"
+    overlaps: ["home-tension"]
+    founder_pool: "romance_intimacy/relationship_quality"
+    founder_choice: keep  # batch 2, 2026-10-16
+  - id: home-tension
+    name: "Family"
+    line: "I'm caught in fighting at home."
+    draft_name: "Tension at home"  # earlier name
+    draft_line: "Home is where the fighting is."  # earlier line
+    page: personal
+    heading: "People"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: ["relationship-strain"]
+    maps:
+      oecd: ["Social connections", "Housing"]
+      whoqol: ["Q20"]
+      sdg: ["16.1"]
+      maxneef: ["Affection", "Protection"]
+      gallup: ["Social"]
+      wikidata: {qid: Q55492423, label: "family conflict"}
+    evidence: "Founder pool (family_parenting: blended families, housemates). Needs care: may include abuse, so ideas must route to help lines"
+    overlaps: ["relationship-strain"]
+    founder_pool: "family_parenting"
+    founder_choice: keep  # batch 2, 2026-10-16
+  - id: caregiving
+    name: "Caregiving"
+    line: "I'm looking after someone and it takes everything."
+    draft_name: "Caring for someone"  # earlier name
+    draft_line: "Looking after them takes everything."  # earlier line
+    page: personal
+    heading: "People"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Work-life balance", "Social connections"]
+      whoqol: ["Q14", "Q10"]
+      sdg: ["5.4"]
+      maxneef: ["Affection", "Leisure"]
+      gallup: ["Social"]
+      wikidata: {qid: Q25053589, label: "caregiver burden"}
+    evidence: "BLS American Time Use Survey 2025 eldercare; Modified Caregiver Strain Index; AARP Caregiving in the U.S. (about 1 in 5 adults)"
+    overlaps: ["no-free-time", "parenting-is-hard"]
+    founder_pool: "caregiving/caregiver_burden"
+    founder_choice: keep  # batch 2, 2026-10-16
+  - id: parenting-is-hard
+    name: "Parenting"
+    line: "I'm worn out raising my kids."
+    draft_name: "Parenting is hard"  # earlier name
+    page: personal
+    heading: "People"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Work-life balance"]
+      whoqol: ["Q14"]
+      sdg: ["5.4"]
+      maxneef: ["Affection", "Protection"]
+      gallup: ["Social"]
+      wikidata: {qid: Q113019031, label: "parenting stress"}
+    evidence: "BLS American Time Use Survey 2025 childcare hours; U.S. Surgeon General advisory on parental stress (2024)"
+    overlaps: ["caregiving", "childcare-costs"]
+    founder_pool: "family_parenting/parenting"
+    founder_choice: keep  # batch 2, 2026-10-16
+  - id: learning
+    name: "Learning"
+    line: "I want to learn something, but I don't know how to start."
+    page: personal
+    heading: "Purpose"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: ["no-path"]
+    maps:
+      oecd: ["Knowledge and skills"]
+      whoqol: ["Q13"]
+      sdg: ["4.3", "4.4"]
+      maxneef: ["Understanding", "Creation"]
+      gallup: ["Career"]
+      wikidata: {qid: Q133500, label: "learning"}
+    evidence: "Batch 6, from outside review. OECD adult learning participation (Survey of Adult Skills)"
+    overlaps: ["need-skills", "no-path"]
+    founder_pool: "education/learning_school"
+    founder_choice: keep  # batch 6, 2026-10-16
+  - id: procrastination
+    name: "Procrastination"
+    line: "I put things off."
+    page: personal
+    heading: "Purpose"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Subjective well-being"]
+      whoqol: []
+      sdg: []
+      maxneef: ["Creation", "Freedom"]
+      gallup: ["Career"]
+      wikidata: {qid: Q330104, label: "procrastination"}
+    evidence: "Procrastination research (chronic in ~15-20% of adults); BRIEF-A initiation"
+    overlaps: ["cant-focus"]
+    founder_pool: "cognition_executive/planning_initiation"
+  - id: no-path
+    name: "Direction"
+    line: "I know what I want but not how to get there."
+    draft_name: "No path"  # earlier name
+    draft_line: "I know what I want and not how."  # earlier line
+    page: personal
+    heading: "Purpose"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Knowledge and skills", "Subjective well-being"]
+      whoqol: ["Q6"]
+      sdg: ["4.4"]
+      maxneef: ["Understanding", "Creation"]
+      gallup: ["Career"]
+      wikidata: {qid: Q5038939, label: "career development"}
+    evidence: "General Self-Efficacy construct"
+    overlaps: ["wrong-career", "need-skills"]
+    founder_pool: "meaning_identity"
+  - id: need-skills
+    name: "Skills"
+    line: "I don't have the skills I need now."
+    draft_name: "Need new skills"  # earlier name
+    draft_line: "I don't know how to do what's needed now."  # earlier line
+    page: personal
+    heading: "Purpose"
+    status: candidate
+    gap: true
+    main: false
+    more_like_this_under: ["no-path", "learning"]
+    maps:
+      oecd: ["Knowledge and skills"]
+      whoqol: ["Q13"]
+      sdg: ["4.4", "4.6"]
+      maxneef: ["Understanding"]
+      gallup: ["Career"]
+      wikidata: {qid: Q136402737, label: "skills mismatch"}
+    evidence: "OECD Survey of Adult Skills (PIAAC); founder pool education"
+    overlaps: ["no-path"]
+    founder_pool: "education/learning_school"
+    founder_choice: keep  # batch 2, 2026-10-16
+  - id: stuck
+    name: "Stuck"
+    line: "I feel like my life isn't going anywhere."
+    draft_line: "My life isn't going anywhere."  # earlier line
+    page: personal
+    heading: "Purpose"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Subjective well-being"]
+      whoqol: ["Q1", "Q6"]
+      sdg: []
+      maxneef: ["Freedom", "Creation", "Identity"]
+      gallup: ["Career"]
+      wikidata: {qid: Q34255, label: "boredom", note: "approximate"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). OECD life satisfaction; Meaning in Life Questionnaire. Not work-specific, unlike No path"
+    overlaps: ["no-path", "wrong-career"]
+    founder_pool: "meaning_identity"
+    founder_choice: keep  # batch 5, 2026-10-16
+  - id: nothing-i-make
+    name: "Creativity"
+    line: "I don't get to make things any more."
+    draft_name: "Nothing I make"  # earlier name
+    draft_line: "I used to make things."  # earlier line
+    page: personal
+    heading: "Purpose"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: ["stuck"]
+    maps:
+      oecd: ["Subjective well-being"]
+      whoqol: ["Q5", "Q14"]
+      sdg: []
+      maxneef: ["Creation", "Identity"]
+      gallup: ["Career"]
+      wikidata: {qid: Q170658, label: "creativity"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). Max-Neef Creation. No survey names it directly"
+    overlaps: ["no-fun", "meaningless-work"]
+    founder_pool: null
+    founder_choice: keep  # batch 6, 2026-10-16
+  - id: lost-myself
+    name: "Identity"
+    line: "I don't know who I am any more."
+    draft_name: "Lost myself"  # earlier name
+    page: personal
+    heading: "Purpose"
+    status: candidate
+    gap: true
+    main: false
+    more_like_this_under: ["stuck", "belonging"]
+    maps:
+      oecd: ["Subjective well-being"]
+      whoqol: ["Q6", "Q19"]
+      sdg: []
+      maxneef: ["Identity"]
+      gallup: ["Career"]
+      wikidata: null  # searched for "identity crisis"; no good item
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). Life transitions (divorce, parenthood, retirement). No survey names it directly"
+    overlaps: ["stuck", "hard-on-myself"]
+    founder_pool: "meaning_identity"
+    founder_choice: later  # batch 5, 2026-10-16
+  - id: they-dont-listen
+    name: "Representation"
+    line: "I'm not heard by the people in charge."
+    draft_name: "They don't listen"  # earlier name
+    draft_line: "Nobody in charge answers to me."  # earlier line
+    page: societal
+    heading: "Government"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Civic engagement"]
+      whoqol: []
+      sdg: ["16.7"]
+      maxneef: ["Participation"]
+      gallup: ["Community"]
+      wikidata: {qid: Q188759, label: "representative democracy"}
+    evidence: "OECD Trust Survey: 'having a say in what government does'"
+    overlaps: ["far-away-decisions"]
+    founder_pool: null
+  - id: freedoms
+    name: "Freedoms"
+    line: "I'm losing the freedom to make my own choices."
+    page: societal
+    heading: "Government"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Civic engagement"]
+      whoqol: []
+      sdg: ["16.10"]
+      maxneef: ["Freedom", "Identity"]
+      gallup: ["Community"]
+      wikidata: {qid: Q29556, label: "civil liberties"}
+    evidence: "Batch 6, from outside review. Freedom House; matters across political views"
+    overlaps: ["democracy-slipping"]
+    founder_pool: null
+    founder_choice: keep  # batch 6, 2026-10-16
+  - id: infrastructure
+    name: "Infrastructure"
+    line: "I depend on roads, water and power that keep breaking down."
+    page: societal
+    heading: "Government"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Environmental quality", "Housing"]
+      whoqol: ["Q9", "Q25"]
+      sdg: ["9.1", "6.1", "7.1"]
+      maxneef: ["Subsistence", "Protection"]
+      gallup: ["Community"]
+      wikidata: {qid: Q121359, label: "infrastructure"}
+    evidence: "Batch 6, from outside review. ASCE Infrastructure Report Card"
+    overlaps: ["taxes-dont-buy-much", "car-or-nothing"]
+    founder_pool: "community_services"
+    founder_choice: keep  # batch 6, 2026-10-16
+  - id: far-away-decisions
+    name: "Local control"
+    line: "I watch decisions about here get made far away."
+    draft_name: "Decided somewhere else"  # earlier name
+    draft_line: "Choices about here get made far away."  # earlier line
+    page: societal
+    heading: "Government"
+    status: candidate
+    gap: false
+    main: false
+    more_like_this_under: ["they-dont-listen"]
+    maps:
+      oecd: ["Civic engagement"]
+      whoqol: []
+      sdg: ["16.7"]
+      maxneef: ["Participation", "Freedom"]
+      gallup: ["Community"]
+      wikidata: {qid: Q466938, label: "subsidiarity", note: "duplicate item Q7631996 exists"}
+    evidence: "Tier 2 'Local control'; no survey names it directly"
+    overlaps: ["they-dont-listen"]
+    founder_pool: null
+    founder_choice: keep  # batch 3, 2026-10-16
+  - id: dont-know-who-to-vote-for
+    name: "Voting"
+    line: "I don't know who to vote for."
+    draft_name: "I don't know who to vote for"  # earlier name
+    draft_line: "The ballot is a guess."  # earlier line
+    page: societal
+    heading: "Government"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Civic engagement"]
+      whoqol: ["Q13"]
+      sdg: ["16.7", "16.10"]
+      maxneef: ["Understanding", "Participation"]
+      gallup: ["Community"]
+      wikidata: null  # searched for "voter information"; no good item
+    evidence: "Down-ballot roll-off research; no framework names this directly"
+    overlaps: ["dont-know-whats-true"]
+    founder_pool: null
+  - id: no-accountability
+    name: "Accountability"
+    line: "I see leaders break promises with no consequences."
+    draft_name: "No accountability"  # earlier name
+    draft_line: "They say anything and nothing follows."  # earlier line
+    page: societal
+    heading: "Government"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Civic engagement"]
+      whoqol: []
+      sdg: ["16.6"]
+      maxneef: ["Participation", "Protection"]
+      gallup: ["Community"]
+      wikidata: {qid: Q96742747, label: "political accountability", note: "duplicate item Q3427804 exists"}
+    evidence: "Gallup Most Important Problem (monthly U.S. poll): 'government / poor leadership' is a top answer"
+    overlaps: ["corruption"]
+    founder_pool: null
+  - id: corruption
+    name: "Corruption"
+    line: "I see the rules bend for people with money."
+    draft_line: "The rules bend for people with money."  # earlier line
+    page: societal
+    heading: "Government"
+    status: candidate
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Civic engagement"]
+      whoqol: []
+      sdg: ["16.5"]
+      maxneef: ["Participation", "Protection"]
+      gallup: ["Community"]
+      wikidata: {qid: Q10858400, label: "political corruption"}
+    evidence: "Ipsos What Worries the World (monthly, ~30 countries) (financial/political corruption); Transparency International CPI; Tier 2 list. Also covers money in politics"
+    overlaps: ["no-accountability"]
+    founder_pool: null
+    founder_choice: keep  # batch 3, 2026-10-16
+  - id: taxes-dont-buy-much
+    name: "Taxes"
+    line: "I pay more and get less back."
+    draft_name: "Taxes don't buy much"  # earlier name
+    draft_line: "I pay in and services keep getting worse."  # earlier line
+    page: societal
+    heading: "Government"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Civic engagement"]
+      whoqol: []
+      sdg: ["16.6", "17.1"]
+      maxneef: ["Participation", "Protection"]
+      gallup: ["Community"]
+      wikidata: {qid: Q161837, label: "public service"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). OECD Trust Survey satisfaction with public services; Gallup Most Important Problem (monthly U.S. poll) (taxes, government)"
+    overlaps: ["no-accountability"]
+    founder_pool: null
+    founder_choice: keep  # batch 5, 2026-10-16
+  - id: democracy-slipping
+    name: "Institutions"
+    line: "I see the institutions we rely on falling apart."
+    draft_name: "Democracy slipping"  # earlier name
+    draft_line: "The rules that protect us are wearing away."  # earlier line
+    page: societal
+    heading: "Government"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Civic engagement"]
+      whoqol: []
+      sdg: ["16.7", "16.10"]
+      maxneef: ["Participation", "Freedom"]
+      gallup: ["Community"]
+      wikidata: {qid: Q30676252, label: "democratic backsliding"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). V-Dem Democracy Report; Pew satisfaction with democracy. Contested: wording must stay neutral"
+    overlaps: ["no-accountability", "they-dont-listen"]
+    founder_pool: null
+    founder_choice: keep  # batch 5, 2026-10-16
+  - id: immigration-broken
+    name: "Immigration"
+    line: "I don't think the immigration system is working well."
+    draft_line: "The system works for nobody."  # earlier line
+    page: societal
+    heading: "Government"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Civic engagement"]
+      whoqol: []
+      sdg: ["10.7"]
+      maxneef: ["Protection", "Identity"]
+      gallup: ["Community"]
+      wikidata: {qid: Q6103532, label: "immigration reform"}
+    evidence: "Gallup Most Important Problem (monthly U.S. poll) (immigration, top 1-2 in 2024); Ipsos What Worries the World (monthly, ~30 countries). Contested topic: wording must stay neutral"
+    overlaps: []
+    founder_pool: "administration"
+    founder_choice: keep  # batch 3, 2026-10-16
+  - id: cost-of-living
+    name: "Inflation"
+    line: "I can't keep up with rising prices."
+    draft_name: "Everything costs more"  # earlier name
+    draft_line: "Prices keep rising and pay doesn't."  # earlier line
+    page: societal
+    heading: "Economy"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Income and wealth"]
+      whoqol: ["Q12"]
+      sdg: ["8.5", "10.4"]
+      maxneef: ["Subsistence"]
+      gallup: ["Financial"]
+      wikidata: {qid: Q122397142, label: "cost of living crisis"}
+    evidence: "Gallup Most Important Problem (monthly U.S. poll) and Ipsos What Worries the World (monthly, ~30 countries): inflation / cost of living a top-3 worry since 2022"
+    overlaps: ["broke", "it-all-goes-up"]
+    founder_pool: "money/income_bills"
+    founder_choice: keep  # batch 3, 2026-10-16
+  - id: childcare-costs
+    name: "Childcare"
+    line: "I can't afford childcare."
+    draft_line: "Having kids costs more than we can carry."  # earlier line
+    page: societal
+    heading: "Economy"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: ["cost-of-living", "parenting-is-hard"]
+    maps:
+      oecd: ["Work-life balance", "Income and wealth"]
+      whoqol: []
+      sdg: ["5.4", "4.2"]
+      maxneef: ["Subsistence", "Protection"]
+      gallup: ["Financial"]
+      wikidata: {qid: Q1455871, label: "child care"}
+    evidence: "Care.com / U.S. DOL childcare-price data; OECD net childcare costs"
+    overlaps: ["parenting-is-hard"]
+    founder_pool: "family_parenting/parenting"
+    founder_choice: keep  # batch 3, 2026-10-16
+  - id: study-costs
+    name: "Student debt"
+    line: "I'll be paying for my education for years."
+    draft_name: "Learning costs too much"  # earlier name
+    draft_line: "College means debt for years."  # earlier line
+    page: societal
+    heading: "Economy"
+    status: candidate
+    gap: true
+    main: false
+    more_like_this_under: ["cost-of-living", "debt"]
+    maps:
+      oecd: ["Knowledge and skills", "Income and wealth"]
+      whoqol: []
+      sdg: ["4.3"]
+      maxneef: ["Understanding", "Freedom"]
+      gallup: ["Financial"]
+      wikidata: {qid: Q7627822, label: "student debt"}
+    evidence: "Federal Reserve SHED 2025 (representative U.S. survey) student loans"
+    overlaps: ["debt"]
+    founder_pool: "money/debt_credit"
+    founder_choice: keep  # batch 3, 2026-10-16
+  - id: cant-afford-kids
+    name: "Starting a family"
+    line: "I want kids but can't afford them."
+    draft_name: "Can't afford kids"  # earlier name
+    draft_line: "We want children and can't make it work."  # earlier line
+    page: societal
+    heading: "Economy"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: ["cost-of-living"]
+    maps:
+      oecd: ["Income and wealth", "Housing"]
+      whoqol: []
+      sdg: ["3.7"]
+      maxneef: ["Affection", "Subsistence", "Freedom"]
+      gallup: ["Financial"]
+      wikidata: {qid: Q285897, label: "total fertility rate", note: "approximate"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). UNFPA State of World Population 2025: cost is the top barrier to wanted children"
+    overlaps: ["childcare-costs", "rent-eats-everything"]
+    founder_pool: "family_parenting"
+    founder_choice: keep  # batch 5, 2026-10-16
+  - id: rent-eats-everything
+    name: "Rent"
+    line: "I pay too much for housing."
+    draft_name: "Rent eats everything"  # earlier name
+    draft_line: "Housing takes half."  # earlier line
+    page: societal
+    heading: "Economy"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Housing", "Income and wealth"]
+      whoqol: ["Q23", "Q12"]
+      sdg: ["11.1"]
+      maxneef: ["Subsistence"]
+      gallup: ["Financial"]
+      wikidata: {qid: Q4689034, label: "affordable housing"}
+    evidence: "Harvard JCHS: half of U.S. renters cost-burdened; Gallup Most Important Problem (monthly U.S. poll)"
+    overlaps: ["home-is-hard", "might-lose-my-home"]
+    founder_pool: "housing"
+  - id: homelessness
+    name: "Homelessness"
+    line: "I see more neighbors with no home."
+    draft_name: "People sleeping outside"  # earlier name
+    draft_line: "More of my neighbors have no home."  # earlier line
+    page: societal
+    heading: "Economy"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: ["rent-eats-everything"]
+    maps:
+      oecd: ["Housing"]
+      whoqol: []
+      sdg: ["11.1", "1.4"]
+      maxneef: ["Subsistence", "Protection"]
+      gallup: ["Community"]
+      wikidata: {qid: Q131327, label: "homelessness"}
+    evidence: "Gallup Most Important Problem (monthly U.S. poll) (homelessness); HUD Point-in-Time count"
+    overlaps: ["rent-eats-everything", "might-lose-my-home"]
+    founder_pool: "housing/housing_stability"
+    founder_choice: keep  # batch 3, 2026-10-16
+  - id: it-all-goes-up
+    name: "Inequality"
+    line: "I see the gap between those with plenty and those struggling grow."
+    draft_name: "It all goes up"  # earlier name
+    draft_line: "The people who own things get everything."  # earlier line
+    page: societal
+    heading: "Economy"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Income and wealth"]
+      whoqol: []
+      sdg: ["10.1", "10.4"]
+      maxneef: ["Subsistence", "Participation"]
+      gallup: ["Financial"]
+      wikidata: {qid: Q5055020, label: "income inequality"}
+    evidence: "Ipsos What Worries the World (monthly, ~30 countries): 'poverty and social inequality' consistently top 3"
+    overlaps: ["cost-of-living", "where-youre-born"]
+    founder_pool: null
+  - id: ai-and-jobs
+    name: "AI"
+    line: "I worry AI will take work and no one's ready."
+    draft_line: "It's coming for work and nobody's ready."  # earlier line
+    page: societal
+    heading: "Economy"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Work and job quality"]
+      whoqol: []
+      sdg: ["8.5", "9.c"]
+      maxneef: ["Protection", "Subsistence", "Identity"]
+      gallup: ["Career"]
+      wikidata: {qid: Q7692538, label: "technological unemployment"}
+    evidence: "Pew 2025: about half of U.S. workers worried about AI's effect on jobs; Tier 2 list"
+    overlaps: ["job-could-go", "unemployment"]
+    founder_pool: null
+    founder_choice: keep  # batch 3, 2026-10-16
+  - id: no-floor
+    name: "Safety net"
+    line: "I know if I fall, nothing will catch me."
+    draft_name: "No floor"  # earlier name
+    draft_line: "If you fall, nothing catches you."  # earlier line
+    page: societal
+    heading: "Economy"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Income and wealth"]
+      whoqol: []
+      sdg: ["1.3"]
+      maxneef: ["Protection", "Subsistence"]
+      gallup: ["Financial"]
+      wikidata: {qid: Q7551358, label: "social safety net"}
+    evidence: "OECD Risks that Matter survey (perceived adequacy of public support); Tier 2 'A floor'"
+    overlaps: ["one-illness-away", "homelessness"]
+    founder_pool: null
+    founder_choice: keep  # batch 3, 2026-10-16
+  - id: hunger
+    name: "Hunger"
+    line: "I see people near me without enough to eat."
+    draft_line: "People near me don't have enough to eat."  # earlier line
+    page: societal
+    heading: "Economy"
+    status: candidate
+    gap: false
+    main: false
+    more_like_this_under: ["no-floor", "running-out-of-food"]
+    maps:
+      oecd: ["Income and wealth"]
+      whoqol: []
+      sdg: ["2.1"]
+      maxneef: ["Subsistence"]
+      gallup: ["Community"]
+      wikidata: {qid: Q165947, label: "hunger"}
+    evidence: "USDA food security; FAO SOFI; Tier 2 list"
+    overlaps: ["running-out-of-food"]
+    founder_pool: "food/food_insecurity"
+    founder_choice: keep  # batch 3, 2026-10-16
+  - id: town-dying
+    name: "Decline"
+    line: "I'm watching my town empty out."
+    draft_name: "My town is dying"  # earlier name
+    draft_line: "The shops close and the young leave."  # earlier line
+    page: societal
+    heading: "Economy"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Income and wealth", "Work and job quality", "Social connections"]
+      whoqol: []
+      sdg: ["8.3", "11.a"]
+      maxneef: ["Participation", "Identity", "Subsistence"]
+      gallup: ["Community"]
+      wikidata: {qid: Q2608153, label: "rural flight"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). OECD regional well-being; USDA ERS rural population loss"
+    overlaps: ["nobody-knows-anybody", "far-away-decisions"]
+    founder_pool: null
+    founder_choice: keep  # batch 5, 2026-10-16
+  - id: one-illness-away
+    name: "Medical bills"
+    line: "I worry about what healthcare will cost me."
+    draft_name: "One illness away"  # earlier name
+    draft_line: "Getting sick would ruin me."  # earlier line
+    page: societal
+    heading: "Health"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Health", "Income and wealth"]
+      whoqol: ["Q24"]
+      sdg: ["3.8"]
+      maxneef: ["Protection"]
+      gallup: ["Financial", "Physical"]
+      wikidata: {qid: Q3274205, label: "universal health care"}
+    evidence: "Federal Reserve SHED 2025 (representative U.S. survey) medical debt; Gallup Most Important Problem (monthly U.S. poll) (healthcare)"
+    overlaps: ["cant-get-care", "no-cushion"]
+    founder_pool: "healthcare"
+  - id: mental-health-crisis
+    name: "Mental health"
+    line: "I see people I care about struggling with their mental health."
+    draft_name: "Everyone's struggling"  # earlier name
+    draft_line: "So many people around me aren't okay."  # earlier line
+    page: societal
+    heading: "Health"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Health", "Subjective well-being"]
+      whoqol: []
+      sdg: ["3.4"]
+      maxneef: ["Protection", "Affection"]
+      gallup: ["Community"]
+      wikidata: {qid: Q317309, label: "mental health"}
+    evidence: "Ipsos What Worries the World (monthly, ~30 countries): mental health rose to a top-3 worry globally (2023-25)"
+    overlaps: ["feeling-down", "anxiety"]
+    founder_pool: null
+    founder_choice: keep  # batch 4, 2026-10-16
+  - id: addiction-here
+    name: "Drugs"
+    line: "I'm losing people I know to drugs."
+    draft_name: "Addiction"  # earlier name
+    draft_line: "Drugs are taking people I know."  # earlier line
+    page: societal
+    heading: "Health"
+    status: candidate
+    gap: true
+    main: false
+    more_like_this_under: ["mental-health-crisis", "drinking-too-much"]
+    maps:
+      oecd: ["Health"]
+      whoqol: []
+      sdg: ["3.5"]
+      maxneef: ["Protection"]
+      gallup: ["Community"]
+      wikidata: {qid: Q65087481, label: "opioid epidemic"}
+    evidence: "CDC overdose deaths; Gallup Most Important Problem (monthly U.S. poll) (drugs)"
+    overlaps: ["drinking-too-much"]
+    founder_pool: null
+    founder_choice: keep  # batch 4, 2026-10-16
+  - id: older-people-alone
+    name: "Aging"
+    line: "I see older people left on their own."
+    draft_name: "Growing old alone"  # earlier name
+    draft_line: "Older people get left behind."  # earlier line
+    page: societal
+    heading: "Health"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Social connections", "Health"]
+      whoqol: []
+      sdg: ["10.2", "11.7"]
+      maxneef: ["Affection", "Protection"]
+      gallup: ["Community"]
+      wikidata: {qid: Q332154, label: "ageing", note: "approximate"}
+    evidence: "AARP aging-in-place; WHO Decade of Healthy Ageing"
+    overlaps: ["loneliness", "caregiving"]
+    founder_pool: "social_connection"
+    founder_choice: keep  # batch 4, 2026-10-16
+  - id: nobody-knows-anybody
+    name: "Neighbors"
+    line: "I don't know the people on my street."
+    draft_name: "Nobody knows anybody"  # earlier name
+    draft_line: "My street is strangers."  # earlier line
+    page: societal
+    heading: "Community"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Social connections"]
+      whoqol: ["Q22"]
+      sdg: ["11.7"]
+      maxneef: ["Participation", "Affection"]
+      gallup: ["Community"]
+      wikidata: {qid: Q214693, label: "social capital"}
+    evidence: "U.S. Surgeon General advisory on loneliness (2023); OECD social connections"
+    overlaps: ["loneliness"]
+    founder_pool: "community_services/local_access"
+  - id: trust
+    name: "Trust"
+    line: "I can't trust the people and groups around me any more."
+    page: societal
+    heading: "Community"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Social connections", "Civic engagement"]
+      whoqol: []
+      sdg: ["16.6"]
+      maxneef: ["Protection", "Participation"]
+      gallup: ["Community"]
+      wikidata: null  # searched for "social trust"; no good item
+    evidence: "Batch 6, from outside review. OECD Trust Survey (interpersonal and institutional trust); Pew trust surveys"
+    overlaps: ["people-are-meaner", "democracy-slipping"]
+    founder_pool: null
+    founder_choice: keep  # batch 6, 2026-10-16
+  - id: we-cant-talk
+    name: "Polarization"
+    line: "I can't disagree with someone without losing them."
+    draft_name: "We can't talk"  # earlier name
+    draft_line: "Disagreeing ends it."  # earlier line
+    page: societal
+    heading: "Community"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Social connections", "Civic engagement"]
+      whoqol: []
+      sdg: ["16.7"]
+      maxneef: ["Understanding", "Participation"]
+      gallup: ["Community"]
+      wikidata: {qid: Q3082509, label: "political polarization"}
+    evidence: "Pew political-polarization series"
+    overlaps: []
+    founder_pool: null
+  - id: people-are-meaner
+    name: "Moral decline"
+    line: "I think people care less about right and wrong."
+    draft_name: "People are meaner"  # earlier name
+    draft_line: "Everyone's ruder and angrier now."  # earlier line
+    page: societal
+    heading: "Community"
+    status: candidate
+    gap: true
+    main: false
+    more_like_this_under: ["trust", "we-cant-talk"]
+    maps:
+      oecd: ["Social connections"]
+      whoqol: []
+      sdg: []
+      maxneef: ["Affection", "Participation"]
+      gallup: ["Community"]
+      wikidata: {qid: Q3149921, label: "incivility"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). Gallup moral-values series; Pew civility surveys"
+    overlaps: ["we-cant-talk"]
+    founder_pool: null
+    founder_choice: later  # batch 6, 2026-10-16
+  - id: cant-pool
+    name: "Sharing"
+    line: "I know we could afford it together, but there's no way to pool."
+    draft_name: "Can't pool"  # earlier name
+    draft_line: "Together we could afford it, but there's no way to pool."  # earlier line
+    page: societal
+    heading: "Community"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Income and wealth", "Social connections"]
+      whoqol: []
+      sdg: []
+      maxneef: ["Participation", "Subsistence"]
+      gallup: ["Financial", "Community"]
+      wikidata: {qid: Q4539, label: "cooperative"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). From It's thesis (shared ownership, tool libraries, bulk buying)"
+    overlaps: ["it-all-goes-up"]
+    founder_pool: null
+    founder_choice: keep  # batch 5, 2026-10-16
+  - id: building-cant-organize
+    name: "Organizing"
+    line: "I can't get my neighbors to act together."
+    draft_name: "Our building can't organize"  # earlier name
+    draft_line: "We all hate the same problem and can't act together."  # earlier line
+    page: societal
+    heading: "Community"
+    status: candidate
+    gap: true
+    main: false
+    more_like_this_under: ["cant-pool", "nobody-knows-anybody"]
+    maps:
+      oecd: ["Civic engagement", "Housing"]
+      whoqol: []
+      sdg: ["11.3"]
+      maxneef: ["Participation", "Protection"]
+      gallup: ["Community"]
+      wikidata: {qid: Q31884698, label: "tenants' union"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). From It's thesis; NYC311 shared housing complaints"
+    overlaps: ["groups-go-nowhere", "home-is-hard"]
+    founder_pool: "housing"
+    founder_choice: later  # batch 5, 2026-10-16
+  - id: treated-differently
+    name: "Discrimination"
+    line: "I'm treated worse because of who I am."
+    draft_name: "Treated differently"  # earlier name
+    draft_line: "Who I am counts against me."  # earlier line
+    page: societal
+    heading: "Fairness"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: ["not-built-for-me", "belonging"]
+    maps:
+      oecd: ["Social connections", "Safety"]
+      whoqol: ["Q19"]
+      sdg: ["10.2", "10.3", "16.b"]
+      maxneef: ["Identity", "Protection"]
+      gallup: ["Community"]
+      wikidata: {qid: Q169207, label: "discrimination"}
+    evidence: "Everyday Discrimination Scale. Note: first-person, so it reads as personal"
+    overlaps: ["people-treated-badly", "not-built-for-me"]
+    founder_pool: "safety/discrimination"
+  - id: people-treated-badly
+    name: "Prejudice"
+    line: "I watch people get treated badly for who they are."
+    draft_name: "People get treated badly for who they are"  # earlier name
+    draft_line: "I watch it happen."  # earlier line
+    page: societal
+    heading: "Fairness"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Safety", "Social connections"]
+      whoqol: []
+      sdg: ["10.2", "10.3", "16.b"]
+      maxneef: ["Identity", "Protection"]
+      gallup: ["Community"]
+      wikidata: {qid: Q5853064, label: "social exclusion"}
+    evidence: "Gallup Most Important Problem (monthly U.S. poll) ('race relations', 'unifying the country')"
+    overlaps: ["treated-differently"]
+    founder_pool: null
+  - id: justice-unfair
+    name: "Justice"
+    line: "I see police and courts treat people differently."
+    draft_name: "Justice isn't equal"  # earlier name
+    draft_line: "Police and courts don't treat us the same."  # earlier line
+    page: societal
+    heading: "Fairness"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: ["people-treated-badly"]
+    maps:
+      oecd: ["Safety", "Civic engagement"]
+      whoqol: []
+      sdg: ["16.3", "16.b"]
+      maxneef: ["Protection", "Freedom"]
+      gallup: ["Community"]
+      wikidata: {qid: Q1996993, label: "police brutality", note: "approximate: pain is wider (courts, legal aid)"}
+    evidence: "World Justice Project Rule of Law Index; Civil Legal Aid taxonomy (legal needs)"
+    overlaps: ["people-treated-badly"]
+    founder_pool: "administration"
+    founder_choice: keep  # batch 4, 2026-10-16
+  - id: where-youre-born
+    name: "Opportunity"
+    line: "I see where you're born decide your life."
+    draft_name: "Where you're born"  # earlier name
+    draft_line: "Your zip code decides your life."  # earlier line
+    page: societal
+    heading: "Fairness"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Income and wealth", "Knowledge and skills"]
+      whoqol: []
+      sdg: ["10.2", "10.3"]
+      maxneef: ["Freedom", "Identity"]
+      gallup: ["Community"]
+      wikidata: {qid: Q5333526, label: "economic mobility"}
+    evidence: "Opportunity Insights mobility research; Tier 2 list"
+    overlaps: ["it-all-goes-up", "kids-future"]
+    founder_pool: null
+    founder_choice: keep  # batch 4, 2026-10-16
+  - id: dont-know-whats-true
+    name: "Misinformation"
+    line: "I don't know what's true any more."
+    draft_name: "I don't know what's true"  # earlier name
+    draft_line: "Everything contradicts everything."  # earlier line
+    page: societal
+    heading: "Information"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Civic engagement"]
+      whoqol: ["Q13"]
+      sdg: ["16.10"]
+      maxneef: ["Understanding"]
+      gallup: ["Community"]
+      wikidata: {qid: Q13579947, label: "misinformation"}
+    evidence: "WEF Global Risks 2024-25: misinformation the top short-term risk; Fix Corpus 4.9"
+    overlaps: ["dont-know-who-to-vote-for"]
+    founder_pool: "digital_info"
+  - id: nobody-covers-here
+    name: "Local news"
+    line: "I don't know what's happening in my own town."
+    draft_name: "Nobody covers here"  # earlier name
+    page: societal
+    heading: "Information"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Civic engagement"]
+      whoqol: ["Q13"]
+      sdg: ["16.10"]
+      maxneef: ["Understanding", "Participation"]
+      gallup: ["Community"]
+      wikidata: {qid: Q65061916, label: "news desert"}
+    evidence: "Medill State of Local News (news deserts)"
+    overlaps: []
+    founder_pool: null
+  - id: watched-by-companies
+    name: "Privacy"
+    line: "I feel watched by companies that know everything about me."
+    draft_name: "Being watched"  # earlier name
+    draft_line: "Companies know everything about me."  # earlier line
+    page: societal
+    heading: "Information"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Safety"]
+      whoqol: []
+      sdg: ["16.10"]
+      maxneef: ["Protection", "Freedom"]
+      gallup: ["Community"]
+      wikidata: {qid: Q456632, label: "information privacy"}
+    evidence: "Pew 2023: about 8 in 10 U.S. adults concerned about how companies use their data"
+    overlaps: []
+    founder_pool: "digital_info"
+    founder_choice: keep  # batch 4, 2026-10-16
+  - id: climate
+    name: "Climate change"
+    line: "I'm worried about the planet heating up."
+    draft_name: "Climate"  # earlier name
+    draft_line: "It's getting hotter and we aren't stopping it."  # earlier line
+    page: societal
+    heading: "Environment"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Environmental quality"]
+      whoqol: ["Q9"]
+      sdg: ["13.1", "13.2"]
+      maxneef: ["Protection", "Subsistence"]
+      gallup: ["Community"]
+      wikidata: {qid: Q125928, label: "climate change"}
+    evidence: "Ipsos What Worries the World (monthly, ~30 countries) (climate change); Tier 2 list"
+    overlaps: ["dirty-air"]
+    founder_pool: "environment"
+    founder_choice: keep  # batch 3, 2026-10-16
+  - id: disasters
+    name: "Disasters"
+    line: "I'm living with floods, fires, storms or extreme heat."
+    page: societal
+    heading: "Environment"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: ["climate"]
+    maps:
+      oecd: ["Environmental quality", "Safety"]
+      whoqol: ["Q8", "Q9"]
+      sdg: ["11.5", "13.1", "1.5"]
+      maxneef: ["Protection", "Subsistence"]
+      gallup: ["Community"]
+      wikidata: {qid: Q8065, label: "natural disaster"}
+    evidence: "Batch 6, from outside review. FEMA disaster declarations; NOAA billion-dollar disasters"
+    overlaps: ["climate"]
+    founder_pool: "environment"
+    founder_choice: keep  # batch 6, 2026-10-16
+  - id: dirty-air
+    name: "Pollution"
+    line: "I see pollution harming where I live."
+    draft_name: "Dirty air"  # earlier name
+    draft_line: "What we breathe here makes us sick."  # earlier line
+    page: societal
+    heading: "Environment"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Environmental quality", "Health"]
+      whoqol: ["Q9"]
+      sdg: ["11.6", "3.9"]
+      maxneef: ["Subsistence", "Protection"]
+      gallup: ["Community"]
+      wikidata: {qid: Q131123, label: "air pollution"}
+    evidence: "WHO: 99% of people breathe air above WHO guideline levels; Fix Corpus 4.10. Covers noise and water too"
+    overlaps: ["climate"]
+    founder_pool: "environment"
+    founder_choice: keep  # batch 3, 2026-10-16
+  - id: car-or-nothing
+    name: "Cars"
+    line: "I can't get anywhere without a car."
+    draft_name: "Car or nothing"  # earlier name
+    draft_line: "You can't get anywhere without a car."  # earlier line
+    page: societal
+    heading: "Environment"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Environmental quality", "Work-life balance"]
+      whoqol: ["Q25"]
+      sdg: ["11.2"]
+      maxneef: ["Freedom", "Participation"]
+      gallup: ["Community"]
+      wikidata: {qid: Q786773, label: "car dependency"}
+    evidence: "Transportation Security Index; ACS commute data"
+    overlaps: ["getting-around"]
+    founder_pool: "transport"
+    founder_choice: keep  # batch 3, 2026-10-16
+  - id: nature-disappearing
+    name: "Nature"
+    line: "I see fewer birds, trees and green spaces."
+    draft_name: "Nature disappearing"  # earlier name
+    draft_line: "There are fewer birds, trees and green spaces."  # earlier line
+    page: societal
+    heading: "Environment"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Environmental quality"]
+      whoqol: ["Q9"]
+      sdg: ["15.5", "11.7"]
+      maxneef: ["Leisure", "Identity"]
+      gallup: ["Community"]
+      wikidata: {qid: Q18466271, label: "biodiversity loss"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). IPBES Global Assessment; State of the World's Birds"
+    overlaps: ["climate"]
+    founder_pool: "environment"
+    founder_choice: keep  # batch 5, 2026-10-16
+  - id: crime-and-violence
+    name: "Crime"
+    line: "I don't feel safe from crime and violence."
+    draft_name: "Crime and violence"  # earlier name
+    draft_line: "People get hurt here and it keeps happening."  # earlier line
+    page: societal
+    heading: "Safety"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Safety"]
+      whoqol: ["Q8"]
+      sdg: ["16.1"]
+      maxneef: ["Protection"]
+      gallup: ["Community"]
+      wikidata: {qid: Q83267, label: "crime"}
+    evidence: "Gallup Most Important Problem (monthly U.S. poll) (crime/violence; guns); Ipsos What Worries the World (monthly, ~30 countries) (crime and violence top 3)"
+    overlaps: ["unsafe-near-me"]
+    founder_pool: "safety/personal_safety"
+    founder_choice: keep  # batch 4, 2026-10-16
+  - id: world-on-fire
+    name: "War"
+    line: "I see war threatening people and places I care about."
+    draft_name: "World on fire"  # earlier name
+    draft_line: "War and chaos feel closer every year."  # earlier line
+    page: societal
+    heading: "Safety"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Safety"]
+      whoqol: []
+      sdg: ["16.1"]
+      maxneef: ["Protection"]
+      gallup: ["Community"]
+      wikidata: null  # searched for "war"; no good item
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). Ipsos What Worries the World (monthly, ~30 countries) (military conflict between nations); WEF Global Risks"
+    overlaps: ["crime-and-violence"]
+    founder_pool: null
+    founder_choice: keep  # batch 5, 2026-10-16
+  - id: kids-future
+    name: "Kids' future"
+    line: "I think kids will have it worse than we did."
+    draft_line: "They'll have it worse than we did."  # earlier line
+    page: societal
+    heading: "Kids"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Subjective well-being"]
+      whoqol: []
+      sdg: []
+      maxneef: ["Protection", "Identity"]
+      gallup: ["Community"]
+      wikidata: {qid: Q5333526, label: "economic mobility"}
+    evidence: "Pew Global Attitudes: majorities in rich countries expect children to be worse off; Tier 2 list"
+    overlaps: ["where-youre-born", "climate"]
+    founder_pool: null
+    founder_choice: keep  # batch 4, 2026-10-16
+  - id: schools-fail-kids
+    name: "Education"
+    line: "I see kids not getting what they need at school."
+    draft_name: "Schools"  # earlier name
+    draft_line: "Kids aren't getting what they need at school."  # earlier line
+    page: societal
+    heading: "Kids"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Knowledge and skills"]
+      whoqol: []
+      sdg: ["4.1", "4.6"]
+      maxneef: ["Understanding"]
+      gallup: ["Community"]
+      wikidata: {qid: Q8434, label: "education", note: "broad"}
+    evidence: "Gallup Most Important Problem (monthly U.S. poll) (education); Ipsos What Worries the World (monthly, ~30 countries) (education); OECD PISA trends"
+    overlaps: ["kids-future"]
+    founder_pool: "education"
+    founder_choice: keep  # batch 4, 2026-10-16
+  - id: screens-and-kids
+    name: "Screens"
+    line: "I see phones raising our kids."
+    draft_name: "Screens and kids"  # earlier name
+    draft_line: "Phones are raising our children."  # earlier line
+    page: societal
+    heading: "Kids"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Subjective well-being", "Social connections"]
+      whoqol: []
+      sdg: ["3.4"]
+      maxneef: ["Protection", "Understanding"]
+      gallup: ["Community"]
+      wikidata: null  # searched for "social media and mental health"; no good item
+    evidence: "U.S. Surgeon General advisory on social media and youth (2023); Pew teens surveys"
+    overlaps: ["doomscrolling"]
+    founder_pool: null
+    founder_choice: keep  # batch 4, 2026-10-16
+  - id: nothing-ever-changes
+    name: "Gridlock"
+    line: "I see the same problems stay year after year."
+    draft_name: "Nothing ever changes"  # earlier name
+    draft_line: "We all know the problem and it stays."  # earlier line
+    page: societal
+    heading: "Making change"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Civic engagement"]
+      whoqol: []
+      sdg: ["16.7"]
+      maxneef: ["Participation", "Creation"]
+      gallup: ["Community"]
+      wikidata: {qid: Q7210296, label: "political efficacy"}
+    evidence: "OECD Trust Survey political efficacy items. No framework names it as a pain"
+    overlaps: ["shouting-into-void"]
+    founder_pool: null
+  - id: groups-go-nowhere
+    name: "Meetings"
+    line: "I go to meetings where nothing happens."
+    draft_name: "Groups go nowhere"  # earlier name
+    draft_line: "Meetings end and nothing happens."  # earlier line
+    page: societal
+    heading: "Making change"
+    status: candidate
+    gap: true
+    main: false
+    more_like_this_under: ["nothing-ever-changes"]
+    maps:
+      oecd: ["Civic engagement"]
+      whoqol: []
+      sdg: []
+      maxneef: ["Participation", "Creation"]
+      gallup: ["Community"]
+      wikidata: {qid: Q55607920, label: "collective action problem"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). From It's thesis. No framework names it"
+    overlaps: ["nothing-ever-changes"]
+    founder_pool: null
+    founder_choice: keep  # batch 5, 2026-10-16
+  - id: shouting-into-void
+    name: "Unheard"
+    line: "I care and it goes nowhere."
+    draft_name: "Shouting into the void"  # earlier name
+    page: societal
+    heading: "Making change"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Civic engagement"]
+      whoqol: []
+      sdg: ["16.7"]
+      maxneef: ["Participation", "Identity"]
+      gallup: ["Community"]
+      wikidata: {qid: Q7210296, label: "political efficacy"}
+    evidence: "External political efficacy literature. No framework names it as a pain"
+    overlaps: ["nothing-ever-changes"]
+    founder_pool: null
+  - id: giving-feels-blind
+    name: "Giving"
+    line: "I'd give if I knew it worked."
+    draft_name: "Giving feels blind"  # earlier name
+    draft_line: "I'd give money if I knew it worked."  # earlier line
+    page: societal
+    heading: "Making change"
+    status: candidate
+    gap: true
+    main: false
+    more_like_this_under: ["want-to-help"]
+    maps:
+      oecd: ["Civic engagement"]
+      whoqol: []
+      sdg: ["17.17"]
+      maxneef: ["Participation", "Understanding"]
+      gallup: ["Community"]
+      wikidata: {qid: Q185733, label: "philanthropy"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). Giving USA; trust-in-nonprofits surveys. From It's thesis (honest status of ideas)"
+    overlaps: ["shouting-into-void"]
+    founder_pool: null
+    founder_choice: keep  # batch 5, 2026-10-16
+  - id: alone-in-caring
+    name: "Allies"
+    line: "I don't know who else cares."
+    draft_name: "Alone in caring"  # earlier name
+    draft_line: "I don't know who else gives a damn."  # earlier line
+    page: societal
+    heading: "Making change"
+    status: current
+    gap: false
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Civic engagement", "Social connections"]
+      whoqol: []
+      sdg: []
+      maxneef: ["Participation", "Affection"]
+      gallup: ["Community"]
+      wikidata: {qid: Q4116870, label: "civic engagement"}
+    evidence: "No framework names it. It's own product thesis"
+    overlaps: ["shouting-into-void", "nobody-knows-anybody"]
+    founder_pool: null
+  - id: dont-know-whats-happening
+    name: "Coordination"
+    line: "I can't find who's already working on this."
+    draft_name: "Can't find who's on it"  # earlier name
+    draft_line: "Someone's probably working on this and I can't find them."  # earlier line
+    page: societal
+    heading: "Making change"
+    status: candidate
+    gap: true
+    main: false
+    more_like_this_under: ["alone-in-caring"]
+    maps:
+      oecd: ["Civic engagement"]
+      whoqol: ["Q13"]
+      sdg: ["16.10"]
+      maxneef: ["Understanding", "Participation"]
+      gallup: ["Community"]
+      wikidata: {qid: Q25866, label: "community organizing"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). From It's thesis. Founder pool: 'I don't know what useful services exist near me'"
+    overlaps: ["alone-in-caring", "nobody-covers-here"]
+    founder_pool: "community_services"
+    founder_choice: keep  # batch 5, 2026-10-16
+  - id: want-to-help
+    name: "Helping"
+    line: "I'd do something if I knew what."
+    draft_name: "Want to help"  # earlier name
+    page: societal
+    heading: "Making change"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Civic engagement"]
+      whoqol: []
+      sdg: ["17.17"]
+      maxneef: ["Participation"]
+      gallup: ["Community"]
+      wikidata: {qid: Q188844, label: "volunteering"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). AmeriCorps Volunteering and Civic Life (not knowing how to get involved is a common barrier). From It's thesis"
+    overlaps: ["alone-in-caring", "shouting-into-void"]
+    founder_pool: null
+    founder_choice: keep  # batch 5, 2026-10-16
+  - id: same-few-people
+    name: "Volunteers"
+    line: "I see the same few people doing everything."
+    draft_name: "Same few people"  # earlier name
+    draft_line: "Everything good here runs on the same three exhausted people."  # earlier line
+    page: societal
+    heading: "Making change"
+    status: candidate
+    gap: true
+    main: false
+    more_like_this_under: ["want-to-help"]
+    maps:
+      oecd: ["Civic engagement", "Social connections"]
+      whoqol: []
+      sdg: []
+      maxneef: ["Participation"]
+      gallup: ["Community"]
+      wikidata: {qid: Q188844, label: "volunteering"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). Volunteer-concentration research ('civic core'). From It's thesis"
+    overlaps: ["want-to-help", "groups-go-nowhere"]
+    founder_pool: null
+    founder_choice: later  # batch 5, 2026-10-16
+  - id: idea-no-team
+    name: "Collaborators"
+    line: "I have an idea and nobody to build it with."
+    draft_name: "Idea, no team"  # earlier name
+    page: societal
+    heading: "Making change"
+    status: candidate
+    gap: true
+    main: true
+    more_like_this_under: []
+    maps:
+      oecd: ["Civic engagement", "Social connections"]
+      whoqol: []
+      sdg: ["17.17"]
+      maxneef: ["Creation", "Participation"]
+      gallup: ["Career", "Community"]
+      wikidata: {qid: Q1145523, label: "collaboration"}
+    evidence: "Batch 5 brainstorm (needs / inner life / worries / It's thesis). From It's thesis. No framework names it"
+    overlaps: ["alone-in-caring", "nothing-i-make"]
+    founder_pool: null
+    founder_choice: keep  # batch 5, 2026-10-16
