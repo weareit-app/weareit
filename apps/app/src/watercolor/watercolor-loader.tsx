@@ -5,9 +5,10 @@ import { GatherDot } from "./gather-dot";
 // Wait this long before showing the loader, so quick loads don't flash it.
 export const LOADER_DELAY_MS = 300;
 
-// The gathering watercolor dot while content loads, with the words saying so
-// (contract: WatercolorLoader). The dot is decorative; the text carries the
-// meaning and is announced once. It never shows progress it doesn't have.
+// The gathering watercolor dot while content loads (contract:
+// WatercolorLoader). It shows no words (founder, 2026-10-17); screen readers
+// still hear the label, announced once. It never shows progress it doesn't
+// have.
 export function WatercolorLoader({
   label = "Loading…",
   size = 56,
@@ -31,15 +32,25 @@ export function WatercolorLoader({
   if (!shown) return <View style={{ minHeight: size }} />;
 
   return (
-    <View className="flex-row items-center gap-4" style={{ minHeight: size }}>
+    <View
+      accessible
+      role="progressbar"
+      aria-label={label}
+      style={{ minHeight: size }}
+    >
       <GatherDot size={size} />
-      <Text
-        className="font-serif text-lg text-muted"
-        accessibilityLiveRegion="polite"
-        aria-live="polite"
-      >
+      {/* Read on web by screen readers as it appears; not shown. */}
+      <Text aria-live="polite" style={visuallyHidden}>
         {label}
       </Text>
     </View>
   );
 }
+
+const visuallyHidden = {
+  position: "absolute",
+  width: 1,
+  height: 1,
+  overflow: "hidden",
+  opacity: 0,
+} as const;

@@ -37,7 +37,10 @@ test("shows the watercolor loader while content loads, then the content (US2)", 
   await serveContent(page, 2500);
   await page.goto("/onboarding/personal");
 
-  await expect(page.getByText("Loading…")).toBeVisible();
+  // No words on screen; screen readers hear "Loading…".
+  await expect(
+    page.getByRole("progressbar", { name: "Loading…" }),
+  ).toBeVisible();
   await expect(page.locator(DOT)).toBeVisible();
   // The dot is decorative; the words carry the meaning.
   await expect(page.locator(DOT)).toHaveAttribute("aria-hidden", "true");
@@ -68,16 +71,28 @@ test("draws the gathering loader with WebGL on web: it keeps changing, not growi
       ctx.drawImage(el, 0, 0, 32, 32);
       const px = ctx.getImageData(0, 0, 32, 32).data;
       let painted = 0;
-      for (let i = 3; i < px.length; i += 4) if (px[i]! > 128) painted += 1;
-      return { coverage: painted / (px.length / 4), px: Array.from(px) };
+      let edge = 0;
+      for (let i = 3; i < px.length; i += 4) {
+        if (px[i]! > 128) painted += 1;
+        const x = ((i - 3) / 4) % 32;
+        const y = Math.floor((i - 3) / 4 / 32);
+        if (x === 0 || y === 0 || x === 31 || y === 31)
+          edge = Math.max(edge, px[i]!);
+      }
+      return { coverage: painted / (px.length / 4), edge, px: Array.from(px) };
     });
-  // Let the first drops gather into one dot.
-  await page.waitForTimeout(4500);
+  // No drop is ever cut off by the canvas edge, from the first drops on.
+  const early = [];
+  for (let i = 0; i < 9; i += 1) {
+    early.push(await sample());
+    await page.waitForTimeout(500);
+  }
   const samples = [];
   for (let i = 0; i < 8; i += 1) {
     samples.push(await sample());
     await page.waitForTimeout(800);
   }
+  for (const s of [...early, ...samples]) expect(s.edge).toBe(0);
   const coverages = samples.map((s) => s.coverage);
   // Drawn, and the gathered dot keeps its size (drops drifting in add a
   // little at the edge, but it never grows away).

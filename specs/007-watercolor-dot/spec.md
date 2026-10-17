@@ -18,9 +18,9 @@ Two audiences see this feature: the founder (and contributors) reviewing the fid
 
 - **Screen: Fidelity proof (founder only, not part of the shipped app)** - Three dots side by side, the same size: the painted orb, the look-alike dot (Option B) and the physics-painted dot (Option E). Each is shown still and playing as a loader, first in It's palette and then in one other palette. Under each dot: its name, how it was made, and its measured smoothness on a laptop browser and an iPhone, for one large dot and for a screen of about 30 small dots. A note says which pieces are generated and which are paint. - The founder can switch palettes, switch between still and moving, look at any dot full size, and record which one is "the same family" as the painted orb (or that none is).
 - **Screen: Welcome** - The It mark is the watercolor dot instead of a fixed picture, gently alive: it slowly blooms and settles like paint drying, then rests completely still, like a dried painting. Until the generated dot is ready, the painted orb is shown in the same place and size, so nothing jumps. - The person reads the welcome and goes on as today; the dot never needs a tap and never delays the "start" action.
-- **Screen: Any page while its content loads** - Where It today shows a plain loading state, a small watercolor dot appears beside a short line such as "Loading…". Drops of different sizes, in It's colors, drift in from around the edge, touch and run together into one dot. While loading continues, new drops keep drifting in slowly and bloom into it, bringing sunrise and dusk colors that marble into the wash; the dot keeps its size. When content arrives the loader simply disappears. If loading fails, the dot stops and the existing error message and retry appear. - The person waits or leaves; nothing changes about what they can do.
+- **Screen: Any page while its content loads** - Where It today shows a plain loading state, a small watercolor dot appears on its own, with no words on screen (screen readers hear "Loading…"). Drops of different sizes, in It's colors, drift in from near its edge (never cut off by it), touch and run together into one dot. While loading continues, new drops keep drifting in slowly and bloom into it, bringing sunrise and dusk colors that marble into the wash; the dot keeps its size. When content arrives the loader simply disappears. If loading fails, the dot stops and the existing error message and retry appear. - The person waits or leaves; nothing changes about what they can do.
 - **Screen: Moving between onboarding steps** (welcome → personal → societal → futures) - The page changes as it does today, and a small watercolor dot blooms once in a corner of the new page, then rests or fades. It is short and never holds the next page back. - The person keeps tapping on; going back works the same way.
-- **With reduced motion on (any screen above)** - Every dot shows its still, "dried" end state: the same picture, no movement. Loading still says "Loading…" in words. Step changes happen without the corner bloom.
+- **With reduced motion on (any screen above)** - Every dot shows its still, "dried" end state: the same picture, no movement. Screen readers still hear "Loading…". Step changes happen without the corner bloom.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -48,7 +48,7 @@ A person opens a page whose content is still on its way. Instead of a plain load
 
 **Why this priority**: Loading states are the most frequent place the mark can come alive and are a founder commitment for v0.1. It is also the simplest placement to prove the dot works in the real app.
 
-**Independent Test**: Slow the network, open a content page; the dot and "Loading…" appear in place of today's loading state, then disappear when content arrives; with reduced motion on, the dot is still.
+**Independent Test**: Slow the network, open a content page; the dot appears in place of today's loading state (screen readers hear "Loading…"), then disappear when content arrives; with reduced motion on, the dot is still.
 
 **Acceptance Scenarios**:
 
@@ -208,7 +208,7 @@ This supersedes the earlier loader answers (breath, then bloom loop with re-wet 
 
 - **FR-019**: With reduced motion on, every dot MUST show its still, dried end state, and the step-change corner dot MUST be shown still or not at all.
 - **FR-020**: Every dot MUST have a text alternative that says what it means in that place ("Loading…" for loading states; It's mark on the welcome screen); the purely decorative step-change corner dot MUST be hidden from screen readers.
-- **FR-021**: No meaning MUST depend on the dot's color or motion alone; loading is always also said in words.
+- **FR-021**: No meaning MUST depend on the dot's color or motion alone. Exception (founder, 2026-10-17): the loader shows no words on screen; it stands in the place where content will appear and screen readers hear "Loading…".
 
 **Living loader (redefined 2026-10-17) — on hold, see Clarifications**
 

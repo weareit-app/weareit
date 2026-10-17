@@ -63,16 +63,31 @@ describe("gathering loader timeline", () => {
     );
   });
 
-  it("starts each arrival outside the frame and ends it inside the dot", () => {
+  it("ends each arrival inside the dot", () => {
     for (let k = 0; k < 12; k += 1) {
       const landed = FIRST_ARRIVAL_MS + k * ARRIVE_EVERY_MS;
       const newest = drops(landed)[4]!;
-      expect(dist(newest) - newest.radius).toBeGreaterThan(1);
+      expect(dist(newest)).toBeGreaterThan(0.6);
       // Follow the same drop (by its seed) until it has run in.
       const done = drops(landed + ARRIVAL_TRAVEL_MS + 1000).find(
         (d) => d.seed === newest.seed,
       )!;
       expect(dist(done)).toBeLessThan(0.32);
+    }
+  });
+
+  it("keeps every drop inside the frame, so none is cut off", () => {
+    // How far a lone drop's paint reaches, as the shader draws it: the field
+    // (1 - merged) * active * exp(-d²/r²) is painted down to about 0.25 (the
+    // wet feather lowers the threshold), and the ragged outline adds up to
+    // 12.5% to the radius.
+    const reach = (d: Drop) => {
+      const strength = (1 - d.merged) * d.active;
+      if (strength <= 0.25) return 0;
+      return dist(d) + 1.125 * d.radius * Math.sqrt(Math.log(strength / 0.25));
+    };
+    for (let t = 0; t < 30000; t += 20) {
+      for (const d of drops(t)) expect(reach(d)).toBeLessThan(0.97);
     }
   });
 

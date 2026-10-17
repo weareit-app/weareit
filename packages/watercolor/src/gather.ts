@@ -18,6 +18,11 @@ export const ARRIVAL_MERGE_MS = 1800; // running in
 export const DISTINCT_MS = 12000;
 // How far a drop's paint spreads into the dot as it runs in.
 const SPREAD = 1.2;
+// Every drop stays inside the canvas, so none is cut off by its edge. A
+// drop's painted edge reaches about EXTENT radii from its center (the ragged
+// outline plus the wet feather), and must stay within EDGE.
+const EDGE = 0.95;
+const EXTENT = 1.5;
 // The guest palette (slots 3–5) drifts from one palette to the next this fast.
 export const GUEST_DRIFT_MS = 16000;
 
@@ -53,7 +58,13 @@ export function gatherAt(elapsedMs: number): GatherState {
     const stagger = 220 * hash(i + 11);
     const travel = easeOut((elapsedMs - stagger) / FIRST_TRAVEL_MS);
     const angle = i * (Math.PI / 2) + 0.5 + 0.4 * (hash(i + 3) - 0.5);
-    const startR = 0.72 + 0.1 * hash(i + 7);
+    const size = [0.2, 0.13, 0.17, 0.1][i]!;
+    // Start a little smaller and swell as they travel, so they can start
+    // farther out without touching the edge.
+    const startR = Math.min(
+      0.72 + 0.1 * hash(i + 7),
+      EDGE - EXTENT * 0.75 * size,
+    );
     const endR = 0.12 + 0.18 * hash(i + 19);
     const endAngle = angle + 0.6;
     const x =
@@ -62,8 +73,7 @@ export function gatherAt(elapsedMs: number): GatherState {
     const y =
       Math.sin(angle) * startR * (1 - travel) +
       Math.sin(endAngle) * endR * travel;
-    const size = [0.2, 0.13, 0.17, 0.1][i]!;
-    const radius = size * (1 + 0.8 * travel);
+    const radius = size * (0.75 + 1.05 * travel);
     const merged = clamp01(
       (elapsedMs - FIRST_TRAVEL_MS * 0.7) /
         (BODY_FORM_MS - FIRST_TRAVEL_MS * 0.7),
@@ -90,8 +100,8 @@ export function gatherAt(elapsedMs: number): GatherState {
     // Ends well inside the gathered dot, so nothing is left bulging out when
     // the drop has run in.
     const size = 0.07 + 0.15 * hash(k + 171) ** 1.5;
-    // Starts just outside the frame, so it slides in rather than appearing.
-    const startR = 1.02 + size;
+    // Starts just inside the edge and fades in as it drifts.
+    const startR = EDGE - EXTENT * size;
     const endR = 0.08 + 0.22 * hash(k + 131);
     const endAngle = angle + 0.4 * (hash(k + 151) - 0.5);
     const x =
@@ -115,8 +125,8 @@ export function gatherAt(elapsedMs: number): GatherState {
       retiring * Math.exp(-Math.max(age - ARRIVAL_TRAVEL_MS, 0) / DISTINCT_MS);
     // `active` fades with age too, so the drop's whole claim on the color is
     // gone before it leaves the list.
-    // And fades in over its first half second.
-    const appear = clamp01(age / 500);
+    // And fades in over its first 0.8 s.
+    const appear = clamp01(age / 800);
     out.push(
       x,
       y,

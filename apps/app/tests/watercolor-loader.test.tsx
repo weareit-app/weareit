@@ -22,14 +22,14 @@ describe("WatercolorLoader", () => {
   it("shows nothing for quick loads", async () => {
     await render(<WatercolorLoader />);
     await act(() => jest.advanceTimersByTime(LOADER_DELAY_MS - 100));
-    expect(screen.queryByText("Loading…")).toBeNull();
+    expect(screen.queryByLabelText("Loading…")).toBeNull();
     expect(screen.queryByTestId("watercolor-dot")).toBeNull();
   });
 
-  it("shows the dot and says it is loading after the delay (FR-007, FR-021)", async () => {
+  it("shows the dot after the delay, labeled for screen readers (FR-007, FR-020)", async () => {
     await render(<WatercolorLoader />);
     await act(() => jest.advanceTimersByTime(LOADER_DELAY_MS));
-    expect(screen.getByText("Loading…")).toBeTruthy();
+    expect(screen.getByLabelText("Loading…")).toBeTruthy();
     expect(screen.getByTestId("watercolor-dot")).toBeTruthy();
   });
 

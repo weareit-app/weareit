@@ -28,10 +28,10 @@ Replaces the loading branch of `ContentQueryState` (FR-007).
 
 | Prop | Type | Default |
 |---|---|---|
-| `label` | string | `"Loading…"` |
+| `label` | string | `"Loading…"` (for screen readers; not shown) |
 | `size` | number | 56 |
 
-Dot: the gathering loader (`GatherDot`: Skia on iOS, WebGL on web, painted orb as fallback; founder, 2026-10-17). It disappears when content arrives. Guarantees: appears only after 300 ms (research R8; no minimum display time, because holding the loader would hold back content); text label always visible; announced once; dot itself hidden from screen readers (FR-020, FR-021); no percentage or progress (FR-012). Error state unchanged and the dot is gone (FR-013).
+Dot: the gathering loader (`GatherDot`: Skia on iOS, WebGL on web, painted orb as fallback; founder, 2026-10-17). Drops never cross the canvas edge. It disappears when content arrives. Guarantees: appears only after 300 ms (research R8; no minimum display time, because holding the loader would hold back content); no words on screen (founder, 2026-10-17), the label is read by screen readers and announced once; dot itself hidden from screen readers (FR-020, FR-021); no percentage or progress (FR-012). Error state unchanged and the dot is gone (FR-013).
 
 ## `<WelcomeMark>`
 
