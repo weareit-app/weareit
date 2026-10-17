@@ -21,7 +21,7 @@ export interface ApiContext {
     createCheckout(input: {
       amountMinor: number;
       frequency: "once" | "monthly";
-      userId: string | null;
+      userId: string;
     }): Promise<{ url: string; reference: string }>;
     getStatus(
       reference: string,
@@ -104,10 +104,14 @@ export function createApiRouter(db: ItDatabase) {
     support: {
       createCheckout: os.support.createCheckout.handler(
         async ({ context, input }) => {
+          const userId = requireUserId(
+            context.userId,
+            "Sign in before supporting It.",
+          );
           try {
             return await context.supportPayments.createCheckout({
               ...input,
-              userId: context.userId,
+              userId,
             });
           } catch (error) {
             if (

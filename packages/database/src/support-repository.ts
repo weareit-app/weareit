@@ -48,7 +48,7 @@ export async function createPendingStripeContribution(
   db: ItDatabase,
   input: {
     id: string;
-    userId: string | null;
+    userId: string;
     amountMinor: number;
     currency: string;
     frequency: SupportFrequency;

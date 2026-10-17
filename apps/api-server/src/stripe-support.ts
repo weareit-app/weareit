@@ -58,7 +58,7 @@ export function createStripeSupport(db: ItDatabase) {
     async createCheckout(input: {
       amountMinor: number;
       frequency: "once" | "monthly";
-      userId: string | null;
+      userId: string;
     }) {
       if (!stripe || !productId) throw new Error("STRIPE_NOT_CONFIGURED");
 

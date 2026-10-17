@@ -174,6 +174,9 @@ describe("support status and portal access", () => {
   it("requires a signed-in session", async () => {
     const client = clientFor(null);
     await expect(
+      client.support.createCheckout({ amountMinor: 1500, frequency: "once" }),
+    ).rejects.toMatchObject({ code: "UNAUTHORIZED" });
+    await expect(
       client.support.getStatus({ reference: monthlyRef }),
     ).rejects.toMatchObject({ code: "UNAUTHORIZED" });
     await expect(
