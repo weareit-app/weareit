@@ -20,5 +20,21 @@ These raster files were supplied by the project owner in the It MVP conversation
 | `icon-advocacy.jpg` | `7-Photo-7.jpg` (2026-10-14 follow-up) | Taking action choice |
 | `icon-climate.jpg` | `8-Photo-8.jpg` (2026-10-14 follow-up) | No matching Tier 1 choice yet |
 | `icon-ai.jpg` | `9-Photo-9.jpg` (2026-10-14 follow-up) | No matching Tier 1 choice yet |
+| `it-logo-draft.png` | First-pass "it" logo (2026-10-17) | Reference only; source for the vectors below |
+
+## Logo vectors
+
+Redrawn by hand on 2026-10-17 from `it-logo-draft.png`. The "it" letters are clean paths that keep the draft's proportions but drop its wobble and notches. The watercolor dot is an approximation built from SVG gradients and a turbulence filter. Replace it with a painted vector or the raster if it needs to match exactly.
+
+| Asset | Letters | Intended use |
+| --- | --- | --- |
+| `it-logo.svg` | `currentColor` | Inline SVG; letters follow the surrounding text color |
+| `it-logo-light.svg` | `#ffffff` | Dark backgrounds, `<img>` and other non-inline uses |
+| `it-logo-dark.svg` | `#1f1f1f` | Light backgrounds, `<img>` and other non-inline uses |
+| `it-type.svg` | `currentColor` | Letters only, inline, for one-color uses (favicons, print) |
+| `it-type-light.svg` | `#ffffff` | Letters only, dark backgrounds |
+| `it-type-dark.svg` | `#1f1f1f` | Letters only, light backgrounds |
+
+`currentColor` follows the page only when the SVG is inlined. Loaded through `<img>` or `<object>`, it renders black, so use the light or dark file there.
 
 The visual assets are intended to be released under CC0 under the project's working licensing policy. Confirm creator and source details before publishing a release; the attachments alone do not establish authorship or rights provenance.
