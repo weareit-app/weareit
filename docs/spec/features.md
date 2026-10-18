@@ -16,13 +16,16 @@ DRAFT. ✔ = founder decided · ? = open / from the unchecked draft spec · **co
 
 - ✔ **core** Same as personal, for society-wide problems.
 
-## 2b. Entry links (no account)
+## 2b. Pain pages and entry links (no account)
 
-- ✔ **core** A link that opens the personal or societal page with one pain already open ("/p/housing", "/s/ai-and-jobs"), so a post about housing lands on housing.
-- ✔ **core** The link carries no personal data and no identifier of who shared or clicked it. Arriving by link counts in the coarse totals like any other visit, nothing more.
-- ✔ **core** Every pain has a stable, readable slug that doesn't change when its wording does.
-- ? Which pains get links first: all of them, or a launch set matched to the outreach list.
-- ✗ Not in v0.1: custom landing pages per topic (headline, sourced context, counts of people who share the pain). Soon: the link format must not block them.
+- ✔ **core** Every pain has its own page at a link like "/p/rent-eats-everything": the pain, its dreams and fixes the visitor can pick, then "See more pains" into the normal flow (personal → societal → sign up). A post about rent lands on rent.
+- ✔ **core** One prefix for every pain, personal or societal: "/p/<slug>".
+- ✔ **core** The link carries no personal data and no identifier of who shared or clicked it. Arriving by link counts in the coarse totals like any other visit, nothing more. Social tracking tags are stripped from the address bar on arrival.
+- ✔ **core** Every pain has a stable, readable slug that doesn't change when its wording does. The founder approves it at first publish; if it ever changes, the old slug keeps working.
+- ✔ **core** Every published pain has a working link; the editor highlights a launch set for outreach.
+- ✔ **core** Pages for the launch set talk about the pain in detail: sourced text, images and visualizations where they make sense (AI-drafted, founder-approved, stored with sources). Other pains get the basic page (pain, dreams, fixes).
+- ✔ **core** "Share this topic" on each pain page shares the page, never the person's picks.
+- ✗ Not in v0.1: counts of people on It who share a pain.
 
 ## 3. Sign up (required to go further)
 
