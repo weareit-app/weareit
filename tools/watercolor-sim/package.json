@@ -1,0 +1,19 @@
+{
+  "name": "@it/watercolor-sim",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "paint": "node --experimental-strip-types paint.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "prettier --check *.ts tests README.md"
+  },
+  "dependencies": {
+    "@it/watercolor": "workspace:*"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "@types/node": "^26.6.5",
+    "canvaskit-wasm": "0.41.0"
+  }
+}

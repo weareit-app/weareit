@@ -15,3 +15,6 @@ test-results/
 *.tsbuildinfo
 ios/
 android/
+
+# Skia web runtime for the dev-only watercolor lab (copied by `pnpm --filter @it/app skia:web`)
+apps/app/public/canvaskit.wasm

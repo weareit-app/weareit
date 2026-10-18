@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "id": "orb-01",
+  "size": 256,
+  "frames": 20,
+  "columns": 5,
+  "pigmentSlots": 3,
+  "densityScale": 2,
+  "fps": 12,
+  "breathe": {
+    "from": 15,
+    "to": 19,
+    "periodSeconds": 6
+  },
+  "provenance": {
+    "seed": 1729,
+    "simVersion": "0.1.0",
+    "settings": {
+      "size": 256,
+      "steps": 1200,
+      "pigments": 3,
+      "dropRadius": 0.34,
+      "maxRadius": 0.48,
+      "water": 1,
+      "pigmentLoad": 0.4,
+      "flow": 0.24,
+      "paperRelief": 0.08,
+      "evaporation": 0.0004,
+      "edgeEvaporation": 0.009,
+      "edgeReach": 3,
+      "spreadDepth": 0.06,
+      "spreadSteps": 420,
+      "absorption": 0.0002,
+      "settle": 0.05,
+      "granulation": [
+        0.6,
+        0.3,
+        0.1
+      ],
+      "diffusion": 0.02,
+      "dryAt": 0.015,
+      "rewets": [
+        {
+          "step": 520,
+          "x": 0.07,
+          "y": 0.04,
+          "radius": 0.17,
+          "water": 1.1
+        }
+      ]
+    },
+    "pigmentsUsed": [
+      "teal-blue",
+      "cyan-green",
+      "warm-yellow"
+    ],
+    "createdAt": "2026-10-17",
+    "license": "CC0-1.0",
+    "method": "Curtis et al. 1997 shallow-water watercolor model, implemented in tools/watercolor-sim"
+  }
+}
