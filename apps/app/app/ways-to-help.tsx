@@ -61,27 +61,27 @@ export default function WaysToHelpScreen() {
           onPress={() => toggle(option.id)}
         />
       ))}
-      <View className="gap-3 rounded-3xl bg-[#f2e8d5] p-5">
+      <View className="gap-3 rounded-3xl bg-sun-wash p-5">
         <Text className="font-semibold text-ink">Just exploring?</Text>
-        <Text className="leading-6 text-muted">
+        <Text className="leading-6 text-ink-soft">
           That's welcome too. These choices stay on this device until you choose
           to save them with an email code.
         </Text>
       </View>
       <View className="flex-row flex-wrap gap-3">
         <Link href="/onboarding/futures" asChild>
-          <Pressable className="min-h-12 rounded-full bg-leaf px-6 py-3">
-            <Text className="font-semibold text-white">Back to futures</Text>
+          <Pressable className="min-h-12 rounded-full bg-tide px-6 py-3">
+            <Text className="font-semibold text-on-tide">Back to futures</Text>
           </Pressable>
         </Link>
         <Link href="/support-it" asChild>
-          <Pressable className="min-h-12 rounded-full border border-leaf px-6 py-3">
-            <Text className="font-semibold text-leaf">Support It</Text>
+          <Pressable className="min-h-12 rounded-full border border-ember px-6 py-3">
+            <Text className="font-semibold text-ember-deep">Support It</Text>
           </Pressable>
         </Link>
         <Link href="/save-progress" asChild>
-          <Pressable className="min-h-12 rounded-full bg-leaf px-6 py-3">
-            <Text className="font-semibold text-white">
+          <Pressable className="min-h-12 rounded-full bg-tide px-6 py-3">
+            <Text className="font-semibold text-on-tide">
               Save my exploration
             </Text>
           </Pressable>

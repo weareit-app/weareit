@@ -58,18 +58,18 @@ export default function PersonalPainsScreen() {
           </View>
         ))}
       <View className="flex-row items-center justify-between gap-4">
-        <Text className="flex-1 text-sm text-muted">
+        <Text className="flex-1 text-sm text-ink-soft">
           {selected.length} selected · kept on this device
         </Text>
         <Link href="/onboarding/world" asChild>
-          <Pressable className="min-h-12 rounded-xl bg-blue px-6 py-3">
-            <Text className="font-semibold text-white">Continue</Text>
+          <Pressable className="min-h-12 rounded-xl bg-tide px-6 py-3">
+            <Text className="font-semibold text-on-tide">Continue</Text>
           </Pressable>
         </Link>
       </View>
       <Link href="/onboarding/world" asChild>
         <Pressable className="self-start py-2">
-          <Text className="text-muted">Skip this step</Text>
+          <Text className="text-ink-soft">Skip this step</Text>
         </Pressable>
       </Link>
       <ClearDraftControl />

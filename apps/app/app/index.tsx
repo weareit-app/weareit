@@ -26,12 +26,14 @@ export default function WelcomeScreen() {
           find a first step.
         </Text>
         <Link href="/onboarding/personal" asChild>
-          <Pressable className="min-h-14 items-center justify-center rounded-xl bg-blue px-6">
-            <Text className="text-base font-bold text-white">Get started</Text>
+          <Pressable className="min-h-14 items-center justify-center rounded-xl bg-tide px-6">
+            <Text className="text-base font-bold text-on-tide">
+              Get started
+            </Text>
           </Pressable>
         </Link>
       </View>
-      <Text className="font-serif text-sm leading-6 text-muted">
+      <Text className="font-serif text-sm leading-6 text-ink-soft">
         No account needed to explore. Your choices stay on this device until you
         decide to save them.
       </Text>

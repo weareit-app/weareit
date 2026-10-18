@@ -24,21 +24,19 @@ export function Page({
         {brand ? (
           <View className="flex-row items-end self-start">
             <View>
-              <Text className="text-sm font-black italic leading-3 text-[#3865a0]">
+              <Text className="text-sm font-black italic leading-3 text-tide-deep">
                 WE
               </Text>
-              <Text className="text-xs font-black italic text-[#7893b5]">
-                ARE
-              </Text>
+              <Text className="text-xs font-black italic text-tide">ARE</Text>
             </View>
-            <Text className="ml-1 text-5xl font-black leading-[42px] text-blue">
+            <Text className="ml-1 text-5xl font-black leading-[42px] text-tide-deep">
               It
             </Text>
           </View>
         ) : null}
         <View className="gap-3">
           {eyebrow ? (
-            <Text className="text-sm font-semibold uppercase tracking-[2px] text-blue">
+            <Text className="text-sm font-semibold uppercase tracking-[2px] text-tide-deep">
               {eyebrow}
             </Text>
           ) : null}

@@ -112,11 +112,11 @@ export default function FuturesScreen() {
           ) : null}
         </View>
       ) : (
-        <View className="gap-3 rounded-3xl bg-card p-6">
+        <View className="gap-3 rounded-3xl bg-paper-raised p-6">
           <Text className="text-lg font-semibold text-ink">
             You can start anywhere.
           </Text>
-          <Text className="leading-6 text-muted">
+          <Text className="leading-6 text-ink-soft">
             A future doesn't have to begin with a problem you named. It can
             begin with something you want to help make possible.
           </Text>
@@ -142,7 +142,7 @@ export default function FuturesScreen() {
           ))}
         </View>
       ) : null}
-      <View className="gap-3 rounded-3xl border border-[#e5e5e5] bg-white p-6 md:p-8">
+      <View className="gap-3 rounded-3xl border border-rule bg-paper-raised p-6 md:p-8">
         <Image
           source={require("../../assets/brand/house-wide.jpg")}
           resizeMode="contain"
@@ -152,24 +152,24 @@ export default function FuturesScreen() {
         <Text className="font-serif text-2xl font-bold text-ink">
           There are a few ways to take a first step.
         </Text>
-        <Text className="leading-6 text-muted">
+        <Text className="leading-6 text-ink-soft">
           Try a practical idea for your own life, help build the shared roadmap,
           invite someone, or support the work.
         </Text>
         <Link href="/ways-to-help" asChild>
-          <Pressable className="min-h-12 items-center justify-center rounded-xl bg-blue px-5">
-            <Text className="font-bold text-white">See ways to help</Text>
+          <Pressable className="min-h-12 items-center justify-center rounded-xl bg-tide px-5">
+            <Text className="font-bold text-on-tide">See ways to help</Text>
           </Pressable>
         </Link>
         <Link href="/support-it" asChild>
-          <Pressable className="min-h-12 items-center justify-center rounded-xl border border-blue px-5">
-            <Text className="font-semibold text-blue">Support It</Text>
+          <Pressable className="min-h-12 items-center justify-center rounded-xl border border-ember px-5">
+            <Text className="font-semibold text-ember-deep">Support It</Text>
           </Pressable>
         </Link>
       </View>
       <Link href="/onboarding/world" asChild>
         <Pressable className="self-start py-2">
-          <Text className="text-muted">Go back and change choices</Text>
+          <Text className="text-ink-soft">Go back and change choices</Text>
         </Pressable>
       </Link>
     </Page>
