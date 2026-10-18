@@ -35,6 +35,15 @@ export default function WelcomeScreen() {
         No account needed to explore. Your choices stay on this device until you
         decide to save them.
       </Text>
+      {__DEV__ && (
+        <Link href="/lab/loader" asChild>
+          <Pressable className="min-h-12 items-center justify-center rounded-xl border border-muted px-6">
+            <Text className="text-base text-ink">
+              Loader lab (development only)
+            </Text>
+          </Pressable>
+        </Link>
+      )}
     </Page>
   );
 }
