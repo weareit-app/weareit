@@ -34,6 +34,14 @@ Redrawn by hand on 2026-10-17 from `it-logo-draft.png`. The "it" letters are cle
 | `it-type.svg` | `currentColor` | Letters only, inline, for one-color uses (favicons, print) |
 | `it-type-light.svg` | `#ffffff` | Letters only, dark backgrounds |
 | `it-type-dark.svg` | `#1f1f1f` | Letters only, light backgrounds |
+| `we-are-it.svg` | `currentColor` | Full "we are it" lockup, inline |
+| `we-are-it-light.svg` | `#ffffff` | Full lockup, dark backgrounds |
+| `we-are-it-dark.svg` | `#1f1f1f` | Full lockup, light backgrounds |
+| `we-are-it-type.svg` | `currentColor` | Lockup letters only, inline |
+| `we-are-it-type-light.svg` | `#ffffff` | Lockup letters only, dark backgrounds |
+| `we-are-it-type-dark.svg` | `#1f1f1f` | Lockup letters only, light backgrounds |
+
+The lockup was redrawn the same way from `we-are-it-draft.webp`. It reuses the "it" paths and the dot from the files above, scaled and placed to match the draft. Both e's share one path, and "are" is set slightly smaller than "we" so the two lines are the same width, as in the draft.
 
 `currentColor` follows the page only when the SVG is inlined. Loaded through `<img>` or `<object>`, it renders black, so use the light or dark file there.
 
