@@ -69,14 +69,15 @@ export const WE_ARE_IT_MARK: Mark = {
 // Ink, as --color-ink in global.css (the SVGs' currentColor).
 export const INK = "#171717";
 
-// The gathered dot fills about 60% of the loader's canvas, which leaves room
-// around it for drops drifting in.
-const DOT_FILL = 0.6;
+// How much of its canvas each dot fills: the gathered loader about 60%,
+// leaving room for drops drifting in; the settled B dot about 90%.
+export const LOADER_DOT_FILL = 0.6;
+export const STILL_DOT_FILL = 0.9;
 
-// The area drawn: the logo's box widened to fit the loader's whole canvas,
-// so no drop is cut off.
-export function drawnBox(mark: Mark) {
-  const half = mark.dot.r / DOT_FILL;
+// The area drawn: the logo's box widened to fit the dot's whole canvas, so
+// nothing is cut off.
+export function drawnBox(mark: Mark, dotFill: number) {
+  const half = mark.dot.r / dotFill;
   const x = Math.min(mark.box.x, mark.dot.x - half);
   const y = Math.min(mark.box.y, mark.dot.y - half);
   const right = Math.max(mark.box.x + mark.box.width, mark.dot.x + half);
@@ -85,10 +86,15 @@ export function drawnBox(mark: Mark) {
 }
 
 // Where everything goes, sized to fit within `maxWidth` × `maxHeight` points.
-export function markLayout(mark: Mark, maxWidth: number, maxHeight: number) {
-  const box = drawnBox(mark);
+export function markLayout(
+  mark: Mark,
+  maxWidth: number,
+  maxHeight: number,
+  dotFill: number,
+) {
+  const box = drawnBox(mark, dotFill);
   const scale = Math.min(maxWidth / box.width, maxHeight / box.height);
-  const half = mark.dot.r / DOT_FILL;
+  const half = mark.dot.r / dotFill;
   return {
     box,
     scale,

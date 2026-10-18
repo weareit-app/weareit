@@ -14,6 +14,13 @@ jest.mock("../src/watercolor/gather-dot", () => ({
     return <MockView testID="watercolor-dot" />;
   },
 }));
+// The page header's logo is drawn with Skia too.
+jest.mock("../src/watercolor/brand-mark", () => ({
+  BrandMark: () => {
+    const { View: MockView } = jest.requireActual("react-native");
+    return <MockView testID="brand-mark" />;
+  },
+}));
 
 describe("WatercolorLoader", () => {
   beforeEach(() => jest.useFakeTimers());

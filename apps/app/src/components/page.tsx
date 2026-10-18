@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { ScrollView, Text, View } from "react-native";
+import { BrandMark } from "../watercolor/brand-mark";
 
 export function Page({
   eyebrow,
@@ -22,18 +23,9 @@ export function Page({
     >
       <View className="mx-auto w-full max-w-3xl gap-7 px-5 py-8 md:px-10 md:py-14">
         {brand ? (
-          <View className="flex-row items-end self-start">
-            <View>
-              <Text className="text-sm font-black italic leading-3 text-[#3865a0]">
-                WE
-              </Text>
-              <Text className="text-xs font-black italic text-[#7893b5]">
-                ARE
-              </Text>
-            </View>
-            <Text className="ml-1 text-5xl font-black leading-[42px] text-blue">
-              It
-            </Text>
+          <View className="self-start">
+            {/* Sized as in the onboarding design (76 × 54, left-aligned). */}
+            <BrandMark maxWidth={76} maxHeight={54} />
           </View>
         ) : null}
         <View className="gap-3">

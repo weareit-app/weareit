@@ -1,33 +1,23 @@
 import { View } from "react-native";
-import { GatherDot } from "./gather-dot";
-import { INK, markLayout, type Mark } from "./marks";
+import { INK, markLayout } from "./marks";
+import type { MarkViewProps } from "./mark-view";
 
-// A letter mark with the gathering loader as the dot of the i (web: the
-// letters are an inline SVG, so no Skia runtime is loaded). The letters are
-// drawn over the dot, as in the logo. It fits within `maxWidth` ×
-// `maxHeight`. Screen readers hear the label.
-export function MarkLoader({
+// A letter mark with a watercolor dot as the dot of the i (web: the letters
+// are an inline SVG, so no Skia runtime is loaded). The letters are drawn
+// over the dot, as in the logo. It fits within `maxWidth` × `maxHeight`.
+// Accessibility is the caller's.
+export function MarkView({
   mark,
   maxWidth,
   maxHeight,
+  dotFill,
+  dot,
   color = INK,
-  label = "Loading…",
-}: {
-  mark: Mark;
-  maxWidth: number;
-  maxHeight: number;
-  color?: string;
-  label?: string;
-}) {
-  const layout = markLayout(mark, maxWidth, maxHeight);
+}: MarkViewProps) {
+  const layout = markLayout(mark, maxWidth, maxHeight, dotFill);
   const { box } = layout;
   return (
-    <View
-      accessible
-      role="progressbar"
-      aria-label={label}
-      style={{ width: layout.width, height: layout.height }}
-    >
+    <View style={{ width: layout.width, height: layout.height }}>
       <View
         style={{
           position: "absolute",
@@ -35,7 +25,7 @@ export function MarkLoader({
           top: layout.dot.top,
         }}
       >
-        <GatherDot size={layout.dot.size} />
+        {dot(layout.dot.size)}
       </View>
       <svg
         aria-hidden
