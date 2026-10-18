@@ -1,4 +1,4 @@
-# Specification Quality Checklist: Safety floor and privacy page
+# Specification Quality Checklist: Privacy page, contact and FAQ (safety floor deferred)
 
 **Purpose**: Validate specification completeness and quality before proceeding to planning
 **Created**: 2026-10-17
@@ -31,8 +31,8 @@
 
 ## Notes
 
-- **[NEEDS CLARIFICATION] markers remain by design.** The user overrode the skill's three-marker cap; every open item is in `questions.md` (Q1–Q32). Interactive questioning was skipped as instructed. Run `/speckit-clarify` (or founder review of `questions.md`) before `/speckit-plan`.
-- **Implementation details**: the "Code vs invariant mismatches" section deliberately cites files and lines, as requested; it is an audit appendix, not a requirement. Requirements and success criteria themselves stay technology-agnostic (they mention the device dialer and "device settings", which are user-visible behaviour).
-- **Candidate scope**: FR-020 to FR-028 and User Stories 3–5 depend on Q1. If the founder chooses option D (defer), remove them and keep the privacy page alone.
-- **Release gating**: SC-006 makes M6/M7/M8 (support lane, 009) and M1/M2 (measurement, 001) preconditions for launch claims on the privacy page.
-- Validation iterations: 1. All non-clarification items pass.
+- **Updated 2026-10-18 with founder answers.** Crisis resources and reporting are planned for after v0.1 (Q1) and kept only as a record section; all former safety requirements and user stories were removed.
+- **Remaining [NEEDS CLARIFICATION] markers (by design)**: Q33 contact address, Q34 Neon region, Q35 email provider, Q36 host log retention, Q37 lawful bases, Q38 request verification/records, Q39 deletion response time, Q40 payment record retention. Q41 (FAQ owner) is marked PROPOSED in the spec. All are in `questions.md`. The three-marker cap was overridden by the user.
+- **Implementation details**: the "Code vs invariant mismatches" section deliberately cites files and lines, as requested; it is an audit appendix, not a requirement.
+- **Release gating**: SC-006 makes M4, M6, M7, M8 and M15 preconditions for signup/support launch; M7/M8 are fixed on `claude/vigorous-hawking-2ad1c8` (not merged).
+- Validation iterations: 2. All non-clarification items pass.
