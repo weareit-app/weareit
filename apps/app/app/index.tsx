@@ -29,17 +29,26 @@ export default function WelcomeScreen() {
           find a first step.
         </Text>
         <Link href="/onboarding/personal" asChild>
-          <Pressable className="min-h-14 items-center justify-center rounded-xl bg-blue px-6">
-            <Text className="text-base font-ui-semibold text-white">
+          <Pressable className="min-h-14 items-center justify-center rounded-xl bg-tide px-6">
+            <Text className="text-base font-ui-semibold text-on-tide">
               Get started
             </Text>
           </Pressable>
         </Link>
       </View>
-      <Text className="font-ui text-sm leading-6 text-muted">
+      <Text className="font-ui text-sm leading-6 text-ink-soft">
         No account needed to explore. Your choices stay on this device until you
         decide to save them.
       </Text>
+      {__DEV__ && (
+        <Link href="/lab/loader" asChild>
+          <Pressable className="min-h-12 items-center justify-center rounded-xl border border-ink-soft px-6">
+            <Text className="text-base text-ink">
+              Loader lab (development only)
+            </Text>
+          </Pressable>
+        </Link>
+      )}
     </Page>
   );
 }

@@ -136,30 +136,30 @@ export default function SupportItScreen() {
       description="People can contribute time, ideas, introductions, or money. Supporting It is optional and does not unlock a better version of the product."
     >
       {isWebSuccess ? (
-        <View className="gap-3 rounded-3xl bg-[#f2e8d5] p-5">
+        <View className="gap-3 rounded-3xl bg-sun-wash p-5">
           <Text className="text-lg font-ui-semibold text-ink">
             {paymentTitle}
           </Text>
-          <Text className="leading-6 text-muted">{paymentDescription}</Text>
+          <Text className="leading-6 text-ink-soft">{paymentDescription}</Text>
           {paymentStatus.data?.frequency === "monthly" && reference ? (
             <Pressable
               accessibilityRole="button"
               disabled={isLoading}
               onPress={() => void manageSubscription()}
-              className="min-h-12 self-start justify-center rounded-full bg-leaf px-6 disabled:opacity-50"
+              className="min-h-12 self-start justify-center rounded-full bg-ember px-6 disabled:opacity-50"
             >
-              <Text className="font-ui-semibold text-white">
+              <Text className="font-ui-semibold text-on-ember">
                 Manage monthly support
               </Text>
             </Pressable>
           ) : null}
         </View>
       ) : canceled ? (
-        <View className="gap-2 rounded-3xl bg-[#f2e8d5] p-5">
+        <View className="gap-2 rounded-3xl bg-sun-wash p-5">
           <Text className="font-ui-semibold text-ink">
             Checkout was canceled.
           </Text>
-          <Text className="leading-6 text-muted">No payment was taken.</Text>
+          <Text className="leading-6 text-ink-soft">No payment was taken.</Text>
         </View>
       ) : (
         <>
@@ -176,12 +176,12 @@ export default function SupportItScreen() {
                     accessibilityRole="radio"
                     accessibilityState={{ checked: amount === level }}
                     aria-checked={amount === level}
-                    className={`rounded-full border px-5 py-3 ${amount === level ? "border-leaf bg-leaf" : "border-[#d9dfd9] bg-card"}`}
+                    className={`rounded-full border px-5 py-3 ${amount === level ? "border-tide bg-tide" : "border-rule bg-paper-raised"}`}
                   >
                     <Text
                       className={
                         amount === level
-                          ? "font-ui-semibold text-white"
+                          ? "font-ui-semibold text-on-tide"
                           : "font-ui-semibold text-ink"
                       }
                     >
@@ -192,7 +192,7 @@ export default function SupportItScreen() {
               })}
             </View>
             {!iosStore && amount === "Another amount" ? (
-              <View className="flex-row items-center gap-3 rounded-2xl border border-[#d9dfd9] bg-card px-5">
+              <View className="flex-row items-center gap-3 rounded-2xl border border-rule bg-paper-raised px-5">
                 <Text className="text-lg font-ui-semibold text-ink">$</Text>
                 <TextInput
                   value={customAmount}
@@ -218,12 +218,12 @@ export default function SupportItScreen() {
                     accessibilityRole="radio"
                     accessibilityState={{ checked: frequency === value }}
                     aria-checked={frequency === value}
-                    className={`rounded-full border px-5 py-3 ${frequency === value ? "border-leaf bg-leaf" : "border-[#d9dfd9] bg-card"}`}
+                    className={`rounded-full border px-5 py-3 ${frequency === value ? "border-tide bg-tide" : "border-rule bg-paper-raised"}`}
                   >
                     <Text
                       className={
                         frequency === value
-                          ? "font-ui-semibold text-white"
+                          ? "font-ui-semibold text-on-tide"
                           : "font-ui-semibold text-ink"
                       }
                     >
@@ -235,7 +235,7 @@ export default function SupportItScreen() {
             </View>
           ) : null}
           {iosStore ? (
-            <Text className="leading-6 text-muted">
+            <Text className="leading-6 text-ink-soft">
               Amounts are set in USD. Apple will show the localized price before
               you confirm.
             </Text>
@@ -244,9 +244,9 @@ export default function SupportItScreen() {
             accessibilityRole="button"
             disabled={isLoading || (iosStore && !selectedStoreProduct)}
             onPress={() => void continueToPayment()}
-            className="min-h-12 self-start justify-center rounded-full bg-leaf px-6 disabled:opacity-50"
+            className="min-h-12 self-start justify-center rounded-full bg-ember px-6 disabled:opacity-50"
           >
-            <Text className="font-ui-semibold text-white">
+            <Text className="font-ui-semibold text-on-ember">
               {isLoading
                 ? "Opening checkout…"
                 : iosStore
@@ -257,16 +257,13 @@ export default function SupportItScreen() {
         </>
       )}
       {notice ? (
-        <View
-          accessibilityRole="alert"
-          className="rounded-3xl bg-[#f2e8d5] p-5"
-        >
-          <Text className="leading-6 text-muted">{notice}</Text>
+        <View accessibilityRole="alert" className="rounded-3xl bg-sun-wash p-5">
+          <Text className="leading-6 text-ink-soft">{notice}</Text>
         </View>
       ) : null}
       <Link href="/ways-to-help" asChild>
-        <Pressable className="min-h-12 self-start rounded-full border border-leaf px-6 py-3">
-          <Text className="font-ui-semibold text-leaf">
+        <Pressable className="min-h-12 self-start rounded-full border border-tide px-6 py-3">
+          <Text className="font-ui-semibold text-tide-deep">
             Explore other ways to help
           </Text>
         </Pressable>

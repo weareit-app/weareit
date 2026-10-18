@@ -1,6 +1,7 @@
-import { Pressable, View } from "react-native";
-import { Text } from "./text";
+import { Pressable } from "react-native";
+import { WatercolorLoader } from "../watercolor/watercolor-loader";
 import { Page } from "./page";
+import { Text } from "./text";
 
 export function ContentQueryState({
   loading,
@@ -17,7 +18,7 @@ export function ContentQueryState({
         title="Loading the roadmap"
         description="Getting the latest published content…"
       >
-        <View />
+        <WatercolorLoader />
       </Page>
     );
   }
@@ -29,9 +30,9 @@ export function ContentQueryState({
       >
         <Pressable
           onPress={retry}
-          className="min-h-12 self-start justify-center rounded-xl bg-blue px-6"
+          className="min-h-12 self-start justify-center rounded-xl bg-tide px-6"
         >
-          <Text className="font-ui-semibold text-white">Try again</Text>
+          <Text className="font-ui-semibold text-on-tide">Try again</Text>
         </Pressable>
       </Page>
     );
@@ -41,7 +42,7 @@ export function ContentQueryState({
       title="Loading the roadmap"
       description="Getting the latest published content…"
     >
-      <View />
+      <WatercolorLoader />
     </Page>
   );
 }

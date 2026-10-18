@@ -60,6 +60,20 @@ Decided 2026-10-18; details in `docs/architecture/typography.md`.
 - Type is applied through role tokens (`font-display`, `font-heading`, `font-body`, `font-ui` and their weights), not weight utilities.
 - The hand-drawn logo stays the only place its letters appear.
 
+## Graphics: `@shopify/react-native-skia` for the watercolor dot
+
+**Approved by the founder 2026-10-17.** Spec: `specs/007-watercolor-dot/spec.md`; assessment in `.specify/assessments/watercolor/`.
+
+- **Why.** Both candidates in the fidelity proof need GPU shaders: Option B (look-alike shader) draws watercolor marks live, and Option E (dots painted ahead of time by physics) is colored live with Kubelka-Munk pigment optics. Reanimated, already installed, can move, scale and fade existing images but cannot draw new watercolor shapes. Skia gives GPU 2D drawing and custom SkSL RuntimeEffect shaders on iOS and web, driven by Reanimated shared values, and is supported in the Expo SDK 57 docs.
+- **Version.** Install with `expo install` so the version matches SDK 57; record any pin in `docs/architecture/dependency-policy.md`. Not installed yet; the fidelity proof installs it.
+- **Web cost.** Skia on web loads CanvasKit (WebAssembly), about 2.9 MB gzipped, against the founder's 1 MB extra web budget loaded after the first screen (FR-011). So web will likely use the animated painted orb in all three placements, and Skia is used on iOS, unless the fidelity proof finds a web path for the chosen dot within 1 MB. The proof must report the web download for each approach.
+- **Native cost.** Roughly 4–6 MB added to the iOS binary (figures vary between sources; the proof measures it). Targets are iPhone 12 and newer (founder, 2026-10-17).
+- **License.** `@shopify/react-native-skia` is MIT and Skia itself BSD-3-Clause; both are compatible with the AGPL-3.0-or-later app license.
+- **Code that may not be copied.** sudoaquarelle.com publishes no license, so it is all-rights-reserved by default; Mixbox is CC BY-NC 4.0 (non-commercial only). Neither its code nor its data may be copied into It. Simulation and color mixing are written from published papers (Curtis et al. 1997 and later work) and the Kubelka-Munk equations.
+- **Generated dots.** Dots painted ahead of time are CC0 illustrations under `docs/architecture/licensing.md`, with seed, simulation settings and pigments recorded as provenance; the drawing and simulation code is AGPL app code (founder confirmed 2026-10-17). The simulation is a tool kept outside the shipped app; only its output ships.
+- **Web, updated 2026-10-17.** The proof found the lighter web path: dot B's shader is translated to GLSL and drawn with WebGL directly (`apps/app/src/watercolor/webgl-dot.web.tsx`). Skia stays iOS-only plus the dev lab.
+- **Fallback.** The painted orb (`apps/app/assets/brand/watercolor-orb.jpg`) is shown in the same place and size wherever a generated dot is not ready, cannot be drawn, or does not fit the web budget, on every platform. No screen or action waits for Skia. If neither B nor E passes the proof, all placements use the animated painted orb and Skia is not adopted.
+
 ## Rendering
 
 Expo Router now documents static and request-time server rendering. Start with static output for public content and app routes; evaluate server output for dynamic share previews before adding a separate web framework or custom metadata server. Dynamic server rendering requires a production server runtime, so this decision also depends on the hosting path.
@@ -80,3 +94,5 @@ Expo Router now documents static and request-time server rendering. Start with s
 - 2026-10-16: founder resolved conflicts with an earlier spec draft (see `docs/spec/CONFLICTS.md`). Changed: signup required after personal + societal pages; email OTP plus password; embedded Stripe form on web; one-time/monthly/annual support on web and iOS; pre-signup stage funnel added (privacy invariant change); invitations optional; "support" wording; hosting lean SST. Kept: oRPC, Kysely, database + CMS.
 - 2026-10-18: added the typography decision (Bitter and Inter in display, heading, reading and interface roles).
 - 2026-10-16: added the Thing / Type / Relation content graph decision (stacked levels; link, don't convert; links as claims with a confidence threshold; must not block v0.1).
+- 2026-10-17: founder approved adding `@shopify/react-native-skia` for the watercolor dot (spec 007). Web likely uses the animated painted orb because CanvasKit (~2.9 MB gzipped) exceeds the 1 MB web budget; generated dots are CC0 with provenance.
+- 2026-10-17: founder chose dot B on web too. Web draws it with the browser's own WebGL (the same shader, translated from SkSL; a few KB), not with Skia's web runtime, so the 1 MB web budget holds. The painted orb remains the fallback where WebGL is unavailable.
