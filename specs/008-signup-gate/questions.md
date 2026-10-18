@@ -1,181 +1,155 @@
 # Open questions: 008 signup gate
 
-For founder review. Each question matches a `[NEEDS CLARIFICATION]` marker in `spec.md` (Q numbers are cited there). Recommendations are suggestions, not decisions.
+For founder review. Q1–Q20 were answered by the founder in the 2026-10-17 review and written into `spec.md` on 2026-10-18. The original options are kept here as the record. Q21–Q22 are new questions raised by those answers. Items still open: **Q5 (exact length, left to plan), Q7 (label wording), Q21, Q22**.
 
-## Q1. Returning account with different picks on this device
+## Answered
 
-Someone who already has an account (with saved picks) makes new picks on a fresh device and signs in at the gate. What happens?
+### Q1. Returning account with different picks on this device — ANSWERED
 
-- A. Keep the saved picks; discard the device picks.
-- B. Replace the saved picks with the device picks (what the code does today: `saveUserOnboardingDraft` overwrites).
-- C. Combine: keep everything from both (union).
-- D. Ask the person: keep saved, use these, or combine.
+Options were: A keep saved · B replace with device (today's overwrite) · C combine (union) · D ask the person. Recommended C.
 
-**Recommendation**: C (combine) by default, silently, because picks only ever add interest and nothing is lost; D if you want people to see what happened. B risks losing work without warning.
+**Founder answer**: C. Combine silently (union). → FR-019, User Story 3.
 
-## Q2. Do password signups confirm the email first?
+### Q2. Do password signups confirm the email first? — ANSWERED (by the new flow)
 
-- A. Yes: after choosing a password, the person enters a code sent to the email before the account is usable and picks are saved.
-- B. No: account works immediately; email confirmed later (or never).
-- C. Account works immediately, picks are saved, but It sends no other email until the address is confirmed.
+Options were: A confirm by code first · B no confirmation · C usable immediately, confirmed later. Recommended A.
 
-**Recommendation**: A. It stops typos and stops someone creating an account on another person's email, and the code path already exists. Cost: password signup is no faster than code signup.
+**Founder answer**: Every signup goes through the email code first, so the email is always verified before picks save. A password is added afterwards, optionally. → FR-006, FR-014.
 
-## Q3. Forgotten passwords, and passwords on code-created accounts
+### Q3. Forgotten passwords, and passwords on code-created accounts — ANSWERED (by the new flow)
 
-- A. Full reset flow in v0.1 (email a reset code or link, set a new password).
-- B. No reset flow: "Forgot password? Sign in with a code instead", then optionally set a new password once signed in.
-- C. B, without the option to set a password after code sign-in in v0.1.
+Options were: A full reset flow · B "sign in with a code instead", then optionally set a password · C B without setting a password. Recommended B.
 
-Also: can someone who created the account by code later add a password? (Recommended: yes, once signed in.)
+**Founder answer**: Forgot password = sign in with a code; no separate reset flow in v0.1. Code-created accounts can add a password or a passkey once signed in. → FR-009, FR-014.
 
-**Recommendation**: B. It reuses the code sign-in, covers forgotten passwords, and needs almost no new screens.
+### Q4. Which method comes first on the gate? — ANSWERED
 
-## Q4. Which method comes first on the gate?
+Options were: A code main, password secondary · B password main · C equal. Recommended A.
 
-- A. Email code is the main button; "Use a password instead" is secondary.
-- B. Password is the main path; code is secondary.
-- C. Both shown as equal choices.
+**Founder answer**: Email first; the next screen sends a code. A small "use a password" link for people who already have one. After signup the person may optionally create a password **or register a passkey**. Passkeys are new relative to C3 and are recorded in `docs/architecture/decisions.md` (2026-10-17 entry). → What People See and Do, FR-008, FR-014.
 
-**Recommendation**: A. It already works, has nothing to remember, and matches the one-field gate.
+### Q5. Password rules — ANSWERED (exact number open)
 
-## Q5. Password rules
+Options were: A 8 chars · B 12 chars · C length plus breached-password check. Recommended C with 10–12.
 
-- A. Minimum 8 characters, nothing else.
-- B. Minimum 12 characters, nothing else.
-- C. A or B plus a check against known-breached passwords.
+**Founder answer**: 10–12 character minimum, breached-password check, no composition rules. **Still open**: the exact minimum, left to plan. → FR-015.
 
-**Recommendation**: C with a 10–12 character minimum and no composition rules (current common guidance favours length and breach checks over symbol rules).
+### Q6. Saying "you already have an account" — ANSWERED (by the new flow)
 
-## Q6. Saying "you already have an account"
+Options were: A say it plainly · B never reveal it. Recommended B.
 
-- A. Say it plainly ("This email already has an account. Sign in instead.").
-- B. Never reveal it; always say "We sent a code to that address" and handle both cases after the code.
+**Founder answer**: The code path is neutral ("we sent a code"); no account enumeration. → FR-007, FR-008, SC-005.
 
-**Recommendation**: B for the code path (it is naturally neutral); for the password path, route "already exists" to "sign in" only after the person proves the email by code. Slight friction, no account enumeration.
+### Q7. Opt-in wording and what emails it covers — ANSWERED (wording open)
 
-## Q7. Opt-in wording and what emails it covers
+Options were: A updates only · B updates plus help requests · C plus Support appeals. Recommended B.
 
-What kinds of email does the checkbox cover, and what exactly does it say?
+**Founder answer**: Updates only. Everything else at that point is transactional; finer-grained email permissions come later, elsewhere. **Still open**: the final label text, which the founder writes or approves. → FR-024.
 
-- A. "Send me occasional updates about what It is building." (roadmap / progress only)
-- B. Updates plus requests to help (research, testing).
-- C. Updates, help requests, and Support appeals.
+### Q8. Changing the opt-in later — ANSWERED
 
-**Recommendation**: B, worded by you. Keep Support appeals out of the default meaning so the box stays honest; if you want appeals, say so in the label.
+Options were: A unsubscribe link only · B account setting only · C both · D defer. Recommended A now, B later.
 
-## Q8. Changing the opt-in later
+**Founder answer**: Unsubscribe link in every update email in v0.1; account setting later. → FR-027.
 
-- A. Unsubscribe link in every email only.
-- B. A setting in an account screen only.
-- C. Both.
-- D. Defer: v0.1 sends no non-sign-in emails yet, so build this before the first one.
+### Q9. Where the gate sits; the separate futures screen — ANSWERED
 
-**Recommendation**: A in v0.1 (needed by law anyway for any update email), B later. D is fine if no update emails go out before then.
+Options were: A gate after societal page, retire futures · B gate after futures · C futures becomes a post-signup summary. Recommended A.
 
-## Q9. Where exactly is the gate, and what happens to the separate futures screen?
+**Founder answer**: A. Gate directly after the societal page; retire `futures.tsx` (dreams inline on both pages). → FR-002, Changes table.
 
-Today the flow is personal → world → futures (a separate screen listing dreams for chosen pains) → ways to help / Support, with optional save. Spec 001 now shows dreams inline on the personal page.
+### Q10. Device copy after a confirmed save — ANSWERED
 
-- A. Gate directly after the societal page; the separate futures screen is retired (dreams live inline on both pages).
-- B. Gate after the futures screen, which stays as a summary of both pages.
-- C. Gate after the societal page; futures screen becomes a post-signup "your futures" summary.
+Options were: A clear it · B keep in step · C leave untouched (today). Recommended A.
 
-**Recommendation**: A for v0.1 (matches features.md, which has no futures screen); C is a natural home for the "personal story" later.
+**Founder answer**: A. Clear it; signed-in pages read from the account. → FR-020.
 
-## Q10. Device copy after a confirmed save
+### Q11. Changing picks after signup — ANSWERED
 
-- A. Clear the device copy once the save is confirmed; the account is the only copy (best on shared devices).
-- B. Keep the device copy as the signed-in working copy and keep it in step with the account.
-- C. Keep the device copy untouched (what happens today).
+Options were: A auto-save · B explicit save · C read-only. Recommended A.
 
-**Recommendation**: A, with signed-in pages reading picks from the account. C leaves two diverging copies and leaks picks on shared devices.
+**Founder answer**: A. Auto-save to the account. → FR-021.
 
-## Q11. Changing picks after signup
+### Q12. Ask for a name? — ANSWERED
 
-- A. Changes on pages 1–2 save to the account automatically.
-- B. Changes save only when the person presses "save".
-- C. No editing after signup in v0.1; pages 1–2 are read-only once saved.
+Options were: A no name · B optional on the gate · C optional later. Recommended A now, C later.
 
-**Recommendation**: A. It matches the one-tap feel of the pages and avoids a second "unsaved changes" state.
+**Founder answer**: Ask right after signup completes (not on the gate), and it is **required**. Drop the "It explorer" placeholder. → FR-013, "Your name" screen.
 
-## Q12. Ask for a name?
+### Q13. Signing up with no picks — ANSWERED
 
-- A. No name (the code currently fills "It explorer" for everyone).
-- B. Optional name field on the gate.
-- C. Optional name later, for example when Support or Help needs it.
+Options were: A allowed · B require one pick. Recommended A.
 
-**Recommendation**: A now, C later. Every extra field at a required gate costs people.
+**Founder answer**: A. Allowed. → User Story 1 scenario 7, Edge Cases.
 
-## Q13. Signing up with no picks
+### Q14. Gate stages in the stage funnel — ANSWERED
 
-- A. Allowed; the gate says there is nothing to save yet.
-- B. Gate asks the person to pick at least one dream first.
+Options were: A both stages · B gate only · C neither. Recommended A.
 
-**Recommendation**: A. Required signup is about going further; forcing picks would push people to pick anything.
+**Founder answer**: A. Add "reached the gate" and "signed up", never linked to the account. The stage list is now owned by a new measurement spec (not yet written); this spec references it. → FR-028.
 
-## Q14. Gate stages in the stage funnel
+### Q15. Account and data deletion in v0.1 — ANSWERED
 
-Add "reached the gate" and "signed up" to the per-visit stage funnel (no email, account ID or picks attached)?
+Options were: A self-serve · B by email request · C later. Recommended B, owned by 010.
 
-- A. Yes, both.
-- B. Only "reached the gate"; count signups from accounts created per day.
-- C. Neither; use account totals only.
+**Founder answer**: B. By email request in v0.1 with a stated response time, on the privacy page; self-serve later. Owned by 010. → FR-030.
 
-**Recommendation**: A. It is the only way to see the ~50% review line within one visit, and it fits the agreed funnel (C9). The visit ID must never be linked to the new account.
+### Q16. Minimum age — ANSWERED
 
-## Q15. Account and data deletion in v0.1
+Options were: A stated on the privacy page · B gate checkbox · C birth year. Recommended A with 16.
 
-- A. Self-serve "delete my account and saved picks" in v0.1.
-- B. By email request in v0.1, stated on the privacy page; self-serve later.
-- C. Later.
+**Founder answer**: A. 16, stated on the privacy page; no question on the gate. Owned by 010. → FR-005.
 
-Also: should this live in 008 or in 010 (privacy page)?
+### Q17. Terms / privacy acceptance — ANSWERED
 
-**Recommendation**: B in v0.1, owned by 010, with a firm response time on the privacy page. A if time allows.
+Options were: A link only · B "By signing up you agree to …" line · C checkbox. Recommended B.
 
-## Q16. Minimum age
+**Founder answer**: B. A line with links; no checkbox. → FR-004.
 
-- A. No age question; the privacy page states a minimum age.
-- B. A single "I'm at least N" checkbox on the gate.
-- C. Ask for birth year.
+### Q18. Decision record for passwords — ANSWERED
 
-And what N (13, 16, 18)?
+Options were: A short record in decisions.md · B none. Recommended A.
 
-**Recommendation**: A with N = 16 (covers the strictest common default for consent to data processing without a parent). Owned by 010.
+**Founder answer**: A. Short record covering password-hash settings and passkeys added to C3. Added to `docs/architecture/decisions.md` on this branch, marked as from the 2026-10-17 founder review.
 
-## Q17. Terms / privacy acceptance
+### Q19. Exactly what is sent at signup — ANSWERED
 
-- A. A link to the privacy page on the gate is enough.
-- B. "By signing up you agree to …" text with links.
-- C. A required checkbox.
+Options were: A proposed list only · B plus opened pains · C everything (today). Recommended A.
 
-**Recommendation**: B. Clear without adding a second checkbox next to the opt-in, which could be confused with it.
+**Founder answer**: A. Picked dreams (with the pain each was picked under and the content version), selected fixes (with content version), opt-in choice and wording version. Not opened or selected pains, help interests, or `draftUpdatedAt`. Terminology: there are no "I'd use this" marks; they are **selected fixes**. → FR-018, It Checks → Privacy.
 
-## Q18. Decision record for passwords
+### Q20. Spec numbering — ANSWERED
 
-An earlier draft (`docs/spec/drafts/it-spec-decisions.md` D9) asks for a decision record of the password-hash algorithm and settings, so leaving the auth library later doesn't force resets. Do you want that record, and where?
+Options were: A keep new numbers, update 001 · B renumber to 003. Recommended A.
 
-- A. Yes, a short record in `docs/architecture/decisions.md` when passwords are enabled.
-- B. No; the library default is fine and documented upstream.
+**Founder answer**: A. Keep the new numbers (008–012); 001's references need updating, and the mapping goes in features.md. **Follow-up** (not done on this branch, since 001 is on master): update 001's spec references and rename "I'd use this" to "selected fixes".
 
-**Recommendation**: A. One line costs nothing and protects a future migration. (AGENTS.md requires a decision record only for stack or privacy-invariant changes; enabling passwords was already decided in C3, so this is optional.)
+## Still open
 
-## Q19. Exactly what is sent at signup
+### Q21. Where is the "add a password or passkey" offer?
 
-Proposed list: picked dreams with the pain each was picked under and the content version; "I'd use this" marks with the content version; the opt-in choice and wording version. Today the code also sends selected pains (`personalPainIds`, `worldPainIds`), help interests and a draft timestamp.
+The founder said people may optionally add a password or passkey after signup, but not where the offer appears.
 
-- A. Proposed list only.
-- B. Proposed list plus pains the person opened but picked no dream under.
-- C. Everything on the device (today's behaviour).
+- A. A skippable screen straight after the name step, before Support.
+- B. Only in an account area (menu/settings), no screen in the flow.
+- C. A one-line prompt on the saved/name screen that links to the account area.
 
-**Recommendation**: A. Least data that serves the "soon" features; opened-but-not-picked pains are sensitive and add little. Help interests move to 011.
+**Recommendation**: C. It adds no extra step between signup and Support (the primary goal) and still makes the option visible. A costs one more screen before Support; B may mean almost nobody finds it.
 
-## Q20. Spec numbering
+### Q22. Can the gate sign people in with an existing passkey?
 
-Spec 001 refers to signup as "spec 003", support as 004, help as 005, admin as 006 (from the earlier six-spec split). This round uses 008 signup, 009 support, 010 safety + privacy, 011 help, 007 loader.
+Once passkeys exist, a returning person might want to use theirs at the gate.
 
-- A. Keep the new numbers and update 001's references.
-- B. Renumber this spec to 003.
+- A. Yes, through the browser's or phone's own passkey suggestion on the email field (no extra button).
+- B. Yes, with a visible "Use a passkey" link next to "Use a password".
+- C. No; passkeys only sign in from a separate sign-in screen, not the gate.
 
-**Recommendation**: A, and record the mapping somewhere visible (for example in `docs/spec/features.md`).
+**Recommendation**: A. It keeps the gate to one field while letting passkey holders in with one tap, and reveals nothing about whether an account exists.
+
+### Q5 (remaining part). Exact password minimum
+
+10, 11 or 12 characters. Left to plan by the founder; noted here so it is not lost.
+
+### Q7 (remaining part). Opt-in label wording
+
+The founder writes or approves the exact text (updates only).

@@ -1,7 +1,7 @@
 # Specification Quality Checklist: Signup gate — "Sign up to go further"
 
 **Purpose**: Validate specification completeness and quality before proceeding to planning
-**Created**: 2026-10-17
+**Created**: 2026-10-17 · **Updated**: 2026-10-18 (founder answers applied)
 **Feature**: [spec.md](../spec.md)
 
 ## Content Quality
@@ -13,7 +13,7 @@
 
 ## Requirement Completeness
 
-- [ ] No [NEEDS CLARIFICATION] markers remain. 25 markers remain, covering Q1–Q17 and Q19 in `questions.md` (Q18 and Q20 are raised in the text). The founder lifted the 3-marker cap for this round; these are founder decisions under constitution principle I.
+- [ ] No [NEEDS CLARIFICATION] markers remain. 4 remain: Q21 (where the add-password/passkey offer sits), Q22 (passkey sign-in at the gate), exact password minimum (left to plan, FR-015), opt-in label wording (founder writes, FR-024). Q1–Q20 answered 2026-10-17.
 - [x] Requirements are testable and unambiguous (apart from the marked items)
 - [x] Success criteria are measurable
 - [x] Success criteria are technology-agnostic (no implementation details)
@@ -24,13 +24,14 @@
 
 ## Feature Readiness
 
-- [ ] All functional requirements have clear acceptance criteria. Blocked only by open questions (FR-009, FR-010, FR-020–FR-022, FR-026, FR-029, FR-030).
-- [x] User scenarios cover primary flows (code signup, password signup, privacy disclosure, opt-in, returning account)
-- [ ] Feature meets measurable outcomes defined in Success Criteria. SC-002 depends on Q2.
+- [ ] All functional requirements have clear acceptance criteria. FR-012 and FR-014 placement wait on Q22 and Q21; the rest have criteria.
+- [x] User scenarios cover primary flows (code signup, what is sent, returning account with union, opt-in, optional password/passkey)
+- [x] Feature meets measurable outcomes defined in Success Criteria
 - [x] No implementation details leak into specification (outside the clearly labelled changes-from-existing-code section)
 
 ## Notes
 
-- Not ready for `/speckit-plan`. Next step under the constitution: founder answers `questions.md` (or runs `/speckit-clarify`), then founder review.
-- Interactive question-asking from the specify workflow was skipped by instruction; questions are in `questions.md` instead.
+- Close to ready for founder review. Q21 and Q22 are small; the password length and opt-in wording can be settled at plan time without changing the spec's shape.
+- A decision record for passkeys and password-hash settings was added to `docs/architecture/decisions.md` (2026-10-17 entry), as AGENTS.md requires for stack changes.
+- Follow-up outside this branch: update spec 001 (on master) to reference 008 and say "selected fixes".
 - The optional `after_specify` hook (wireframe generate) was not run.
