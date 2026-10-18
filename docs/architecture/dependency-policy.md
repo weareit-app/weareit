@@ -8,6 +8,8 @@ The app is on Expo SDK 57.0.29. SDK 57 is the current stable line; SDK 58 is in 
 
 NativeWind 5.0.0-rc.0 and react-native-css 3.1.0-rc.0 are an intentional prerelease pair. Keep their exact versions together. Tailwind and its PostCSS plugin are kept on the same current 4.x version. `lightningcss` remains pinned at 1.30.1 as a compatibility override for this NativeWind/react-native-css setup; change that pin only after validating the styling pipeline on web and iOS.
 
+`expo-font` was added with `expo install`. The `@expo-google-fonts/bitter` and `@expo-google-fonts/inter` font packages are pinned at 0.4.2; changing them changes the font files the app ships, so check the type on web and iOS after a refresh (see `docs/architecture/typography.md`).
+
 ## Other toolchain pins
 
 - Prettier 3.9.10 and Turborepo 2.11.8 are current releases within their existing major versions.

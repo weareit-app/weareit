@@ -14,6 +14,8 @@
   },
   "dependencies": {
     "@better-auth/expo": "1.7.8",
+    "@expo-google-fonts/bitter": "0.4.2",
+    "@expo-google-fonts/inter": "0.4.2",
     "@it/api": "workspace:*",
     "@it/content": "workspace:*",
     "@it/domain": "workspace:*",
@@ -21,6 +23,7 @@
     "better-auth": "1.7.8",
     "expo": "~57.0.29",
     "expo-dev-client": "~57.0.20",
+    "expo-font": "~57.0.4",
     "expo-network": "~57.0.2",
     "expo-router": "~57.0.27",
     "expo-secure-store": "~57.0.4",

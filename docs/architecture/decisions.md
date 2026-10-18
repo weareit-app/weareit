@@ -52,6 +52,14 @@ Decided 2026-10-16; assessment in `.specify/assessments/thing-type-relation/`.
 - The layer must not block v0.1 and is built after launch. v0.1 must give every published record a stable ID, store outside references (pain frameworks, ESCO, Wikidata) in one consistent shape, store Help answers as ESCO references, and keep content versions on picks.
 - It stays on PostgreSQL + Kysely. A graph database, graph extension or formal tool needs its own decision record. Tagging people's own data by LLM needs a separate privacy decision.
 
+## Typography
+
+Decided 2026-10-18; details in `docs/architecture/typography.md`.
+
+- Bitter SemiBold for display text and headings, Bitter Regular/Italic/SemiBold for reading text, Inter for interface text. Both are free under the SIL Open Font License and ship the same files to web and iOS.
+- Type is applied through role tokens (`font-display`, `font-heading`, `font-body`, `font-ui` and their weights), not weight utilities.
+- The hand-drawn logo stays the only place its letters appear.
+
 ## Rendering
 
 Expo Router now documents static and request-time server rendering. Start with static output for public content and app routes; evaluate server output for dynamic share previews before adding a separate web framework or custom metadata server. Dynamic server rendering requires a production server runtime, so this decision also depends on the hosting path.
@@ -70,4 +78,5 @@ Expo Router now documents static and request-time server rendering. Start with s
 ## Change log
 
 - 2026-10-16: founder resolved conflicts with an earlier spec draft (see `docs/spec/CONFLICTS.md`). Changed: signup required after personal + societal pages; email OTP plus password; embedded Stripe form on web; one-time/monthly/annual support on web and iOS; pre-signup stage funnel added (privacy invariant change); invitations optional; "support" wording; hosting lean SST. Kept: oRPC, Kysely, database + CMS.
+- 2026-10-18: added the typography decision (Bitter and Inter in display, heading, reading and interface roles).
 - 2026-10-16: added the Thing / Type / Relation content graph decision (stacked levels; link, don't convert; links as claims with a confidence threshold; must not block v0.1).

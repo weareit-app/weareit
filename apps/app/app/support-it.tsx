@@ -1,7 +1,8 @@
 import { Link, useLocalSearchParams } from "expo-router";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import { Platform, Pressable, Text, TextInput, View } from "react-native";
+import { Platform, Pressable, TextInput, View } from "react-native";
+import { Text } from "../src/components/text";
 import { apiClient } from "@it/api/client";
 import { Page } from "../src/components/page";
 import { purchaseStoreSupport } from "../src/payments/store-purchases";
@@ -136,7 +137,9 @@ export default function SupportItScreen() {
     >
       {isWebSuccess ? (
         <View className="gap-3 rounded-3xl bg-[#f2e8d5] p-5">
-          <Text className="text-lg font-semibold text-ink">{paymentTitle}</Text>
+          <Text className="text-lg font-ui-semibold text-ink">
+            {paymentTitle}
+          </Text>
           <Text className="leading-6 text-muted">{paymentDescription}</Text>
           {paymentStatus.data?.frequency === "monthly" && reference ? (
             <Pressable
@@ -145,7 +148,7 @@ export default function SupportItScreen() {
               onPress={() => void manageSubscription()}
               className="min-h-12 self-start justify-center rounded-full bg-leaf px-6 disabled:opacity-50"
             >
-              <Text className="font-semibold text-white">
+              <Text className="font-ui-semibold text-white">
                 Manage monthly support
               </Text>
             </Pressable>
@@ -153,13 +156,15 @@ export default function SupportItScreen() {
         </View>
       ) : canceled ? (
         <View className="gap-2 rounded-3xl bg-[#f2e8d5] p-5">
-          <Text className="font-semibold text-ink">Checkout was canceled.</Text>
+          <Text className="font-ui-semibold text-ink">
+            Checkout was canceled.
+          </Text>
           <Text className="leading-6 text-muted">No payment was taken.</Text>
         </View>
       ) : (
         <>
           <View className="gap-3">
-            <Text className="text-lg font-semibold text-ink">
+            <Text className="text-lg font-ui-semibold text-ink">
               Choose an amount
             </Text>
             <View className="flex-row flex-wrap gap-3">
@@ -176,8 +181,8 @@ export default function SupportItScreen() {
                     <Text
                       className={
                         amount === level
-                          ? "font-semibold text-white"
-                          : "font-semibold text-ink"
+                          ? "font-ui-semibold text-white"
+                          : "font-ui-semibold text-ink"
                       }
                     >
                       {level}
@@ -188,21 +193,23 @@ export default function SupportItScreen() {
             </View>
             {!iosStore && amount === "Another amount" ? (
               <View className="flex-row items-center gap-3 rounded-2xl border border-[#d9dfd9] bg-card px-5">
-                <Text className="text-lg font-semibold text-ink">$</Text>
+                <Text className="text-lg font-ui-semibold text-ink">$</Text>
                 <TextInput
                   value={customAmount}
                   onChangeText={setCustomAmount}
                   keyboardType="decimal-pad"
                   accessibilityLabel="Support amount in dollars"
                   placeholder="Other amount"
-                  className="flex-1 py-4 text-ink"
+                  className="flex-1 py-4 font-ui text-ink"
                 />
               </View>
             ) : null}
           </View>
           {!iosStore ? (
             <View className="gap-3">
-              <Text className="text-lg font-semibold text-ink">How often?</Text>
+              <Text className="text-lg font-ui-semibold text-ink">
+                How often?
+              </Text>
               <View className="flex-row gap-3">
                 {(["once", "monthly"] as const).map((value) => (
                   <Pressable
@@ -216,8 +223,8 @@ export default function SupportItScreen() {
                     <Text
                       className={
                         frequency === value
-                          ? "font-semibold text-white"
-                          : "font-semibold text-ink"
+                          ? "font-ui-semibold text-white"
+                          : "font-ui-semibold text-ink"
                       }
                     >
                       {value === "once" ? "One time" : "Monthly"}
@@ -239,7 +246,7 @@ export default function SupportItScreen() {
             onPress={() => void continueToPayment()}
             className="min-h-12 self-start justify-center rounded-full bg-leaf px-6 disabled:opacity-50"
           >
-            <Text className="font-semibold text-white">
+            <Text className="font-ui-semibold text-white">
               {isLoading
                 ? "Opening checkout…"
                 : iosStore
@@ -259,7 +266,7 @@ export default function SupportItScreen() {
       ) : null}
       <Link href="/ways-to-help" asChild>
         <Pressable className="min-h-12 self-start rounded-full border border-leaf px-6 py-3">
-          <Text className="font-semibold text-leaf">
+          <Text className="font-ui-semibold text-leaf">
             Explore other ways to help
           </Text>
         </Pressable>

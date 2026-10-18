@@ -12,6 +12,16 @@
   --color-blue: #2871b8;
   --color-sun: #2871b8;
   --color-coral: #e47961;
-  --font-sans: "Avenir Next", "Avenir", ui-sans-serif, system-ui;
-  --font-serif: Georgia, "Times New Roman", serif;
+  /* Type roles. Each weight is its own family; do not combine these with
+     font-bold or other weight utilities. See docs/architecture/typography.md. */
+  --font-display: "Bitter_600SemiBold", Georgia, serif;
+  --font-heading: "Bitter_600SemiBold", Georgia, serif;
+  --font-body: "Bitter_400Regular", Georgia, serif;
+  --font-body-italic: "Bitter_400Regular_Italic", Georgia, serif;
+  --font-body-semibold: "Bitter_600SemiBold", Georgia, serif;
+  --font-ui: "Inter_400Regular", ui-sans-serif, system-ui, sans-serif;
+  --font-ui-medium: "Inter_500Medium", ui-sans-serif, system-ui, sans-serif;
+  --font-ui-semibold: "Inter_600SemiBold", ui-sans-serif, system-ui, sans-serif;
+  --font-ui-bold: "Inter_700Bold", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter_400Regular", ui-sans-serif, system-ui, sans-serif;
 }

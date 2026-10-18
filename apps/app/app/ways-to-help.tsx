@@ -1,5 +1,6 @@
 import { Link } from "expo-router";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, View } from "react-native";
+import { Text } from "../src/components/text";
 import { ChoiceCard } from "../src/components/choice-card";
 import { ClearDraftControl } from "../src/components/clear-draft-control";
 import { Page } from "../src/components/page";
@@ -62,7 +63,7 @@ export default function WaysToHelpScreen() {
         />
       ))}
       <View className="gap-3 rounded-3xl bg-[#f2e8d5] p-5">
-        <Text className="font-semibold text-ink">Just exploring?</Text>
+        <Text className="font-ui-semibold text-ink">Just exploring?</Text>
         <Text className="leading-6 text-muted">
           That's welcome too. These choices stay on this device until you choose
           to save them with an email code.
@@ -71,17 +72,17 @@ export default function WaysToHelpScreen() {
       <View className="flex-row flex-wrap gap-3">
         <Link href="/onboarding/futures" asChild>
           <Pressable className="min-h-12 rounded-full bg-leaf px-6 py-3">
-            <Text className="font-semibold text-white">Back to futures</Text>
+            <Text className="font-ui-semibold text-white">Back to futures</Text>
           </Pressable>
         </Link>
         <Link href="/support-it" asChild>
           <Pressable className="min-h-12 rounded-full border border-leaf px-6 py-3">
-            <Text className="font-semibold text-leaf">Support It</Text>
+            <Text className="font-ui-semibold text-leaf">Support It</Text>
           </Pressable>
         </Link>
         <Link href="/save-progress" asChild>
           <Pressable className="min-h-12 rounded-full bg-leaf px-6 py-3">
-            <Text className="font-semibold text-white">
+            <Text className="font-ui-semibold text-white">
               Save my exploration
             </Text>
           </Pressable>

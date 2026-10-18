@@ -1,4 +1,5 @@
-import { Pressable, Text, View } from "react-native";
+import { Pressable, View } from "react-native";
+import { Text } from "./text";
 import { Page } from "./page";
 
 export function ContentQueryState({
@@ -30,7 +31,7 @@ export function ContentQueryState({
           onPress={retry}
           className="min-h-12 self-start justify-center rounded-xl bg-blue px-6"
         >
-          <Text className="font-semibold text-white">Try again</Text>
+          <Text className="font-ui-semibold text-white">Try again</Text>
         </Pressable>
       </Page>
     );

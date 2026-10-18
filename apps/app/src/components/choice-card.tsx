@@ -1,10 +1,5 @@
-import {
-  Image,
-  type ImageSourcePropType,
-  Pressable,
-  Text,
-  View,
-} from "react-native";
+import { Image, type ImageSourcePropType, Pressable, View } from "react-native";
+import { Text } from "./text";
 
 type ChoiceCardProps = {
   title: string;
@@ -51,8 +46,8 @@ export function ChoiceCard({
         </View>
       ) : null}
       <View className="flex-1 gap-1">
-        <Text className="text-base font-bold text-ink">{title}</Text>
-        <Text className="font-serif text-base leading-5 text-ink">
+        <Text className="font-ui-semibold text-base text-ink">{title}</Text>
+        <Text className="font-ui text-[15px] leading-5 text-muted">
           {description}
         </Text>
       </View>

@@ -13,7 +13,8 @@
     "plugins": [
       "expo-router",
       "expo-sqlite",
-      "./plugins/with-quoted-rn-xcode-script"
+      "./plugins/with-quoted-rn-xcode-script",
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true

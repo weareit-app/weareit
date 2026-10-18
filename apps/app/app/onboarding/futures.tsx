@@ -1,5 +1,6 @@
 import { Link } from "expo-router";
-import { Image, Pressable, Text, View } from "react-native";
+import { Image, Pressable, View } from "react-native";
+import { Text } from "../../src/components/text";
 import { ChoiceCard } from "../../src/components/choice-card";
 import { FirstActionCard } from "../../src/components/first-action-card";
 import { dreamIllustrations } from "../../src/content/illustrations";
@@ -78,7 +79,7 @@ export default function FuturesScreen() {
         <View className="gap-6">
           {personalDreams.length ? (
             <View className="gap-3">
-              <Text className="text-xl font-semibold text-ink">
+              <Text className="font-ui-bold text-lg text-ink">
                 For your life · choose what calls to you
               </Text>
               {personalDreams.map((dream) => (
@@ -95,7 +96,7 @@ export default function FuturesScreen() {
           ) : null}
           {worldDreams.length ? (
             <View className="gap-3">
-              <Text className="text-xl font-semibold text-ink">
+              <Text className="font-ui-bold text-lg text-ink">
                 For the world we share
               </Text>
               {worldDreams.map((dream) => (
@@ -113,10 +114,10 @@ export default function FuturesScreen() {
         </View>
       ) : (
         <View className="gap-3 rounded-3xl bg-card p-6">
-          <Text className="text-lg font-semibold text-ink">
+          <Text className="font-heading text-xl text-ink">
             You can start anywhere.
           </Text>
-          <Text className="leading-6 text-muted">
+          <Text className="font-body leading-6 text-muted">
             A future doesn't have to begin with a problem you named. It can
             begin with something you want to help make possible.
           </Text>
@@ -124,7 +125,7 @@ export default function FuturesScreen() {
       )}
       {personalActions.length ? (
         <View className="gap-3">
-          <Text className="font-serif text-2xl font-bold text-ink">
+          <Text className="font-heading text-2xl text-ink">
             A next step for your life
           </Text>
           {personalActions.map((action) => (
@@ -134,7 +135,7 @@ export default function FuturesScreen() {
       ) : null}
       {worldActions.length ? (
         <View className="gap-3">
-          <Text className="font-serif text-2xl font-bold text-ink">
+          <Text className="font-heading text-2xl text-ink">
             A next step we could take together
           </Text>
           {worldActions.map((action) => (
@@ -149,21 +150,23 @@ export default function FuturesScreen() {
           className="h-40 w-full"
           accessibilityLabel="Watercolor home surrounded by a garden"
         />
-        <Text className="font-serif text-2xl font-bold text-ink">
+        <Text className="font-heading text-2xl text-ink">
           There are a few ways to take a first step.
         </Text>
-        <Text className="leading-6 text-muted">
+        <Text className="font-body leading-6 text-muted">
           Try a practical idea for your own life, help build the shared roadmap,
           invite someone, or support the work.
         </Text>
         <Link href="/ways-to-help" asChild>
           <Pressable className="min-h-12 items-center justify-center rounded-xl bg-blue px-5">
-            <Text className="font-bold text-white">See ways to help</Text>
+            <Text className="font-ui-semibold text-white">
+              See ways to help
+            </Text>
           </Pressable>
         </Link>
         <Link href="/support-it" asChild>
           <Pressable className="min-h-12 items-center justify-center rounded-xl border border-blue px-5">
-            <Text className="font-semibold text-blue">Support It</Text>
+            <Text className="font-ui-semibold text-blue">Support It</Text>
           </Pressable>
         </Link>
       </View>

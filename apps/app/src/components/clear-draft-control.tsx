@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Modal, Pressable, Text, View } from "react-native";
+import { Modal, Pressable, View } from "react-native";
+import { Text } from "./text";
 import { useOnboardingStore } from "../state/onboarding-store";
 
 export function ClearDraftControl() {
@@ -32,7 +33,7 @@ export function ClearDraftControl() {
           <View className="w-full max-w-md gap-4 rounded-3xl bg-white p-6">
             <Text
               accessibilityRole="header"
-              className="font-serif text-2xl font-bold text-ink"
+              className="font-heading text-2xl text-ink"
             >
               Clear your saved choices?
             </Text>
@@ -46,14 +47,16 @@ export function ClearDraftControl() {
                 onPress={() => setConfirming(false)}
                 className="min-h-11 justify-center rounded-xl border border-[#dddddd] px-4"
               >
-                <Text className="font-semibold text-ink">Keep them</Text>
+                <Text className="font-ui-semibold text-ink">Keep them</Text>
               </Pressable>
               <Pressable
                 accessibilityRole="button"
                 onPress={clear}
                 className="min-h-11 justify-center rounded-xl bg-blue px-4"
               >
-                <Text className="font-semibold text-white">Clear choices</Text>
+                <Text className="font-ui-semibold text-white">
+                  Clear choices
+                </Text>
               </Pressable>
             </View>
           </View>

@@ -1,5 +1,6 @@
 import { Link } from "expo-router";
-import { Image, Pressable, Text, View } from "react-native";
+import { Image, Pressable, View } from "react-native";
+import { Text } from "../src/components/text";
 import { Page } from "../src/components/page";
 
 export default function WelcomeScreen() {
@@ -7,7 +8,9 @@ export default function WelcomeScreen() {
     <Page
       brand
       title="Let’s start the good timeline."
-      description="Become who you want to be.\nBuild the world you want to live in."
+      description={
+        "Become who you want to be.\nBuild the world you want to live in."
+      }
     >
       <View className="h-44 w-full items-center justify-center overflow-hidden rounded-3xl bg-white">
         <Image
@@ -18,20 +21,22 @@ export default function WelcomeScreen() {
         />
       </View>
       <View className="gap-5">
-        <Text className="font-serif text-2xl font-bold leading-8 text-ink">
-          Start with you.
+        <Text className="font-heading text-3xl leading-9 text-ink">
+          It can be better.
         </Text>
-        <Text className="font-serif text-lg leading-7 text-ink">
+        <Text className="font-body text-lg leading-7 text-ink">
           Explore what you want to change, imagine what could be different, and
           find a first step.
         </Text>
         <Link href="/onboarding/personal" asChild>
           <Pressable className="min-h-14 items-center justify-center rounded-xl bg-blue px-6">
-            <Text className="text-base font-bold text-white">Get started</Text>
+            <Text className="text-base font-ui-semibold text-white">
+              Get started
+            </Text>
           </Pressable>
         </Link>
       </View>
-      <Text className="font-serif text-sm leading-6 text-muted">
+      <Text className="font-ui text-sm leading-6 text-muted">
         No account needed to explore. Your choices stay on this device until you
         decide to save them.
       </Text>

@@ -1,6 +1,7 @@
 import { Link } from "expo-router";
 import { useState } from "react";
-import { Pressable, Text, TextInput, View } from "react-native";
+import { Pressable, TextInput, View } from "react-native";
+import { Text } from "../src/components/text";
 import { useShallow } from "zustand/react/shallow";
 import { apiClient } from "@it/api/client";
 import { usePublishedContent } from "../src/content/use-published-content";
@@ -88,7 +89,9 @@ export default function SaveProgressScreen() {
       >
         <Link href="/ways-to-help" asChild>
           <Pressable className="min-h-12 self-start justify-center rounded-full bg-leaf px-6">
-            <Text className="font-semibold text-white">Continue exploring</Text>
+            <Text className="font-ui-semibold text-white">
+              Continue exploring
+            </Text>
           </Pressable>
         </Link>
       </Page>
@@ -107,7 +110,7 @@ export default function SaveProgressScreen() {
     >
       {!codeSent ? (
         <View className="gap-4">
-          <Text className="font-semibold text-ink">Email address</Text>
+          <Text className="font-ui-semibold text-ink">Email address</Text>
           <TextInput
             accessibilityLabel="Email address"
             autoCapitalize="none"
@@ -117,7 +120,7 @@ export default function SaveProgressScreen() {
             onChangeText={setEmail}
             placeholder="you@example.com"
             value={email}
-            className="min-h-12 rounded-2xl border border-[#d9dfd9] bg-card px-4 text-ink"
+            className="min-h-12 rounded-2xl border border-[#d9dfd9] bg-card px-4 font-ui text-ink"
           />
           <Pressable
             accessibilityRole="button"
@@ -125,14 +128,14 @@ export default function SaveProgressScreen() {
             onPress={() => void requestCode()}
             className="min-h-12 self-start justify-center rounded-full bg-leaf px-6"
           >
-            <Text className="font-semibold text-white">
+            <Text className="font-ui-semibold text-white">
               {pending ? "Sending code…" : "Email me a code"}
             </Text>
           </Pressable>
         </View>
       ) : (
         <View className="gap-4">
-          <Text className="font-semibold text-ink">Eight-digit code</Text>
+          <Text className="font-ui-semibold text-ink">Eight-digit code</Text>
           <TextInput
             accessibilityLabel="Email sign-in code"
             autoComplete="one-time-code"
@@ -141,7 +144,7 @@ export default function SaveProgressScreen() {
             onChangeText={setOtp}
             placeholder="00000000"
             value={otp}
-            className="min-h-12 rounded-2xl border border-[#d9dfd9] bg-card px-4 text-ink"
+            className="min-h-12 rounded-2xl border border-[#d9dfd9] bg-card px-4 font-ui text-ink"
           />
           <Pressable
             accessibilityRole="button"
@@ -149,7 +152,7 @@ export default function SaveProgressScreen() {
             onPress={() => void verifyAndSave()}
             className="min-h-12 self-start justify-center rounded-full bg-leaf px-6"
           >
-            <Text className="font-semibold text-white">
+            <Text className="font-ui-semibold text-white">
               {pending ? "Saving…" : "Verify and save"}
             </Text>
           </Pressable>
@@ -159,7 +162,9 @@ export default function SaveProgressScreen() {
             onPress={() => void requestCode()}
             className="min-h-12 self-start justify-center rounded-full border border-leaf px-6"
           >
-            <Text className="font-semibold text-leaf">Send another code</Text>
+            <Text className="font-ui-semibold text-leaf">
+              Send another code
+            </Text>
           </Pressable>
         </View>
       )}
@@ -174,7 +179,7 @@ export default function SaveProgressScreen() {
       </Text>
       <Link href="/ways-to-help" asChild>
         <Pressable className="min-h-12 self-start justify-center rounded-full border border-leaf px-6">
-          <Text className="font-semibold text-leaf">Not now</Text>
+          <Text className="font-ui-semibold text-leaf">Not now</Text>
         </Pressable>
       </Link>
     </Page>

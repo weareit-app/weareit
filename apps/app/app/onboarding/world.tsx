@@ -1,5 +1,6 @@
 import { Link } from "expo-router";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, View } from "react-native";
+import { Text } from "../../src/components/text";
 import { ChoiceCard } from "../../src/components/choice-card";
 import { painIllustrations } from "../../src/content/illustrations";
 import { Page } from "../../src/components/page";
@@ -24,7 +25,11 @@ export default function WorldPainsScreen() {
 
   if (!ready)
     return (
-      <Page title="Our world" description="Loading your saved choices…">
+      <Page
+        title="Our world"
+        description="Loading your saved choices…"
+        descriptionStyle="interface"
+      >
         <View />
       </Page>
     );
@@ -34,12 +39,13 @@ export default function WorldPainsScreen() {
       eyebrow="Now beyond you."
       title="What worries you in the world today?"
       description="This is a starting map, not a test. Pick what speaks to you, or skip ahead."
+      descriptionStyle="interface"
     >
       {contentQuery.data.content.domains
         .filter((domain) => domain.scope === "world")
         .map((domain) => (
           <View key={domain.id} className="gap-3">
-            <Text className="text-xl font-semibold text-ink">
+            <Text className="font-ui-bold text-lg text-ink">
               {domain.title}
             </Text>
             {contentQuery.data.content.pains
@@ -62,7 +68,7 @@ export default function WorldPainsScreen() {
         </Text>
         <Link href="/onboarding/futures" asChild>
           <Pressable className="min-h-12 rounded-xl bg-blue px-6 py-3">
-            <Text className="font-semibold text-white">Continue</Text>
+            <Text className="font-ui-semibold text-white">Continue</Text>
           </Pressable>
         </Link>
       </View>
