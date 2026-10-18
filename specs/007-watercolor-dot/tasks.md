@@ -104,29 +104,33 @@ Clean-room rule for every task: write simulation and color code from Curtis et a
 
 ---
 
-## Phase 6: User Story 3 — Welcome mark gently alive (P2)
+## Phase 6: User Story 3 — Welcome mark gently alive (P2) — done differently
+
+Done as `BrandMark` in the page header (commit `0f419aa`) and the large orb removed (founder, 2026-10-18); T037–T040 are not built.
 
 **Goal**: The welcome orb is the watercolor dot, blooms once, then rests completely still.
 
 **Independent test**: open welcome on a slow connection; painted orb shows at once; generated dot fades in at the same size, blooms once, rests still; "Get started" usable throughout (quickstart §5).
 
-- [ ] T037 [US3] Create `apps/app/src/watercolor/welcome-mark.tsx`: `WatercolorDot` at the current container size with `motion="bloom-once"`, ending completely still in the dried frame; soft fade from the painted orb when ready; `accessibilityLabel` "It's watercolor mark" (FR-008, FR-020)
-- [ ] T038 [US3] Replace the `Image` in `apps/app/app/index.tsx` with `WelcomeMark`, keeping the `h-44` container and layout
-- [ ] T039 [P] [US3] Component test in `apps/app/tests/welcome-mark.test.tsx`: label present; reduced motion never animates; fallback orb shown before ready
-- [ ] T040 [P] [US3] E2E in `apps/app/e2e/watercolor.spec.ts`: welcome mark visible immediately and "Get started" navigates without waiting
+- [x] ~~T037~~ [US3] Create `apps/app/src/watercolor/welcome-mark.tsx`: `WatercolorDot` at the current container size with `motion="bloom-once"`, ending completely still in the dried frame; soft fade from the painted orb when ready; `accessibilityLabel` "It's watercolor mark" (FR-008, FR-020)
+- [x] ~~T038~~ [US3] Replace the `Image` in `apps/app/app/index.tsx` with `WelcomeMark`, keeping the `h-44` container and layout
+- [x] ~~T039~~ [P] [US3] Component test in `apps/app/tests/welcome-mark.test.tsx`: label present; reduced motion never animates; fallback orb shown before ready
+- [x] ~~T040~~ [P] [US3] E2E in `apps/app/e2e/watercolor.spec.ts`: welcome mark visible immediately and "Get started" navigates without waiting
 
 ---
 
-## Phase 7: User Story 4 — Step bloom between onboarding pages (P3)
+## Phase 7: User Story 4 — Step bloom between onboarding pages (P3) — dropped
+
+Dropped (founder, 2026-10-18); T041–T044 are not built.
 
 **Goal**: A small dot blooms once in a corner of each new onboarding page.
 
 **Independent test**: walk onboarding forward and back; each page shows the corner bloom; nothing waits for it; reduced motion skips it (quickstart §5).
 
-- [ ] T041 [US4] Create `apps/app/src/watercolor/step-bloom.tsx`: small `WatercolorDot motion="bloom-once"` in a corner, hidden from assistive tech, not rendered with reduced motion or before the dot is ready (FR-009, FR-019)
-- [ ] T042 [US4] Add an optional `stepBloom` prop to `apps/app/src/components/page.tsx` that renders `StepBloom` without affecting layout, and set it on `apps/app/app/onboarding/personal.tsx`, `apps/app/app/onboarding/world.tsx` and `apps/app/app/onboarding/futures.tsx`
-- [ ] T043 [P] [US4] Component test in `apps/app/tests/step-bloom.test.tsx`: hidden from accessibility; not rendered with reduced motion
-- [ ] T044 [P] [US4] E2E in `apps/app/e2e/onboarding.spec.ts`: forward and back through onboarding still works and picks are kept
+- [x] ~~T041~~ [US4] Create `apps/app/src/watercolor/step-bloom.tsx`: small `WatercolorDot motion="bloom-once"` in a corner, hidden from assistive tech, not rendered with reduced motion or before the dot is ready (FR-009, FR-019)
+- [x] ~~T042~~ [US4] Add an optional `stepBloom` prop to `apps/app/src/components/page.tsx` that renders `StepBloom` without affecting layout, and set it on `apps/app/app/onboarding/personal.tsx`, `apps/app/app/onboarding/world.tsx` and `apps/app/app/onboarding/futures.tsx`
+- [x] ~~T043~~ [P] [US4] Component test in `apps/app/tests/step-bloom.test.tsx`: hidden from accessibility; not rendered with reduced motion
+- [x] ~~T044~~ [P] [US4] E2E in `apps/app/e2e/onboarding.spec.ts`: forward and back through onboarding still works and picks are kept
 
 ---
 
@@ -149,7 +153,7 @@ Clean-room rule for every task: write simulation and color code from Curtis et a
 
 ## If the verdict is neither
 
-- [ ] T045 Use `watercolor-dot.web.tsx` behavior (animated painted orb) on iOS too by re-exporting it from `apps/app/src/watercolor/watercolor-dot.tsx`, then do T030–T033, T037–T044; record in `proof/results.md` that palette-readiness (FR-014–FR-016) is not met for v0.1
+- [x] ~~T045~~ (not needed: approach B passed) Use `watercolor-dot.web.tsx` behavior (animated painted orb) on iOS too by re-exporting it from `apps/app/src/watercolor/watercolor-dot.tsx`, then do T030–T033, T037–T044; record in `proof/results.md` that palette-readiness (FR-014–FR-016) is not met for v0.1
 
 ---
 

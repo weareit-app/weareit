@@ -104,3 +104,7 @@ After the verdict, the loader went through several versions: a subtle breath, a 
 ## Gathering loader chosen (2026-10-17)
 
 From four storyboarded ideas the founder chose gathering, refined it in the lab (varied drop sizes, slow arrivals in sunrise and dusk colors, wet first drops, gap-free ragged seams), and asked for it as the app's loader. Two problems found while refining, both fixed and covered by tests: the dot grew with every arrival (drops kept shaping the outline after running in), and colors jumped once per arrival (old drops faded by list position; new drops appeared full size). At 30 fps over 20 s the largest frame-to-frame change fell from 9.4 to 2.1 with no single-frame jumps. iOS (Skia) now runs too; see iOS build.
+
+## Decisions (2026-10-18)
+
+After the watercolor work merged into `master` with the tide-led brand palette, the founder settled the open items: the large painted orb below the landing page heading is removed, since the "we are it" logo in the header now carries the still watercolor dot; the corner bloom between onboarding steps is dropped; the app icon is re-rendered with the new inks (tide, sprout, sun on #fffdf7 paper; `tools/watercolor-sim/icon.ts`); the living-loader experiments stay parked on `explore/living-loader`.

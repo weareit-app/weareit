@@ -46,7 +46,7 @@ test("shows the watercolor loader while content loads, then the content (US2)", 
   await expect(page.locator(DOT)).toHaveAttribute("aria-hidden", "true");
 
   await expect(
-    page.getByRole("heading", { name: "What do you want to change?" }),
+    page.getByRole("heading", { name: "What can be better for you?" }),
   ).toBeVisible({ timeout: 15_000 });
   await expect(page.locator(DOT)).toHaveCount(0);
   expect(canvasKit).toEqual([]);
@@ -127,7 +127,7 @@ test("does not load Skia's web runtime outside the lab", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("link", { name: "Get started" }).click();
   await expect(
-    page.getByRole("heading", { name: "What do you want to change?" }),
+    page.getByRole("heading", { name: "What can be better for you?" }),
   ).toBeVisible({ timeout: 15_000 });
   expect(canvasKit).toEqual([]);
 });

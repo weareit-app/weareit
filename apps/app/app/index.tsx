@@ -1,5 +1,5 @@
 import { Link } from "expo-router";
-import { Image, Pressable, View } from "react-native";
+import { Pressable, View } from "react-native";
 import { Text } from "../src/components/text";
 import { Page } from "../src/components/page";
 
@@ -12,14 +12,6 @@ export default function WelcomeScreen() {
         "Become who you want to be.\nBuild the world you want to live in."
       }
     >
-      <View className="h-44 w-full items-center justify-center overflow-hidden rounded-3xl bg-white">
-        <Image
-          source={require("../assets/brand/watercolor-orb.jpg")}
-          resizeMode="contain"
-          className="h-full w-44"
-          accessibilityLabel="Watercolor orb in blue and green"
-        />
-      </View>
       <View className="gap-5">
         <Text className="font-heading text-3xl leading-9 text-ink">
           It can be better.
