@@ -83,9 +83,7 @@ To measure: compare the release `.ipa` size before and after Skia (T047).
 
 3–5 people, anonymous. Questions: what does it feel like; what is happening; does waiting feel calmer or slower?
 
-| # | Feels like | What is happening | Calmer or slower |
-|---|---|---|---|
-| 1 | | | |
+Result (founder, 2026-10-18): passed. Nothing read as anxious, broken or slow, so nothing needed fixing. Individual answers were not recorded.
 
 ## Living loader comparison (T053, 2026-10-17)
 
@@ -108,3 +106,7 @@ From four storyboarded ideas the founder chose gathering, refined it in the lab 
 ## Decisions (2026-10-18)
 
 After the watercolor work merged into `master` with the tide-led brand palette, the founder settled the open items: the large painted orb below the landing page heading is removed, since the "we are it" logo in the header now carries the still watercolor dot; the corner bloom between onboarding steps is dropped; the app icon is re-rendered with the new inks (tide, sprout, sun on #fffdf7 paper; `tools/watercolor-sim/icon.ts`); the living-loader experiments stay parked on `explore/living-loader`.
+
+## Manual iPhone pass (T046, 2026-10-18)
+
+Passed on the founder's iPhone 15 Pro (founder, 2026-10-18). The corner bloom item no longer applies, since step bloom was dropped. Frame-time measurements (T027) are still open.

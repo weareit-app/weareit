@@ -159,9 +159,9 @@ Dropped (founder, 2026-10-18); T041–T044 are not built.
 
 ## Phase 8: Polish & cross-cutting
 
-- [ ] T046 Manual iPhone 12 pass per quickstart §5: loader loops with no seam, welcome rests completely still, corner bloom on each step, Reduce Motion on → nothing moves, VoiceOver reads "Loading…" once and the welcome label and skips the corner dot; note results in `specs/007-watercolor-dot/proof/results.md`
+- [x] T046 (passed on iPhone 15 Pro, founder 2026-10-18; the corner bloom item no longer applies, see proof/results.md) Manual iPhone 12 pass per quickstart §5: loader loops with no seam, welcome rests completely still, corner bloom on each step, Reduce Motion on → nothing moves, VoiceOver reads "Loading…" once and the welcome label and skips the corner dot; note results in `specs/007-watercolor-dot/proof/results.md`
 - [ ] T047 Measure before/after first-screen web load time and iOS binary growth; record in `specs/007-watercolor-dot/proof/results.md` (SC-003)
-- [ ] T048 People check: show loader and welcome dot to 3–5 people, ask what it feels like, what is happening, and whether waiting feels calmer or slower; record anonymous answers in `specs/007-watercolor-dot/proof/results.md` and fix anything that reads as anxious, broken or slow (SC-008)
+- [x] T048 People check (passed, founder 2026-10-18; see proof/results.md): show loader and welcome dot to 3–5 people, ask what it feels like, what is happening, and whether waiting feels calmer or slower; record anonymous answers in `specs/007-watercolor-dot/proof/results.md` and fix anything that reads as anxious, broken or slow (SC-008)
 - [ ] T049 [P] Add provenance for `orb-01` to `apps/app/assets/brand/README.md` (generated, CC0, seed and settings in its manifest)
 - [ ] T050 Run `pnpm typecheck`, `pnpm lint`, `pnpm test` and fix failures
 
