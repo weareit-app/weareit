@@ -1,10 +1,11 @@
 // Render It's app icon: the "it" or "we are it" letters with Option B's settled
 // watercolor dot as the dot of the i, on opaque paper (App Store icons have no alpha).
 // From a session on 2026-10-17 (mac-cozy-sparrow); seed 1 has the cleanest
-// bloom. The app icon is "we are it" (founder, 2026-10-17):
+// bloom. The app icon is "it" (founder, 2026-10-17, after trying "we are it"
+// on a phone):
 //
-//   node --experimental-strip-types tools/watercolor-sim/icon.ts --variant we-are-it --out apps/app/assets/icon.png
-//   node --experimental-strip-types tools/watercolor-sim/icon.ts --out /tmp/it.png
+//   node --experimental-strip-types tools/watercolor-sim/icon.ts --out apps/app/assets/icon.png
+//   node --experimental-strip-types tools/watercolor-sim/icon.ts --variant we-are-it --out /tmp/we-are-it.png
 //   node --experimental-strip-types tools/watercolor-sim/icon.ts --variant dot --out /tmp/dot.png
 //   node --experimental-strip-types tools/watercolor-sim/icon.ts --sheet 1,2,3,4,5,6,7,8,9 --out /tmp/seeds.png
 //
