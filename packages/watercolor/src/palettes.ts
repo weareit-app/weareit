@@ -8,7 +8,8 @@ import {
   type PigmentOptics,
 } from "./pigment.ts";
 
-export const PAPER = "#ffffff";
+// It's off-white paper (docs/brand/colors.md).
+export const PAPER = "#fffdf7";
 
 export const paletteSchema = z.object({
   id: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/),
@@ -43,32 +44,32 @@ export function isVisible(palette: Palette): boolean {
   });
 }
 
-// It's own palette, matched to the painted orb (reference-dot.png) by
-// scripts/fit-orb-palette.ts: masstone = median of the darkest 5% of each hue
-// family's pixels, tint = median of the lightest 20%.
+// It's own palette, painted with It's brand inks (tide-led palette,
+// docs/brand/colors.md, chosen 2026-10-18): masstone = the ink, tint = the
+// wash. Tide's wash is its deeper step-8 value; the paler step reads green.
 const itOrb = paletteSchema.parse({
   id: "it-orb",
   name: "It orb",
   pigments: [
     {
-      id: "teal-blue",
-      name: "Teal blue",
-      masstone: "#006382",
-      tint: "#00b7cf",
+      id: "tide",
+      name: "Tide",
+      masstone: "#087e9f",
+      tint: "#61b0ce",
       granulation: 0.6,
     },
     {
-      id: "cyan-green",
-      name: "Cyan green",
-      masstone: "#018164",
-      tint: "#15d7a4",
+      id: "sprout",
+      name: "Sprout",
+      masstone: "#00a95c",
+      tint: "#a5ddb6",
       granulation: 0.3,
     },
     {
-      id: "warm-yellow",
-      name: "Warm yellow",
-      masstone: "#ccce46",
-      tint: "#cfda7e",
+      id: "sun",
+      name: "Sun",
+      masstone: "#ffb511",
+      tint: "#ffcb71",
       granulation: 0.1,
     },
   ],
@@ -96,30 +97,31 @@ const roseViolet = paletteSchema.parse({
 } satisfies PaletteInput);
 
 // Palettes the loader travels through (founder, 2026-10-17: "other pigments,
-// too, not just the brand"). Three pigments each, one per slot of dot B.
+// too, not just the brand"). Three pigments each, one per slot of dot B, all
+// from It's brand inks.
 const sunrise = paletteSchema.parse({
   id: "sunrise",
   name: "Sunrise",
   pigments: [
     {
-      id: "rose",
-      name: "Rose",
-      masstone: "#c2304d",
-      tint: "#f7c3c8",
+      id: "poppy",
+      name: "Poppy",
+      masstone: "#f15060",
+      tint: "#f8bbbb",
       granulation: 0.2,
     },
     {
-      id: "coral",
-      name: "Coral",
-      masstone: "#e2643a",
-      tint: "#fbd0b8",
+      id: "ember",
+      name: "Ember",
+      masstone: "#ff6c2f",
+      tint: "#ffb595",
       granulation: 0.3,
     },
     {
-      id: "gold",
-      name: "Gold",
-      masstone: "#d9a21b",
-      tint: "#f6e3a4",
+      id: "sun",
+      name: "Sun",
+      masstone: "#ffb511",
+      tint: "#ffcb71",
       granulation: 0.1,
     },
   ],
@@ -130,24 +132,24 @@ const dusk = paletteSchema.parse({
   name: "Dusk",
   pigments: [
     {
-      id: "violet",
-      name: "Violet",
-      masstone: "#4b2a8a",
-      tint: "#cdbdf0",
+      id: "dusk",
+      name: "Dusk",
+      masstone: "#765ba7",
+      tint: "#d3c8ed",
       granulation: 0.7,
     },
     {
-      id: "ultramarine",
-      name: "Ultramarine",
-      masstone: "#1f4fa3",
-      tint: "#b7cdf2",
+      id: "harbor",
+      name: "Harbor",
+      masstone: "#3d5588",
+      tint: "#c3d3f3",
       granulation: 0.6,
     },
     {
-      id: "pink",
-      name: "Pink",
-      masstone: "#c74a8c",
-      tint: "#f3c2dc",
+      id: "bloom",
+      name: "Bloom",
+      masstone: "#ff48b0",
+      tint: "#f2bad3",
       granulation: 0.2,
     },
   ],

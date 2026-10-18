@@ -2,6 +2,9 @@
 // reference: for each hue family, the masstone is the median of its darkest
 // pixels and the tint the median of its lightest.
 //
+// No longer feeds the it-orb palette: since 2026-10-18 it uses It's brand inks
+// (docs/brand/colors.md). Kept for fitting a palette to a painted reference.
+//
 //   node --experimental-strip-types packages/watercolor/scripts/fit-orb-palette.ts [png]
 import { readFileSync } from "node:fs";
 import { inflateSync } from "node:zlib";
