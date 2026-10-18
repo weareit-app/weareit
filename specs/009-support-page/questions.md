@@ -1,120 +1,87 @@
-# Open questions: 009 Support page
+# Questions: 009 Support page
 
-For founder review. Numbers match the `[NEEDS CLARIFICATION]` references in `spec.md`. Recommendations are suggestions only; none is decided.
+Founder answers recorded 2026-10-18. Numbers match references in `spec.md`. Original options and recommendations are kept for the record, shortened.
 
-1. **Where does Support sit in the flow?**
-   - A: Straight after signup, before Help (features.md order 3 → 4 → 5).
-   - B: After Help.
-   - C: Not a step; only a link (e.g. from a menu or the end of onboarding).
-   - *Recommendation*: A, with a prominent skip. It follows features.md order and the "you're not the product" message lands while the person is most engaged.
+## Still open
 
-2. **How do people reach Support again, and what happens to today's pre-signup links?** (`apps/app/app/onboarding/futures.tsx`, `apps/app/app/ways-to-help.tsx` link to `/support-it` before signup.)
-   - A: Remove pre-signup links; after signup, a persistent "Support It" link in the account area or footer.
-   - B: Keep pre-signup links but route them to signup first.
-   - C: Keep pre-signup links and allow guest support (reopens C6).
-   - *Recommendation*: A. Keeps payment-provider code off pre-signup pages and avoids nudging money before signup.
+These remain as `[NEEDS CLARIFICATION]` in `spec.md`:
 
-3. **Is anything preselected?** (Today: $15 and "once" are preselected.)
-   - A: Nothing preselected; the confirm button appears once both are chosen.
-   - B: Preselect "once" only.
-   - C: Preselect cadence and a middle amount (today's behaviour).
-   - *Recommendation*: B. Low pressure, one less step, and avoids defaulting people into recurring charges.
+- **O1 (from Q13) Refund window N days**: founder decided refunds on request within N days, handled manually; N is set by the founder.
+- **O2 (from Q4) Custom amount maximum**: founder left this to the plan. Today's limit is $1,000; annual presets go up to $1,000.
+- **O3 (from Q18) Card-statement descriptor wording**: merchant is We Are It LLC; wording left to the plan.
 
-4. **Preset amounts and limits per cadence?** (Today: $5 / $15 / $30 + other, $1–$1,000, monthly only.)
-   - A: Same presets for all cadences.
-   - B: Per-cadence presets (e.g. once $10/$25/$50, monthly $5/$10/$20, yearly $50/$100/$200).
-   - C: Founder supplies exact numbers.
-   - *Recommendation*: C, with B as the shape. Keep $1 minimum; reconsider the $1,000 maximum for annual.
+To confirm in review (no marker):
 
-5. **Currency.**
-   - A: USD only for v0.1.
-   - B: Provider-side local currency presentment.
-   - *Recommendation*: A. Matches existing code; revisit after launch.
+- **Q16 detail**: Support funnel stages are assumed to be unlinked from the account like the other stages. The measurement spec (not yet written) owns the stage list.
 
-6. **Which payment methods does the embedded form offer?**
-   - A: Cards only.
-   - B: Cards plus wallets (Apple Pay / Google Pay on web) and the provider's saved-details option.
-   - C: Also bank debits (settle over days; need "pending" handling).
-   - *Recommendation*: B. Wallets reduce friction; delayed methods add states for little v0.1 gain.
+## Answered
 
-7. **When does the payment form load?**
-   - A: When the Support page opens.
-   - B: Only after the person picks a cadence and amount (or taps "Support").
-   - *Recommendation*: B. Skippers never load provider scripts or fraud signals.
+1. **Where does Support sit in the flow?** Options: after signup before Help / after Help / link only. Recommended: after signup, before Help.
+   **Answer**: signup → required name step → Support → Help build It. Both Support and Help are skippable.
 
-8. **Restructure the ledger now?** (Today `support_contributions` carries `stripe_*`, `store_*` and `revenuecat_app_user_id` columns inline; `packages/database/src/migrations/003_support_payments.ts`.)
-   - A: Move provider IDs into separate provider-reference records now, while there is no production data.
-   - B: Keep inline columns for v0.1 and only add annual cadence.
-   - *Recommendation*: A. No live data yet, so it is cheapest now, and decisions.md already describes "provider-neutral records and mappings".
+2. **Re-entry and pre-signup links?** (`futures.tsx`, `ways-to-help.tsx`.) Recommended: remove pre-signup links; persistent link after signup.
+   **Answer**: remove pre-signup Support links. Persistent "Support It" link after signup: footer on large screens; menu or settings on mobile and when signed in.
 
-9. **May one account hold more than one active recurring support?**
-   - A: No; show manage instead of a new recurring form.
-   - B: Yes, any number.
-   - *Recommendation*: A. Prevents accidental double subscriptions; one-time support stays available.
+3. **Preselection?** Recommended: preselect "once" only.
+   **Answer**: preselect Monthly and $5.
 
-10. **Where does page copy (founder letter, headings, legal lines) live?**
-    - A: CMS-managed content, like onboarding content (decisions.md: database + CMS).
-    - B: Fixed in the app for v0.1.
-    - *Recommendation*: A for the letter, so the founder can edit without a release; B is acceptable for short legal lines.
+4. **Presets and limits?** Recommended: founder supplies per-cadence numbers.
+   **Answer**: cadence segmented control above; six preset buttons in two rows of three; custom amount field below. Monthly $3/5/10/20/50/100 (default $5); Every year $30/50/100/200/500/1,000; Once $10/20/50/100/250/500. $1 minimum. Custom maximum left to the plan (O2).
 
-11. **Receipts: who sends them and to which email?**
-    - A: Payment provider sends receipts to the account email, prefilled and locked.
-    - B: Provider sends to any email the person enters.
-    - C: It sends its own receipts.
-    - *Recommendation*: A. Simplest; ties records to the account; 008 must confirm the account email is verified.
+5. **Currency?** Recommended: USD only.
+   **Answer**: USD only for v0.1.
 
-12. **One payment-provider customer per It account?** (Draft D10 suggests yes.)
-    - A: Yes, created on first support.
-    - B: New customer per support.
-    - *Recommendation*: A. Lets one management page cover all of a person's recurring support.
+6. **Payment methods?** Recommended: cards + wallets + saved details.
+   **Answer**: cards, wallets (Apple Pay / Google Pay on web) and the provider's saved-details option. No bank debits.
 
-13. **Refund policy and wording.**
-    - A: Refunds on request within N days, handled manually by the founder.
-    - B: No stated policy in v0.1; handle case by case.
-    - *Recommendation*: A with N set by the founder.
+7. **When does the form load?** Recommended: after picking cadence/amount.
+   **Answer**: two-step page. The payment form loads only after the person taps Next on the amount step. The provider script loads only on the Support screen, never site-wide.
 
-14. **Account deletion: what happens to support records and active recurring support?**
-    - A: Cancel recurring support; keep financial records with the account link removed, for the legal retention period.
-    - B: Cancel and delete everything.
-    - *Recommendation*: A. Matches today's `on delete set null`; privacy page (010) must say so.
+8. **Restructure the ledger now?** Recommended: yes.
+   **Answer**: restructure now; provider IDs move to separate provider-reference records.
 
-15. **iOS behaviour for v0.1** (iOS optional; C7: verify App Store rules before building recurring).
-    - A: Keep existing RevenueCat one-time tips; no recurring on iOS until research is done.
-    - B: Hide payment on iOS; show the letter and skip only.
-    - C: Build in-app once/monthly/annual through Apple after research confirms it is allowed.
-    - *Recommendation*: B for v0.1 if the iOS app ships at all, then C after the research question resolves. Avoids App Review risk blocking the iOS release.
+9. **More than one active recurring support per account?** Recommended: no.
+   **Answer**: one active recurring support per account. Existing supporters see "Manage support". One-time support stays available.
 
-16. **Is reaching or completing Support a funnel stage?** (Pre-signup funnel is stages only; Support is post-signup and the person is identified.)
-    - A: No page-view tracking; admin sees only support records.
-    - B: Add an aggregate, unlinked "reached Support / supported / skipped" count.
-    - *Recommendation*: A. Support records already give totals; avoids new tracking of signed-in people.
+10. **Where does page copy live?** Recommended: letter in CMS.
+    **Answer**: founder letter in the CMS; short legal lines fixed in the app.
 
-17. **Any public mention of supporters or funding totals?**
-    - A: None in v0.1.
-    - B: Aggregate funding total (ties to the optional comparison sidebar).
-    - *Recommendation*: A. Defer with the sidebar; must be sourced and dated if added.
+11. **Receipts?** Recommended: provider sends to the account email, prefilled and locked.
+    **Answer**: as recommended. The payment provider sends receipts to the verified account email, prefilled and locked.
 
-18. **Merchant identity: which legal entity and statement descriptor appear on card statements?** (Corporate form is an open decision.)
-    - A: Founder as sole proprietor for v0.1.
-    - B: Wait for the entity.
-    - *Recommendation*: Founder decision; must be settled before live mode, not before the plan.
+12. **One provider customer per account?** Recommended: yes.
+    **Answer**: one Stripe customer per It account, created on first support.
 
-19. **Offer "cover the processing fees"?**
-    - A: No.
-    - B: Optional checkbox, unticked.
-    - *Recommendation*: A for v0.1. Fewer choices, no extra pressure.
+13. **Refund policy?** Recommended: on request within N days, manual.
+    **Answer**: refunds on request within N days, handled manually. N set by the founder (O1).
 
-20. **Should copy explicitly say support is not tax-deductible?**
-    - A: Yes, one plain line near the confirm button.
-    - B: Only in the FAQ or privacy/terms.
-    - *Recommendation*: A, wording approved by the founder. Prevents people assuming charity status.
+14. **Account deletion?** Recommended: cancel recurring, keep records unlinked.
+    **Answer**: cancel recurring support; keep payment records unlinked from the person for accounting; disclose on the privacy page.
 
-21. **Where does the thank-you (or skip) lead?**
-    - A: The next onboarding step (likely Help, spec 011).
-    - B: A home or roadmap view.
-    - *Recommendation*: A; depends on Q1 and 011.
+15. **iOS for v0.1?** Recommended: hide payment on iOS for v0.1.
+    **Answer**: primary is RevenueCat once/monthly/annual (Apple subscriptions + one-time purchases), tied to the account. Research App Review guideline 3.1.2 "ongoing value" risk before building. Secondary option: link out to web Support, explaining It receives more that way, optionally showing how much more for the selected amount (Apple 15% versus Stripe fees). Where link-out is allowed (US after the Epic v. Apple ruling, other regions) is a research question. Two management paths: Apple subscriptions in iPhone settings; the payment provider's portal on web. iOS stays optional for v0.1. Every App Store purchase is tied to the account (FR-025, commit 322cd92).
 
-22. **Optional features: include in this spec or defer?** Manage/cancel inside It; comparison sidebar.
-    - A: Defer both to after v0.1 core; this spec only leaves room.
-    - B: Include the in-It management view.
-    - *Recommendation*: A. The hosted management page is core and sufficient.
+16. **Support as a funnel stage?** Recommended: no.
+    **Answer**: yes. Track reached / supported / skipped as funnel stages, assumed unlinked from the account like other stages (confirm in review). The stage list belongs to a new measurement spec (not yet written).
+
+17. **Public supporters or totals?** Recommended: none in v0.1.
+    **Answer**: show an aggregate public funding total in v0.1, sourced and dated, with no individual supporters.
+
+18. **Merchant identity?**
+    **Answer**: We Are It LLC. Statement descriptor wording left to the plan (O3).
+
+19. **"Cover the fees"?** Recommended: no.
+    **Answer**: no.
+
+20. **"Not tax-deductible" line?** Recommended: yes, near confirm.
+    **Answer**: yes, one plain line near the confirm button; the founder approves the wording.
+
+21. **Where does thank-you or skip lead?** Recommended: next onboarding step.
+    **Answer**: Help build It (follows from Q1).
+
+22. **Optional extras?** Recommended: defer both.
+    **Answer**: defer the in-It management view and the comparison sidebar. The funding total (Q17) stands alone.
+
+## Notes
+
+- Copy rule stands: "support", never "donation", "donate" or "donor", even where those words come up casually in discussion.
