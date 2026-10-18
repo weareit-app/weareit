@@ -45,7 +45,7 @@ The word "Help" covers two different ideas. In `features.md` §5 it means a sign
 ## Origin & Context
 
 - **Raised by**: founder (rough direction, 2026-10-16, in `features.md`); assessment requested by the orchestrating session on 2026-10-17.
-- **Trigger**: §5 is marked "ILL-DEFINED, needs its own design pass". The it-mvp assessment (`.specify/assessments/it-mvp/decision.md`) handed off a Help flow (background → ESCO skills → about 5–15 curated roadmap asks), but `features.md` still marks every step "?". Spec 001 lists the split as "005 help". The orchestrator has reserved spec number **011** for this assessment if it goes forward. [NEEDS CLARIFICATION: which number is canonical]
+- **Trigger**: §5 is marked "ILL-DEFINED, needs its own design pass". The it-mvp assessment (`.specify/assessments/it-mvp/decision.md`) handed off a Help flow (background → ESCO skills → about 5–15 curated roadmap asks), but `features.md` still marks every step "?". Spec 001 lists the split as "005 help". The orchestrator reserved spec number **011**. *Answered 2026-10-18: 011 (questions.md Q11).*
 
 ## First-Glance Unknowns
 

@@ -1,116 +1,136 @@
-# Help page — questions for the founder
+# Help build It — questions for the founder
 
 - **Slug**: help-page
 - **Created**: 2026-10-17
-- **Status**: open. None answered. The decide gate waits on Q1–Q4, Q7 and Q8 (marked **blocking**).
+- **Status**: **all 18 answered by the founder, 2026-10-18.** The questions, options and assessor recommendations are kept as a record. Each "Answer" is the founder's decision.
 
-Each question lists options and a recommendation. The recommendation is the assessor's suggestion, not a decision.
-
-## 1. Which meaning of "Help" is §5? (blocking)
+## 1. Which meaning of "Help" is §5?
 - (a) Offering help to It: background, skills, roadmap asks (as features.md §5 reads).
 - (b) Getting help from It: FAQ, contact, crisis resources.
 - (c) Both on one page.
-- **Recommendation: (a).** Route "getting help" needs to 009/010 and a contact link (see concept.md Part 2).
+- Recommendation: (a).
+- **Answer: (a) offering help to It.**
 
-## 2. What must the Help page achieve in v0.1? (blocking)
+## 2. What must the Help page achieve in v0.1?
 - (a) Collect offers the founder will follow up on.
 - (b) Communicate the roadmap as concrete asks.
 - (c) Test whether background → skills matching works.
 - (d) Collect structured skill data for later matching.
-- **Recommendation: (a) + (b), with (d) as a by-product.** Defer (c).
+- Recommendation: (a) + (b), with (d) as a by-product; defer (c).
+- **Answer: all four.** Asks are also not limited to the prioritised roadmap; other asks can be added.
 
-## 3. Which shape? (blocking)
+## 3. Which shape?
 - A: full background → ESCO skills → matched asks (medium).
 - B: asks first, optional structured background, no matcher (small).
 - C: keep the existing interest categories (small).
 - D: merge into the Support page (small, inside 009).
 - E: drop from v0.1.
-- **Recommendation: B.** Fall back to E if Q4 or Q8 can't be met.
+- Recommendation: B, falling back to E.
+- **Answer: A, the full flow.** The founder accepts that it is over the one-week budget.
 
-## 4. Who writes the roadmap asks, how many, and where do they live? (blocking)
-- (a) Founder writes 5–15 before launch, stored as CMS content with stable IDs and honest labels.
+## 4. Who writes the roadmap asks, how many, and where do they live?
+- (a) Founder writes 5–15 before launch, stored in the CMS.
 - (b) AI drafts them and the founder approves, stored in the CMS.
 - (c) Hard-coded list for v0.1.
-- **Recommendation: (b) or (a), stored in the CMS.** decisions.md says content is database-backed, and thing-type-relation requires stable IDs for roadmap items.
+- Recommendation: (b) or (a), in the CMS.
+- **Answer: (b).** AI drafts, founder approves, stored in the CMS with stable IDs. No number was fixed.
 
 ## 5. What does "say your background" cover?
 - (a) ESCO occupations only.
-- (b) ESCO occupations plus an education level (needs another list, e.g. ISCED).
+- (b) ESCO occupations plus an education level.
 - (c) Free text.
-- (d) Structured plus an optional "none of these fit" escape.
-- **Recommendation: (d) with ESCO occupations.** No free text in v0.1: it keeps the data structured and avoids the free-text crisis-prompt requirement.
+- (d) Structured plus a "none of these fit" escape.
+- Recommendation: (d) with ESCO occupations.
+- **Answer:** background covers **jobs, education, volunteer experience and other experiences**. Use structured lists where possible (ESCO, an education list), plus an **optional short free-text box**. No crisis prompt on free text.
 
 ## 6. Are skills suggested in v0.1, and how many?
-- (a) Yes: ESCO essential skills for the chosen occupations, capped at about 10, confirm or remove.
-- (b) Yes, uncapped.
-- (c) No, occupations only in v0.1.
-- **Recommendation: (a)** if B or A is chosen. (c) is acceptable if time is short, since occupation references alone don't block matching.
+- (a) ESCO essential skills, capped at about 10.
+- (b) Uncapped.
+- (c) No skills; occupations only.
+- Recommendation: (a).
+- **Answer: (b).** ESCO essential skills are suggested from the background with **no cap**. The person confirms or removes them.
 
-## 7. How does contact consent work? (blocking)
-- (a) A separate, unticked "It may contact me about the things I offered" on the Help page.
-- (b) Reuse the signup email opt-in (spec 008).
+## 7. How does contact consent work?
+- (a) A separate, unticked consent box on the Help page.
+- (b) Reuse the signup opt-in (spec 008).
 - (c) Submitting an offer implies consent.
-- **Recommendation: (a).** The signup opt-in covers emails from It in general. Follow-up about a specific offer is a different purpose, and pieces.yaml (draft) requires consent before contact.
+- Recommendation: (a).
+- **Answer: (c).** Submitting an offer implies consent to be contacted about it, and the page must say so plainly.
 
-## 8. What follow-up can the founder commit to, and what do people see? (blocking)
-- (a) A stated window (e.g. "within two weeks") and admin tracking.
-- (b) "We'll reach out if one of these needs you now. We can't reply to everyone."
+## 8. What follow-up can the founder commit to, and what do people see?
+- (a) A stated window and admin tracking.
+- (b) Honest no-promise copy plus admin marks.
 - (c) No promise, no copy.
-- **Recommendation: (b)**, plus admin "followed up" marks. (c) risks the DemocracyLab trust failure.
+- Recommendation: (b).
+- **Answer: (b).** The copy is "We'll reach out if one of these needs you now. We can't reply to everyone.", plus admin "followed up" marks.
 
 ## 9. Where does Help sit in the flow?
-- (a) After Support, as features.md orders it; both skippable.
+- (a) After Support; both skippable.
 - (b) Before Support.
-- (c) Offered on the Support page's skip path only.
-- **Recommendation: (a).** Support is the primary goal. Check the stage funnel after launch.
+- (c) Only on Support's skip path.
+- Recommendation: (a).
+- **Answer: (a).** The flow is signup → required name step → Support → Help build It, with Support and Help both skippable. Support's thank-you or skip leads to Help.
 
-## 10. What happens to the existing pre-signup interests screen (`apps/app/app/ways-to-help.tsx`, `helpInterests` in the draft schema)?
-- (a) Retire it. Remove the route, and keep accepting the old draft field until saved drafts age out.
-- (b) Keep it pre-signup as a teaser that leads to the post-signup Help page.
-- (c) Convert its categories into the first roadmap asks.
-- **Recommendation: (a) + (c).** Its "invite one person", "check one claim" and "give feedback" items read like good first asks.
+## 10. What happens to the existing pre-signup interests screen?
+- (a) Retire it.
+- (b) Keep it as a teaser.
+- (c) Convert its categories into the first asks.
+- Recommendation: (a) + (c).
+- **Answer: (a) + (c).** Retire `apps/app/app/ways-to-help.tsx` and `helpInterests`, and reuse its items as the first asks.
 
 ## 11. Which spec number?
-- (a) 011, as reserved by the current planning session.
-- (b) 005, as `specs/001-personal-page/spec.md` line 9 lists ("005 help").
-- **Recommendation: (a) 011**, and update the split note in spec 001 when convenient. The founder or orchestrator confirms.
+- (a) 011.
+- (b) 005, as spec 001 line 9 lists.
+- Recommendation: (a).
+- **Answer: (a) 011.** The new numbers (008–012) stay. 001's references get updated, and the mapping is recorded in features.md. That work belongs to another lane or a follow-up, not this assessment.
 
-## 12. Is a general contact or feedback channel needed in v0.1, and who owns it?
-- (a) A contact email in a shared footer, owned by 010 (alongside privacy).
-- (b) A small feedback form (new data store, spam handling).
-- (c) None in v0.1.
-- **Recommendation: (a).**
+## 12. Is a general contact or feedback channel needed, and who owns it?
+- (a) A contact email in a shared footer, owned by 010.
+- (b) A feedback form.
+- (c) None.
+- Recommendation: (a).
+- **Answer: (a).** A contact email in the shared footer (in the menu on mobile and when signed in), owned by 010.
 
 ## 13. FAQ or contextual help?
-- (a) No FAQ in v0.1. Each spec writes the inline "why we ask / what's stored" copy it needs.
+- (a) Inline copy only, no FAQ.
 - (b) A short static FAQ page.
 - (c) Both.
-- **Recommendation: (a).**
+- Recommendation: (a).
+- **Answer: (c) both.** Each spec has inline "why we ask / what's stored" copy, plus a short static FAQ page. FAQ ownership is proposed for 010 but not yet assigned.
 
 ## 14. What does "modified ESCO list" mean, and what attribution is needed?
-- (a) An unmodified subset of ESCO (filtered, not edited), with CC BY 4.0 attribution.
-- (b) Edited labels and merged skills (needs a licence check and a "modified" notice).
-- (c) A Homefront-derived list.
-- **Recommendation: (a) for v0.1.** Read the ESCO licence page before shipping (it-mvp research flagged that it wasn't read).
+- (a) An unmodified subset with CC BY 4.0 attribution.
+- (b) Edited labels and merged skills.
+- (c) A list derived from Homefront.
+- Recommendation: (a).
+- **Answer: (b).** Edited labels and merged skills are allowed. This needs a licence check and a "modified from ESCO" attribution notice. Stored references keep the original ESCO URIs.
 
-## 15. What does admin see about roadmap-ask interest?
-- (a) Counts per ask, plus individual offers only from people who gave contact consent.
+## 15. What does admin see about interest in roadmap asks?
+- (a) Counts plus individual offers from people who consented.
 - (b) All individual offers.
 - (c) Counts only.
-- **Recommendation: (a).**
+- Recommendation: (a).
+- **Answer:** counts per ask plus individual offers. Offering already implies consent to contact (Q7), so this is in effect (a) and (b) together.
 
 ## 16. Can people change or withdraw an offer later?
 - (a) Yes, from their account.
-- (b) Not in v0.1. Email to withdraw.
-- **Recommendation: (a)** if their account has any settings view in v0.1, otherwise (b) with the contact address shown.
+- (b) No; email to withdraw.
+- Recommendation: (a) if an account view exists.
+- **Answer: (a).** This needs an account view that lists the person's offers.
 
-## 17. Should the roadmap asks be visible before signup, to communicate the roadmap?
-- (a) No. Help is post-signup only.
-- (b) A read-only list of asks before signup; offering needs an account.
-- **Recommendation: (a) for v0.1.** This is the product intent's "communicates the roadmap" point, so the founder should decide.
+## 17. Should the roadmap asks be visible before signup?
+- (a) No.
+- (b) A read-only list before signup.
+- Recommendation: (a).
+- **Answer: (a).** Help is post-signup only. The roadmap is already shown before signup through the fixes people see on the pain pages.
 
-## 18. What is §5 called, so it doesn't clash with crisis help (010)?
-- (a) Keep "Help" for §5. 010 uses "Crisis resources" or "Urgent help". Avoid "support" here, because It reserves that word for giving money.
-- (b) Rename §5 to "Help build It" or "Contribute". 010 may use "Help".
+## 18. What is §5 called?
+- (a) Keep "Help".
+- (b) "Help build It" or "Contribute".
 - (c) Keep both as "Help".
-- **Recommendation: (b) "Help build It".** A distressed person looking for "Help" should land on crisis resources, not a skills form. This needs agreement with lane 010.
+- Recommendation: (b) "Help build It", to keep it distinct from any "get help" content.
+- **Answer: "Help build It".**
+
+## Terminology (founder, 2026-10-18, all specs)
+
+Say "selected fixes", never "I'd use this". A person selecting a fix (an idea labelled as a possible feature) is the whole of that action.

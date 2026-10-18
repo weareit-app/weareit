@@ -20,7 +20,7 @@ No web fetches were made in this pass. External findings are carried over from `
 - **Internal: `docs/spec/pieces.yaml`.** The `offer` piece (state: free text, tags, availability, preferred contact, follow-up status new/contacted/matched/closed; "never shown as matched until a human matched it") and `sync-contact-requires-consent` ("Contact without consent is impossible through the app"). Both are `mvp: true`. — [source: repo, from the unchecked it-spec draft; evidence, not requirement]
 - **Internal: thing-type-relation decision.** v0.1 must "store Help answers as ESCO references". — [source: `docs/architecture/decisions.md`] (binding)
 - **External: volunteer-skills matching.** DemocracyLab found the main barrier was the weak link between projects and skilled volunteers, and that onboarding a volunteer can cost more than they give unless the project is organised first. Code for Canada uses a staged marketplace: post challenges, volunteers apply, the organisation chooses. — [source: it-mvp research.md, civictech.guide / codefor.ca] (confidence: medium)
-- **"Get help" meaning, internal.** The unchecked architecture source asks for a "crisis / abuse floor": static crisis/help resources reachable without an account, a "not monitored for emergencies" notice, keyword-triggered resource prompts where free text exists, and a report route. — [source: `docs/source/IT_MVP_IMPLEMENTATION_ARCHITECTURE_v0.2.md` lines 83, 133, 1545–1550; evidence only] This is the 010 safety-floor lane, and it also uses the word "help".
+- **"Get help" meaning, internal.** The unchecked architecture source asks for a "crisis / abuse floor": static crisis/help resources reachable without an account, a "not monitored for emergencies" notice, and a report route. — [source: `docs/source/IT_MVP_IMPLEMENTATION_ARCHITECTURE_v0.2.md` lines 133, 1545–1550; evidence only] This was the 010 safety-floor lane. As of 2026-10-18, crisis resources and reporting are planned for after v0.1, and 010 covers the privacy page only.
 - **"Get help" meaning, roadmap.** `docs/roadmap/mvp.md` lists "safety/reporting floor" under Next slices. No FAQ or contact page appears anywhere in features.md or the roadmap. — [source: repo]
 
 ## Market & Context
@@ -43,7 +43,7 @@ No web fetches were made in this pass. External findings are carried over from `
 - **Scope is already larger than the one-week appetite**, and Help is the least defined of the core screens. The ESCO cleanup and matching are the riskiest part. — [source: it-mvp research.md "Evidence Against"]
 - **Signup comes before Help**, and Support comes before Help in the page order. Few people may reach it. — [source: it-mvp research.md; features.md order]
 - **Roadmap asks don't exist yet.** Matching against an empty or tiny list is theatre. With about 5–15 asks, a plain list may beat a matcher. — [ASSUMPTION, supported by it-mvp concept.md cut line]
-- **Two meanings of "Help"** risk mixing a contribution page with crisis resources in navigation and copy. That could confuse a distressed person looking for help. — [ASSUMPTION; source naming in architecture doc line 1547]
+- **Two meanings of "Help"** risk confusing a contribution page with "get help" content in navigation and copy. — [ASSUMPTION] *Resolved 2026-10-18: the page is named "Help build It".*
 
 ## Gaps & Open Questions
 

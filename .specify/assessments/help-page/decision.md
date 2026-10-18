@@ -1,58 +1,78 @@
-# Decision: Help page (features.md §5)
+# Decision: Help build It (features.md §5)
 
 - **Slug**: help-page
-- **Decided**: PENDING — prepared 2026-10-17 for the founder; no verdict has been made
-- **Verdict**: _founder to choose: go | needs-clarification | kill_ (assessor recommendation: **needs-clarification**, leading to go on Option B once the blocking questions are answered)
-- **Artifacts reviewed**: intake.md | research.md | problem.md | concept.md | questions.md
+- **Decided**: PENDING. Prepared 2026-10-17; updated 2026-10-18 with the founder's answers. **Not signed off.**
+- **Verdict**: _founder to sign off: go | needs-clarification | kill_. **Recommendation: go on Option A, awaiting founder sign-off.**
+- **Artifacts reviewed**: intake.md | research.md | problem.md | concept.md | questions.md (all 18 answered 2026-10-18)
 
-This file stops at the gate. It does not hand off to `/speckit-specify`. If the verdict is go, spec number **011** is reserved for this feature. No `specs/011-*` directory has been created.
+This file stops at the gate. It does not hand off to `/speckit-specify`. Spec number **011** is reserved for this feature. No `specs/011-*` directory has been created.
 
-## Scorecard
+## What the founder's answers select
+
+The founder's answers (2026-10-18) select **concept Option A, the full flow**: background → suggested ESCO skills → matched asks. The founder accepts that this is over the one-week budget. This replaces the assessor's earlier recommendation (needs-clarification, then Option B). The full scope is in `concept.md` → "Founder selection" and in the handoff draft below.
+
+## Scorecard (updated for Option A and the answers)
 
 | Criterion | Rating | Justification |
 |-----------|--------|---------------|
-| Problem validity | adequate | The gap is real in the repo: the current interests screen collects vague categories with no asks, no consent and no follow-up. The binding thing-type-relation rule and the "soon" matching guardrail need structured Help answers. But the page serves a secondary goal (Support is primary). |
-| Evidence strength | weak | No user signal on wanting to offer help (n=1 informal tester on pickers). Prior art (DemocracyLab, Code for Canada) mostly warns about follow-up cost. The founder's Homefront experience is the main support, and it wasn't inspected here. |
-| Value vs. inaction | adequate | Inaction leaves Support intact but loses launch recruiting, roadmap communication and structured skill data. Option B captures most of that value for a few days. |
-| Feasibility / appetite | adequate | Option B is small (2–4 days, including writing asks). Option A is medium and over budget. Depends on the founder writing asks (Q4). |
-| Strategic fit | strong | Product intent says onboarding "communicates the roadmap It is building". decisions.md lists "ways to help It". Option B follows the privacy invariants (post-signup, nothing public, consented contact) and honest status. |
-| Risk posture | weak | The main risk, offers that nobody follows up, is named but not yet mitigated: it depends on founder answers to Q7/Q8. The naming clash with crisis help (Q18) is unresolved with lane 010. |
+| Problem validity | adequate | The gap is real: the current interests screen collects vague categories with no asks or follow-up. Structured Help answers are needed by the thing-type-relation rule and the "soon" matching guardrail. The founder has now named four goals, including testing the matching. Support is still the primary v0.1 goal. |
+| Evidence strength | weak | Unchanged. There is no user signal on wanting to offer help, and outside prior art warns about follow-up cost. Going ahead rests on founder judgment and Homefront experience. Launch measures (offer rate, asks with offers, follow-up rate) are how it gets tested. Under the strict assess rule, weak evidence blocks go. The founder can override this, as was done for it-mvp. |
+| Value vs. inaction | adequate | Option A gives the most structured data for "soon" matching and a direct test of matching. Inaction would leave Support intact but lose recruiting, structured data and the test. |
+| Feasibility / appetite | weak | Option A is medium (1–2 weeks) on top of the other core screens, and the founder has accepted that. The uncapped skill suggestions, a second (education) list, edited ESCO labels, per-ask skill mapping and an account view for offers all add scope. |
+| Strategic fit | strong | It follows the founder's answers, the privacy invariants (post-signup only, nothing public, contact limited to the offer made), honest status (asks labelled; offers never shown as matched by a human until they are) and the decisions.md rule to store Help answers as ESCO references. |
+| Risk posture | adequate | Up from weak. The main risk (offers nobody answers) is now handled by honest no-promise copy and admin "followed up" marks. The naming clash is settled ("Help build It"), and consent is settled (offering implies consent, said plainly). Remaining risks: an uncapped skills list that overwhelms people; empty matches; the ESCO licence for edited labels; schedule slip from the medium appetite. |
 
 ## Options at the gate
 
-### Go — Option B (asks first, structured background, no matcher)
-Hand off to `/speckit-specify` as spec 011. Requires answers to Q1–Q4, Q7 and Q8 first. Under the assess rules, evidence strength is weak, so a strict reading forbids go. The founder can override with the reason "founder judgment; validated after launch by the stage funnel and offer counts", as was done for it-mvp.
+### Go on Option A (recommended, awaiting founder sign-off)
+Hand off to `/speckit-specify` as spec 011 using the draft below. The "Still open" items below are spec-level questions for `/speckit-clarify`, not gate blockers. Signing off means accepting weak evidence on founder judgment, with launch measures as the check.
 
-### Needs-clarification (assessor recommendation)
-Answer the blocking questions in `questions.md`, then re-run `/speckit-assess-shape` only if the answers change the option. Otherwise update this file to go.
-- **Blocking questions**:
-  - [NEEDS CLARIFICATION: Q1 — which meaning of Help]
-  - [NEEDS CLARIFICATION: Q2 — what the page must achieve]
-  - [NEEDS CLARIFICATION: Q3 — which shape (A–E)]
-  - [NEEDS CLARIFICATION: Q4 — who writes the asks, and how many]
-  - [NEEDS CLARIFICATION: Q7 — contact consent]
-  - [NEEDS CLARIFICATION: Q8 — follow-up promise and copy]
-- **Revisit stage**: shape (only if Q1 = "get help" or Q3 ≠ B); otherwise straight to go.
+### Needs-clarification
+Only if the founder wants something below settled before specifying. The likeliest candidates are the education list and the licence check. Revisit stage: shape.
 
-### Kill — Option E (drop §5 from v0.1)
-Decisive reason, if chosen: v0.1's primary goal is Support, the evidence for Help demand is weak, and the founder can't commit to writing asks or to follow-up within the launch week. An offer form without follow-up does more harm than none. Keep at most one "Want to help build It? Write to …" line. Retire or leave `ways-to-help.tsx`. Reassess after launch with funnel data. This reverses the founder's 2026-10-16 position that Help stays in v0.1, so it needs the founder's explicit call.
+### Kill (Option E: drop §5 from v0.1)
+This would contradict the founder's answers (Q2, Q3), so it is listed only for completeness.
 
 ## Verdict & Rationale
 
-_Not decided._ Assessor's reasoning for recommending needs-clarification: the problem is real and Option B fits a small appetite and the strategy. But evidence is weak, and the main risk (follow-up) can only be mitigated by founder commitments (Q4, Q7, Q8) that this assessment must not guess. Once those are answered, Option B is a credible go.
+_Not decided; awaiting founder sign-off._ The assessor recommends go on Option A. Every gate question has a founder answer. The main risk has a mitigation the founder chose. The remaining unknowns can be settled in specification. Evidence strength stays weak, and the go rests on an explicit founder override recorded at sign-off.
+
+## Still open (carry into specify or clarify; none answered here)
+
+1. **Education list**: which one (ESCO has none; ISCED levels or fields are candidates), and its licence.
+2. **Licence check**: ESCO terms for edited labels and merged skills, including the O*NET-derived parts, and the exact "modified from ESCO" notice wording.
+3. **Skill-to-ask mapping**: who authors which skills each ask needs. Does AI draft it with the ask, for founder approval?
+4. **Empty or weak matches**: what a person sees when no ask matches. Proposed: show the other asks.
+5. **Uncapped skill suggestions**: ordering, grouping and bulk confirm/remove when several background entries each bring dozens of skills.
+6. **How many asks at launch**, and when the founder approves them.
+7. **Account view for offers** (Q16): which spec owns the account area (it is shared with 009's persistent "Support It" link and 010's menu).
+8. **Free-text box**: length limit, and whether admin sees it alongside the structured answers. (Privacy rules apply: never public.)
+9. **FAQ page owner**: proposed 010, not yet assigned.
+10. **Funnel stage name** for Help: owned by the new, not-yet-numbered measurement spec.
+11. **Follow-ups outside this lane**: update spec 001's "005 help" reference to 011 and record the 008–012 mapping in features.md; rename "I'd use this" to "selected fixes" in 001 and other specs.
 
 ## If go — Handoff draft for `/speckit-specify` (spec 011; not yet triggered)
 
-- **Problem**: Signed-up people have no concrete way to offer their skills and time toward It's real roadmap needs, and It has no structured, consented record of who could help with what.
-- **Chosen approach**: Option B. Curated, honestly labelled roadmap asks (5–15, CMS content with stable IDs) that people tick. An optional structured "what do you bring" (ESCO occupations, plus capped essential skills, stored as ESCO references). A separate unticked contact consent. An honest "what happens next" note. Skip. Admin offer list with followed-up marks and per-ask counts.
-- **In scope / out of scope**: In: the asks list, the ESCO picker subset with attribution, consent, offer storage on the account, admin follow-up, retiring or migrating `ways-to-help.tsx` and `helpInterests`. Out: matching, free text, FAQ, crisis/report/privacy pages (010), support management (009), public helper data, volunteer operations.
-- **Success metrics**: offer rate at the Help stage; consent rate; follow-up rate within the agreed window; asks with at least one offer.
-- **Carried-forward open questions**: Q5, Q6, Q9–Q18 in `questions.md`.
-- **It checks for the spec template**: privacy (post-signup only, nothing public, consented contact); honest status (asks labelled; offers never shown as matched); must-not-block (ESCO references for "soon" matching; stable IDs for thing-type-relation); accessibility (picker with search and keyboard support); research questions (ESCO subset size, ask wording).
+- **Problem**: Signed-up people have no concrete way to offer their background, skills and time toward what It needs. It has no structured record of who could help with what, and no test of whether background → skills → asks matching works.
+- **Chosen approach**: Option A, "Help build It".
+  - **Flow**: signup → required name step (008) → Support (009) → Help build It. Support and Help are both skippable, and Support's thank-you or skip leads here. Post-signup only.
+  - **Background**: jobs, education, volunteer experience and other experiences. Structured lists where possible (ESCO occupations, a chosen education list), plus an optional short free-text box. No crisis prompt.
+  - **Skills**: ESCO essential skills suggested from the background, no cap. The person confirms or removes them. Stored as ESCO references with original URIs, even where labels were edited or skills merged.
+  - **Asks**: AI-drafted, founder-approved CMS content with stable IDs and honest labels. Not limited to the prioritised roadmap. Seeded with the retired `ways-to-help.tsx` items. Matched to confirmed skills.
+  - **Offer**: the person ticks the asks they'd help with and submits. The page says plainly that submitting means It may contact them about it, and shows "We'll reach out if one of these needs you now. We can't reply to everyone."
+  - **Account**: a view listing the person's offers, where they can change or withdraw them.
+  - **Admin (with 006)**: counts per ask, individual offers, "followed up" marks.
+  - **Copy**: inline "why we ask / what's stored", and a "modified from ESCO" attribution notice.
+  - **Terminology**: "selected fixes", never "I'd use this".
+- **In scope**: background pickers and free text, ESCO and education lists with attribution, skill suggestions, matching asks to skills, ask content type in the CMS, offer storage on the account, offer change and withdraw, admin follow-up, retiring `ways-to-help.tsx` and `helpInterests`.
+- **Out of scope**: matching people to people ("soon"); volunteer operations; public helper data; asks before signup; crisis resources and the report button (deferred past v0.1); the privacy page, FAQ page and contact email (010); support management (009).
+- **Success metrics**: offer rate at the Help stage; share of suggested skills people keep (a matching test); share of offers on matched asks vs other asks (a matching test); asks with at least one offer; follow-up rate.
+- **Carried-forward open questions**: the "Still open" list above.
+- **It checks for the spec template**: privacy (post-signup; nothing public; contact only about the offer made; free text never public); honest status (asks labelled; an offer is never shown as matched until a human matched it); must-not-block (ESCO URIs for "soon" matching; stable ask IDs for thing-type-relation); accessibility (searchable pickers, keyboard support, long skill lists usable with a screen reader); research questions (education list, ESCO licence, skill-list UX).
 
 ## Overlaps with other in-flight lanes
 
-- **008 signup gate**: Help is post-signup, so offers attach to the account. The signup email opt-in is a different consent from Help contact consent (Q7). The pre-signup `helpInterests` draft field is currently saved at the gate (`save-progress.tsx`), so 008 and 011 must agree on whether that field survives (Q10).
-- **009 support page**: shares the flow position (Support → Help, both skippable; Q9). Option D would put asks inside 009. "Manage or cancel support" assistance belongs to 009 via the Stripe portal (`support-it.tsx:118`), not to Help. The founder's letter may mention both ways to help.
-- **010 safety floor + privacy page**: crisis resources, the "not monitored for emergencies" notice, the report button and privacy explanations are all "get help" needs that belong to 010, not §5. A naming clash ("Help") needs agreement (Q18). A general contact address is proposed to sit with 010 in a shared footer (Q12). If §5 ever adds free text, 010's keyword-triggered resource prompt applies, which is another reason to keep §5 structured.
-- **Also touches**: 006 admin (help offers, followed-up marks, ask counts) and the thing-type-relation Phase 1 rules (stable IDs for roadmap items; Help answers as ESCO references).
+- **008 signup**: Help follows the required name step. 008 does not send help interests at signup, which matches retiring `helpInterests`. The signup updates opt-in is separate from Help's implied contact consent.
+- **009 support**: Support's thank-you or skip leads to Help. "Manage support" stays in 009 (Stripe portal). The account area that holds 009's persistent "Support It" link may also hold the Help offers view (Still open 7).
+- **010 privacy page**: now privacy only; the safety floor is deferred past v0.1. It owns the footer contact email, and the FAQ page is proposed for it. Its privacy copy should describe what Help stores (background, free text, skills, offers) and that offering means It may contact you. Use "selected fixes" terminology.
+- **Also**: 006 admin (offers, counts, follow-up marks); the new measurement spec (Help funnel stage); thing-type-relation rules (stable IDs; ESCO references).

@@ -8,12 +8,12 @@
 
 People who sign up and want to do more than pick futures (or more than support with money) have no clear, concrete way to offer their time and skills to It. It, a solo project, has no way to learn who could help with which specific roadmap needs, or to follow up only with people who agreed to it. Today's pre-signup interests list (`ways-to-help.tsx`) records vague categories with no concrete asks and no path to follow-up. The structured data the "soon" matching feature needs is not collected.
 
-Secondary (the "get help" meaning, assessed so it isn't lost): a person may need to understand what It stores, manage recurring support, reach a human, or find crisis resources. None of these has a home yet. Most of them belong to other lanes (009, 010), not to §5.
+Secondary (the "get help" meaning, assessed so it isn't lost): a person may need to understand what It stores, manage recurring support, reach a human, or read a short FAQ. None of these has a home yet. Most of them belong to other lanes (009, 010), not to §5. (Crisis resources were deferred past v0.1 by the founder on 2026-10-18.)
 
 ## Affected Users & Stakeholders
 
 - **Users — signed-up visitors who want to contribute.** They need to see specific, honest asks they could help with, and say what they bring without writing about themselves. [research: one tester preferred pickers; demand otherwise unknown]
-- **Users — any visitor needing assistance** (privacy, managing support, contact, crisis). Served mainly by 009/010. [ASSUMPTION]
+- **Users — any visitor needing assistance** (privacy, managing support, contact, FAQ). Served mainly by 009/010. [ASSUMPTION]
 - **Stakeholder — founder.** Decides the asks, does all follow-up, and needs offers they can act on without being overwhelmed.
 - **Stakeholder — future matching feature ("soon").** Needs structured background and skills (ESCO references) to exist.
 
@@ -24,13 +24,15 @@ Secondary (the "get help" meaning, assessed so it isn't lost): a person may need
 - Answers are stored in structured form (ESCO references) so later matching isn't blocked.
 - The page communicates the roadmap (what It is building and needs), in line with the product intent.
 - People are told honestly what happens after they offer (no implied guaranteed response or match).
+- Test whether background → suggested skills → matched asks works for people (added by founder, 2026-10-18).
+- Asks are not limited to the prioritised roadmap; other things It needs help with can be added as asks (founder, 2026-10-18).
 
 ## Non-Goals
 
 - Automated matching of people to people (that's "soon").
 - Volunteer operations: scheduling, task tracking, team spaces.
 - A help centre, knowledge base or ticketing system.
-- Crisis resources, report button and privacy explanations as part of §5. They belong to 010.
+- Privacy page, contact address and FAQ page as part of §5. They belong to 010 (FAQ owner proposed). Crisis resources and the report button are deferred past v0.1.
 - Managing or cancelling support. That belongs to 009 (Stripe portal).
 - Public display of who offered what.
 - Pre-signup storage of Help answers beyond what exists today.
@@ -49,9 +51,4 @@ Without a Help page, v0.1 still meets its primary goal (Support). It loses the c
 
 ## Open Questions
 
-See `questions.md` for the full numbered list with options and recommendations. The blocking ones:
-
-- [NEEDS CLARIFICATION: Which meaning of Help (Q1)]
-- [NEEDS CLARIFICATION: What the page must achieve in v0.1 (Q2)]
-- [NEEDS CLARIFICATION: Who writes the roadmap asks, and how many (Q4)]
-- [NEEDS CLARIFICATION: Contact consent and follow-up promise (Q7, Q8)]
+All 18 questions in `questions.md` were answered by the founder on 2026-10-18. The answers select concept Option A (full flow). What remains open is listed in `decision.md` under "Still open".

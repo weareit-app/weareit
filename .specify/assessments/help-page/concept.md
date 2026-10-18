@@ -2,7 +2,7 @@
 
 - **Slug**: help-page
 - **Created**: 2026-10-17
-- **Recommended option**: B — Roadmap asks first, structured background, no matcher (pending founder answers in `questions.md`)
+- **Recommended option**: B (assessor, 2026-10-17). **Selected by the founder's answers: A — full flow (2026-10-18)**, with the scope in "Founder selection" below. Awaiting founder sign-off at the decide gate.
 
 The two meanings of "Help" are shaped separately. Part 1 covers §5 as written (offering help to It). Part 2 says where each "get help" need should live, so §5 doesn't swallow it.
 
@@ -42,15 +42,15 @@ The two meanings of "Help" are shaped separately. Part 1 covers §5 as written (
 
 | Need | Candidate form | Proposed home | Note |
 |---|---|---|---|
-| Crisis / abuse resources, "not monitored for emergencies" | Static page reachable without an account | **010 safety floor** | Don't label it with the same "Help" word as §5 in navigation. See Q18. |
-| Report a public artifact or invite | Report button/route | **010** | Public artifacts are "soon"; invites are optional. |
+| Crisis / abuse resources, "not monitored for emergencies" | Static page reachable without an account | **Planned for after v0.1** | §5 is named "Help build It" (Q18), so the word "Help" stays free for later. |
+| Report a public artifact or invite | Report button/route | **Deferred past v0.1** | Public artifacts are "soon"; invites are optional. |
 | What It stores and why (pre-signup on device, Help answers on account) | Contextual explanations and a privacy page | **010 privacy page**, plus inline copy in each spec | Help answers need a one-line inline note in §5 itself. |
 | Manage or cancel recurring support | Stripe portal link | **009** | Already wired: `support-it.tsx:118`. |
-| Contact a human / give feedback | Single contact address or a small feedback form | Shared footer; owner TBD (Q12) | A form adds a data store and spam handling; a `mailto` is near-free. |
-| FAQ | Static Q&A page | **Not in v0.1** (recommended) | No evidence of need yet. Contextual copy covers the known questions. |
-| Contextual help (tooltips, "why we ask") | Inline copy | Each spec | No separate feature. |
+| Contact a human / give feedback | Contact email | **Shared footer (menu on mobile and when signed in), owned by 010** (Q12, answered) | |
+| FAQ | Short static Q&A page | **In v0.1** (Q13, answered); owner proposed: 010 | Not yet assigned. |
+| Contextual help ("why we ask / what's stored") | Inline copy | Each spec, including 011 (Q13, answered) | No separate feature. |
 
-**Option F — Make §5 a "get help" page instead** (static FAQ + contact + crisis links + privacy explainer). Appetite: small. It reinterprets the founder's §5, duplicates 009 and 010, and drops the contribution flow entirely. Not recommended unless the founder answers Q1 with "get help".
+**Option F — Make §5 a "get help" page instead** (static FAQ + contact + privacy explainer). Appetite: small. It reinterprets the founder's §5 and duplicates 009 and 010. *Ruled out: the founder answered Q1 with "offering help to It".*
 
 ## Recommendation
 
@@ -60,7 +60,7 @@ The two meanings of "Help" are shaped separately. Part 1 covers §5 as written (
 
 - Automated matching; ranking asks by skills.
 - Education taxonomy beyond ESCO occupations, unless Q5 says otherwise.
-- Free-text "about me" fields (and with them, the keyword-triggered crisis prompt the architecture doc ties to free text).
+- Free-text "about me" fields.
 - Public counts or names of helpers.
 - Volunteer operations (tasks, scheduling, messaging inside It).
 - FAQ page; ticketing.
@@ -75,3 +75,38 @@ The two meanings of "Help" are shaped separately. Part 1 covers §5 as written (
 - People will tick asks without a "matched to you" step.
 - Help after Support doesn't starve Help of visitors. The funnel will show this.
 - The roadmap-ask content type fits the existing CMS without a new workflow (decisions.md: no general page builder).
+
+## Founder selection (2026-10-18)
+
+The founder's answers (`questions.md`) select **Option A, full flow**, and accept that it is over the one-week budget. That supersedes the assessor's recommendation of B above. The out-of-scope list and assumptions above were written for B; for A they are replaced by the following.
+
+**Scope of the selected option**
+- Page name **"Help build It"**. Flow: signup → required name step → Support → Help build It. Support and Help are both skippable, and Support's thank-you or skip leads to Help. Help is post-signup only.
+- **Background**: jobs, education, volunteer experience and other experiences. Structured lists where possible (ESCO occupations, an education list), plus an optional short free-text box. No crisis prompt on free text.
+- **Skills**: ESCO essential skills suggested from the background, **no cap**. The person confirms or removes them.
+- **Asks**: AI drafts them and the founder approves them, stored in the CMS with stable IDs. They are not limited to the prioritised roadmap; other asks can be added. The items from the retired `ways-to-help.tsx` (invite one person, check one claim, give feedback, and so on) become the first asks.
+- **Matching**: asks are matched to the confirmed skills. Testing this is one of the page's four goals.
+- **Consent**: submitting an offer implies consent to be contacted about it, and the page says so plainly. This is separate from the signup updates opt-in.
+- **Follow-up copy**: "We'll reach out if one of these needs you now. We can't reply to everyone." Admin "followed up" marks.
+- **Admin**: counts per ask, plus individual offers.
+- **Account**: people can change or withdraw offers from an account view that lists them.
+- **ESCO**: edited labels and merged skills are allowed. This needs a licence check and a "modified from ESCO" attribution notice. Stored references keep the original ESCO URIs.
+- **Inline copy**: "why we ask / what's stored" on the page. The FAQ page and footer contact email are 010's.
+- **Retire** `apps/app/app/ways-to-help.tsx` and the `helpInterests` draft field. Spec 008 already excludes help interests from what is sent at signup.
+- **Terminology**: "selected fixes", never "I'd use this".
+
+**Rabbit holes that now matter most (from Option A)**
+- Uncapped ESCO skill suggestions: one occupation can link to dozens of essential skills, and several background entries multiply that. Ordering, grouping and bulk confirm/remove need design in the spec.
+- Education list: ESCO has none. A second list (e.g. ISCED levels or fields) must be chosen and licence-checked.
+- The skill-to-ask mapping per ask: who authors it, and whether AI drafts it along with the ask.
+- Empty matches: what someone sees when no ask matches their skills. Showing the other asks is the natural fallback.
+- ESCO edits: keeping original URIs while labels change.
+- Follow-up load now that every offer implies consent and admin sees individuals.
+
+**Out of scope for the selected option**
+- Matching people to people (still "soon").
+- Volunteer operations (tasks, scheduling, messaging inside It).
+- Public counts or names of helpers.
+- Crisis resources and the report button (deferred past v0.1).
+- Privacy page, FAQ page and contact email (010); support management (009).
+- Asks visible before signup.
