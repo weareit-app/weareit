@@ -1,0 +1,286 @@
+{
+ "rater": "founder",
+ "context": "audit",
+ "ratings": {
+  "a01": {
+   "ratedAt": "2026-10-19T20:38:55.915Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a02": {
+   "ratedAt": "2026-10-19T20:55:03.685Z",
+   "rating": "keep",
+   "reason": ""
+  },
+  "a03": {
+   "ratedAt": "2026-10-19T20:55:04.956Z",
+   "rating": "keep",
+   "reason": ""
+  },
+  "a04": {
+   "ratedAt": "2026-10-19T21:00:49.228Z",
+   "rating": "keep",
+   "reason": "\"Telling my legislators I want limits on addictive app design\" is not quite an outcome, whereas \"I get limits on addictive app design\" would be."
+  },
+  "a05": {
+   "ratedAt": "2026-10-19T20:55:35.872Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a06": {
+   "ratedAt": "2026-10-19T21:01:34.741Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a07": {
+   "ratedAt": "2026-10-19T21:02:12.761Z",
+   "rating": "love",
+   "reason": "\"Write down names as soon as you hear them\" is not a habit.\n\nThere's another feature idea missing here: \"Meet neighbors who privately say they're also interested in meeting their neighbors\""
+  },
+  "a08": {
+   "ratedAt": "2026-10-19T21:05:40.989Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a09": {
+   "ratedAt": "2026-10-19T21:05:55.243Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a10": {
+   "ratedAt": "2026-10-19T21:06:49.296Z",
+   "rating": "love",
+   "reason": "There are feature ideas built in here: Help talk to your family about their politics, etc"
+  },
+  "a11": {
+   "ratedAt": "2026-10-19T21:07:05.347Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a12": {
+   "ratedAt": "2026-10-19T21:07:17.921Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a13": {
+   "ratedAt": "2026-10-19T21:07:38.075Z",
+   "rating": "love",
+   "reason": "Should add organizing a campaign to do this."
+  },
+  "a14": {
+   "ratedAt": "2026-10-19T21:08:02.521Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a15": {
+   "ratedAt": "2026-10-19T21:08:33.321Z",
+   "rating": "keep",
+   "reason": "The features need to be reworded to sound like actual features."
+  },
+  "a16": {
+   "ratedAt": "2026-10-19T21:09:09.612Z",
+   "rating": "love",
+   "reason": "These are good but not necessarily a habit; they're more a recurring schedule. That's important, too. We're learning that our definitions of fixes are not enough because there are many ways to accomplish something."
+  },
+  "a17": {
+   "ratedAt": "2026-10-19T21:10:15.374Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a18": {
+   "ratedAt": "2026-10-19T21:10:32.778Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a19": {
+   "ratedAt": "2026-10-19T21:10:40.229Z",
+   "rating": "love",
+   "reason": "There's the possibility of a couple features here:\n- Citizen journalists who source the information together\n- People and businesses helping to fund the journalist's work in the app"
+  },
+  "a20": {
+   "ratedAt": "2026-10-19T21:12:18.369Z",
+   "rating": "love",
+   "reason": "We can also build resources into the app; should be a feature, too."
+  },
+  "a21": {
+   "ratedAt": "2026-10-19T21:12:39.099Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a22": {
+   "ratedAt": "2026-10-19T21:13:06.332Z",
+   "rating": "love",
+   "reason": "We can also build such a program into It directly; add it as a feature."
+  },
+  "a23": {
+   "ratedAt": "2026-10-19T21:13:23.753Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a24": {
+   "ratedAt": "2026-10-19T21:13:46.935Z",
+   "rating": "love",
+   "reason": "What's interesting is that \"Ask whether the problem is the work itself or how it is managed\" suggest that this is a follow-up question that It could do later, too."
+  },
+  "a25": {
+   "ratedAt": "2026-10-19T21:14:25.198Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a26": {
+   "ratedAt": "2026-10-19T21:14:40.010Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a27": {
+   "ratedAt": "2026-10-19T21:15:29.301Z",
+   "rating": "love",
+   "reason": "\"Ask what they believe instead of assuming\" is not a habit. I don't know how to classify this one. It's a good idea, but it's not really set up to work well here."
+  },
+  "a28": {
+   "ratedAt": "2026-10-19T21:16:21.393Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a29": {
+   "ratedAt": "2026-10-19T21:16:47.263Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a30": {
+   "ratedAt": "2026-10-19T21:17:03.663Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a31": {
+   "ratedAt": "2026-10-19T21:17:15.013Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a32": {
+   "ratedAt": "2026-10-19T21:18:43.792Z",
+   "rating": "love",
+   "reason": "\"Ask about their experience, then share yours\" isn't a habit, nor a task–again we don't have a good way of dealing with this\n\n\"Pair good conversations with work on the issue itself\" isn't really a task either. I don't know how to group these. I like the ideas, but man, no idea how to integrate them into the app. We need to figure this out."
+  },
+  "a33": {
+   "ratedAt": "2026-10-19T21:19:07.537Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a34": {
+   "ratedAt": "2026-10-19T21:19:14.779Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a35": {
+   "ratedAt": "2026-10-19T21:19:28.745Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a36": {
+   "ratedAt": "2026-10-19T21:19:38.616Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a37": {
+   "ratedAt": "2026-10-19T21:19:50.624Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a38": {
+   "ratedAt": "2026-10-19T21:20:03.624Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a39": {
+   "ratedAt": "2026-10-19T21:25:10.286Z",
+   "rating": "kill",
+   "reason": "I don't think this is about polarization at all."
+  },
+  "a40": {
+   "ratedAt": "2026-10-19T21:20:46.395Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a41": {
+   "ratedAt": "2026-10-19T21:20:56.738Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a42": {
+   "ratedAt": "2026-10-19T21:22:00.715Z",
+   "rating": "love",
+   "reason": "Both are technically not habits. Also, we could add features to It for these, too."
+  },
+  "a43": {
+   "ratedAt": "2026-10-19T21:22:26.940Z",
+   "rating": "love",
+   "reason": "First and second are not habits."
+  },
+  "a44": {
+   "ratedAt": "2026-10-19T21:22:38.897Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a45": {
+   "ratedAt": "2026-10-19T21:22:52.926Z",
+   "rating": "love",
+   "reason": "The first is not a habit."
+  },
+  "a46": {
+   "ratedAt": "2026-10-19T21:23:03.159Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a47": {
+   "ratedAt": "2026-10-19T21:23:17.017Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a48": {
+   "ratedAt": "2026-10-19T21:23:24.370Z",
+   "rating": "love",
+   "reason": "The \"Learn how...\" things need to be translated into actions. Great, I learned how someone else did it. Now how do I do it!?"
+  },
+  "a49": {
+   "ratedAt": "2026-10-19T21:24:09.008Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a50": {
+   "ratedAt": "2026-10-19T21:24:15.324Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a51": {
+   "ratedAt": "2026-10-19T21:24:25.303Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a52": {
+   "ratedAt": "2026-10-19T21:25:38.440Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a53": {
+   "ratedAt": "2026-10-19T21:26:00.236Z",
+   "rating": "love",
+   "reason": "This could be turned into features, too."
+  },
+  "a54": {
+   "ratedAt": "2026-10-19T21:26:05.953Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a55": {
+   "ratedAt": "2026-10-19T21:26:14.298Z",
+   "rating": "love",
+   "reason": ""
+  },
+  "a56": {
+   "ratedAt": "2026-10-19T21:26:24.307Z",
+   "rating": "love",
+   "reason": "This could also have a feature, if we could take the minutes and summarize things, even turn it into detailed evidence that could be used later split along which representative decided what and whether you should ever vote for them again."
+  }
+ }
+}

@@ -1,0 +1,602 @@
+{
+  "schemaVersion": 1,
+  "painId": "poor-sleep",
+  "runId": "20261019-142010",
+  "judge": {
+    "context": "isolated",
+    "at": "2026-10-19"
+  },
+  "scores": {
+    "sleep-dark-quiet-room": {
+      "actionable": {
+        "score": 5,
+        "reason": "\"Stand in your bedroom tonight with the lights off and notice where light gets in\" takes five minutes and points straight at the fix."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Basics made useful: \"if you can see things clearly in your bedroom, it's too bright\" and \"pink noise did better than white noise\"."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "Northwestern study, \"a 2022 review of 34 studies\" and \"about $279\" are concrete, though the light study has no year or number in the copy."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "\"raised people's heart rate and made their bodies handle sugar worse the next morning\" is a fact I'd repeat."
+      },
+      "voice": {
+        "score": 5,
+        "reason": "Candid and unhurried: \"They cost about $279, so foam earplugs are worth trying first.\""
+      },
+      "power": {
+        "score": 3,
+        "reason": "Changes my own room only: \"Put up blackout curtains or wear an eye mask\"."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Says \"one night\" and \"the research thin\"; earbud claims are framed as what they're made for, not proven results."
+      }
+    },
+    "sleep-without-pills": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Write down when you went to bed and got up for the next week\" is a real start, though the payoff waits for an appointment."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Many people don't know \"four short sessions with a practice nurse\" or an online course can be recommended \"over sleeping pills\"."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "\"England's health guidance body ... in 2022, after reviewing 12 trials\" is solid; the nurse trial has no number in the copy."
+      },
+      "surprise": {
+        "score": 3,
+        "reason": "A health body recommending an online course \"over sleeping pills\" is mildly surprising."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Warm and clear, \"This therapy isn't right for everyone, so the nurse checks first\"; the diary fix gets a little procedural."
+      },
+      "power": {
+        "score": 5,
+        "reason": "Getting off pills and dread at bedtime is a personal fix that counts: \"I go to bed expecting to sleep\"."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "The diary idea is written \"It could ask you\" and labeled proposed; the nurse limit is stated once."
+      }
+    },
+    "sleep-know-whats-wrong": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Ask whoever you live with whether you snore, gasp or stop breathing at night\" is quick and useful."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "\"Snoring, trouble falling asleep and waking too early point to different problems with different treatments\" reframes the problem helpfully."
+      },
+      "namedExample": {
+        "score": 3,
+        "reason": "\"Since 2024, some smartwatches have been cleared by the FDA\" and \"sleepeducation.org\" are named but thin."
+      },
+      "surprise": {
+        "score": 3,
+        "reason": "FDA-cleared smartwatch apnea alerts are one surprising element."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "\"without pretending to diagnose you\" is warm, but \"a reason to see a doctor, not a diagnosis\" leans on a contrast line."
+      },
+      "power": {
+        "score": 3,
+        "reason": "Helps me get the right care, which changes my own conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Proposed ideas use \"It could\"; the watch alert is framed as screening; first step implies directory search works, which wasn't confirmed but is low-stakes."
+      }
+    },
+    "sleep-noise-near-me": {
+      "actionable": {
+        "score": 5,
+        "reason": "\"Install a free sound-level app and leave it recording on your nightstand tonight\" is concrete and fast."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "\"Knowing whether it's trucks at 2am or a neighbor's TV at midnight changes what will actually help\" is a useful twist."
+      },
+      "namedExample": {
+        "score": 3,
+        "reason": "\"The US Department of Transportation publishes a map of airport and highway noise\" is named but has no year or result."
+      },
+      "surprise": {
+        "score": 3,
+        "reason": "A public federal noise map is one mildly surprising element."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Plain and helpful, \"from earplugs to a neighbors' complaint\", if a little impersonal."
+      },
+      "power": {
+        "score": 3,
+        "reason": "Diagnostic step toward changing my own conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "The address lookup is written \"It could look up\"; the map is described honestly as county-level."
+      }
+    },
+    "sleep-no-planes": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Look up whether there's a noise group for your nearest airport\" is real but slow to matter."
+      },
+      "nonObvious": {
+        "score": 3,
+        "reason": "Organizing against night flights is a known idea; the pooled-record idea adds a modest twist."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "Frankfurt, \"a ban on flights between 11pm and 5am\", is concrete but has no year in the copy."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "Residents winning a court ban on night flights is a precedent worth repeating."
+      },
+      "voice": {
+        "score": 5,
+        "reason": "Honest and calm: \"The fight took years, and the ban came as part of a dispute over a new runway.\""
+      },
+      "power": {
+        "score": 5,
+        "reason": "Changes who decides: \"Residents, local officials and the courts\"."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Frankfurt's limits are stated; the complaint process is hedged with \"usually\"; the pooled record is \"It could\"."
+      }
+    },
+    "sleep-protect-by-law": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Look up who your state representative is and save their contact page\" is quick but only a setup step."
+      },
+      "nonObvious": {
+        "score": 3,
+        "reason": "Writing to representatives is familiar; asking which year-round time you'd want is a small twist."
+      },
+      "namedExample": {
+        "score": 3,
+        "reason": "Resistbot \"35 million letters\" and the sleep doctors' group are named, but neither is tied to a sleep result."
+      },
+      "surprise": {
+        "score": 2,
+        "reason": "Mostly predictable from the title \"Laws that protect sleep\"."
+      },
+      "voice": {
+        "score": 3,
+        "reason": "\"Join others asking representatives for laws that protect sleep\" is roundabout, and the dream line is long and abstract."
+      },
+      "power": {
+        "score": 5,
+        "reason": "Aims at rules that change who decides: \"covered by rules that protect sleep\"."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Clock-change policy is offered with both sides (\"Others in Congress prefer permanent daylight time\"); the mass-letter idea is \"It could\"."
+      }
+    },
+    "sleep-work-quiet": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Suggest a simple rule, like no work messages between 8pm and 8am, and see who's in\" is specific, though socially harder than 20 minutes suggests."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "\"Your team doesn't need a law to agree on the same thing\" turns a foreign law into something I can do Monday."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "Portugal, \"passed a law in 2021, in effect since 2022\", with a \"serious violation\" rule; no outcome number."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "A country making late work contact a violation is something I'd repeat."
+      },
+      "voice": {
+        "score": 5,
+        "reason": "Candid mentor tone: \"There's no data yet on how well the law is enforced or whether people sleep better\"."
+      },
+      "power": {
+        "score": 4,
+        "reason": "Shifts who decides when I can be reached, from my boss to the team or the law."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Explicitly says there's no enforcement or sleep data; the law is offered as something to ask for."
+      }
+    },
+    "sleep-teen-start": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Find the date of the next board meeting and how to sign up to speak\" is quick and real."
+      },
+      "nonObvious": {
+        "score": 3,
+        "reason": "Later school start times are a known idea, made useful by the Seattle numbers."
+      },
+      "namedExample": {
+        "score": 5,
+        "reason": "\"Seattle moved high school start times from 7:50 to 8:45 in 2016, teens slept about 34 minutes more\"."
+      },
+      "surprise": {
+        "score": 3,
+        "reason": "The 34 minutes is a good fact, but the idea is widely discussed and fits only parents of teens."
+      },
+      "voice": {
+        "score": 5,
+        "reason": "Exactly the guide's voice: \"The study covered only two schools, so your district would be the real test.\""
+      },
+      "power": {
+        "score": 5,
+        "reason": "Changes who decides the schedule: \"Parents, teachers and the school board\"."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "The two-school limit is stated and the grades claim is limited to \"one class\"."
+      }
+    },
+    "sleep-separate-rooms": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Pick a start date together and decide who gets which room\" is simple and concrete."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Reframes sleeping apart as ordinary: \"it doesn't have to mean anything is wrong between you\"."
+      },
+      "namedExample": {
+        "score": 3,
+        "reason": "\"More than a third of American adults\" has a number but no source or year in the copy."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "That more than a third of adults sleep apart at least sometimes is a fact people repeat."
+      },
+      "voice": {
+        "score": 5,
+        "reason": "Warm and non-judging: \"Sleeping apart is common, and it doesn't have to mean anything is wrong between you.\""
+      },
+      "power": {
+        "score": 3,
+        "reason": "Changes my own household's conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Presents the survey as how common it is, not as proof it helps relationships; apnea fix says \"sometimes\"."
+      }
+    },
+    "sleep-shift-schedule": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Write down your last two weeks of shift start times and mark every time a shift started earlier\" is specific, about 15 minutes."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Rotation direction is something most shift workers haven't heard of."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "North Yorkshire Police with \"about two hours of sleep\" lost on nights; no year."
+      },
+      "surprise": {
+        "score": 3,
+        "reason": "\"two people reported nodding off at the wheel\" is sobering, but the main result undercuts the fix."
+      },
+      "voice": {
+        "score": 3,
+        "reason": "\"though the evidence is limited\" plus \"night shifts still cost people about two hours\" stacks caveats, leaving the reader unsure why to try it."
+      },
+      "power": {
+        "score": 4,
+        "reason": "Asks schedulers and unions to change the rota, which shifts who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Openly says the evidence is limited and reports the weak result plainly."
+      }
+    },
+    "sleep-steady-wake": {
+      "actionable": {
+        "score": 5,
+        "reason": "\"Set one alarm for the same time every day this week and delete the others\" is a five-minute step."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "\"Get up and read in another room when you can't sleep\" is counterintuitive to most people lying awake."
+      },
+      "namedExample": {
+        "score": 3,
+        "reason": "\"a large insomnia trial in England\" and \"Sleepio\" are named with no numbers."
+      },
+      "surprise": {
+        "score": 3,
+        "reason": "\"Lying awake teaches your brain that bed is a place for worrying\" is one surprising idea."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Plain and kind; \"gives your body clock something to set itself by\" is clear, if a little impersonal."
+      },
+      "power": {
+        "score": 3,
+        "reason": "Personal routine change inside unchanged conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Claims are framed as what the trial and course taught; the HABIT exemplar's clinical caveats apply to sleep restriction, not a fixed wake time alone."
+      }
+    },
+    "sleep-phone-outside": {
+      "actionable": {
+        "score": 5,
+        "reason": "\"Plug your charger in somewhere in the kitchen tonight\" is as easy as it gets."
+      },
+      "nonObvious": {
+        "score": 2,
+        "reason": "Phone out of the bedroom is the first thing anyone would say; \"A cheap alarm clock\" is the only added detail."
+      },
+      "namedExample": {
+        "score": 1,
+        "reason": "No example at all."
+      },
+      "surprise": {
+        "score": 1,
+        "reason": "Fully predictable from the title."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Natural and unpreachy: \"covers the one thing you actually needed it for\"."
+      },
+      "power": {
+        "score": 2,
+        "reason": "Coping within unchanged conditions; the household version adds a little."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Makes no claims beyond common sense and cites no evidence it doesn't have."
+      }
+    },
+    "sleep-loud-vehicles": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Email your city council member about the Paris noise camera and name the street that keeps you up\" is concrete."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Most people assume loud cars are unenforceable; a camera that \"can tell which vehicle made the noise\" is new."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "Paris, 2022, \"pairs microphones with a camera\"; no number or result yet."
+      },
+      "surprise": {
+        "score": 5,
+        "reason": "A lamppost that hears a loud car and \"read its plate\" is a fact I'd repeat to a friend."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Clear and matter-of-fact; the dream line \"get caught and fined\" is a bit punitive for a mentor."
+      },
+      "power": {
+        "score": 5,
+        "reason": "Changes what the city enforces: \"Your city council and police\"."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Says it was a trial \"with fines planned for later\", matching the exemplar limits."
+      }
+    },
+    "sleep-employer-rest": {
+      "actionable": {
+        "score": 3,
+        "reason": "\"Send HR the story and ask whether something similar could work here\" is real but awkward and unlikely to move fast."
+      },
+      "nonObvious": {
+        "score": 5,
+        "reason": "Being paid to sleep is something I had not thought of."
+      },
+      "namedExample": {
+        "score": 5,
+        "reason": "Crazy Inc., Tokyo, \"up to ¥64,000 (about $570) a year\" for \"six hours or more on five nights a week\"."
+      },
+      "surprise": {
+        "score": 5,
+        "reason": "A company paying staff to sleep is a story people repeat."
+      },
+      "voice": {
+        "score": 3,
+        "reason": "The main fix text is a bare fact with no warmth or why-it-helps; the privacy fix is clearer and kinder."
+      },
+      "power": {
+        "score": 4,
+        "reason": "Changes what the employer pays for and rewards."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Reports the program as what one company does; the privacy fix addresses the tracking limit. Not noting it is one small firm is a minor omission."
+      }
+    }
+  },
+  "pairwise": [
+    {
+      "a": "sleep-loud-vehicles",
+      "b": "sleep-dark-quiet-room",
+      "winner": "sleep-dark-quiet-room",
+      "reason": "sleep-dark-quiet-room offers something I can do tonight with a surprising reason behind it; sleep-loud-vehicles offers a memorable new idea for a specific nighttime noise."
+    },
+    {
+      "a": "sleep-loud-vehicles",
+      "b": "sleep-no-planes",
+      "winner": "sleep-loud-vehicles",
+      "reason": "sleep-loud-vehicles offers a memorable new idea for a specific nighttime noise; sleep-no-planes offers a strong precedent that only applies near airports."
+    },
+    {
+      "a": "sleep-loud-vehicles",
+      "b": "sleep-work-quiet",
+      "winner": "sleep-work-quiet",
+      "reason": "sleep-work-quiet offers a common cause of bad sleep with a team step I can take this week; sleep-loud-vehicles offers a memorable new idea for a specific nighttime noise."
+    },
+    {
+      "a": "sleep-loud-vehicles",
+      "b": "sleep-teen-start",
+      "winner": "sleep-loud-vehicles",
+      "reason": "sleep-loud-vehicles offers a memorable new idea for a specific nighttime noise; sleep-teen-start offers strong evidence that only helps parents of teens."
+    },
+    {
+      "a": "sleep-loud-vehicles",
+      "b": "sleep-employer-rest",
+      "winner": "sleep-loud-vehicles",
+      "reason": "sleep-loud-vehicles offers a memorable new idea for a specific nighttime noise; sleep-employer-rest offers a striking precedent, though the first step is awkward."
+    },
+    {
+      "a": "sleep-loud-vehicles",
+      "b": "sleep-without-pills",
+      "winner": "sleep-without-pills",
+      "reason": "sleep-without-pills offers a credible drug-free path for the most common kind of poor sleep; sleep-loud-vehicles offers a memorable new idea for a specific nighttime noise."
+    },
+    {
+      "a": "sleep-loud-vehicles",
+      "b": "sleep-separate-rooms",
+      "winner": "sleep-loud-vehicles",
+      "reason": "sleep-loud-vehicles offers a memorable new idea for a specific nighttime noise; sleep-separate-rooms offers a warm, relieving reframe for couples."
+    },
+    {
+      "a": "sleep-dark-quiet-room",
+      "b": "sleep-no-planes",
+      "winner": "sleep-dark-quiet-room",
+      "reason": "sleep-dark-quiet-room offers something I can do tonight with a surprising reason behind it; sleep-no-planes offers a strong precedent that only applies near airports."
+    },
+    {
+      "a": "sleep-dark-quiet-room",
+      "b": "sleep-work-quiet",
+      "winner": "sleep-dark-quiet-room",
+      "reason": "sleep-dark-quiet-room offers something I can do tonight with a surprising reason behind it; sleep-work-quiet offers a common cause of bad sleep with a team step I can take this week."
+    },
+    {
+      "a": "sleep-dark-quiet-room",
+      "b": "sleep-teen-start",
+      "winner": "sleep-dark-quiet-room",
+      "reason": "sleep-dark-quiet-room offers something I can do tonight with a surprising reason behind it; sleep-teen-start offers strong evidence that only helps parents of teens."
+    },
+    {
+      "a": "sleep-dark-quiet-room",
+      "b": "sleep-employer-rest",
+      "winner": "sleep-dark-quiet-room",
+      "reason": "sleep-dark-quiet-room offers something I can do tonight with a surprising reason behind it; sleep-employer-rest offers a striking precedent, though the first step is awkward."
+    },
+    {
+      "a": "sleep-dark-quiet-room",
+      "b": "sleep-without-pills",
+      "winner": "sleep-dark-quiet-room",
+      "reason": "sleep-dark-quiet-room offers something I can do tonight with a surprising reason behind it; sleep-without-pills offers a credible drug-free path for the most common kind of poor sleep."
+    },
+    {
+      "a": "sleep-dark-quiet-room",
+      "b": "sleep-separate-rooms",
+      "winner": "sleep-dark-quiet-room",
+      "reason": "sleep-dark-quiet-room offers something I can do tonight with a surprising reason behind it; sleep-separate-rooms offers a warm, relieving reframe for couples."
+    },
+    {
+      "a": "sleep-no-planes",
+      "b": "sleep-work-quiet",
+      "winner": "sleep-work-quiet",
+      "reason": "sleep-work-quiet offers a common cause of bad sleep with a team step I can take this week; sleep-no-planes offers a strong precedent that only applies near airports."
+    },
+    {
+      "a": "sleep-no-planes",
+      "b": "sleep-teen-start",
+      "winner": "sleep-no-planes",
+      "reason": "sleep-no-planes offers a strong precedent that only applies near airports; sleep-teen-start offers strong evidence that only helps parents of teens."
+    },
+    {
+      "a": "sleep-no-planes",
+      "b": "sleep-employer-rest",
+      "winner": "sleep-employer-rest",
+      "reason": "sleep-employer-rest offers a striking precedent, though the first step is awkward; sleep-no-planes offers a strong precedent that only applies near airports."
+    },
+    {
+      "a": "sleep-no-planes",
+      "b": "sleep-without-pills",
+      "winner": "sleep-without-pills",
+      "reason": "sleep-without-pills offers a credible drug-free path for the most common kind of poor sleep; sleep-no-planes offers a strong precedent that only applies near airports."
+    },
+    {
+      "a": "sleep-no-planes",
+      "b": "sleep-separate-rooms",
+      "winner": "sleep-separate-rooms",
+      "reason": "sleep-separate-rooms offers a warm, relieving reframe for couples; sleep-no-planes offers a strong precedent that only applies near airports."
+    },
+    {
+      "a": "sleep-work-quiet",
+      "b": "sleep-teen-start",
+      "winner": "sleep-work-quiet",
+      "reason": "sleep-work-quiet offers a common cause of bad sleep with a team step I can take this week; sleep-teen-start offers strong evidence that only helps parents of teens."
+    },
+    {
+      "a": "sleep-work-quiet",
+      "b": "sleep-employer-rest",
+      "winner": "sleep-work-quiet",
+      "reason": "sleep-work-quiet offers a common cause of bad sleep with a team step I can take this week; sleep-employer-rest offers a striking precedent, though the first step is awkward."
+    },
+    {
+      "a": "sleep-work-quiet",
+      "b": "sleep-without-pills",
+      "winner": "sleep-work-quiet",
+      "reason": "sleep-work-quiet offers a common cause of bad sleep with a team step I can take this week; sleep-without-pills offers a credible drug-free path for the most common kind of poor sleep."
+    },
+    {
+      "a": "sleep-work-quiet",
+      "b": "sleep-separate-rooms",
+      "winner": "sleep-work-quiet",
+      "reason": "sleep-work-quiet offers a common cause of bad sleep with a team step I can take this week; sleep-separate-rooms offers a warm, relieving reframe for couples."
+    },
+    {
+      "a": "sleep-teen-start",
+      "b": "sleep-employer-rest",
+      "winner": "sleep-employer-rest",
+      "reason": "sleep-employer-rest offers a striking precedent, though the first step is awkward; sleep-teen-start offers strong evidence that only helps parents of teens."
+    },
+    {
+      "a": "sleep-teen-start",
+      "b": "sleep-without-pills",
+      "winner": "sleep-without-pills",
+      "reason": "sleep-without-pills offers a credible drug-free path for the most common kind of poor sleep; sleep-teen-start offers strong evidence that only helps parents of teens."
+    },
+    {
+      "a": "sleep-teen-start",
+      "b": "sleep-separate-rooms",
+      "winner": "sleep-separate-rooms",
+      "reason": "sleep-separate-rooms offers a warm, relieving reframe for couples; sleep-teen-start offers strong evidence that only helps parents of teens."
+    },
+    {
+      "a": "sleep-employer-rest",
+      "b": "sleep-without-pills",
+      "winner": "sleep-without-pills",
+      "reason": "sleep-without-pills offers a credible drug-free path for the most common kind of poor sleep; sleep-employer-rest offers a striking precedent, though the first step is awkward."
+    },
+    {
+      "a": "sleep-employer-rest",
+      "b": "sleep-separate-rooms",
+      "winner": "sleep-employer-rest",
+      "reason": "sleep-employer-rest offers a striking precedent, though the first step is awkward; sleep-separate-rooms offers a warm, relieving reframe for couples."
+    },
+    {
+      "a": "sleep-without-pills",
+      "b": "sleep-separate-rooms",
+      "winner": "sleep-without-pills",
+      "reason": "sleep-without-pills offers a credible drug-free path for the most common kind of poor sleep; sleep-separate-rooms offers a warm, relieving reframe for couples."
+    }
+  ],
+  "seed": 17
+}

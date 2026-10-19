@@ -1,0 +1,47 @@
+{
+  "passed": false,
+  "issues": [
+    {
+      "cardId": "ineq-baby-bonds",
+      "fixId": "ineq-baby-bonds-state",
+      "rule": "not-an-action",
+      "detail": "fix title \"Learn how a state baby bond program work\" asks the reader to learn; if it gives a usable skill or knowledge make it kind learn, otherwise say what they do with it"
+    },
+    {
+      "cardId": "ineq-wage-boards",
+      "fixId": "ineq-wage-boards-council",
+      "rule": "not-an-action",
+      "detail": "fix title \"Learn how a state council sets wages for\" asks the reader to learn; if it gives a usable skill or knowledge make it kind learn, otherwise say what they do with it"
+    },
+    {
+      "cardId": "ineq-wage-boards",
+      "fixId": "ineq-wage-boards-evidence",
+      "rule": "not-an-action",
+      "detail": "fix title \"Read both sides of the evidence on the $\" asks the reader to learn; if it gives a usable skill or knowledge make it kind learn, otherwise say what they do with it"
+    },
+    {
+      "cardId": "ineq-tax-top",
+      "fixId": "ineq-tax-top-surtax",
+      "rule": "not-an-action",
+      "detail": "fix title \"Learn what a state tax on million-dollar\" asks the reader to learn; if it gives a usable skill or knowledge make it kind learn, otherwise say what they do with it"
+    }
+  ],
+  "coverage": {
+    "lenses": [
+      "community",
+      "culture",
+      "individual",
+      "market",
+      "policy",
+      "relational",
+      "technology"
+    ],
+    "ambitions": [
+      "this-year",
+      "together",
+      "tonight"
+    ]
+  },
+  "cards": 13,
+  "checkedAt": "2026-10-19T21:49:32+00:00"
+}

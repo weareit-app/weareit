@@ -1,0 +1,89 @@
+{
+  "finalists": [
+    "proc-work-alongside-someone",
+    "proc-drop-what-doesnt-matter",
+    "proc-feeling-behind-it",
+    "proc-reminders-before-deadlines",
+    "proc-understand-my-pattern"
+  ],
+  "auditSample": [
+    "proc-stuck-next-step",
+    "proc-work-fits-attention"
+  ],
+  "seed": 17,
+  "itLedGuaranteed": "proc-understand-my-pattern",
+  "itLedMissing": false,
+  "ranking": [
+    {
+      "cardId": "proc-work-alongside-someone",
+      "wins": 40,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "proc-drop-what-doesnt-matter",
+      "wins": 39,
+      "meanScore": 4
+    },
+    {
+      "cardId": "proc-feeling-behind-it",
+      "wins": 37,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "proc-reminders-before-deadlines",
+      "wins": 31,
+      "meanScore": 4.33
+    },
+    {
+      "cardId": "proc-forms-fill-themselves",
+      "wins": 29,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "proc-weekly-work-hour",
+      "wins": 25,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "proc-saving-starts-automatically",
+      "wins": 22,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "proc-work-fits-attention",
+      "wins": 22,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "proc-start-dreaded-task",
+      "wins": 18,
+      "meanScore": 3.33
+    },
+    {
+      "cardId": "proc-check-for-adhd",
+      "wins": 17,
+      "meanScore": 3.33
+    },
+    {
+      "cardId": "proc-stuck-next-step",
+      "wins": 12,
+      "meanScore": 3.17
+    },
+    {
+      "cardId": "proc-understand-my-pattern",
+      "wins": 12,
+      "meanScore": 3.17
+    },
+    {
+      "cardId": "proc-household-paperwork",
+      "wins": 7,
+      "meanScore": 2.83
+    },
+    {
+      "cardId": "proc-split-big-deadline",
+      "wins": 4,
+      "meanScore": 2.5
+    }
+  ],
+  "excluded": []
+}

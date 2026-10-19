@@ -1,0 +1,572 @@
+{
+  "schemaVersion": 1,
+  "painId": "they-dont-listen",
+  "runId": "20261019-142014",
+  "judge": {
+    "context": "isolated",
+    "at": "2026-10-19"
+  },
+  "scores": {
+    "listen-know-who": {
+      "actionable": {
+        "score": 5,
+        "reason": "\"Enter your ZIP code on house.gov... and save the office phone number in your contacts\" is a five-minute step."
+      },
+      "nonObvious": {
+        "score": 3,
+        "reason": "A well-chosen basic with a useful twist: \"decisions that shape your street, like zoning, policing and school budgets\" come from people we never learn about."
+      },
+      "namedExample": {
+        "score": 3,
+        "reason": "Names house.gov and USAGov but gives no year, number or result beyond what the sites do."
+      },
+      "surprise": {
+        "score": 2,
+        "reason": "Looking up \"who represents me\" is predictable from the pain; nothing to repeat to a friend."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Plain and helpful (\"have that handy\"), title is clear: \"Knowing exactly who represents me, from city hall to Congress\"."
+      },
+      "power": {
+        "score": 2,
+        "reason": "Knowing names and saving a number is preparation; it changes nothing about who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Existing resources described accurately, the ZIP-code limit is stated, and the Open States idea is written as \"It could put everyone...\"."
+      }
+    },
+    "listen-get-answer": {
+      "actionable": {
+        "score": 5,
+        "reason": "\"Write three sentences: who you are and where you live, the one issue, and how it affects you\" is concrete and fast."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "\"ask for the staff member on your issue\" and preferring a personal note over a form letter are useful twists on \"contact your rep\"."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "Congressional Management Foundation surveys, \"92% of congressional staff\", but no year given."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "That 92% of staff say an individual email influences an undecided lawmaker is a stat worth repeating."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Warm, specific coaching: \"Say where you live, the one issue, and what it means for you or your family.\""
+      },
+      "power": {
+        "score": 3,
+        "reason": "Makes my own voice land with my office; does not change who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Survey stated as what staff said; Resistbot's paid-mail limit is stated plainly; nothing It-built is implied."
+      }
+    },
+    "listen-face-to-face": {
+      "actionable": {
+        "score": 5,
+        "reason": "\"Email the office's scheduler asking for 15 minutes with the staff member who covers your issue\" is specific and doable now."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Reframes the meeting: \"You'll usually meet a staff member... and that staff member is the one who briefs them.\""
+      },
+      "namedExample": {
+        "score": 5,
+        "reason": "\"In a 2015 survey by the Congressional Management Foundation, 94% of congressional staff said...\" has who, when and a number."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "94% of staff rating an in-person visit as influential is a fact readers would pass on."
+      },
+      "voice": {
+        "score": 5,
+        "reason": "Candid mentor tone, sets expectations plainly: \"let each person tell their own story in a minute or two.\""
+      },
+      "power": {
+        "score": 3,
+        "reason": "Builds a personal relationship with the office; bringing neighbors pushes it slightly toward shared voice."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Survey framed as staff opinion; the log idea is written as \"It could keep\"; \"Staff remember people who come back\" is mildly unsupported but low-risk."
+      }
+    },
+    "listen-on-record": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Find the next city council agenda... and see how to sign up to speak\" is real, though commenting itself takes longer than 20 minutes."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Many people don't know \"anyone can comment before the deadline\" on federal rules, and \"specific facts... count more than a simple yes or no\" is a useful detail."
+      },
+      "namedExample": {
+        "score": 3,
+        "reason": "Labor Department and Washington State are named, but there is no year, number or result."
+      },
+      "surprise": {
+        "score": 3,
+        "reason": "One surprise: the agency \"reads and considers every comment it gets in time\"."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Clear and calm (\"A comment isn't a vote\"); dream title \"My comment on the record before decisions are made\" is a little stiff."
+      },
+      "power": {
+        "score": 3,
+        "reason": "Gets my input into the official record; doesn't change who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "\"A comment isn't a vote\" matches the exemplar limit, and state variation is stated."
+      }
+    },
+    "listen-local-votes": {
+      "actionable": {
+        "score": 5,
+        "reason": "\"Text one friend who usually skips local elections and ask if they want to go vote together\" takes two minutes."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Turns the obvious \"vote\" into something meaningful: \"When so few people vote, each vote is a much bigger share of the result.\""
+      },
+      "namedExample": {
+        "score": 5,
+        "reason": "Portland State study, \"turnout as low as 7%... in Charlotte's primary\" and \"about 10 times as likely\"."
+      },
+      "surprise": {
+        "score": 5,
+        "reason": "Voters 65 and older \"about 10 times as likely to vote\" as 18 to 34 is the kind of fact people repeat."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Plain and unhurried: \"Whoever shows up is who local officials hear from\"; dream line runs long."
+      },
+      "power": {
+        "score": 4,
+        "reason": "Recruiting friends \"changes who that is\" that local officials hear from, which shifts who has say."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Percentages are given as \"of registered voters\" in mayoral races, matching the exemplar limits."
+      }
+    },
+    "listen-neighbors-budget": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Search your city council's website for 'participatory budgeting'\" is quick, though it only pays off where a district takes part."
+      },
+      "nonObvious": {
+        "score": 5,
+        "reason": "Most readers haven't heard that \"residents propose and vote on projects paid for with real public money\"."
+      },
+      "namedExample": {
+        "score": 5,
+        "reason": "\"102,800 residents voted on how to spend over $40 million\" in NYC, and Chicago's 49th Ward in 2009 with \"beach showers, heated bus shelters and a dog park\"."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "An alderman handing residents \"about $1 million of his ward's capital money\" is a precedent worth repeating."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Clear, with one fair limit: \"Skeptics point out that small organized groups can win more than their share.\""
+      },
+      "power": {
+        "score": 5,
+        "reason": "Changes who decides on public money: \"My neighbors and I vote on what gets built.\""
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Examples stated as what happened, the skeptics' limit is included, and the alerts idea is \"It could keep track\"."
+      }
+    },
+    "listen-citizens-panel": {
+      "actionable": {
+        "score": 3,
+        "reason": "\"Write your state legislator a short note\" is real but slow to matter; the reading step is mostly learning."
+      },
+      "nonObvious": {
+        "score": 5,
+        "reason": "Residents \"drawn by lot\" whose advice parliament \"must debate... twice within a year\" is new to most American readers."
+      },
+      "namedExample": {
+        "score": 5,
+        "reason": "Ireland 2016, \"99 citizens\", \"64% recommended a change\", \"66.4% of voters agreed\"; Ostbelgien since 2019; France's 149 recommendations."
+      },
+      "surprise": {
+        "score": 5,
+        "reason": "The Irish assembly's recommendation followed by a 66.4% referendum result is a striking precedent."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Even-handed (\"People still disagree strongly about the outcome; what drew attention elsewhere was the process\"), though dense with figures."
+      },
+      "power": {
+        "score": 5,
+        "reason": "Changes who decides: \"lawmakers have to answer what they recommend.\""
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Abortion outcome framed as contested and advice as non-binding; minor overreach (\"matched to the census\", \"many participants disappointed\", France counts that the exemplar says differ) is not risky enough to fail."
+      }
+    },
+    "listen-vote-counting": {
+      "actionable": {
+        "score": 3,
+        "reason": "\"Look up whether your state allows, uses or bans ranked-choice voting\" is a real step but slow to matter."
+      },
+      "nonObvious": {
+        "score": 3,
+        "reason": "Ranked-choice voting is a known idea; the even-handed framing is the twist."
+      },
+      "namedExample": {
+        "score": 5,
+        "reason": "Alaska's 2024 repeal \"failed by just 664 votes out of 340,110\" and \"Ten states banned ranked-choice voting between 2022 and 2024\"."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "664 votes out of 340,110 is a memorable near-tie."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Fair and calm: \"People who care about being heard land on both sides.\""
+      },
+      "power": {
+        "score": 4,
+        "reason": "Aims at the rules for how votes are counted, which changes how power is allocated."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Contested policy offered with both sides (\"Supporters say...\", bans explained); the It idea uses \"It could show\"."
+      }
+    },
+    "listen-track-follow-through": {
+      "actionable": {
+        "score": 2,
+        "reason": "Two of three first steps are \"Tell us you'd use this\"; \"Save a copy of the next message you send\" is minor."
+      },
+      "nonObvious": {
+        "score": 3,
+        "reason": "Seeing \"each message you sent next to any reply and to how the official later voted\" is a useful twist on tracking."
+      },
+      "namedExample": {
+        "score": 2,
+        "reason": "Open States and regulations.gov are named only as data sources, with no result; fair for an It idea, but thin."
+      },
+      "surprise": {
+        "score": 2,
+        "reason": "Bill alerts are predictable from the title \"Knowing when to speak up\"."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Clear, and the privacy line is said plainly: \"That record would belong to you and stay private unless you choose to share it.\""
+      },
+      "power": {
+        "score": 3,
+        "reason": "Helps me hold officials to account on my own record; doesn't change who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Every fix is written \"It could...\" with the Something It could build status; nothing claims to exist."
+      }
+    },
+    "listen-common-ground": {
+      "actionable": {
+        "score": 3,
+        "reason": "\"Send the Taiwan story to your council member's office\" is concrete but its effect is uncertain; the other step is \"Tell us you'd use this\"."
+      },
+      "nonObvious": {
+        "score": 5,
+        "reason": "\"instead of replies, people voted on short statements, and the ones both sides agreed on shaped the talks\" is a genuinely new idea for most readers."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "Taiwan 2015, \"about 3,000 people\", \"over four weeks\", government agreed in 2016; the result is qualitative."
+      },
+      "surprise": {
+        "score": 5,
+        "reason": "A government adopting the points thousands of people agreed on online is a story people would repeat."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Plain, with an honest limit: \"though the dispute over Uber didn't go away\"; \"Pol.is\" is a little jargony."
+      },
+      "power": {
+        "score": 4,
+        "reason": "Changes how input shapes decisions, \"instead of just who shouts loudest\"."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "The Taiwan result is stated with its limit, and the poll is \"It could run\"; \"carries more weight\" is a mild claim."
+      }
+    },
+    "listen-town-hall": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Write one question, under 25 words, about a specific bill or vote\" is specific and quick."
+      },
+      "nonObvious": {
+        "score": 3,
+        "reason": "\"a short question about one vote or bill is harder to answer vaguely\" turns a basic into something useful."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "LegiStorm counted \"more than 900 town hall-style events\" in August 2013, though it's old and single-year."
+      },
+      "surprise": {
+        "score": 3,
+        "reason": "900 events in one recess is mildly surprising; the defunct Town Hall Project adds nothing."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Candid about the dead link (\"go straight to your member's page\"), plain throughout."
+      },
+      "power": {
+        "score": 3,
+        "reason": "Gets me a direct answer; doesn't change who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Openly says the Town Hall Project address \"now leads to an unrelated site\" and dates the LegiStorm count."
+      }
+    },
+    "listen-testify": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Search Open States for your state and one keyword, like 'rent'\" is quick and concrete."
+      },
+      "nonObvious": {
+        "score": 3,
+        "reason": "That residents can testify, and \"Committee hearings are where state bills get changed\", is a known basic made useful."
+      },
+      "namedExample": {
+        "score": 3,
+        "reason": "Washington State and Open States are named, with no year or result."
+      },
+      "surprise": {
+        "score": 2,
+        "reason": "Mostly predictable from the title \"Testifying at a hearing\"."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Clear and direct, \"without knowing bill numbers\"; somewhat impersonal."
+      },
+      "power": {
+        "score": 3,
+        "reason": "Puts my story before lawmakers at the point bills change; still my own voice, not decision power."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Says \"many legislatures\" and uses Washington as one example; nothing overstated."
+      }
+    },
+    "listen-shared-voice": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Send two neighbors the bill and hearing date and ask if they'll sign in too\" is concrete and quick."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "\"ten neighbors signing in on the same bill show up as ten residents\" reframes signing in as collective action."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "Chicago's 49th Ward, \"nine neighborhood meetings, and about 400 people came\"; Washington State sign-in."
+      },
+      "surprise": {
+        "score": 3,
+        "reason": "One surprising element: how easily a group sign-in multiplies a position."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Warm and plain (\"each person signs in with a sentence in their own words\"); title \"Neighbors who go to city hall together\" is clear."
+      },
+      "power": {
+        "score": 4,
+        "reason": "Moves from one voice to a group the council has to hear: \"the council hears from all of us.\""
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "The matching tool is \"It could let people...\" with a privacy note; the other fixes are real and stated accurately."
+      }
+    }
+  },
+  "pairwise": [
+    {
+      "a": "listen-neighbors-budget",
+      "b": "listen-local-votes",
+      "winner": "listen-neighbors-budget",
+      "reason": "Real say over public money with vivid NYC and Chicago results beats the turnout stat, though both are strong."
+    },
+    {
+      "a": "listen-neighbors-budget",
+      "b": "listen-face-to-face",
+      "winner": "listen-neighbors-budget",
+      "reason": "Deciding on $40 million with neighbors feels more hopeful than a staff meeting."
+    },
+    {
+      "a": "listen-neighbors-budget",
+      "b": "listen-citizens-panel",
+      "winner": "listen-neighbors-budget",
+      "reason": "Similar power, but participatory budgeting has a first step a reader can take this week."
+    },
+    {
+      "a": "listen-neighbors-budget",
+      "b": "listen-get-answer",
+      "winner": "listen-neighbors-budget",
+      "reason": "Changing who decides beats getting a reply."
+    },
+    {
+      "a": "listen-neighbors-budget",
+      "b": "listen-common-ground",
+      "winner": "listen-neighbors-budget",
+      "reason": "Concrete local results like heated bus shelters beat a faraway consultation story."
+    },
+    {
+      "a": "listen-neighbors-budget",
+      "b": "listen-shared-voice",
+      "winner": "listen-neighbors-budget",
+      "reason": "Same Chicago example, but the budget card leads with the bigger, clearer win."
+    },
+    {
+      "a": "listen-neighbors-budget",
+      "b": "listen-vote-counting",
+      "winner": "listen-neighbors-budget",
+      "reason": "Deciding spending with neighbors is more hopeful and actionable than learning about ballot rules."
+    },
+    {
+      "a": "listen-local-votes",
+      "b": "listen-face-to-face",
+      "winner": "listen-local-votes",
+      "reason": "The 10-times turnout gap and two-minute text to a friend land harder than a meeting request."
+    },
+    {
+      "a": "listen-local-votes",
+      "b": "listen-citizens-panel",
+      "winner": "listen-local-votes",
+      "reason": "Something I can act on tonight with a striking stat, versus a slower ask for a new institution."
+    },
+    {
+      "a": "listen-local-votes",
+      "b": "listen-get-answer",
+      "winner": "listen-local-votes",
+      "reason": "Reframing local elections is more surprising than writing a better email."
+    },
+    {
+      "a": "listen-local-votes",
+      "b": "listen-common-ground",
+      "winner": "listen-local-votes",
+      "reason": "Immediately usable at home; the Taiwan idea is interesting but distant."
+    },
+    {
+      "a": "listen-local-votes",
+      "b": "listen-shared-voice",
+      "winner": "listen-local-votes",
+      "reason": "Sharper numbers and an easier first step."
+    },
+    {
+      "a": "listen-local-votes",
+      "b": "listen-vote-counting",
+      "winner": "listen-local-votes",
+      "reason": "Using the vote I already have, with a two-minute step, beats studying how votes are counted."
+    },
+    {
+      "a": "listen-face-to-face",
+      "b": "listen-citizens-panel",
+      "winner": "listen-face-to-face",
+      "reason": "A reader who feels unheard would rather get a 15-minute meeting this month than lobby for a panel."
+    },
+    {
+      "a": "listen-face-to-face",
+      "b": "listen-get-answer",
+      "winner": "listen-face-to-face",
+      "reason": "The 94% in-person stat and candid staff detail make it the warmer, more concrete office card."
+    },
+    {
+      "a": "listen-face-to-face",
+      "b": "listen-common-ground",
+      "winner": "listen-face-to-face",
+      "reason": "Direct personal action with a dated survey beats a proposal whose step is forwarding a story."
+    },
+    {
+      "a": "listen-face-to-face",
+      "b": "listen-shared-voice",
+      "winner": "listen-face-to-face",
+      "reason": "Clearer evidence and a step that leads somewhere specific."
+    },
+    {
+      "a": "listen-face-to-face",
+      "b": "listen-vote-counting",
+      "winner": "listen-face-to-face",
+      "reason": "Being known by name in the office answers the pain more directly than a debate over ballots."
+    },
+    {
+      "a": "listen-citizens-panel",
+      "b": "listen-get-answer",
+      "winner": "listen-citizens-panel",
+      "reason": "The Irish and Belgian precedents are more surprising and ambitious than better contact tactics."
+    },
+    {
+      "a": "listen-citizens-panel",
+      "b": "listen-common-ground",
+      "winner": "listen-citizens-panel",
+      "reason": "Stronger, better-numbered precedents and a duty for lawmakers to respond."
+    },
+    {
+      "a": "listen-citizens-panel",
+      "b": "listen-shared-voice",
+      "winner": "listen-citizens-panel",
+      "reason": "The bigger idea with richer examples, even if slower to act on."
+    },
+    {
+      "a": "listen-citizens-panel",
+      "b": "listen-vote-counting",
+      "winner": "listen-citizens-panel",
+      "reason": "Both change the rules, but the panel precedents are more surprising and less polarizing."
+    },
+    {
+      "a": "listen-get-answer",
+      "b": "listen-common-ground",
+      "winner": "listen-get-answer",
+      "reason": "Most readers with this pain want a reply from their office first; the steps are faster."
+    },
+    {
+      "a": "listen-get-answer",
+      "b": "listen-shared-voice",
+      "winner": "listen-get-answer",
+      "reason": "The 92% stat and three-sentence step are more immediately useful."
+    },
+    {
+      "a": "listen-get-answer",
+      "b": "listen-vote-counting",
+      "winner": "listen-get-answer",
+      "reason": "Hearing back from my office is closer to the pain, with faster steps."
+    },
+    {
+      "a": "listen-common-ground",
+      "b": "listen-shared-voice",
+      "winner": "listen-common-ground",
+      "reason": "The Taiwan agreement-finding idea is more surprising and memorable."
+    },
+    {
+      "a": "listen-common-ground",
+      "b": "listen-vote-counting",
+      "winner": "listen-common-ground",
+      "reason": "Finding agreement feels fresher than another round of the ranked-choice argument."
+    },
+    {
+      "a": "listen-shared-voice",
+      "b": "listen-vote-counting",
+      "winner": "listen-shared-voice",
+      "reason": "Showing up with neighbors has a quicker, more personal first step than reading arguments on vote counting."
+    }
+  ],
+  "seed": 17
+}

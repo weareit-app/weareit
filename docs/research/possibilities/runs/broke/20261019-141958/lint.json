@@ -1,0 +1,27 @@
+{
+  "passed": false,
+  "issues": [
+    {
+      "cardId": "broke-tell-officials",
+      "rule": "dream-not-outcome",
+      "detail": "dream title \"Telling my representatives which program\" is an action; name the outcome, e.g. \"I get limits on addictive app design\""
+    }
+  ],
+  "coverage": {
+    "lenses": [
+      "community",
+      "individual",
+      "market",
+      "policy",
+      "relational",
+      "technology"
+    ],
+    "ambitions": [
+      "this-year",
+      "together",
+      "tonight"
+    ]
+  },
+  "cards": 14,
+  "checkedAt": "2026-10-19T21:49:31+00:00"
+}

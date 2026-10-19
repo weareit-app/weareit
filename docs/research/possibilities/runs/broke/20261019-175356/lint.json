@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "issues": [],
+  "coverage": {
+    "lenses": [
+      "community",
+      "individual",
+      "market",
+      "policy",
+      "relational",
+      "technology"
+    ],
+    "ambitions": [
+      "this-year",
+      "together",
+      "tonight"
+    ]
+  },
+  "cards": 14,
+  "checkedAt": "2026-10-19T21:58:11+00:00"
+}

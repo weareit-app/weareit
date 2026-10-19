@@ -1,0 +1,89 @@
+{
+  "finalists": [
+    "coord-neighbors-same-issue",
+    "coord-know-local-groups",
+    "coord-city-hall-record",
+    "coord-shared-plan",
+    "coord-hear-neighbors"
+  ],
+  "auditSample": [
+    "coord-one-list-near-me",
+    "coord-start-it-myself"
+  ],
+  "seed": 17,
+  "itLedGuaranteed": null,
+  "itLedMissing": false,
+  "ranking": [
+    {
+      "cardId": "coord-neighbors-same-issue",
+      "wins": 42,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "coord-know-local-groups",
+      "wins": 37,
+      "meanScore": 4
+    },
+    {
+      "cardId": "coord-city-hall-record",
+      "wins": 36,
+      "meanScore": 4
+    },
+    {
+      "cardId": "coord-shared-plan",
+      "wins": 35,
+      "meanScore": 4.33
+    },
+    {
+      "cardId": "coord-hear-neighbors",
+      "wins": 27,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "coord-ask-officials",
+      "wins": 25,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "coord-offer-skills",
+      "wins": 24,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "coord-start-it-myself",
+      "wins": 22,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "coord-check-group",
+      "wins": 18,
+      "meanScore": 3.5
+    },
+    {
+      "cardId": "coord-one-list-near-me",
+      "wins": 14,
+      "meanScore": 3.5
+    },
+    {
+      "cardId": "coord-neighborhood-map",
+      "wins": 13,
+      "meanScore": 3.33
+    },
+    {
+      "cardId": "coord-council-alerts",
+      "wins": 9,
+      "meanScore": 3
+    },
+    {
+      "cardId": "coord-ask-around",
+      "wins": 8,
+      "meanScore": 3
+    },
+    {
+      "cardId": "coord-public-directory",
+      "wins": 5,
+      "meanScore": 3
+    }
+  ],
+  "excluded": []
+}

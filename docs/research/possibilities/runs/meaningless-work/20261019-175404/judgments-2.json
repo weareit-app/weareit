@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "painId": "meaningless-work",
+  "runId": "20261019-142007",
+  "judge": {"context": "isolated", "at": "2026-10-19"},
+  "scores": {
+    "meaning-meet-who-it-helps": {
+      "actionable": {"score": 5, "reason": "\"write their first name on a note by your screen\" takes five minutes and the 15-minute talk is a concrete ask."},
+      "nonObvious": {"score": 5, "reason": "Turns vague meaning into a person: \"Keep a face or a name in front of you while you work\" is not what anyone says first."},
+      "namedExample": {"score": 5, "reason": "University of Michigan call center \"142% more time on the phone and raising 171% more\" plus Jerusalem 2008 radiology."},
+      "surprise": {"score": 5, "reason": "Radiologists who \"missed about 80% of the extra findings\" without a photo is a fact you'd repeat to a friend."},
+      "voice": {"score": 4, "reason": "Plain and warm (\"Most jobs have a downstream person, even when nobody tells you who\"), though fix texts are mostly study recaps."},
+      "power": {"score": 3, "reason": "Changes how I see and do my own work, not who decides: \"Ask to talk with someone who uses your work\"."},
+      "honestStatus": {"pass": false, "reason": "Generalizes one-site studies (\"often what the job was missing\"; radiology given without its 318-patient pilot limit) and the trace fix claims researchers \"found\" a causal effect the job-crafting definition does not support."}
+    },
+    "meaning-reshape-the-job": {
+      "actionable": {"score": 4, "reason": "\"Make three short lists tonight\" and the \"My job is to help…\" sentence are quick, real steps."},
+      "nonObvious": {"score": 4, "reason": "Naming job crafting and \"Describe your job by who it helps instead of by its tasks\" reframes a familiar idea usefully."},
+      "namedExample": {"score": 3, "reason": "Names Wrzesniewski and Dutton, 2001, but the hospital cleaners study has no place or number."},
+      "surprise": {"score": 3, "reason": "Cleaners with \"the same duties felt very differently\" is one surprising element."},
+      "voice": {"score": 4, "reason": "Mentor-like: \"You usually have more room than your job description suggests.\""},
+      "power": {"score": 3, "reason": "Reshapes my own tasks and relationships within the job."},
+      "honestStatus": {"pass": true, "reason": "Studies are described as what was found; \"small changes add up over a year\" and \"started doing\" lean slightly causal but stay within reason."}
+    },
+    "meaning-manager-conversation": {
+      "actionable": {"score": 4, "reason": "\"Write down two pieces of your work you think matter most, and ask for 20 minutes\" is concrete."},
+      "nonObvious": {"score": 3, "reason": "Talking to your manager is a known basic; the management-not-job-type finding gives it some point."},
+      "namedExample": {"score": 3, "reason": "\"A 2022 study using European workplace surveys\" with garbage collectors, but no number."},
+      "surprise": {"score": 4, "reason": "\"even some garbage collectors felt it\" and the link to bad management is a fact worth repeating."},
+      "voice": {"score": 3, "reason": "The fix text reads like a literature review (\"researchers still disagree\") and never says what the talk itself changes."},
+      "power": {"score": 3, "reason": "Moves some of my own work toward what I value: \"some of my work moves in that direction\"."},
+      "honestStatus": {"pass": true, "reason": "States the 2023 U.S. study's partial disagreement plainly."}
+    },
+    "meaning-skills-for-a-cause": {
+      "actionable": {"score": 4, "reason": "\"Search Idealist for your job title plus 'volunteer' and save two openings\" is doable in 15 minutes."},
+      "nonObvious": {"score": 4, "reason": "\"Treat your professional skills as worth more than general help\" reframes volunteering away from painting walls."},
+      "namedExample": {"score": 5, "reason": "Catchafire, New York 2009, Rachael Chong; Taproot 2015 \"$150, against about $23\"."},
+      "surprise": {"score": 4, "reason": "Chong \"hauled lumber while her finance skills went unused\" and the $150 vs $23 gap stick."},
+      "voice": {"score": 4, "reason": "Candid and specific; the dream line \"Something I do every day at my job\" slightly mismatches side projects."},
+      "power": {"score": 3, "reason": "Redirects my own skills to a cause; conditions at my job stay the same."},
+      "honestStatus": {"pass": true, "reason": "Taproot figure is dated and attributed; listing sites are described as listings."}
+    },
+    "meaning-side-project": {
+      "actionable": {"score": 4, "reason": "\"Look on the Repair Café map for one near you and write down the date\" is quick and specific."},
+      "nonObvious": {"score": 3, "reason": "A side project is a familiar suggestion, made useful by noting cafés \"need organizers and greeters\"."},
+      "namedExample": {"score": 4, "reason": "Martine Postma, Amsterdam 2009, \"more than 2,500 of them\"."},
+      "surprise": {"score": 3, "reason": "The repair night is a nice angle; the library class is predictable."},
+      "voice": {"score": 4, "reason": "Warm and plain: \"Even when my job feels flat, I have one thing each month\"."},
+      "power": {"score": 3, "reason": "Adds meaning outside work without changing the job."},
+      "honestStatus": {"pass": true, "reason": "Library fix makes only a general claim (\"Many public libraries\"), though its real_now label sits on a speculative idea."}
+    },
+    "meaning-change-roles": {
+      "actionable": {"score": 4, "reason": "\"Search O*NET OnLine for one task you enjoy at work and write down three jobs\" is concrete."},
+      "nonObvious": {"score": 3, "reason": "Career guides and informational interviews are basics; searching by a liked task is a useful twist."},
+      "namedExample": {"score": 3, "reason": "Names 80,000 Hours and O*NET but gives no result or number."},
+      "surprise": {"score": 2, "reason": "Mostly predictable from \"change jobs\"."},
+      "voice": {"score": 4, "reason": "\"something I'd be glad to explain to a kid\" is a mentor's line; the effective altruism caveat is said once, plainly."},
+      "power": {"score": 3, "reason": "Changes my own conditions by changing jobs."},
+      "honestStatus": {"pass": true, "reason": "Notes the guide's viewpoint; speculative talk fix makes no false claim."}
+    },
+    "meaning-service-year": {
+      "actionable": {"score": 4, "reason": "\"Browse current AmeriCorps openings in your state and save one\" is quick."},
+      "nonObvious": {"score": 3, "reason": "AmeriCorps is known; the 55-and-older branch adds a useful detail."},
+      "namedExample": {"score": 4, "reason": "Created in 1993, education award \"up to $6,095\"."},
+      "surprise": {"score": 3, "reason": "Seniors program for people \"still working part time\" is one new element."},
+      "voice": {"score": 4, "reason": "Honest and unhurried: \"the allowance is modest, so plan for that\"."},
+      "power": {"score": 3, "reason": "A year of my own work pointed at community."},
+      "honestStatus": {"pass": true, "reason": "States the modest allowance limit; \"still working part time\" is a small unsupported detail."}
+    },
+    "meaning-coworkers-decide": {
+      "actionable": {"score": 4, "reason": "\"Ask two coworkers if they'd join a monthly lunch, and pick a date\" is fast and real."},
+      "nonObvious": {"score": 4, "reason": "\"Your team doesn't need to own the company to try deciding one thing together\" scales a co-op idea down usefully."},
+      "namedExample": {"score": 4, "reason": "CHCA \"Payday Fridays\" in the Bronx and Mondragon's \"nearly 70,000 worker-owners\"."},
+      "surprise": {"score": 4, "reason": "Payday Fridays for isolated home aides is a vivid, repeatable detail."},
+      "voice": {"score": 4, "reason": "Plain and direct titles: \"Ask your team to vote on one decision that affects your work\"."},
+      "power": {"score": 4, "reason": "Shifts some decisions to the team: \"decide some of how our work gets done\"."},
+      "honestStatus": {"pass": true, "reason": "Describes the examples as they are and doesn't claim a team vote equals ownership."}
+    },
+    "meaning-own-the-workplace": {
+      "actionable": {"score": 3, "reason": "\"Look up your own employer's ownership… and write it down\" is real but slow to matter."},
+      "nonObvious": {"score": 4, "reason": "Linking meaning to ownership and a vote is not the first thing people suggest."},
+      "namedExample": {"score": 5, "reason": "CHCA 1985, \"more than 2,000 home health aides\" vs about nine; Mondragon 1955 pay cap."},
+      "surprise": {"score": 4, "reason": "A 2,000-member co-op when \"the average American worker co-op has about nine\" stops you."},
+      "voice": {"score": 3, "reason": "\"Learn how…\" and \"Compare how…\" titles are flat, and \"gives you something concrete to compare\" is roundabout."},
+      "power": {"score": 5, "reason": "Changes who owns and decides: \"I own a share… and I help decide where it goes\"."},
+      "honestStatus": {"pass": true, "reason": "Gives both 6 to 1 and 9 to 1 and says most co-ops are small."}
+    },
+    "meaning-employee-buyout": {
+      "actionable": {"score": 3, "reason": "\"Read Project Equity's page for business owners\" is preparation, not yet a move."},
+      "nonObvious": {"score": 5, "reason": "A retiring owner as a chance for workers to own the business is a new thought for most readers."},
+      "namedExample": {"score": 4, "reason": "Project Equity, Oakland; \"15.1 million Americans are in 6,609\" plans as of 2023."},
+      "surprise": {"score": 5, "reason": "\"about half of American businesses with employees are owned by baby boomers nearing retirement\" is worth repeating."},
+      "voice": {"score": 4, "reason": "Candid mentor advice: \"so ask which kind is on the table\"."},
+      "power": {"score": 5, "reason": "Changes who owns the business: \"the people who built the business get to own it\"."},
+      "honestStatus": {"pass": true, "reason": "The boomer figure is attributed to Project Equity, and the card says most stock plans give \"a share of the value, not a vote\"."}
+    },
+    "meaning-ownership-law": {
+      "actionable": {"score": 3, "reason": "\"Look up who represents you… and save their contact page\" is a weak first move."},
+      "nonObvious": {"score": 4, "reason": "A state-level path for buyouts, modeled on a foreign tax law, is not obvious."},
+      "namedExample": {"score": 4, "reason": "UK since 2014, no capital gains tax, bonuses \"up to £3,600 a year\"."},
+      "surprise": {"score": 4, "reason": "A whole country made selling to employees tax-free for owners."},
+      "voice": {"score": 4, "reason": "Fair to both sides: \"critics say the tax break is too generous to sellers\"; the It fix starts \"It could\"."},
+      "power": {"score": 5, "reason": "Changes rules about who can own companies."},
+      "honestStatus": {"pass": true, "reason": "The contested policy is offered as what supporters want, with critics named; the It idea is written as \"It could\"."}
+    },
+    "meaning-it-reflection": {
+      "actionable": {"score": 3, "reason": "\"write tonight's note on paper\" is real but small and generic."},
+      "nonObvious": {"score": 3, "reason": "Mapping O*NET tasks to the people they reach is a useful twist on a reflection tool."},
+      "namedExample": {"score": 3, "reason": "Points to Wrzesniewski and Dutton, O*NET and the call center study, which fits an It idea."},
+      "surprise": {"score": 1, "reason": "A weekly reflection prompt is predictable from the pain title."},
+      "voice": {"score": 3, "reason": "Three \"It could\" texts in a row read like a feature list."},
+      "power": {"score": 3, "reason": "A personal fix, meaningful but inside unchanged conditions."},
+      "honestStatus": {"pass": true, "reason": "Every fix is written \"It could…\" and labeled as something It could build."}
+    },
+    "meaning-it-matching": {
+      "actionable": {"score": 3, "reason": "\"search the worker co-op directory for your state\" is real but a repeat of other cards."},
+      "nonObvious": {"score": 3, "reason": "Matching skills to openings is familiar; the buyout checklist is fresher."},
+      "namedExample": {"score": 3, "reason": "Cites Idealist's 100,000 openings and Project Equity's questions."},
+      "surprise": {"score": 2, "reason": "Mostly predictable feature ideas."},
+      "voice": {"score": 3, "reason": "Plain but brochure-like: \"You'd see a few good fits instead of a long list.\""},
+      "power": {"score": 4, "reason": "The buyout and co-op fixes point toward ownership."},
+      "honestStatus": {"pass": true, "reason": "Written as \"It could\"; calling the employee stock plan data \"federal\" is a small inaccuracy, not an overclaim about It."}
+    },
+    "meaning-common-feeling": {
+      "actionable": {"score": 4, "reason": "\"Write down the last time your job felt worthwhile, and what was different\" is quick and revealing."},
+      "nonObvious": {"score": 4, "reason": "\"says more about how the work is run than about me\" reframes the feeling without blame."},
+      "namedExample": {"score": 4, "reason": "2024 YouGov, 5,889 adults, \"one in three\", more than half in retail and finance."},
+      "surprise": {"score": 4, "reason": "More than half in retail and finance is a number people repeat."},
+      "voice": {"score": 4, "reason": "Never judging: \"Tell one friend you trust that you have been feeling this\"."},
+      "power": {"score": 2, "reason": "Mostly understanding and coping; the job itself stays the same."},
+      "honestStatus": {"pass": true, "reason": "Survey is placed in Britain; the management finding leaves out the 2023 disagreement, but \"often\" keeps it from being stated as settled."}
+    }
+  },
+  "pairwise": [
+    {"a": "meaning-meet-who-it-helps", "b": "meaning-employee-buyout", "winner": "meaning-meet-who-it-helps", "reason": "A name by the screen helps tomorrow; a buyout depends on an owner retiring."},
+    {"a": "meaning-meet-who-it-helps", "b": "meaning-skills-for-a-cause", "winner": "meaning-meet-who-it-helps", "reason": "Finds meaning inside the job the reader already has, with stronger evidence."},
+    {"a": "meaning-meet-who-it-helps", "b": "meaning-coworkers-decide", "winner": "meaning-meet-who-it-helps", "reason": "The call center and radiology results are more striking than a monthly lunch."},
+    {"a": "meaning-meet-who-it-helps", "b": "meaning-own-the-workplace", "winner": "meaning-meet-who-it-helps", "reason": "Immediately doable; ownership is distant for most readers."},
+    {"a": "meaning-meet-who-it-helps", "b": "meaning-ownership-law", "winner": "meaning-meet-who-it-helps", "reason": "Personal and quick versus a slow legislative path."},
+    {"a": "meaning-meet-who-it-helps", "b": "meaning-common-feeling", "winner": "meaning-meet-who-it-helps", "reason": "Gives something to do about the feeling, not only reassurance."},
+    {"a": "meaning-meet-who-it-helps", "b": "meaning-reshape-the-job", "winner": "meaning-meet-who-it-helps", "reason": "Same idea of who the work helps, but with vivid numbers."},
+    {"a": "meaning-employee-buyout", "b": "meaning-skills-for-a-cause", "winner": "meaning-skills-for-a-cause", "reason": "Skills volunteering is something most readers can start this week."},
+    {"a": "meaning-employee-buyout", "b": "meaning-coworkers-decide", "winner": "meaning-coworkers-decide", "reason": "Works at any workplace; a buyout applies only where an owner is retiring."},
+    {"a": "meaning-employee-buyout", "b": "meaning-own-the-workplace", "winner": "meaning-employee-buyout", "reason": "The boomer retirement fact makes ownership feel reachable rather than abstract."},
+    {"a": "meaning-employee-buyout", "b": "meaning-ownership-law", "winner": "meaning-employee-buyout", "reason": "A concrete conversation with one owner beats a letter to the legislature."},
+    {"a": "meaning-employee-buyout", "b": "meaning-common-feeling", "winner": "meaning-employee-buyout", "reason": "Offers real power instead of reassurance, and the surprise is bigger."},
+    {"a": "meaning-employee-buyout", "b": "meaning-reshape-the-job", "winner": "meaning-employee-buyout", "reason": "More surprising and more ambitious, though less immediate."},
+    {"a": "meaning-skills-for-a-cause", "b": "meaning-coworkers-decide", "winner": "meaning-skills-for-a-cause", "reason": "The $150 vs $23 reframe and Catchafire story are more memorable."},
+    {"a": "meaning-skills-for-a-cause", "b": "meaning-own-the-workplace", "winner": "meaning-skills-for-a-cause", "reason": "A clear first search versus a read-and-note step."},
+    {"a": "meaning-skills-for-a-cause", "b": "meaning-ownership-law", "winner": "meaning-skills-for-a-cause", "reason": "Readers can act on it alone, today."},
+    {"a": "meaning-skills-for-a-cause", "b": "meaning-common-feeling", "winner": "meaning-skills-for-a-cause", "reason": "Turns the feeling into a project rather than an explanation."},
+    {"a": "meaning-skills-for-a-cause", "b": "meaning-reshape-the-job", "winner": "meaning-skills-for-a-cause", "reason": "Stronger named examples and a more surprising number."},
+    {"a": "meaning-coworkers-decide", "b": "meaning-own-the-workplace", "winner": "meaning-coworkers-decide", "reason": "Brings the co-op idea down to a lunch and a team vote anyone can start."},
+    {"a": "meaning-coworkers-decide", "b": "meaning-ownership-law", "winner": "meaning-coworkers-decide", "reason": "Near and doable versus distant policy."},
+    {"a": "meaning-coworkers-decide", "b": "meaning-common-feeling", "winner": "meaning-coworkers-decide", "reason": "Changes how the work is run, which the common-feeling card only diagnoses."},
+    {"a": "meaning-coworkers-decide", "b": "meaning-reshape-the-job", "winner": "meaning-coworkers-decide", "reason": "Payday Fridays is more vivid, and shared decisions carry more power."},
+    {"a": "meaning-own-the-workplace", "b": "meaning-ownership-law", "winner": "meaning-own-the-workplace", "reason": "Finding a co-op employer is more personal than lobbying."},
+    {"a": "meaning-own-the-workplace", "b": "meaning-common-feeling", "winner": "meaning-common-feeling", "reason": "Speaks to how the reader feels right now with a warm, quick step."},
+    {"a": "meaning-own-the-workplace", "b": "meaning-reshape-the-job", "winner": "meaning-reshape-the-job", "reason": "Job crafting can start tonight; ownership feels far off."},
+    {"a": "meaning-ownership-law", "b": "meaning-common-feeling", "winner": "meaning-common-feeling", "reason": "Immediate relief and a reframe beat a slow policy ask."},
+    {"a": "meaning-ownership-law", "b": "meaning-reshape-the-job", "winner": "meaning-reshape-the-job", "reason": "Readers can act on it in their own job without anyone else."},
+    {"a": "meaning-common-feeling", "b": "meaning-reshape-the-job", "winner": "meaning-common-feeling", "reason": "The YouGov numbers and no-blame reframe land harder for someone in this pain."}
+  ],
+  "seed": 17
+}

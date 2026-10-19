@@ -1,0 +1,1910 @@
+{
+  "schemaVersion": 1,
+  "seed": 20261018,
+  "items": [
+    {
+      "id": "a01",
+      "painName": "Burnout",
+      "painLine": "I've got nothing left.",
+      "title": "An employer that plans workloads and time off",
+      "line": "My employer treats reasonable workloads and time off as part of the job, not as my problem to solve alone.",
+      "fixes": [
+        {
+          "title": "Share the federal workplace well-being checklist with human resources",
+          "whatChanges": "In October 2022, Surgeon General Vivek Murthy published a framework with five things employers owe workers, including making sure people are well rested and have paid leave. A government document is a useful, neutral thing to bring to human resources when you'd rather not make the case on your own.",
+          "example": "Surgeon General's Framework for Workplace Mental Health and Well-Being · United States · 2022 · Released October 20, 2022 by Surgeon General Dr. Vivek Murthy; five essentials for employers, including making sure workers are well rested and have paid leave",
+          "firstStep": "Find the Surgeon General's workplace framework online and highlight the parts your workplace is missing.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Compare how employers handle workload and time off before you take a job",
+          "whatChanges": "Collects what workers report about workload, after-hours messages and time off, along with public facts like whether a company has run a four-day week trial, so you can weigh that next to pay when you look for work.",
+          "example": "UK four-day week pilot · United Kingdom · 2022 · 61 companies, about 2,900 staff; 71% reported lower burnout; 56 companies kept the shorter week",
+          "firstStep": "Tell us you'd use this, and write down the three things about workload you'd ask in your next job interview.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a02",
+      "painName": "Meaning",
+      "painLine": "I don't think my work matters.",
+      "title": "Finding meaningful side work and worker-owned employers near me",
+      "line": "I know where my skills are needed nearby and which local employers are owned by their workers.",
+      "fixes": [
+        {
+          "title": "Match your work skills to volunteer openings nearby",
+          "whatChanges": "Takes the skills you use at work and searches public volunteer listings, like Idealist’s 100,000 openings, for projects that need them, so you see a few good fits instead of a long list.",
+          "example": "Idealist volunteer listings (now including VolunteerMatch) · United States · 2025 · More than 100,000 virtual and in-person volunteer opportunities, searchable by skill, such as data analyst or board member",
+          "firstStep": "Tell us you’d use this, and write down the two work skills you’re proudest of.",
+          "kind": "feature",
+          "featureIdea": null
+        },
+        {
+          "title": "See worker-owned companies in your area and line of work",
+          "whatChanges": "Shows employee-owned workplaces near you, drawn from the public worker co-op directory and federal data on employee stock plans, so you have somewhere to apply or a model to point to.",
+          "example": "U.S. Federation of Worker Cooperatives and Democracy at Work Institute directory · United States · A public directory of worker co-ops, other democratic workplaces and support groups",
+          "firstStep": "Tell us you’d use this, and search the worker co-op directory for your state.",
+          "kind": "feature",
+          "featureIdea": null
+        },
+        {
+          "title": "Check with coworkers whether a buyout is worth asking about",
+          "whatChanges": "Walks you and a few coworkers through the basic questions groups like Project Equity ask first, such as the owner’s age, the size of the business, and whether it makes money, so you know whether a buyout is worth raising before anyone talks to the owner.",
+          "example": "Project Equity · Oakland, California · Nonprofit that helps owners sell their businesses to employees, including feasibility checks, financing and preparing workers for ownership; works with the field on federal, state and local employee ownership policy and keeps an interactive database of past and current state policy",
+          "firstStep": "Tell us you’d use this, and note roughly how many people work where you do.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a03",
+      "painName": "Meaning",
+      "painLine": "I don't think my work matters.",
+      "title": "A project outside work that I’m proud of",
+      "line": "Even when my job feels flat, I have one thing each month that I know helps people near me.",
+      "fixes": [
+        {
+          "title": "Help run a monthly repair night in your town",
+          "whatChanges": "Martine Postma started the first Repair Café in Amsterdam in 2009, where volunteers fix neighbors’ lamps, clothes and bikes. There are now more than 2,500 of them, and they need organizers and greeters as much as people who can fix things.",
+          "example": "Repair Café · Amsterdam · 2009 · Started by Martine Postma in 2009; volunteers with repair skills fix neighbors' things at more than 2,500 Repair Cafés worldwide",
+          "firstStep": "Look on the Repair Café map for one near you and write down the date of the next session.",
+          "kind": "project",
+          "featureIdea": null
+        },
+        {
+          "title": "Offer a free class at your library on something you know from work",
+          "whatChanges": "Many public libraries host free classes taught by local volunteers, from spreadsheets to resumes to basic bookkeeping. Teaching what you already know can show you that your skills matter to people outside your office.",
+          "example": null,
+          "firstStep": "Call or email your library and ask whether they take volunteer teachers.",
+          "kind": "project",
+          "featureIdea": null
+        },
+        {
+          "title": "Neighbor matching to start a local repair night",
+          "whatChanges": "Lets you say privately that you'd help start a repair night, as a fixer, organizer or greeter, and connects you only once enough neighbors nearby want the same. Martine Postma started the first Repair Café in Amsterdam in 2009, and there are now more than 2,500.",
+          "example": "Repair Café · Amsterdam · 2009 · Started by Martine Postma in 2009; volunteers with repair skills fix neighbors' things at more than 2,500 Repair Cafés worldwide",
+          "firstStep": "Tell us you’d use this, and write down one thing you could fix or one job you could do at a repair night.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a04",
+      "painName": "Doomscrolling",
+      "painLine": "I lose my nights to my phone.",
+      "title": "Limits on addictive app design in my state",
+      "line": "My state has rules that keep apps from being built to keep us up all night, and my representative heard from people like me before the vote.",
+      "fixes": [
+        {
+          "title": "See which bills about app design your state is considering",
+          "whatChanges": "Shows bills in your state on feeds, notifications and kids online, using the tracker the National Conference of State Legislatures already keeps. In 2025 there were more than 300 such bills across 45 states.",
+          "example": "National Conference of State Legislatures (NCSL) tracker of 2025 state social media and children bills · United States · 2025 · Over 45 states and Puerto Rico introduced 300+ bills in 2025; at least 20 states enacted laws, including school phone limits",
+          "firstStep": "Tell us you'd use this, and look up your state on the NCSL tracker.",
+          "kind": "feature",
+          "featureIdea": null
+        },
+        {
+          "title": "Call or write your representatives with a short script",
+          "whatChanges": "Finds your state and federal representatives and gives you a short, plain script, the way 5 Calls does for issues in Congress. Most addictive-design bills are at the state level, so state legislators matter most.",
+          "example": "5 Calls · United States · 2026 · Free site and app that gives scripts for calling your members of Congress on an issue",
+          "firstStep": "Tell us you'd use this, and find your state representative's name on your state legislature's website.",
+          "kind": "feature",
+          "featureIdea": null
+        },
+        {
+          "title": "Bring neighbors and other parents to the same hearing",
+          "whatChanges": "Shows people near you who care about this when a hearing is coming, so you can plan to speak or submit comments together.",
+          "example": null,
+          "firstStep": "Tell us you'd use this.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a05",
+      "painName": "Neighbors",
+      "painLine": "I don't know the people on my street.",
+      "title": "City money for something our block chose together",
+      "line": "Our street got a small city grant for a bench and planters we picked, and we built them together on a Saturday.",
+      "fixes": [
+        {
+          "title": "Apply for a neighborhood matching grant",
+          "whatChanges": "Seattle's Neighborhood Matching Fund gives small grants of up to $5,000, and neighbors can match the city's money with volunteer hours instead of cash. In one 2024 round alone, the city gave $1,077,003 to 24 community projects.",
+          "example": "Seattle Neighborhood Matching Fund · Seattle, WA · 2024 · $1,077,003 to 24 projects in one 2024 round; small grants up to $5,000",
+          "firstStep": "Search your city's name plus \"neighborhood matching grant\" or \"small neighborhood grants\".",
+          "kind": "project",
+          "featureIdea": null
+        },
+        {
+          "title": "Ask your city council member to start a matching fund",
+          "whatChanges": "If your city doesn't have one, Seattle's program is a working model to point to. Small grants matched by volunteer time give neighbors a project, and a project gives them a reason to meet.",
+          "example": "Seattle Neighborhood Matching Fund · Seattle, WA · 2024 · $1,077,003 to 24 projects in one 2024 round; small grants up to $5,000",
+          "firstStep": "Email your city council member a two-sentence description of Seattle's program and ask whether your city has anything like it.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Find grants your block could apply for",
+          "whatChanges": "Keeps track of city neighborhood grant programs like Seattle's and tells you which ones your street qualifies for, how much they give and how the match works.",
+          "example": "Seattle Neighborhood Matching Fund · Seattle, WA · 2024 · $1,077,003 to 24 projects in one 2024 round; small grants up to $5,000",
+          "firstStep": "Tell us you'd use this, and write down one small thing your block would build or fix with $5,000.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a06",
+      "painName": "Rent",
+      "painLine": "I pay too much for housing.",
+      "title": "Renting from a landlord that isn't trying to maximize rent",
+      "line": "My landlord is a nonprofit, a co-op or a land trust, so my rent tracks the real costs instead of the market.",
+      "fixes": [
+        {
+          "title": "Ask a housing counselor about nonprofit and income-limited apartments",
+          "whatChanges": "Many cities have apartments owned by nonprofits or built with public money that cap rents for tenants under an income limit. They rarely show up on the big listing sites, but local housing counselors know where they are.",
+          "example": "Consumer Financial Protection Bureau rent help page · United States · Points renters to local rental assistance, 211, HUD-approved housing counselors, year-round utility help through the Low Income Home Energy Assistance Program (LIHEAP) or the National Energy Assistance Referral Hotline, and housing choice vouchers (also known as Section 8), which cover all or part of rent for privately owned housing",
+          "firstStep": "Ask a HUD-approved housing counselor for a list of income-restricted apartments near you.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Look for a community land trust in your region",
+          "whatChanges": "A 2024 survey counted 308 community land trusts across 48 states. They own the land and keep the homes on it affordable for good, through rentals, co-ops or homes sold with a price limit. Many have waiting lists.",
+          "example": "Community land trusts in the US · United States · 2024 · 308 community land trusts in 48 states, DC and Puerto Rico (2024 survey); Burlington Community Land Trust founded 1984",
+          "firstStep": "Search your city or county name plus \"community land trust\" and see whether it rents or sells homes.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Map of nonprofit, co-op and land trust rentals near you",
+          "whatChanges": "Shows the nonprofit, co-op and community land trust landlords in your area, drawing on directories like the 2024 survey that counted 308 land trusts across 48 states, so you know whom to ask about openings.",
+          "example": "Community land trusts in the US · United States · 2024 · 308 community land trusts in 48 states, DC and Puerto Rico (2024 survey); Burlington Community Land Trust founded 1984",
+          "firstStep": "Tell us you'd use this, and write down one nonprofit landlord you've heard of in your area.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a07",
+      "painName": "Neighbors",
+      "painLine": "I don't know the people on my street.",
+      "title": "Knowing the names of the people next door",
+      "line": "When I pass the people on either side of me, I can say hello to them by name.",
+      "fixes": [
+        {
+          "title": "Introduce yourself to the neighbors on either side",
+          "whatChanges": "In a 2018 set of studies from Cornell and Yale, mostly with students, people who had just talked with a stranger consistently underestimated how much the other person liked them. Neighbors weren't studied, but the awkwardness you expect may be mostly on your side of the conversation.",
+          "example": "The liking gap in conversations (Boothby and colleagues) · Cornell and Yale studies, United States · 2018 · Across five studies, people underestimated how much new conversation partners liked them",
+          "firstStep": "Next time you see a neighbor outside, say hello and tell them your name.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Write down names as soon as you hear them",
+          "whatChanges": "In a 2010 Pew survey, 28 percent of American adults said they didn't know any of their neighbors by name. A short note with the name and one detail, even the dog's name, makes the second hello easier than the first.",
+          "example": "Pew Research Center survey on knowing neighbors · United States · 2010 · 19% knew all neighbors by name, 24% most, 29% some, 28% none",
+          "firstStep": "Start a note on your phone called Neighbors and add everyone whose name you already know.",
+          "kind": "habit",
+          "featureIdea": null
+        },
+        {
+          "title": "Keep a private list of the neighbors you've met",
+          "whatChanges": "Keeps a simple list of the neighbors you've met, with names and the details you choose to save, kept on your own phone and shared with no one. Before you talk to someone again, you have their name in front of you.",
+          "example": "Pew Research Center survey on knowing neighbors · United States · 2010 · 19% knew all neighbors by name, 24% most, 29% some, 28% none",
+          "firstStep": "Tell us you'd use this, and tonight write down the names of the two neighbors closest to you.",
+          "kind": "feature",
+          "featureIdea": null
+        },
+        {
+          "title": "Private matching with neighbors who also want to meet",
+          "whatChanges": "Lets you say privately that you'd like to meet the people near you, and introduces you only once a neighbor close by has said the same. Nobody sees who said no or who hasn't answered, so asking costs you nothing.",
+          "example": null,
+          "firstStep": "Tell us you'd use this.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a08",
+      "painName": "Doomscrolling",
+      "painLine": "I lose my nights to my phone.",
+      "title": "Teen accounts that go quiet overnight by default",
+      "line": "My teenager's apps stop buzzing at night without me having to fight about it.",
+      "fixes": [
+        {
+          "title": "Check that your teen's social apps use teen settings",
+          "whatChanges": "Since 2024, Instagram teen accounts turn on sleep mode from 10pm to 7am every day: notifications are muted and messages get an automatic reply. Under-16s need a parent's permission to change it.",
+          "example": "Instagram Teen Accounts sleep mode · Meta / Instagram · 2024 · Teen accounts mute notifications and auto-reply to messages from 10pm to 7am every day",
+          "firstStep": "Open your teen's Instagram settings with them and confirm sleep mode is on.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Charge the whole family's phones in one spot",
+          "whatChanges": "A shared charging spot in the kitchen means the rule applies to everyone, adults included, which makes it much easier for a teenager to accept.",
+          "example": "ABCD study: phones out of the bedroom and teen sleep (Nagata, UCSF) · United States · 2024 · Among ~9,400 11–12-year-olds, phones kept out of the bedroom were linked to longer, better sleep, and a follow-up a year later found this persisted; silenced phones did worse than phones turned off. Led by Dr. Jason Nagata, associate professor of pediatrics at the University of California, San Francisco",
+          "firstStep": "Pick a spot with enough outlets and put a power strip there tonight.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Overnight settings for the apps your teen uses",
+          "whatChanges": "Shows which of your teen's apps have a quiet-overnight setting like Instagram's teen sleep mode, where to find it, and what your teen can change without you.",
+          "example": "Instagram Teen Accounts sleep mode · Meta / Instagram · 2024 · Teen accounts mute notifications and auto-reply to messages from 10pm to 7am every day",
+          "firstStep": "Tell us you'd use this, and list the three apps your teen uses most at night.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a09",
+      "painName": "Rent",
+      "painLine": "I pay too much for housing.",
+      "title": "Homes in my town kept affordable for good",
+      "line": "Some homes in my community are held in trust, so they stay within reach of people like me no matter how prices rise.",
+      "fixes": [
+        {
+          "title": "Back a community land trust in your area",
+          "whatChanges": "The Champlain Housing Trust in Burlington, Vermont, is one of the oldest land trusts in the country. A 2009 study found its homes stayed affordable to households earning about half the local median income, and owners still left with an average of $12,000 in equity when they sold. Those were homes for sale rather than rentals, but the same idea can hold rents down.",
+          "example": "Champlain Housing Trust shared-equity evaluation (Davis & Stokes 2009) · Burlington, Vermont · 2009 · One of the oldest community land trusts in the nation; homes affordable to households under 54% of area median income; average equity gain on resale $12,000; $2.1M of subsidy retained",
+          "firstStep": "Find out whether your area has a land trust and sign up for its newsletter or next public meeting.",
+          "kind": "group",
+          "featureIdea": null
+        },
+        {
+          "title": "Ask your city to give public land to a land trust",
+          "whatChanges": "Cities own vacant lots and old buildings. Handing some to a land trust, instead of selling them to the highest bidder, keeps whatever gets built there affordable for the long run. A 2024 survey counted 308 land trusts in the US, so there's often one nearby to partner with.",
+          "example": "Community land trusts in the US · United States · 2024 · 308 community land trusts in 48 states, DC and Puerto Rico (2024 survey); Burlington Community Land Trust founded 1984",
+          "firstStep": "Look up your city's list of surplus or vacant public property, if it publishes one.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Pooled funding for a local land trust",
+          "whatChanges": "Lets neighbors and local businesses put money toward a community land trust's next home and see where every dollar went. Trusts like Champlain Housing Trust in Burlington, Vermont, keep homes affordable to households under 54% of area median income.",
+          "example": "Champlain Housing Trust shared-equity evaluation (Davis & Stokes 2009) · Burlington, Vermont · 2009 · One of the oldest community land trusts in the nation; homes affordable to households under 54% of area median income; average equity gain on resale $12,000; $2.1M of subsidy retained",
+          "firstStep": "Tell us you'd use this, and check whether a land trust near you accepts money from neighbors.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a10",
+      "painName": "Polarization",
+      "painLine": "I can't disagree with someone without losing them.",
+      "title": "Keeping my family close when we vote differently",
+      "line": "We still spend the holidays together and stay as long as we used to, even in an election year.",
+      "fixes": [
+        {
+          "title": "Decide the visit matters more than the argument",
+          "whatChanges": "Studies of Thanksgiving dinners, including the one right after the 2016 election, found that dinners with mixed politics ran shorter. A careful 2020 follow-up put the difference at about 24 minutes, so those families still sat down together, and that’s the part worth protecting.",
+          "example": "Frimer and Skitka replication (PLoS One) · United States · 2020 · Politically diverse dinners about 24 minutes (6%) shorter after covariates; the original study included Thanksgiving 2016, a presidential election year",
+          "firstStep": "Text the relative you’re most likely to clash with and tell them you’re looking forward to seeing them.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Ask what in their life made this issue matter to them",
+          "whatChanges": "The Boston leaders who met in secret on abortion spent their first two years mostly getting to know each other, not debating. Hearing how someone came to a view tends to soften things more than hearing the view again.",
+          "example": "Boston secret abortion talks · Boston, MA · 1995 · After the 1994 Brookline, Massachusetts, abortion clinic murders, six leaders from opposite sides met in secret for six years; none changed position; they became friends. Facilitated by Essential Partners, then the Public Conversation Project",
+          "firstStep": "Ask one relative you disagree with, “What happened in your life that made this matter to you?” and just listen.",
+          "kind": "practice",
+          "featureIdea": "Helps you prepare to ask a relative what in their life made an issue matter, and reminds you afterward to note what you heard before replying."
+        },
+        {
+          "title": "Coaching for talking politics with family",
+          "whatChanges": "Helps you get ready to talk about politics with a relative: what you hope they’ll understand, a question about how they came to their view, and when you’ll stop. Afterward it asks how the talk went and suggests what to try next time. Free dialogue guides like Essential Partners’ already cover this ground for groups.",
+          "example": "Essential Partners dialogue guides and teacher trainings · Cambridge, MA · 2026 · Free field guide (Fostering Dialogue Across Divides); One-Day Professional Development for middle and high schools; practice includes building shared agreements",
+          "firstStep": "Before your next family visit, write down one question you’d like to ask a relative about how they came to their view.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a11",
+      "painName": "Rent",
+      "painLine": "I pay too much for housing.",
+      "title": "Renewing my lease without a big jump in rent",
+      "line": "When my lease comes up, I ask for a fair number and often get one.",
+      "fixes": [
+        {
+          "title": "Compare your increase with what new tenants pay nearby",
+          "whatChanges": "Apartment List publishes the median rent for new leases in most American cities each month, going back to 2017. If your landlord wants more than new tenants are paying down the street, that's a reasonable point to raise, politely and in writing.",
+          "example": "Apartment List rent estimates · United States · 2017 · Monthly median rent for new leases at national, state, metro, county and city level since January 2017",
+          "firstStep": "Look up your city's latest median rent for your apartment size and write it next to your renewal offer.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Offer a longer lease in exchange for a smaller increase",
+          "whatChanges": "Turnover is expensive for landlords: an empty month, cleaning and finding someone new. Many landlords will accept a smaller raise from a tenant who pays on time and agrees to stay longer.",
+          "example": null,
+          "firstStep": "Write a short note offering to sign for 18 or 24 months if the increase stays at a number you name.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Check whether your state limits rent increases",
+          "whatChanges": "A few places cap yearly increases. Oregon became the first state to do so in 2019, at inflation plus 7%, and new buildings are exempt for 15 years. Knowing the rule where you live tells you whether an increase is even allowed.",
+          "example": "Oregon statewide rent cap (2019) · Oregon · 2019 · First statewide rent cap: increases limited to inflation plus 7% a year; new buildings exempt for 15 years; rents reset between tenants",
+          "firstStep": "Search your state's name plus \"rent increase limit\" and read the official page for your state or city.",
+          "kind": "learn",
+          "featureIdea": null
+        },
+        {
+          "title": "Coaching for your lease renewal conversation",
+          "whatChanges": "Helps you plan what to say to your landlord at renewal, with your current rent next to Apartment List's median for new leases in your city, then checks in afterward to see what you got.",
+          "example": "Apartment List rent estimates · United States · 2017 · Monthly median rent for new leases at national, state, metro, county and city level since January 2017",
+          "firstStep": "Tell us you'd use this, and write down the one number you'd be glad to sign at.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a12",
+      "painName": "Burnout",
+      "painLine": "I've got nothing left.",
+      "title": "Knowing my burnout comes from the job, not from me",
+      "line": "I stop blaming myself and start looking clearly at what my work is asking of me.",
+      "fixes": [
+        {
+          "title": "Read the official definition of burnout",
+          "whatChanges": "Since 2019, the World Health Organization has described burnout as the result of chronic workplace stress that hasn't been managed, with three signs: exhaustion, feeling distant or cynical about your job, and feeling less effective at it. The organization treats burnout as a work problem rather than a personal illness, which is worth remembering on the days you blame yourself.",
+          "example": "WHO definition of burn-out in ICD-11 · World Health Organization · 2019 · Burn-out defined as an occupational phenomenon from chronic workplace stress, with three dimensions; not a medical condition",
+          "firstStep": "Read the three signs and write down which of them you recognize in yourself.",
+          "kind": "learn",
+          "featureIdea": null
+        },
+        {
+          "title": "Find which part of your job is wearing you down",
+          "whatChanges": "Christina Maslach, the psychologist who has studied burnout for decades, traces it to six places where people and jobs don't fit: workload, control, reward, community, fairness and values. Knowing which one is wrong tells you what to ask for, because more rest won't fix an unfair process.",
+          "example": "Maslach and Leiter's six areas of worklife · University of Minnesota Extension interview with Christina Maslach · 2022 · Burnout traced to mismatches in workload, control, reward, community, fairness and values; each is a place to change",
+          "firstStep": "Rank those six areas from the one that drains you most to the one that's fine, and circle the top one.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Follow-up questions about what's wearing you down",
+          "whatChanges": "Asks you a few short questions over the next weeks about workload, control, reward, community, fairness and values, the six areas Christina Maslach's research links to burnout, then narrows the suggestions to the area that's actually off.",
+          "example": "Maslach and Leiter's six areas of worklife · University of Minnesota Extension interview with Christina Maslach · 2022 · Burnout traced to mismatches in workload, control, reward, community, fairness and values; each is a place to change",
+          "firstStep": "Tell us you'd use this, and note one moment this week when work drained you and what was happening.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a13",
+      "painName": "Burnout",
+      "painLine": "I've got nothing left.",
+      "title": "Not having to answer work messages after hours",
+      "line": "When my workday ends, nobody expects me to read email or messages until the next one starts.",
+      "fixes": [
+        {
+          "title": "Ask your state legislator for a right to ignore work messages after hours",
+          "whatChanges": "Since August 2024, workers in Australia can refuse to read or answer work contact outside their hours unless refusing would be unreasonable, and disputes go to the national workplace tribunal. The law doesn't ban the messages, and some politicians there have promised to repeal it.",
+          "example": "Australia's right to disconnect · Australia · 2024 · Workers may refuse to monitor or answer after-hours contact unless refusal is unreasonable; Fair Work Commission settles disputes",
+          "firstStep": "Look up who represents you in your state legislature and send them two sentences asking whether they'd support a right to disconnect.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Turn off work notifications when your day ends",
+          "whatChanges": "You don't need a law to stop work apps from lighting up your phone at night. Most phones let you schedule a focus mode that silences chosen apps at a set hour.",
+          "example": null,
+          "firstStep": "Set your phone to silence work email and chat apps from the end of your workday until morning.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Shared campaign for a right to disconnect in your state",
+          "whatChanges": "Gathers people in your state behind one ask, a law like Australia's that lets workers ignore after-hours messages unless that would be unreasonable, tracks who has signed on, and sends the letter to your state legislators together once enough people have joined.",
+          "example": "Australia's right to disconnect · Australia · 2024 · Workers may refuse to monitor or answer after-hours contact unless refusal is unreasonable; Fair Work Commission settles disputes",
+          "firstStep": "Tell us you'd use this, and ask two coworkers or friends whether they'd sign a letter like this.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a14",
+      "painName": "Loneliness",
+      "painLine": "I feel alone.",
+      "title": "Young and old people living in the same building",
+      "line": "Older and younger people share a building and spend real time together, not just a holiday visit.",
+      "fixes": [
+        {
+          "title": "Ask a local retirement home about students living there",
+          "whatChanges": "In 2015 a retirement home run by Humanitas in Deventer, in the Netherlands, gave six university students free housing in exchange for 30 hours a month with residents. One student described teaching computer skills, cooking together and sometimes just talking.",
+          "example": "Humanitas students living in a retirement home · Deventer, Netherlands · 2015 · Six university students live free in a home for older people in exchange for 30 hours a month with residents; one student described teaching computer skills, cooking with residents and sometimes just talking",
+          "firstStep": "Email a nearby retirement home or college housing office and ask whether they’ve considered a student-resident program.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Visit a retirement home on the same day each week",
+          "whatChanges": "Many residents in retirement homes see few visitors, and a regular weekly visit gives both of you something to look forward to. Homes usually have an activities coordinator who matches volunteers with residents.",
+          "example": null,
+          "firstStep": "Call a nearby retirement home and ask for the activities coordinator.",
+          "kind": "schedule",
+          "featureIdea": null
+        },
+        {
+          "title": "Shared request for a student-resident program",
+          "whatChanges": "Gathers students, families and residents behind one request to a retirement home or college housing office to try a program like the one at Humanitas in Deventer, where six students lived free in exchange for 30 hours a month with residents. Shows who has signed on and sends the request together.",
+          "example": "Humanitas students living in a retirement home · Deventer, Netherlands · 2015 · Six university students live free in a home for older people in exchange for 30 hours a month with residents; one student described teaching computer skills, cooking with residents and sometimes just talking",
+          "firstStep": "Tell us you’d use this, and find the name of the activities coordinator at a nearby retirement home.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a15",
+      "painName": "Local news",
+      "painLine": "I don't know what's happening in my own town.",
+      "title": "Neighbors taking turns covering the meetings nobody attends",
+      "line": "A dozen of us split the meetings, so every board in town has someone there, and nobody has to go to all of them.",
+      "fixes": [
+        {
+          "title": "Split up meeting coverage with neighbors",
+          "whatChanges": "Lists every public board in your town, lets neighbors sign up for the meetings they’ll attend, and posts their notes in one place. Documenters programs work this way in about two dozen cities, with editors and pay that a neighbor group won’t have.",
+          "example": "Documenters local programs list · United States · 2026 · About two dozen active local programs, from Akron to Wichita, with several more in hibernation",
+          "firstStep": "Tell us you’d use this, and ask two neighbors which local meeting they’d be willing to attend.",
+          "kind": "feature",
+          "featureIdea": null
+        },
+        {
+          "title": "Shared request to your state for local news funding",
+          "whatChanges": "Helps people in one district send their state legislator the same request, pointing to what other states have done. In New Jersey, a coalition of residents, universities and journalists organized from 2017 to win the state law that created its local news fund.",
+          "example": "Free Press News Voices organizing for the New Jersey consortium · New Jersey · 2018 · A coalition of residents, universities and journalists organized from 2017 to win the state law",
+          "firstStep": "Tell us you’d use this, and look up your state legislator’s email address.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a16",
+      "painName": "Loneliness",
+      "painLine": "I feel alone.",
+      "title": "A standing weekly plan with a friend",
+      "line": "Every week I already know when I’ll next see or talk to someone who knows me well.",
+      "fixes": [
+        {
+          "title": "Set up a recurring call or walk with one friend",
+          "whatChanges": "The Harvard study that has followed people since 1938 found that close relationships kept people happy and healthy more than money or fame did. A plan that repeats on its own means neither of you has to remember to ask.",
+          "example": "Harvard Study of Adult Development · Harvard University · 1938 · Followed 268 sophomores from 1938; close relationships predicted lasting health and happiness more than money or fame",
+          "firstStep": "Text a friend and suggest the same time every week, like Sunday at 4pm, for a phone call or a walk.",
+          "kind": "schedule",
+          "featureIdea": null
+        },
+        {
+          "title": "Go to the same place at the same time each week",
+          "whatChanges": "Seeing the same faces at the same class, café or service is how a lot of friendships start, before anyone plans anything. Showing up three or four times usually matters more than the first visit.",
+          "example": null,
+          "firstStep": "Pick one weekly class, meeting or café hour near you and put the next four dates on your calendar.",
+          "kind": "schedule",
+          "featureIdea": null
+        },
+        {
+          "title": "Reminders that keep a weekly plan from lapsing",
+          "whatChanges": "Keeps track of your standing calls or walks, reminds you both the day before, and nudges you to reschedule when one gets skipped, so a missed week doesn’t quietly end the habit.",
+          "example": null,
+          "firstStep": "Tell us you’d use this, and put your next call or walk with a friend on your calendar.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a17",
+      "painName": "Meaning",
+      "painLine": "I don't think my work matters.",
+      "title": "Coworkers who see each other and shape the work together",
+      "line": "The people I work with and I decide some of how our work gets done, and we know each other by name.",
+      "fixes": [
+        {
+          "title": "Start a regular gathering for coworkers who rarely see each other",
+          "whatChanges": "At Cooperative Home Care Associates in the Bronx, where aides mostly work alone in clients’ homes, the agency holds \"Payday Fridays\" so its workers can gather. The president has said that home care is very isolating, and the gatherings are part of how the co-op answers that.",
+          "example": "Cooperative Home Care Associates · Bronx, New York · 1985 · Home health aides own and run the agency, elect most of its board, and number more than 2,000 members; the average U.S. worker co-op has about nine; holds \"Payday Fridays\" when the otherwise isolated aides gather as a group, and president and CEO Adria Powell calls home care very isolating",
+          "firstStep": "Ask two coworkers if they’d join a monthly lunch, and pick a date.",
+          "kind": "schedule",
+          "featureIdea": null
+        },
+        {
+          "title": "Ask your team to vote on one decision that affects your work",
+          "whatChanges": "At the Mondragon cooperatives in Spain, nearly 70,000 worker-owners vote on company strategy in general assemblies. Your team doesn’t need to own the company to try deciding one thing together, like how a schedule or a process works.",
+          "example": "Mondragon cooperatives · Basque Country, Spain · 1955 · Nearly 70,000 worker-owners vote in general assemblies; the gap between highest- and lowest-paid employees is capped at a ratio of 6 to 1",
+          "firstStep": "Write down one recurring decision your team could reasonably make together and suggest it at your next meeting.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Private check on whether coworkers want to meet regularly",
+          "whatChanges": "Lets you say privately that you'd come to a regular coworker gathering, and tells everyone only once enough coworkers have said yes, so nobody has to ask in front of the whole team. Cooperative Home Care Associates in the Bronx holds \"Payday Fridays\" so its aides, who mostly work alone, can gather.",
+          "example": "Cooperative Home Care Associates · Bronx, New York · 1985 · Home health aides own and run the agency, elect most of its board, and number more than 2,000 members; the average U.S. worker co-op has about nine; holds \"Payday Fridays\" when the otherwise isolated aides gather as a group, and president and CEO Adria Powell calls home care very isolating",
+          "firstStep": "Tell us you’d use this, and write down two coworkers you'd most like to see more often.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a18",
+      "painName": "Rent",
+      "painLine": "I pay too much for housing.",
+      "title": "Negotiating rent together with the other tenants in my building",
+      "line": "My neighbors and I talk to the landlord as a group, so an increase is something we discuss instead of something that just happens to us.",
+      "fixes": [
+        {
+          "title": "Talk with your neighbors about what they pay",
+          "whatChanges": "Most tenants never compare notes, which leaves each one negotiating alone. In 2017 more than 300 tenants across 12 buildings in Toronto's Parkdale neighborhood refused rent for three months together, and reached a deal with their landlord.",
+          "example": "Parkdale rent strike · Toronto, Canada · 2017 · Over 300 tenants in 12 buildings struck for three months and reached a deal with the landlord",
+          "firstStep": "Knock on two neighbors' doors or leave a note asking if they'd share what their last increase was.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Join a tenant union in your city",
+          "whatChanges": "KC Tenants was founded in Kansas City in 2019 and now counts more than 10,000 members. After an eight-month rent strike at one building, the landlord agreed to keep rents flat, drop extra fees and set a deadline for repairs. A rent strike carries real eviction risk, so unions plan them carefully.",
+          "example": "KC Tenants union and the Independence Towers rent strike · Kansas City metro, MO · 2024 · Tenant union founded in 2019 with more than 10,000 members; eight-month strike at Independence Towers won flat rents, removal of junk fees and a repair deadline",
+          "firstStep": "Look up whether there's a tenant union in your city and sign up for their next meeting or newsletter.",
+          "kind": "group",
+          "featureIdea": null
+        },
+        {
+          "title": "Start a tenant union in your building",
+          "whatChanges": "KC Tenants, the group mainly behind Kansas City's tenants' bill of rights, didn't exist at the beginning of 2019 and won that law by December. A building union can start with a few neighbors who agree on one thing to ask the landlord for.",
+          "example": "Kansas City tenants' bill of rights · Kansas City, MO · 2019 · Council approved in December 2019 with Mayor Quinton Lucas's backing; the ordinance was primarily the work of KC Tenants, a group that didn't exist at the beginning of 2019; it bars rejecting applicants solely for past evictions, requires 24 hours' notice before entry, and affirms the right to organize",
+          "firstStep": "Invite two or three neighbors to meet for half an hour about rent and repairs in your building.",
+          "kind": "new-group",
+          "featureIdea": null
+        },
+        {
+          "title": "Compare increases with neighbors without exposing anyone",
+          "whatChanges": "Lets tenants in one building report their increases privately and see only the combined picture, since people hesitate to share what they pay. A group can then decide together whether to ask the landlord for a meeting.",
+          "example": null,
+          "firstStep": "Tell us you'd use this, and ask one neighbor whether they'd want to compare increases.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a19",
+      "painName": "Local news",
+      "painLine": "I don't know what's happening in my own town.",
+      "title": "A full-time reporter covering my county again",
+      "line": "Someone whose job is my county goes to the meetings, reads the budgets and tells us what they found.",
+      "fixes": [
+        {
+          "title": "Encourage your local paper to apply for a funded reporter",
+          "whatChanges": "Report for America placed 107 new reporters in 101 local newsrooms in 2025, paying a large share of each salary for up to three years. The newsroom has to raise the rest locally, which is where readers and local businesses come in.",
+          "example": "Report for America · United States · 2025 · Placed 107 new reporters in 101 local newsrooms; pays a large share of salary for up to three years while newsrooms raise the rest",
+          "firstStep": "Email your local editor to ask whether they’ve considered applying to Report for America.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Pledge a small amount toward a local reporter’s salary",
+          "whatChanges": "The local share of a funded reporter’s salary often comes from readers and nearby businesses, not one big donor. Asking what a beat would cost makes the request concrete.",
+          "example": null,
+          "firstStep": "Ask your local newsroom whether it takes reader support for a specific beat, and what amount would help.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Shared reporting by neighbors in your county",
+          "whatChanges": "Lets neighbors split up meetings and public records, share sources and notes, and publish what they find together, so a county without a reporter still gets covered. Documenters programs work this way with paid residents in about two dozen cities.",
+          "example": "Documenters local programs list · United States · 2026 · About two dozen active local programs, from Akron to Wichita, with several more in hibernation",
+          "firstStep": "Tell us you’d use this, and write down one local meeting or record you’d be willing to look into.",
+          "kind": "feature",
+          "featureIdea": null
+        },
+        {
+          "title": "Pooled funding for a county reporter",
+          "whatChanges": "Lets readers and local businesses pledge toward a reporter’s salary in one place and shows where the money goes. Report for America pays a large share of a new reporter’s salary for up to three years, and the newsroom has to raise the rest locally.",
+          "example": "Report for America · United States · 2025 · Placed 107 new reporters in 101 local newsrooms; pays a large share of salary for up to three years while newsrooms raise the rest",
+          "firstStep": "Tell us you’d use this, and ask your local editor what a year of county coverage would cost.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a20",
+      "painName": "Loneliness",
+      "painLine": "I feel alone.",
+      "title": "A doctor who takes my loneliness seriously",
+      "line": "When I tell my doctor I’m lonely, they connect me with people and activities, not only pills.",
+      "fixes": [
+        {
+          "title": "Ask your doctor about local groups, not only medicine",
+          "whatChanges": "In England, family doctors can refer patients to “link workers,” more than 3,300 of them by 2023, who help people find clubs, gardening groups and other activities. Few US practices offer this yet, so you’ll likely need to ask directly.",
+          "example": "Social prescribing in England's health service · England · 2023 · More than 3,300 link workers employed; the 2019 goal was 900,000 referrals by 2023-24 and was exceeded",
+          "firstStep": "Write one line to bring to your next appointment, like “I’ve been feeling isolated and want to find local activities.”",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Find local programs for older adults by phone",
+          "whatChanges": "The federal Eldercare Locator at 1-800-677-1116 finds programs near you, including Area Agencies on Aging, which often run senior centers and group meals. You can call for yourself or for a parent.",
+          "example": "Eldercare Locator · United States · Federal service at 1-800-677-1116 that finds local programs for older adults, including Area Agencies on Aging and meals",
+          "firstStep": "Call 1-800-677-1116 or search eldercare.acl.gov with your zip code.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Bring a short summary of how you’ve been to your doctor",
+          "whatChanges": "Turns your answers to a short loneliness check over a few months into a one-page note for your doctor. A written summary makes the topic easier to raise in a short visit.",
+          "example": "Three-item loneliness scale (Hughes and colleagues) · Health and Retirement Study, United States · 2004 · Three questions, scored 3 to 9, developed for the 2002 national Health and Retirement Study",
+          "firstStep": "Tell us you’d use this, and jot down how many days last week you talked with someone you care about.",
+          "kind": "feature",
+          "featureIdea": null
+        },
+        {
+          "title": "List of local activities a doctor could prescribe",
+          "whatChanges": "Builds a short list of clubs, classes and volunteer groups near you that fit what you enjoy, like the options a link worker in England’s health service suggests after a doctor’s referral. You can bring the list to your appointment, or start on one without waiting for a referral.",
+          "example": "Social prescribing in England's health service · England · 2023 · More than 3,300 link workers employed; the 2019 goal was 900,000 referrals by 2023-24 and was exceeded",
+          "firstStep": "Tell us you’d use this, and write down two things you used to enjoy doing with other people.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a21",
+      "painName": "Neighbors",
+      "painLine": "I don't know the people on my street.",
+      "title": "Kids playing in the street while neighbors look on",
+      "line": "On some afternoons our block closes to cars, kids play in the street and the adults finally talk to each other.",
+      "fixes": [
+        {
+          "title": "Close your block for children to play, if your city allows it",
+          "whatChanges": "Since 2014, Seattle has offered a free permit that lets residents close a quiet block to cars so children can play, and people closed their streets more than 500 times in 2025. Neighbors put out their own barricades or trash bins.",
+          "example": "Seattle Department of Transportation Play Streets · Seattle, WA · 2014 · Free permit; residents closed streets more than 500 times in 2025",
+          "firstStep": "Search your city's name plus \"play street permit\" to see whether you can do this already.",
+          "kind": "project",
+          "featureIdea": null
+        },
+        {
+          "title": "Start with one afternoon after school",
+          "whatChanges": "In Bristol, England, two neighbors used the city's street party permit in 2009 to close their street for a single after-school afternoon. The city then created a play street permit for regular sessions, and by 2012, 17 Bristol streets had applied for one.",
+          "example": "Playing Out and Bristol's Temporary Play Street Order · Bristol, England · 2009 · Two mothers closed their street for play in 2009; 17 Bristol streets applied for the new order in 2012",
+          "firstStep": "Ask two parents on your street whether they'd stand at the ends of the block for an hour one afternoon.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Ask your city to make play street permits free and simple",
+          "whatChanges": "By 2015, at least a dozen other U.S. cities had programs like Seattle's. If yours doesn't, a city council member can ask the transportation department to start one.",
+          "example": "Play streets in other U.S. cities (KUOW report) · Seattle, WA and at least a dozen U.S. cities · 2015 · Similar play street programs in at least a dozen other U.S. cities",
+          "firstStep": "Email your city council member to ask whether the city offers play street permits, and if not, what it would take.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Group request to your city for play street permits",
+          "whatChanges": "Gathers parents and neighbors behind one request to your city council for a free play street permit like Seattle's, shows who has signed on, and sends it together once enough people have joined. A request from many households on many blocks is harder to set aside than one email.",
+          "example": "Play streets in other U.S. cities (KUOW report) · Seattle, WA and at least a dozen U.S. cities · 2015 · Similar play street programs in at least a dozen other U.S. cities",
+          "firstStep": "Ask two other parents on your street whether they'd sign a request for play streets.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a22",
+      "painName": "Local news",
+      "painLine": "I don't know what's happening in my own town.",
+      "title": "Getting straight answers about local problems that affect me",
+      "line": "When I get an eviction notice or a strange tax bill, I can ask someone who knows the local rules and get a real answer.",
+      "fixes": [
+        {
+          "title": "Text a question to a local newsroom that answers residents",
+          "whatChanges": "Since 2016, Outlier Media in Detroit has answered residents’ questions about eviction, property taxes and utility shutoffs by text, and people can also talk one-on-one with a reporter. Outlier says it lets the community decide what it covers.",
+          "example": "Outlier Media TXT OUTLIER · Detroit, MI · 2016 · Nonprofit newsroom answers residents' questions about eviction, property taxes and utility shutoffs by text message (text DETROIT to 67485); users can also talk to a reporter one-on-one; says it lets the community decide what it covers",
+          "firstStep": "If you’re in Detroit, text DETROIT to 67485; elsewhere, email your local newsroom one question you can’t get answered.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Suggest a question-answering service to your local newsroom",
+          "whatChanges": "Many local newsrooms have tip lines but no promise to answer everyday questions. Outlier’s model is small and specific, starting with the problems that cost people money or housing.",
+          "example": "Outlier Media TXT OUTLIER · Detroit, MI · 2016 · Nonprofit newsroom answers residents' questions about eviction, property taxes and utility shutoffs by text message (text DETROIT to 67485); users can also talk to a reporter one-on-one; says it lets the community decide what it covers",
+          "firstStep": "Write down three questions about your town you’ve never been able to answer, and send them to a local editor.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Sourced answers to your local questions",
+          "whatChanges": "Takes your question about a local problem, like an eviction notice or a confusing tax bill, finds an answer backed by public records and local rules, and checks back to see whether it helped. Outlier Media in Detroit has answered residents’ questions this way by text since 2016.",
+          "example": "Outlier Media TXT OUTLIER · Detroit, MI · 2016 · Nonprofit newsroom answers residents' questions about eviction, property taxes and utility shutoffs by text message (text DETROIT to 67485); users can also talk to a reporter one-on-one; says it lets the community decide what it covers",
+          "firstStep": "Tell us you’d use this, and write down one local question you haven’t been able to answer.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a23",
+      "painName": "Neighbors",
+      "painLine": "I don't know the people on my street.",
+      "title": "Being outside where my neighbors can see me",
+      "line": "I spend enough time in front of my home that saying hello happens on its own.",
+      "fixes": [
+        {
+          "title": "Spend an evening on your front step or in the front yard",
+          "whatChanges": "Most neighbors meet by accident, and that only happens when you're outside at the same time they are. Doing a chore out front, like weeding or reading the mail, gives people an easy reason to stop.",
+          "example": null,
+          "firstStep": "Take your coffee or your evening phone call out to the front step tonight.",
+          "kind": "habit",
+          "featureIdea": null
+        },
+        {
+          "title": "Walk the same short loop around the block at the same time each day",
+          "whatChanges": "Seeing the same faces at the same hour turns strangers into people you nod at, and people you nod at are easy to talk to. A dog helps, but a regular time works too.",
+          "example": null,
+          "firstStep": "Pick a 15-minute loop and a time you could keep most days, and walk it tonight.",
+          "kind": "schedule",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a24",
+      "painName": "Meaning",
+      "painLine": "I don't think my work matters.",
+      "title": "Knowing many people feel their work is pointless",
+      "line": "I understand that this feeling is common, and that it often says more about how the work is run than about me.",
+      "fixes": [
+        {
+          "title": "Know how many people feel their job doesn’t matter",
+          "whatChanges": "In a 2024 YouGov survey of 5,889 working adults in Britain, one in three said their job isn't making a meaningful contribution to the world. In retail and finance it was more than half.",
+          "example": "YouGov survey on meaningless jobs · Great Britain · 2024 · 33% of 5,889 working Britons said their job is not making a meaningful contribution, down from 37% in 2015; 53% in retail and finance",
+          "firstStep": "Tell one friend you trust that you have been feeling this, and ask whether they ever have.",
+          "kind": "learn",
+          "featureIdea": null
+        },
+        {
+          "title": "Ask whether the problem is the work itself or how it is managed",
+          "whatChanges": "Researchers looking at European survey data in 2022 found the feeling of useless work came more from bad management and lack of control than from the job title. That points to changes you can actually ask for.",
+          "example": "Soffia and colleagues' 2022 study of useless jobs · European Union working conditions survey · 2022 · Few and fewer workers felt their jobs were useless; the feeling tracked bad management and lack of control more than job type, and some essential workers such as garbage collectors felt it",
+          "firstStep": "Write down the last time your job felt worthwhile, and what was different about that day.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Follow-up question on whether the work or the management is the problem",
+          "whatChanges": "Asks you a few weeks later whether the pointless feeling comes from the work itself or from how it's managed, then shifts your suggestions toward a talk with your manager, reshaping your tasks, or a different role. Researchers looking at European survey data in 2022 found the feeling tracked bad management and lack of control more than job type.",
+          "example": "Soffia and colleagues' 2022 study of useless jobs · European Union working conditions survey · 2022 · Few and fewer workers felt their jobs were useless; the feeling tracked bad management and lack of control more than job type, and some essential workers such as garbage collectors felt it",
+          "firstStep": "Tell us you’d use this, and write down one thing about how your work is managed that you'd change.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a25",
+      "painName": "Loneliness",
+      "painLine": "I feel alone.",
+      "title": "Someone to talk to tonight, at any hour",
+      "line": "When the evening gets heavy, I know a real person will pick up and listen.",
+      "fixes": [
+        {
+          "title": "Call or text 988 when you need someone right now",
+          "whatChanges": "The 988 line in the US is free and open around the clock by call, text or chat. People think of it as a suicide line, but you can also call when you’re in emotional distress or just need someone to talk to.",
+          "example": "988 Suicide and Crisis Lifeline · United States · 2022 · Free, confidential call, text or chat, 24/7, including for emotional distress or needing someone to talk to",
+          "firstStep": "Save 988 in your phone’s contacts under a name you’ll remember, like “Someone to talk to.”",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Ask for a regular check-in call if you’re 60 or older",
+          "whatChanges": "The Institute on Aging runs the Friendship Line at 888-670-1360, open day and night for people 60 and older, adults with disabilities and caregivers. You can also ask them to call you on a regular schedule, so you don’t have to be the one who dials.",
+          "example": "Institute on Aging Friendship Line · United States · 24/7 line at 888-670-1360 for adults 60 and older, adults with disabilities and caregivers, with optional regular check-in calls",
+          "firstStep": "Call 888-670-1360 and ask how their regular check-in calls work.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Text one person you’ve lost touch with",
+          "whatChanges": "Most people are glad to hear from someone they haven’t talked to in a while, even when neither of you knows why it stopped. A short message with no question attached is easy to answer.",
+          "example": null,
+          "firstStep": "Send one person a short note about something that reminded you of them.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Private reminders to text people you miss",
+          "whatChanges": "Keeps a private list of people you’d like to hear from more, and nudges you when it’s been a while since you were last in touch with one of them. Nobody on the list is contacted or told they’re on it.",
+          "example": null,
+          "firstStep": "Tell us you’d use this, and write down three people you’ve lost touch with.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a26",
+      "painName": "Neighbors",
+      "painLine": "I don't know the people on my street.",
+      "title": "Being the one who welcomes new people to the street",
+      "line": "When someone moves in on my block, they meet me in their first week.",
+      "fixes": [
+        {
+          "title": "Bring a short welcome note to anyone who moves in",
+          "whatChanges": "People who've just moved are guessing whether they're welcome, and the 2018 liking-gap studies suggest they'll assume the worst. A card with your name and house number settles that question on day one.",
+          "example": "The liking gap in conversations (Boothby and colleagues) · Cornell and Yale studies, United States · 2018 · Across five studies, people underestimated how much new conversation partners liked them",
+          "firstStep": "Put a few blank cards by the door so you're ready the next time a moving truck pulls up.",
+          "kind": "habit",
+          "featureIdea": null
+        },
+        {
+          "title": "Tell new neighbors the three things you wish you'd known",
+          "whatChanges": "Trash pickup day, a plumber you trust and which neighbor has a snowblower are worth more than cookies. Useful information gives them a reason to come back to you with a question.",
+          "example": null,
+          "firstStep": "Write down three things you wish someone had told you when you moved in.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Shared welcome guide for your street",
+          "whatChanges": "Collects the things neighbors wish they'd known when they moved in, like trash day, a plumber people trust and who has a snowblower, into one short guide for your street. Whoever welcomes the next new arrival has it ready to hand over.",
+          "example": null,
+          "firstStep": "Ask one long-time neighbor what they'd put in a welcome guide, and write it down.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a27",
+      "painName": "Polarization",
+      "painLine": "I can't disagree with someone without losing them.",
+      "title": "Knowing what the other side actually believes",
+      "line": "I picture the people I disagree with as they really are, not as the loudest voices I see online.",
+      "fixes": [
+        {
+          "title": "Take a short quiz on what the other party really thinks",
+          "whatChanges": "In a 2019 survey of 2,100 Americans, More in Common and YouGov found that Democrats and Republicans each guessed almost twice as many people on the other side held extreme views as really do. The people who followed the news most closely were the furthest off.",
+          "example": "More in Common Perception Gap study and quiz · United States · 2019 · Partisans think almost twice as many opponents hold extreme views as do; heavy news readers most distorted",
+          "firstStep": "Take the free Perception Gap quiz at perceptiongap.us and see how close your guesses were.",
+          "kind": "learn",
+          "featureIdea": null
+        },
+        {
+          "title": "Ask what they believe instead of assuming",
+          "whatChanges": "Because most of us overestimate how extreme the other side is, a plain question often turns up more agreement than you expected. “What do you actually think should happen?” is a good one.",
+          "example": "More in Common Perception Gap study and quiz · United States · 2019 · Partisans think almost twice as many opponents hold extreme views as do; heavy news readers most distorted",
+          "firstStep": "Next time someone says something political you dislike, ask what they think should actually happen, and listen to the whole answer.",
+          "kind": "practice",
+          "featureIdea": "Suggests an open question to ask when someone says something political you dislike, then asks what you learned from their answer."
+        },
+        {
+          "title": "Check your guesses about the other side before a hard talk",
+          "whatChanges": "Asks you a few questions about what you think people on the other side believe, then shows you how real survey answers compare, using public results like More in Common’s.",
+          "example": "More in Common Perception Gap study and quiz · United States · 2019 · Partisans think almost twice as many opponents hold extreme views as do; heavy news readers most distorted",
+          "firstStep": "Tell us you’d use this, and in the meantime try the Perception Gap quiz.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a28",
+      "painName": "Loneliness",
+      "painLine": "I feel alone.",
+      "title": "Coworkers I actually know and talk to",
+      "line": "At work there are a few people I eat lunch with and could call if something went wrong.",
+      "fixes": [
+        {
+          "title": "Start a regular lunch with a few coworkers",
+          "whatChanges": "A standing lunch once a week gives people who sit near each other, or only meet on video, a reason to talk about something besides work. Remote teams can do the same with a short video coffee.",
+          "example": null,
+          "firstStep": "Invite two coworkers to lunch on the same day next week and suggest making it a regular thing.",
+          "kind": "schedule",
+          "featureIdea": null
+        },
+        {
+          "title": "Ask your employer to treat loneliness as a workplace issue",
+          "whatChanges": "In 2018 England’s government announced an employer pledge on loneliness, and large employers such as the grocery chain Sainsbury’s promised to do more for their employees’ social wellbeing. Your employer could start smaller, by building time for people to meet into the workweek.",
+          "example": "England's first loneliness strategy · England · 2018 · Committed that all family doctors in England could refer lonely patients to community activities by 2023; Royal Mail pilot had postal workers check on lonely people; first Employer Pledge on loneliness in the workplace, with employers including Sainsbury's, Transport for London and the Co-op pledging further action on employees' social wellbeing; £1.8m to increase community spaces, turning underused areas into community cafés, art spaces or gardens",
+          "firstStep": "Suggest one idea, like a monthly team lunch on company time, to your manager or employee group.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Private match for coworkers who want a standing lunch",
+          "whatChanges": "Lets you say privately that you’d join a regular lunch or video coffee with coworkers, and connects you once two or three others at your workplace have said the same, so nobody has to risk asking first.",
+          "example": null,
+          "firstStep": "Tell us you’d use this, and note two coworkers you’d be glad to eat lunch with.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a29",
+      "painName": "Meaning",
+      "painLine": "I don't think my work matters.",
+      "title": "More of my week on work that matters",
+      "line": "Most days I do at least one thing at work that I think is worth doing.",
+      "fixes": [
+        {
+          "title": "List what you’d add to your job and what you’d drop",
+          "whatChanges": "In 2001 two researchers, Amy Wrzesniewski and Jane Dutton, named this job crafting: quietly changing your tasks, who you work with, and how you see the work. You usually have more room than your job description suggests, and small changes add up over a year.",
+          "example": "Job crafting: task, relational and cognitive · Academy of Management Review · 2001 · Term coined by Amy Wrzesniewski and Jane E. Dutton in 2001; defines three ways people reshape their own jobs: changing tasks, changing who they work with, and changing how they see the work",
+          "firstStep": "Make three short lists tonight: what you like, what drains you, and what you wish you did more of.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Describe your job by who it helps instead of by its tasks",
+          "whatChanges": "In a study of hospital cleaners, people with the same duties felt very differently about the work. The ones who liked it saw themselves as part of helping patients heal, and they started doing small extra things for patients and families.",
+          "example": "Wrzesniewski and Dutton's hospital cleaners study · A hospital (location not given in the source read) · 2001 · Cleaners with the same tasks differed in how they saw the job; those who liked it saw themselves as part of healing patients and did extra things for them",
+          "firstStep": "Write one sentence that starts \"My job is to help…\" and finish it with a person, not a task.",
+          "kind": "practice",
+          "featureIdea": "Helps you put into words who your work helps, then prompts you after a workday to name one person it reached."
+        },
+        {
+          "title": "Spend more of your work time with the coworkers you learn from",
+          "whatChanges": "Changing who you work with is the second kind of job crafting, and often the easiest. A good colleague can make the same tasks feel worth doing.",
+          "example": "Job crafting: task, relational and cognitive · Academy of Management Review · 2001 · Term coined by Amy Wrzesniewski and Jane E. Dutton in 2001; defines three ways people reshape their own jobs: changing tasks, changing who they work with, and changing how they see the work",
+          "firstStep": "Ask one coworker you admire if you can sit in on, or help with, something they are working on.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Monthly check-in on the changes you're making to your job",
+          "whatChanges": "Keeps your lists of what you'd add to your job and what you'd drop, and asks once a month which small changes you've actually made, so they add up over a year instead of getting lost. The three kinds of change come from Wrzesniewski and Dutton's 2001 job crafting research.",
+          "example": "Job crafting: task, relational and cognitive · Academy of Management Review · 2001 · Term coined by Amy Wrzesniewski and Jane E. Dutton in 2001; defines three ways people reshape their own jobs: changing tasks, changing who they work with, and changing how they see the work",
+          "firstStep": "Tell us you’d use this, and put a reminder on your calendar a month from today.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a30",
+      "painName": "Meaning",
+      "painLine": "I don't think my work matters.",
+      "title": "Owning part of my company, with a vote",
+      "line": "I own a share of the place I work, and I help decide where it goes.",
+      "fixes": [
+        {
+          "title": "Ask your employer whether workers could own a share and elect board members",
+          "whatChanges": "Cooperative Home Care Associates in the Bronx, founded in 1985, is owned by more than 2,000 home health aides who elect most of its board. The average American worker co-op has about nine members, so most are small, and a real example makes the question easier to raise.",
+          "example": "Cooperative Home Care Associates · Bronx, New York · 1985 · Home health aides own and run the agency, elect most of its board, and number more than 2,000 members; the average U.S. worker co-op has about nine; holds \"Payday Fridays\" when the otherwise isolated aides gather as a group, and president and CEO Adria Powell calls home care very isolating",
+          "firstStep": "Write down the one ownership question you most want answered, and pick a calm moment to ask your manager.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Ask your employer how wide the gap is between the highest and lowest pay",
+          "whatChanges": "At the Mondragon cooperatives in Spain, started in 1955, worker-owners cap the gap between their highest and lowest pay, at 6 to 1 in one recent report and 9 to 1 in others. Knowing your own workplace's gap gives you something concrete to talk about with coworkers.",
+          "example": "Mondragon cooperatives · Basque Country, Spain · 1955 · Nearly 70,000 worker-owners vote in general assemblies; the gap between highest- and lowest-paid employees is capped at a ratio of 6 to 1",
+          "firstStep": "Look up your own employer’s ownership, whether public, private or employee-owned, and write down who you'd ask about pay.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Find worker-owned companies near you that are hiring",
+          "whatChanges": "The U.S. Federation of Worker Cooperatives and the Democracy at Work Institute keep a public directory of worker co-ops and other democratic workplaces. Some are bakeries and cleaning companies, others are tech and engineering firms.",
+          "example": "U.S. Federation of Worker Cooperatives and Democracy at Work Institute directory · United States · A public directory of worker co-ops, other democratic workplaces and support groups",
+          "firstStep": "Search the worker co-op directory for your state and save any in your line of work.",
+          "kind": "task",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a31",
+      "painName": "Doomscrolling",
+      "painLine": "I lose my nights to my phone.",
+      "title": "Seeing plainly where my nights go",
+      "line": "I know which app takes my evenings and what time I usually lose track, so I know what to try first.",
+      "fixes": [
+        {
+          "title": "Track your late-night phone use week to week",
+          "whatChanges": "Asks you once a week for the late-night numbers your phone's screen time report already shows, and keeps them on your device so you can see whether a change is working.",
+          "example": "Apple Screen Time schedules and time allowances · iPhone · 2026 · Screen Time lets you limit app categories like social media by daily time and by schedule",
+          "firstStep": "Tell us you'd use this, and look at this week's Screen Time report tonight.",
+          "kind": "feature",
+          "featureIdea": null
+        },
+        {
+          "title": "Figure out which basic to try first",
+          "whatChanges": "Asks a few questions, like whether you scroll in bed or on the couch and which app pulls you in, and suggests one thing to try for two weeks, such as charging elsewhere, grayscale or an app delay.",
+          "example": "Grayscale screen study, Alex Holte (UC Blue Ash) · United States · 2022 · About 220 students who set phones to grayscale cut use by an average of 39 minutes a day. Alex J. Holte is an assistant professor of psychology at UC Blue Ash College, University of Cincinnati",
+          "firstStep": "Tell us you'd use this, and write down the one app you opened last night after you meant to stop.",
+          "kind": "feature",
+          "featureIdea": null
+        },
+        {
+          "title": "Get reminders that stop once you're done",
+          "whatChanges": "Checks in after two weeks to ask how the change went, and then goes quiet, instead of becoming one more app that asks for your evenings.",
+          "example": null,
+          "firstStep": "Tell us you'd use this.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a32",
+      "painName": "Polarization",
+      "painLine": "I can't disagree with someone without losing them.",
+      "title": "Changing someone’s mind a little by listening first",
+      "line": "When I care about an issue, I can talk with someone who disagrees and we both come away thinking a little differently.",
+      "fixes": [
+        {
+          "title": "Ask about their experience, then share yours",
+          "whatChanges": "In a 2015 study in Miami, volunteers going door to door spent 10 to 15 minutes asking people about their own experiences and listening, rather than arguing facts. On a charged social issue, the change in attitudes was still there three months later.",
+          "example": "Deep canvassing study (Broockman and Kalla, Science) · Miami, FL · 2015 · 10-15 minute listening conversations shifted attitudes on a charged social issue for at least three months",
+          "firstStep": "Next time a topic you care about comes up, ask the other person about a time they’ve been treated unfairly, and listen before you share your own.",
+          "kind": "practice",
+          "featureIdea": "Helps you pick a question about the other person's own experience to ask first, then checks in on whether listening first changed how your story landed."
+        },
+        {
+          "title": "Pair good conversations with work on the issue itself",
+          "whatChanges": "Some critics, like Alex Zamalin, author of Against Civility, argue that groups such as Braver Angels focus on politeness and don’t address who holds power. You don’t have to choose: you can keep talking across the divide and also show up where decisions get made.",
+          "example": "Braver Angels (founding, debates, critiques) · United States · 2016 · Founded after the 2016 election; pilot was a December 2016 weekend workshop in Ohio for 10 Clinton and 10 Trump supporters; nearly 275 structured debates in all 50 states by April 2022; ACTA has sponsored about 200 Braver Angels debates on more than 75 college campuses; interest groups include a film club, book club and faith caucus",
+          "firstStep": "Pick one issue you care about and look up the next public meeting where it will be discussed.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Upcoming public meetings on the issues you care about",
+          "whatChanges": "Finds upcoming public meetings and hearings near you on an issue you pick, from published local agendas, and reminds you the week before so you can show up where the decision gets made.",
+          "example": null,
+          "firstStep": "Tell us you’d use this, and look up where your city posts its meeting agendas.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a33",
+      "painName": "Local news",
+      "painLine": "I don't know what's happening in my own town.",
+      "title": "Knowing who runs my town and how to reach them",
+      "line": "I know who my council member, school board member and state legislator are, and I’ve written to them at least once.",
+      "fixes": [
+        {
+          "title": "Look up every official who represents your address",
+          "whatChanges": "Takes your address and lists your state legislators, using the free lookup and open data that Plural (formerly Open States) publishes, and adds city and school board members where local data exists.",
+          "example": "Plural Open (formerly Open States) legislator lookup · United States · 2021 · Free address lookup for state legislators plus open legislative data and an API",
+          "firstStep": "Enter your address in Plural’s free “Find your legislators” tool and save the names.",
+          "kind": "feature",
+          "featureIdea": null
+        },
+        {
+          "title": "Write a short public comment before the meeting",
+          "whatChanges": "Helps you write a few clear sentences about an agenda item and shows you the deadline and where to send them. Many councils read written comments into the record, so you don’t have to speak in person.",
+          "example": null,
+          "firstStep": "Find the public comment instructions on your city council’s agenda page.",
+          "kind": "feature",
+          "featureIdea": null
+        },
+        {
+          "title": "Follow your council’s bills from start to finish",
+          "whatChanges": "Councilmatic, an open-source site, lets Chicago residents search more than 70,000 city council bills since 2010 and follow committee meetings. Your city’s own legislative site often has a similar search.",
+          "example": "Councilmatic · Chicago and Los Angeles Metro · 2010 · Open-source site to search 70,000+ Chicago City Council bills and follow committee meetings",
+          "firstStep": "Search your city’s legislative site for the last ordinance about your neighborhood.",
+          "kind": "task",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a34",
+      "painName": "Polarization",
+      "painLine": "I can't disagree with someone without losing them.",
+      "title": "Going into a hard conversation prepared instead of braced",
+      "line": "Before I talk politics with my dad, I know what I want from the talk and how I’ll listen.",
+      "fixes": [
+        {
+          "title": "Plan what you want from the conversation",
+          "whatChanges": "Walks you through a few questions before a hard talk: what you want them to understand, what you want to understand about them, and when you’ll stop. Free guides like Essential Partners’ already cover this ground for groups.",
+          "example": "Essential Partners dialogue guides and teacher trainings · Cambridge, MA · 2026 · Free field guide (Fostering Dialogue Across Divides); One-Day Professional Development for middle and high schools; practice includes building shared agreements",
+          "firstStep": "Write down one thing you want the other person to understand and one thing you want to understand about them.",
+          "kind": "feature",
+          "featureIdea": null
+        },
+        {
+          "title": "Rehearse saying back what you heard",
+          "whatChanges": "Plays the other side of a disagreement so you can practice looping, saying back what you heard until the speaker agrees you got it right, before you try it with someone you love.",
+          "example": "Looping listening exercise (from Amanda Ripley's High Conflict) · United States · 2021 · Two-minute speak, repeat back, check, correct, switch exercise",
+          "firstStep": "Tell us you’d use this, and practice one round of looping with a friend this week.",
+          "kind": "feature",
+          "featureIdea": null
+        },
+        {
+          "title": "Find a structured conversation near you",
+          "whatChanges": "Gathers the conversation programs that already exist, like One Small Step, which pairs people with different views for a recorded conversation, and shows you what’s near your ZIP code or online this month.",
+          "example": "StoryCorps One Small Step · United States · 2026 · Matches people with different political views for a recorded 50-minute conversation",
+          "firstStep": "Tell us you’d use this, and look at One Small Step’s sign-up page today.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a35",
+      "painName": "Burnout",
+      "painLine": "I've got nothing left.",
+      "title": "Raising workload problems together with my coworkers",
+      "line": "My coworkers and I ask for changes as a group, so nobody has to stick their neck out alone.",
+      "fixes": [
+        {
+          "title": "Raise the workload problem as a group",
+          "whatChanges": "Under the National Labor Relations Act, private-sector employees who act together about working conditions, such as a joint letter about staffing, are protected from retaliation even without a union. A request signed by six people lands differently from one person's complaint.",
+          "example": "Protected concerted activity under the National Labor Relations Act · United States · Employees acting together about working conditions are protected from retaliation, with or without a union",
+          "firstStep": "Ask two coworkers you trust whether the workload is wearing on them too.",
+          "kind": "project",
+          "featureIdea": null
+        },
+        {
+          "title": "Bargain for shorter hours through your union",
+          "whatChanges": "In Iceland, unions took the results of the 2015 to 2019 shorter-week trials into contract talks, and 86% of the country's workers now have shorter hours or the right to them. If you have a union, your contract is the place where workload and hours get decided.",
+          "example": "Iceland shorter working week trials · Reykjavik and Iceland's national government · 2019 · From 2015-2019, about 2,500 workers moved to 35-36 hours with no pay cut; wellbeing rose; productivity and service provision remained the same or improved across the majority of trial workplaces; 86% of workforce later gained shorter hours or the right to them",
+          "firstStep": "Find out when your union contract next comes up for negotiation and who your steward is.",
+          "kind": "group",
+          "featureIdea": null
+        },
+        {
+          "title": "Gather your coworkers' workload numbers privately",
+          "whatChanges": "Lets coworkers report hours and unfinished work anonymously and adds them up, so you walk into a meeting with numbers instead of stories, without anyone's name attached.",
+          "example": "Protected concerted activity under the National Labor Relations Act · United States · Employees acting together about working conditions are protected from retaliation, with or without a union",
+          "firstStep": "Tell us you'd use this, and jot down how many hours you actually worked last week.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a36",
+      "painName": "Doomscrolling",
+      "painLine": "I lose my nights to my phone.",
+      "title": "Finding out what a month without the feed feels like",
+      "line": "I take one app off my phone for a month and notice what I actually do with my evenings instead.",
+      "fixes": [
+        {
+          "title": "Deactivate one social media account for four weeks",
+          "whatChanges": "In a 2018 experiment, researchers paid people to stay off Facebook for four weeks. They got back about an hour a day, spent more of it with friends and family, and said they were a little happier. Several weeks after, they were using the Facebook app about 22 percent less than people who hadn't quit.",
+          "example": "Facebook deactivation experiment (Allcott, Gentzkow and colleagues) · United States · 2018 · Paid users who left Facebook for four weeks gained about an hour a day, spent more time with friends and family, and reported small gains in happiness; several weeks after, reported use of the Facebook mobile app was about 11 minutes (22 percent) lower than in the control group",
+          "firstStep": "Pick the account that costs you the most nights and put a four-week end date on your calendar.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Delete the app but keep the account on a computer",
+          "whatChanges": "If you need an account for family photos or a group, keeping it only on a laptop means you can still check it, just not in bed.",
+          "example": null,
+          "firstStep": "Delete one social app from your phone tonight and log in once from a computer to make sure it still works.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Weekly check-ins during a four-week break",
+          "whatChanges": "Asks once a week during your four-week break what you did with the evenings you got back, and at the end shows your answers side by side so you can decide whether to return to the app.",
+          "example": "Facebook deactivation experiment (Allcott, Gentzkow and colleagues) · United States · 2018 · Paid users who left Facebook for four weeks gained about an hour a day, spent more time with friends and family, and reported small gains in happiness; several weeks after, reported use of the Facebook mobile app was about 11 minutes (22 percent) lower than in the control group",
+          "firstStep": "Tell us you'd use this, and write tonight's date on a note where you'll see it in four weeks.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a37",
+      "painName": "Polarization",
+      "painLine": "I can't disagree with someone without losing them.",
+      "title": "Seeing which ideas most of my town agrees on",
+      "line": "When my town argues about something, I can see the ideas that people on both sides actually support.",
+      "fixes": [
+        {
+          "title": "Ask your city to try an online tool that surfaces agreement",
+          "whatChanges": "In 2015, about 3,000 people in Taiwan used a tool called Pol.is to weigh in on how to handle Uber. Nobody can reply to anyone, only add statements and vote, so the ideas that rise are the ones supported across camps. Taiwan’s government agreed in 2016 to adopt the points of agreement.",
+          "example": "vTaiwan Pol.is process on Uber · Taiwan · 2015 · About 3,000 people found points of agreement; government agreed to ratify them in May 2016",
+          "firstStep": "Send one city council member a link about Pol.is and ask whether they’d try it on the next contested local issue.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Suggest this kind of tool for your county’s long-range plan",
+          "whatChanges": "In 2025, the area around Bowling Green, Kentucky, used Pol.is to draft a 25-year plan. Of 3,940 ideas people submitted, 2,370 were backed by more than 80% of respondents. Volunteers still had to screen out off-topic posts.",
+          "example": "Pol.is open-source deliberation tool · Taiwan; Bowling Green area, KY; others · 2025 · AGPL open source; no replies, only statements and votes; Kentucky plan: 2,370 of 3,940 ideas backed by over 80%",
+          "firstStep": "Find out when your county or city next updates its comprehensive plan, and ask the planning office how residents can weigh in.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "See which ideas neighbors on both sides support",
+          "whatChanges": "Lets you add a statement about a local issue, vote on your neighbors’ statements, and see which ideas win support from people who usually disagree. Pol.is is open source, so this wouldn’t have to be invented from scratch.",
+          "example": "Pol.is open-source deliberation tool · Taiwan; Bowling Green area, KY; others · 2025 · AGPL open source; no replies, only statements and votes; Kentucky plan: 2,370 of 3,940 ideas backed by over 80%",
+          "firstStep": "Tell us you’d use this, and write down one local issue where you suspect neighbors agree more than it seems.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a38",
+      "painName": "Polarization",
+      "painLine": "I can't disagree with someone without losing them.",
+      "title": "A town email list where neighbors argue without insults",
+      "line": "When my town disagrees about a new road or a school budget, people say so under their real names and stay decent.",
+      "fixes": [
+        {
+          "title": "Ask for a neighbors-only forum with a human moderator",
+          "whatChanges": "In Vermont, Front Porch Forum sends each town an email digest of neighbors’ posts, reviewed first by a person, with no anonymous posting and no comment threads. In a 2023 University of Texas survey of its members, 80% said people there treat each other with respect.",
+          "example": "Front Porch Forum · Vermont · 2006 · Over 250 town forums, nearly 250,000 members; human-moderated email digests; no anonymity and no commenting on posts; 80% say people treat each other with respect (2023 survey by the Center for Media Engagement at the University of Texas-Austin)",
+          "firstStep": "Ask your town library or neighborhood association whether there’s a moderated local email list, and what its rules are.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Host a structured debate on a local issue",
+          "whatChanges": "Braver Angels had held nearly 275 structured debates in all 50 states by 2022, and a higher-education nonprofit has sponsored about 200 more on over 75 college campuses. A local library or college is a natural host for one on a town question.",
+          "example": "Braver Angels (founding, debates, critiques) · United States · 2016 · Founded after the 2016 election; pilot was a December 2016 weekend workshop in Ohio for 10 Clinton and 10 Trump supporters; nearly 275 structured debates in all 50 states by April 2022; ACTA has sponsored about 200 Braver Angels debates on more than 75 college campuses; interest groups include a film club, book club and faith caucus",
+          "firstStep": "Email your library’s events coordinator and ask whether they’d host a Braver Angels-style debate on a local question.",
+          "kind": "project",
+          "featureIdea": null
+        },
+        {
+          "title": "Shared request for a moderated town forum",
+          "whatChanges": "Gathers neighbors behind one request to your library or town for a neighbors-only email list with a human moderator, shows how many have signed on, and sends it together. Vermont’s Front Porch Forum shows the kind of list you’d be asking for.",
+          "example": "Front Porch Forum · Vermont · 2006 · Over 250 town forums, nearly 250,000 members; human-moderated email digests; no anonymity and no commenting on posts; 80% say people treat each other with respect (2023 survey by the Center for Media Engagement at the University of Texas-Austin)",
+          "firstStep": "Tell us you’d use this, and name one neighbor who’d sign a request like this with you.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a39",
+      "painName": "Polarization",
+      "painLine": "I can't disagree with someone without losing them.",
+      "title": "Stopping an argument before it turns into a fight",
+      "line": "When I feel myself getting heated, I can stop, and we pick the conversation back up later without anyone storming off.",
+      "fixes": [
+        {
+          "title": "Agree on a word either of you can use to pause",
+          "whatChanges": "A pause works best when you’ve agreed on it ahead of time, so calling one doesn’t feel like walking out. Something plain, like “time out”, is enough.",
+          "example": null,
+          "firstStep": "Tonight, tell the person you argue with most that you’d like a pause word, and pick one together.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Promise to come back to it within a day",
+          "whatChanges": "A pause only helps if the other person trusts you’ll return. Naming a time, like “tomorrow after dinner”, turns a stop into a postponement.",
+          "example": null,
+          "firstStep": "The next time you pause an argument, say exactly when you’ll pick it up again, and put it on your calendar.",
+          "kind": "practice",
+          "featureIdea": "Asks you to set a specific time to resume a paused argument, reminds you when it arrives and asks how the return went."
+        }
+      ]
+    },
+    {
+      "id": "a40",
+      "painName": "Burnout",
+      "painLine": "I've got nothing left.",
+      "title": "Seeing whether I'm wearing down or recovering",
+      "line": "I can see, month by month, whether my work is draining me or I'm getting some of myself back.",
+      "fixes": [
+        {
+          "title": "Measure how burned out you are, and from what",
+          "whatChanges": "Lets you answer the Copenhagen Burnout Inventory privately on your phone and keeps your answers there, so you can see whether the job is the main drain. Researchers at Denmark's National Institute of Occupational Health published the inventory in 2004: 19 questions that score exhaustion in general, from work and from working with clients separately.",
+          "example": "Copenhagen Burnout Inventory · Copenhagen, Denmark: National Institute of Occupational Health (Borritz and Kristensen) · 2004 · 19 questions in three scales: personal burnout (6), work burnout (7) and client burnout (6), each scored 0 to 100; the PUMA study counted 50 or more as a high degree of burnout",
+          "firstStep": "Tell us you'd use this, and tonight rate from one to ten how drained you felt today.",
+          "kind": "feature",
+          "featureIdea": null
+        },
+        {
+          "title": "Track which weeks drain you most, and why",
+          "whatChanges": "Asks once a week which of Christina Maslach's six areas, such as workload or fairness, weighed on you most, and shows you the pattern after a couple of months. A pattern is much easier to bring to a manager than a feeling.",
+          "example": "Maslach and Leiter's six areas of worklife · University of Minnesota Extension interview with Christina Maslach · 2022 · Burnout traced to mismatches in workload, control, reward, community, fairness and values; each is a place to change",
+          "firstStep": "Write down the hardest part of this past week in one sentence and date it.",
+          "kind": "feature",
+          "featureIdea": null
+        },
+        {
+          "title": "Bring a one-page summary to a doctor or counselor",
+          "whatChanges": "Turns your check-ins into a short summary of how long this has gone on and what makes it worse, so a doctor or employee assistance counselor can start with facts instead of a blank page.",
+          "example": "Federal employee assistance program · U.S. Office of Personnel Management · Free, confidential assessments, short-term counseling and referrals for employees",
+          "firstStep": "Tell us you'd use this, and note the month you first remember feeling this tired.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a41",
+      "painName": "Neighbors",
+      "painLine": "I don't know the people on my street.",
+      "title": "A block party where most of the street shows up",
+      "line": "Once a year, our street closes to cars and almost every household comes out to eat together.",
+      "fixes": [
+        {
+          "title": "Apply for a block party permit from your city",
+          "whatChanges": "Most cities let residents close a quiet street for a party. Philadelphia, for example, asks for a petition signed by 75 percent of the households on the block and a $25 fee for a weekend, if you apply three weeks ahead.",
+          "example": "Philadelphia block party permit · Philadelphia, PA · 2026 · Petition signed by 75% of households; apply 21 days ahead; $25 weekend fee",
+          "firstStep": "Search your city's name plus \"block party permit\" and read what it asks for.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Treat the petition as your chance to knock on every door",
+          "whatChanges": "A signature rule like Philadelphia's means you'll talk to most of the households on your block before the party even happens. That walk is where many people learn their neighbors' names for the first time.",
+          "example": "Philadelphia block party permit · Philadelphia, PA · 2026 · Petition signed by 75% of households; apply 21 days ahead; $25 weekend fee",
+          "firstStep": "Pick a date about four weeks out and write a one-line invitation to bring when you knock.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Hold your party on the same August night as thousands of other blocks",
+          "whatChanges": "National Night Out falls on the first Tuesday in August. The first one, in 1984, drew about 400 communities, and organizers counted 34.2 million people in 10,325 communities by its 21st year, so many neighbors already know what the date means.",
+          "example": "National Night Out · United States · 1984 · 400 communities in 1984; 34.2 million people in 10,325 communities by its 21st year",
+          "firstStep": "Look up whether your city or police department organizes National Night Out and how a block can sign up.",
+          "kind": "project",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a42",
+      "painName": "Doomscrolling",
+      "painLine": "I lose my nights to my phone.",
+      "title": "A short pause before the apps that eat my evenings",
+      "line": "When I reach for the app out of habit, something makes me wait a breath, and a lot of the time I close it.",
+      "fixes": [
+        {
+          "title": "Add a short delay before your most-scrolled apps",
+          "whatChanges": "An app called one sec makes you wait and breathe for a few seconds before an app opens. In a six-week study of 280 users published in 2023, people ended up opening the apps they'd chosen 57% less often. Those users signed up wanting to cut back, which helps.",
+          "example": "one sec self-nudge app field study (PNAS) · Germany / iOS users · 2023 · 280 users over six weeks; 36% of attempts to open target app ended in closing it; actual openings fell 57%",
+          "firstStep": "Install a delay app like one sec and attach it to the one app you lose the most evenings to.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Move the scrolling apps off your home screen",
+          "whatChanges": "Putting an app in a folder on the last screen, or logging out after each use, adds just enough effort that habit stops carrying you straight into it.",
+          "example": null,
+          "firstStep": "Drag your two most-scrolled apps into a folder on the last page of your home screen.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Pause-and-reflect prompts before habit apps",
+          "whatChanges": "Asks one short question when you open an app you marked, such as what you came to do, and shows you privately how often you closed the app instead, the way one sec adds a pause before the apps you pick.",
+          "example": "one sec self-nudge app field study (PNAS) · Germany / iOS users · 2023 · 280 users over six weeks; 36% of attempts to open target app ended in closing it; actual openings fell 57%",
+          "firstStep": "Tell us you'd use this, and write down the one app you'd want a pause in front of.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a43",
+      "painName": "Doomscrolling",
+      "painLine": "I lose my nights to my phone.",
+      "title": "A phone that turns gray and quiet at bedtime",
+      "line": "After about 10, my phone goes black and white, the apps I scroll lock until morning, and checking it stops being much fun.",
+      "fixes": [
+        {
+          "title": "Set your screen to grayscale",
+          "whatChanges": "When about 220 college students switched their phones to grayscale, they used them about 39 minutes less a day, according to a psychologist at the University of Cincinnati's Blue Ash campus. Color is a lot of what makes feeds pleasant to keep scrolling.",
+          "example": "Grayscale screen study, Alex Holte (UC Blue Ash) · United States · 2022 · About 220 students who set phones to grayscale cut use by an average of 39 minutes a day. Alex J. Holte is an assistant professor of psychology at UC Blue Ash College, University of Cincinnati",
+          "firstStep": "Find the grayscale or color filter setting under Accessibility and turn it on for one evening.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Schedule a black-and-white bedtime mode on your phone",
+          "whatChanges": "Android's Digital Wellbeing settings include a Bedtime mode that turns the screen black and white on a schedule, or whenever you plug the phone in at night. App timers can also close a chosen app after a daily limit.",
+          "example": "Android Digital Wellbeing Bedtime mode and app timers · Android · 2026 · Bedtime mode can turn the screen black and white on a schedule or when charging at night; app timers close an app after a daily limit",
+          "firstStep": "Open Digital Wellbeing in Settings and set Bedtime mode to start when you usually want to be asleep.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Set a nightly schedule and app limits on an iPhone",
+          "whatChanges": "Screen Time on an iPhone lets you limit whole categories like social media, by a daily total or by time of day. You can dismiss the limit when it pops up, but having to make that choice on purpose is the point.",
+          "example": "Apple Screen Time schedules and time allowances · iPhone · 2026 · Screen Time lets you limit app categories like social media by daily time and by schedule",
+          "firstStep": "In Settings, open Screen Time and set a one-hour daily limit on social media apps.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Setup steps for your exact phone",
+          "whatChanges": "Asks which phone you have and walks you through the exact menus for grayscale, Bedtime mode and app limits, since Android menus differ by phone maker.",
+          "example": "Android Digital Wellbeing Bedtime mode and app timers · Android · 2026 · Bedtime mode can turn the screen black and white on a schedule or when charging at night; app timers close an app after a daily limit",
+          "firstStep": "Tell us you'd use this, and note your phone's make and model from Settings.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a44",
+      "painName": "Neighbors",
+      "painLine": "I don't know the people on my street.",
+      "title": "Knowing what my city lets neighbors do together",
+      "line": "I know exactly what it takes to close my street, hold a party or start a play street where I live.",
+      "fixes": [
+        {
+          "title": "Find out the rules for block parties and play streets where you live",
+          "whatChanges": "Gathers each city's rules into one plain answer for your address, including the fee and how far ahead to apply. Every city writes these rules differently. Philadelphia, for example, asks for signatures from 75 percent of the households on the block, and other cities ask for less or more.",
+          "example": "Philadelphia block party permit · Philadelphia, PA · 2026 · Petition signed by 75% of households; apply 21 days ahead; $25 weekend fee",
+          "firstStep": "Tell us you'd use this, and look up your own city's block party page today.",
+          "kind": "feature",
+          "featureIdea": null
+        },
+        {
+          "title": "See which nearby blocks have already held a party",
+          "whatChanges": "Shows you nearby blocks that have done this, so you can ask them how it went. Draws on the approved event permits some cities publish; New York posts the coming month's approved events, block parties included, as open data.",
+          "example": "NYC Permitted Event Information open dataset · New York, NY · 2025 · Public list of approved event applications, including block parties, for the coming month",
+          "firstStep": "Ask a friend in a nearby neighborhood whether their block has ever closed the street for a party.",
+          "kind": "feature",
+          "featureIdea": null
+        },
+        {
+          "title": "Get your block's invitation and petition ready to print",
+          "whatChanges": "Fills in your city's petition with your street's addresses and drafts a short invitation in the same step, so the hardest part left is knocking on doors.",
+          "example": "Philadelphia block party permit · Philadelphia, PA · 2026 · Petition signed by 75% of households; apply 21 days ahead; $25 weekend fee",
+          "firstStep": "Tell us you'd use this, and sketch which houses are on your block.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a45",
+      "painName": "Loneliness",
+      "painLine": "I feel alone.",
+      "title": "Friendly conversations during everyday errands",
+      "line": "When I go to the store or the post office, someone has time to talk with me.",
+      "fixes": [
+        {
+          "title": "Shop where staff have time to talk",
+          "whatChanges": "In 2019 a Dutch supermarket chain, Jumbo, opened its first slow “chat checkout” in the town of Vlijmen, for people who like to talk with the cashier, and planned hundreds more. Smaller local shops often work this way already, especially at quiet times of day.",
+          "example": "Jumbo supermarket chat checkouts · Vlijmen, Netherlands · 2019 · First slow 'chat checkout' opened in 2019; about 200 planned, plus 200 more within a year, as part of a health ministry program",
+          "firstStep": "Pick one local shop and go at a quiet hour this week, and ask the person at the counter how their day is going.",
+          "kind": "practice",
+          "featureIdea": "Suggests an easy opener for a short chat with someone at a shop counter, then asks afterward how it went and offers a next one to try."
+        },
+        {
+          "title": "Ask your grocery store to try a no-rush checkout lane",
+          "whatChanges": "Jumbo’s chat checkouts came out of a Dutch health ministry program against loneliness, so the idea has a track record of a store and a government working together. A store manager here can try one lane on slow mornings without any law at all.",
+          "example": "Jumbo supermarket chat checkouts · Vlijmen, Netherlands · 2019 · First slow 'chat checkout' opened in 2019; about 200 planned, plus 200 more within a year, as part of a health ministry program",
+          "firstStep": "Ask the manager at your grocery store whether they’d try one no-rush lane on weekday mornings.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Shared request to a store for a no-rush checkout lane",
+          "whatChanges": "Gathers shoppers at one grocery store behind a single request for a no-rush lane on slow mornings, shows how many regulars have signed on, and sends it to the manager together. Jumbo’s chat checkouts in the Netherlands started with one lane in Vlijmen in 2019.",
+          "example": "Jumbo supermarket chat checkouts · Vlijmen, Netherlands · 2019 · First slow 'chat checkout' opened in 2019; about 200 planned, plus 200 more within a year, as part of a health ministry program",
+          "firstStep": "Tell us you’d use this, and ask one other regular at your store whether they’d sign on.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a46",
+      "painName": "Doomscrolling",
+      "painLine": "I lose my nights to my phone.",
+      "title": "Parents in my kid's grade agreeing to wait on smartphones",
+      "line": "My kid isn't the only one in class without a smartphone, because a group of us decided together.",
+      "fixes": [
+        {
+          "title": "Sign a pledge that starts when ten families in the grade join",
+          "whatChanges": "Wait Until 8th asks parents to hold off on a smartphone until the end of eighth grade. The pledge only kicks in once ten families from the same grade and school sign, so no child is the only one. More than 155,000 parents have signed.",
+          "example": "Wait Until 8th pledge · United States · 2026 · Parents pledge to delay smartphones to the end of 8th grade; activates when 10 families in a grade sign; 155,000+ parents signed",
+          "firstStep": "Read the pledge at waituntil8th.org and send the link to two parents in your kid's grade.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Start a parent pact at your kid's school to wait until 14",
+          "whatChanges": "Smartphone Free Childhood was started by parents in the UK in early 2024. Since then, over 140,000 parents from 13,500 schools have signed a pact to hold off on smartphones until their kids are 14.",
+          "example": "Smartphone Free Childhood parent pact · United Kingdom · 2024 · Launched in the UK in early 2024 by parents; over 140,000 parents from 13,500 schools pledged to delay smartphones until 14",
+          "firstStep": "Ask in your class parents' group chat whether anyone else is thinking about this.",
+          "kind": "new-group",
+          "featureIdea": null
+        },
+        {
+          "title": "Find other parents in your school who'd wait too",
+          "whatChanges": "Lets parents at the same school say privately that they'd delay a smartphone, and only tells everyone once enough families agree. Nobody's choice is shown until then.",
+          "example": null,
+          "firstStep": "Tell us you'd use this.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a47",
+      "painName": "Burnout",
+      "painLine": "I've got nothing left.",
+      "title": "A four-day work week at the same pay",
+      "line": "I work four days, get paid for five, and have a whole day each week to recover.",
+      "fixes": [
+        {
+          "title": "Propose a six-month four-day week trial where you work",
+          "whatChanges": "In 2022, 61 companies in the United Kingdom cut hours to four days with no pay cut for six months. Seventy-one percent of the staff who answered the surveys reported less burnout, and 56 of the companies kept the shorter week. The companies chose to take part, so your workplace would be its own test.",
+          "example": "UK four-day week pilot · United Kingdom · 2022 · 61 companies, about 2,900 staff; 71% reported lower burnout; 56 companies kept the shorter week",
+          "firstStep": "Send the published results of the UK trial to your manager and ask whether they'd consider a trial.",
+          "kind": "project",
+          "featureIdea": null
+        },
+        {
+          "title": "Ask for one month of four-day weeks as a first step",
+          "whatChanges": "Microsoft Japan gave staff five Fridays off with full pay in August 2019, and the company said productivity rose 40%. That was one month at one company, measured by the company itself, but a short trial is an easy thing for a skeptical boss to agree to.",
+          "example": "Microsoft Japan Work-Life Choice Challenge · Japan · 2019 · Staff took five Fridays off in August 2019 with full pay, meetings were shortened; the company said the result was a productivity boost of 40%",
+          "firstStep": "Write a one-paragraph proposal for a one-month trial, including how you'd measure whether work still gets done.",
+          "kind": "project",
+          "featureIdea": null
+        },
+        {
+          "title": "Private count of coworkers who want a four-day week",
+          "whatChanges": "Lets you say privately that you'd want a four-day week trial at your workplace, and tells you only once enough coworkers have said the same, so nobody has to raise it alone. In the 2022 trial in the United Kingdom, 56 companies kept the shorter week afterward.",
+          "example": "UK four-day week pilot · United Kingdom · 2022 · 61 companies, about 2,900 staff; 71% reported lower burnout; 56 companies kept the shorter week",
+          "firstStep": "Tell us you'd use this, and ask one coworker whether they'd want to try a four-day week.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a48",
+      "painName": "Rent",
+      "painLine": "I pay too much for housing.",
+      "title": "Good public housing that working people want",
+      "line": "My city builds and owns good apartments that ordinary working people rent for years at a fair price.",
+      "fixes": [
+        {
+          "title": "Tell your city council which public housing rules you'd want",
+          "whatChanges": "Vienna owns about 220,000 apartments and co-ops own about 200,000 more, open to residents who have lived there two years and earn under an income limit. Supporters point to it as proof that public housing can be broadly shared. Critics note that newcomers can wait years and that cheap flats can pass to relatives who no longer need them.",
+          "example": "Vienna city-owned and co-op rental housing · Vienna, Austria · About 220,000 city-owned flats and 200,000 co-operative flats; eligibility needs two years' residence and income under a limit",
+          "firstStep": "Pick one rule from Vienna's rental flat page you'd want in your city, like the income limit, and email it to your city council member in two sentences.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Ask candidates where they stand on publicly owned housing",
+          "whatChanges": "Some American cities and counties are starting public developers that build mixed-income apartments and keep them. Others prefer vouchers or tax credits to private builders. Asking candidates which they favor, and why, shows them renters are paying attention.",
+          "example": null,
+          "firstStep": "Write down one question about public housing to ask at your next city council or candidate forum.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Shared campaign for city-built rental housing",
+          "whatChanges": "Gathers renters behind one specific ask, like having the city build and keep mixed-income apartments, tracks who has signed on in each council district, and sends the ask to the council together.",
+          "example": null,
+          "firstStep": "Tell us you'd use this, and ask two renters you know whether they'd sign on.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a49",
+      "painName": "Rent",
+      "painLine": "I pay too much for housing.",
+      "title": "Showing my officials what rent really costs on our street",
+      "line": "My representatives hear from renters like me with real numbers, not just from landlords and builders.",
+      "fixes": [
+        {
+          "title": "Write to your representatives with your own numbers",
+          "whatChanges": "Finds your city council member and state legislators from your address and helps you write a short letter that includes your rent, your last increase and what you'd like them to do. A letter with your actual rent and your last increase is more useful to an official than a general complaint.",
+          "example": null,
+          "firstStep": "Tell us you'd use this, and look up your city council member's name and email today.",
+          "kind": "feature",
+          "featureIdea": null
+        },
+        {
+          "title": "Send officials a combined picture from renters in your area",
+          "whatChanges": "Lets renters in a neighborhood add their increases privately and sends officials one summary, set next to public rent data like Apartment List's city estimates. One letter is easy to set aside.",
+          "example": "Apartment List rent estimates · United States · 2017 · Monthly median rent for new leases at national, state, metro, county and city level since January 2017",
+          "firstStep": "Tell us you'd use this, and ask two renters you know what their last increase was.",
+          "kind": "feature",
+          "featureIdea": null
+        },
+        {
+          "title": "Bring a list of renter protections you want to your city council",
+          "whatChanges": "In December 2019 Kansas City passed a tenants' bill of rights that was mainly the work of KC Tenants, a renters' group that hadn't existed at the start of that year. The rules include 24 hours' notice before a landlord enters and a ban on rejecting applicants solely for a past eviction.",
+          "example": "Kansas City tenants' bill of rights · Kansas City, MO · 2019 · Council approved in December 2019 with Mayor Quinton Lucas's backing; the ordinance was primarily the work of KC Tenants, a group that didn't exist at the beginning of 2019; it bars rejecting applicants solely for past evictions, requires 24 hours' notice before entry, and affirms the right to organize",
+          "firstStep": "Write down the three protections you'd most want in your city's rental rules.",
+          "kind": "task",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a50",
+      "painName": "Rent",
+      "painLine": "I pay too much for housing.",
+      "title": "A free lawyer if I face eviction",
+      "line": "If I'm ever taken to housing court, I don't walk in alone against my landlord's attorney.",
+      "fixes": [
+        {
+          "title": "Find out whether your city guarantees a free eviction lawyer",
+          "whatChanges": "New York City passed the country's first right to counsel in 2017, and the city reported that 84% of tenants who had a lawyer in court in 2023 stayed in their homes. There aren't enough lawyers to go around, though: in late fiscal 2024 only 42% of people facing eviction in the city had full representation, so call early.",
+          "example": "New York City right to counsel in eviction cases · New York City · 2017 · First such law in the US; city reported 84% of tenants with representation in court in 2023 stayed housed; in the fourth quarter of fiscal 2024 only 42% of people facing eviction in the city received full legal representation",
+          "firstStep": "Search your city's name plus \"right to counsel eviction\" and save the phone number of local legal aid.",
+          "kind": "learn",
+          "featureIdea": null
+        },
+        {
+          "title": "Ask your city council to fund lawyers for tenants",
+          "whatChanges": "In June 2022 Kansas City's council promised tenants free legal help with housing cases, after the KC Tenants union helped lead the push. Critics in many cities point to the cost and to the shortage of lawyers to staff these programs.",
+          "example": "Kansas City right to counsel for tenants · Kansas City, MO · 2022 · City council resolution in June 2022 ensured tenants free legal counsel for housing issues; KC Tenants helped lead the push",
+          "firstStep": "Find your city council member's email and ask whether the city has considered a right to counsel.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Finder for free eviction lawyers near you",
+          "whatChanges": "Finds the legal aid offices and tenant lawyers that serve your address, and says whether your city guarantees a lawyer in eviction cases, as New York City has since 2017.",
+          "example": "New York City right to counsel in eviction cases · New York City · 2017 · First such law in the US; city reported 84% of tenants with representation in court in 2023 stayed housed; in the fourth quarter of fiscal 2024 only 42% of people facing eviction in the city received full legal representation",
+          "firstStep": "Tell us you'd use this, and save your local legal aid office's phone number in your contacts.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a51",
+      "painName": "Loneliness",
+      "painLine": "I feel alone.",
+      "title": "Knowing what kind of help my loneliness needs",
+      "line": "I know whether I need more people around me, closer friendships or more urgent support.",
+      "fixes": [
+        {
+          "title": "Answer three questions researchers use to measure loneliness",
+          "whatChanges": "Asks you each month the three questions a national study of older Americans uses: how often you lack companionship, feel left out and feel isolated. Then shows whether things are getting better, without treating the score as a diagnosis.",
+          "example": "Three-item loneliness scale (Hughes and colleagues) · Health and Retirement Study, United States · 2004 · Three questions, scored 3 to 9, developed for the 2002 national Health and Retirement Study",
+          "firstStep": "Ask yourself the three questions today and answer each with hardly ever, some of the time or often.",
+          "kind": "feature",
+          "featureIdea": null
+        },
+        {
+          "title": "Figure out whether you need more people or deeper connection",
+          "whatChanges": "Suggests which fits you, from weekly groups to one-on-one time, and points you to a crisis line if you need one right away. When Japan named a minister in 2021, the job covered both isolation and loneliness, and those aren’t the same thing: some people see almost no one, while others have people around but don’t feel understood.",
+          "example": "Japan's minister for loneliness and isolation · Japan · 2021 · Tetsushi Sakamoto appointed in February 2021 after suicides rose for the first time in 11 years",
+          "firstStep": "Write down the last time you saw people in person and the last time you felt understood.",
+          "kind": "feature",
+          "featureIdea": null
+        },
+        {
+          "title": "Find nearby groups and services that match what you need",
+          "whatChanges": "Looks up local options through 211, the US helpline network that already connects people to local services. Every suggestion comes with a phone number you can call yourself.",
+          "example": "211 helpline network · United States · 2025 · Local 211 services made more than 19 million referrals to help in 2025",
+          "firstStep": "Tell us you’d use this, and call 211 to ask what’s offered near you.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a52",
+      "painName": "Local news",
+      "painLine": "I don't know what's happening in my own town.",
+      "title": "Getting paid to sit in on public meetings",
+      "line": "I go to a few meetings a month, take notes for my neighbors, and get paid for my time.",
+      "fixes": [
+        {
+          "title": "Sign up to take paid notes at local meetings",
+          "whatChanges": "Since 2018, a Chicago nonprofit called City Bureau has trained residents to attend public meetings, take notes and get paid for their time. In 2022 every site paid more than $15 an hour and Minneapolis paid $20, and rates now vary by city.",
+          "example": "City Bureau Documenters Network · Chicago, Detroit, Cleveland, Minneapolis and other cities · 2018 · Trains and pays residents to take notes at public meetings; all sites pay more than $15 an hour, Minneapolis $20",
+          "firstStep": "Check documenters.org for a program near you and sign up for the next orientation.",
+          "kind": "group",
+          "featureIdea": null
+        },
+        {
+          "title": "Ask what meetings in your area go uncovered",
+          "whatChanges": "In Cleveland, Documenters covered more than 1,400 public meetings in five years, and their notes informed more than 700 news stories. That count comes from the newsroom that runs the program, in one city.",
+          "example": "Signal Cleveland Documenters · Cleveland, OH · 2025 · More than 1,400 public meetings covered in five years, informing more than 700 news stories",
+          "firstStep": "List the boards in your town, like planning, zoning and health, and check which ones had no news story about them last year.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Uncovered public meetings near you",
+          "whatChanges": "Lists the public boards in your town, shows which ones nobody has taken notes at or reported on recently, and matches you with one that meets when you’re free.",
+          "example": null,
+          "firstStep": "Tell us you’d use this, and list the boards in your town that meet on evenings you’re free.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a53",
+      "painName": "Meaning",
+      "painLine": "I don't think my work matters.",
+      "title": "Using my work skills for a cause I care about",
+      "line": "Something I do every day at my job is helping an organization I believe in.",
+      "fixes": [
+        {
+          "title": "Take on a short project for a nonprofit that needs your skills",
+          "whatChanges": "Rachael Chong started Catchafire in New York in 2009, after a volunteer day where she hauled lumber while her finance skills went unused. The site matches professionals with short, defined nonprofit projects, often done remotely.",
+          "example": "Catchafire · New York City · 2009 · Matches professionals with short nonprofit projects that use their work skills; founder Rachael Chong started it after hauling lumber when her finance skills could have helped",
+          "firstStep": "Write down the one work skill people most often ask you for, and look for a nonprofit project that needs it.",
+          "kind": "project",
+          "featureIdea": null
+        },
+        {
+          "title": "Search volunteer listings by the skill you use at work",
+          "whatChanges": "Idealist, which took over VolunteerMatch in 2025, lists more than 100,000 volunteer openings, virtual and in person, and you can search by skill. People search for things like \"data analyst\" and \"board member\".",
+          "example": "Idealist volunteer listings (now including VolunteerMatch) · United States · 2025 · More than 100,000 virtual and in-person volunteer opportunities, searchable by skill, such as data analyst or board member",
+          "firstStep": "Search Idealist for your job title plus \"volunteer\" and save two openings that look real.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Treat your professional skills as worth more than general help",
+          "whatChanges": "The Taproot Foundation estimated in 2015 that an hour of professional skills given to a nonprofit was worth about $150, against about $23 for general volunteering. A few hours of what you already do well can matter more to a small group than a weekend of painting.",
+          "example": "Taproot Foundation pro bono valuation · United States · 2015 · Professional skills given to nonprofits valued at $150 an hour, against about $23 for general volunteering",
+          "firstStep": "Email one local nonprofit you like and ask what skill they wish they had on their team.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Matching your work skills to local nonprofits that need them",
+          "whatChanges": "Asks local nonprofits which skill they wish they had on their team and matches them with nearby people who use that skill at work, the way Catchafire matches professionals with short nonprofit projects, so a small group gets a few hours of exactly what it needs.",
+          "example": "Catchafire · New York City · 2009 · Matches professionals with short nonprofit projects that use their work skills; founder Rachael Chong started it after hauling lumber when her finance skills could have helped",
+          "firstStep": "Tell us you’d use this, and write down one local group you'd most like to help.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a54",
+      "painName": "Burnout",
+      "painLine": "I've got nothing left.",
+      "title": "A workload I can actually finish, agreed with my manager",
+      "line": "My manager knows what I can't keep doing, and we've agreed on what comes off my plate.",
+      "fixes": [
+        {
+          "title": "Bring your manager a list of what to drop or delay",
+          "whatChanges": "Christina Maslach describes workload burnout as demands that outrun the time, people and tools you have. A manager can say yes to a specific list far more easily than to a general complaint about being busy.",
+          "example": "Maslach and Leiter's six areas of worklife · University of Minnesota Extension interview with Christina Maslach · 2022 · Burnout traced to mismatches in workload, control, reward, community, fairness and values; each is a place to change",
+          "firstStep": "Write down everything on your plate and mark the three things you'd drop or delay first.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Ask your manager to plan time off for the whole team",
+          "whatChanges": "Many people skip vacation because they feel bad about coworkers covering for them; a 2023 Pew survey found 43% of workers who leave time unused say so. When a manager plans everyone's days off and who covers what, nobody has to feel like they're abandoning the team.",
+          "example": "Pew survey on unused paid time off · United States · 2023 · 46% of workers with paid time off take less than offered; 49% of them worry about falling behind; 43% feel badly about coworkers taking on additional work",
+          "firstStep": "Suggest at your next one-on-one that the team pick vacation dates for the next six months together.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Coaching for a workload talk with your manager",
+          "whatChanges": "Helps you turn your list into a short, specific ask, rehearses what your manager might say back, and checks in a week later on what actually came off your plate.",
+          "example": null,
+          "firstStep": "Tell us you'd use this, and write the one sentence you'd open with when you talk to your manager.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a55",
+      "painName": "Local news",
+      "painLine": "I don't know what's happening in my own town.",
+      "title": "My state paying to keep local reporters on the job",
+      "line": "The reporters who cover my county have steady pay, and my state helped make that happen without telling them what to write.",
+      "fixes": [
+        {
+          "title": "Ask your state legislator about a tax credit for local reporters",
+          "whatChanges": "In 2025, the first year of Illinois’s payroll tax credit for local news, more than $4 million in credits supported more than 260 local journalist jobs at 55 news organizations, and over half the money went outside the Chicago area. Most of the money set aside for hiring new reporters went unclaimed, according to an advocacy group that helped design the law.",
+          "example": "Illinois Local Journalism Sustainability tax credit · Illinois · 2025 · First year: more than $4 million in credits supporting more than 260 local journalist jobs at 55 news organizations; over half of the funding went outside the Chicago metro area",
+          "firstStep": "Look up your state legislator and send a short note asking whether they’d support a local journalism tax credit like Illinois’s.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Push for an independent state fund for local news",
+          "whatChanges": "New Jersey created a civic information consortium in 2018 after residents organized for it, and it gives grants through an independent nonprofit board instead of state agencies. Some people worry that any government money weakens a paper’s independence, so the way the money is handed out matters as much as the amount.",
+          "example": "New Jersey Civic Information Consortium · New Jersey · 2018 · Created by the state in 2018; first round of 14 grants up to $35,000 from $500,000 in state funding",
+          "firstStep": "Read the New Jersey consortium’s list of grants and pick one you’d want in your state.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Ask your state university about placing new reporters in local newsrooms",
+          "whatChanges": "Washington’s legislature set aside $2.4 million in 2023 to place eight recent graduates a year in local newsrooms for two years, copying a California program. Funding was cut two years later, which shows why these programs need steady support.",
+          "example": "Washington local journalism fellowship at WSU Murrow College · Washington State · 2023 · $2.4 million over two years to place eight recent graduates a year in local newsrooms for two-year stints",
+          "firstStep": "Search your state university’s journalism school for a local news fellowship and note who runs it.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Shared request for a local news tax credit",
+          "whatChanges": "Gathers residents in one legislative district behind a request for a local journalism tax credit like Illinois’s, tracks who has signed on, and sends it to the legislator together. In its first year, Illinois’s credit supported more than 260 local journalist jobs at 55 news organizations.",
+          "example": "Illinois Local Journalism Sustainability tax credit · Illinois · 2025 · First year: more than $4 million in credits supporting more than 260 local journalist jobs at 55 news organizations; over half of the funding went outside the Chicago metro area",
+          "firstStep": "Tell us you’d use this, and look up your state legislator’s email address.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    },
+    {
+      "id": "a56",
+      "painName": "Local news",
+      "painLine": "I don't know what's happening in my own town.",
+      "title": "Watching a public meeting from home once a month",
+      "line": "Once a month I watch part of a council or school board meeting from my couch, so I know the people and the issues.",
+      "fixes": [
+        {
+          "title": "Watch the recording of last month’s council meeting",
+          "whatChanges": "Many cities and school boards post video and minutes for every meeting. Watching the first half hour, when public comment usually happens, shows you what neighbors care about and who’s listening.",
+          "example": "Cascadia Daily News public meetings guide · Whatcom and Skagit counties, Washington (WA) · 2026 · Local newsroom keeps a dashboard of city, county and school board meetings with agendas and recordings",
+          "firstStep": "Find last month’s council recording and watch the first 20 minutes.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Check how each board member voted in the latest minutes",
+          "whatChanges": "Minutes are the official short record of what was decided and who voted which way, and they’re usually posted a few weeks after the meeting. When the video is too long, they’re the quickest way to see where each member stood.",
+          "example": null,
+          "firstStep": "Open the minutes from the last school board meeting and note the votes.",
+          "kind": "task",
+          "featureIdea": null
+        },
+        {
+          "title": "Voting record for each local official",
+          "whatChanges": "Summarizes meeting minutes into a lasting record of what each council and school board member voted for, so when they’re up for election you can see what they decided and judge whether to vote for them again. Agenda Watch already collects local meeting documents daily for journalists, so the documents can be gathered.",
+          "example": "Agenda Watch (Big Local News and Reynolds Journalism Institute) · Selected U.S. regions · 2023 · Collects local government meeting documents daily so journalists can search them",
+          "firstStep": "Tell us you’d use this.",
+          "kind": "feature",
+          "featureIdea": null
+        }
+      ]
+    }
+  ]
+}

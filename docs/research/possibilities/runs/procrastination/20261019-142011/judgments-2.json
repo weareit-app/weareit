@@ -1,0 +1,602 @@
+{
+  "schemaVersion": 1,
+  "painId": "procrastination",
+  "runId": "20261019-142011",
+  "judge": {
+    "context": "isolated",
+    "at": "2026-10-19"
+  },
+  "scores": {
+    "proc-start-dreaded-task": {
+      "actionable": {
+        "score": 5,
+        "reason": "\"set a 25-minute timer on your phone, and open the file or envelope\" is a five-minute start."
+      },
+      "nonObvious": {
+        "score": 3,
+        "reason": "Pomodoro and if-then plans are well-known basics, made useful by \"you're allowed to quit when the timer goes off\"."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "Cirillo, \"late 1980s\", tomato timer; Gollwitzer and Sheeran 2006 with an honest note of \"a smaller effect\"."
+      },
+      "surprise": {
+        "score": 2,
+        "reason": "The tomato-shaped timer is a nice detail, but the fixes are predictable from the pain."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Plain and warm: \"before I can talk myself out of it\"; the if-then example of the insurance letter is concrete."
+      },
+      "power": {
+        "score": 2,
+        "reason": "Coping inside unchanged conditions: a timer, a plan, a site blocker."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "States the later review \"found a smaller effect\" and prices Freedom plainly; nothing overclaimed."
+      }
+    },
+    "proc-feeling-behind-it": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"write the one word for how it makes you feel\" is quick, though less obviously moving than a start step."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Reframes procrastination as dodging \"boredom, worry or self-doubt\" rather than \"a lack of willpower\", and matches feeling to fix."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "Sirois and Pychyl 2013; \"a 2010 study of 134 first-year college students\"."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "That forgiving yourself leads to less putting off is something I'd repeat to a friend."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Non-judging, mentor-like: \"letting yourself off the hook for the last delay\"; title is plain."
+      },
+      "power": {
+        "score": 3,
+        "reason": "A personal fix meaningful enough to change how I treat myself, not just a trick."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Study is described as what students did, not as a trial; \"Being hard on yourself tends to make the task feel worse\" stretches a correlational survey slightly but stays modest."
+      }
+    },
+    "proc-stuck-next-step": {
+      "actionable": {
+        "score": 5,
+        "reason": "\"write the very next thing you'd physically do, starting with a verb\" is a 10-minute step that unsticks."
+      },
+      "nonObvious": {
+        "score": 3,
+        "reason": "GTD next action is familiar, made useful by \"'do taxes' is a project\" vs \"find last year's tax form\"."
+      },
+      "namedExample": {
+        "score": 3,
+        "reason": "David Allen's Getting Things Done is named, but with no year or result; second fix has no example."
+      },
+      "surprise": {
+        "score": 2,
+        "reason": "The \"waiting on\" fix is a small fresh angle; otherwise predictable."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Kind and plain: \"quietly sits on your list as if it were your fault\"."
+      },
+      "power": {
+        "score": 2,
+        "reason": "Personal coping; the waiting-on fix shifts a little of the load to someone else."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "The unsourced fix is stated as everyday advice (\"Sometimes\", \"often\") with no invented evidence."
+      }
+    },
+    "proc-work-alongside-someone": {
+      "actionable": {
+        "score": 5,
+        "reason": "\"Text a friend\" or \"Book one 25-minute session\" are real 5-10 minute steps."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Body doubling for people \"without ADHD\" too, plus money with a referee, goes past \"try harder\"."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "Focusmate's free tier, stickK \"started in 2008 by two Yale economists\" with \"78%\" vs \"35%\"."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "The stickK 78% vs 35% figure and that a stranger on video helps are repeatable."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Warm and plain: \"we both get through the tasks we've been avoiding\"; figures attributed calmly to \"The co-founder reported\"."
+      },
+      "power": {
+        "score": 3,
+        "reason": "Changes my conditions by bringing other people in."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "stickK figures are attributed to the co-founder, not stated as independent results."
+      }
+    },
+    "proc-drop-what-doesnt-matter": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"cross off one item you've kept for months\" and the coin flip are quick and real."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Recasts procrastination as a list of tasks \"I was never going to do\"; noticing \"relieved or disappointed\" after a coin flip is a fresh twist."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "\"In a study published in 2021, the economist Steven Levitt\" with a six-month result; the other two fixes have none."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "A coin toss making people happier six months later is a stop-and-repeat fact."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Candid and unjudging: \"Paying for it is a reasonable trade when the dread has been costing you for months\"."
+      },
+      "power": {
+        "score": 3,
+        "reason": "Changes my own conditions: what I keep and who does the work."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Coin study is stated as what happened; unsourced fixes are plain common sense, not dressed with evidence."
+      }
+    },
+    "proc-check-for-adhd": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Answer the six questions\" and \"save the names of two people who see adults\" are concrete."
+      },
+      "nonObvious": {
+        "score": 3,
+        "reason": "\"See a doctor\" made useful: bring \"three recent examples\" and use a six-question screener first."
+      },
+      "namedExample": {
+        "score": 3,
+        "reason": "WHO workgroup, NIMH, CHADD named, but no year or result beyond \"hundreds\" of listings."
+      },
+      "surprise": {
+        "score": 2,
+        "reason": "Predictable for anyone who has wondered about ADHD."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Careful and calm: \"A high score isn't a diagnosis; it's something to bring to a doctor.\""
+      },
+      "power": {
+        "score": 3,
+        "reason": "Getting the right diagnosis changes which help I get."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Screener is clearly \"not a diagnosis\"; the CHADD directory is described without endorsement."
+      }
+    },
+    "proc-work-fits-attention": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Ask your manager for a 15-minute weekly check-in\" is a five-minute ask, though socially harder."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Few people know a free federal-law advice service lists \"to-do lists... a mentor, and timers\" as accommodations."
+      },
+      "namedExample": {
+        "score": 3,
+        "reason": "Job Accommodation Network and its ADHD list are named, but no year or outcome."
+      },
+      "surprise": {
+        "score": 3,
+        "reason": "\"You don't need a diagnosis to ask for either\" is a useful surprise."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Plain and practical; the dream line \"so things I'm responsible for don't slip\" is clear."
+      },
+      "power": {
+        "score": 4,
+        "reason": "Changes what my employer provides, backed by the Americans with Disabilities Act."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Frames JAN as advice and the ADA as depending on the job; \"cost an employer nothing\" is a small unsourced claim but not a risky one."
+      }
+    },
+    "proc-understand-my-pattern": {
+      "actionable": {
+        "score": 3,
+        "reason": "First steps (\"write down the three tasks you've put off longest\") are real but slow to matter."
+      },
+      "nonObvious": {
+        "score": 3,
+        "reason": "Sorting by why a task is stuck is a useful twist, but restates the other cards."
+      },
+      "namedExample": {
+        "score": 2,
+        "reason": "Leans on Sirois and Pychyl and NIMH loosely; the log fix has none (not penalized as a proposed idea)."
+      },
+      "surprise": {
+        "score": 2,
+        "reason": "Nothing here would make me stop."
+      },
+      "voice": {
+        "score": 3,
+        "reason": "\"Understanding which kind of putting off I'm doing\" is awkward, and the dream line is a long four-part list."
+      },
+      "power": {
+        "score": 2,
+        "reason": "A self-understanding tool; doesn't change my conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Every It idea says \"It could\" and is labeled proposed; \"without pretending to diagnose you\" sets the limit."
+      }
+    },
+    "proc-weekly-work-hour": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"put the next one on your calendar\" is quick; starting one takes longer but is clear."
+      },
+      "nonObvious": {
+        "score": 3,
+        "reason": "Using a writers' format for \"bills and emails\" is a nice twist on body doubling."
+      },
+      "namedExample": {
+        "score": 3,
+        "reason": "Shut Up & Write in \"more than 80 countries\", but no year or result."
+      },
+      "surprise": {
+        "score": 3,
+        "reason": "That a writers' meetup welcomes bills and emails is one surprising element."
+      },
+      "voice": {
+        "score": 5,
+        "reason": "\"the same table at the library with a few other people\" reads like a mentor describing a real habit; titles say exactly what happens."
+      },
+      "power": {
+        "score": 4,
+        "reason": "Builds a small shared routine with neighbors, changing conditions together."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Matching is \"It could\" with proposed status; Shut Up & Write is described as it is."
+      }
+    },
+    "proc-split-big-deadline": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"mark three dates between now and your real deadline\" is clear and quick."
+      },
+      "nonObvious": {
+        "score": 2,
+        "reason": "Milestones and telling a friend are the first thing anyone would say, with little new detail."
+      },
+      "namedExample": {
+        "score": 1,
+        "reason": "No example in either fix."
+      },
+      "surprise": {
+        "score": 1,
+        "reason": "Predictable from the title."
+      },
+      "voice": {
+        "score": 3,
+        "reason": "Plain but impersonal; \"draft date, a check date and a done date\" is the warmest line."
+      },
+      "power": {
+        "score": 2,
+        "reason": "Personal coping."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Rightly drops the failed-to-replicate study and makes no evidence claim."
+      }
+    },
+    "proc-household-paperwork": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"put a one-hour paperwork session on the shared calendar\" is specific."
+      },
+      "nonObvious": {
+        "score": 2,
+        "reason": "Trading chores is familiar; \"first Sunday of the month\" is the only concrete detail."
+      },
+      "namedExample": {
+        "score": 1,
+        "reason": "No example."
+      },
+      "surprise": {
+        "score": 1,
+        "reason": "Nothing surprising."
+      },
+      "voice": {
+        "score": 3,
+        "reason": "Plain; \"nobody faces the pile alone\" is kind but the card is generic."
+      },
+      "power": {
+        "score": 3,
+        "reason": "Redistributes household work between partners."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Offered as household practice without invented evidence."
+      }
+    },
+    "proc-forms-fill-themselves": {
+      "actionable": {
+        "score": 3,
+        "reason": "\"Read how the Swedish Tax Agency describes approving a return\" is real but slow to matter."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Reframes procrastination as a design problem: the form shouldn't need doing."
+      },
+      "namedExample": {
+        "score": 5,
+        "reason": "Sweden's pre-filled return; IRS Direct File \"in 2024\", \"12 states\", \"140,803 people\", \"90%\"."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "\"approve it online, by text or by phone\" in Sweden is a fact people repeat."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Calm and fair: \"Some people want the same... while tax-prep companies and others argue against\"; \"Push for\" in a title leans a little."
+      },
+      "power": {
+        "score": 5,
+        "reason": "Changes who does the work: the tax agency instead of me."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Contested idea framed as \"Some people want\" with opponents named; Direct File is called \"politically contested\"; It idea is \"It could\" and \"for or against\"."
+      }
+    },
+    "proc-reminders-before-deadlines": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Check whether your county court or motor vehicle office offers text reminders, and sign up\" is a real 10-minute step."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Reframes missed deadlines as a reminder-design problem the city can fix."
+      },
+      "namedExample": {
+        "score": 5,
+        "reason": "\"In New York City in 2018\", \"cut missed court dates by 26%\", \"36%\" with the redesigned form."
+      },
+      "surprise": {
+        "score": 5,
+        "reason": "A text that says what happens if you miss it cutting missed court dates by a quarter is very repeatable."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Plain and humane; the dream line says exactly what the reminder includes."
+      },
+      "power": {
+        "score": 4,
+        "reason": "Asks the city to change how it treats people facing penalties."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "NYC figures match the exemplar; It idea is \"It could\"; the 'simply forgotten' line is modest."
+      }
+    },
+    "proc-saving-starts-automatically": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Ask HR whether new hires are enrolled... and at what rate\" is a quick, concrete ask."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Recasts procrastination as a default problem: the form you'd put off shouldn't exist."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "Madrian and Shea, \"first issued in 2000\", \"one large American company\", but no number."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "That a default changes savings this much is a classic repeatable fact."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Clear and calm; \"the form I'd have put off\" ties it to the pain."
+      },
+      "power": {
+        "score": 4,
+        "reason": "Changes the employer's default, which shifts money toward workers."
+      },
+      "honestStatus": {
+        "pass": false,
+        "reason": "\"Most people stayed at the default contribution rate\" overstates the exemplar, which says \"many workers stayed at a low default\"; \"the default matters a lot\" without noting a low default can mean saving too little edges into financial advice."
+      }
+    }
+  },
+  "pairwise": [
+    {
+      "a": "proc-reminders-before-deadlines",
+      "b": "proc-forms-fill-themselves",
+      "winner": "proc-reminders-before-deadlines",
+      "reason": "Winner pairs a doable sign-up step with NYC's 26% drop in missed court dates; the other has strong Sweden and Direct File examples, but the first step is slow."
+    },
+    {
+      "a": "proc-reminders-before-deadlines",
+      "b": "proc-work-alongside-someone",
+      "winner": "proc-work-alongside-someone",
+      "reason": "Winner gives an easy tonight step plus stickK's 78% vs 35% figure; the other pairs a doable sign-up step with NYC's 26% drop in missed court dates."
+    },
+    {
+      "a": "proc-reminders-before-deadlines",
+      "b": "proc-saving-starts-automatically",
+      "winner": "proc-reminders-before-deadlines",
+      "reason": "Winner pairs a doable sign-up step with NYC's 26% drop in missed court dates; the other is strong on defaults but only loosely about procrastination and overstates the finding."
+    },
+    {
+      "a": "proc-reminders-before-deadlines",
+      "b": "proc-feeling-behind-it",
+      "winner": "proc-feeling-behind-it",
+      "reason": "Winner reframes the pain around feelings and self-forgiveness, which feels personal; the other pairs a doable sign-up step with NYC's 26% drop in missed court dates."
+    },
+    {
+      "a": "proc-reminders-before-deadlines",
+      "b": "proc-drop-what-doesnt-matter",
+      "winner": "proc-drop-what-doesnt-matter",
+      "reason": "Winner offers relief by dropping tasks, with the striking Levitt coin-flip result; the other pairs a doable sign-up step with NYC's 26% drop in missed court dates."
+    },
+    {
+      "a": "proc-reminders-before-deadlines",
+      "b": "proc-work-fits-attention",
+      "winner": "proc-reminders-before-deadlines",
+      "reason": "Winner pairs a doable sign-up step with NYC's 26% drop in missed court dates; the other offers a free, little-known way to change work, though it suits fewer readers."
+    },
+    {
+      "a": "proc-reminders-before-deadlines",
+      "b": "proc-weekly-work-hour",
+      "winner": "proc-reminders-before-deadlines",
+      "reason": "Winner pairs a doable sign-up step with NYC's 26% drop in missed court dates; the other describes a warm, regular habit with neighbors that is easy to picture."
+    },
+    {
+      "a": "proc-forms-fill-themselves",
+      "b": "proc-work-alongside-someone",
+      "winner": "proc-work-alongside-someone",
+      "reason": "Winner gives an easy tonight step plus stickK's 78% vs 35% figure; the other has strong Sweden and Direct File examples, but the first step is slow."
+    },
+    {
+      "a": "proc-forms-fill-themselves",
+      "b": "proc-saving-starts-automatically",
+      "winner": "proc-forms-fill-themselves",
+      "reason": "Winner has strong Sweden and Direct File examples, but the first step is slow; the other is strong on defaults but only loosely about procrastination and overstates the finding."
+    },
+    {
+      "a": "proc-forms-fill-themselves",
+      "b": "proc-feeling-behind-it",
+      "winner": "proc-feeling-behind-it",
+      "reason": "Winner reframes the pain around feelings and self-forgiveness, which feels personal; the other has strong Sweden and Direct File examples, but the first step is slow."
+    },
+    {
+      "a": "proc-forms-fill-themselves",
+      "b": "proc-drop-what-doesnt-matter",
+      "winner": "proc-drop-what-doesnt-matter",
+      "reason": "Winner offers relief by dropping tasks, with the striking Levitt coin-flip result; the other has strong Sweden and Direct File examples, but the first step is slow."
+    },
+    {
+      "a": "proc-forms-fill-themselves",
+      "b": "proc-work-fits-attention",
+      "winner": "proc-forms-fill-themselves",
+      "reason": "Winner has strong Sweden and Direct File examples, but the first step is slow; the other offers a free, little-known way to change work, though it suits fewer readers."
+    },
+    {
+      "a": "proc-forms-fill-themselves",
+      "b": "proc-weekly-work-hour",
+      "winner": "proc-weekly-work-hour",
+      "reason": "Winner describes a warm, regular habit with neighbors that is easy to picture; the other has strong Sweden and Direct File examples, but the first step is slow."
+    },
+    {
+      "a": "proc-work-alongside-someone",
+      "b": "proc-saving-starts-automatically",
+      "winner": "proc-work-alongside-someone",
+      "reason": "Winner gives an easy tonight step plus stickK's 78% vs 35% figure; the other is strong on defaults but only loosely about procrastination and overstates the finding."
+    },
+    {
+      "a": "proc-work-alongside-someone",
+      "b": "proc-feeling-behind-it",
+      "winner": "proc-work-alongside-someone",
+      "reason": "Winner gives an easy tonight step plus stickK's 78% vs 35% figure; the other reframes the pain around feelings and self-forgiveness, which feels personal."
+    },
+    {
+      "a": "proc-work-alongside-someone",
+      "b": "proc-drop-what-doesnt-matter",
+      "winner": "proc-work-alongside-someone",
+      "reason": "Winner gives an easy tonight step plus stickK's 78% vs 35% figure; the other offers relief by dropping tasks, with the striking Levitt coin-flip result."
+    },
+    {
+      "a": "proc-work-alongside-someone",
+      "b": "proc-work-fits-attention",
+      "winner": "proc-work-alongside-someone",
+      "reason": "Winner gives an easy tonight step plus stickK's 78% vs 35% figure; the other offers a free, little-known way to change work, though it suits fewer readers."
+    },
+    {
+      "a": "proc-work-alongside-someone",
+      "b": "proc-weekly-work-hour",
+      "winner": "proc-work-alongside-someone",
+      "reason": "Winner gives an easy tonight step plus stickK's 78% vs 35% figure; the other describes a warm, regular habit with neighbors that is easy to picture."
+    },
+    {
+      "a": "proc-saving-starts-automatically",
+      "b": "proc-feeling-behind-it",
+      "winner": "proc-feeling-behind-it",
+      "reason": "Winner reframes the pain around feelings and self-forgiveness, which feels personal; the other is strong on defaults but only loosely about procrastination and overstates the finding."
+    },
+    {
+      "a": "proc-saving-starts-automatically",
+      "b": "proc-drop-what-doesnt-matter",
+      "winner": "proc-drop-what-doesnt-matter",
+      "reason": "Winner offers relief by dropping tasks, with the striking Levitt coin-flip result; the other is strong on defaults but only loosely about procrastination and overstates the finding."
+    },
+    {
+      "a": "proc-saving-starts-automatically",
+      "b": "proc-work-fits-attention",
+      "winner": "proc-work-fits-attention",
+      "reason": "Winner offers a free, little-known way to change work, though it suits fewer readers; the other is strong on defaults but only loosely about procrastination and overstates the finding."
+    },
+    {
+      "a": "proc-saving-starts-automatically",
+      "b": "proc-weekly-work-hour",
+      "winner": "proc-weekly-work-hour",
+      "reason": "Winner describes a warm, regular habit with neighbors that is easy to picture; the other is strong on defaults but only loosely about procrastination and overstates the finding."
+    },
+    {
+      "a": "proc-feeling-behind-it",
+      "b": "proc-drop-what-doesnt-matter",
+      "winner": "proc-drop-what-doesnt-matter",
+      "reason": "Winner offers relief by dropping tasks, with the striking Levitt coin-flip result; the other reframes the pain around feelings and self-forgiveness, which feels personal."
+    },
+    {
+      "a": "proc-feeling-behind-it",
+      "b": "proc-work-fits-attention",
+      "winner": "proc-feeling-behind-it",
+      "reason": "Winner reframes the pain around feelings and self-forgiveness, which feels personal; the other offers a free, little-known way to change work, though it suits fewer readers."
+    },
+    {
+      "a": "proc-feeling-behind-it",
+      "b": "proc-weekly-work-hour",
+      "winner": "proc-feeling-behind-it",
+      "reason": "Winner reframes the pain around feelings and self-forgiveness, which feels personal; the other describes a warm, regular habit with neighbors that is easy to picture."
+    },
+    {
+      "a": "proc-drop-what-doesnt-matter",
+      "b": "proc-work-fits-attention",
+      "winner": "proc-drop-what-doesnt-matter",
+      "reason": "Winner offers relief by dropping tasks, with the striking Levitt coin-flip result; the other offers a free, little-known way to change work, though it suits fewer readers."
+    },
+    {
+      "a": "proc-drop-what-doesnt-matter",
+      "b": "proc-weekly-work-hour",
+      "winner": "proc-drop-what-doesnt-matter",
+      "reason": "Winner offers relief by dropping tasks, with the striking Levitt coin-flip result; the other describes a warm, regular habit with neighbors that is easy to picture."
+    },
+    {
+      "a": "proc-work-fits-attention",
+      "b": "proc-weekly-work-hour",
+      "winner": "proc-weekly-work-hour",
+      "reason": "Winner describes a warm, regular habit with neighbors that is easy to picture; the other offers a free, little-known way to change work, though it suits fewer readers."
+    }
+  ],
+  "seed": 17
+}

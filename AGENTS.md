@@ -59,3 +59,7 @@ GitHub issues via `gh`, not active until the repo has a GitHub remote. See `docs
 ### Domain docs
 
 Single-context: `GLOSSARY.md` at the root (created when terms are resolved) and decision records in `docs/architecture/decisions.md`. See `docs/agents/domain.md`.
+
+### Possibility content
+
+Candidate dreams and fixes are drafted with `tools/possibilities/` through the user-invoked skills `/possibilities-generate`, `/possibilities-judge`, `/possibilities-repair` and `/possibilities-calibrate`. Rules every writer follows: `tools/possibilities/README.md`. Copy written by an agent anywhere in It follows `docs/style/copy-style-guide.md`.

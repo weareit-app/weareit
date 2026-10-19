@@ -1,0 +1,89 @@
+{
+  "finalists": [
+    "burnout-four-day-week",
+    "burnout-coworkers-together",
+    "burnout-job-not-me",
+    "burnout-off-after-hours",
+    "burnout-see-it-change"
+  ],
+  "auditSample": [
+    "burnout-talk-to-manager",
+    "burnout-workplace-plans-rest"
+  ],
+  "seed": 17,
+  "itLedGuaranteed": "burnout-see-it-change",
+  "itLedMissing": false,
+  "ranking": [
+    {
+      "cardId": "burnout-four-day-week",
+      "wins": 41,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "burnout-coworkers-together",
+      "wins": 39,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "burnout-job-not-me",
+      "wins": 36,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "burnout-off-after-hours",
+      "wins": 32,
+      "meanScore": 4
+    },
+    {
+      "cardId": "burnout-talk-to-manager",
+      "wins": 32,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "burnout-health-workers",
+      "wins": 26,
+      "meanScore": 4.33
+    },
+    {
+      "cardId": "burnout-caregiver-break",
+      "wins": 24,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "burnout-shorter-hours-for-all",
+      "wins": 19,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "burnout-see-it-change",
+      "wins": 18,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "burnout-doctor-and-leave",
+      "wins": 16,
+      "meanScore": 3.33
+    },
+    {
+      "cardId": "burnout-rest-this-week",
+      "wins": 12,
+      "meanScore": 3.33
+    },
+    {
+      "cardId": "burnout-workplace-plans-rest",
+      "wins": 9,
+      "meanScore": 3.17
+    },
+    {
+      "cardId": "burnout-someone-tonight",
+      "wins": 8,
+      "meanScore": 3.33
+    },
+    {
+      "cardId": "burnout-workday-ends",
+      "wins": 3,
+      "meanScore": 2.83
+    }
+  ],
+  "excluded": []
+}

@@ -1,0 +1,89 @@
+{
+  "finalists": [
+    "broke-hospital-bills",
+    "broke-claim-tax-credits",
+    "broke-lending-circle",
+    "broke-know-recurring-costs",
+    "broke-every-benefit"
+  ],
+  "auditSample": [
+    "broke-see-the-month",
+    "broke-tell-officials"
+  ],
+  "seed": 17,
+  "itLedGuaranteed": "broke-every-benefit",
+  "itLedMissing": false,
+  "ranking": [
+    {
+      "cardId": "broke-hospital-bills",
+      "wins": 41,
+      "meanScore": 4.5
+    },
+    {
+      "cardId": "broke-claim-tax-credits",
+      "wins": 39,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "broke-lending-circle",
+      "wins": 36,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "broke-know-recurring-costs",
+      "wins": 29,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "broke-surprise-expense",
+      "wins": 28,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "broke-income-floor",
+      "wins": 26,
+      "meanScore": 4
+    },
+    {
+      "cardId": "broke-paid-enough",
+      "wins": 26,
+      "meanScore": 4
+    },
+    {
+      "cardId": "broke-lower-phone-internet",
+      "wins": 25,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "broke-easy-cancel-law",
+      "wins": 19,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "broke-every-benefit",
+      "wins": 16,
+      "meanScore": 3.5
+    },
+    {
+      "cardId": "broke-own-the-business",
+      "wins": 10,
+      "meanScore": 3.5
+    },
+    {
+      "cardId": "broke-local-spending",
+      "wins": 9,
+      "meanScore": 3.5
+    },
+    {
+      "cardId": "broke-see-the-month",
+      "wins": 8,
+      "meanScore": 3.5
+    },
+    {
+      "cardId": "broke-tell-officials",
+      "wins": 3,
+      "meanScore": 2.67
+    }
+  ],
+  "excluded": []
+}

@@ -1,0 +1,665 @@
+{
+  "schemaVersion": 1,
+  "painId": "we-cant-talk",
+  "runId": "20261019-142015",
+  "judge": {
+    "context": "isolated-consensus",
+    "judges": 3,
+    "files": [
+      "judgments-1.json",
+      "judgments-2.json",
+      "judgments-3.json"
+    ],
+    "at": "2026-10-19T18:31:23+00:00"
+  },
+  "scores": {
+    "talk-heard-first": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"before you give your view, say back what you heard and ask whether you got it right\" is doable today. | \"In one conversation today, before you give your view, say back what you heard\" is doable tonight and obviously changes the talk. | \"In one conversation today, before you give your view, say back what you heard\" is doable tonight and changes the talk."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Active listening is familiar; \"keep going until they say yes\" gives it a useful twist. | Active listening is familiar; \"keep going until they say yes\" adds a useful twist. | Looping goes past 'listen more' by requiring \"keep going until they say yes\"."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "Cites Amanda Ripley's High Conflict but no place, number or result. | Names Amanda Ripley's High Conflict and \"looping\" but gives no result or number. | Names Amanda Ripley's High Conflict but gives no place, year or result."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "\"Most people find the first round humbling\" is the only unexpected note. | \"Most people find the first round humbling\" is a small surprise; the rest is predictable. | \"Most people find the first round humbling\" is the one element that makes you pause."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Plain and warm: \"The point is for them to feel understood before you give your side.\" | Plain, warm titles like \"Say back what you heard before you reply\"; \"which is the point\" edges toward a punchline. | Warm and plain: \"The point is for them to feel understood before you give your side.\""
+      },
+      "power": {
+        "score": 2,
+        "mean": 2.33,
+        "reason": "A personal habit inside unchanged conditions. | A personal habit inside unchanged conditions: \"before you give your side.\" | Changes my own conversations: \"so they stay in the conversation\"."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Describes the looping exercise without claiming outcome data, matching the exemplar. | pass: Describes looping as a habit from a book without claiming outcome data the exemplar lacks. | pass: Describes a published exercise as a habit, with no outcome claims beyond the exemplar."
+      }
+    },
+    "talk-raise-touchy-subject": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"suggest three simple rules and ask the other person to add one of their own\" takes five minutes. | \"Suggest three simple rules and ask the other person to add one of their own\" takes five minutes. | \"suggest three simple rules and ask the other person to add one of their own\" takes five minutes."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Opening with \"I'm not trying to change your mind\" reframes the goal usefully. | \"I'm not trying to change your mind\" and keeping \"the TV off the news\" reframe a familiar problem usefully. | Turning off the news because \"the drop was about three times larger where political ads saturated local TV\" is a fresh angle on a basic."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Brookline 1994, six leaders, six years; Thanksgiving ad effect \"about three times larger\". | Boston leaders \"met in secret for six years\" after the 1994 Brookline killings; Thanksgiving drop \"about three times larger\". | Brookline 1994, six Boston leaders, six years, and Chen and Rohla's phone-location data."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Nobody changed sides, and they became friends\" is worth repeating. | \"Nobody changed sides, and they became friends\" and the political-ads effect are worth repeating. | \"Nobody changed sides, and they became friends\" is a story you'd repeat."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Turning off the news won't settle anything, but it takes away a lot of fuel\" is candid and plain. | Warm and specific (\"Two people at a kitchen table can do the same\"), with plain imperative titles. | Plain and kind, though \"Turning off the news won't settle anything, but it takes away a lot of fuel\" leans toward a punchline."
+      },
+      "power": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Personal conversation tactics only. | Changes how one conversation goes, not who decides anything. | Mostly coping tactics inside one family table: \"keep the TV off the news that day\"."
+      },
+      "honestStatus": {
+        "pass": false,
+        "reason": "FAIL: Quotes a participant saying \"we were never going to agree\", which the exemplar doesn't contain, and presents the Thanksgiving finding without the smaller replicated effect. | FAIL: Attributes a direct quote, \"we were never going to agree,\" that the exemplar doesn't support, and presents the Thanksgiving \"three times larger\" finding without the replication's smaller effect. | FAIL: The direct quote \"we were never going to agree\" is not in the exemplar, and the Thanksgiving \"three times larger\" figure omits the replication that found a smaller effect."
+      }
+    },
+    "talk-know-other-side": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"Take the free Perception Gap quiz\" is a specific 10-minute step. | \"Take the free Perception Gap quiz at perceptiongap.us\" is a 10-minute, concrete step. | \"Take the free Perception Gap quiz at perceptiongap.us\" is a ten-minute step with an immediate result."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Asking \"What do you actually think should happen?\" because we overestimate extremity is a fresh angle. | Reframes the problem as a wrong picture of the other side: \"guessed almost twice as many ... held extreme views as really do.\" | Reframes the problem as a misperception: \"guessed almost twice as many people on the other side held extreme views as really do\"."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"2019 survey of 2,100 Americans, More in Common and YouGov\", \"almost twice as many\". | \"2019 survey of 2,100 Americans, More in Common and YouGov\" with a concrete result. | \"a 2019 survey of 2,100 Americans, More in Common and YouGov\" with a concrete finding."
+      },
+      "surprise": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"The people who followed the news most closely were the furthest off\" is a fact you'd repeat. | \"The people who followed the news most closely were the furthest off\" is a fact you'd repeat to a friend. | \"The people who followed the news most closely were the furthest off\" is a fact you'd tell a friend."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Calm and factual; the \"It could ask you\" idea is clearly framed. | Plain and unhurried; \"What do you actually think should happen?\" sounds like a mentor's advice. | Clear and calm; \"'What do you actually think should happen?' is a good one\" sounds like a mentor, though the It feature title is generic."
+      },
+      "power": {
+        "score": 2,
+        "mean": 2.33,
+        "reason": "Changes your own perceptions, not conditions. | Corrects one's own perceptions; conditions stay the same. | Changes how I see the other side, not who decides anything."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Survey stated with its size and year; the It idea is written \"It could\". | pass: Survey stated with its sample size, and the It idea is written \"It could ask you\" and labeled proposed. | pass: Survey stated as one survey with its year and size; the It idea is written \"It could…\" and labeled proposed."
+      }
+    },
+    "talk-family-close": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"Text the relative you're most likely to clash with and tell them you're looking forward to seeing them\" is concrete and quick. | \"Text the relative you're most likely to clash with and tell them you're looking forward to seeing them\" takes five minutes and matters. | \"Text the relative you're most likely to clash with and tell them you're looking forward to seeing them\" is small and meaningful."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Reframes the shortened-dinner research: \"those families still sat down together, and that's the part worth protecting\". | Turns a discouraging statistic into hope: \"those families still sat down together, and that's the part worth protecting.\" | Turns a discouraging statistic into hope: \"those families still sat down together, and that's the part worth protecting\"."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"A careful 2020 follow-up put the difference at about 24 minutes\"; Boston leaders' first two years. | \"A careful 2020 follow-up put the difference at about 24 minutes\" gives year and number, but no researchers' names. | \"A careful 2020 follow-up put the difference at about 24 minutes\" plus the Boston talks, though the studies are unnamed."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "The 24-minute figure turns a gloomy study into a hopeful one. | Showing that the gap is only 24 minutes, not a broken holiday, is an angle you'd remember. | Reading 24 minutes shorter as proof families still gather is an angle worth repeating."
+      },
+      "voice": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Sounds like a mentor: \"Decide the visit matters more than the argument\". | Feels like a hometown doctor: \"Decide the visit matters more than the argument,\" and \"just listen.\" | Sounds like a mentor who has seen it: \"Decide the visit matters more than the argument\" and \"just listen\"."
+      },
+      "power": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "A personal fix meaningful enough to protect family ties. | A meaningful personal fix, but it changes only one family's dynamic. | A personal fix meaningful enough to count: keeping family close \"even in an election year\"."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Uses the replication's smaller number honestly rather than the larger original effect. | pass: Uses the smaller replicated effect honestly rather than the larger 2016 figure. | pass: Uses the replication's smaller figure and says honestly what the Boston leaders did in their first two years."
+      }
+    },
+    "talk-cross-party-friend": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"Fill out the sign-up form at takeonesmallstep.org\" is a 10-minute step. | \"Fill out the sign-up form at takeonesmallstep.org\" takes 10 minutes. | \"Fill out the sign-up form at takeonesmallstep.org\" is a ten-minute concrete step."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Known programs, made useful by \"one friend who leans the other way and one who leans your way\". | Known programs made useful with details like \"50-minute recorded conversation about their lives, not a debate.\" | Programs that match people across parties are a known idea, made useful by naming three real ones."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"2020 study on four college campuses, participants showed 22% less hostility\". | \"In a 2020 study on four college campuses, participants showed 22% less hostility.\" | \"In a 2020 study on four college campuses, participants showed 22% less hostility\" is specific."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"some of that was still there six months on\" is one notable element. | The 22% result is a single surprising element; the rest is expected. | The 22% drop is one surprising element; the rest is a directory."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Plain and direct: \"about their lives, not a debate\". | Clear titles like \"Go to a workshop with equal numbers from each party\"; plain and friendly. | Plain and friendly, though \"keeps it balanced\" and the program listings read a bit like a resource sheet."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Changes your own social conditions by meeting the other side. | Joins a real structure and changes one's own social conditions. | Changes my own relationships across the divide."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Names the campus sample and partial durability; existing resources labeled as such. | pass: Scopes the study to \"four college campuses\" and says only \"some of that was still there.\" | pass: Existing programs described accurately; the study's campus scope and partial durability are stated."
+      }
+    },
+    "talk-town-forum": {
+      "actionable": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "\"Ask your town library or neighborhood association whether there's a moderated local email list\" is real but depends on others. | \"Ask your town library ... whether there's a moderated local email list\" is real but slow to matter. | \"Ask your town library or neighborhood association whether there's a moderated local email list\" is real but slow to matter."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"no anonymous posting and no comment threads\" is a design detail most wouldn't think of. | \"No anonymous posting and no comment threads\" is a design twist most people wouldn't think of. | The design detail \"no anonymous posting and no comment threads\" is a useful twist most people haven't considered."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "Front Porch Forum, Vermont, \"2023 University of Texas survey... 80%\". | Front Porch Forum, Vermont, \"2023 University of Texas survey ... 80% said people there treat each other with respect.\" | Front Porch Forum in Vermont with \"a 2023 University of Texas survey\" and \"80%\"."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "A town forum where 80% say people are respectful is a striking counterexample. | The finding that taking away comment threads keeps neighbors civil is a memorable angle. | That removing comment threads keeps a town forum civil is a precedent you'd repeat."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Clear title \"Ask for a neighbors-only forum with a human moderator\". | Plain and clear, though the dream title is a description of a thing rather than a person's life. | Clear and matter-of-fact; \"A local library or college is a natural host\" is plain but a little impersonal."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Changes how a town's shared space is run. | Changes how a whole town's conversations are structured and moderated. | Changes how a town's shared conversation is run, not just my own behavior."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Survey is attributed to its members; \"about 200 more\" may overlap the 275, a small wording risk but not a status overclaim. | pass: Survey is attributed to the right source and year; the debate figures match the exemplar. | pass: Survey attributed to its source and year; the Vermont-only scope is implicit but nothing is overstated."
+      }
+    },
+    "talk-citizen-panels": {
+      "actionable": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"Email a political science professor\" is a real step but slow to matter. | \"Email a political science professor\" or \"your state legislator\" are real steps but slow to matter. | \"Email a political science professor at a nearby college\" is a real step but slow to matter."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Random citizen panels are unfamiliar to most readers. | Randomly chosen voters writing \"a one-page summary for the official voters' pamphlet\" is new to most people. | Random-voter panels reviewing ballot measures are new to most readers."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"523 randomly chosen registered voters... 22 of the 26\"; Ireland's 99 people over 12 weekends. | \"523 randomly chosen registered voters ... 22 of the 26\"; Ireland's \"99 randomly chosen people over 12 weekends.\" | \"In 2019, 523 randomly chosen registered voters... On 22 of the 26 most divisive proposals\" plus Oregon and Ireland."
+      },
+      "surprise": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Ireland's assembly recommendation \"led to a national referendum\". | An assembly's recommendation that \"led to a national referendum\" on abortion would make most readers stop. | Ireland's assembly recommendation \"led to a national referendum\" is a precedent that stops you."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Calm limits: \"This was one weekend, run by people who believe in the method.\" | Calm limits said once (\"run by people who believe in the method\"); the dream title is a little long. | Calm and specific, with one honest limit each: \"This was one weekend, run by people who believe in the method.\""
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Changes who decides on hard public questions. | Changes who decides, by giving ordinary voters a formal role in ballot measures and stuck issues. | Changes who decides: citizen panels writing \"a one-page summary for the official voters' pamphlet\"."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Each example carries its plain limit; framed as asks, not asserted policy. | pass: Labeled as societal proposals, states the funder and one-weekend limits, and notes the gaps in Oregon funding. | pass: Limits stated plainly for each example; framed as asks, not as settled policy."
+      }
+    },
+    "talk-town-agrees": {
+      "actionable": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "\"Send one city council member a link about Pol.is\" is quick, though the result depends on them. | \"Send one city council member a link about Pol.is\" is quick, but any result is far off. | \"Send one city council member a link about Pol.is\" is quick but depends on others to matter."
+      },
+      "nonObvious": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"Nobody can reply to anyone, only add statements and vote\" is a genuinely new idea. | \"Nobody can reply to anyone, only add statements and vote\" is an idea most readers have never met. | \"Nobody can reply to anyone, only add statements and vote\" is an idea most readers have never heard."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Taiwan 2015, about 3,000 people; Bowling Green 2025, \"2,370 were backed by more than 80%\". | \"About 3,000 people in Taiwan\" on Uber; Bowling Green \"2,370 were backed by more than 80%.\" | Taiwan 2015 with \"about 3,000 people\", and Bowling Green 2025 with \"2,370\" of \"3,940 ideas\"."
+      },
+      "surprise": {
+        "score": 5,
+        "mean": 5,
+        "reason": "A tool that bans replies to find agreement is something to tell a friend. | Showing that most ideas in a county plan won over 80% support turns the polarization story upside down. | That 2,370 of 3,940 ideas got over 80% support is a number you'd repeat."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Plain explanation; \"It could let you add a statement\" is honest. | Plain and grounded, and the limit is said once (\"Volunteers still had to screen out off-topic posts\"). | Plain and grounded, with an honest limit: \"Volunteers still had to screen out off-topic posts.\""
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Shifts how a city or county decides. | Changes how cities and counties decide, and whose agreement counts. | Changes how towns decide, with \"Taiwan's government agreed in 2016 to adopt the points of agreement\"."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Notes that screening was still needed; It idea framed as \"It could\". | pass: The It idea reads \"It could let you\" and is labeled proposed; the examples mostly match the exemplars, with small additions like \"25-year plan\". | pass: The It idea says \"It could…\" and is labeled proposed; the real cases are stated as what happened."
+      }
+    },
+    "talk-prepared": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Write down one thing you want the other person to understand\" works without It. | \"Write down one thing you want the other person to understand and one thing you want to understand about them\" works today without It. | \"Write down one thing you want the other person to understand and one thing you want to understand about them\" is doable today."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Rehearsing with \"It could play the other side\" is a useful twist on preparation. | Having It \"play the other side of a disagreement\" is a twist on familiar preparation. | Preparing for a hard talk is familiar; the two-sided question gives it a useful twist."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Proposed It ideas, fairly linked to Essential Partners and One Small Step. | These are proposed It ideas, so a past example isn't needed; it points to Essential Partners and One Small Step. | A labeled It idea that points to Essential Partners and One Small Step, which is enough for its status."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Predictable from \"prepared instead of braced\". | Predictable from the title \"prepared instead of braced\". | Predictable from the title; nothing here makes you stop."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"before you try it with someone you love\" is warm and plain. | Warm and clear: \"before you try it with someone you love.\" | Warm in places: \"before you try it with someone you love\", though \"prepared instead of braced\" leans toward a slogan."
+      },
+      "power": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Personal preparation only. | A personal preparation tool. | Coping prep for one conversation."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Every fix starts \"It could\" and is labeled proposed. | pass: Every fix is written \"It could...\" with status proposed_it_feature. | pass: Every fix is written \"It could…\" and labeled as something It could build."
+      }
+    },
+    "talk-leaders-model": {
+      "actionable": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"Write a short note to your governor\" is real but slow to matter. | \"Write a short note to your governor\" is real but generic and slow. | \"Write a short note to your governor or state legislator\" is a real but generic step."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Asking leaders to \"record an ad with someone from the other party\" is unexpected. | Asking officials to \"record an ad with someone from the other party\" is a fresh, specific request. | Asking leaders to model civility is familiar; the joint ad is a concrete twist."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Utah's Spencer Cox and Colorado's Jared Polis, 2023-24, but no result. | Utah Governor Spencer Cox's 2023-24 Disagree Better and his video with Jared Polis, but no outcome. | Spencer Cox's Disagree Better, 2023–24, and his video with Jared Polis, without a result."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "A Republican and a Democratic governor making a video together is notable. | Two governors from opposite parties making a joint video is mildly surprising. | A Republican and Democratic governor making a video together is one surprising element."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Plain, though \"across the aisle\" is a stock phrase. | Plain, but the first fix title is long and a bit formal. | Plain and clear, though the first fix title is long and a little formal."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Pushes the people in power to change public norms. | Pushes leaders to change public norms. | Pushes the people in power to change public norms."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: States what the initiative suggests without claiming results; It list is \"It could\". | pass: Describes the initiative factually with no outcome claims, and the It idea is written \"It could help\". | pass: States what the initiative suggests without claiming results; the It list is written as \"It could\"."
+      }
+    },
+    "talk-move-minds": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"ask the other person about a time they've been treated unfairly\" is specific, if a bit awkward to raise. | \"Ask the other person about a time they've been treated unfairly, and listen\" is specific, though not always a fit. | \"ask the other person about a time they've been treated unfairly, and listen before you share your own\" is concrete."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"asking people about their own experiences and listening, rather than arguing facts\" turns persuasion around. | \"Asking people about their own experiences ... rather than arguing facts\" works against the usual instinct. | That asking about experiences beats \"arguing facts\" reframes persuasion."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"2015 study in Miami... 10 to 15 minutes... three months later\", though no size of effect. | \"2015 study in Miami ... 10 to 15 minutes ... still there three months later.\" | \"a 2015 study in Miami\" with \"10 to 15 minutes\" and three months of durability."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "A short listening talk lasting three months is surprising. | A 10-minute doorstep conversation that lasted three months is worth repeating; the Zamalin critique adds an angle. | A 10-minute doorstep talk lasting three months is worth repeating, and naming critics of civility work is unexpected."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"You don't have to choose\" is a candid mentor line. | Candid and fair, and \"You don't have to choose\" leaves room for the reader. | Candid and non-judging: \"You don't have to choose\"; slightly abstract in the second fix."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Adds \"show up where decisions get made\". | \"Show up where decisions get made\" goes beyond coping. | \"show up where decisions get made\" ties talk to power."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Critique offered as \"Some critics... argue\"; study scope stated, though the one-in-ten limit is omitted. | pass: Offers the critique as one person's view; leaving out \"about one in 10 changed\" is a minor gap, not an overstatement. | pass: Study described with its place and duration; the critique is attributed to \"Some critics, like Alex Zamalin\"."
+      }
+    },
+    "talk-pause": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"pick one together\" tonight is immediate and specific. | \"Tonight, tell the person you argue with most that you'd like a pause word\" takes five minutes. | \"tell the person you argue with most that you'd like a pause word, and pick one together\" is a five-minute step."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "\"time out\" is the first thing anyone would suggest, though \"say exactly when you'll pick it up again\" helps. | A well-chosen basic made useful: \"Naming a time, like 'tomorrow after dinner'.\" | A well-chosen basic made useful by \"Naming a time... turns a stop into a postponement\"."
+      },
+      "namedExample": {
+        "score": 1,
+        "mean": 1,
+        "reason": "No example at all. | No example at all; both fixes have exemplarRef null. | No example at all; both fixes are speculative."
+      },
+      "surprise": {
+        "score": 1,
+        "mean": 1,
+        "reason": "Predictable from the title. | Predictable from \"Stopping an argument before it turns into a fight\". | Predictable from the title."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "\"turns a stop into a postponement\" is plain, close to a punchline. | Plain but generic; \"turns a stop into a postponement\" is close to a contrast line. | Plain and kind, though \"turns a stop into a postponement\" edges toward a contrast punchline."
+      },
+      "power": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Coping inside the relationship as it is. | Coping inside a single relationship. | Coping inside a conversation."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Makes no claims beyond common sense and cites no study. | pass: Makes modest, common-sense claims with no invented evidence, though the real_now status rests on unsourced practice. | pass: Makes no claims beyond common practice and cites no false example."
+      }
+    },
+    "talk-local-alliance": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Check the Braver Angels site for a local group near you\" is concrete. | \"Check the Braver Angels site for a local group near you\" takes 15 minutes. | \"Write one 0-to-100 question... to ask at the start and end of your next meeting\" is specific."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Measuring your own group with \"one 0-to-100 question\" is an unusual twist. | \"Ask your group to check whether it's working\" with a 0-to-100 question is a fresh twist. | Joining a group is familiar; measuring your own group is a useful twist."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"10 Clinton and 10 Trump supporters\" in Ohio; warmth \"rose from 36 to 54\". | \"A December weekend in Ohio for 10 Clinton and 10 Trump supporters\"; warmth \"from 36 to 54.\" | \"a December weekend in Ohio for 10 Clinton and 10 Trump supporters\" and \"36 to 54\"."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Own-side feelings \"barely moved\" while warmth to the other rose. | The finding that feelings about one's own side \"barely moved\" is one notable element. | Warmth toward the other side rising \"while their feelings about their own side barely moved\" is one surprising element."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Candid: \"Most participants so far are older and college-educated\". | Candid about who participates (\"mostly older and college-educated\") without judging. | Candid about who shows up: \"newcomers from other backgrounds add a lot\"."
+      },
+      "power": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Builds a lasting local group across party lines. | Builds an ongoing local group, which changes one's own community conditions. | Builds a standing local group that crosses party lines."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Labels the 36-to-54 figure as \"Braver Angels' own surveys\". | pass: Clearly says \"Braver Angels' own surveys\" and calls the home version \"a rough version.\" | pass: Calls the thermometer result \"Braver Angels' own surveys\" and names the participant skew."
+      }
+    },
+    "talk-kids-school": {
+      "actionable": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"Send your child's teacher the link... with a one-line note\" is quick. | \"Send your child's teacher the link ... with a one-line note\" takes 10 minutes. | \"Send your child's teacher the link... with a one-line note\" is a ten-minute step."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Classroom listening drills are a known basic made concrete. | Bringing looping into classrooms is a reasonable idea but not much of a twist. | Teaching kids to disagree is familiar; a specific classroom drill makes it useful."
+      },
+      "namedExample": {
+        "score": 2,
+        "mean": 2.33,
+        "reason": "Names Inspired Teaching and Essential Partners but no result. | Names Inspired Teaching and Essential Partners but gives no year, number or result. | Names Inspired Teaching and Essential Partners but gives no result."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Little here a reader wouldn't expect. | Nothing here would make a reader stop. | Mostly predictable from the title."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Plain titles like \"Ask your school about free dialogue training for teachers\". | Plain but a little institutional: \"leading discussions across differences.\" | Plain and clear, though somewhat impersonal resource listing."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Changes what a school teaches. | Shapes what a school teaches. | Changes what a classroom teaches, a modest shared change."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Describes available resources without claiming outcomes. | pass: Describes resources that exist without claiming they work. | pass: Describes existing resources without claiming outcomes."
+      }
+    }
+  },
+  "pairwise": [],
+  "consensus": {
+    "talk-heard-first": {
+      "borda": 19,
+      "ranks": [
+        10,
+        10,
+        6
+      ],
+      "spread": 4,
+      "honestVotes": "3/3 pass"
+    },
+    "talk-raise-touchy-subject": {
+      "borda": 3,
+      "ranks": [
+        14,
+        14,
+        14
+      ],
+      "spread": 0,
+      "honestVotes": "0/3 pass"
+    },
+    "talk-know-other-side": {
+      "borda": 41,
+      "ranks": [
+        2,
+        1,
+        1
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "talk-family-close": {
+      "borda": 40,
+      "ranks": [
+        1,
+        2,
+        2
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "talk-cross-party-friend": {
+      "borda": 27,
+      "ranks": [
+        4,
+        6,
+        8
+      ],
+      "spread": 4,
+      "honestVotes": "3/3 pass"
+    },
+    "talk-town-forum": {
+      "borda": 23,
+      "ranks": [
+        8,
+        7,
+        7
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "talk-citizen-panels": {
+      "borda": 29,
+      "ranks": [
+        6,
+        5,
+        5
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "talk-town-agrees": {
+      "borda": 35,
+      "ranks": [
+        3,
+        4,
+        3
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "talk-prepared": {
+      "borda": 10,
+      "ranks": [
+        12,
+        11,
+        12
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "talk-leaders-model": {
+      "borda": 18,
+      "ranks": [
+        9,
+        8,
+        10
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "talk-move-minds": {
+      "borda": 33,
+      "ranks": [
+        5,
+        3,
+        4
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "talk-pause": {
+      "borda": 6,
+      "ranks": [
+        13,
+        13,
+        13
+      ],
+      "spread": 0,
+      "honestVotes": "3/3 pass"
+    },
+    "talk-local-alliance": {
+      "borda": 20,
+      "ranks": [
+        7,
+        9,
+        9
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "talk-kids-school": {
+      "borda": 11,
+      "ranks": [
+        11,
+        12,
+        11
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    }
+  },
+  "seed": 17
+}

@@ -1,0 +1,665 @@
+{
+  "schemaVersion": 1,
+  "painId": "dont-know-whats-happening",
+  "runId": "20261019-142002",
+  "judge": {
+    "context": "isolated-consensus",
+    "judges": 3,
+    "files": [
+      "judgments-1.json",
+      "judgments-2.json",
+      "judgments-3.json"
+    ],
+    "at": "2026-10-19T18:27:25+00:00"
+  },
+  "scores": {
+    "coord-know-local-groups": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "'Search Nonprofit Explorer for your town and one word that describes your issue, and write down the first three groups' is a concrete 15-minute step. | 'Search Nonprofit Explorer for your town and one word that describes your issue, and write down the first three groups' is a concrete 15-minute step. | \"Search Nonprofit Explorer for your town and one word... write down the first three groups\" is a concrete 15-minute step."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Full-text search 'turns up groups whose names never mention it' is a useful twist most people would not know. | Full-text search 'turns up groups whose names never mention it', a real twist on 'look online'. | Full-text tax-form search \"turns up groups whose names never mention it\" is a useful twist most people wouldn't know."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Named tools with numbers ('about 13 million requests', '450,000 volunteer openings'), though no place or dated result. | Names ProPublica's Nonprofit Explorer, 211 with 'about 13 million requests', Idealist with '450,000 volunteer openings'; no year. | Names ProPublica's Nonprofit Explorer, 211 with \"about 13 million requests\", and Idealist's 450,000 openings."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Searching tax filings for a word like \"tenants\" or \"river\" is a trick worth repeating. | Searching tax forms for 'tenants' or 'river' is a trick I'd repeat to a friend. | Searching a town plus \"tenants\" or \"river\" inside tax filings is a trick worth repeating."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Plain and candid, with one useful limit: 'treat the results as a starting list.' | Plain and candid, with one honest limit: 'treat the results as a starting list'. | Calm and candid: \"treat the results as a starting list\"; title says plainly what changes."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Changes what I know about my own town; does not shift who decides. | Changes what I know about my town; does not shift who decides. | Changes what I know and whom I can reach, but no shift in who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Names the small-group gap from the exemplar limits; 'shows who is active right now' slightly stretches Idealist's cumulative counts but is framed around current postings. | pass: Limits on informal groups and 211's scope are stated; 'shows who is active right now' slightly overstates Idealist but stays within reason. | pass: States the filing limit plainly; \"shows who is active right now\" on Idealist slightly stretches cumulative counts but doesn't overclaim results."
+      }
+    },
+    "coord-hear-neighbors": {
+      "actionable": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "'Ask one neighbor which email list or forum they read for local news, and sign up for it' takes 10 minutes and plugs me in. | 'Ask one neighbor which email list or forum they read for local news, and sign up for it' is quick and real. | \"Ask one neighbor which email list or forum they read... and sign up\" is simple and quick."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Using a gift group because it is 'one of the few places where many neighbors already read each other's posts' is a fresh angle on a basic. | Joining a neighborhood list is familiar; using Buy Nothing as 'one of the few places where many neighbors already read each other's posts' is a useful twist. | Using a Buy Nothing group because it's \"one of the few places where many neighbors already read each other's posts\" is a fresh angle."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "'Started in Burlington in 2006... by 2013 every town could have one, with 57,000 members across half the state' has place, years and number. | Front Porch Forum, Burlington 2006, '57,000 members across half the state' by 2013. | \"Burlington in 2006... by 2013 every town could have one, with 57,000 members across half the state.\""
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "The Buy Nothing angle is one surprising element; neighborhood lists are expected. | The gift-group angle is the one surprising element. | The gift-group reuse is mildly surprising; the forum itself is expected."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Warm, matter-of-fact: 'Most places have something similar, whether a forum, an email list or a neighborhood association newsletter.' | Dream line 'before it happens, not after' is concrete and unhurried. | Dream line \"before it happens, not after\" is clear and personal; fix text matter-of-fact."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Hearing 'before it happens, not after' improves my own access but not who decides. | Puts me in the loop on neighbors' efforts; my own conditions only. | Changes my own access to local news; still mostly listening."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Front Porch Forum figures are dated to 2013 and Buy Nothing's purpose ('to give things away') is stated plainly. | pass: Examples stated as what happened; Buy Nothing's purpose is acknowledged. | pass: Front Porch figures are dated to 2013 and Buy Nothing's purpose is stated honestly; \"Most places have something similar\" is a mild generalization."
+      }
+    },
+    "coord-city-hall-record": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Search your city's meeting minutes or council transcripts for your issue and note who spoke about it' is real, though 20 minutes may not finish it. | 'Search your city's meeting minutes or council transcripts for your issue and note who spoke' is specific, though most towns lack the tool. | \"Search your city's meeting minutes... and note who spoke\" is real, though finding minutes can take longer than 20 minutes."
+      },
+      "nonObvious": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "'People who spoke during public comment are often the ones already organizing, and their names are in the record' reframes public minutes as a contact list. | 'People who spoke during public comment are often the ones already organizing' reframes the public record as a contact list. | \"People who spoke during public comment are often the ones already organizing\" reframes public records as a contact list."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Council Data Project in '17 cities', started by a UW professor and student after an arena vote; no year in the copy. | Council Data Project, University of Washington, Seattle arena vote, '17 cities'; no year. | Council Data Project, 17 cities, started after \"a Seattle City Council vote on an arena\"; no outcome number."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "The public-comment record as a way to find organizers is something I'd tell a friend. | The origin story of a professor and student following an arena vote is memorable. | That speakers' names are sitting in the record is a fact I'd pass on."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Plain titles like 'Search past city council meetings for your issue'; the origin sentence runs a little long. | Plain titles like 'Search past city council meetings for your issue'. | Plain, specific titles like \"Search past city council meetings for your issue\"; slightly informational in tone."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Positions me to speak up informed, but the fix itself changes only my knowledge. | Prepares me to speak up; does not itself change who decides. | Equips me before I speak up at city hall, but conditions stay the same."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Says 'in 17 cities' rather than implying my town is covered; bill-testimony claim is hedged with 'usually'. | pass: Says '17 cities' plainly so readers can infer most towns aren't covered. | pass: Says the project covers 17 cities, so it doesn't imply universal coverage; \"a free tool from Plural\" is outside the exemplar but harmless."
+      }
+    },
+    "coord-ask-around": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Write down every group you already know of... then message one of them asking who else you should talk to' is doable now. | 'Write down every group you already know of... then message one of them asking who else you should talk to' is doable now. | \"Write down every group you already know... then message one of them asking who else\" is doable today."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Asking for referrals is familiar; 'librarians hear from the groups that book their meeting rooms' adds a useful detail. | Asking for 'two more names' and asking a librarian are known basics given a little detail. | Asking for two more names and asking a librarian are known basics, given some useful detail."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Kretzmann and McKnight 'in 1993' is named but has no result; the librarian fix has no example. | Kretzmann and McKnight, 1993, but no place or result. | Kretzmann and McKnight, 1993, named but with no result; librarian fix has no source."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2.33,
+        "reason": "The meeting-room angle on librarians is the one surprising element. | Asking around is predictable from the pain. | Asking around is predictable from the title."
+      },
+      "voice": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Title 'Knowing who to ask about who is working on this' is clunky and leans on a vague 'this'. | Title 'Knowing who to ask about who is working on this' is clumsy and a little vague. | \"Asking at the desk costs nothing\" sounds like a mentor's plain advice."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Builds my own network; no change in who decides. | Builds my own network. | Builds my own network; modest change in my conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Librarian fix is marked speculative and written as general practice ('Many public libraries'); ABCD attribution slightly broadens the method but does not overclaim results. | FAIL: Credits ABCD asset mapping with a 'two more names' referral method and with calling associations 'the backbone of community action', which the exemplar does not support; the librarian claim is speculative but labeled 'real_now'. | pass: Library fix is offered as general practice, not a sourced claim; \"backbone of community action\" goes slightly beyond the exemplar but overclaims no result."
+      }
+    },
+    "coord-one-list-near-me": {
+      "actionable": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Mostly 'Tell us you'd use this', but 'check the year of its most recent filing' is a real 10-minute step. | Steps are 'Tell us you'd use this' plus useful interim checks like looking up a group's 'most recent filing'. | Mostly \"Tell us you'd use this\"; the Nonprofit Explorer filing check is the one real step."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'whether you are writing to a busy office or one volunteer' is a meaningful detail beyond a plain directory idea. | Building from an IRS file and showing 'whether you are writing to a busy office or one volunteer' is a fresh angle. | Building a local issue list from the IRS file of \"nearly two million tax-exempt organizations\" is a non-obvious source."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Grounded in a real IRS file of 'nearly two million tax-exempt organizations with addresses' (not penalized as a proposal). | IRS file of 'nearly two million tax-exempt organizations'; ProPublica; Open Referral named. | Concrete feasibility basis: IRS file, Open Referral standard, Nonprofit Explorer."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "The two-million-record public file is a mild surprise; a search tool is predictable from the pain. | That the IRS already publishes this list is one surprising fact. | That the IRS publishes all exempt groups with addresses is somewhat surprising."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Starts 'It could...' and states the headquarters-address limit once, plainly. | Honest 'It could...' framing and a plain limit about 'headquarters addresses only'. | Correct \"It could...\" framing, with the headquarters-address limit stated plainly once."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Changes my own ability to find groups; does not shift ownership or decisions. | A convenience for me; does not change who decides. | Would make finding groups easier for me; doesn't change who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Every fix is written 'It could...' with proposed status; 'Many local referral lines... share their listings' mildly overstates HSDS adoption but is not a claim that It exists. | pass: Written as 'It could...' with status 'Something It could build'; 'Many local referral lines... share their listings' leans past the exemplar's 'adoption varies' but is not decisive. | FAIL: \"Many local referral lines and service directories share their listings\" in HSDS goes past the exemplar, which says adoption varies and names no adopters."
+      }
+    },
+    "coord-council-alerts": {
+      "actionable": {
+        "score": 3,
+        "mean": 3,
+        "reason": "'sign up for your city council's agenda emails if it offers them' is real but generic. | 'Sign up for your city council's agenda emails if it offers them' is real but generic. | \"Sign up for your city council's agenda emails if it offers them\" is real but generic."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Agenda alerts are a known idea; adding 'who spoke' is a small twist. | Keyword alerts on agendas are a known idea, made concrete with 'the date and who spoke'. | Keyword alerts on agendas are a reasonable idea, not a new one."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Council Data Project 'in 17 cities' and Open States API, with thin detail. | Council Data Project in '17 cities' and the Open States API. | Council Data Project's 17 cities and the Open States API, cited as feasibility with thin detail."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2.33,
+        "reason": "Getting notified about hearings is predictable from the title 'Knowing when my issue comes up in government'. | Learning that state bills and council transcripts are machine-readable is mildly surprising. | Predictable from \"Knowing when my issue comes up in government\"."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Plain and clear: 'send you a short note with the date and who spoke.' | Dream line 'in time to show up, instead of reading about it afterward' is clear and personal. | Dream line \"in time to show up, instead of reading about it afterward\" is clear and personal."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Showing up 'in time to show up, instead of reading about it afterward' gives me a voice in decisions. | Gets me to hearings; my own participation. | Helps me show up in time; my own participation, not a shift in who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Written as 'It could watch sources like these'; does not claim It already sends alerts. | pass: Clearly 'It could watch sources like these'; nothing described as built. | pass: Both fixes are written \"It could...\" and the real-now first steps don't need It."
+      }
+    },
+    "coord-neighbors-same-issue": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Draft a three-sentence invitation naming the issue, a place and a date, and send it to one neighborhood list' is specific and moves things. | 'Draft a three-sentence invitation naming the issue, a place and a date' is a 20-minute step that moves something. | \"Draft a three-sentence invitation naming the issue, a place and a date\" is a concrete step that moves something."
+      },
+      "nonObvious": {
+        "score": 5,
+        "mean": 5,
+        "reason": "'you say privately what you care about, and only when enough people nearby have said the same would It offer to introduce you' is an idea I hadn't considered. | Saying 'privately what you care about' and being introduced only 'once enough do' is an idea I hadn't considered. | Say what you care about privately and get introduced \"only when enough people nearby have said the same\" is a genuinely new idea."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Front Porch Forum's waiting stage 'until 100 residents sign up' is a concrete, named precedent. | Front Porch Forum's '100 residents' threshold in Vermont; no year in the copy. | Front Porch Forum's 100-resident threshold in Vermont is concrete and relevant."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "The 100-resident threshold 'so nobody posts to an empty room' is a precedent worth repeating. | 'So nobody posts to an empty room' is a precedent I'd repeat. | \"Four people on my side of town want the same crosswalk I do\" plus the threshold precedent would make me stop."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "The dream line 'four people on my side of town want the same crosswalk I do' is vivid without staging; 'You don't have to wait for a tool' is mentor-like. | 'Four people on my side of town want the same crosswalk I do' is vivid without staging; 'You don't have to wait for a tool' is candid. | \"You don't have to wait for a tool\" is warm and direct; \"so nobody posts to an empty room\" leans a little on phrasing."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Turns isolated concern into a group of neighbors who can act together. | Turns isolated wants into a group of neighbors who can act together. | Turns isolated people into a group that can act together."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Proposal uses 'It could work the same way' and 'with your permission'; the meeting fix is marked speculative and stated as common practice. | pass: The It idea is 'It could work the same way', with permission; the meeting fix is honest general practice. | pass: The It feature is \"It could work the same way\" with permission noted; the speculative meeting fix is labeled real now as general practice."
+      }
+    },
+    "coord-start-it-myself": {
+      "actionable": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "'Search for a civic tech or hack night group in your city and check when the next meeting is' is quick and concrete. | 'Search for a civic tech or hack night group in your city and check when the next meeting is' is quick. | \"Search for a civic tech or hack night group in your city\" is real but fits only tech-shaped issues."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Bringing a non-tech issue to a hack night for helpers is not the first thing most people would think of. | Civic tech groups are a known route, though unfamiliar to many. | Civic hack nights are a known idea for some readers; a useful twist for others."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "g0v in Taiwan 'since 2012' and Code for America's 2016 reorganization, with no outcome numbers. | g0v Taiwan 'since 2012' and Code for America Brigades with a 2016 reorganization. | g0v since 2012 and Code for America named, with no result or number."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "The g0v motto 'You are the nobody' is the kind of line I'd repeat. | The motto 'You are the nobody' is something people repeat. | The g0v motto \"You are the nobody\" is quotable."
+      },
+      "voice": {
+        "score": 3,
+        "mean": 3,
+        "reason": "The quoted motto lands like a punchline, and 'a civic tech group with a similar spirit' is vague. | Leans on a motto, and the hack night framing assumes a tech audience for a general pain. | The quoted motto reads like a slogan, and \"a civic tech group with a similar spirit\" is vague."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Starting the effort myself changes who is doing the work. | Starting an effort when nobody has changes who is doing the work. | Moves me from waiting to starting the effort with helpers."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Says plainly 'many chapters have changed since, so check that your local group is still meeting.' | pass: Plainly warns 'many chapters have changed since, so check that your local group is still meeting'. | pass: Brigade limits are stated plainly (\"check that your local group is still meeting\"); the motto isn't in the exemplar but claims no result."
+      }
+    },
+    "coord-shared-plan": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Look up your area's community foundation and email to ask whether a coalition already works on your issue' is a clear 15-minute step. | 'Look up your area's community foundation and email to ask whether a coalition already works on your issue' is specific. | \"Look up your area's community foundation and email to ask whether a coalition already works on your issue\" is specific."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Asking funders, since 'Community foundations often know whether something like this already exists', is a useful angle few would try. | Asking funders, who see every grantee, is a lever most people wouldn't think of. | Asking local funders, not groups, whether a shared plan exists is a smart angle."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "Cincinnati, 'more than 300 leaders', '53 student measures', '34 of them were trending up' four years in. | Cincinnati, 'more than 300 leaders', '34 of them' of 53 measures trending up; year not stated. | \"In Cincinnati, more than 300 leaders... 34 of them were trending up\" has place, scale and a number."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Hundreds of rival institutions agreeing on one set of measures is striking. | 300 rival institutions agreeing on the same 53 measures is striking. | 300 rival institutions agreeing to track the same 53 measures is worth retelling."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "States the example as what happened, plainly, without hype. | Plain: 'agree on goals and stop duplicating each other'. | Plain and unhurried; \"A one-page map is often the first thing that lets separate groups see each other\" is mentor-like."
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Changes how groups coordinate and decide together, not just what I know. | Changes how foundations, government and schools coordinate and decide together. | Changes how local institutions coordinate and set shared goals."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Reports trends ('were trending up') without claiming the partnership caused them, consistent with the advocate-reported limit. | pass: Reports 'trending up' as what happened without claiming the plan caused it. | pass: Calls the result \"trending up\" rather than claiming causation, which fits the advocate-reported limit; the societal idea is offered as a question."
+      }
+    },
+    "coord-public-directory": {
+      "actionable": {
+        "score": 3,
+        "mean": 3,
+        "reason": "'email the office that runs it to ask whether it can share the data openly' is real but slow to matter. | Emailing the county 'to ask whether it can share the data openly' is real but slow to matter. | Emailing the county office to \"share the data openly\" is real but slow to matter."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Open data for directories is a known idea; 211 as one of the largest lists is a useful detail. | Open data for directories is a known civic-tech ask. | Open data for directories is reasonable but abstract for most readers."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Open Referral and 'More than 200 local organizations run 211 lines', with no result shown. | Open Referral and '200 local organizations' running 211, with no result shown. | Open Referral and \"more than 200 local organizations\" run 211; no outcome."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Little here would make a reader stop. | Little here I'd repeat. | Little here to repeat to a friend."
+      },
+      "voice": {
+        "score": 3,
+        "mean": 3,
+        "reason": "'publish its service directory in an open format' and 'free data standard' drift toward technical register. | 'Publish its service directory in an open format' drifts toward bureaucratic register. | \"Open format\" and \"open to other tools\" lean technical and impersonal."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Asks a county to change what it publishes for everyone. | Asks the county to change what it publishes for everyone. | Changes what a public body publishes and maintains."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Contested view framed as 'Some people want every county to publish its directory this way'. | pass: Offered as 'Some people want...' rather than asserted. | pass: Contested policy offered as \"Some people want...\"; \"one of the largest lists... in the country\" goes past the exemplar but is a minor point."
+      }
+    },
+    "coord-ask-officials": {
+      "actionable": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "'send their office a two-sentence email asking which local groups have contacted them' is specific and quick. | 'Send their office a two-sentence email asking which local groups have contacted them' is concrete and quick. | \"Send their office a two-sentence email asking which local groups have contacted them\" is a concrete 15-minute step."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Using lawmakers' staff as a directory of organized groups is a useful twist. | Using lawmakers' staff as a directory of organized groups is a genuinely fresh use. | Using a lawmaker's office as a directory of organized groups is an underused move."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Open States lookup is named but has no number or result. | Open States named, thin detail. | Open States named as a lookup tool; no example outcome."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "One surprising angle: staff 'hear from organized groups'. | That staff 'hear from organized groups' is a useful angle, not startling. | That staff will tell you who lobbied them is mildly surprising."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Candid limit said once: 'though some offices won't share who contacted them.' | Candid limit said once: 'though some offices won't share who contacted them'. | \"A fair question, though some offices won't share who contacted them\" is one plain, candid limit."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Opens a channel to an official but mainly improves my own knowledge. | Opens a line to my representative but mainly gets me information. | Uses a public office for my own search; doesn't change who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The It drafting fix starts 'It could look up' and carries proposed status; the real fix states its limit. | pass: The It drafting idea is labeled 'It could look up' and marked proposed. | pass: The drafting help is written \"It could...\" and labeled proposed; the real step stands alone."
+      }
+    },
+    "coord-offer-skills": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "'Write a three-sentence email offering one skill for a set number of hours, and send it to one group' is concrete and clearly moves something. | 'Write a three-sentence email offering one skill for a set number of hours' is specific and obviously moves things. | \"Write a three-sentence email offering one skill for a set number of hours\" is specific and quick."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Searching by skill rather than cause' and 'A specific offer... is much easier to say yes to' turn a basic into useful advice. | 'Searching by skill rather than cause' and 'a specific offer... is much easier to say yes to' reframe volunteering usefully. | \"Searching by skill rather than cause often turns up groups you would never have found\" is a useful reframe."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Idealist 'more than 200,000 organizations', thin detail. | Idealist's '200,000 organizations', no place or year. | Idealist's \"more than 200,000 organizations\", but thin on a concrete case."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "The skill-first search is one surprising element. | The skill-first search is the one surprising element. | A specific offer being \"much easier to say yes to\" is useful, not startling."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Mentor-like and specific: 'building a simple website or keeping the books for three months.' | Warm and practical: 'Small groups are often stretched thin'. | Warm and practical: \"Small groups are often stretched thin\"."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "A meaningful personal contribution, but within existing groups. | Adds my effort to existing work. | Personal contribution that matters, in conditions that stay the same."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The offer fix is marked speculative and stated as practical advice, not a measured result. | pass: General advice is plain and not overstated. | pass: The speculative fix is plain advice with no false source; Idealist counts aren't overstated."
+      }
+    },
+    "coord-check-group": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "'Look up one group on Nonprofit Explorer and check the year of its latest filing' takes five minutes. | 'Look up one group on Nonprofit Explorer and check the year of its latest filing' takes five minutes. | \"Look up one group on Nonprofit Explorer and check the year of its latest filing\" takes five minutes."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Filing year as a sign of life ('has often gone quiet') is a useful check most people would not think of. | Using the filing year as a sign of life is a smart detail. | Using filing dates to spot a group that \"has often gone quiet\" is a clever check."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Nonprofit Explorer is named with no number or result. | Nonprofit Explorer named, no number or result. | Nonprofit Explorer named, with no number or case."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "'Websites outlive the groups that made them' is a small, true surprise. | 'Websites outlive the groups that made them' is true but familiar. | \"Websites outlive the groups that made them\" is a true thing I'd repeat, if modest."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Plain and practical; 'before I give it my evenings' is personal. | Plain and kind: 'before I give it my evenings'. | Plain and candid; \"before I give it my evenings\" is personal."
+      },
+      "power": {
+        "score": 2,
+        "mean": 2,
+        "reason": "A screening step that protects my time without changing anything else. | Protects my time; does not change conditions. | Protects my time; doesn't change anything else."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Hedged with 'often gone quiet'; the recency check is marked speculative. | pass: Hedged appropriately with 'has often gone quiet'. | pass: Hedged correctly with \"often gone quiet\"; the practical check is not dressed with a source."
+      }
+    },
+    "coord-neighborhood-map": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Ask two neighbors to spend 20 minutes listing the groups, churches and clubs within walking distance' is concrete. | 'Ask two neighbors to spend 20 minutes listing the groups, churches and clubs within walking distance' is concrete. | \"Ask two neighbors to spend 20 minutes listing the groups, churches and clubs\" is concrete, though it depends on others."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Listing what exists 'before anyone asks what is missing' is a known organizing idea with a modest twist. | Starting 'before anyone asks what is missing' is a known community-development idea. | Asset mapping, \"before anyone asks what is missing\", is a known method with a useful framing."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Kretzmann and McKnight's '1993 book' is named but has no outcome. | Kretzmann and McKnight's 1993 book, no place or result. | Kretzmann and McKnight's 1993 book; no result."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2.33,
+        "reason": "Posting the map to a Buy Nothing group is the one surprising element. | Predictable from the title. | Overlaps the shared-plan and ask-around cards; little new."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Candid limit: 'Those groups are mostly for giving things away, so keep the post short.' | Fix title 'Make an asset map with a few neighbors' uses jargon a reader may not know. | Clear and calm, with one sensible note: \"keep the post short and ask one clear question\"."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Neighbors build a shared picture they own together. | A shared neighborhood resource built together. | Neighbors build a shared picture of what they have."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Asset mapping is presented as a method, not a measured result, matching the exemplar limits. | pass: Says Buy Nothing groups 'are mostly for giving things away'; the method is described as a method. | pass: Describes a method without claiming measured results; Buy Nothing's purpose is stated honestly."
+      }
+    }
+  },
+  "pairwise": [],
+  "consensus": {
+    "coord-know-local-groups": {
+      "borda": 37,
+      "ranks": [
+        4,
+        2,
+        2
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "coord-hear-neighbors": {
+      "borda": 27,
+      "ranks": [
+        5,
+        8,
+        5
+      ],
+      "spread": 3,
+      "honestVotes": "3/3 pass"
+    },
+    "coord-city-hall-record": {
+      "borda": 36,
+      "ranks": [
+        2,
+        4,
+        3
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "coord-ask-around": {
+      "borda": 8,
+      "ranks": [
+        12,
+        14,
+        11
+      ],
+      "spread": 3,
+      "honestVotes": "2/3 pass"
+    },
+    "coord-one-list-near-me": {
+      "borda": 14,
+      "ranks": [
+        7,
+        10,
+        14
+      ],
+      "spread": 7,
+      "honestVotes": "2/3 pass"
+    },
+    "coord-council-alerts": {
+      "borda": 9,
+      "ranks": [
+        13,
+        11,
+        12
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "coord-neighbors-same-issue": {
+      "borda": 42,
+      "ranks": [
+        1,
+        1,
+        1
+      ],
+      "spread": 0,
+      "honestVotes": "3/3 pass"
+    },
+    "coord-start-it-myself": {
+      "borda": 22,
+      "ranks": [
+        6,
+        7,
+        10
+      ],
+      "spread": 4,
+      "honestVotes": "3/3 pass"
+    },
+    "coord-shared-plan": {
+      "borda": 35,
+      "ranks": [
+        3,
+        3,
+        4
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "coord-public-directory": {
+      "borda": 5,
+      "ranks": [
+        14,
+        13,
+        13
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "coord-ask-officials": {
+      "borda": 25,
+      "ranks": [
+        9,
+        5,
+        6
+      ],
+      "spread": 4,
+      "honestVotes": "3/3 pass"
+    },
+    "coord-offer-skills": {
+      "borda": 24,
+      "ranks": [
+        8,
+        6,
+        7
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "coord-check-group": {
+      "borda": 18,
+      "ranks": [
+        10,
+        9,
+        8
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "coord-neighborhood-map": {
+      "borda": 13,
+      "ranks": [
+        11,
+        12,
+        9
+      ],
+      "spread": 3,
+      "honestVotes": "3/3 pass"
+    }
+  },
+  "seed": 17
+}

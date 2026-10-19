@@ -1,0 +1,665 @@
+{
+  "schemaVersion": 1,
+  "painId": "meaningless-work",
+  "runId": "20261019-142007",
+  "judge": {
+    "context": "isolated-consensus",
+    "judges": 3,
+    "files": [
+      "judgments-1.json",
+      "judgments-2.json",
+      "judgments-3.json"
+    ],
+    "at": "2026-10-19T18:31:23+00:00"
+  },
+  "scores": {
+    "meaning-meet-who-it-helps": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"write their first name on a note by your screen\" and a 15-minute talk are doable today and clearly move something. | \"write their first name on a note by your screen\" takes five minutes and the 15-minute talk is a concrete ask. | \"write their first name on a note by your screen\" and a 15-minute talk are concrete steps that take minutes."
+      },
+      "nonObvious": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Putting \"a face or a name in front of you while you work\" reframes meaning as something you can arrange rather than wait for. | Turns vague meaning into a person: \"Keep a face or a name in front of you while you work\" is not what anyone says first. | Putting \"a face or a name in front of you\" turns vague meaning into a specific, unexpected habit."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "University of Michigan call center with \"142% more time on the phone and raising 171% more\", plus Jerusalem 2008 radiology photos. | University of Michigan call center \"142% more time on the phone and raising 171% more\" plus Jerusalem 2008 radiology. | University of Michigan callers \"spending 142% more time on the phone and raising 171% more\"; Jerusalem 2008 radiologists."
+      },
+      "surprise": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Radiologists \"missed about 80% of the extra findings\" without the patient photo is a fact you'd repeat to a friend. | Radiologists who \"missed about 80% of the extra findings\" without a photo is a fact you'd repeat to a friend. | Radiologists \"missed about 80% of the extra findings\" without the photo is a fact you'd repeat to a friend."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Warm and plain (\"Hearing from the person on the other end is often what the job was missing\"), though \"thorough reports\" and \"findings\" lean clinical. | Plain and warm (\"Most jobs have a downstream person, even when nobody tells you who\"), though fix texts are mostly study recaps. | Warm and plain (\"Most jobs have a downstream person, even when nobody tells you who\"), though the 80% line reads a bit clinical."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Changes how I relate to my own work (\"Ask to talk with someone who uses your work\"), not who decides. | Changes how I see and do my own work, not who decides: \"Ask to talk with someone who uses your work\". | \"I can name someone whose week went better\" changes how the job feels, not who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Both studies are scoped to one place (\"At a hospital in Jerusalem in 2008\"); the trace fix's \"Researchers... found\" leans on a definitional source but stays modest. | FAIL: Generalizes one-site studies (\"often what the job was missing\"; radiology given without its 318-patient pilot limit) and the trace fix claims researchers \"found\" a causal effect the job-crafting definition does not support. | pass: Reports what happened at one call center and one hospital; \"often what the job was missing\" generalizes slightly but stays within the exemplars."
+      }
+    },
+    "meaning-reshape-the-job": {
+      "actionable": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"Make three short lists tonight\" and \"Write one sentence that starts 'My job is to help…'\" are quick and concrete. | \"Make three short lists tonight\" and the \"My job is to help…\" sentence are quick, real steps. | \"Make three short lists tonight\" and \"My job is to help...\" are quick, real steps."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Naming \"job crafting\" and describing a job \"by who it helps instead of by its tasks\" is a useful twist on a familiar idea. | Naming job crafting and \"Describe your job by who it helps instead of by its tasks\" reframes a familiar idea usefully. | Naming \"job crafting\" and describing the job \"by who it helps instead of by its tasks\" is a useful reframe."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Wrzesniewski and Dutton, 2001, and \"a study of hospital cleaners\", but no place or number. | Names Wrzesniewski and Dutton, 2001, but the hospital cleaners study has no place or number. | Wrzesniewski and Dutton, 2001, and the hospital cleaners study, but with no place or number."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Cleaners who \"saw themselves as part of helping patients heal\" is one memorable element. | Cleaners with \"the same duties felt very differently\" is one surprising element. | Cleaners who \"saw themselves as part of helping patients heal\" is one surprising element."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"You usually have more room than your job description suggests\" sounds like a mentor, unhurried and candid. | Mentor-like: \"You usually have more room than your job description suggests.\" | \"You usually have more room than your job description suggests\" sounds like a mentor; titles are plain."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Changes my own conditions by \"quietly changing your tasks, who you work with\". | Reshapes my own tasks and relationships within the job. | \"quietly changing your tasks\" changes my own conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Cleaners study told as a description; \"they started doing small extra things\" slightly implies sequence but does not overclaim causation. | pass: Studies are described as what was found; \"small changes add up over a year\" and \"started doing\" lean slightly causal but stay within reason. | pass: Real research, plainly described; \"they started doing small extra things\" leans causal but the claim is modest."
+      }
+    },
+    "meaning-manager-conversation": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Write down two pieces of your work you think matter most, and ask for 20 minutes\" is a real, quick step. | \"Write down two pieces of your work you think matter most, and ask for 20 minutes\" is concrete. | \"Write down two pieces of your work... and ask for 20 minutes\" is specific and doable."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"Ask your manager for a regular talk\" is a known basic, made a little sharper by the management finding. | Talking to your manager is a known basic; the management-not-job-type finding gives it some point. | \"Ask your manager for a regular talk\" is a known basic, made somewhat useful by the management finding."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"A 2022 study using European workplace surveys\" and \"some garbage collectors\" but no names or numbers. | \"A 2022 study using European workplace surveys\" with garbage collectors, but no number. | \"A 2022 study using European workplace surveys\" is named only loosely, with no number."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Garbage collectors feeling their job is useless is one surprising element. | \"even some garbage collectors felt it\" and the link to bad management is a fact worth repeating. | \"even some garbage collectors felt it\" is one surprising detail."
+      },
+      "voice": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"A 2023 U.S. study found partial support for the opposite view... so researchers still disagree\" reads like a literature review and does not connect back to the action. | The fix text reads like a literature review (\"researchers still disagree\") and never says what the talk itself changes. | The fix text is a research summary (\"researchers still disagree\") that never says how the talk helps me."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Moves some of my work \"in that direction\" through my manager; my own conditions only. | Moves some of my own work toward what I value: \"some of my work moves in that direction\". | \"some of my work moves in that direction\" changes my own conditions through my manager."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Presents the disagreement openly: \"researchers still disagree\". | pass: States the 2023 U.S. study's partial disagreement plainly. | pass: Presents the contested finding with the 2023 U.S. study's partial support for the opposite view."
+      }
+    },
+    "meaning-skills-for-a-cause": {
+      "actionable": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "\"Email one local nonprofit you like and ask what skill they wish they had\" takes ten minutes and opens a door. | \"Search Idealist for your job title plus 'volunteer' and save two openings\" is doable in 15 minutes. | \"Search Idealist for your job title plus 'volunteer' and save two openings\" is a 15-minute step that moves something."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Skilled volunteering over \"a weekend of painting\" reframes what giving time can mean. | \"Treat your professional skills as worth more than general help\" reframes volunteering away from painting walls. | \"Treat your professional skills as worth more than general help\" reframes volunteering usefully."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Catchafire, New York, 2009, Rachael Chong's lumber story, and Taproot's \"$150, against about $23\". | Catchafire, New York 2009, Rachael Chong; Taproot 2015 \"$150, against about $23\". | Catchafire, New York, 2009; Taproot's 2015 \"$150, against about $23\"; Idealist's 100,000 openings."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "The $150 versus $23 valuation and Chong \"hauled lumber while her finance skills went unused\" are repeatable. | Chong \"hauled lumber while her finance skills went unused\" and the $150 vs $23 gap stick. | Rachael Chong \"hauled lumber while her finance skills went unused\" and the $150 vs $23 figure stick."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Fix text is plain and kind, but the dream line \"Something I do every day at my job is helping an organization\" muddles job and volunteering. | Candid and specific; the dream line \"Something I do every day at my job\" slightly mismatches side projects. | \"A few hours of what you already do well can matter more to a small group than a weekend of painting\" is candid and kind."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Adds meaning outside my job (\"short, defined nonprofit projects\") without changing the job. | Redirects my own skills to a cause; conditions at my job stay the same. | Moves my skills toward \"an organization I believe in\" without changing my job's conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Taproot figure is attributed as its 2015 estimate; resources are described as they are. | pass: Taproot figure is dated and attributed; listing sites are described as listings. | pass: Taproot figure is attributed as its own 2015 estimate; listings are described as listings."
+      }
+    },
+    "meaning-side-project": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Look on the Repair Café map for one near you and write down the date\" is quick and specific. | \"Look on the Repair Café map for one near you and write down the date\" is quick and specific. | \"Look on the Repair Cafe map... write down the date of the next session\" is quick and concrete."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Repair nights and library classes are known ideas, helped by \"they need organizers and greeters as much as people who can fix things\". | A side project is a familiar suggestion, made useful by noting cafés \"need organizers and greeters\". | A side project is familiar; the repair night is a useful, specific twist."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Martine Postma, Amsterdam, 2009, \"more than 2,500 of them\"; the library fix has no example. | Martine Postma, Amsterdam 2009, \"more than 2,500 of them\". | Martine Postma, Amsterdam, 2009, \"more than 2,500 of them\"; the library fix has no example."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "That Repair Cafés need greeters, not just fixers, is one useful surprise. | The repair night is a nice angle; the library class is predictable. | \"they need organizers and greeters as much as people who can fix things\" is one surprising angle."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Teaching what you already know can show you that your skills matter to people outside your office\" is warm and plain. | Warm and plain: \"Even when my job feels flat, I have one thing each month\". | \"Even when my job feels flat\" is honest and personal; titles are plain."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "A meaningful personal project near home; the job itself stays the same. | Adds meaning outside work without changing the job. | Meaning found outside the job, which stays unchanged."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The library fix is general (\"Many public libraries\") and claims no specific result, though it is speculative under a real_now label. | pass: Library fix makes only a general claim (\"Many public libraries\"), though its real_now label sits on a speculative idea. | pass: Library practice is described as common, not as a specific program; the organizers claim is mild and unsourced."
+      }
+    },
+    "meaning-change-roles": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Search O*NET OnLine for one task you enjoy at work and write down three jobs\" is concrete and fast. | \"Search O*NET OnLine for one task you enjoy at work and write down three jobs\" is concrete. | \"Search O*NET OnLine for one task you enjoy... write down three jobs\" is a clear 15-minute step."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Searching jobs \"by a task you like\" is a useful twist on standard career-change advice. | Career guides and informational interviews are basics; searching by a liked task is a useful twist. | Career guides and informational talks are well-chosen basics; searching \"by a task you like\" adds a twist."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Names 80,000 Hours and O*NET but no year, number or result. | Names 80,000 Hours and O*NET but gives no result or number. | 80,000 Hours and O*NET are named, but with no result or number."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Read a guide, look up jobs, talk to people: predictable from the title. | Mostly predictable from \"change jobs\". | Predictable from \"A job where I can see the good it does\"."
+      },
+      "voice": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Plain but impersonal; \"People are usually glad to be asked about their work\" is the warmest line. | \"something I'd be glad to explain to a kid\" is a mentor's line; the effective altruism caveat is said once, plainly. | Plain and fair (\"one view among many\"), but impersonal."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Changing roles changes my own conditions. | Changes my own conditions by changing jobs. | Changing jobs changes my own conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Notes the guide's effective altruism lens as \"one view among many\". | pass: Notes the guide's viewpoint; speculative talk fix makes no false claim. | pass: Names the guide's effective altruism slant and keeps the talk advice modest."
+      }
+    },
+    "meaning-service-year": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Browse current AmeriCorps openings in your state and save one\" is a real 15-minute step. | \"Browse current AmeriCorps openings in your state and save one\" is quick. | \"Browse current AmeriCorps openings in your state and save one\" is specific."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "AmeriCorps is familiar; the 55-and-older branch is a useful twist. | AmeriCorps is known; the 55-and-older branch adds a useful detail. | National service is known; \"AmeriCorps Seniors\" for 55 and up is a useful twist."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "AmeriCorps, 1993 law, \"education award of up to $6,095\". | Created in 1993, education award \"up to $6,095\". | AmeriCorps, 1993 law, \"education award of up to $6,095\"."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "Mostly predictable from \"a year on public service work\". | Seniors program for people \"still working part time\" is one new element. | A service branch \"including those still working part time\" may surprise older readers."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"the allowance is modest, so plan for that\" is exactly the calm mentor limit. | Honest and unhurried: \"the allowance is modest, so plan for that\". | \"the allowance is modest, so plan for that\" is the one plain limit a mentor would give."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Changes my own work for a year, not who decides. | A year of my own work pointed at community. | A year \"plainly for my community\" changes my own conditions, not who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: States the modest allowance plainly and claims nothing beyond the program's terms. | pass: States the modest allowance limit; \"still working part time\" is a small unsupported detail. | pass: States the modest allowance once and claims nothing beyond the exemplar."
+      }
+    },
+    "meaning-coworkers-decide": {
+      "actionable": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "\"Ask two coworkers if they'd join a monthly lunch, and pick a date\" is small and obviously moves something. | \"Ask two coworkers if they'd join a monthly lunch, and pick a date\" is fast and real. | \"Ask two coworkers if they'd join a monthly lunch, and pick a date\" takes ten minutes and moves something."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Linking isolation and a shared vote to meaninglessness (\"decide some of how our work gets done\") is a fresh angle. | \"Your team doesn't need to own the company to try deciding one thing together\" scales a co-op idea down usefully. | Linking pointlessness to isolation and to \"deciding one thing together\" is a fresh angle."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Cooperative Home Care Associates' \"Payday Fridays\" and Mondragon's \"nearly 70,000 worker-owners\". | CHCA \"Payday Fridays\" in the Bronx and Mondragon's \"nearly 70,000 worker-owners\". | Cooperative Home Care Associates' \"Payday Fridays\"; Mondragon's \"nearly 70,000 worker-owners vote\"."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Payday Fridays for isolated home aides is one concrete, memorable detail. | Payday Fridays for isolated home aides is a vivid, repeatable detail. | Aides who \"mostly work alone in clients' homes\" gathering on payday is a detail worth repeating."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Your team doesn't need to own the company to try deciding one thing together\" is candid and unhurried. | Plain and direct titles: \"Ask your team to vote on one decision that affects your work\". | \"Your team doesn't need to own the company to try deciding one thing together\" is warm and direct."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Moves some decisions to the team: \"vote on one decision that affects your work\". | Shifts some decisions to the team: \"decide some of how our work gets done\". | \"decide some of how our work gets done\" shifts some decisions to the team."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Examples are told as what happens at named co-ops, without claiming they will transfer. | pass: Describes the examples as they are and doesn't claim a team vote equals ownership. | pass: Examples are stated as what happened and scaled down honestly for an ordinary team."
+      }
+    },
+    "meaning-own-the-workplace": {
+      "actionable": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"Look up your own employer's ownership... and write it down\" is real but slow to matter. | \"Look up your own employer's ownership… and write it down\" is real but slow to matter. | \"Look up your own employer's ownership\" and reading are real but slow to matter."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Treating ownership and a vote as a cure for meaningless work is a reframe most readers haven't made. | Linking meaning to ownership and a vote is not the first thing people suggest. | Treating ownership and a vote as an answer to meaningless work is a reframe most readers haven't considered."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Bronx co-op founded 1985, \"more than 2,000 home health aides\", Mondragon pay cap with both reported ratios. | CHCA 1985, \"more than 2,000 home health aides\" vs about nine; Mondragon 1955 pay cap. | CHCA, Bronx, 1985, \"more than 2,000 home health aides\"; Mondragon, 1955, pay cap."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "2,000 owners against \"the average American worker co-op has about nine\" is worth repeating. | A 2,000-member co-op when \"the average American worker co-op has about nine\" stops you. | 2,000 owners against \"about nine members\" in the average co-op, and a capped pay gap, stand out."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Plain and honest (\"so most are small\"), slightly informational. | \"Learn how…\" and \"Compare how…\" titles are flat, and \"gives you something concrete to compare\" is roundabout. | Calm and specific; \"so most are small\" is an honest aside."
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Changes who owns and decides: \"I own a share of the place I work\". | Changes who owns and decides: \"I own a share… and I help decide where it goes\". | \"I own a share... and I help decide where it goes\" changes who owns and decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Gives both pay-cap figures (\"6 to 1 in one recent report and 9 to 1 in others\") and notes most co-ops are small. | pass: Gives both 6 to 1 and 9 to 1 and says most co-ops are small. | pass: Gives both the 6 to 1 and 9 to 1 figures and notes most co-ops are small."
+      }
+    },
+    "meaning-employee-buyout": {
+      "actionable": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "\"Read Project Equity's page for business owners\" before asking the boss is a sensible, quick first move. | \"Read Project Equity's page for business owners\" is preparation, not yet a move. | \"Read Project Equity's page for business owners\" before asking the boss is sensible and quick."
+      },
+      "nonObvious": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Workers buying the business \"when the owner retires\" is an option most employees have never considered. | A retiring owner as a chance for workers to own the business is a new thought for most readers. | Asking \"whether your boss has a retirement plan for the business\" is something few readers would think of."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Project Equity in Oakland and \"6,609 employee stock ownership plans, as of 2023\". | Project Equity, Oakland; \"15.1 million Americans are in 6,609\" plans as of 2023. | Project Equity and NCEO's \"15.1 million Americans... 6,609\" plans; no buyout result is named."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"About 15.1 million Americans\" in employee stock plans, most without a vote, is a stop-and-think fact. | \"about half of American businesses with employees are owned by baby boomers nearing retirement\" is worth repeating. | \"Most of these plans give workers a share of the value, not a vote\" is a useful surprise."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"so ask which kind is on the table\" is practical mentor advice. | Candid mentor advice: \"so ask which kind is on the table\". | \"so ask which kind is on the table\" is practical mentor advice."
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Changes who owns the business: \"the people who built the business get to own it\". | Changes who owns the business: \"the people who built the business get to own it\". | \"the people who built the business get to own it\" changes ownership."
+      },
+      "honestStatus": {
+        "pass": false,
+        "reason": "FAIL: \"about half of American businesses with employees are owned by baby boomers nearing retirement\" is attributed to Project Equity but is not in the exemplar record. | pass: The boomer figure is attributed to Project Equity, and the card says most stock plans give \"a share of the value, not a vote\". | FAIL: \"about half of American businesses with employees are owned by baby boomers nearing retirement\" is not in the Project Equity exemplar."
+      }
+    },
+    "meaning-ownership-law": {
+      "actionable": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"save their contact page\" and signing up for a newsletter are real but slow to matter. | \"Look up who represents you… and save their contact page\" is a weak first move. | \"Look up who represents you in your state legislature and save their contact page\" is real but slow to matter."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Using tax law to make selling to employees \"a normal, easy option\" is new to most readers. | A state-level path for buyouts, modeled on a foreign tax law, is not obvious. | Pointing to tax law as the lever for employee ownership is a new angle for most readers."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "UK since 2014: no capital gains tax on sale to an employee trust, \"bonuses of up to £3,600 a year\". | UK since 2014, no capital gains tax, bonuses \"up to £3,600 a year\". | UK, 2014, \"no capital gains tax\" and bonuses \"up to £3,600 a year free of income tax\"."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "A country already gives sellers a full capital gains break for selling to staff. | A whole country made selling to employees tax-free for owners. | A whole country making the sale tax-free to sellers is a precedent you'd repeat."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Supporters want something similar here, while critics say the tax break is too generous\" is calm and fair. | Fair to both sides: \"critics say the tax break is too generous to sellers\"; the It fix starts \"It could\". | Plain and balanced, though \"Supporters want something similar here\" doesn't say who."
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Changes the rules on who can own businesses statewide. | Changes rules about who can own companies. | Changes the rules so \"selling to the employees is a normal, easy option\"."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The contested policy is offered as what \"Supporters want\" with critics named, and the letter helper is written \"It could help you\". | pass: The contested policy is offered as what supporters want, with critics named; the It idea is written as \"It could\". | pass: Offered as a proposal with critics named; the It letter says \"It could\"; \"runs advocacy and regional programs\" is unsupported by the exemplar but minor."
+      }
+    },
+    "meaning-it-reflection": {
+      "actionable": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "\"tonight write down one task you'd happily do more of\" works without It. | \"write tonight's note on paper\" is real but small and generic. | \"tonight write down one task you'd happily do more of\" works without It."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "A guided job crafting walk-through and weekly note are useful but familiar journaling. | Mapping O*NET tasks to the people they reach is a useful twist on a reflection tool. | Repeats ideas from the real cards (crafting questions, a weekly note) rather than adding much."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Points to Wrzesniewski and Dutton and O*NET; fine for an It idea. | Points to Wrzesniewski and Dutton, O*NET and the call center study, which fits an It idea. | Labeled It idea; points to Wrzesniewski and Dutton and O*NET, not penalized for lacking a result."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 1.67,
+        "reason": "\"ask you once a week to name one person your work helped\" is predictable. | A weekly reflection prompt is predictable from the pain title. | Predictable from the title \"Seeing clearly which parts of my work help someone\"."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "\"keep those notes for the weeks when the job feels pointless\" is gentle and specific. | Three \"It could\" texts in a row read like a feature list. | \"keep those notes for the weeks when the job feels pointless\" is gentle and clear."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "A personal reflection tool; conditions unchanged. | A personal fix, meaningful but inside unchanged conditions. | Helps me \"spend more time on them\" within the same job."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Every fix starts \"It could\" and the status is proposed_it_feature. | pass: Every fix is written \"It could…\" and labeled as something It could build. | pass: Every fix says \"It could\" and carries status proposed_it_feature."
+      }
+    },
+    "meaning-it-matching": {
+      "actionable": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"note roughly how many people work where you do\" is easy but doesn't move much on its own. | \"search the worker co-op directory for your state\" is real but a repeat of other cards. | \"note roughly how many people work where you do\" is small and indirect."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Checking with coworkers \"whether a buyout is worth raising before anyone talks to the owner\" is a fresh idea. | Matching skills to openings is familiar; the buyout checklist is fresher. | Checking \"whether a buyout is worth raising before anyone talks to the owner\" is a fresh idea."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Idealist's \"100,000 openings\" and Project Equity's questions; enough for an It idea. | Cites Idealist's 100,000 openings and Project Equity's questions. | Labeled It idea; cites Idealist's 100,000 openings and the co-op directory."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "A tool to scope a buyout among coworkers is one surprising element. | Mostly predictable feature ideas. | A coworker buyout check is one surprising element."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "\"You'd see a few good fits instead of a long list\" is plain and clear. | Plain but brochure-like: \"You'd see a few good fits instead of a long list.\" | \"You'd see a few good fits instead of a long list\" says exactly what changes."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "The buyout check points toward ownership; the other two are matching. | The buyout and co-op fixes point toward ownership. | Points toward ownership and \"somewhere to apply, or a model to point to\"."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Written as \"It could...\" throughout; \"federal data on employee stock plans\" is loosely sourced but does not claim anything is built. | pass: Written as \"It could\"; calling the employee stock plan data \"federal\" is a small inaccuracy, not an overclaim about It. | pass: Written as \"It could\"; calling stock-plan data \"federal\" is loose but not an overclaim."
+      }
+    },
+    "meaning-common-feeling": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Tell one friend you trust that you have been feeling this\" is small, human and doable today. | \"Write down the last time your job felt worthwhile, and what was different\" is quick and revealing. | \"Tell one friend you trust that you have been feeling this\" is a 10-minute step that matters."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"says more about how the work is run than about me\" reframes a private shame as a management problem. | \"says more about how the work is run than about me\" reframes the feeling without blame. | \"says more about how the work is run than about me\" reframes the feeling usefully."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "2024 YouGov survey of 5,889 working Britons, \"one in three\", \"more than half\" in retail and finance. | 2024 YouGov, 5,889 adults, \"one in three\", more than half in retail and finance. | 2024 YouGov survey of \"5,889 working adults in Britain, one in three\"; more than half in retail and finance."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "One in three British workers feeling this, and over half in finance, is worth repeating. | More than half in retail and finance is a number people repeat. | \"In retail and finance it was more than half\" is a number you'd repeat."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Non-judging and calm, though \"Knowing many people feel their work is pointless\" is a weak dream title. | Never judging: \"Tell one friend you trust that you have been feeling this\". | Never judging: \"Write down the last time your job felt worthwhile\" is how a trusted mentor talks."
+      },
+      "power": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Mostly understanding the feeling inside unchanged conditions. | Mostly understanding and coping; the job itself stays the same. | Mostly understanding inside unchanged conditions, though it \"points to changes you can actually ask for\"."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Survey is scoped to Britain; \"came more from bad management\" leans causal and omits the counter-study, but stays within a research finding. | pass: Survey is placed in Britain; the management finding leaves out the 2023 disagreement, but \"often\" keeps it from being stated as settled. | pass: Survey figures match the exemplar; the 2022 finding is stated as research, though the dissenting U.S. study goes unmentioned."
+      }
+    }
+  },
+  "pairwise": [],
+  "consensus": {
+    "meaning-meet-who-it-helps": {
+      "borda": 29,
+      "ranks": [
+        1,
+        14,
+        1
+      ],
+      "spread": 13,
+      "honestVotes": "2/3 pass"
+    },
+    "meaning-reshape-the-job": {
+      "borda": 27,
+      "ranks": [
+        6,
+        5,
+        7
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "meaning-manager-conversation": {
+      "borda": 11,
+      "ranks": [
+        12,
+        10,
+        12
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "meaning-skills-for-a-cause": {
+      "borda": 39,
+      "ranks": [
+        2,
+        1,
+        3
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "meaning-side-project": {
+      "borda": 17,
+      "ranks": [
+        9,
+        9,
+        10
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "meaning-change-roles": {
+      "borda": 8,
+      "ranks": [
+        13,
+        11,
+        13
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "meaning-service-year": {
+      "borda": 18,
+      "ranks": [
+        10,
+        8,
+        9
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "meaning-coworkers-decide": {
+      "borda": 38,
+      "ranks": [
+        3,
+        2,
+        2
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "meaning-own-the-workplace": {
+      "borda": 30,
+      "ranks": [
+        4,
+        6,
+        5
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "meaning-employee-buyout": {
+      "borda": 14,
+      "ranks": [
+        14,
+        3,
+        14
+      ],
+      "spread": 11,
+      "honestVotes": "1/3 pass"
+    },
+    "meaning-ownership-law": {
+      "borda": 25,
+      "ranks": [
+        7,
+        7,
+        6
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "meaning-it-reflection": {
+      "borda": 10,
+      "ranks": [
+        11,
+        13,
+        11
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "meaning-it-matching": {
+      "borda": 17,
+      "ranks": [
+        8,
+        12,
+        8
+      ],
+      "spread": 4,
+      "honestVotes": "3/3 pass"
+    },
+    "meaning-common-feeling": {
+      "borda": 32,
+      "ranks": [
+        5,
+        4,
+        4
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    }
+  },
+  "seed": 17
+}

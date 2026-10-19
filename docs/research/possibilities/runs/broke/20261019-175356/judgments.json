@@ -1,0 +1,665 @@
+{
+  "schemaVersion": 1,
+  "painId": "broke",
+  "runId": "20261019-141958",
+  "judge": {
+    "context": "isolated-consensus",
+    "judges": 3,
+    "files": [
+      "judgments-1.json",
+      "judgments-2.json",
+      "judgments-3.json"
+    ],
+    "at": "2026-10-19T18:29:12+00:00"
+  },
+  "scores": {
+    "broke-know-recurring-costs": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "'Open your last two bank or card statements and highlight every charge that shows up both months' is a clear 15-minute task. | \"highlight every charge that shows up both months\" is a 15-minute step that turns up money right away. | \"highlight every charge that shows up both months\" is a 15-minute step that pays off at once."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "A familiar audit made meaningful by 'guessed they spent about $86 a month... the average was $219'; the 50/30/20 fix is standard budgeting. | Tracking subscriptions is a familiar basic, made useful by \"guessed... $86... the average was $219\". | Tracking subscriptions is familiar; the guessed-versus-real gap makes it useful, but \"the 50/30/20 split\" is stock budgeting advice."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'a 2022 survey of 1,000 Americans' with $86 vs $219 and 42%, though the survey's source is never named. | \"2022 survey of 1,000 Americans\" with $86 vs $219 and 42%, but an unnamed survey firm. | \"a 2022 survey of 1,000 Americans ... $86 ... $219\" has year and numbers, though the survey is unnamed."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "The $86 vs $219 gap is the kind of number you'd repeat to a friend. | \"Forty-two percent were still paying for something they had stopped using\" is worth repeating. | \"guessed ... $86 ... the average was $219\" is a fact a reader would repeat."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Warm and unjudging: 'If needs alone take more than half, you're far from alone'; the 'Give each dollar a job' title leans on a budgeting slogan. | Calm and candid: \"If needs alone take more than half, you're far from alone\"; plain titles. | Plain and kind: \"you're far from alone, and the bigger fix is more likely raising income\"."
+      },
+      "power": {
+        "score": 2,
+        "mean": 2.33,
+        "reason": "Mostly coping inside the same income: 'cancel it today, and save a screenshot'. | Changes my own conditions, but stays inside the household budget. | \"Knowing exactly what leaves my account\" is mostly coping inside unchanged conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Survey and court ruling are stated as what happened; 50/30/20 is offered as 'a common starting point', not a rule. | pass: Survey stated as a survey; 50/30/20 offered as \"a common starting point\"; court ruling described accurately. | pass: Survey figures match the exemplar; the court ruling is stated accurately and the budget rule is offered as \"a common starting point\"."
+      }
+    },
+    "broke-lower-phone-internet": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "'Look up what a competitor charges... then call your provider and ask them to match it' is concrete and quick. | \"Look up what a competitor charges... then call your provider and ask them to match it\" is concrete and fast. | \"Look up what a competitor charges ... then call your provider and ask them to match it\" is concrete and quick."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Pairs a known move with a useful detail, quoting a competitor's price, plus the little-known Lifeline discount at '135% of the poverty line'. | Negotiating bills is well known; the Lifeline income figure \"$21,546 a year for one person\" adds a useful detail. | Lifeline, with \"$21,546 a year for one person\" and SNAP/Medicaid eligibility, is a benefit many people don't know about."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "'2018 Consumer Reports survey of more than 176,000 members, 80%... got something' is named with numbers. | Consumer Reports 2018 with numbers, but the result cited is a \"TV bill\", not phone or internet. | \"2018 Consumer Reports survey of more than 176,000 members, 80% ... got something\" is named, dated and quantified."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "'80% of the people who tried to negotiate got something' is surprising, though the follow-up cites a 'TV bill' on a phone and internet card. | \"80% of the people who tried to negotiate got something\" is mildly surprising. | \"80% of the people who tried to negotiate got something\" is a mild surprise."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Plain and specific: 'though only one discount is allowed per household' is a single honest limit. | Plain and direct: \"Call your provider and ask for a lower monthly rate\". | Clear, direct titles like \"Call your provider and ask for a lower monthly rate\"."
+      },
+      "power": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "Changes my own bills; Lifeline brings in a public benefit but no shift in who decides. | Lowers my own bill; does not change who sets prices. | Lowers one's own bill; doesn't change who sets prices."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The It idea is written 'It could look up...' and labeled proposed; the survey is reported as survey results. | pass: Lifeline rules match the exemplar; the It idea is written \"It could look up\" and labeled proposed. | pass: Survey is described as TV-bill results and the compare tool is written \"It could look up\" and labeled proposed."
+      }
+    },
+    "broke-claim-tax-credits": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "'look for the line labeled earned income credit to see whether you claimed it' takes 10 minutes and gives an answer. | \"look for the line labeled earned income credit to see whether you claimed it\" takes 10 minutes and can mean thousands. | \"Find last year's tax return and look for the line labeled earned income credit\" takes 10 minutes and answers a real question."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "The 'three years from a return's due date' window turns a known credit into money you might still recover. | Filing taxes is obvious; \"three years from a return's due date to claim a refund\" makes it newly meaningful. | Filing past returns within \"three years from a return's due date\" turns a known credit into money people forgot."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "IRS estimate with 'up to $7,830' and 'average credit... $2,743'; national rather than a place-specific story. | IRS, tax years 2023-2024, \"one in five\", \"up to $7,830\", \"average... $2,743\". | \"The IRS estimates ... one in five ... up to $7,830 ... average ... $2,743\" is named, dated and concrete."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "'about one in five people who qualify for this credit don't claim it' is a stop-and-repeat fact. | \"about one in five people who qualify for this credit don't claim it\" is a fact to repeat. | \"one in five people who qualify for this credit don't claim it\" is worth repeating."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Calm and practical: 'so the volunteers know to look for it' sounds like a mentor's tip. | Matter-of-fact mentor tone: \"so the volunteers know to look for it\"; plain titles. | Calm and specific: \"so the volunteers know to look for it\"."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Recovers money I'm owed; it changes my own conditions, not who decides. | Money already owed to my family comes back to us, a meaningful personal fix. | Recovers real money owed, changing one's own conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: IRS figures are attributed as an estimate; the refund window is hedged with 'In general'. | pass: Figures match the IRS exemplars; the three-year rule is hedged \"In general\" and marked speculative. | pass: IRS figures match the exemplar; the three-year rule is hedged \"In general\" and is the standard IRS window."
+      }
+    },
+    "broke-hospital-bills": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "'Search your hospital's name with the words financial assistance policy, and download the application' is a 10-minute step that can erase a bill. | \"Search your hospital's name with the words financial assistance policy, and download the application\" in 10 minutes. | \"Search your hospital's name with the words financial assistance policy, and download the application\" is fast and obviously useful."
+      },
+      "nonObvious": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Most people don't know 'Nonprofit hospitals have to offer charity care that reduces or erases bills'. | Many readers have never heard that charity care can \"reduce or erase\" a bill. | \"Nonprofit hospitals have to offer charity care that reduces or erases bills\" is something most people with a bill never hear."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Dollar For, since 2019, 'more than $38 million in medical bills', attributed to the group. | Dollar For, since 2019, \"more than $38 million in medical bills\", attributed as \"The group says\". | \"Dollar For ... more than $38 million in medical bills since 2019\" is named with a number, attributed to the group itself."
+      },
+      "surprise": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Learning a bill can be erased before paying, and that a free group will file for you, is worth repeating. | That a bill can be erased outright, and a free group files for you, makes me stop. | A bill being \"reduced or erased before I pay anything\" by right is a stop-and-tell-a-friend fact."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Asking for the application is how you find out where you stand' is candid and unhurried. | Clear, calm order of steps: \"Ask for it before you agree to a payment plan.\" | Plain, steady advice: \"Asking for the application is how you find out where you stand.\""
+      },
+      "power": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Shifts who pays the bill, a meaningful personal fix: 'reduced or erased before I pay anything'. | Shifts who carries the bill, from me to the hospital's charity care. | Shifts what one household owes, using a right that already exists."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Dollar For's total is framed as 'The group says'; eligibility is noted as set by 'each hospital'. | pass: Dollar For's total is attributed to the group; the nonprofit-hospital rule is accurate though not from the cited page; itemized bill marked speculative. | pass: Dollar For's total is framed \"The group says\" and hospital-set limits are stated once."
+      }
+    },
+    "broke-every-benefit": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Search your state's name with SNAP application and see whether you can start online today' is real; the other steps are prep. | \"Search your state's name with SNAP application\" is real; the screener step is mostly \"Tell us you'd use this\". | \"Search your state's name with SNAP application\" is real; the main fix's step is \"Tell us you'd use this\"."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Benefit screeners are a known idea; 'one missed letter can end coverage' adds a useful twist. | Benefit screeners are a known idea; renewal tracking (\"one missed letter can end coverage\") is a useful twist. | A benefits screener is a known idea; renewal tracking because \"one missed letter can end coverage\" is a useful twist."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "MyFriendBen '55,000 households... $33 million' and GetCalFresh 'from about 45 minutes to under 10'. | MyFriendBen, Colorado, \"55,000 households... $33 million\"; GetCalFresh \"45 minutes to under 10\". | \"MyFriendBen ... 55,000 households ... $33 million\" and GetCalFresh \"45 minutes to under 10\" are specific."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "The 45-to-10-minute cut is interesting, not stopping. | \"one missed letter can end coverage\" is the one surprising angle. | \"$33 million in benefits\" through a screener is a moderate surprise."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Honest and plain: 'A faster form doesn't mean a faster decision, so it's worth applying as soon as you can'. | Honest and plain: \"A faster form doesn't mean a faster decision\". | Honest and warm: \"A faster form doesn't mean a faster decision, so it's worth applying as soon as you can.\""
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Brings in money I'm eligible for; my own conditions change. | Gets my household money we're owed, but within existing programs. | Brings in money a household is owed; conditions change for the household only."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: It ideas use 'It could' and 'would stay'; the MyFriendBen figure is attributed ('says'), though calling its maker 'the nonprofit' goes slightly beyond the exemplar. | pass: Screener and reminders written \"It could\" and labeled proposed; MyFriendBen figures attributed to the nonprofit. | pass: Screener and renewals are written \"It could\" and labeled proposed; MyFriendBen figures are attributed to \"the nonprofit says\"."
+      }
+    },
+    "broke-surprise-expense": {
+      "actionable": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "'Call a credit union near you and ask whether it offers payday alternative loans' is a direct call. | \"Call a credit union near you and ask whether it offers payday alternative loans\" in 10 minutes. | \"Call a credit union near you and ask whether it offers payday alternative loans\" is a 10-minute step."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Payday-alternative loans 'with interest capped at 28% a year' are little known. | Few people know credit unions have a capped payday alternative; \"interest capped at 28% a year\". | Payday-alternative loans \"capped at 28% a year\" are little known; the auto-transfer basic is made concrete with \"$10 or $20 each payday\"."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "A federal rule with numbers ('up to $2,000', 'one to 12 months') but no place or result. | Named program with real limits (\"up to $2,000... one to 12 months\") but no place, year or result. | Federal credit union rules with \"up to $2,000\" are specific but there's no place or result."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "A 28% cap set against payday-loan costs is a concrete surprise. | The 28% cap is a useful fact, not a stopper. | That a credit union can lend \"up to $2,000\" at a capped rate is one surprising element."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Credit unions aren't required to offer them, so ask your local one' gives one plain limit. | Plain and kind: \"Credit unions aren't required to offer them, so ask your local one\". | The dream line \"without a loan that costs more than the repair did\" is plain and vivid; text is calm."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Changes my own borrowing options; no structural shift. | Avoids a predatory loan; my conditions improve, ownership doesn't change. | Moves borrowing from payday lenders to member-owned credit unions for one household."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: PAL rules match the exemplar and the 'not required' limit is stated; savings advice is modest. | pass: PAL limits match the exemplar; the automatic-savings fix is marked speculative and not overstated. | pass: Notes once that \"Credit unions aren't required to offer them\"; savings claim is modest."
+      }
+    },
+    "broke-lending-circle": {
+      "actionable": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "'check whether they serve your state' is real, but 'think of three people you'd trust' is a vague step. | \"check whether they serve your state\" is quick but only a first look. | \"Look up Mission Asset Fund's lending circles and check whether they serve your state\" is quick, though joining takes longer."
+      },
+      "nonObvious": {
+        "score": 5,
+        "mean": 5,
+        "reason": "A circle of friends whose 'payments reported to the credit bureaus' build credit is a fresh idea for most readers. | Borrowing from friends while \"payments reported to the credit bureaus\" is new to most readers. | Turning \"tanda, susu or hui\" into credit building reframes a familiar practice as newly meaningful."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Mission Asset Fund, San Francisco, 'almost twice as likely... to raise their score by 20 points', no year given. | Mission Asset Fund, San Francisco, \"almost twice as likely... 20 points or more\", year not given. | \"In San Francisco, Mission Asset Fund ... almost twice as likely ... to raise their score by 20 points\" has place, group and result."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Borrowing from people you trust and raising your score at once is an angle worth repeating. | \"tanda, susu or hui\" turned into a credit builder is something I'd tell a friend. | Informal family savings circles raising credit scores is a fact readers would pass on."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Respectful and specific: 'Many families already do this informally, under names like tanda, susu or hui'. | Warm, respectful of what \"Many families already do\"; clear titles. | Respectful and specific: \"Many families already do this informally, under names like tanda, susu or hui.\""
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Moves borrowing from lenders to 'a circle of people I know'. | People I trust, not a lender, hold and decide the money. | \"I borrow from a circle of people I know\" moves lending toward people one trusts instead of lenders."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: 'In one study' signals a single study; the It feature is written 'It could let a group...'. | pass: Study framed as \"one study\"; the It idea is labeled proposed; \"six to ten people\" is not in the exemplar but is minor. | pass: Result is framed \"In one study\" for low/no-score members, and the group tool is written \"It could\" and labeled proposed."
+      }
+    },
+    "broke-paid-enough": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Ask one coworker you trust whether pay has been on their mind too' is small and real, though slow to change pay. | \"Ask one coworker you trust whether pay has been on their mind too\" is small and real, though slow to pay off. | \"Ask one coworker you trust whether pay has been on their mind too\" is small and real, though slow to matter."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Unions are familiar; the gentle one-coworker opener makes it usable. | Unions are familiar; the local wage lookup before a raise is a modest twist. | Unionizing is a familiar idea; checking local wage data before asking for a raise is a useful detail."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "BLS 2025 '$1,404, compared with $1,174' is named and numeric. | BLS 2025, \"$1,404, compared with $1,174\", national not local. | \"median weekly earnings of $1,404, compared with $1,174\" from BLS 2025 is concrete, though not a place or group."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "A $230 weekly gap is notable, not startling. | The weekly gap is concrete but not startling. | A union wage premium is largely expected from the title."
+      },
+      "voice": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "Candid mentor tone, with one honest limit: 'Part of that gap comes from differences in jobs and industries'. | Exactly the mentor voice: honest caveat \"Part of that gap comes from differences in jobs\" and a gentle first step. | Candid limit said once: \"Part of that gap comes from differences in jobs and industries\"."
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Changes who decides pay: 'I had a say in how my pay was set'. | Changes who decides pay: \"I had a say in how my pay was set\". | \"I had a say in how my pay was set\" changes who decides pay."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The raw-gap limit is stated; the wage lookup is 'It could look up yours'. | pass: Union gap stated with BLS's own caveat; wage lookup written \"It could\" and labeled proposed. | pass: The raw gap is caveated as BLS does, and the wage lookup is written \"It could\" and labeled proposed."
+      }
+    },
+    "broke-own-the-business": {
+      "actionable": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "'read how one of them started' is learning, not a step that moves anything. | \"Search for worker cooperatives in your city... and read how one of them started\" is research, slow to matter. | \"Search for worker cooperatives ... and read how one of them started\" is a real step but slow to matter."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Ask a retiring owner about selling to the employees' is an angle few readers would think of. | Asking a \"retiring owner about selling to the employees\" is a path most readers haven't considered. | Buying out \"a retiring owner\" as employees is an angle most workers haven't considered."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Cooperative Home Care Associates, Bronx, '2,200 people', with no year and no pay or ownership result. | Cooperative Home Care Associates, Bronx, \"more than 2,200 people\", no year or pay result. | \"Cooperative Home Care Associates ... more than 2,200 people\" is named but has no year or pay result."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "A 2,200-person worker-owned company is interesting but not stopping. | Employee buyouts of retiring owners is one surprising element. | A worker-owned firm of \"more than 2,200\" in the Bronx is one surprising element."
+      },
+      "voice": {
+        "score": 3,
+        "mean": 3,
+        "reason": "'Look at how a worker-owned company is run' is a vague title, and 'Worker-owned companies share profits and decisions' reads like a leaflet. | Mostly plain, but \"Worker-owned companies share profits and decisions with the people who do the work\" reads like a leaflet. | \"Worker-owned companies share profits and decisions with the people who do the work\" reads like a leaflet line."
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Changes ownership: 'I own part of the business where I work'. | Changes who owns the business: \"when it does well, I do too\". | \"I own part of the business where I work\" changes ownership."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Buyouts are hedged with 'sometimes' and 'Some owners'; there are no invented results. | pass: CHCA facts match the exemplar; the buyout route is marked speculative and said as \"Some owners\". | pass: CHCA facts match the exemplar; the buyout route is offered as \"Some owners\" and \"sometimes\"."
+      }
+    },
+    "broke-income-floor": {
+      "actionable": {
+        "score": 3,
+        "mean": 3,
+        "reason": "'Search your city's name with guaranteed income pilot' is quick but rarely leads anywhere; the two-sentence note is a real step. | \"Search your city's name with guaranteed income pilot\" is quick, but rarely leads to something I can join. | \"Search your city's name with guaranteed income pilot\" is quick but rarely leads anywhere personally."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Guaranteed income is a known debate; the step of checking your own city is a mild twist. | Guaranteed income is widely discussed; the jobs finding gives it some twist. | Guaranteed income is widely discussed; the Stockton job finding gives it a twist."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Stockton, 2019, '125 residents $500 a month', and 'more than twice the rate' found full-time jobs. | Stockton, 2019, 125 residents, \"$500 a month for two years\", \"more than twice the rate\". | \"Stockton, California gave 125 residents $500 a month for two years ... full-time jobs at more than twice the rate\" is fully specific."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "No-strings cash leading to more full-time work runs against expectation. | Recipients finding full-time work at twice the rate cuts against expectations. | Recipients finding full-time work \"at more than twice the rate\" cuts against the usual assumption."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Balanced and plain: 'people disagree about whether to bring it back'. | The Stockton sentence runs long and stacks a clause: \"though supporters and critics still disagree about cost\". | Fair and calm: \"supporters and critics still disagree about cost at a larger scale\"."
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Changes who gets money at the policy level: 'a steady amount comes in that covers the basics'. | Changes who gets money at the level of policy. | A guaranteed floor changes who gets the money at a policy level."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Contested policy is offered as contested; Stockton is scoped to 125 residents. The 5.2% figure omits the Census revision note, a borderline omission that doesn't change the direction. | pass: Labeled as a societal proposal; Stockton limited to \"the first year\"; disagreement named for both the pilot and the child tax credit. | pass: Both fixes name the disagreement; borderline only in omitting that Census is revising the 2021 poverty figures."
+      }
+    },
+    "broke-local-spending": {
+      "actionable": {
+        "score": 2,
+        "mean": 2.33,
+        "reason": "'Find the date of your city council's next meeting' is a real but slow first step. | \"Find the date of your city council's next meeting\" is a real step but far from any change. | \"Find the date of your city council's next meeting\" is a step toward a step, with no clear ask."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Steering city purchasing toward local firms is an angle most readers haven't considered. | Steering city purchasing to local firms is a lens most readers haven't considered. | Steering city purchasing to local firms is an angle few people with this pain would think of."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "Preston 'since about 2013' with no number or result. | Preston, \"Since about 2013\", but no spending figure or result. | \"Preston, in northwest England ... since about 2013\" is named but has no result or number."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "A city redirecting its purchasing is one surprising element. | Preston as a model is interesting, but there's no result to repeat. | A city rerouting its own spending to local co-ops is one surprising element."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Fair and calm: 'a local opposition leader called it a marketing gimmick'. | Plain but impersonal; \"steered its purchasing toward local firms and co-ops\" is abstract for a reader who's broke. | Fair and plain: \"a local opposition leader called it a marketing gimmick\"."
+      },
+      "power": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "Changes where public money goes: 'more of that money pays people who live here'. | Changes where public money goes. | \"When my city buys things, more of that money pays people who live here\" shifts where public money goes."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Contested framing is explicit; 'and co-ops' is slightly beyond the exemplar but makes no false claim. | pass: Preston presented with the opposition's \"marketing gimmick\" view; the records idea is \"It could\" and labeled proposed; \"co-ops\" goes slightly beyond the exemplar. | pass: Preston is presented as contested, and the contract lookup is written \"It could\" and labeled proposed."
+      }
+    },
+    "broke-easy-cancel-law": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Write down the company, the dates and what happened... then file a complaint' is concrete. | \"send one a short note about a subscription you struggled to cancel\" is specific and doable in 15 minutes. | \"send one a short note about a subscription you struggled to cancel\" is doable in 15 minutes."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "Complaining and writing lawmakers are familiar; the state-law route adds a twist. | Easy-cancel laws are a known idea; state action as a route is a useful twist. | Asking lawmakers for a law and filing a complaint are the expected moves."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "FTC rule struck down 'July 8, 2025' and the California law, with no outcome number. | FTC rule, \"July 8, 2025\", California law named, no outcome number. | \"struck down ... on July 8, 2025, days before it took effect\" plus California's law is concrete."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "'struck down... days before it took effect' is a fact worth repeating. | \"struck down... days before it took effect\" is a fact I'd repeat. | The federal rule falling \"days before it took effect\" is one surprising element."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Plain and direct: 'so states can act on their own'. | Clear and calm: \"so states can act on their own\". | The dream line \"If I signed up online in a minute, I can cancel online in a minute too\" is clear without being a slogan."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Changes the rules companies follow, not just my own subscriptions. | Changes the rules companies must follow. | Pushes a rule change that shifts power from companies to customers."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Ruling and state law match the exemplar; the speculative complaint fix names no office it couldn't verify. | pass: Court ruling and California law match the exemplar; the reporting fix names no unverified office. | pass: The ruling is described accurately \"over how the rule was made\", and the ask is framed as one person's request."
+      }
+    },
+    "broke-see-the-month": {
+      "actionable": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "'ask whether you can move your due date to a few days after payday' is a 10-minute call that prevents late fees. | \"ask whether you can move your due date to a few days after payday\" is a 10-minute call that prevents late fees. | \"ask whether you can move your due date to a few days after payday\" is a quick, real call."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Most people don't know billers 'will change your due date if you ask'. | Moving due dates to after payday is something few people think to ask for. | Moving due dates to after payday is a small trick many people don't know they can ask for."
+      },
+      "namedExample": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Only a reused '42% of people' survey stat; no named example. | Only the unnamed 2022 survey's 42% figure; the main fixes have no example. | Only the reused \"42% of people were still paying\" survey; the calendar idea has no example."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "The due-date move is a useful surprise; the rest is predictable. | That billers \"will change your due date if you ask\" is mildly surprising. | A bill calendar is predictable from the title."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Clear about what changes: 'prevents late fees without changing what you owe'. | Plain and clear title: \"Knowing ahead of time which week money runs short\". | Plain and exact: \"flag the weeks where more goes out than comes in\"."
+      },
+      "power": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "Changes my own timing; coping within the same income. | Smooths my own cash flow; no change in conditions beyond that. | Coping by timing within unchanged income."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: It ideas are written 'It could'; the due-date claim is hedged with 'Many'. | pass: Calendar and reminder ideas written \"It could\" and labeled proposed; due-date practice marked speculative. | pass: Both It ideas are written \"It could\" and labeled proposed; due-date advice says \"Many\", not all."
+      }
+    },
+    "broke-tell-officials": {
+      "actionable": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "'write one sentence about a program that has helped your household' is easy but doesn't move much alone. | \"write one sentence about a program that has helped your household\" doesn't move anything on its own. | \"write one sentence about a program that has helped your household\" is easy but goes nowhere without a recipient."
+      },
+      "nonObvious": {
+        "score": 2,
+        "mean": 2.33,
+        "reason": "Contacting representatives is familiar; group testimony at hearings is a modest twist. | \"Find all your elected representatives\" is the first thing a civics site offers. | \"Find all your elected representatives\" is a familiar civic-tool idea."
+      },
+      "namedExample": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Only a thin mention that 'child poverty hit a record low', with no number or date. | Only a passing link to the child tax credit; the hearing idea has no example. | The child tax credit is mentioned in passing with no number in this card."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Predictable from the title. | Predictable from the title. | Little here a reader wouldn't predict from the title."
+      },
+      "voice": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Plain, but the first fix is one long feature sentence, and 'harder to overlook than a single letter' is generic. | Fix 1 is one long run-on sentence; \"harder to overlook than a single letter\" is plain but impersonal. | \"which came in the year child poverty hit a record low\" leans toward advocacy in a tool description."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Aims at who decides programs, through collective testimony. | Aims at who decides policy, though the path is thin. | Organizing testimony aims to change what officials decide."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Both ideas are written 'It could' and labeled proposed; the child credit link is stated as timing, not proof. | pass: Both ideas written \"It could\" and labeled proposed; the child tax credit is linked to the record low without claiming cause. | pass: Both ideas are written \"It could\" and labeled proposed; the child-poverty link is stated as timing, not proven cause."
+      }
+    }
+  },
+  "pairwise": [],
+  "consensus": {
+    "broke-know-recurring-costs": {
+      "borda": 29,
+      "ranks": [
+        5,
+        5,
+        6
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "broke-lower-phone-internet": {
+      "borda": 25,
+      "ranks": [
+        3,
+        10,
+        7
+      ],
+      "spread": 7,
+      "honestVotes": "3/3 pass"
+    },
+    "broke-claim-tax-credits": {
+      "borda": 39,
+      "ranks": [
+        2,
+        1,
+        3
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "broke-hospital-bills": {
+      "borda": 41,
+      "ranks": [
+        1,
+        2,
+        1
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "broke-every-benefit": {
+      "borda": 16,
+      "ranks": [
+        10,
+        9,
+        10
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "broke-surprise-expense": {
+      "borda": 28,
+      "ranks": [
+        6,
+        6,
+        5
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "broke-lending-circle": {
+      "borda": 36,
+      "ranks": [
+        4,
+        3,
+        2
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "broke-paid-enough": {
+      "borda": 26,
+      "ranks": [
+        7,
+        4,
+        8
+      ],
+      "spread": 4,
+      "honestVotes": "3/3 pass"
+    },
+    "broke-own-the-business": {
+      "borda": 10,
+      "ranks": [
+        13,
+        11,
+        11
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "broke-income-floor": {
+      "borda": 26,
+      "ranks": [
+        8,
+        7,
+        4
+      ],
+      "spread": 4,
+      "honestVotes": "3/3 pass"
+    },
+    "broke-local-spending": {
+      "borda": 9,
+      "ranks": [
+        11,
+        13,
+        12
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "broke-easy-cancel-law": {
+      "borda": 19,
+      "ranks": [
+        9,
+        8,
+        9
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "broke-see-the-month": {
+      "borda": 8,
+      "ranks": [
+        12,
+        12,
+        13
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "broke-tell-officials": {
+      "borda": 3,
+      "ranks": [
+        14,
+        14,
+        14
+      ],
+      "spread": 0,
+      "honestVotes": "3/3 pass"
+    }
+  },
+  "seed": 17
+}

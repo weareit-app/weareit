@@ -1,0 +1,666 @@
+{
+  "schemaVersion": 1,
+  "painId": "ai-and-jobs",
+  "runId": "20261019-141957",
+  "cards": {
+    "ai-know-my-tasks": {
+      "title": "Knowing which parts of my job AI can do",
+      "line": "I know which of my tasks software is getting good at and which ones still need me.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "ai-know-my-tasks-tasks",
+          "title": "List your main tasks and look them up",
+          "whatChanges": "The Labor Department's free O*NET site breaks jobs into more than 19,000 specific task statements. Seeing your job as a list of tasks, rather than one title, makes it much easier to tell which pieces software is likely to take over and which stay with you.",
+          "who": "You",
+          "exemplarRef": "onet",
+          "speculative": false,
+          "firstStep": "Search your job title on onetonline.org and mark the five tasks you spend the most time on.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "ai-know-my-tasks-try",
+          "title": "Try an AI assistant on one task you know well",
+          "whatChanges": "In a 2023 study of 5,179 customer support agents, an AI assistant raised the number of problems solved per hour by 14% on average. Trying a tool on work you already do well is the quickest way to see where it helps and where it gets things wrong.",
+          "who": "You",
+          "exemplarRef": "nber-genai-at-work",
+          "speculative": false,
+          "firstStep": "Pick one routine task this week, like a first draft of an email, and try it with a free AI assistant.",
+          "firstStepMinutes": 20,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "ai-know-my-tasks-compare",
+          "title": "Compare your tasks with public data on AI use",
+          "whatChanges": "Matches your task list to a global index from the ILO, the UN's labor agency, of which kinds of work generative AI is most likely to touch, and tells you plainly which parts of your job are likely to change and which aren't.",
+          "who": "You and It",
+          "exemplarRef": "ilo-exposure-2025",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and keep your list of five tasks somewhere handy.",
+          "firstStepMinutes": 2,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-141957",
+        "locator": "cards.json#ai-know-my-tasks",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Basic: self-assessment by task. It idea grounded in ILO index plus Anthropic index (thin page)."
+    },
+    "ai-comfortable-with-tools": {
+      "title": "Feeling comfortable using AI tools at work",
+      "line": "When my workplace brings in a new AI tool, I already know the basics and don't feel left behind.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "ai-comfortable-with-tools-course",
+          "title": "Take a free, short course on how AI works",
+          "whatChanges": "In 2018 the University of Helsinki opened a free online course, Elements of AI, aiming to teach the basics to 1% of Finns. Nearly 90,000 people from 80 countries signed up in about four months, and about one in five were over 45.",
+          "who": "You",
+          "exemplarRef": "elements-of-ai",
+          "speculative": false,
+          "firstStep": "Sign up for a free introductory AI course and finish the first chapter tonight.",
+          "firstStepMinutes": 20,
+          "status": "existing_resource",
+          "kind": "project"
+        },
+        {
+          "id": "ai-comfortable-with-tools-newest",
+          "title": "Use AI first on the parts of your job you're newest at",
+          "whatChanges": "In the same customer support study, the newest and least experienced agents improved the most, by 34%, while the most experienced gained little. The assistant was passing along what the best agents already did.",
+          "who": "You",
+          "exemplarRef": "nber-genai-at-work",
+          "speculative": false,
+          "firstStep": "Write down one part of your job you still find slow or confusing, and ask an AI assistant to walk you through it.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "practice",
+          "featureIdea": "Helps you name the part of your job you're still slow at, suggests how to ask an AI tool to walk you through it, and checks back on whether it actually helped."
+        },
+        {
+          "id": "ai-comfortable-with-tools-mistakes",
+          "title": "Keep a short list of what the tool gets wrong",
+          "whatChanges": "In 2025 Klarna, a payments company, started hiring human support staff again after its chief executive said AI customer service gave lower quality help. Keeping track of where a tool falls short helps you use it well and gives you something specific to tell whoever chooses the tools.",
+          "who": "You",
+          "exemplarRef": "klarna-rehire",
+          "speculative": false,
+          "firstStep": "Start a note on your phone called \"AI mistakes\" and add to it whenever a tool gets something wrong.",
+          "firstStepMinutes": 2,
+          "status": "real_now",
+          "kind": "habit"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-141957",
+        "locator": "cards.json#ai-comfortable-with-tools",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Repair: replaced 'not engineers' with sourced age figure; removed forecast from Klarna fix."
+    },
+    "ai-money-cushion": {
+      "title": "Money set aside in case my job changes",
+      "line": "If my hours get cut or my job goes away, I have enough saved to think clearly about what comes next.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "ai-money-cushion-auto-save",
+          "title": "Set up an automatic transfer to savings",
+          "whatChanges": "The Consumer Financial Protection Bureau suggests saving on a schedule and automating it, for example by splitting your paycheck through direct deposit. The bureau's point is that even a small amount gives you some security.",
+          "who": "You",
+          "exemplarRef": "cfpb-emergency-fund",
+          "speculative": false,
+          "firstStep": "Log in to your bank or payroll account and set up a small automatic transfer on payday.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "ai-money-cushion-benefits",
+          "title": "Find out what you'd get if you were laid off",
+          "whatChanges": "The federal Trade Adjustment Assistance program paid for retraining and income support for workers who lost jobs to trade, never to technology, and it expired on July 1, 2022. For now, people whose jobs change because of AI would usually rely on regular unemployment benefits and their state's job centers.",
+          "who": "You",
+          "exemplarRef": "taa-texas",
+          "speculative": false,
+          "firstStep": "Look up your state's unemployment benefits page and note how much you'd get each week and for how long.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "learn"
+        },
+        {
+          "id": "ai-money-cushion-resume",
+          "title": "Update your resume while you still have the details",
+          "whatChanges": "A resume is much easier to write while you're still in the job and remember the specifics. Build it around the tasks that take your judgment, since those are the hardest to hand to software.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Add one line to your resume about a recent problem you solved that took your judgment.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "speculativeRationale": "Common job-search practice; no specific source opened this run.",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-141957",
+        "locator": "cards.json#ai-money-cushion",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "ai-growing-work": {
+      "title": "Moving toward work that's growing, not shrinking",
+      "line": "I've picked a direction for my next job based on where hiring is actually going.",
+      "lens": "individual",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "ai-growing-work-outlook",
+          "title": "Look up which jobs are expected to grow",
+          "whatChanges": "O*NET, the Labor Department's career site, gives a Bright Outlook label to jobs expected to grow quickly in the next several years. Looking through that list is a quick way to find growing work that's close to what you already know.",
+          "who": "You",
+          "exemplarRef": "onet",
+          "speculative": false,
+          "firstStep": "Browse the Bright Outlook list on onetonline.org and save two jobs that use skills you already have.",
+          "firstStepMinutes": 20,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "ai-growing-work-learn-from-people",
+          "title": "Early in your career, choose jobs where you learn from people",
+          "whatChanges": "Stanford researchers using payroll records found that by 2026, employment of 22- to 25-year-olds in the jobs most exposed to AI was 19% below where it would otherwise be. The study shows a link, not the cause, but if you're starting out, a job where you work alongside experienced people gives you skills that are harder to pick up alone.",
+          "who": "You",
+          "exemplarRef": "stanford-canaries",
+          "speculative": false,
+          "firstStep": "When you read a job posting, write down who you'd be learning from, and ask about it in the interview.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "practice",
+          "featureIdea": "Helps you prepare an interview question about who you'd learn from in the role, then asks afterward what you found out."
+        },
+        {
+          "id": "ai-growing-work-tuition",
+          "title": "Ask your employer to pay for training before anything changes",
+          "whatChanges": "Some employers offer tuition or training benefits, and they're easy to overlook. Asking while your job is steady gives you time to learn without pressure.",
+          "who": "You and your employer",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Search your employee handbook or benefits site for \"tuition\" or \"training\".",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "speculativeRationale": "Tuition assistance is a common benefit; no specific employer program opened this run.",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-141957",
+        "locator": "cards.json#ai-growing-work",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Career moves. Repair: removed unsourced Bright Outlook examples, tuition-use claim and salary advice."
+    },
+    "ai-know-ahead": {
+      "title": "Knowing in advance how AI will change my job",
+      "line": "Before a new AI system changes my work, my manager tells us what it will do and asks what we think.",
+      "lens": "relational",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "ai-know-ahead-ask-manager",
+          "title": "Ask your manager which AI tools are coming and why",
+          "whatChanges": "In the European Union, the AI Act requires employers to inform staff and their representatives before using high-risk AI in hiring, promotion or firing. There's no such rule in most of the US, but nothing stops you from asking for the same notice.",
+          "who": "You and your manager",
+          "exemplarRef": "eu-ai-act-work",
+          "speculative": false,
+          "firstStep": "Bring one question to your next one-on-one: which AI tools is the team planning to use this year?",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "ai-know-ahead-keep-tasks",
+          "title": "Agree with coworkers on which tasks you want to keep",
+          "whatChanges": "Hollywood writers won a rule in 2023 that AI can't write or rewrite their scripts, though a writer can choose to use it with the studio's consent. A team can talk through the same question informally: which parts of the work you're glad to hand off and which you want to keep doing yourselves.",
+          "who": "You and your coworkers",
+          "exemplarRef": "wga-2023",
+          "speculative": false,
+          "firstStep": "Ask two coworkers over lunch which part of the job they'd happily hand to software and which they wouldn't.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-141957",
+        "locator": "cards.json#ai-know-ahead",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "ai-union-contract": {
+      "title": "A contract that gives workers a say over AI",
+      "line": "The rules for how AI is used in my job are written down, and my coworkers and I helped write them.",
+      "lens": "community",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "ai-union-contract-writers",
+          "title": "Learn what the writers' and actors' unions won",
+          "whatChanges": "After the 2023 strikes, the Writers Guild of America won terms saying AI can't write or rewrite scripts, and studios must tell writers when material they're handed was made by AI. The terms leave open whether studios can train AI on writers' scripts, so the fight continued.",
+          "who": "You",
+          "exemplarRef": "wga-2023",
+          "speculative": false,
+          "firstStep": "Read the short summary of the 2023 writers' contract on the guild's website.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task",
+          "needsRewrite": "learn-about-others: turn into what the reader does, keep the example in the text"
+        },
+        {
+          "id": "ai-union-contract-consent",
+          "title": "Ask for consent rules when your work or likeness feeds AI",
+          "whatChanges": "The actors' union, SAG-AFTRA, won a rule in 2023 that a performer's digital replica can't be used without explicit signed or initialed consent. Consent rules like that can apply to anyone whose voice, writing or recorded work gets fed into AI.",
+          "who": "You and your union",
+          "exemplarRef": "sag-aftra-2023",
+          "speculative": false,
+          "firstStep": "Write down which of your work, recordings or writing your employer could use to train AI.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "ai-union-contract-next-contract",
+          "title": "Put AI on the agenda for your next contract",
+          "whatChanges": "In April 2026 the writers' union reached a tentative four-year deal that was expected to add rules on licensing scripts for AI training, though members still had to vote on it. If you have a union, the next contract is where rules like these get written.",
+          "who": "You and your union",
+          "exemplarRef": "wga-2026",
+          "speculative": false,
+          "firstStep": "Email your union steward or representative and ask whether AI rules are on the agenda for the next contract.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-141957",
+        "locator": "cards.json#ai-union-contract",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Workplace route via union agreements, per request. Limit stated once in the writers fix."
+    },
+    "ai-staff-not-replaced": {
+      "title": "AI that helps my coworkers instead of replacing them",
+      "line": "At my company, AI takes over the tedious parts of the work and the people stay.",
+      "lens": "market",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "ai-staff-not-replaced-review",
+          "title": "Suggest a trial with a review before any job cuts",
+          "whatChanges": "Klarna leaned heavily on AI for customer service, then started hiring people again in 2025 after its chief executive said the quality had dropped. A trial with a set review date lets a company learn that before it lets anyone go.",
+          "who": "You and your manager",
+          "exemplarRef": "klarna-rehire",
+          "speculative": false,
+          "firstStep": "Suggest to your manager that any AI rollout include a review after three months, with staff input.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "ai-staff-not-replaced-train-keep",
+          "title": "Make the case for using AI to train people",
+          "whatChanges": "In a 2023 study at one customer support company, newer agents using an AI assistant got 34% more done, and more of the staff stayed on. That was one firm, but it's a real example of AI used to bring people up to speed rather than to cut them.",
+          "who": "You and your employer",
+          "exemplarRef": "nber-genai-at-work",
+          "speculative": false,
+          "firstStep": "Share the study's main finding with your manager in two sentences and ask how your team plans to use AI.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-141957",
+        "locator": "cards.json#ai-staff-not-replaced",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "ai-fair-hiring-software": {
+      "title": "Hiring software that has to prove it's fair",
+      "line": "When a computer screens my job application, someone has checked that it treats people fairly.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "ai-fair-hiring-software-ask",
+          "title": "Ask employers whether software screened your application",
+          "whatChanges": "Since July 2023, New York City has enforced a law requiring employers that use automated hiring tools to have them audited for bias every year and to tell candidates. You can ask the same question anywhere, even where no law requires an answer.",
+          "who": "You",
+          "exemplarRef": "nyc-ll144",
+          "speculative": false,
+          "firstStep": "Next time you apply, email the recruiter and ask whether an automated tool reviews applications.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "habit"
+        },
+        {
+          "id": "ai-fair-hiring-software-enforce",
+          "title": "Ask your city council member to enforce hiring-software rules",
+          "whatChanges": "A 2025 audit by the New York State Comptroller found the city had flagged one problem among 32 companies, while the auditors found at least 17. Employers' groups say rules like these add cost, but a law on paper does little without someone checking.",
+          "who": "You and your city council member",
+          "exemplarRef": "nyc-ll144",
+          "speculative": false,
+          "firstStep": "Look up your city council member and send a two-line note asking whether your city regulates AI in hiring.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "ai-fair-hiring-software-write",
+          "title": "Write to officials about AI hiring rules",
+          "whatChanges": "Drafts a short, specific note to your city council member or state legislator, pointing to New York City's law and the audit of how it's been enforced, for you to edit and send.",
+          "who": "You and It",
+          "exemplarRef": "nyc-ll144",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this.",
+          "firstStepMinutes": 1,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-141957",
+        "locator": "cards.json#ai-fair-hiring-software",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Contested policy: named the employer cost objection. 'Employers' groups say' is general knowledge, not from an opened page."
+    },
+    "ai-public-retraining": {
+      "title": "Public help to retrain when AI changes a job",
+      "line": "If AI changes my line of work, there's real help to pay for retraining and cover the bills while I learn.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "ai-public-retraining-representatives",
+          "title": "Ask your representatives about help for workers affected by AI",
+          "whatChanges": "Until it lapsed on July 1, 2022, the federal Trade Adjustment Assistance program paid for retraining, income support during training, and a wage top-up for workers 50 and older who took a lower-paying job. Some people want a similar program for jobs changed by AI, while others argue broad help for every worker who loses a job works better than programs tied to one cause.",
+          "who": "You and your member of Congress",
+          "exemplarRef": "taa-texas",
+          "speculative": false,
+          "firstStep": "Find your member of Congress at house.gov and ask where they stand on retraining help for workers affected by AI.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "ai-public-retraining-public-courses",
+          "title": "Push for free public classes on using AI",
+          "whatChanges": "Finland's free AI course started with a goal of teaching 1% of the country, about 54,000 people, and drew nearly 90,000 sign-ups from 80 countries in four months. A state or library system could offer the same thing.",
+          "who": "You and your library or state",
+          "exemplarRef": "elements-of-ai",
+          "speculative": false,
+          "firstStep": "Ask your local library whether it offers free classes on using AI tools, and if not, suggest one.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-141957",
+        "locator": "cards.json#ai-public-retraining",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Contested: two directions named. Singapore SkillsFuture unverified so left out."
+    },
+    "ai-field-updates": {
+      "title": "A plain, regular update on AI in my field",
+      "line": "Every few months I get a plain update on how AI is affecting work like mine, without the hype or the doom.",
+      "lens": "technology",
+      "ambition": "this-year",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "ai-field-updates-updates",
+          "title": "Get a regular update on AI and your kind of work",
+          "whatChanges": "Pulls together research on how generative AI is changing your occupation, from researchers such as the ILO, the UN's labor agency, and sends you a short update every few months, in plain words.",
+          "who": "You and It",
+          "exemplarRef": "ilo-exposure-2025",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and write down your exact job title so you're ready.",
+          "firstStepMinutes": 2,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "ai-field-updates-signals",
+          "title": "Watch for early warning signs in your industry",
+          "whatChanges": "Watches your field for early patterns like a drop in entry-level postings and tells you early. In Stanford's payroll research, the clearest effect so far is fewer young workers employed in the jobs most exposed to AI, 19% below where they'd otherwise be.",
+          "who": "You and It",
+          "exemplarRef": "stanford-canaries",
+          "speculative": false,
+          "firstStep": "Look at job postings in your field this week and count how many are entry-level.",
+          "firstStepMinutes": 15,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "ai-field-updates-nearby-jobs",
+          "title": "Find nearby jobs that use the skills you have",
+          "whatChanges": "Takes your task list and suggests two or three nearby jobs that are growing, along with the training each one would take, using O*NET's links between each job and related jobs with similar tasks.",
+          "who": "You and It",
+          "exemplarRef": "onet",
+          "speculative": false,
+          "firstStep": "Look up your job on onetonline.org and read the list of related occupations.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-141957",
+        "locator": "cards.json#ai-field-updates",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "It-led card. Grounded in ILO index, Stanford ADP study, O*NET related occupations."
+    },
+    "ai-coworkers-decide": {
+      "title": "Coworkers deciding together how AI is used at work",
+      "line": "My coworkers and I agree on what we want from new AI tools and ask for it as a group.",
+      "lens": "community",
+      "ambition": "together",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "ai-coworkers-decide-private-check",
+          "title": "Find out privately whether coworkers share your concerns",
+          "whatChanges": "Lets coworkers answer a few private questions about AI and see only the combined results, so no one has to go first. Speaking up first is the hardest part of raising anything at work.",
+          "who": "You, your coworkers and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this.",
+          "firstStepMinutes": 1,
+          "status": "proposed_it_feature",
+          "speculativeRationale": "Proposed It feature; no direct precedent opened this run.",
+          "kind": "feature"
+        },
+        {
+          "id": "ai-coworkers-decide-group-request",
+          "title": "Write a group request based on what other workers won",
+          "whatChanges": "Helps your group draft a request for rules like advance notice and a say in which tasks change, using real contract language as examples. Hollywood writers won the right to be told when studios hand them AI-made material.",
+          "who": "You, your coworkers and It",
+          "exemplarRef": "wga-2023",
+          "speculative": false,
+          "firstStep": "Write down the one rule about AI you'd most want at your job.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-141957",
+        "locator": "cards.json#ai-coworkers-decide",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "It-led organizing card. Privacy: aggregate-only results; matches It privacy stance."
+    },
+    "ai-young-workers": {
+      "title": "Helping a young person find a first job that teaches",
+      "line": "I can give the young people in my life honest, useful advice about starting work as AI spreads.",
+      "lens": "relational",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "ai-young-workers-talk",
+          "title": "Talk honestly with a young person about entry-level jobs",
+          "whatChanges": "Stanford researchers found employment of 22- to 25-year-olds in the jobs most exposed to AI running 19% below where it would otherwise be by 2026. That pattern is real, and it's concentrated in those exposed jobs rather than spread across every field.",
+          "who": "You and a young person you know",
+          "exemplarRef": "stanford-canaries",
+          "speculative": false,
+          "firstStep": "Ask a young person in your life what jobs they're applying for and what they're hearing.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "practice",
+          "featureIdea": "Helps you plan an open question to ask a young person about their job search, reminds you to listen before giving advice, and checks in afterward on what you heard."
+        },
+        {
+          "id": "ai-young-workers-mentor",
+          "title": "Offer an hour of your experience",
+          "whatChanges": "In the customer support study, the AI assistant mostly spread the habits of the best agents to newer ones. Someone who's done the work can pass on far more than that, and a personal introduction still opens doors software can't.",
+          "who": "You",
+          "exemplarRef": "nber-genai-at-work",
+          "speculative": false,
+          "firstStep": "Offer to look over one young person's resume or introduce them to someone in your field.",
+          "firstStepMinutes": 20,
+          "status": "real_now",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-141957",
+        "locator": "cards.json#ai-young-workers",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "ai-calm-conversation": {
+      "title": "Talking about AI and jobs without panic or hype",
+      "line": "When AI comes up at dinner or at work, I can say what's actually known and what isn't.",
+      "lens": "culture",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "ai-calm-conversation-one-in-four",
+          "title": "Learn what the one-in-four estimate really means",
+          "whatChanges": "In 2025 the ILO, the UN's labor agency, estimated that one in four jobs worldwide is potentially exposed to generative AI, with clerical work the most exposed. The same researchers concluded that tasks changing within jobs is the most likely result, rather than jobs disappearing outright.",
+          "who": "You",
+          "exemplarRef": "ilo-exposure-2025",
+          "speculative": false,
+          "firstStep": "Read the short United Nations news summary of the 2025 study and tell one person what surprised you.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "learn"
+        },
+        {
+          "id": "ai-calm-conversation-hands-on",
+          "title": "Host a hands-on hour at work or at the library",
+          "whatChanges": "Finland treated learning about AI as something for the whole country, and tens of thousands of people took its free course in the first months. An hour of trying a tool together does more to calm nerves than any article.",
+          "who": "You and your coworkers or neighbors",
+          "exemplarRef": "elements-of-ai",
+          "speculative": false,
+          "firstStep": "Ask your librarian or your manager whether you can host one hour where people try an AI tool together.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "project"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-141957",
+        "locator": "cards.json#ai-calm-conversation",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "ai-experience-counts": {
+      "title": "Making my experience more valuable as AI spreads",
+      "line": "My years of judgment are what my team relies on to catch what the software misses.",
+      "lens": "individual",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "ai-experience-counts-reviewer",
+          "title": "Offer to check what AI produces on your team",
+          "whatChanges": "When Klarna decided its AI customer service was lower quality, its answer was to bring people back. Someone has to know good work when they see it, and that's usually the person with the most experience.",
+          "who": "You and your manager",
+          "exemplarRef": "klarna-rehire",
+          "speculative": false,
+          "firstStep": "Tell your manager you'd like to be the one who checks AI drafts for one kind of work.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "ai-experience-counts-write-down",
+          "title": "Write down the judgment calls only you make",
+          "whatChanges": "In the customer support study, AI helped new agents most because it copied what the best agents already did. Writing down your own best practices makes your know-how visible, whether it ends up training people or tools.",
+          "who": "You",
+          "exemplarRef": "nber-genai-at-work",
+          "speculative": false,
+          "firstStep": "List three times this month you caught a problem others missed, and how you knew.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-141957",
+        "locator": "cards.json#ai-experience-counts",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    }
+  }
+}

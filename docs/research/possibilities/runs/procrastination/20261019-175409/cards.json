@@ -1,0 +1,787 @@
+{
+  "schemaVersion": 1,
+  "painId": "procrastination",
+  "runId": "20261019-175409",
+  "cards": {
+    "proc-start-dreaded-task": {
+      "title": "Starting the task I’ve been avoiding for weeks",
+      "line": "I open the thing I’ve been dreading and do the first piece before I can talk myself out of it.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "proc-start-dreaded-task-timer",
+          "title": "Set a timer for 25 minutes and stop when it rings",
+          "whatChanges": "Francesco Cirillo came up with this as a university student in the late 1980s, using a kitchen timer shaped like a tomato. Agreeing to only 25 minutes makes the start much smaller, and you’re allowed to quit when the timer goes off.",
+          "who": "You",
+          "exemplarRef": "pomodoro",
+          "speculative": false,
+          "firstStep": "Pick the task, set a 25-minute timer on your phone, and open the file or envelope.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "habit"
+        },
+        {
+          "id": "proc-start-dreaded-task-when-where",
+          "title": "Decide exactly when and where you’ll start",
+          "whatChanges": "Psychologists call this an if-then plan, such as opening the letter from the insurance company at the kitchen table at 9am tomorrow. A 2006 review by Gollwitzer and Sheeran found that plans this specific helped people follow through, though a later review found a smaller effect.",
+          "who": "You",
+          "exemplarRef": "if-then-plans",
+          "speculative": false,
+          "firstStep": "Write one sentence that says when, where and the first thing you’ll do.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "practice",
+          "featureIdea": "Helps you write one sentence saying when, where and the first thing you'll do on a task you're avoiding, then checks in at that time to ask how it went."
+        },
+        {
+          "id": "proc-start-dreaded-task-blocker",
+          "title": "Block the websites you escape to",
+          "whatChanges": "Apps like Freedom block the sites and apps you choose on your phone and computer at the same time, so the easy way out isn’t there. The basic version is free, and the full one costs $39.99 a year.",
+          "who": "You",
+          "exemplarRef": "freedom-blocker",
+          "speculative": false,
+          "firstStep": "List the three sites you open first when you’re avoiding something, and block them for one hour.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "proc-start-dreaded-task-start-nudge",
+          "title": "Start-time nudges for tasks you’re avoiding",
+          "whatChanges": "Asks when and where you plan to start a task you’ve been dreading, nudges you at that moment with a short timer ready to go, and asks afterward whether you got the first piece done. Your tasks and answers stay on your device.",
+          "who": "You and It",
+          "exemplarRef": "if-then-plans",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and set a phone alarm for the time you mean to start tomorrow.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175409",
+        "locator": "cards.json#proc-start-dreaded-task",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "proc-feeling-behind-it": {
+      "title": "Understanding the feeling that makes me put things off",
+      "line": "When I notice I’m avoiding something, I can name what it makes me feel and still take the first step.",
+      "lens": "culture",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "proc-feeling-behind-it-name",
+          "title": "Name the feeling the task brings up",
+          "whatChanges": "The psychologists Sirois and Pychyl argued in 2013 that putting things off is mostly about getting away from a bad feeling right now, like boredom, worry or self-doubt, rather than a lack of willpower. Knowing which feeling you’re dodging often tells you what would make the task easier, such as company for a boring job or a second opinion for a scary one.",
+          "who": "You",
+          "exemplarRef": "mood-repair",
+          "speculative": false,
+          "firstStep": "Write the task down, and next to it write the one word for how it makes you feel.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "practice",
+          "featureIdea": "Asks you to name in one word how a stalled task makes you feel before you start, then suggests a small first step that fits that feeling."
+        },
+        {
+          "id": "proc-feeling-behind-it-forgive",
+          "title": "Forgive yourself for the last time you put it off",
+          "whatChanges": "In a 2010 study of 134 first-year college students, the ones who forgave themselves for putting off studying for their first exams put off studying less before the next round. Being hard on yourself tends to make the task feel worse, and the students who went easier on themselves did better.",
+          "who": "You",
+          "exemplarRef": "self-forgiveness-exams",
+          "speculative": false,
+          "firstStep": "Say or write one sentence letting yourself off the hook for the last delay, then look at what’s next.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "practice",
+          "featureIdea": "Helps you write one sentence letting yourself off the hook for the last delay, then turns your attention to the next step."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175409",
+        "locator": "cards.json#proc-feeling-behind-it",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "proc-stuck-next-step": {
+      "title": "Knowing the next step on a stuck task",
+      "line": "When a project stalls, I can see the one small action that will get it moving again.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "proc-stuck-next-step-action",
+          "title": "Write down the next physical action, not the whole project",
+          "whatChanges": "David Allen’s Getting Things Done method rests on this idea: “do taxes” is a project, while “find last year’s tax form in the file drawer” is something you can start. Many tasks stay stuck because the first concrete step was never named.",
+          "who": "You",
+          "exemplarRef": "gtd-next-action",
+          "speculative": false,
+          "firstStep": "Pick one stalled task and write the very next thing you’d physically do, starting with a verb.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "practice",
+          "featureIdea": "Helps you turn a stalled project into the very next physical action, starting with a verb, and nudges you when what you wrote is still a project."
+        },
+        {
+          "id": "proc-stuck-next-step-waiting",
+          "title": "Ask for the thing you’re waiting on",
+          "whatChanges": "Sometimes a task is stalled because you’re waiting on a form, an answer or a decision from someone else, and it quietly sits on your list as if it were your fault. Sending one short message to ask for what you need is often the whole step.",
+          "who": "You and whoever you’re waiting on",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Send one message today asking for the thing you’re waiting on, with a date you need it by.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "speculativeRationale": "Common practice; no source was opened for this.",
+          "kind": "task"
+        },
+        {
+          "id": "proc-stuck-next-step-waiting-list",
+          "title": "Follow-up reminders for things you’re waiting on",
+          "whatChanges": "Keeps a private list of tasks that are stuck on someone else, with the date you need each answer by, and reminds you to send a short follow-up when the date gets close.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and write down one thing you’re waiting on and who has it.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Proposed It feature; no source for this kind of list was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175409",
+        "locator": "cards.json#proc-stuck-next-step",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "proc-work-alongside-someone": {
+      "title": "Getting boring tasks done with someone else there",
+      "line": "I sit down with a friend, or on a video call with a stranger, and we both get through the tasks we’ve been avoiding.",
+      "lens": "relational",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "proc-work-alongside-someone-friend",
+          "title": "Do your task while a friend does theirs",
+          "whatChanges": "Having another person nearby, even one doing something completely different, can make it easier to stay with a dull or uncomfortable task. An ADHD coach named this body doubling, and people without ADHD use it too.",
+          "who": "You and a friend",
+          "exemplarRef": "focusmate-body-doubling",
+          "speculative": false,
+          "firstStep": "Text a friend and ask if they’d like to spend an hour this week working on your own lists side by side.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "proc-work-alongside-someone-video",
+          "title": "Book a video work session with a stranger",
+          "whatChanges": "Focusmate pairs you on video with another person for 25, 50 or 75 minutes: you each say what you’ll work on, work quietly, and check in at the end. Three sessions a week are free.",
+          "who": "You",
+          "exemplarRef": "focusmate",
+          "speculative": false,
+          "firstStep": "Book one 25-minute session for the task you’ve been putting off longest.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "proc-work-alongside-someone-referee",
+          "title": "Put money on a deadline with a friend as referee",
+          "whatChanges": "On stickK, a site started in 2008 by two Yale economists, you set a goal, pick a friend to confirm whether you did it, and put money on it that goes elsewhere if you miss. The co-founder reported that 78% of people who used both money and a referee reached their goal, compared with 35% of those who put no money down.",
+          "who": "You and a friend",
+          "exemplarRef": "stickk",
+          "speculative": false,
+          "firstStep": "Choose one task, a date, and a friend you’d trust to say honestly whether you did it.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "project"
+        },
+        {
+          "id": "proc-work-alongside-someone-referee-check",
+          "title": "Deadline check-ins from a friend you choose",
+          "whatChanges": "Lets you set a task, a date and a friend as referee, then asks your friend on that date whether you did it and shows you both the answer, with no money involved. stickK uses a referee the same way, alongside money on the line.",
+          "who": "You, a friend and It",
+          "exemplarRef": "stickk",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and pick the friend you’d trust to check on you.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175409",
+        "locator": "cards.json#proc-work-alongside-someone",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "proc-drop-what-doesnt-matter": {
+      "title": "Letting go of tasks I don’t actually need to do",
+      "line": "I’ve stopped carrying around tasks I was never going to do, and the ones left on my list are ones I mean.",
+      "lens": "individual",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "proc-drop-what-doesnt-matter-cross-off",
+          "title": "Cross off a task you’ve already decided against",
+          "whatChanges": "A task that has sat on the list for months is sometimes one you’ve quietly decided not to do. Crossing it off on purpose frees up the attention it keeps taking every time you see it.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Read your to-do list and cross off one item you’ve kept for months and don’t want to do.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "speculativeRationale": "Common practice; no source was opened for this.",
+          "kind": "task"
+        },
+        {
+          "id": "proc-drop-what-doesnt-matter-coin",
+          "title": "Flip a coin on a decision you’ve put off for months",
+          "whatChanges": "In a study published in 2021, the economist Steven Levitt had people who were stuck on a big decision, like quitting a job or a class, let a coin toss guide them. Those the coin told to make the change were happier six months later than those it told to stay put.",
+          "who": "You",
+          "exemplarRef": "coin-flip-decisions",
+          "speculative": false,
+          "firstStep": "Write the decision as a yes-or-no question, flip a coin, and notice whether you feel relieved or disappointed.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "proc-drop-what-doesnt-matter-hand-off",
+          "title": "Pay or trade someone to do a task you dread",
+          "whatChanges": "If a task matters but you’ve dreaded it for a year, someone else can often do it for a fee or a trade, like a tax preparer, a handyman, or a friend who enjoys paperwork. Paying for it is a reasonable trade when the dread has been costing you for months.",
+          "who": "You and someone you hire or trade with",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Write down one task you’d happily pay to never think about again, and look up what it would cost.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "speculativeRationale": "Common practice; no source was opened for this.",
+          "kind": "task"
+        },
+        {
+          "id": "proc-drop-what-doesnt-matter-old-task-review",
+          "title": "Monthly review of tasks that have sat for months",
+          "whatChanges": "Once a month, shows you the tasks that have sat on your list longest and asks one question about each: keep it, drop it, or hand it to someone else. Whatever you drop disappears from the list so it stops catching your eye.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and circle the three oldest items on your current list.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Proposed It feature; no source for this kind of review was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175409",
+        "locator": "cards.json#proc-drop-what-doesnt-matter",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "proc-check-for-adhd": {
+      "title": "Finding out whether ADHD is part of the picture",
+      "line": "I know whether something like ADHD is behind my trouble getting started, and I’m getting the right kind of help for it.",
+      "lens": "individual",
+      "ambition": "this-year",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "proc-check-for-adhd-screener",
+          "title": "Fill out a six-question checklist about focus and follow-through",
+          "whatChanges": "Researchers working with the World Health Organization wrote a six-question checklist that adults can fill out about common ADHD signs. A high score isn’t a diagnosis; it’s something to bring to a doctor.",
+          "who": "You",
+          "exemplarRef": "asrs-screener",
+          "speculative": false,
+          "firstStep": "Answer the six questions honestly about the last six months and save your answers.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "proc-check-for-adhd-doctor",
+          "title": "Ask your doctor about an ADHD evaluation",
+          "whatChanges": "The National Institute of Mental Health notes that ADHD usually starts in childhood and often continues into adulthood, so many people first learn they have it as adults. A doctor can do an evaluation or refer you to someone who does, and the answer either way tells you which fixes are worth your time.",
+          "who": "You and a doctor",
+          "exemplarRef": "nimh-adhd",
+          "speculative": false,
+          "firstStep": "Write down three recent examples of things you meant to do and didn’t, to bring to your appointment.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "proc-check-for-adhd-directory",
+          "title": "Look up an ADHD specialist near you or online",
+          "whatChanges": "CHADD, a national ADHD nonprofit, keeps a free directory of hundreds of clinicians, coaches and clinics that you can search by state, profession and whether they see people remotely.",
+          "who": "You",
+          "exemplarRef": "chadd-directory",
+          "speculative": false,
+          "firstStep": "Search the directory for your state and save the names of two people who see adults.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "proc-check-for-adhd-clinician-lookup",
+          "title": "Adult ADHD specialists near you",
+          "whatChanges": "Searches the CHADD professional directory for clinicians in your state who see adults, including remote options, and keeps a short list for you to call. Listings aren’t an endorsement, so you’d still check credentials and insurance yourself.",
+          "who": "You and It",
+          "exemplarRef": "chadd-directory",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down whether you’d prefer to be seen in person or remotely.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175409",
+        "locator": "cards.json#proc-check-for-adhd",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "proc-work-fits-attention": {
+      "title": "A job set up around how my attention works",
+      "line": "At work I get tasks in writing, a short weekly check-in, and reminders, so things I’m responsible for don’t slip.",
+      "lens": "policy",
+      "ambition": "this-year",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "proc-work-fits-attention-ask-advice",
+          "title": "Ask a free advice service what changes to request at work",
+          "whatChanges": "The Job Accommodation Network gives free, confidential advice on changes at work, and its ADHD list includes to-do lists, help setting priorities, a mentor, and timers or calendar apps. The network can also explain how the Americans with Disabilities Act applies to your job.",
+          "who": "You",
+          "exemplarRef": "jan-adhd",
+          "speculative": false,
+          "firstStep": "Read the network’s ADHD page and circle the two changes that would make the most difference to you.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "proc-work-fits-attention-check-in",
+          "title": "Ask your manager for written tasks and a weekly check-in",
+          "whatChanges": "Two of the simplest items on the Job Accommodation Network’s list cost an employer nothing: getting tasks in writing and a short weekly meeting to agree on what comes first. You don’t need a diagnosis to ask for either.",
+          "who": "You and your manager",
+          "exemplarRef": "jan-adhd",
+          "speculative": false,
+          "firstStep": "Ask your manager for a 15-minute weekly check-in on priorities, starting next week.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "proc-work-fits-attention-ask-practice",
+          "title": "Practice for asking your manager for changes at work",
+          "whatChanges": "Helps you pick the changes from the Job Accommodation Network’s list that would help you most, rehearse asking for them in plain words, and checks in after the conversation to see what your manager agreed to.",
+          "who": "You and It",
+          "exemplarRef": "jan-adhd",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write one sentence asking for the change you want most.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175409",
+        "locator": "cards.json#proc-work-fits-attention",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "proc-understand-my-pattern": {
+      "title": "Understanding which kind of putting off I’m doing",
+      "line": "I can tell whether I’m avoiding a feeling, stuck on a step, holding a task I don’t want, or dealing with something like ADHD, and I know what to try for each.",
+      "lens": "technology",
+      "ambition": "this-year",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "proc-understand-my-pattern-sort",
+          "title": "Sort the tasks you’ve put off by why they’re stuck",
+          "whatChanges": "Walks you through a few questions about each task you’ve been putting off: does it bring up a feeling, is it waiting on someone, do you still want it done, and does this happen with almost everything. Each answer points to a different kind of fix, drawing on research like Sirois and Pychyl’s, without pretending to diagnose you.",
+          "who": "You and It",
+          "exemplarRef": "mood-repair",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down the three tasks you’ve put off longest.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "proc-understand-my-pattern-log",
+          "title": "Keep a private log of what you put off",
+          "whatChanges": "Keeps a simple log, on your device, of what you put off and what finally got it moving, so after a few weeks you can see whether it’s mostly phone calls, paperwork, or nearly everything. That pattern is useful for you and for a doctor if you decide to see one.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "For the next week, jot down each thing you put off and what you did instead.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "speculativeRationale": "Proposed It feature; no source for this kind of log was opened in this run.",
+          "kind": "feature"
+        },
+        {
+          "id": "proc-understand-my-pattern-summary",
+          "title": "Bring a clear summary to your doctor",
+          "whatChanges": "Helps you put together a short list of real examples to take to a doctor, if the pattern shows up at work, with bills and at home over many years. The National Institute of Mental Health describes ADHD as starting in childhood, so examples from school help too.",
+          "who": "You and It",
+          "exemplarRef": "nimh-adhd",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down one example from school and one from this month.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175409",
+        "locator": "cards.json#proc-understand-my-pattern",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "proc-weekly-work-hour": {
+      "title": "A regular weekly hour to work alongside neighbors",
+      "line": "Every week I go to the same table at the library with a few other people, and the things I’ve been putting off get done there.",
+      "lens": "community",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "proc-weekly-work-hour-join",
+          "title": "Go to a free quiet work session",
+          "whatChanges": "Shut Up & Write runs free sessions in more than 80 countries, in cafés, libraries and online: you say what you’re working on, work quietly together, and check in at the end. Nobody reads your work or comments on it, so bills and emails are as welcome as novels.",
+          "who": "You",
+          "exemplarRef": "shut-up-write",
+          "speculative": false,
+          "firstStep": "Look up the nearest session, in person or online, and put the next one on your calendar.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "group"
+        },
+        {
+          "id": "proc-weekly-work-hour-start",
+          "title": "Start a weekly work hour at your library or café",
+          "whatChanges": "If there isn’t a session near you, two or three people and a regular time are enough, using the same simple Shut Up & Write format with no teacher and no feedback.",
+          "who": "You and a few neighbors",
+          "exemplarRef": "shut-up-write",
+          "speculative": false,
+          "firstStep": "Pick a time and place, then invite two people you know who also have things they’ve been putting off.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "new-group"
+        },
+        {
+          "id": "proc-weekly-work-hour-match",
+          "title": "Find neighbors who want a regular work session",
+          "whatChanges": "Matches people nearby who want to work side by side at a set time and place, the way Focusmate pairs strangers online.",
+          "who": "Neighbors and It",
+          "exemplarRef": "focusmate",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and note which day and time would suit you.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175409",
+        "locator": "cards.json#proc-weekly-work-hour",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "proc-split-big-deadline": {
+      "title": "Turning one far-off deadline into several near ones",
+      "line": "My big projects have in-between dates I actually meet, so the final week isn’t a panic.",
+      "lens": "relational",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "proc-split-big-deadline-dates",
+          "title": "Put three in-between dates on your calendar",
+          "whatChanges": "A deadline months away is easy to ignore, because nothing happens today if you skip it. Breaking it into a draft date, a check date and a done date gives you a near deadline almost every week.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Open your calendar and mark three dates between now and your real deadline, each with what’s due.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "speculativeRationale": "Common practice; the best-known study on self-set deadlines (Ariely and Wertenbroch, 2002) failed to replicate, so it is not cited.",
+          "kind": "task"
+        },
+        {
+          "id": "proc-split-big-deadline-tell",
+          "title": "Tell one person your first in-between date",
+          "whatChanges": "A date only you know about is easy to move. Telling a friend or coworker, and asking them to check in that day, turns it into something you’ve agreed to.",
+          "who": "You and a friend or coworker",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Message one person your first in-between date and ask them to check in on it.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "speculativeRationale": "Common practice; no source was opened for this.",
+          "kind": "task"
+        },
+        {
+          "id": "proc-split-big-deadline-checkpoints",
+          "title": "Reminders for the in-between dates on a big project",
+          "whatChanges": "Takes one far-off deadline, suggests a draft date, a check date and a done date, and reminds you a few days before each. If you choose, it also lets one friend or coworker know so they can check in.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and write down your next big deadline and what’s due.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Proposed It feature; no source for this kind of reminder was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175409",
+        "locator": "cards.json#proc-split-big-deadline",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "proc-household-paperwork": {
+      "title": "Sharing the household tasks that keep getting put off",
+      "line": "My partner and I each handle the chores and bills we mind least, so nothing sits for months.",
+      "lens": "relational",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "proc-household-paperwork-swap",
+          "title": "Swap a dreaded task with someone who doesn’t mind it",
+          "whatChanges": "One person’s dreaded phone call is another person’s five-minute errand. Trading tasks you each hate for ones you don’t mind is a simple way to get both done.",
+          "who": "You and your partner, roommate or family",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Each of you list the three household tasks you put off most, then trade one.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "speculativeRationale": "Household practice; no source was opened for this.",
+          "kind": "task"
+        },
+        {
+          "id": "proc-household-paperwork-hour",
+          "title": "Hold a monthly paperwork hour together",
+          "whatChanges": "Sitting down together once a month for bills, forms and appointments means nobody faces the pile alone. Picking a set day, like the first Sunday of the month, keeps it from becoming another thing to schedule.",
+          "who": "You and your household",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Pick a date this month and put a one-hour paperwork session on the shared calendar.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "speculativeRationale": "Household practice; no source was opened for this.",
+          "kind": "schedule"
+        },
+        {
+          "id": "proc-household-paperwork-task-trade",
+          "title": "Private task trades within your household",
+          "whatChanges": "Lets each person in your household privately mark the chores and bills they dread and the ones they don’t mind, then shows only the trades where both of you come out ahead. Nobody sees the other’s full list.",
+          "who": "You, your household and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and write down one household task you’d gladly trade away.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Proposed It feature; no source for this kind of matching was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175409",
+        "locator": "cards.json#proc-household-paperwork",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "proc-forms-fill-themselves": {
+      "title": "Tax forms that come already filled in",
+      "line": "My tax return arrives pre-filled from what my employer and bank already reported, so all I do is check it and approve.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "proc-forms-fill-themselves-prefill",
+          "title": "Push for tax returns the government fills in for you",
+          "whatChanges": "In Sweden, the tax agency fills in your return from what employers and banks already reported, and if nothing needs changing you can approve it online, by text or by phone. Some people want the same where they live, while tax-prep companies and others argue against a bigger government role.",
+          "who": "Voters, lawmakers and the tax agency",
+          "exemplarRef": "sweden-prefilled-tax",
+          "speculative": false,
+          "firstStep": "Read how the Swedish Tax Agency describes approving a return, so you can explain the idea to someone else.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "proc-forms-fill-themselves-direct",
+          "title": "Weigh in on filing taxes directly with the government for free",
+          "whatChanges": "In 2024 the IRS ran a pilot called Direct File in 12 states, and 140,803 people filed their federal taxes directly with the government for free. Of the users surveyed, 90% rated it excellent or above average, though the program has been politically contested.",
+          "who": "Voters and members of Congress",
+          "exemplarRef": "irs-direct-file",
+          "speculative": false,
+          "firstStep": "Look up whether your state took part and what your members of Congress have said about it.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "proc-forms-fill-themselves-contact",
+          "title": "Tell your representatives what you think about pre-filled taxes",
+          "whatChanges": "Helps you find your representatives and send a short note in your own words, for or against free and pre-filled filing, with the Direct File pilot results attached.",
+          "who": "You, It and your representatives",
+          "exemplarRef": "irs-direct-file",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write two sentences about what tax season is like for you.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175409",
+        "locator": "cards.json#proc-forms-fill-themselves",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "proc-reminders-before-deadlines": {
+      "title": "A clear reminder before deadlines that cost me to miss",
+      "line": "Before a court date, renewal or benefits deadline, I get a reminder that says when, where and what happens if I miss it.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "proc-reminders-before-deadlines-city",
+          "title": "Join a local group asking your court for clear text reminders",
+          "whatChanges": "In New York City in 2018, text reminders that explained the consequences and asked people to plan how they’d get there cut missed court dates by 26%, and with a redesigned summons form the drop was 36%. Court-watch and criminal justice reform groups in many places already press their courts on missed dates, and a cheap reminder is an easy thing to add to what they ask for.",
+          "who": "You and a local group",
+          "exemplarRef": "nyc-court-texts",
+          "speculative": false,
+          "firstStep": "Search for a court-watch or justice reform group in your county and sign up for its updates.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "group"
+        },
+        {
+          "id": "proc-reminders-before-deadlines-city-start",
+          "title": "Start a small neighbor push for clear text reminders from your county",
+          "whatChanges": "If no group near you is asking, a few neighbors can bring the New York City result to the county court or motor vehicle office: reminders that said what happens if you miss the date, and asked how you’d get there, cut missed court dates by 26%. A short letter signed by several residents is harder to set aside than one email.",
+          "who": "You and a few neighbors",
+          "exemplarRef": "nyc-court-texts",
+          "speculative": false,
+          "firstStep": "Check whether your county court or motor vehicle office sends text reminders, then ask two neighbors whether they’d sign a short letter asking for them.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "new-group"
+        },
+        {
+          "id": "proc-reminders-before-deadlines-it",
+          "title": "Get reminders for every deadline with a penalty",
+          "whatChanges": "Keeps track of the dates that cost money or worse to miss, like court dates, license renewals and benefit recertifications, and sends the kind of plan-ahead reminder that New York City tested.",
+          "who": "You and It",
+          "exemplarRef": "nyc-court-texts",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and list the three deadlines this year that would cost you most to miss.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175409",
+        "locator": "cards.json#proc-reminders-before-deadlines",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "proc-saving-starts-automatically": {
+      "title": "Retirement savings that start without my signing up",
+      "line": "My retirement savings began on my first day at work, without my ever having to fill out the form I’d have put off.",
+      "lens": "market",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "proc-saving-starts-automatically-employer",
+          "title": "Ask your employer to enroll new hires automatically",
+          "whatChanges": "In a study first issued in 2000, the economists Brigitte Madrian and Dennis Shea found that at one large American company, enrolling new hires in the 401(k) plan unless they opted out raised sign-ups sharply. Most people stayed at the default contribution rate, so the default matters a lot.",
+          "who": "Employees, HR and employers",
+          "exemplarRef": "auto-enroll-401k",
+          "speculative": false,
+          "firstStep": "Ask HR whether new hires are enrolled in the retirement plan automatically, and at what rate.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "proc-saving-starts-automatically-check",
+          "title": "Check whether you’re enrolled in your workplace plan",
+          "whatChanges": "Signing up for a 401(k) is the kind of form many people mean to fill out and never do, which is why Madrian and Shea’s finding was so large. Checking takes a few minutes on most benefits sites.",
+          "who": "You",
+          "exemplarRef": "auto-enroll-401k",
+          "speculative": false,
+          "firstStep": "Log in to your benefits site or ask HR whether you’re enrolled, and write down your contribution rate.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "proc-saving-starts-automatically-coworker-ask",
+          "title": "Coworker sign-on for automatic enrollment",
+          "whatChanges": "Gathers coworkers behind one request to your employer to enroll new hires in the retirement plan automatically, keeps track of who has signed on, and sends the request together once enough people agree. The request can cite the study by Madrian and Shea.",
+          "who": "You, your coworkers and It",
+          "exemplarRef": "auto-enroll-401k",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and ask one coworker whether they were enrolled automatically.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175409",
+        "locator": "cards.json#proc-saving-starts-automatically",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    }
+  }
+}

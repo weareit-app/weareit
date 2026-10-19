@@ -1,0 +1,606 @@
+{
+  "schemaVersion": 1,
+  "painId": "dont-know-whats-happening",
+  "runId": "20261019-142002",
+  "cards": {
+    "coord-know-local-groups": {
+      "title": "Knowing which local groups already work on my issue",
+      "line": "When something in my town bothers me, I can name the groups already working on it.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "coord-know-local-groups-filings",
+          "title": "Search nonprofit tax filings for your town and issue",
+          "whatChanges": "ProPublica's free Nonprofit Explorer lets you search the full text of the tax forms nonprofits file each year, so a search for your town plus a word like \"tenants\" or \"river\" turns up groups whose names never mention it. Small informal groups that never filed won't show up, so treat the results as a starting list.",
+          "who": "You",
+          "exemplarRef": "nonprofit-explorer",
+          "speculative": false,
+          "firstStep": "Search Nonprofit Explorer for your town and one word that describes your issue, and write down the first three groups.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "coord-know-local-groups-211",
+          "title": "Call or text 211 when the issue is a basic need",
+          "whatChanges": "If what you care about is food, housing, rides or health care, 211 is a free, confidential line answered by local specialists, and about 13 million requests reach it each year. The people there know which local groups are actually doing that work.",
+          "who": "You and a 211 specialist",
+          "exemplarRef": "us-211",
+          "speculative": false,
+          "firstStep": "Dial 211 and ask which groups near you work on the need you care about.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "coord-know-local-groups-listings",
+          "title": "Look at volunteer listings near you",
+          "whatChanges": "Groups that need help tend to post it. Idealist, a long-running nonprofit directory, has posted 450,000 volunteer openings over the years, and a search by your ZIP code shows who is active right now.",
+          "who": "You",
+          "exemplarRef": "idealist",
+          "speculative": false,
+          "firstStep": "Search Idealist for volunteer openings near your ZIP code and note which groups keep showing up.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142002",
+        "locator": "cards.json#coord-know-local-groups",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Basics sweep: search engines, 211, volunteer directories. The tax-filing full-text search is the less obvious twist."
+    },
+    "coord-hear-neighbors": {
+      "title": "Hearing what my neighbors are already organizing",
+      "line": "I hear about the cleanup, the petition or the meeting before it happens, not after.",
+      "lens": "community",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "coord-hear-neighbors-forum",
+          "title": "Sign up for your neighborhood email list or forum",
+          "whatChanges": "In Vermont, Front Porch Forum started in Burlington in 2006 as a moderated neighborhood bulletin board, and by 2013 every town could have one, with 57,000 members across half the state. Most places have something similar, whether a forum, an email list or a neighborhood association newsletter.",
+          "who": "You",
+          "exemplarRef": "front-porch-forum",
+          "speculative": false,
+          "firstStep": "Ask one neighbor which email list or forum they read for local news, and sign up for it.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "coord-hear-neighbors-gift",
+          "title": "Join your local gift group and ask who is working on your issue",
+          "whatChanges": "Buy Nothing groups, which started on Bainbridge Island, Washington, in 2013, are drawn along neighborhood lines and have about 7.5 million members. People join them to give things away, but they are also one of the few places where many neighbors already read each other's posts.",
+          "who": "You and your neighbors",
+          "exemplarRef": "buy-nothing",
+          "speculative": false,
+          "firstStep": "Find your Buy Nothing group and post one line asking whether anyone knows who is working on your issue nearby.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "group"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142002",
+        "locator": "cards.json#coord-hear-neighbors",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Basics: neighborhood forums, Nextdoor, Buy Nothing. Nextdoor exemplar could not be opened, so it is left out of copy."
+    },
+    "coord-city-hall-record": {
+      "title": "Seeing who has already raised my issue at city hall",
+      "line": "Before I speak up, I know who has spoken about this at council meetings and what they asked for.",
+      "lens": "technology",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "coord-city-hall-record-transcripts",
+          "title": "Search past city council meetings for your issue",
+          "whatChanges": "Council Data Project, started by a University of Washington professor and a student after they followed a Seattle City Council vote on an arena, turns council meetings in 17 cities into searchable transcripts. People who spoke during public comment are often the ones already organizing, and their names are in the record.",
+          "who": "You",
+          "exemplarRef": "council-data-project",
+          "speculative": false,
+          "firstStep": "Search your city's meeting minutes or council transcripts for your issue and note who spoke about it.",
+          "firstStepMinutes": 20,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "coord-city-hall-record-bills",
+          "title": "Look up whether your state lawmakers have taken up the issue",
+          "whatChanges": "Open States, a free tool from Plural, shows your state lawmakers from your address and keeps a record of state bills. A bill on your issue usually comes with groups that testified for or against it.",
+          "who": "You",
+          "exemplarRef": "open-states",
+          "speculative": false,
+          "firstStep": "Enter your address in the Open States lookup and write down your two state lawmakers.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142002",
+        "locator": "cards.json#coord-city-hall-record",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Uses public records as a directory of who is active. Many cities lack Council Data Project, so first step points to minutes generally."
+    },
+    "coord-ask-around": {
+      "title": "Knowing who to ask about who is working on this",
+      "line": "I know two or three people who can tell me exactly who to talk to.",
+      "lens": "relational",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "coord-ask-around-two-names",
+          "title": "Ask each person you talk to for two more names",
+          "whatChanges": "Community organizers have long started with a simple map: list the groups you already know about, then ask each one who else works on the issue. John Kretzmann and John McKnight wrote down this approach in 1993 and called local associations the backbone of community action.",
+          "who": "You",
+          "exemplarRef": "abcd-asset-mapping",
+          "speculative": false,
+          "firstStep": "Write down every group you already know of that touches your issue, then message one of them asking who else you should talk to.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "practice",
+          "featureIdea": "Helps you keep a running list of the people and groups you've talked to, reminds you to ask each one for two more names, and shows how your map is growing."
+        },
+        {
+          "id": "coord-ask-around-librarian",
+          "title": "Ask a reference librarian who works on this locally",
+          "whatChanges": "Many public libraries keep lists of local organizations, and librarians hear from the groups that book their meeting rooms. Asking at the desk costs nothing and often turns up a name you would not have found online.",
+          "who": "You and a librarian",
+          "speculative": true,
+          "speculativeRationale": "Library referral services were seen only in search summaries; the advice is general and common practice, not tied to one opened source.",
+          "firstStep": "Call or stop by your library and ask which groups have met there about your issue.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142002",
+        "locator": "cards.json#coord-ask-around",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Relational lens. Second fix speculative because the library sources were not opened."
+    },
+    "coord-one-list-near-me": {
+      "title": "One list of who works on my issue nearby",
+      "line": "I type in what I care about and where I live, and see who is already on it.",
+      "lens": "technology",
+      "ambition": "this-year",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "coord-one-list-near-me-public-data",
+          "title": "See the registered groups near you that work on your issue",
+          "whatChanges": "Sorts groups near you by issue and distance, starting from public records the IRS already publishes: a file of nearly two million tax-exempt organizations with addresses. The file lists headquarters addresses only, so a group that works in your town but is based elsewhere would need another source.",
+          "who": "You and It",
+          "exemplarRef": "irs-eo-bmf",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and in the meantime write down the issue and the town you would search for.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "coord-one-list-near-me-directories",
+          "title": "Add local service directories to the same search",
+          "whatChanges": "Adds listings from local referral lines and service directories, many of which share them in an open format called the Human Services Data Specification, so food pantries and tenant clinics appear next to advocacy groups.",
+          "who": "You and It",
+          "exemplarRef": "open-referral-hsds",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and look up whether your county has an online directory of local services.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "coord-one-list-near-me-active",
+          "title": "See whether a group is still active before you contact it",
+          "whatChanges": "Shows when each group last filed the public tax form nonprofits file each year, and roughly how big it is, using the full text searchable on ProPublica's Nonprofit Explorer, so you know whether you are writing to a busy office or one volunteer.",
+          "who": "You and It",
+          "exemplarRef": "nonprofit-explorer",
+          "speculative": false,
+          "firstStep": "Look up one local group on Nonprofit Explorer and check the year of its most recent filing.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142002",
+        "locator": "cards.json#coord-one-list-near-me",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "It-led card. Feasibility: IRS EO BMF CSV by state, Open Referral HSDS, ProPublica API. Never says It already does this."
+    },
+    "coord-council-alerts": {
+      "title": "Knowing when my issue comes up in government",
+      "line": "I hear about the hearing on my issue in time to show up, instead of reading about it afterward.",
+      "lens": "technology",
+      "ambition": "this-year",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "coord-council-alerts-city",
+          "title": "Get a note when your issue is on a city council agenda",
+          "whatChanges": "Watches sources like Council Data Project, which already turns council meetings in 17 cities into searchable transcripts with voting records, for the words you care about, and sends you a short note with the date and who spoke.",
+          "who": "You and It",
+          "exemplarRef": "council-data-project",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and sign up for your city council's agenda emails if it offers them.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "coord-council-alerts-state",
+          "title": "Hear when a state bill on your issue gets a hearing",
+          "whatChanges": "Tells you when a bill on your issue is scheduled, who sponsored it and which groups have weighed in, using the state legislative data Open States publishes through a free API.",
+          "who": "You and It",
+          "exemplarRef": "open-states-data",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and search your state legislature's website for one bill on your issue.",
+          "firstStepMinutes": 15,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142002",
+        "locator": "cards.json#coord-council-alerts",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "It-led. Avoid present tense; \"It could watch\" and \"It could use\"."
+    },
+    "coord-neighbors-same-issue": {
+      "title": "Meeting the neighbors who care about the same thing",
+      "line": "I find out that four people on my side of town want the same crosswalk I do.",
+      "lens": "community",
+      "ambition": "together",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "coord-neighbors-same-issue-quiet",
+          "title": "Say privately what you care about and meet others once enough do",
+          "whatChanges": "Lets you say privately what you care about, and offers to introduce you, with your permission, only when enough people nearby have said the same. Front Porch Forum works the same way in Vermont: each new forum stays in a waiting stage until 100 residents sign up, so nobody posts to an empty room.",
+          "who": "You, your neighbors and It",
+          "exemplarRef": "front-porch-forum",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and name the one local issue you would want to meet neighbors about.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "coord-neighbors-same-issue-meeting",
+          "title": "Invite neighbors to one meeting about a single issue",
+          "whatChanges": "You don't have to wait for a tool. A short note to a neighborhood list naming one issue, one place and one time is how many neighborhood groups began.",
+          "who": "You and your neighbors",
+          "speculative": true,
+          "speculativeRationale": "General organizing practice; no single opened source for this fix.",
+          "firstStep": "Draft a three-sentence invitation naming the issue, a place and a date, and send it to one neighborhood list.",
+          "firstStepMinutes": 20,
+          "status": "real_now",
+          "kind": "project"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142002",
+        "locator": "cards.json#coord-neighbors-same-issue",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Privacy: opt-in, nothing public by default, consistent with AGENTS.md invariants. Honest: It has no users yet, so the threshold framing avoids implying a crowd."
+    },
+    "coord-start-it-myself": {
+      "title": "Starting the effort myself when nobody else has",
+      "line": "If no one is working on this yet, I know how to start, and I know people will help.",
+      "lens": "culture",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "coord-start-it-myself-pitch",
+          "title": "Bring your idea to a civic hack night and ask for helpers",
+          "whatChanges": "In Taiwan, the g0v community has held open hackathons since 2012 where anyone can present a project and ask for help, under the motto \"Ask not why nobody is doing this. You are the nobody.\" You may find a civic tech group with a similar spirit in your own city.",
+          "who": "You and volunteers",
+          "exemplarRef": "g0v-taiwan",
+          "speculative": false,
+          "firstStep": "Search for a civic tech or hack night group in your city and check when the next meeting is.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "coord-start-it-myself-brigade",
+          "title": "Find a civic tech group that works with your city",
+          "whatChanges": "Code for America's Brigade network grew into local volunteer groups that meet to work on projects with city staff. The network was reorganized in 2016 and many chapters have changed since, so check that your local group is still meeting.",
+          "who": "You and volunteers",
+          "exemplarRef": "cfa-brigades",
+          "speculative": false,
+          "firstStep": "Search for \"Code for\" and your city's name, and read the group's most recent post.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "group"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142002",
+        "locator": "cards.json#coord-start-it-myself",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Reframes the pain: sometimes nobody is working on it, and that is a reason to start."
+    },
+    "coord-shared-plan": {
+      "title": "Local groups on my issue working from one plan",
+      "line": "The groups in my town that work on the same problem agree on goals and stop duplicating each other.",
+      "lens": "community",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "coord-shared-plan-strive",
+          "title": "Ask local funders whether a shared plan exists for your issue",
+          "whatChanges": "In Cincinnati, more than 300 leaders from foundations, city government, school districts, colleges and nonprofits agreed to track the same 53 student measures, and four years after the effort began, 34 of them were trending up. Community foundations often know whether something like this already exists for your issue.",
+          "who": "You and your community foundation",
+          "exemplarRef": "strive-cincinnati",
+          "speculative": false,
+          "firstStep": "Look up your area's community foundation and email to ask whether a coalition already works on your issue.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "coord-shared-plan-map",
+          "title": "Map the groups on your issue with a few neighbors",
+          "whatChanges": "Kretzmann and McKnight's asset-mapping method starts by listing every local association by type and asking which are most likely to work together. A one-page map is often the first thing that lets separate groups see each other.",
+          "who": "You and a few neighbors",
+          "exemplarRef": "abcd-asset-mapping",
+          "speculative": false,
+          "firstStep": "Start a shared document listing every group you know of on your issue, and invite two people to add to it.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "project"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142002",
+        "locator": "cards.json#coord-shared-plan",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Collective impact plus asset mapping. Strive figures are advocate-reported."
+    },
+    "coord-public-directory": {
+      "title": "An up-to-date public list of local groups and services",
+      "line": "My county keeps one public list of local groups, and someone keeps it up to date.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "coord-public-directory-open-format",
+          "title": "Ask your county to publish its service directory in an open format",
+          "whatChanges": "Open Referral publishes a free data standard so that service directories can share one set of listings instead of each keeping its own. Some people want every county to publish its directory this way so anyone can reuse it.",
+          "who": "Your county and its residents",
+          "exemplarRef": "open-referral-hsds",
+          "speculative": false,
+          "firstStep": "Find your county's online service directory and email the office that runs it to ask whether it can share the data openly.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "coord-public-directory-211",
+          "title": "Ask your local 211 to share its listings",
+          "whatChanges": "More than 200 local organizations run 211 lines, and together they hold one of the largest lists of local services in the country. Whether those listings are open to other tools is a local decision, so asking matters.",
+          "who": "Your local 211 and your county",
+          "exemplarRef": "us-211",
+          "speculative": false,
+          "firstStep": "Look up who runs 211 in your area and ask whether their listings are available to the public.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142002",
+        "locator": "cards.json#coord-public-directory",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Policy lens, framed as what some people want, not as settled."
+    },
+    "coord-ask-officials": {
+      "title": "Asking my representatives who is already working on this",
+      "line": "My state lawmaker's office points me to the groups that have already raised my issue.",
+      "lens": "policy",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "coord-ask-officials-state",
+          "title": "Ask your state lawmaker's office which groups have raised this",
+          "whatChanges": "Open States, a free lookup from Plural, shows your state lawmakers from your address. Their staff hear from organized groups, so asking which ones have raised your issue is a fair question, though some offices won't share who contacted them.",
+          "who": "You and a legislative office",
+          "exemplarRef": "open-states",
+          "speculative": false,
+          "firstStep": "Look up your state representative, then send their office a two-sentence email asking which local groups have contacted them about your issue.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "coord-ask-officials-draft",
+          "title": "Write a short, clear note to the right official",
+          "whatChanges": "Looks up who represents you at each level from your address and helps you write a short note asking which groups are already working on your issue. Open States already publishes state lawmakers' contact details as open data, which would make the state part feasible.",
+          "who": "You and It",
+          "exemplarRef": "open-states-data",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and write the one sentence you would want an official to answer.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142002",
+        "locator": "cards.json#coord-ask-officials",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Contact officials. Third It idea."
+    },
+    "coord-offer-skills": {
+      "title": "Offering my skills to a group that needs them",
+      "line": "I give a few hours a month to a group already doing the work, doing the thing I'm good at.",
+      "lens": "market",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "coord-offer-skills-listings",
+          "title": "Search for volunteer openings that ask for your skill",
+          "whatChanges": "Idealist has connected more than 200,000 organizations with volunteers, and many listings ask for a specific skill, such as bookkeeping, design or translation. Searching by skill rather than cause often turns up groups you would never have found.",
+          "who": "You",
+          "exemplarRef": "idealist",
+          "speculative": false,
+          "firstStep": "Search Idealist for your strongest skill plus your city and save two listings.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "coord-offer-skills-offer",
+          "title": "Offer one specific skill to a group you already found",
+          "whatChanges": "Small groups are often stretched thin and slow to answer a general offer to volunteer. A specific offer, such as building a simple website or keeping the books for three months, is much easier to say yes to.",
+          "who": "You and a local group",
+          "speculative": true,
+          "speculativeRationale": "Common volunteer-management advice; no single opened source.",
+          "firstStep": "Write a three-sentence email offering one skill for a set number of hours, and send it to one group.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142002",
+        "locator": "cards.json#coord-offer-skills",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Market lens via a directory business."
+    },
+    "coord-check-group": {
+      "title": "Knowing whether a group is active before I join",
+      "line": "I can tell whether a group is still meeting and doing work before I give it my evenings.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "coord-check-group-filing",
+          "title": "Check when a nonprofit last filed its tax form",
+          "whatChanges": "Registered nonprofits file a public form each year, and ProPublica's Nonprofit Explorer shows the most recent ones for free. A group whose last filing is several years old has often gone quiet.",
+          "who": "You",
+          "exemplarRef": "nonprofit-explorer",
+          "speculative": false,
+          "firstStep": "Look up one group on Nonprofit Explorer and check the year of its latest filing.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "coord-check-group-recent",
+          "title": "Look for a meeting or post from the last three months",
+          "whatChanges": "Websites outlive the groups that made them. A recent meeting date, newsletter or social media post is the simplest sign that real people are still doing the work.",
+          "who": "You",
+          "speculative": true,
+          "speculativeRationale": "Practical check; no single opened source.",
+          "firstStep": "Open the group's website or page and find the date of its most recent post or meeting.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142002",
+        "locator": "cards.json#coord-check-group",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Basics with a twist: verifying activity."
+    },
+    "coord-neighborhood-map": {
+      "title": "A shared map of what my neighborhood already has",
+      "line": "My neighbors and I can see every group, skill and meeting space we already have on one page.",
+      "lens": "community",
+      "ambition": "together",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "coord-neighborhood-map-assets",
+          "title": "Make an asset map with a few neighbors",
+          "whatChanges": "Asset mapping, from John Kretzmann and John McKnight's 1993 book on rebuilding communities, lists residents' skills, local associations and institutions before anyone asks what is missing. Starting with what exists makes it easier to see who is already working on what.",
+          "who": "You and your neighbors",
+          "exemplarRef": "abcd-asset-mapping",
+          "speculative": false,
+          "firstStep": "Ask two neighbors to spend 20 minutes listing the groups, churches and clubs within walking distance.",
+          "firstStepMinutes": 20,
+          "status": "real_now",
+          "kind": "project"
+        },
+        {
+          "id": "coord-neighborhood-map-share",
+          "title": "Post the map where neighbors already gather online",
+          "whatChanges": "If your neighborhood already has a Buy Nothing group or a neighborhood forum, posting the map there lets others correct it and add to it. Those groups are mostly for giving things away, so keep the post short and ask one clear question.",
+          "who": "You and your neighbors",
+          "exemplarRef": "buy-nothing",
+          "speculative": false,
+          "firstStep": "Post a first draft of the map to one neighborhood group and ask what is missing.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142002",
+        "locator": "cards.json#coord-neighborhood-map",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Community, together."
+    }
+  }
+}

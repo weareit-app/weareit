@@ -1,0 +1,746 @@
+{
+  "schemaVersion": 1,
+  "painId": "broke",
+  "runId": "20261019-175356",
+  "cards": {
+    "broke-know-recurring-costs": {
+      "title": "Knowing exactly what leaves my account each month",
+      "line": "I know every bill and subscription that comes out of my account, and none of them catch me off guard.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "broke-recurring-list",
+          "title": "List every charge that repeats on your statements",
+          "whatChanges": "In a 2022 survey of 1,000 Americans, people guessed they spent about $86 a month on subscriptions, but when they listed them out the average was $219. Forty-two percent were still paying for something they had stopped using.",
+          "who": "You",
+          "exemplarRef": "subscription-survey",
+          "speculative": false,
+          "firstStep": "Open your last two bank or card statements and highlight every charge that shows up both months.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "broke-recurring-plan",
+          "title": "Give each dollar a job before the month starts",
+          "whatChanges": "A common starting point is the 50/30/20 split: about half of take-home pay for needs, 30% for wants, and 20% for savings or debt. If needs alone take more than half, you’re far from alone, and the bigger fix is more likely raising income or lowering one large bill than cutting small treats.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "speculativeRationale": "Widely used rule of thumb from Elizabeth Warren and Amelia Warren Tyagi’s 2005 book; no page opened for it in this run.",
+          "firstStep": "Write your take-home pay for one month at the top of a page, and list rent, utilities, food and transportation under it.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "schedule"
+        },
+        {
+          "id": "broke-recurring-cancel",
+          "title": "Cancel unused subscriptions in writing and save the proof",
+          "whatChanges": "A federal rule that would have made canceling as easy as signing up was struck down in court in July 2025, so some companies still make it hard. A dated email or screenshot of your cancellation helps a lot if you’re charged again.",
+          "who": "You",
+          "exemplarRef": "ftc-click-to-cancel",
+          "speculative": false,
+          "firstStep": "Pick the subscription you use least, cancel it today, and save a screenshot of the confirmation.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "kind": "feature",
+          "status": "proposed_it_feature",
+          "who": "You and It",
+          "id": "broke-know-recurring-costs-charge-list",
+          "title": "Private list of your repeating charges",
+          "whatChanges": "Reads a bank or card statement you choose to load, lists every charge that repeats, and adds them up on your device, so nothing has to be found by hand. In a 2022 survey, people guessed they spent $86 a month on subscriptions, and the real average was $219.",
+          "exemplarRef": "subscription-survey",
+          "firstStep": "Tell us you'd use this, and download your last two bank or card statements.",
+          "firstStepMinutes": 5,
+          "speculative": false
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175356",
+        "locator": "cards.json#broke-know-recurring-costs",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Basics sweep: tracking, budgeting method, cutting recurring costs. Budget split is speculative because no page was opened."
+    },
+    "broke-lower-phone-internet": {
+      "title": "Paying less for phone and internet service",
+      "line": "My phone and internet bills cost less, and I still have the service I need.",
+      "lens": "market",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "broke-phone-ask-rate",
+          "title": "Call your provider and ask for a lower monthly rate",
+          "whatChanges": "In a 2018 Consumer Reports survey of more than 176,000 members, 80% of the people who tried to negotiate got something, such as a discount or a waived fee. About a quarter of them cut their TV bill by up to $50 a month.",
+          "who": "You",
+          "exemplarRef": "cr-negotiate",
+          "speculative": false,
+          "firstStep": "Look up what a competitor charges for similar service at your address, then call your provider and ask them to match it.",
+          "firstStepMinutes": 20,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "broke-phone-federal-discount",
+          "title": "Check whether you qualify for the federal phone and internet discount",
+          "whatChanges": "The federal Lifeline program takes a monthly discount off phone or internet service for households at or below 135% of the poverty line, which in 2026 is $21,546 a year for one person. You also qualify if anyone in your household gets food benefits (SNAP), Medicaid or Supplemental Security Income, though only one discount is allowed per household.",
+          "who": "You",
+          "exemplarRef": "usac-lifeline",
+          "speculative": false,
+          "firstStep": "Search for the Lifeline National Verifier and answer its eligibility questions.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "broke-phone-compare",
+          "title": "Compare your bill with nearby offers before you call",
+          "whatChanges": "Looks up what other providers charge at your address and gives you a short script for the call, with the competitor’s price ready to quote.",
+          "who": "You and It",
+          "exemplarRef": "cr-negotiate",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and find your current monthly price on your last bill.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175356",
+        "locator": "cards.json#broke-lower-phone-internet",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Negotiating bills basic plus federal Lifeline. FCC broadband map would ground the It idea but was not opened."
+    },
+    "broke-claim-tax-credits": {
+      "title": "Getting every tax credit my family is owed",
+      "line": "When I file my taxes, I get back every credit we qualify for without paying someone to find them.",
+      "lens": "policy",
+      "ambition": "tonight",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "broke-tax-eitc",
+          "title": "Check whether you qualify for the earned income tax credit",
+          "whatChanges": "The IRS estimates that about one in five people who qualify for this credit don’t claim it. For tax year 2024, families with children could get up to $7,830, and the average credit the year before was $2,743.",
+          "who": "You",
+          "exemplarRef": "irs-eitc",
+          "speculative": false,
+          "firstStep": "Find last year’s tax return and look for the line labeled earned income credit to see whether you claimed it.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "broke-tax-volunteer",
+          "title": "Have your taxes done free at a volunteer tax site",
+          "whatChanges": "The IRS supports free tax preparation sites staffed by trained volunteers, mainly for people earning about $70,244 or less. The sites mostly serve people who qualify for the earned income credit, so the volunteers know to look for it.",
+          "who": "You and a tax volunteer",
+          "exemplarRef": "irs-vita",
+          "speculative": false,
+          "firstStep": "Search for the IRS VITA site locator and write down the closest site and its hours.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "broke-tax-past-years",
+          "title": "File past returns to claim credits you missed",
+          "whatChanges": "In general, you have three years from a return’s due date to claim a refund, including refundable credits you didn’t know about. Many volunteer sites can prepare past-year returns too.",
+          "who": "You and a tax volunteer",
+          "exemplarRef": null,
+          "speculative": true,
+          "speculativeRationale": "Standard IRS three-year refund window; no page opened for it in this run.",
+          "firstStep": "Make a list of which of the last three years you didn’t file, or filed without claiming any credits.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "project"
+        },
+        {
+          "kind": "feature",
+          "status": "proposed_it_feature",
+          "who": "You and It",
+          "id": "broke-claim-tax-credits-credit-check",
+          "title": "Tax credit check before you file",
+          "whatChanges": "Asks a few questions about your household and work and flags the credits you're likely to qualify for, starting with the earned income tax credit, which the IRS says about one in five eligible people miss. You go to a volunteer site or open your tax software knowing what to ask about.",
+          "exemplarRef": "irs-eitc",
+          "firstStep": "Tell us you'd use this, and find last year's tax return.",
+          "firstStepMinutes": 5,
+          "speculative": false
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175356",
+        "locator": "cards.json#broke-claim-tax-credits",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Benefits people miss: EITC. Stated as a general rule, not advice for a specific person."
+    },
+    "broke-hospital-bills": {
+      "title": "Hospital bills cut or forgiven when I can’t pay",
+      "line": "When a hospital bill comes, I find out whether I qualify to have it reduced or erased before I pay anything.",
+      "lens": "community",
+      "ambition": "tonight",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "broke-hospital-assistance",
+          "title": "Ask the hospital for its financial assistance application",
+          "whatChanges": "Nonprofit hospitals have to offer charity care that reduces or erases bills for patients under an income limit, and each hospital sets its own limit. Asking for the application is how you find out where you stand.",
+          "who": "You",
+          "exemplarRef": "dollar-for",
+          "speculative": false,
+          "firstStep": "Search your hospital’s name with the words financial assistance policy, and download the application.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "broke-hospital-nonprofit",
+          "title": "Let a free nonprofit file the application for you",
+          "whatChanges": "Dollar For, a nonprofit, prepares charity care applications, sends them to the hospital and follows up, at no cost to patients. The group says it has helped clear more than $38 million in medical bills since 2019.",
+          "who": "You and a patient advocate",
+          "exemplarRef": "dollar-for",
+          "speculative": false,
+          "firstStep": "Answer the eligibility questions on Dollar For’s website with your household size and income.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "broke-hospital-itemized",
+          "title": "Ask for an itemized bill before you pay",
+          "whatChanges": "An itemized bill lists every charge, so you can spot duplicates or services you never received. Ask for it before you agree to a payment plan.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "speculativeRationale": "Common patient-advocate advice; no page opened for it in this run.",
+          "firstStep": "Call the billing number on your statement and ask for an itemized bill with the billing codes.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "kind": "feature",
+          "status": "proposed_it_feature",
+          "who": "You and It",
+          "id": "broke-hospital-bills-charity-lookup",
+          "title": "Charity care limits for your hospital",
+          "whatChanges": "Finds your hospital's financial assistance policy and its income limit, and tells you whether your household is likely under it before you pay. If you are, it points you to free help like Dollar For to file the application.",
+          "exemplarRef": "dollar-for",
+          "firstStep": "Tell us you'd use this, and find the name of the hospital on your bill.",
+          "firstStepMinutes": 5,
+          "speculative": false
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175356",
+        "locator": "cards.json#broke-hospital-bills",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Medical debt is sensitive; no legal advice stated as fact beyond the 501(r) requirement summarized by Dollar For."
+    },
+    "broke-every-benefit": {
+      "title": "Knowing every benefit my household qualifies for",
+      "line": "I know which programs we qualify for, what each one is worth, and how to apply.",
+      "lens": "technology",
+      "ambition": "this-year",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "broke-benefit-screener",
+          "title": "Check which benefits your household qualifies for",
+          "whatChanges": "Asks a few questions about your household and estimates what you’re eligible for, the way MyFriendBen does in Colorado, where the nonprofit says its tool has helped more than 55,000 households apply for $33 million in benefits. Your answers stay on your device.",
+          "who": "You and It",
+          "exemplarRef": "myfriendben",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down your household size and monthly income before taxes.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "broke-benefit-food",
+          "title": "Apply for food benefits online",
+          "whatChanges": "In California, Code for America's GetCalFresh cut the online application for food benefits from about 45 minutes to under 10. A faster form doesn't mean a faster decision, so it's worth applying as soon as you can.",
+          "who": "You",
+          "exemplarRef": "getcalfresh",
+          "speculative": false,
+          "firstStep": "Search your state’s name with SNAP application and see whether you can start online today.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "broke-benefit-renewals",
+          "title": "Keep track of renewal dates so benefits don’t lapse",
+          "whatChanges": "Keeps your benefit renewal dates in one place and reminds you a few weeks ahead. Food, health and phone benefits each renew on their own schedule, and one missed letter can end coverage.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "speculativeRationale": "Design idea; renewal schedules vary by program and state and no page was opened for them.",
+          "firstStep": "Tell us you’d use this, and find the most recent renewal letter for any benefit you get.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175356",
+        "locator": "cards.json#broke-every-benefit",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "It-led card. Privacy invariant: answers stay on device pre-signup."
+    },
+    "broke-surprise-expense": {
+      "title": "Covering a surprise expense without a payday loan",
+      "line": "When the car breaks down, I can pay for the repair without a loan that costs more than the repair did.",
+      "lens": "market",
+      "ambition": "this-year",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "broke-expense-credit-union",
+          "title": "Ask a credit union for a small payday-alternative loan",
+          "whatChanges": "Federal credit unions can offer small loans of up to $2,000, repaid over one to 12 months, with interest capped at 28% a year. Credit unions aren’t required to offer them, so ask your local one whether it does.",
+          "who": "You and a credit union",
+          "exemplarRef": "credit-union-pal",
+          "speculative": false,
+          "firstStep": "Call a credit union near you and ask whether it offers payday alternative loans and what membership requires.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "broke-expense-cushion",
+          "title": "Move a small amount to savings automatically each payday",
+          "whatChanges": "An automatic transfer of $10 or $20 each payday builds a cushion without you having to decide every time. A few hundred dollars set aside covers many of the small emergencies that send people to payday lenders.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "speculativeRationale": "Common savings practice; no page opened for it in this run.",
+          "firstStep": "Open a separate savings account or bucket and set an automatic transfer for your next payday.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "kind": "feature",
+          "status": "proposed_it_feature",
+          "who": "You and It",
+          "id": "broke-surprise-expense-pal-finder",
+          "title": "Nearby lenders with small, low-interest emergency loans",
+          "whatChanges": "Shows the credit unions near you that offer payday alternative loans of up to $2,000, and what each one asks for membership, so you know where to go before the car breaks down. Credit unions aren't required to offer them, so the list saves you calling around.",
+          "exemplarRef": "credit-union-pal",
+          "firstStep": "Tell us you'd use this, and note which credit unions you could join through your job, school or neighborhood.",
+          "firstStepMinutes": 10,
+          "speculative": false
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175356",
+        "locator": "cards.json#broke-surprise-expense",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "broke-lending-circle": {
+      "title": "Borrowing from people I trust while building my credit",
+      "line": "When I need a lump sum, I borrow from a circle of people I know, and my credit score goes up while I repay.",
+      "lens": "relational",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "broke-circle-join",
+          "title": "Join a lending circle that reports to the credit bureaus",
+          "whatChanges": "In San Francisco, Mission Asset Fund runs lending circles where six to ten people each pay in monthly and take turns receiving the pot, with payments reported to the credit bureaus. In one study, members who started with no credit score or a poor one were almost twice as likely as a comparison group to raise their score by 20 points or more.",
+          "who": "You and a small group",
+          "exemplarRef": "maf-lending-circles",
+          "speculative": false,
+          "firstStep": "Look up Mission Asset Fund’s lending circles and check whether they serve your state.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "group"
+        },
+        {
+          "id": "broke-circle-start",
+          "title": "Run a lending circle with friends or coworkers",
+          "whatChanges": "Lets a group set the amount and the order, keeps a shared record, and reminds everyone when a payment is due. Many families already do this informally, under names like tanda, susu or hui.",
+          "who": "You, people you trust and It",
+          "exemplarRef": "maf-lending-circles",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and think of three people you’d trust to pay in every month.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175356",
+        "locator": "cards.json#broke-lending-circle",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "broke-paid-enough": {
+      "title": "Getting paid enough for the work I do",
+      "line": "My paycheck covers my bills, and I had a say in how my pay was set.",
+      "lens": "community",
+      "ambition": "together",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "broke-pay-union",
+          "title": "Talk with coworkers about forming a union",
+          "whatChanges": "In 2025, union members working full time had median weekly earnings of $1,404, compared with $1,174 for workers not in a union, according to the Bureau of Labor Statistics. Part of that gap comes from differences in jobs and industries, not only the union itself.",
+          "who": "You and your coworkers",
+          "exemplarRef": "bls-union",
+          "speculative": false,
+          "firstStep": "Ask one coworker you trust whether pay has been on their mind too.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "new-group"
+        },
+        {
+          "id": "broke-pay-compare",
+          "title": "See what your job typically pays where you live",
+          "whatChanges": "Looks up your job in the Bureau of Labor Statistics’ yearly wage estimates, which cover about 830 jobs, including by metro area, so you know where you stand before you ask for a raise.",
+          "who": "You and It",
+          "exemplarRef": "bls-oews",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down your job title and your hourly pay.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175356",
+        "locator": "cards.json#broke-paid-enough",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Wage route. Union gap stated with BLS caveat to avoid overclaiming."
+    },
+    "broke-own-the-business": {
+      "title": "Owning a share of the company I work for",
+      "line": "I own part of the business where I work, so when it does well, I do too.",
+      "lens": "market",
+      "ambition": "together",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "broke-coop-learn",
+          "title": "Apply for jobs at worker-owned companies in your line of work",
+          "whatChanges": "In the Bronx, Cooperative Home Care Associates is owned by its workers, employs more than 2,200 people, and has eight employees on its board of directors. Working at a company like that is the most direct way to own a share of where you work and help decide how the company is run.",
+          "who": "You",
+          "exemplarRef": "chca-coop",
+          "speculative": false,
+          "firstStep": "Search for worker cooperatives in your city or line of work and write down one that is hiring.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "broke-coop-sale",
+          "title": "Ask a retiring owner about selling to the employees",
+          "whatChanges": "When a small business owner retires without a buyer, the business sometimes closes. Some owners sell to their employees instead, often with help from a local cooperative development group.",
+          "who": "You, your coworkers and the owner",
+          "exemplarRef": null,
+          "speculative": true,
+          "speculativeRationale": "Employee buyouts of retiring owners are a known co-op conversion route; no page opened for it in this run.",
+          "firstStep": "Find out whether your state has a cooperative development center and whether it helps with employee buyouts.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "project"
+        },
+        {
+          "kind": "feature",
+          "status": "proposed_it_feature",
+          "who": "You and It",
+          "id": "broke-own-the-business-coop-map",
+          "title": "Map of worker-owned companies near you",
+          "whatChanges": "Shows worker-owned and employee-owned companies near you from public directories, with what they do and whether they're hiring, so you have somewhere to apply or a model to point to.",
+          "exemplarRef": null,
+          "speculative": true,
+          "speculativeRationale": "Design idea; public co-op and employee-ownership directories exist but none was opened in this run.",
+          "firstStep": "Tell us you'd use this, and write down the kind of work you'd want to do at a worker-owned company.",
+          "firstStepMinutes": 5
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175356",
+        "locator": "cards.json#broke-own-the-business",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "broke-income-floor": {
+      "title": "A guaranteed minimum income for families like mine",
+      "line": "Even in a bad month, a steady amount comes in that covers the basics.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "broke-floor-pilot",
+          "title": "Ask whether your city is testing a guaranteed income",
+          "whatChanges": "Starting in 2019, Stockton, California gave 125 residents $500 a month for two years with no conditions. In the first year they found full-time jobs at more than twice the rate of people who didn’t get the money, and food was their biggest expense, though supporters and critics still disagree about cost at a larger scale.",
+          "who": "You and your city",
+          "exemplarRef": "stockton-seed",
+          "speculative": false,
+          "firstStep": "Search your city’s name with guaranteed income pilot to see whether one is running or planned.",
+          "firstStepMinutes": 5,
+          "status": "societal_proposal",
+          "kind": "learn"
+        },
+        {
+          "id": "broke-floor-child-credit",
+          "title": "Tell your representatives where you stand on a larger child tax credit",
+          "whatChanges": "In 2021 the American Rescue Plan Act expanded the child tax credit, and child poverty fell to a record low of 5.2% by the Census Bureau's broader measure. That expansion has since lapsed, and people disagree about whether to bring it back.",
+          "who": "You and your representative",
+          "exemplarRef": "ctc-2021",
+          "speculative": false,
+          "firstStep": "Open your U.S. representative’s contact page and write two sentences on what the larger credit meant, or would mean, for your family.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "kind": "feature",
+          "status": "proposed_it_feature",
+          "who": "You and It",
+          "id": "broke-income-floor-pilot-finder",
+          "title": "Guaranteed income pilots near you",
+          "whatChanges": "Shows the guaranteed income pilots running or planned near you, who can apply, and when the next enrollment opens, so you hear about one before it fills up.",
+          "exemplarRef": null,
+          "speculative": true,
+          "speculativeRationale": "Design idea; pilot listings were not opened in this run, and enrollment is often closed or by lottery.",
+          "firstStep": "Tell us you'd use this, and search your county's name with guaranteed income.",
+          "firstStepMinutes": 5
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175356",
+        "locator": "cards.json#broke-income-floor",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Contested economics: both cite named results and say people disagree."
+    },
+    "broke-local-spending": {
+      "title": "More of my city’s spending going to local workers",
+      "line": "When my city buys things, more of that money pays people who live here.",
+      "lens": "community",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "broke-local-purchasing",
+          "title": "Ask your city council to buy more from local businesses",
+          "whatChanges": "Since about 2013, the city council in Preston, in northwest England, has steered its purchasing toward local firms and co-ops. Supporters hold it up as a model, while a local opposition leader called it a marketing gimmick.",
+          "who": "You and your city council",
+          "exemplarRef": "preston-cwb",
+          "speculative": false,
+          "firstStep": "Find the date of your city council’s next meeting and whether it takes public comment.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "broke-local-contracts",
+          "title": "Look up who wins your city’s biggest contracts",
+          "whatChanges": "Gathers the contracts and payments many cities publish online and shows how much goes to businesses in your area, so you have real numbers to bring to a council meeting.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "speculativeRationale": "Many US cities publish open checkbook data; none was opened in this run.",
+          "firstStep": "Tell us you’d use this, and search your city’s name with open checkbook to see what’s published.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175356",
+        "locator": "cards.json#broke-local-spending",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Preston figures not on opened page, so none stated."
+    },
+    "broke-easy-cancel-law": {
+      "title": "Canceling a subscription as easily as I signed up",
+      "line": "If I signed up online in a minute, I can cancel online in a minute too.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "broke-cancel-state-law",
+          "title": "Ask your state lawmakers for an easy-cancel law",
+          "whatChanges": "A federal appeals court struck down the Federal Trade Commission’s easy-cancel rule on July 8, 2025, days before it took effect, over how the rule was made. California already has its own law requiring easy cancellation, so states can act on their own.",
+          "who": "You and your state legislators",
+          "exemplarRef": "ftc-click-to-cancel",
+          "speculative": false,
+          "firstStep": "Look up your state legislators and send one a short note about a subscription you struggled to cancel.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "broke-cancel-report",
+          "title": "Report a company that makes canceling hard",
+          "whatChanges": "Your state attorney general's office and the federal consumer protection agency both take consumer complaints, including about subscriptions that are hard to cancel. A clear record of what happened makes your complaint easier to act on.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "speculativeRationale": "Complaint offices exist at state and federal level; the federal reporting page did not load in this run, so no office is named.",
+          "firstStep": "Write down the company, the dates and what happened when you tried to cancel, then file a complaint.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "kind": "feature",
+          "status": "proposed_it_feature",
+          "who": "You and It",
+          "id": "broke-easy-cancel-law-sign-on",
+          "title": "Statewide sign-on letter for an easy-cancel law",
+          "whatChanges": "Gathers people in your state behind one letter asking lawmakers for an easy-cancel law, shows how many have signed, and sends it together. California already requires easy cancellation, so the letter can point to a state that has done it.",
+          "exemplarRef": "ftc-click-to-cancel",
+          "firstStep": "Tell us you'd use this, and write one sentence about a subscription you struggled to cancel.",
+          "firstStepMinutes": 5,
+          "speculative": false
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175356",
+        "locator": "cards.json#broke-easy-cancel-law",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "broke-see-the-month": {
+      "title": "Knowing ahead of time which week money runs short",
+      "line": "I can see weeks in advance when a bill will land before payday, so I can plan for it.",
+      "lens": "technology",
+      "ambition": "this-year",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "broke-month-calendar",
+          "title": "Put paydays and bill due dates on one calendar",
+          "whatChanges": "Lays out your paydays and bills side by side and flags the weeks where more goes out than comes in, using only what you enter on your own device.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "speculativeRationale": "Design idea; no comparable product was opened in this run.",
+          "firstStep": "Tell us you’d use this, and write next month’s paydays and due dates on a paper calendar.",
+          "firstStepMinutes": 15,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "broke-month-due-dates",
+          "title": "Ask your billers to move due dates to after payday",
+          "whatChanges": "Many credit card companies, utilities and lenders will change your due date if you ask. Lining due dates up with paydays prevents late fees without changing what you owe.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "speculativeRationale": "Common practice among card issuers and utilities; no page opened for it in this run.",
+          "firstStep": "Call your credit card company or utility and ask whether you can move your due date to a few days after payday.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "broke-month-trials",
+          "title": "Get a reminder before free trials turn into charges",
+          "whatChanges": "Reminds you a few days before a free trial or yearly renewal charges your card. In one 2022 survey, 42% of people were still paying for a subscription they had stopped using.",
+          "who": "You and It",
+          "exemplarRef": "subscription-survey",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and set a phone reminder for the end of any free trial you’re on now.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175356",
+        "locator": "cards.json#broke-see-the-month",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "It-led card."
+    },
+    "broke-tell-officials": {
+      "title": "The programs that keep my family afloat stay funded",
+      "line": "The programs that help my family get by stay in place, because the people who vote on them have heard from us.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "broke-officials-find",
+          "title": "Find all your elected representatives, local to federal",
+          "whatChanges": "Shows who represents your address at each level of government and helps you write a short note about a program that matters to you, such as the expanded child tax credit, which came in the year child poverty hit a record low.",
+          "who": "You and It",
+          "exemplarRef": "ctc-2021",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write one sentence about a program that has helped your household.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "broke-officials-hearing",
+          "title": "Gather neighbors to speak at a public hearing",
+          "whatChanges": "Lets neighbors who share a concern, such as a cut to food benefits, see that others care too and sign up to speak or send written comments together. Testimony from many residents is harder to overlook than a single letter.",
+          "who": "You, your neighbors and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "speculativeRationale": "Design idea; hearing schedules are public on state legislature sites but none was opened in this run.",
+          "firstStep": "Tell us you’d use this, and check your state legislature’s website for upcoming hearings on benefits or wages.",
+          "firstStepMinutes": 15,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175356",
+        "locator": "cards.json#broke-tell-officials",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "It-led card: contact officials and organize with neighbors."
+    }
+  }
+}

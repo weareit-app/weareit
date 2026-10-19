@@ -1,0 +1,740 @@
+{
+  "schemaVersion": 1,
+  "painId": "chores",
+  "runId": "20261019-182751",
+  "cards": {
+    "chores-machines-daily-work": {
+      "title": "Machines handling the dishes and the daily sweeping",
+      "line": "After dinner I load the dishwasher and sit down, and the floors got swept while I was out.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "chores-machines-scrape",
+          "title": "Scrape plates into the dishwasher instead of rinsing them",
+          "whatChanges": "The federal ENERGY STAR program says a new certified dishwasher saves over 230 hours a year compared with washing by hand, and uses less than half the energy. Rinsing first wastes water and time, so scrape the plates into the trash and load them as they are.",
+          "who": "You",
+          "exemplarRef": "energystar-dishwasher",
+          "speculative": false,
+          "firstStep": "Tonight, scrape the dinner plates, load them without rinsing and run the machine full.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "habit"
+        },
+        {
+          "id": "chores-machines-robovac",
+          "title": "Let a robot vacuum do the daily sweep",
+          "whatChanges": "In Consumer Reports tests, three robot vacuums under $300 rated near the top for daily pickups in uncluttered rooms with bare floors or low-pile carpet. They don’t replace a real vacuum for deep cleaning, but they take the everyday crumbs off your list.",
+          "who": "You",
+          "exemplarRef": "cr-robovac",
+          "speculative": false,
+          "firstStep": "Walk through your main room and count the cords and things on the floor a robot would get stuck on.",
+          "firstStepMinutes": 5,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "chores-machines-guide",
+          "title": "Comparison of time-saving appliances in your price range",
+          "whatChanges": "Compares dishwashers, robot vacuums and slow cookers in your price range by the hours a week they would save you, using public test results and what other households report after a month.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and tonight time how long the kitchen cleanup takes.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Directory or lookup pattern; no comparison tool built on time saved was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-182751",
+        "locator": "cards.json#chores-machines-daily-work",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Basic card: appliances people commonly buy. Each basic made useful with one detail (230 hours, skip rinsing; robot only for daily pickups)."
+    },
+    "chores-cook-fewer-nights": {
+      "title": "Cooking three nights a week instead of seven",
+      "line": "I cook big on a few nights, and the leftovers carry us through the rest of the week.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "chores-cook-plan",
+          "title": "Plan the week’s dinners in one sitting",
+          "whatChanges": "In a French study of 40,554 adults, people who planned meals ahead ate a more varied diet, and the researchers saw planning as a way around having too little time. Deciding once on the weekend spares you the nightly scramble over what to make.",
+          "who": "You",
+          "exemplarRef": "nutrinet-planning",
+          "speculative": false,
+          "firstStep": "Write down four dinners for next week, putting first the two that make the best leftovers.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "schedule"
+        },
+        {
+          "id": "chores-cook-double",
+          "title": "Cook a double batch and freeze half",
+          "whatChanges": "Doubling a soup, chili or casserole takes little more effort than making one, and the frozen half becomes a night off later in the month. Label the container with the date so it actually gets eaten.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Pick one dinner this week you could double, and buy enough for two.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "habit",
+          "speculativeRationale": "Common home practice; no study measuring time saved by batch cooking was found in this run."
+        },
+        {
+          "id": "chores-cook-plan-feature",
+          "title": "Weekly dinner plan built around leftovers",
+          "whatChanges": "Suggests three or four dinners a week that make enough for a second night, builds the shopping list, and checks in on Friday about what actually got eaten so next week’s plan is better.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and note which dinners your household happily eats twice.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Tracking and nudges pattern; meal planning evidence is in nutrinet-planning but this feature is not a precedent."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-182751",
+        "locator": "cards.json#chores-cook-fewer-nights",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Basic: meal planning and batch cooking. Study is observational; copy avoids claiming time saved as measured."
+    },
+    "chores-kids-real-jobs": {
+      "title": "Kids who handle real jobs around the house",
+      "line": "My kids pack their own lunches and fold their own laundry, so I’m not the one doing all of it.",
+      "lens": "relational",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "chores-kids-one-job",
+          "title": "Give each child one job that matches their age",
+          "whatChanges": "The American Academy of Pediatrics lists jobs by age: children 5 to 7 can pack their own school lunches, and children 8 to 10 can help make dinner and put away their own laundry. Starting with one job a child really owns works better than a chart full of them.",
+          "who": "You and your kids",
+          "exemplarRef": "aap-chores",
+          "speculative": false,
+          "firstStep": "Pick one job from the list for each child and tell them about it at dinner tonight.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "chores-kids-cook-night",
+          "title": "Hand an older child one dinner a week",
+          "whatChanges": "By 11 or 12, the same pediatrics guidance says children can cook a simple meal with supervision and do and fold laundry. One night a week of their cooking is one night off for you, and a skill they’ll keep for life.",
+          "who": "You and your older kids",
+          "exemplarRef": "aap-chores",
+          "speculative": false,
+          "firstStep": "Ask your oldest which simple dinner they’d like to learn, and put it on next week’s calendar.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "schedule"
+        },
+        {
+          "id": "chores-kids-chart",
+          "title": "Rotating chore chart sized to each child’s age",
+          "whatChanges": "Builds a chore chart from the pediatricians’ list of jobs by age, rotates the jobs every week so nobody is stuck with the bathroom, and sends the reminders to the kids instead of to you.",
+          "who": "You and your kids",
+          "exemplarRef": "aap-chores",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and ask each child which job they’d trade away first.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-182751",
+        "locator": "cards.json#chores-kids-real-jobs",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Relational basic. AAP list is real guidance; the rotation feature builds on it."
+    },
+    "chores-fair-split": {
+      "title": "Splitting housework so it feels fair to both of us",
+      "line": "My partner and I each own whole jobs, from planning to done, and neither of us has to ask the other for help.",
+      "lens": "relational",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "chores-fair-notes",
+          "title": "Write down who does what for one week",
+          "whatChanges": "Pew Research Center found that even in marriages where both spouses earn about the same, wives spend 4.6 hours a week on housework and husbands about two. A week of notes gives you both the same facts before you talk.",
+          "who": "You and your partner",
+          "exemplarRef": "pew-housework",
+          "speculative": false,
+          "firstStep": "Put a sheet on the fridge with two columns and ask your partner to add to it too.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "chores-fair-whole-jobs",
+          "title": "Divide whole jobs instead of helping out",
+          "whatChanges": "Eve Rodsky’s Fair Play method lists 100 household tasks as cards. Each person takes whole cards, so whoever has dinner also plans it and shops for it, and the split aims to be fair rather than exactly equal.",
+          "who": "You and your partner",
+          "exemplarRef": "fair-play",
+          "speculative": false,
+          "firstStep": "List the ten jobs that come up most in your home and mark who does each one now.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "chores-fair-ask",
+          "title": "Ask for a new split without blame",
+          "whatChanges": "Starting with what you’d like to change, such as “I’d like to stop being the one who plans every dinner,” goes better than a list of what your partner hasn’t done. Pick a calm time, not the moment the sink is full.",
+          "who": "You and your partner",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Write one sentence that starts with “I’d like to stop being the one who…”",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "practice",
+          "speculativeRationale": "Common advice for hard conversations; no study of this wording was opened in this run.",
+          "featureIdea": "Helps you plan the conversation about splitting housework, then checks in a week later on how the new split is holding up."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-182751",
+        "locator": "cards.json#chores-fair-split",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Relational, this-year. Pew number makes the gap concrete; Fair Play gives the method."
+    },
+    "chores-not-only-one-remembering": {
+      "title": "Not being the only one who remembers everything",
+      "line": "My partner notices when we’re low on milk or the dentist is due, without me saying a word.",
+      "lens": "relational",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "chores-remember-noticing",
+          "title": "Hand over the noticing along with the job",
+          "whatChanges": "In sociologist Allison Daminger’s 2019 study, women did more of the thinking work of a home in 26 of 32 couples: anticipating needs, finding options and keeping track, while men mostly joined at the deciding step. When you hand off a job, hand off noticing when it’s due too.",
+          "who": "You and your partner",
+          "exemplarRef": "daminger",
+          "speculative": false,
+          "firstStep": "Choose one area, like groceries or the kids’ doctor visits, and tell your partner it’s theirs from noticing to done.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "chores-remember-checkin",
+          "title": "Hold a 15-minute household check-in each week",
+          "whatChanges": "A short weekly look at the calendar and the shopping list moves the remembering out of one person’s head and onto the table. Sunday evening works well for a lot of families.",
+          "who": "You and your partner",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Ask your partner to pick a time this weekend for a first 15-minute check-in.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "schedule",
+          "speculativeRationale": "Common family practice; no study of weekly check-ins was opened in this run."
+        },
+        {
+          "id": "chores-remember-list",
+          "title": "Shared household list where the owner gets the reminders",
+          "whatChanges": "Keeps one list of recurring jobs, like refilling prescriptions or paying the water bill, assigns each one to a person, and sends the reminders to that person instead of whoever usually remembers.",
+          "who": "You and your household",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and list five things you remember that nobody else does.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Tracking and nudges pattern; no shared-list precedent was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-182751",
+        "locator": "cards.json#chores-not-only-one-remembering",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Mental-load card; Daminger is the surprise. Distinct dream from the doing-the-work split."
+    },
+    "chores-dinner-swap": {
+      "title": "Cooking one big dinner and getting two more back",
+      "line": "I cook one big pot for three families on the weekend, and two other dinners come home with me.",
+      "lens": "community",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "chores-swap-start",
+          "title": "Start a weekly dinner swap with two other families",
+          "whatChanges": "Three families in Birmingham, Alabama, have each cooked one large meal and swapped the shares on Sundays for more than a decade. Each family cooks once and eats three times.",
+          "who": "You and two other households",
+          "exemplarRef": "birmingham-coop",
+          "speculative": false,
+          "firstStep": "Text two friends who cook food you like and ask if they’d try a swap for one month.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "new-group"
+        },
+        {
+          "id": "chores-swap-match",
+          "title": "Private match with nearby families who want a dinner swap",
+          "whatChanges": "Lets you say privately that you’d join a dinner swap, with your diet and how many people you feed, and introduces you only once two or three households near you want the same thing.",
+          "who": "You and neighbors",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and write down two dinners you’d be happy to cook for twelve.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Private match at a threshold pattern; no precedent opened."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-182751",
+        "locator": "cards.json#chores-dinner-swap",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Community; Birmingham co-op is the named example."
+    },
+    "chores-dinners-with-neighbors": {
+      "title": "Eating dinner with neighbors a few nights a week",
+      "line": "On shared dinner nights I walk next door to eat with neighbors, and I cook my turn about once a month.",
+      "lens": "community",
+      "ambition": "together",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "chores-neighbors-visit",
+          "title": "Visit a cohousing community’s shared dinner",
+          "whatChanges": "At N Street Cohousing in Davis, California, neighbors took down their backyard fences one house at a time starting in 1986. Now 19 houses share dinners one or more times a week, regulars cook with a partner about once a month, and a plate costs around $3.",
+          "who": "You",
+          "exemplarRef": "nstreet-cohousing",
+          "speculative": false,
+          "firstStep": "Look up whether a cohousing community near you has a guest dinner night, and ask to come.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "chores-neighbors-potluck",
+          "title": "Start a monthly shared dinner on your block or in your building",
+          "whatChanges": "N Street began with just two houses joining their backyards. A once-a-month dinner in a shared yard or lobby is a small version you can start without moving anywhere.",
+          "who": "You and neighbors",
+          "exemplarRef": "nstreet-cohousing",
+          "speculative": false,
+          "firstStep": "Pick a date next month and slip a note under three neighbors’ doors.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "new-group"
+        },
+        {
+          "id": "chores-neighbors-directory",
+          "title": "Directory of shared-dinner communities near you",
+          "whatChanges": "Finds cohousing communities and regular community dinners within driving distance, with how often they eat together and whether guests are welcome.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and note how far you’d drive for a shared dinner.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Directory pattern; no cohousing directory page was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-182751",
+        "locator": "cards.json#chores-dinners-with-neighbors",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Together-level community card. N Street gives a concrete cost and cooking frequency."
+    },
+    "chores-fair-cleaning-help": {
+      "title": "Paying for house cleaning that treats cleaners well",
+      "line": "Someone cleans my home every other week, and I know they’re paid fairly and get days off.",
+      "lens": "market",
+      "ambition": "this-year",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "chores-help-coop",
+          "title": "Hire a cleaning co-op owned by its workers",
+          "whatChanges": "In Sunset Park, Brooklyn, the Sí Se Puede Women’s Cooperative grew from 15 to 67 worker-owners. One member who earned $8 an hour cleaning alone now averages about $20.",
+          "who": "You",
+          "exemplarRef": "si-se-puede",
+          "speculative": false,
+          "firstStep": "Search for a worker-owned cleaning cooperative in your city and ask for a quote.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "chores-help-benefits",
+          "title": "Add paid time off for the person who already cleans for you",
+          "whatChanges": "The National Domestic Workers Alliance built Alia, an online tool where clients add a suggested $5 per cleaning toward their cleaner’s paid time off and insurance. Ask your cleaner first whether they’d want it.",
+          "who": "You and your cleaner",
+          "exemplarRef": "alia",
+          "speculative": false,
+          "firstStep": "Ask your cleaner at their next visit whether paid days off would help them.",
+          "firstStepMinutes": 5,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "chores-help-directory",
+          "title": "Directory of fair-pay cleaning services near you",
+          "whatChanges": "Lists worker-owned cleaning cooperatives and services that offer benefits in your area, with what they charge, so paying for help doesn’t mean guessing how workers are treated.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and note what you’d want cleaned and how often.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Directory pattern; no directory of cleaning co-ops was opened."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-182751",
+        "locator": "cards.json#chores-fair-cleaning-help",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Market lens. Buying help is the obvious basic; the twist is buying it in a way that gives cleaners power."
+    },
+    "chores-affordable-help-policy": {
+      "title": "Household help that working families can afford",
+      "line": "I can pay for a few hours of cleaning help each week because public money covers part of the cost.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "chores-policy-credit",
+          "title": "Ask your legislators about a tax credit for household help",
+          "whatChanges": "Sweden lets households, renters included, deduct 50 percent of the labor cost of cleaning and laundry, up to 75,000 kronor a year combined with home repairs. People disagree about whether tax money should help pay for housework, so ask candidates where they stand.",
+          "who": "You",
+          "exemplarRef": "sweden-rut",
+          "speculative": false,
+          "firstStep": "Find your state legislator’s email and ask whether they’d support a tax credit for household help.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "chores-policy-vouchers",
+          "title": "Push for subsidized hourly vouchers for household help",
+          "whatChanges": "Belgium started service vouchers in 2004: families buy hours of cleaning, ironing or cooking help for about €9 an hour outside Brussels, and public money tops up the worker’s pay. Cleaners in Brussels earn at least €13.10 an hour under the system.",
+          "who": "You and local groups",
+          "exemplarRef": "belgium-vouchers",
+          "speculative": false,
+          "firstStep": "Send the voucher idea to a local group that works on child care or caregiving costs and ask if they’d take it up.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "chores-policy-campaign",
+          "title": "Campaign signup for a state household-help tax credit",
+          "whatChanges": "Gathers people in your state behind one specific ask, a tax credit for household help, shows how many have signed on, and sends the letter to legislators together once enough people join.",
+          "who": "You and others in your state",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and note how many hours of help a week would make the biggest difference for you.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Campaign organizing pattern; no precedent campaign opened."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-182751",
+        "locator": "cards.json#chores-affordable-help-policy",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Contested policy; copy says people disagree. Sweden and Belgium kept in separate fixes so each cites one exemplar."
+    },
+    "chores-school-lunch": {
+      "title": "One less meal to pack every school day",
+      "line": "My kids eat a free hot lunch at school, and I’m not making sandwiches at 7 in the morning.",
+      "lens": "policy",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "chores-lunch-check",
+          "title": "Check whether your child’s school lunch is already free",
+          "whatChanges": "As of the 2025 to 2026 school year, nine states give every public school student free lunch with no application: California, Colorado, Maine, Massachusetts, Michigan, Minnesota, New Mexico, New York and Vermont. Elsewhere, many schools are still free for everyone through a federal program, so ask.",
+          "who": "You",
+          "exemplarRef": "us-school-meals",
+          "speculative": false,
+          "firstStep": "Check your school district’s website or call the office to ask whether lunch is free for all students this year.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "chores-lunch-ask",
+          "title": "Ask your state legislators for free school meals for every student",
+          "whatChanges": "Finland passed a law on free school meals in 1943, and today Helsinki cooks a hot lunch every weekday for about 44,000 students at roughly €2.50 a meal. Supporters in other states point to the ones that already do this, while opponents object to the cost.",
+          "who": "You",
+          "exemplarRef": "finland-meals",
+          "speculative": false,
+          "firstStep": "Email your state representative one sentence asking whether they support free school meals for all students.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "chores-lunch-lookup",
+          "title": "Lookup for free school meals at your child’s school",
+          "whatChanges": "Shows whether your child’s school serves free meals to everyone, from state programs and the federal Community Eligibility Provision, and tells you what to fill out if it doesn’t.",
+          "who": "You",
+          "exemplarRef": "us-school-meals",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and ask your school office whether lunch is free for everyone.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-182751",
+        "locator": "cards.json#chores-school-lunch",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Policy card with a real-now basic (check eligibility). Finland gives the surprise."
+    },
+    "chores-meals-hard-stretch": {
+      "title": "Dinners brought to me during a hard stretch",
+      "line": "After my surgery, friends signed up for nights, and dinner came to the door for two weeks.",
+      "lens": "community",
+      "ambition": "tonight",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "chores-hard-signup",
+          "title": "Let a friend set up a meal signup for you",
+          "whatChanges": "Meal Train is a free page where friends pick dates to bring dinner after a birth, surgery, loss or job loss, and people who can’t cook can chip in for groceries instead. Most friends want to do something and just need a date to sign up for.",
+          "who": "You and a friend",
+          "exemplarRef": "meal-train",
+          "speculative": false,
+          "firstStep": "Ask one friend to set up a Meal Train page for you and share it.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "chores-hard-parent",
+          "title": "Sign an older parent up for home-delivered meals",
+          "whatChanges": "Meals on Wheels programs bring 244 million meals a year to 2.6 million older adults, usually people 60 or older who have trouble getting out. One in three local programs has a waitlist averaging four months, so call before you need it.",
+          "who": "You and your parent",
+          "exemplarRef": "meals-on-wheels",
+          "speculative": false,
+          "firstStep": "Call your local agency on aging and ask how to apply for home-delivered meals.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "chores-hard-directory",
+          "title": "Directory of meal help you qualify for",
+          "whatChanges": "Finds home-delivered meal programs, food pantries that deliver and meal signups near you, and checks which ones match your age, health and income.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and write down who in your life would bring a meal if asked.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Directory pattern; no combined directory opened."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-182751",
+        "locator": "cards.json#chores-meals-hard-stretch",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Existing resources for people whose chores spike because of illness, a baby or aging parents."
+    },
+    "chores-housework-counts": {
+      "title": "Housework counted as real work by everyone",
+      "line": "The people I live with see the cooking and cleaning as work, and so do the laws where I live.",
+      "lens": "culture",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "chores-counts-day-off",
+          "title": "Take a day off from housework and let your household notice",
+          "whatChanges": "On October 24, 1975, about 90 percent of women in Iceland stopped paid work, housework and child care for one day, and 25,000 people gathered in Reykjavik. Five years later Iceland elected Vigdís Finnbogadóttir president, and a day off at home is a smaller way to make the same work visible.",
+          "who": "You",
+          "exemplarRef": "iceland-1975",
+          "speculative": false,
+          "firstStep": "Pick a day next month and tell your household now what you won’t be doing that day.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "chores-counts-candidates",
+          "title": "Ask candidates whether caregivers at home should be paid",
+          "whatChanges": "The Wages for Housework campaign, started in 1972 by Selma James, Silvia Federici and others, demanded pay for the work of running a home. By 2025 about 118 million women in twelve Indian states received cash transfers, some justified as pay for housework, though many people oppose spending public money this way.",
+          "who": "You",
+          "exemplarRef": "wages-housework",
+          "speculative": false,
+          "firstStep": "Write one question about paying caregivers at home to bring to the next candidate forum.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "chores-counts-record",
+          "title": "Record of how local candidates answer on care at home",
+          "whatChanges": "Collects how candidates for local and state office answer questions about child care, elder care and household help, and keeps a lasting record you can compare before you vote.",
+          "who": "You and your neighbors",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and note which race on your next ballot matters most to you.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Accountability record pattern; no precedent opened."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-182751",
+        "locator": "cards.json#chores-housework-counts",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Culture card, contested; Wages for Housework shown as a demand with opposition."
+    },
+    "chores-students-clean-school": {
+      "title": "Schools where students clean their own classrooms",
+      "line": "My kids come home used to sweeping and wiping tables, because they do it at school every week.",
+      "lens": "culture",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "chores-students-ask",
+          "title": "Ask your child’s school to add a short cleanup by students",
+          "whatChanges": "In Japan, students in small groups take turns cleaning classrooms, corridors and the gym, usually at lunch break or after school. Schools there still keep custodial staff, so the point is the habit rather than saving money.",
+          "who": "You and your child’s school",
+          "exemplarRef": "japan-soji",
+          "speculative": false,
+          "firstStep": "Bring up student cleanup time at the next parent-teacher meeting, or email the principal.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "chores-students-home",
+          "title": "Hold a 15-minute family cleanup at the same time each evening",
+          "whatChanges": "Everyone in the house, adults included, takes one area for 15 minutes at the same time every evening, so cleaning becomes a shared routine instead of one person’s job.",
+          "who": "Your household",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Pick a time after dinner and give each person one area for tomorrow.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "schedule",
+          "speculativeRationale": "Home adaptation of a school custom; no study of family cleanup time opened."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-182751",
+        "locator": "cards.json#chores-students-clean-school",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Culture lens; Japan school cleaning reframes chores as everyone's."
+    },
+    "chores-see-the-hours": {
+      "title": "Knowing where my hours of housework actually go",
+      "line": "I can see how many hours cooking and cleaning take each week, and which of them I could hand off.",
+      "lens": "technology",
+      "ambition": "this-year",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "chores-hours-log",
+          "title": "Weekly housework log compared with the national average",
+          "whatChanges": "Lets you log cooking, cleaning and laundry in a tap or two, then compares your week with the American Time Use Survey, where women average 2.38 hours a day on household activities and men 1.58. Seeing your own number makes the conversation about splitting the work easier.",
+          "who": "You",
+          "exemplarRef": "bls-atus",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and tonight time how long the kitchen cleanup takes.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "chores-hours-ranked",
+          "title": "Suggestions ranked by the hours they would save you",
+          "whatChanges": "Looks at what takes you longest and suggests the change that saves the most time first, such as a dishwasher, which the ENERGY STAR program estimates saves over 230 hours a year compared with washing by hand.",
+          "who": "You",
+          "exemplarRef": "energystar-dishwasher",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down the one chore you’d most like to never do again.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "chores-hours-followup",
+          "title": "Follow-up question about whether the problem is the work or the split",
+          "whatChanges": "Asks a few days later whether the hard part is the amount of work, doing it alone, or never getting a break from it, and changes the suggestions to match your answer.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and ask yourself which of those three bothers you most.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Clarifying follow-up pattern; no precedent opened."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-182751",
+        "locator": "cards.json#chores-see-the-hours",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "It-led card: all three fixes are features."
+    }
+  }
+}

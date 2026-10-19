@@ -1,0 +1,89 @@
+{
+  "finalists": [
+    "climate-food",
+    "climate-community-solar",
+    "climate-biggest-choices",
+    "climate-shared-ownership",
+    "climate-state-laws"
+  ],
+  "auditSample": [
+    "climate-renters",
+    "climate-town-power"
+  ],
+  "seed": 17,
+  "itLedGuaranteed": "climate-state-laws",
+  "itLedMissing": false,
+  "ranking": [
+    {
+      "cardId": "climate-food",
+      "wins": 41,
+      "meanScore": 4.33
+    },
+    {
+      "cardId": "climate-community-solar",
+      "wins": 38,
+      "meanScore": 4.33
+    },
+    {
+      "cardId": "climate-biggest-choices",
+      "wins": 36,
+      "meanScore": 4
+    },
+    {
+      "cardId": "climate-shared-ownership",
+      "wins": 32,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "climate-car-trips",
+      "wins": 27,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "climate-flying",
+      "wins": 25,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "climate-courts",
+      "wins": 24,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "climate-town-power",
+      "wins": 22,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "climate-talk",
+      "wins": 18,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "climate-heat-pump",
+      "wins": 16,
+      "meanScore": 3.5
+    },
+    {
+      "cardId": "climate-state-laws",
+      "wins": 15,
+      "meanScore": 3.5
+    },
+    {
+      "cardId": "climate-home-energy-tonight",
+      "wins": 10,
+      "meanScore": 3.33
+    },
+    {
+      "cardId": "climate-renters",
+      "wins": 7,
+      "meanScore": 3
+    },
+    {
+      "cardId": "climate-local-risks",
+      "wins": 4,
+      "meanScore": 2.67
+    }
+  ],
+  "excluded": []
+}

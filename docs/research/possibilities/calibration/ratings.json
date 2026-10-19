@@ -1,0 +1,207 @@
+{
+  "schemaVersion": 1,
+  "rater": "founder",
+  "context": "calibration",
+  "ratings": {
+    "c01": {
+      "ratedAt": "2026-10-19T20:06:42.295Z",
+      "rating": "love",
+      "reason": ""
+    },
+    "c02": {
+      "ratedAt": "2026-10-19T20:07:06.287Z",
+      "rating": "love",
+      "reason": ""
+    },
+    "c03": {
+      "ratedAt": "2026-10-19T20:07:22.909Z",
+      "rating": "love",
+      "reason": ""
+    },
+    "c04": {
+      "ratedAt": "2026-10-19T20:15:40.344Z",
+      "rating": "kill",
+      "reason": "I don't know what free means here."
+    },
+    "c05": {
+      "ratedAt": "2026-10-19T20:10:22.559Z",
+      "rating": "love",
+      "reason": ""
+    },
+    "c06": {
+      "ratedAt": "2026-10-19T20:10:37.580Z",
+      "rating": "love",
+      "reason": ""
+    },
+    "c07": {
+      "ratedAt": "2026-10-19T20:10:41.822Z",
+      "rating": "love",
+      "reason": ""
+    },
+    "c08": {
+      "ratedAt": "2026-10-19T20:24:32.946Z",
+      "rating": "keep",
+      "reason": "This is good, but wording could be improved."
+    },
+    "c09": {
+      "ratedAt": "2026-10-19T20:26:57.744Z",
+      "rating": "kill",
+      "reason": "Keep but doesn't really answer \"Safe through heat and floods\", which would be good. Also maybe \"safe during severe weather\" would be better? This is mixing up different things."
+    },
+    "c10": {
+      "ratedAt": "2026-10-19T20:11:05.217Z",
+      "rating": "love",
+      "reason": ""
+    },
+    "c11": {
+      "ratedAt": "2026-10-19T20:11:16.005Z",
+      "rating": "love",
+      "reason": ""
+    },
+    "c12": {
+      "ratedAt": "2026-10-19T20:20:40.201Z",
+      "rating": "keep",
+      "reason": "Keep for \"Shared ownership\nThe people who do the work own a share and have a say in where the gains go.\"\n\nBut the futures are a little lame. Very vague. I don't even know what \"Put a floor under income\" means; I think you're trying to avoid saying UBI or something like it, but it doesn't read like anything a normal person would understand."
+    },
+    "c13": {
+      "ratedAt": "2026-10-19T20:11:49.717Z",
+      "rating": "love",
+      "reason": ""
+    },
+    "c14": {
+      "ratedAt": "2026-10-19T20:11:55.796Z",
+      "rating": "love",
+      "reason": ""
+    },
+    "c15": {
+      "ratedAt": "2026-10-19T20:27:05.903Z",
+      "rating": "kill",
+      "reason": "This is a little vague."
+    },
+    "c16": {
+      "ratedAt": "2026-10-19T20:27:14.107Z",
+      "rating": "kill",
+      "reason": "\"Share the load to protect rest\" is pretty vague."
+    },
+    "c17": {
+      "ratedAt": "2026-10-19T20:12:39.908Z",
+      "rating": "love",
+      "reason": ""
+    },
+    "c18": {
+      "ratedAt": "2026-10-19T20:12:47.705Z",
+      "rating": "love",
+      "reason": ""
+    },
+    "c19": {
+      "ratedAt": "2026-10-19T20:27:22.573Z",
+      "rating": "kill",
+      "reason": "\"My idea exists\nSomething I care about making is real, and I can share it.\"\n\nThis is super passive voice; needs reworked."
+    },
+    "c20": {
+      "ratedAt": "2026-10-19T20:13:04.256Z",
+      "rating": "love",
+      "reason": ""
+    },
+    "c21": {
+      "ratedAt": "2026-10-19T20:13:09.484Z",
+      "rating": "love",
+      "reason": ""
+    },
+    "c22": {
+      "ratedAt": "2026-10-19T20:13:14.498Z",
+      "rating": "love",
+      "reason": ""
+    },
+    "c23": {
+      "ratedAt": "2026-10-19T20:13:21.621Z",
+      "rating": "love",
+      "reason": ""
+    },
+    "c24": {
+      "ratedAt": "2026-10-19T20:27:25.990Z",
+      "rating": "kill",
+      "reason": "This is super vague."
+    },
+    "c25": {
+      "ratedAt": "2026-10-19T20:13:36.006Z",
+      "rating": "love",
+      "reason": ""
+    },
+    "c26": {
+      "ratedAt": "2026-10-19T20:13:42.846Z",
+      "rating": "love",
+      "reason": ""
+    },
+    "c27": {
+      "ratedAt": "2026-10-19T20:13:47.614Z",
+      "rating": "love",
+      "reason": ""
+    },
+    "c28": {
+      "ratedAt": "2026-10-19T20:13:57.129Z",
+      "rating": "love",
+      "reason": ""
+    },
+    "c29": {
+      "ratedAt": "2026-10-19T20:14:07.025Z",
+      "rating": "love",
+      "reason": ""
+    },
+    "c30": {
+      "ratedAt": "2026-10-19T20:14:14.245Z",
+      "rating": "love",
+      "reason": ""
+    },
+    "c31": {
+      "ratedAt": "2026-10-19T20:25:05.212Z",
+      "rating": "keep",
+      "reason": "Title is good, description is good, first possibility is good, second one is kind of vague: \"Choose residents from across the community and give them a vote that counts on one public issue.\" That's vague."
+    },
+    "c32": {
+      "ratedAt": "2026-10-19T20:14:21.589Z",
+      "rating": "love",
+      "reason": ""
+    },
+    "c33": {
+      "ratedAt": "2026-10-19T20:25:57.548Z",
+      "rating": "keep",
+      "reason": "As with others like this, vague."
+    },
+    "c34": {
+      "ratedAt": "2026-10-19T20:14:34.671Z",
+      "rating": "love",
+      "reason": ""
+    },
+    "c35": {
+      "ratedAt": "2026-10-19T20:26:37.790Z",
+      "rating": "kill",
+      "reason": "Like other places, this needs reworked to make the wording more obvious to someone."
+    },
+    "c36": {
+      "ratedAt": "2026-10-19T20:14:45.192Z",
+      "rating": "love",
+      "reason": ""
+    },
+    "c37": {
+      "ratedAt": "2026-10-19T20:23:24.488Z",
+      "rating": "kill",
+      "reason": "\"Choose what to do\" is super vague for procrastination. Like no fucking duh?"
+    },
+    "c38": {
+      "ratedAt": "2026-10-19T20:14:52.170Z",
+      "rating": "love",
+      "reason": ""
+    },
+    "c39": {
+      "ratedAt": "2026-10-19T20:23:36.000Z",
+      "rating": "kill",
+      "reason": "Super vague title. Super vague options."
+    },
+    "c40": {
+      "ratedAt": "2026-10-19T20:15:05.041Z",
+      "rating": "love",
+      "reason": ""
+    }
+  }
+}

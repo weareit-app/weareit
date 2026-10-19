@@ -1,0 +1,5 @@
+interface:
+  display_name: "Possibilities: Repair"
+  short_description: "Repair cards from lint, judges or founder notes"
+policy:
+  allow_implicit_invocation: false

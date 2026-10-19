@@ -1,0 +1,665 @@
+{
+  "schemaVersion": 1,
+  "painId": "burnout",
+  "runId": "20261019-141959",
+  "judge": {
+    "context": "isolated-consensus",
+    "judges": 3,
+    "files": [
+      "judgments-1.json",
+      "judgments-2.json",
+      "judgments-3.json"
+    ],
+    "at": "2026-10-19T18:33:03+00:00"
+  },
+  "scores": {
+    "burnout-rest-this-week": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"cross out one thing you can cancel, move or hand off\" and \"request one of them for the next two weeks\" are ten-minute steps that change this week. | \"cross out one thing you can cancel, move or hand off\" and \"request one of them for the next two weeks\" are ten-minute steps that free real time. | \"cross out one thing you can cancel, move or hand off\" and \"request one of them for the next two weeks\" are ten-minute steps that change this week."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"relief usually comes from subtraction, not from a new routine\" gives a familiar basic a useful twist. | Familiar rest advice, made useful by \"relief usually comes from subtraction, not from a new routine\" and the unused-days angle. | Familiar rest advice made useful by \"relief usually comes from subtraction, not from a new routine\" and the unused-days angle."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Only the Pew 2023 figure (\"46% of American workers with paid time off took less\") is named; the other two fixes have no example. | Only the Pew fix has a source (\"46% of American workers with paid time off took less\"); the other two fixes have none. | Only one fix is grounded: \"a 2023 Pew survey, 46% of American workers\"; the other two have no example."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "The Pew 46% is the one fact worth repeating; the rest is predictable from \"rest\". | The Pew figure that nearly half leave paid days unused is the one element worth repeating. | The Pew figure that nearly half leave paid days unused is the one repeatable fact."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Pick the person who would most want to know\" is warm and plain, though \"don't protect anyone, including your team\" leans toward a punchline. | Warm and plain (\"Pick the person who would most want to know\"); \"don't protect anyone, including your team\" leans a little toward a punchline. | Warm and plain (\"Pick the person who would most want to know\"), though \"don't protect anyone, including your team\" leans toward a punchline."
+      },
+      "power": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Mostly coping inside the same job: \"do a little less\" this week. | Mostly coping inside the same job: \"go to bed on time, do a little less.\" | Coping inside unchanged conditions: \"go to bed on time, do a little less\"."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Speculative fixes are plain everyday advice, and the Pew figures match the exemplar. | pass: Pew numbers match the exemplar; the unsourced fixes are ordinary advice and make no outcome claims. | pass: Pew numbers match the exemplar; the speculative fixes are ordinary advice and make no claims of evidence."
+      }
+    },
+    "burnout-job-not-me": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Rank those six areas... and circle the top one\" is a quick, concrete step, though it only diagnoses. | \"Rank those six areas... and circle the top one\" is a concrete ten-minute step, though it diagnoses more than it changes anything. | \"Rank those six areas... and circle the top one\" is quick and specific, though it diagnoses rather than changes anything yet."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"more rest won't fix an unfair process\" makes a familiar feeling newly meaningful. | Reframes self-blame through Maslach: \"more rest won't fix an unfair process.\" | Reframes self-blame: WHO treats burnout \"as a work problem rather than a personal illness\", and \"more rest won't fix an unfair process\"."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Named WHO 2019 definition with three listed signs and Christina Maslach's six areas; no outcome number. | Names the WHO \"since 2019\" with its three signs, and Christina Maslach's six areas; no outcome numbers. | WHO \"Since 2019\" with three named signs, and Christina Maslach's six areas; named and dated, though no outcome number."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "That the WHO \"treats burnout as a work problem rather than a personal illness\" is something people would repeat. | \"treats burnout as a work problem rather than a personal illness\" is something a worn-out reader would repeat to a friend. | That the WHO frames burnout as a workplace problem, not an illness, is a fact people repeat."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"worth remembering on the days you blame yourself\" sounds like a mentor; the title is clear without the example. | Feels like a mentor's reassurance: \"worth remembering on the days you blame yourself.\" | Mentor-like and non-judging: \"worth remembering on the days you blame yourself\"."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Shifts blame and tells you \"what to ask for\", a meaningful personal reframe rather than a change in who decides. | Moves blame onto the job and \"tells you what to ask for\", but changes no conditions yet. | Changes how I see my conditions and points to \"what to ask for\", a meaningful personal shift."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: WHO and Maslach are described within their limits as a definition and a framework. | pass: Accurately calls the WHO entry a work phenomenon and not an illness; Maslach is presented as a framework. | pass: Accurately describes the ICD-11 occupational-phenomenon framing and calls Maslach's model a way of tracing causes, not a test."
+      }
+    },
+    "burnout-someone-tonight": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"Save 988 in your phone's contacts now\" takes two minutes and clearly matters. | \"Save 988 in your phone's contacts now\" takes two minutes and is plainly useful. | \"Save 988 in your phone's contacts now\" takes two minutes and matters if needed."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Crisis lines are known, but \"You don't have to be thinking about suicide to use it\" makes the basic useful. | Crisis lines are familiar; \"You don't have to be thinking about suicide to use it\" adds a useful twist. | A well-chosen basic with a useful twist: \"You don't have to be thinking about suicide to use it\"."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Named 988 and the federal EAP, but no year or result. | Names 988 and the federal employee assistance program, with no year or numbers. | 988 and the federal EAP are named, but with no year or result."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "One surprising element: 988 is for people who are \"overwhelmed and need to talk to someone right away\". | That 988 is for anyone \"overwhelmed\", and that the employer often already pays for counseling, are mild surprises. | One surprising element: people call 988 \"when they're overwhelmed\", not only in crisis."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"If tonight gets very dark, I know exactly who I can call\" is calm and candid, not clinical. | Calm and unjudging: \"If tonight gets very dark, I know exactly who I can call or text.\" | Calm and direct, \"If tonight gets very dark, I know exactly who I can call\"; slightly informational."
+      },
+      "power": {
+        "score": 2,
+        "mean": 1.67,
+        "reason": "Safety support inside unchanged conditions, important but not a change in the work. | A safety net for getting through the night, not a change in conditions. | A safety net, not a change in conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: 988 matches the exemplar; \"your manager doesn't find out\" is tied to the federal program's confidentiality, though private programs vary and the card says only \"Many workplaces\". | pass: Confidentiality is tied to \"The federal government's version\"; 988 is described within its limits. | pass: 988 described per the exemplar; the confidentiality claim is tied to \"the federal government's version\"."
+      }
+    },
+    "burnout-doctor-and-leave": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Look up how many hours you've worked in the past 12 months\" is concrete, but it's a step toward a slow process. | \"Look up how many hours you've worked in the past 12 months\" and \"Write down three things\" are specific, though slow to pay off. | \"Look up how many hours you've worked in the past 12 months\" checks the 1,250-hour rule directly; a real step, slower to pay off."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"see a doctor\" is made useful with \"Bring a few notes so the appointment isn't spent remembering\" and the FMLA hour rule. | \"See a doctor\" is the obvious move; checking FMLA eligibility by your hours is a useful concrete detail. | \"See a doctor\" made useful: \"Bring a few notes so the appointment isn't spent remembering\" plus the exact FMLA thresholds."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "FMLA with \"12 weeks\", \"50 people nearby\" and \"1,250 hours\" is specific, but it's a rule rather than a result. | FMLA with \"up to 12 weeks\", \"50 people nearby\" and \"1,250 hours\" is concrete and specific. | FMLA with concrete numbers: \"up to 12 weeks\", \"at least 50 people\", \"1,250 hours\"."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2.33,
+        "reason": "Doctor plus medical leave is predictable from the title. | Job-protected leave with health insurance kept is useful, but many readers know FMLA exists. | Mostly predictable; \"your employer keeps your health insurance going\" is the only fresh detail."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Plain and unhurried; the leave limits are said once (\"The leave is unpaid\") without stacking. | Plain and caring: \"so the appointment isn't spent remembering.\" | Candid about limits once, \"The leave is unpaid\", warm overall; the WHO lead-in in the doctor fix is a little roundabout."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"my job and health insurance will be there when I'm back\" changes my own conditions. | Uses a legal right to take time back from the job. | Changes my own conditions: time away \"with my job still there\"."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: FMLA limits are stated, and the It idea is written \"It could ask\" with a proposed status; the card doesn't promise burnout alone qualifies. | pass: States that the leave is unpaid and lists the eligibility limits; the It idea is written \"It could\" and \"without pretending to diagnose you\". | pass: States FMLA eligibility limits, ties leave to a \"serious health condition\", and the It idea is written as \"It could ask\"."
+      }
+    },
+    "burnout-see-it-change": {
+      "actionable": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "\"tonight rate from one to ten how drained you felt today\" and \"date it\" are tiny, real steps without It. | Today's steps are small (\"rate from one to ten how drained you felt today\"), but the real value waits on a tool that doesn't exist yet. | \"Write down the hardest part of this past week in one sentence and date it\" is doable now without It."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"A pattern is much easier to bring to a manager than a feeling\" is a fresh, useful angle. | Tracking which of Maslach's areas drains you each week, so \"A pattern is much easier to bring to a manager than a feeling\", is a fresh angle. | Measuring burnout separately \"from work and from working with clients\", so \"you can see whether the job is the main drain\"."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Copenhagen Burnout Inventory, 2004, \"19 questions\" split three ways; strong for an It idea. | \"Denmark's National Institute of Occupational Health... in 2004: 19 questions\" is named, dated and specific. | \"Copenhagen Burnout Inventory in 2004: 19 questions\" is named, dated and concrete, though no outcome."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "That a published 19-question scale separates work from client exhaustion is new to most readers. | Few readers know there's a validated burnout questionnaire; otherwise it's predictable tracking. | That a published burnout questionnaire exists is mildly surprising."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"so a doctor... can start with facts instead of a blank page\" is warm and clear. | Clear about what changes: \"start with facts instead of a blank page.\" | Plain and clear, though \"A pattern is much easier to bring to a manager than a feeling\" edges toward a tagline."
+      },
+      "power": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "Gives me evidence about my own conditions, not yet a change in who decides. | Self-knowledge and documentation; it only sets up a later change. | Gives me evidence to change my own conditions, \"start with facts instead of a blank page\"."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Every It fix is written \"It could...\" with proposed status, and the inventory is not presented as a diagnosis. | pass: Every fix is written \"It could\" and labeled as something It could build; the Copenhagen inventory is described accurately. | pass: Every fix is labeled proposed and written \"It could...\"; nothing claims to be built or diagnostic."
+      }
+    },
+    "burnout-talk-to-manager": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"mark the three things you'd drop or delay first\" is a 20-minute step that directly sets up the conversation. | \"mark the three things you'd drop or delay first\" is a 20-minute step that shapes the next one-on-one. | \"Write down everything on your plate and mark the three things you'd drop or delay first\" is a 20-minute step that moves the conversation."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Having a manager \"plan everyone's days off and who covers what\" is a twist that removes the guilt. | Asking a manager to plan the whole team's time off turns guilt over coworkers into a team fix. | Familiar advice, sharpened: \"A manager can say yes to a specific list far more easily than to a general complaint\"."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Maslach and Pew's \"43%\" are named, but there's no workplace result. | Maslach and the Pew \"43%\" are named, but neither shows a result from a manager-led change. | Maslach and the Pew 43% figure are named, but they support the advice rather than showing a result."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "The coworker-guilt figure is the one surprising element. | The 43% who skip time off out of guilt toward coworkers is a decent fact to repeat. | Team-wide vacation planning so \"nobody has to feel like they're abandoning the team\" is a fresh angle."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"A manager can say yes to a specific list far more easily than to a general complaint\" is candid mentor advice. | Direct and kind: \"A manager can say yes to a specific list far more easily than to a general complaint.\" | Plain and practical; clear about who does what."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"we've agreed on what comes off my plate\" changes what the job asks, shared with the person who decides. | Changes workload and time off through an agreement with the person who sets them. | Moves the decision about workload into an agreement: \"we've agreed on what comes off my plate\"."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Pew and Maslach figures are within exemplar limits; nothing is promised. | pass: Sources are used for what they say; no outcome is promised. | pass: Pew and Maslach are cited as what they found; the advice makes no outcome claims."
+      }
+    },
+    "burnout-coworkers-together": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Ask two coworkers you trust whether the workload is wearing on them too\" is easy and sets up a lot. | \"Ask two coworkers you trust whether the workload is wearing on them too\" is easy and gets things moving. | \"Ask two coworkers you trust whether the workload is wearing on them too\" is easy and starts something real."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Legal protection for joint action \"even without a union\" is news to most non-union workers. | Many people don't know they are \"protected from retaliation even without a union.\" | Most people don't know a joint letter is \"protected from retaliation even without a union\"."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "National Labor Relations Act and Iceland's \"86% of the country's workers\" are specific. | Iceland's \"86% of the country's workers\" through contract talks, plus the National Labor Relations Act. | The National Labor Relations Act plus Iceland's 2015 to 2019 trials and \"86% of the country's workers\"."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"protected from retaliation even without a union\" is a fact people would repeat. | Legal protection without a union, and Iceland's 86%, are both facts worth repeating. | Legal protection for group complaints without a union, plus the Iceland 86%, are both repeatable."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"so nobody has to stick their neck out alone\" is warm; \"lands differently\" is plain rather than a punchline. | \"so nobody has to stick their neck out alone\" sounds like a candid mentor. | Direct and calm: \"A request signed by six people lands differently from one person's complaint\"."
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Workers jointly deciding workload and hours through letters and contracts changes who decides. | Moves who decides workload and hours, from the employer alone to workers acting together. | Shifts who decides workload, through group requests and union contracts."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: NLRA is described as protection for private-sector concerted activity, and the 86% is correctly credited to later union contracts; the It idea is labeled \"It could\". | pass: Credits the Iceland 86% to contract talks, matching the exemplar's limit; the It survey idea says \"It could\"; protection under the labor law is stated as plain fact without its caveats, but that stays within the exemplar. | pass: Limits the protection to private-sector workers and credits the Iceland figure to contract talks; omitting the misconduct limit isn't misleading."
+      }
+    },
+    "burnout-four-day-week": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Send the published results of the UK trial to your manager\" takes ten minutes, but its success depends on others. | \"Send the published results of the UK trial to your manager\" is quick, but a reply is up to someone else. | \"Send the published results of the UK trial to your manager\" takes ten minutes, but depends on the employer."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "The four-day week is widely discussed; starting with \"one month... an easy thing for a skeptical boss to agree to\" is the useful twist. | The four-day week is well known; pitching a one-month trial to \"a skeptical boss\" is a useful twist. | Starting small, \"a short trial is an easy thing for a skeptical boss to agree to\", is a useful twist on a known idea."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"In 2022, 61 companies... Seventy-one percent... 56 of the companies kept the shorter week\". | \"In 2022, 61 companies... Seventy-one percent... 56 of the companies kept the shorter week.\" | \"In 2022, 61 companies... 71%... 56 of the companies kept the shorter week\" and Microsoft Japan's 2019 trial."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "That 56 of 61 companies kept the shorter week, and the Microsoft Japan 40% figure, are repeatable. | That 56 of 61 companies kept the shorter week, and Microsoft Japan's 40% figure, stick with you. | 56 of 61 companies keeping the shorter week is something I'd repeat."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "One plain limit each (\"your workplace would be its own test\"), said calmly. | Honest in the mentor's way: \"The companies chose to take part, so your workplace would be its own test.\" | Honest limits said once: \"The companies chose to take part, so your workplace would be its own test\"."
+      },
+      "power": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "\"work four days, get paid for five\" changes who gets the time. | Wins back a whole day a week at the same pay. | Changes who gets the time: \"get paid for five\"."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: UK results are framed as survey responses from opted-in companies, and Microsoft's figure as \"measured by the company itself\". | pass: States the opt-in limit and the one-month, company-measured limit plainly. | pass: Calls UK results survey-based from companies that opted in, and the Japan figure \"measured by the company itself\"."
+      }
+    },
+    "burnout-shorter-hours-for-all": {
+      "actionable": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"Read the summary of the Icelandic trials\" is a real step but slow to matter. | \"Read the summary... and note which kinds of workplaces took part\" is a real step, but slow to matter. | \"Read the summary of the Icelandic trials\" is a real step but slow to matter."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Shorter national hours with a real precedent is a known idea with a useful detail. | Shorter hours at national scale is a known idea; Iceland makes it concrete. | Shorter hours as national policy is known; Iceland gives it some detail."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "Reykjavik and Iceland's government, 2015-2019, \"about 2,500 workers to 35 or 36 hours with no pay cut\". | \"Between 2015 and 2019, Reykjavik and Iceland's national government moved about 2,500 workers to 35 or 36 hours.\" | \"Between 2015 and 2019... about 2,500 workers moved to 35 or 36 hours\"."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Iceland is well known; the card adds little beyond it. | A whole government cutting hours with no pay cut is something people repeat. | Iceland is a fairly well-known story."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "\"People disagree... business groups often raise the cost, but... worth knowing either way\" piles up caveats and sounds hedged. | Fair to both sides: \"business groups often raise the cost, but the results from Iceland are worth knowing either way.\" | Even-handed and plain: \"People disagree about whether this would work in every industry\"."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Society-wide change in who gets the time, but the steps are reading and a proposed note. | Changes the national norm for who gets the time. | Aims at national norms for working time, though the steps are reading and writing letters."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Contested policy is offered as an idea with both sides named; the representatives tool is \"It could\" and \"for or against\". | pass: Offers a contested policy as a question with both sides named; the It idea says \"It could... for or against\". | pass: Frames the policy as contested, names business objections, and the representatives tool is written \"It could...\" and \"for or against\"."
+      }
+    },
+    "burnout-off-after-hours": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"Set your phone to silence work email and chat apps from the end of your workday\" takes five minutes tonight. | \"Set your phone to silence work email and chat apps from the end of your workday\" takes five minutes and works tonight. | \"Set your phone to silence work email and chat apps from the end of your workday\" takes five minutes and helps tonight."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "A focus-mode basic paired with a law that lets workers \"refuse to read or answer\". | Focus modes are familiar; pairing them with \"You don't need a law\" gives the basic some meaning. | The phone setting is a basic; pairing it with \"You don't need a law\" makes it more meaningful."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Australia, \"Since August 2024\", disputes to the national tribunal; no outcome number. | \"Since August 2024, workers in Australia can refuse...\" with the tribunal detail. | \"Since August 2024, workers in Australia can refuse\", with how disputes are settled."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "That a country lets workers lawfully ignore after-hours messages is worth repeating. | A legal right to ignore your boss after hours is a notable fact, though one many have heard. | A national right to ignore after-hours messages is a fact worth passing on."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"You don't need a law to stop work apps from lighting up your phone at night\" is plain and kind. | Plain and balanced: \"The law doesn't ban the messages, and some politicians there have promised to repeal it.\" | Plain and honest about limits: \"The law doesn't ban the messages\"."
+      },
+      "power": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Pairs a personal boundary with a legal right that changes what employers can expect. | The phone fix is personal; the policy fix is only learning, not acting. | Points toward a legal right that changes what employers can expect, plus a personal fix."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: States that the law \"doesn't ban the messages\" and that repeal was promised, matching the exemplar limits. | pass: States what the law doesn't do and the repeal pledge, and asks the reader to decide. | pass: States the law's limits and the repeal pledge, and invites the reader to decide for themselves."
+      }
+    },
+    "burnout-caregiver-break": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"Call or text 1-800-677-1116 and ask what respite care is available in your county\" is direct and quick. | \"Call or text 1-800-677-1116 and ask what respite care is available in your county\" is exact and doable today. | \"Call or text 1-800-677-1116 and ask what respite care is available in your county\" is exact and quick."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Naming respite care, and asking whether family leave \"can be taken a few days at a time\", is help many caregivers don't know to ask for. | Names burnout from caregiving as well as work, and asks whether family leave \"can be taken a few days at a time.\" | Many caregivers don't know the word to ask for: \"Ask specifically about respite care\"."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Named federal services and FMLA, but no year or result. | Named federal resources and a phone number, but no year or result. | Named federal services and a phone number, but no year or result."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "That respite exists and has a federal locator is one surprising element. | That respite care exists and FMLA covers caring for family will be news to some readers. | That a federal line and directory exist for respite will surprise some readers."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"so caring for my family doesn't use up everything I have\" is warm and specific. | \"so caring for my family doesn't use up everything I have\" is warm and specific; \"which means someone trained steps in so you can rest\" explains without talking down. | Warm and clear, \"so caring for my family doesn't use up everything I have\"; candid that the list \"isn't complete\"."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Changes my own conditions by getting someone else to take over for a few hours. | Gets someone else to take over some of the care for a few hours. | Changes my own conditions by getting someone to take over \"for a few hours each week\"."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Says to ask \"specifically about respite\" rather than promising it, and notes the directory \"isn't complete\" and FMLA is unpaid. | pass: Respects the exemplar limits: \"Ask specifically about respite care\" and \"The list isn't complete and providers aren't vetted.\" | pass: Says to ask about respite rather than promising it, and states that the directory isn't vetted and FMLA is unpaid."
+      }
+    },
+    "burnout-health-workers": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Start a simple log with the date, shift and number of patients\" is five minutes and builds evidence. | \"Start a simple log with the date, shift and number of patients\" takes five minutes and builds evidence. | \"Start a simple log with the date, shift and number of patients you had today\" is quick and concrete."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Logging patients per shift to bring \"to management or a legislator\" turns a complaint into data. | Staffing ratios are well known among nurses; the unit log is the useful twist. The card fits only health workers. | Turning shift logs into evidence for management or a legislator is a useful angle."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "California, 2025 study, \"40%... compared with 45%\", plus the 2022 Lorna Breen Act. | California \"40% of nurses there reported high burnout compared with 45%\", and the Lorna Breen Act from 2022. | California ratios with \"40%... compared with 45%\", and the Lorna Breen Act \"signed in 2022\"."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "The Lorna Breen story and the state ratio law make a reader stop. | A federal law named for an emergency doctor who died by suicide, now needing renewal, is something you stop on. | A federal law named for an emergency doctor who died by suicide stops you."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"enough of us on the floor that I can do the job well and still go home with something left\" sounds like a colleague. | \"enough of us on the floor that I can do the job well\" sounds like a real nurse; the contested point is offered with both sides. | Plain and balanced, \"the research on ratios is mixed overall\"; the dream line sounds like a nurse."
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Staffing law and funding change who decides how many people are on a shift. | Changes staffing rules and public funding, which decide how the work gets done. | Changes staffing rules and public funding, not just coping."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Ratios are offered with both sides and \"research on ratios is mixed\"; the Breen funding is framed as needing renewal without claiming current status. | pass: Ratio laws are offered as a debate (\"research on ratios is mixed overall\"); the Breen act's renewal status is left for the reader to check. | pass: Presents ratios as contested, with mixed research, and says the Breen grants need renewal."
+      }
+    },
+    "burnout-workplace-plans-rest": {
+      "actionable": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "\"highlight the parts your workplace is missing\" is a real step, but slow to change anything. | \"highlight the parts your workplace is missing\" is concrete and gives you something to bring. | \"Highlight the parts your workplace is missing\" is a real step, but bringing it to HR is slow and uncertain."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Using \"a government document\" as a \"neutral thing to bring to human resources\" is a modest twist. | Using \"A government document\" as a neutral way to raise the issue is a smart, low-risk angle. | Using a \"neutral\" government document so you don't make the case alone is a modest twist."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Surgeon General Vivek Murthy, October 2022, \"five things\", but no result. | \"In October 2022, Surgeon General Vivek Murthy published a framework\", named and dated, with no outcome data. | \"In October 2022, Surgeon General Vivek Murthy published a framework with five\" essentials."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2.33,
+        "reason": "An employer framework is predictable and gives nothing to repeat. | Some readers won't know the Surgeon General wrote about workplace rest. | A guidance document isn't something I'd repeat to a friend."
+      },
+      "voice": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Plain but slightly bureaucratic (\"well-being checklist\", \"human resources\"), and \"five things employers owe workers\" oversells a guidance document. | The title is a little bureaucratic (\"federal workplace well-being checklist\"), and \"things employers owe workers\" slightly overstates guidance. | Plain but a bit institutional: \"five things employers owe workers\", \"share the federal workplace well-being checklist with human resources\"."
+      },
+      "power": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Aims to change employer practice and job choice, though both steps are weak. | Pushes the employer to own the problem, but only by persuading them. | Aims at employer practice and lets job seekers weigh workload \"next to pay\"."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: \"owe\" stretches guidance with no enforcement, but the card then calls it a framework and a neutral document; the It idea is written \"It could\". | pass: Mostly accurate; \"five things employers owe workers\" leans on voluntary guidance, but the next sentence calls it a document to bring, not a rule, and the It idea says \"It could\". | pass: Calls the framework guidance only and writes the comparison tool as \"It could...\"; \"owe\" stretches it a little but doesn't claim enforcement."
+      }
+    },
+    "burnout-workday-ends": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"write the first three things you'll do tomorrow on a sticky note\" is a five-minute step for today. | \"write the first three things you'll do tomorrow on a sticky note\" takes five minutes, today. | \"Write the first three things you'll do tomorrow on a sticky note\" takes five minutes, today."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Basics made useful by saying why: the lost commute and tasks \"safe on paper\". | Shutdown lists and walks are familiar basics; the replaced-commute reason gives them a little meaning. | Familiar shutdown routine, made more meaningful by \"lose the commute that used to separate work\"."
+      },
+      "namedExample": {
+        "score": 1,
+        "mean": 1,
+        "reason": "No example in either fix. | Neither fix has an example or source. | No example; both fixes are speculative."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Predictable from \"A workday that has a clear end\". | Predictable from the title \"A workday that has a clear end.\" | Predictable from the title."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"gives your mind permission to put them down\" is gentle and clear. | Plain and gentle, though \"gives your mind permission\" edges toward self-help talk. | Gentle and plain, though \"gives your mind permission\" leans self-help."
+      },
+      "power": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Pure coping inside the same workload. | Coping habits inside an unchanged workload. | Personal coping; the workload stays the same."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Speculative everyday advice with no claimed evidence. | pass: No claims beyond ordinary advice; nothing is overstated. | pass: Everyday advice with no claims of evidence or outcomes."
+      }
+    }
+  },
+  "pairwise": [],
+  "consensus": {
+    "burnout-rest-this-week": {
+      "borda": 12,
+      "ranks": [
+        11,
+        11,
+        11
+      ],
+      "spread": 0,
+      "honestVotes": "3/3 pass"
+    },
+    "burnout-job-not-me": {
+      "borda": 36,
+      "ranks": [
+        2,
+        4,
+        3
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "burnout-someone-tonight": {
+      "borda": 8,
+      "ranks": [
+        12,
+        13,
+        12
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "burnout-doctor-and-leave": {
+      "borda": 16,
+      "ranks": [
+        10,
+        9,
+        10
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "burnout-see-it-change": {
+      "borda": 18,
+      "ranks": [
+        7,
+        12,
+        8
+      ],
+      "spread": 5,
+      "honestVotes": "3/3 pass"
+    },
+    "burnout-talk-to-manager": {
+      "borda": 32,
+      "ranks": [
+        5,
+        3,
+        5
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "burnout-coworkers-together": {
+      "borda": 39,
+      "ranks": [
+        3,
+        1,
+        2
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "burnout-four-day-week": {
+      "borda": 41,
+      "ranks": [
+        1,
+        2,
+        1
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "burnout-shorter-hours-for-all": {
+      "borda": 19,
+      "ranks": [
+        9,
+        8,
+        9
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "burnout-off-after-hours": {
+      "borda": 32,
+      "ranks": [
+        4,
+        5,
+        4
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "burnout-caregiver-break": {
+      "borda": 24,
+      "ranks": [
+        8,
+        6,
+        7
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "burnout-health-workers": {
+      "borda": 26,
+      "ranks": [
+        6,
+        7,
+        6
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "burnout-workplace-plans-rest": {
+      "borda": 9,
+      "ranks": [
+        13,
+        10,
+        13
+      ],
+      "spread": 3,
+      "honestVotes": "3/3 pass"
+    },
+    "burnout-workday-ends": {
+      "borda": 3,
+      "ranks": [
+        14,
+        14,
+        14
+      ],
+      "spread": 0,
+      "honestVotes": "3/3 pass"
+    }
+  },
+  "seed": 17
+}

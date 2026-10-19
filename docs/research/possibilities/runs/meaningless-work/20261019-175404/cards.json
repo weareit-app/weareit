@@ -1,0 +1,785 @@
+{
+  "schemaVersion": 1,
+  "painId": "meaningless-work",
+  "runId": "20261019-175404",
+  "cards": {
+    "meaning-meet-who-it-helps": {
+      "title": "Knowing the people my work ends up helping",
+      "line": "I can name someone whose week went better because of something I did.",
+      "lens": "relational",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "meaning-meet-who-it-helps-talk",
+          "title": "Ask to talk with someone who uses your work",
+          "whatChanges": "At a University of Michigan call center, student fundraisers met one student whose scholarship their calls had paid for. A month later they were spending 142% more time on the phone and raising 171% more, with the same script. Hearing from the person on the other end is often what the job was missing.",
+          "who": "You, and someone your work serves",
+          "exemplarRef": "grant-call-center",
+          "speculative": false,
+          "firstStep": "Ask your manager or a coworker who relies most on what you make, and whether you could talk with them for 15 minutes.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "meaning-meet-who-it-helps-face",
+          "title": "Keep a face or a name in front of you while you work",
+          "whatChanges": "At a hospital in Jerusalem in 2008, radiologists who saw a photo of the patient with each CT scan wrote more thorough reports. When the photos were taken away, they missed about 80% of the extra findings they had caught before.",
+          "who": "You",
+          "exemplarRef": "radiology-photos",
+          "speculative": false,
+          "firstStep": "Pick one real customer, patient, student or client you served this month and write their first name on a note by your screen.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "meaning-meet-who-it-helps-trace",
+          "title": "Follow one piece of your work to where it lands",
+          "whatChanges": "Researchers who study how people reshape their jobs found that seeing the link between daily tasks and the people they reach makes the same work feel different. Most jobs have a downstream person, even when nobody tells you who.",
+          "who": "You",
+          "exemplarRef": "job-crafting-forms",
+          "speculative": false,
+          "firstStep": "Choose one thing you finished this week and write down who used it next, and who used that.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "meaning-meet-who-it-helps-coach",
+          "title": "Coaching for a talk with someone your work serves",
+          "whatChanges": "Helps you plan a few questions before you talk with someone who uses your work, then checks in afterward to note what you heard. In the University of Michigan call center study, meeting one scholarship student changed how hard the callers worked.",
+          "who": "You and It",
+          "exemplarRef": "grant-call-center",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down one question you'd want to ask.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175404",
+        "locator": "cards.json#meaning-meet-who-it-helps",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "meaning-reshape-the-job": {
+      "title": "More of my week on work that matters",
+      "line": "Most days I do at least one thing at work that I think is worth doing.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "meaning-reshape-the-job-list",
+          "title": "List what you’d add to your job and what you’d drop",
+          "whatChanges": "In 2001 two researchers, Amy Wrzesniewski and Jane Dutton, named this job crafting: quietly changing your tasks, who you work with, and how you see the work. You usually have more room than your job description suggests, and small changes add up over a year.",
+          "who": "You",
+          "exemplarRef": "job-crafting-forms",
+          "speculative": false,
+          "firstStep": "Make three short lists tonight: what you like, what drains you, and what you wish you did more of.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "meaning-reshape-the-job-describe",
+          "title": "Describe your job by who it helps instead of by its tasks",
+          "whatChanges": "In a study of hospital cleaners, people with the same duties felt very differently about the work. The ones who liked it saw themselves as part of helping patients heal, and they started doing small extra things for patients and families.",
+          "who": "You",
+          "exemplarRef": "hospital-cleaners",
+          "speculative": false,
+          "firstStep": "Write one sentence that starts \"My job is to help…\" and finish it with a person, not a task.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "practice",
+          "featureIdea": "Helps you put into words who your work helps, then prompts you after a workday to name one person it reached."
+        },
+        {
+          "id": "meaning-reshape-the-job-people",
+          "title": "Spend more of your work time with the coworkers you learn from",
+          "whatChanges": "Changing who you work with is the second kind of job crafting, and often the easiest. A good colleague can make the same tasks feel worth doing.",
+          "who": "You and a coworker",
+          "exemplarRef": "job-crafting-forms",
+          "speculative": false,
+          "firstStep": "Ask one coworker you admire if you can sit in on, or help with, something they are working on.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "meaning-reshape-the-job-checkin",
+          "title": "Monthly check-in on the changes you're making to your job",
+          "whatChanges": "Keeps your lists of what you'd add to your job and what you'd drop, and asks once a month which small changes you've actually made, so they add up over a year instead of getting lost. The three kinds of change come from Wrzesniewski and Dutton's 2001 job crafting research.",
+          "who": "You and It",
+          "exemplarRef": "job-crafting-forms",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and put a reminder on your calendar a month from today.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175404",
+        "locator": "cards.json#meaning-reshape-the-job",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "meaning-manager-conversation": {
+      "title": "A boss who knows what I care about at work",
+      "line": "My manager knows what I find worthwhile, and some of my work moves in that direction.",
+      "lens": "relational",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "meaning-manager-conversation-ask",
+          "title": "Ask your manager for a regular talk about which work matters",
+          "whatChanges": "A 2022 study using European workplace surveys found that feeling your job is useless tracked bad management and lack of control more than the type of job, and even some garbage collectors felt it. A 2023 U.S. study found partial support for the opposite view, that some jobs are pointless in themselves, so researchers still disagree.",
+          "who": "You and your manager",
+          "exemplarRef": "soffia-useless-jobs",
+          "speculative": false,
+          "firstStep": "Write down two pieces of your work you think matter most, and ask for 20 minutes to talk about them.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "schedule"
+        },
+        {
+          "id": "meaning-manager-conversation-project",
+          "title": "Ask to own one small project from start to finish",
+          "whatChanges": "Job crafting research names changing your own tasks as one of three ways people reshape a job. Seeing a whole project through can also make it easier to see who it helped.",
+          "who": "You and your manager",
+          "exemplarRef": "job-crafting-forms",
+          "speculative": false,
+          "firstStep": "Pick one problem at work that annoys you and others, and write three lines on how you’d fix it.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "project"
+        },
+        {
+          "id": "meaning-manager-conversation-coach",
+          "title": "Coaching for a talk with your manager about meaningful work",
+          "whatChanges": "Helps you prepare for a conversation with your manager about which work matters to you, suggests how to open it, and checks in afterward on what changed. A 2022 study of European survey data found the feeling of useless work tracked bad management and lack of control, so this talk is often where change starts.",
+          "who": "You and It",
+          "exemplarRef": "soffia-useless-jobs",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down the one change you'd most want your manager to hear.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175404",
+        "locator": "cards.json#meaning-manager-conversation",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "meaning-skills-for-a-cause": {
+      "title": "Using my work skills for a cause I care about",
+      "line": "Something I do every day at my job is helping an organization I believe in.",
+      "lens": "community",
+      "ambition": "tonight",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "meaning-skills-for-a-cause-project",
+          "title": "Take on a short project for a nonprofit that needs your skills",
+          "whatChanges": "Rachael Chong started Catchafire in New York in 2009, after a volunteer day where she hauled lumber while her finance skills went unused. The site matches professionals with short, defined nonprofit projects, often done remotely.",
+          "who": "You and a nonprofit",
+          "exemplarRef": "catchafire",
+          "speculative": false,
+          "firstStep": "Write down the one work skill people most often ask you for, and look for a nonprofit project that needs it.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "project"
+        },
+        {
+          "id": "meaning-skills-for-a-cause-search",
+          "title": "Search volunteer listings by the skill you use at work",
+          "whatChanges": "Idealist, which took over VolunteerMatch in 2025, lists more than 100,000 volunteer openings, virtual and in person, and you can search by skill. People search for things like \"data analyst\" and \"board member\".",
+          "who": "You",
+          "exemplarRef": "idealist-volunteering",
+          "speculative": false,
+          "firstStep": "Search Idealist for your job title plus \"volunteer\" and save two openings that look real.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "meaning-skills-for-a-cause-worth",
+          "title": "Treat your professional skills as worth more than general help",
+          "whatChanges": "The Taproot Foundation estimated in 2015 that an hour of professional skills given to a nonprofit was worth about $150, against about $23 for general volunteering. A few hours of what you already do well can matter more to a small group than a weekend of painting.",
+          "who": "You",
+          "exemplarRef": "taproot-pro-bono-value",
+          "speculative": false,
+          "firstStep": "Email one local nonprofit you like and ask what skill they wish they had on their team.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "meaning-skills-for-a-cause-match",
+          "title": "Matching your work skills to local nonprofits that need them",
+          "whatChanges": "Asks local nonprofits which skill they wish they had on their team and matches them with nearby people who use that skill at work, the way Catchafire matches professionals with short nonprofit projects, so a small group gets a few hours of exactly what it needs.",
+          "who": "You, local nonprofits and It",
+          "exemplarRef": "catchafire",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down one local group you'd most like to help.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175404",
+        "locator": "cards.json#meaning-skills-for-a-cause",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "meaning-side-project": {
+      "title": "A project outside work that I’m proud of",
+      "line": "Even when my job feels flat, I have one thing each month that I know helps people near me.",
+      "lens": "community",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "meaning-side-project-repair",
+          "title": "Help run a monthly repair night in your town",
+          "whatChanges": "Martine Postma started the first Repair Café in Amsterdam in 2009, where volunteers fix neighbors’ lamps, clothes and bikes. There are now more than 2,500 of them, and they need organizers and greeters as much as people who can fix things.",
+          "who": "You and neighbors",
+          "exemplarRef": "repair-cafe",
+          "speculative": false,
+          "firstStep": "Look on the Repair Café map for one near you and write down the date of the next session.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "project"
+        },
+        {
+          "id": "meaning-side-project-teach",
+          "title": "Offer a free class at your library on something you know from work",
+          "whatChanges": "Many public libraries host free classes taught by local volunteers, from spreadsheets to resumes to basic bookkeeping. Teaching what you already know can show you that your skills matter to people outside your office.",
+          "who": "You and your library",
+          "speculative": true,
+          "speculativeRationale": "Common library practice; no specific library program opened in this run.",
+          "firstStep": "Call or email your library and ask whether they take volunteer teachers.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "project"
+        },
+        {
+          "id": "meaning-side-project-match",
+          "title": "Neighbor matching to start a local repair night",
+          "whatChanges": "Lets you say privately that you'd help start a repair night, as a fixer, organizer or greeter, and connects you only once enough neighbors nearby want the same. Martine Postma started the first Repair Café in Amsterdam in 2009, and there are now more than 2,500.",
+          "who": "You, neighbors and It",
+          "exemplarRef": "repair-cafe",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down one thing you could fix or one job you could do at a repair night.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175404",
+        "locator": "cards.json#meaning-side-project",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "meaning-change-roles": {
+      "title": "A job where I can see the good it does",
+      "line": "I spend my working days on something I’d be glad to explain to a kid.",
+      "lens": "individual",
+      "ambition": "this-year",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "meaning-change-roles-guide",
+          "title": "Read a free guide to choosing work that helps others",
+          "whatChanges": "The 80,000 Hours career guide is free online and walks through how to find work you’re good at that also does real good. The authors come from the effective altruism movement, so their ranking of causes is one view among many.",
+          "who": "You",
+          "exemplarRef": "80000-hours-guide",
+          "speculative": false,
+          "firstStep": "Read the first part of the 80,000 Hours guide and note one idea that surprised you.",
+          "firstStepMinutes": 20,
+          "status": "existing_resource",
+          "kind": "learn"
+        },
+        {
+          "id": "meaning-change-roles-onet",
+          "title": "Look up which other jobs use the skills you already have",
+          "whatChanges": "O*NET OnLine, run by the U.S. Department of Labor, describes nearly every American job with its daily tasks, so you can see where your skills transfer. Searching by a task you like often turns up jobs you had never heard of.",
+          "who": "You",
+          "exemplarRef": "onet-online",
+          "speculative": false,
+          "firstStep": "Search O*NET OnLine for one task you enjoy at work and write down three jobs that include it.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "learn"
+        },
+        {
+          "id": "meaning-change-roles-talk",
+          "title": "Talk with two people who already do the work you’re considering",
+          "whatChanges": "A short, honest conversation tells you more about what a job feels like day to day than any listing. People are usually glad to be asked about their work.",
+          "who": "You",
+          "speculative": true,
+          "speculativeRationale": "Common career-change advice; no single source opened for it in this run.",
+          "firstStep": "Write down two people you know, or know of, in the field, and send one of them a short note asking for 15 minutes.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "meaning-change-roles-coach",
+          "title": "Coaching for conversations with people in a field you're considering",
+          "whatChanges": "Helps you write a short note asking someone for 15 minutes, suggests a few questions about what the work is like day to day, and checks in afterward on whether the field still appeals to you.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and write down the field you're most curious about.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Pattern: guided practice. No exemplar on informational interviews was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175404",
+        "locator": "cards.json#meaning-change-roles",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "meaning-service-year": {
+      "title": "Spending a year on public service work",
+      "line": "For a year, the work I do every day is plainly for my community.",
+      "lens": "policy",
+      "ambition": "this-year",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "meaning-service-year-americorps",
+          "title": "Look into a paid year of national service",
+          "whatChanges": "AmeriCorps, created by a federal law in 1993, places people in schools, disaster relief and community groups with a living allowance. Full-time members can earn an education award of up to $6,095, but the allowance is modest, so plan for that.",
+          "who": "You",
+          "exemplarRef": "americorps",
+          "speculative": false,
+          "firstStep": "Browse current AmeriCorps openings in your state and save one that matches what you already know how to do.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "meaning-service-year-seniors",
+          "title": "Look into service programs for people 55 and older",
+          "whatChanges": "AmeriCorps Seniors is a branch of the same federal program for people 55 and up, including those still working part time. Some roles, like mentoring kids, use exactly the patience and know-how a long career builds.",
+          "who": "You",
+          "exemplarRef": "americorps",
+          "speculative": false,
+          "firstStep": "Search \"AmeriCorps Seniors\" with your county name and note what programs run near you.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "meaning-service-year-lookup",
+          "title": "Lookup of service programs near you that fit your skills and age",
+          "whatChanges": "Shows AmeriCorps and AmeriCorps Seniors programs in your state and county, filtered by what you already know how to do, with the living allowance and education award of up to $6,095 shown up front so you can plan.",
+          "who": "You and It",
+          "exemplarRef": "americorps",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down the two skills you'd most want to use in a service year.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175404",
+        "locator": "cards.json#meaning-service-year",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "meaning-coworkers-decide": {
+      "title": "Coworkers who see each other and shape the work together",
+      "line": "The people I work with and I decide some of how our work gets done, and we know each other by name.",
+      "lens": "relational",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "meaning-coworkers-decide-gather",
+          "title": "Start a regular gathering for coworkers who rarely see each other",
+          "whatChanges": "At Cooperative Home Care Associates in the Bronx, where aides mostly work alone in clients’ homes, the agency holds \"Payday Fridays\" so its workers can gather. The president has said that home care is very isolating, and the gatherings are part of how the co-op answers that.",
+          "who": "You and coworkers",
+          "exemplarRef": "chca-bronx",
+          "speculative": false,
+          "firstStep": "Ask two coworkers if they’d join a monthly lunch, and pick a date.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "schedule"
+        },
+        {
+          "id": "meaning-coworkers-decide-say",
+          "title": "Ask your team to vote on one decision that affects your work",
+          "whatChanges": "At the Mondragon cooperatives in Spain, nearly 70,000 worker-owners vote on company strategy in general assemblies. Your team doesn’t need to own the company to try deciding one thing together, like how a schedule or a process works.",
+          "who": "You and your team",
+          "exemplarRef": "mondragon",
+          "speculative": false,
+          "firstStep": "Write down one recurring decision your team could reasonably make together and suggest it at your next meeting.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "meaning-coworkers-decide-match",
+          "title": "Private check on whether coworkers want to meet regularly",
+          "whatChanges": "Lets you say privately that you'd come to a regular coworker gathering, and tells everyone only once enough coworkers have said yes, so nobody has to ask in front of the whole team. Cooperative Home Care Associates in the Bronx holds \"Payday Fridays\" so its aides, who mostly work alone, can gather.",
+          "who": "You, coworkers and It",
+          "exemplarRef": "chca-bronx",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down two coworkers you'd most like to see more often.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175404",
+        "locator": "cards.json#meaning-coworkers-decide",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "meaning-own-the-workplace": {
+      "title": "Owning part of my company, with a vote",
+      "line": "I own a share of the place I work, and I help decide where it goes.",
+      "lens": "market",
+      "ambition": "together",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "meaning-own-the-workplace-coop",
+          "title": "Ask your employer whether workers could own a share and elect board members",
+          "whatChanges": "Cooperative Home Care Associates in the Bronx, founded in 1985, is owned by more than 2,000 home health aides who elect most of its board. The average American worker co-op has about nine members, so most are small, and a real example makes the question easier to raise.",
+          "who": "You",
+          "exemplarRef": "chca-bronx",
+          "speculative": false,
+          "firstStep": "Write down the one ownership question you most want answered, and pick a calm moment to ask your manager.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "meaning-own-the-workplace-pay",
+          "title": "Ask your employer how wide the gap is between the highest and lowest pay",
+          "whatChanges": "At the Mondragon cooperatives in Spain, started in 1955, worker-owners cap the gap between their highest and lowest pay, at 6 to 1 in one recent report and 9 to 1 in others. Knowing your own workplace's gap gives you something concrete to talk about with coworkers.",
+          "who": "You",
+          "exemplarRef": "mondragon",
+          "speculative": false,
+          "firstStep": "Look up your own employer’s ownership, whether public, private or employee-owned, and write down who you'd ask about pay.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "meaning-own-the-workplace-find",
+          "title": "Find worker-owned companies near you that are hiring",
+          "whatChanges": "The U.S. Federation of Worker Cooperatives and the Democracy at Work Institute keep a public directory of worker co-ops and other democratic workplaces. Some are bakeries and cleaning companies, others are tech and engineering firms.",
+          "who": "You",
+          "exemplarRef": "worker-coop-directory",
+          "speculative": false,
+          "firstStep": "Search the worker co-op directory for your state and save any in your line of work.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175404",
+        "locator": "cards.json#meaning-own-the-workplace",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "meaning-employee-buyout": {
+      "title": "Workers buying the business when the owner retires",
+      "line": "When the owner retires, the people who built the business get to own it instead of watching it sold off.",
+      "lens": "market",
+      "ambition": "together",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "meaning-employee-buyout-ask",
+          "title": "Ask whether your boss has a retirement plan for the business",
+          "whatChanges": "Project Equity, a nonprofit in Oakland, says about half of American businesses with employees are owned by baby boomers nearing retirement. The group helps owners sell to their employees, including checking whether a sale is workable and finding the money.",
+          "who": "You and the owner",
+          "exemplarRef": "project-equity",
+          "speculative": false,
+          "firstStep": "Read Project Equity’s page for business owners so you know what you’re asking about before you bring it up.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "meaning-employee-buyout-esop",
+          "title": "Learn the difference between an employee stock plan and a co-op",
+          "whatChanges": "About 15.1 million Americans are in 6,609 employee stock ownership plans, as of 2023. Most of these plans give workers a share of the value, not a vote, so ask which kind is on the table.",
+          "who": "You",
+          "exemplarRef": "nceo-esops",
+          "speculative": false,
+          "firstStep": "Read the \"ESOPs by the numbers\" page from the National Center for Employee Ownership.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "learn"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175404",
+        "locator": "cards.json#meaning-employee-buyout",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "meaning-ownership-law": {
+      "title": "Laws that help workers buy their company",
+      "line": "In my state, when an owner wants to sell, selling to the employees is a normal, easy option.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "meaning-ownership-law-uk",
+          "title": "Ask your state representatives to make employee buyouts easier",
+          "whatChanges": "Since 2014 the United Kingdom has let owners who sell a controlling share to a trust for their employees pay no capital gains tax, and staff can get bonuses of up to £3,600 a year free of income tax. Supporters want something similar here, while critics say the tax break is too generous to sellers.",
+          "who": "You and your state representatives",
+          "exemplarRef": "uk-employee-ownership-trust",
+          "speculative": false,
+          "firstStep": "Look up who represents you in your state legislature and save their contact page.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "meaning-ownership-law-advocacy",
+          "title": "Sign on with a nonprofit working on employee ownership laws",
+          "whatChanges": "Project Equity in Oakland works with others on federal, state and local employee ownership policy, and keeps a public database of past and current state laws. Getting their updates is how you'd hear when a bill in your state needs support.",
+          "who": "You and other supporters",
+          "exemplarRef": "project-equity",
+          "speculative": false,
+          "firstStep": "Sign up for Project Equity’s newsletter, and look up your state in their policy database.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "group"
+        },
+        {
+          "id": "meaning-ownership-law-letter",
+          "title": "Write to your representatives with a real example of employee ownership",
+          "whatChanges": "Helps you write a short, plain letter to your state representatives, using the UK’s 2014 law and an employee-owned company near you as examples, and tells you which committee handles business tax in your state.",
+          "who": "You and It",
+          "exemplarRef": "uk-employee-ownership-trust",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down one employee-owned business you know.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "meaning-ownership-law-campaign",
+          "title": "Shared campaign for an employee ownership law in your state",
+          "whatChanges": "Gathers people in your state behind one specific ask, such as a tax break for owners who sell to their employees like the United Kingdom's 2014 law, tracks who has signed on, and sends it to state legislators together.",
+          "who": "You, other residents and It",
+          "exemplarRef": "uk-employee-ownership-trust",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down two people you know who'd sign on.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175404",
+        "locator": "cards.json#meaning-ownership-law",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "meaning-it-reflection": {
+      "title": "Seeing clearly which parts of my work help someone",
+      "line": "I can point to the parts of my week that matter to a real person, and I spend more time on them.",
+      "lens": "technology",
+      "ambition": "tonight",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "meaning-it-reflection-crafting",
+          "title": "Walk through the job crafting questions and keep what you find",
+          "whatChanges": "Asks you the three job crafting questions, about your tasks, the people you work with, and how you see the work, and keeps a short list you can come back to. The questions come from Wrzesniewski and Dutton’s 2001 research.",
+          "who": "You and It",
+          "exemplarRef": "job-crafting-forms",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and tonight write down one task you’d happily do more of.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "meaning-it-reflection-map",
+          "title": "Map who uses each part of your job",
+          "whatChanges": "Starts from the task list the Department of Labor publishes for your job in O*NET and asks you who each task reaches, so you end with a simple picture of the people your work serves.",
+          "who": "You and It",
+          "exemplarRef": "onet-online",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and look up your job on O*NET OnLine to see its listed tasks.",
+          "firstStepMinutes": 15,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "meaning-it-reflection-weekly",
+          "title": "Note one person your work helped each week",
+          "whatChanges": "Asks you once a week to name one person your work helped and keeps those notes for the weeks when the job feels pointless. In the call center study, simply hearing from one person who had been helped changed how hard people worked.",
+          "who": "You and It",
+          "exemplarRef": "grant-call-center",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write tonight’s note on paper.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175404",
+        "locator": "cards.json#meaning-it-reflection",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "meaning-it-matching": {
+      "title": "Finding meaningful side work and worker-owned employers near me",
+      "line": "I know where my skills are needed nearby and which local employers are owned by their workers.",
+      "lens": "technology",
+      "ambition": "this-year",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "meaning-it-matching-volunteer",
+          "title": "Match your work skills to volunteer openings nearby",
+          "whatChanges": "Takes the skills you use at work and searches public volunteer listings, like Idealist’s 100,000 openings, for projects that need them, so you see a few good fits instead of a long list.",
+          "who": "You and It",
+          "exemplarRef": "idealist-volunteering",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down the two work skills you’re proudest of.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "meaning-it-matching-coops",
+          "title": "See worker-owned companies in your area and line of work",
+          "whatChanges": "Shows employee-owned workplaces near you, drawn from the public worker co-op directory and federal data on employee stock plans, so you have somewhere to apply or a model to point to.",
+          "who": "You and It",
+          "exemplarRef": "worker-coop-directory",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and search the worker co-op directory for your state.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "meaning-it-matching-buyout",
+          "title": "Check with coworkers whether a buyout is worth asking about",
+          "whatChanges": "Walks you and a few coworkers through the basic questions groups like Project Equity ask first, such as the owner’s age, the size of the business, and whether it makes money, so you know whether a buyout is worth raising before anyone talks to the owner.",
+          "who": "You, coworkers and It",
+          "exemplarRef": "project-equity",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and note roughly how many people work where you do.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175404",
+        "locator": "cards.json#meaning-it-matching",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "meaning-common-feeling": {
+      "title": "Knowing many people feel their work is pointless",
+      "line": "I understand that this feeling is common, and that it often says more about how the work is run than about me.",
+      "lens": "culture",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "meaning-common-feeling-numbers",
+          "title": "Know how many people feel their job doesn’t matter",
+          "whatChanges": "In a 2024 YouGov survey of 5,889 working adults in Britain, one in three said their job isn't making a meaningful contribution to the world. In retail and finance it was more than half.",
+          "who": "You",
+          "exemplarRef": "yougov-meaningless-2024",
+          "speculative": false,
+          "firstStep": "Tell one friend you trust that you have been feeling this, and ask whether they ever have.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "learn"
+        },
+        {
+          "id": "meaning-common-feeling-cause",
+          "title": "Ask whether the problem is the work itself or how it is managed",
+          "whatChanges": "Researchers looking at European survey data in 2022 found the feeling of useless work came more from bad management and lack of control than from the job title. That points to changes you can actually ask for.",
+          "who": "You",
+          "exemplarRef": "soffia-useless-jobs",
+          "speculative": false,
+          "firstStep": "Write down the last time your job felt worthwhile, and what was different about that day.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "meaning-common-feeling-follow-up",
+          "title": "Follow-up question on whether the work or the management is the problem",
+          "whatChanges": "Asks you a few weeks later whether the pointless feeling comes from the work itself or from how it's managed, then shifts your suggestions toward a talk with your manager, reshaping your tasks, or a different role. Researchers looking at European survey data in 2022 found the feeling tracked bad management and lack of control more than job type.",
+          "who": "You and It",
+          "exemplarRef": "soffia-useless-jobs",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down one thing about how your work is managed that you'd change.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175404",
+        "locator": "cards.json#meaning-common-feeling",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    }
+  }
+}

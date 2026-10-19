@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "painId": "nobody-knows-anybody",
+  "runId": "20261019-142009",
+  "judge": {"context": "isolated", "at": "2026-10-19"},
+  "scores": {
+    "nbr-names-next-door": {
+      "actionable": {"score": 5, "reason": "'say hello and tell them your name' is a five-minute step that directly produces the dream."},
+      "nonObvious": {"score": 4, "reason": "The liking gap turns 'introduce yourself' into 'the awkwardness you expect may be mostly on your side', a useful reframe of a basic."},
+      "namedExample": {"score": 4, "reason": "'a 2018 set of studies from Cornell and Yale' and Pew's '28 percent' are named with numbers, though the studies are not about neighbors."},
+      "surprise": {"score": 4, "reason": "'consistently underestimated how much the other person liked them' is a fact worth repeating to a friend."},
+      "voice": {"score": 4, "reason": "Warm and plain ('even the dog's name'); the Pew line and the note tip feel a little stitched together."},
+      "power": {"score": 2, "reason": "Purely a personal habit; nothing about ownership or decisions changes."},
+      "honestStatus": {"pass": true, "reason": "States the limit once ('Neighbors weren't studied'), and the It list is written 'It could keep' with the proposed label."}
+    },
+    "nbr-out-front": {
+      "actionable": {"score": 5, "reason": "'Take your coffee or your evening phone call out to the front step tonight' is concrete and immediate."},
+      "nonObvious": {"score": 3, "reason": "A well-chosen basic made useful by 'Doing a chore out front... gives people an easy reason to stop'."},
+      "namedExample": {"score": 1, "reason": "No example at all; both fixes are speculative with exemplarRef null."},
+      "surprise": {"score": 2, "reason": "'Most neighbors meet by accident' is predictable from the pain."},
+      "voice": {"score": 4, "reason": "Mentor-like and specific ('weeding or reading the mail'); 'people you nod at are easy to talk to' edges toward a tidy line."},
+      "power": {"score": 2, "reason": "Coping by changing one's own routine; conditions are unchanged."},
+      "honestStatus": {"pass": true, "reason": "Makes no factual claims beyond everyday experience and cites no study it lacks."}
+    },
+    "nbr-welcome-new": {
+      "actionable": {"score": 4, "reason": "'Write down three things you wish someone had told you' is doable now, though the card step waits for 'the next time a moving truck pulls up'."},
+      "nonObvious": {"score": 4, "reason": "'Trash pickup day, a plumber you trust and which neighbor has a snowblower are worth more than cookies' is a fresh, useful twist."},
+      "namedExample": {"score": 2, "reason": "Only 'the 2018 liking-gap studies', with no place or number, applied to a situation they did not study."},
+      "surprise": {"score": 3, "reason": "The snowblower-and-plumber welcome is one memorable angle."},
+      "voice": {"score": 4, "reason": "Plain and kind; 'settles that question on day one' is slightly salesy."},
+      "power": {"score": 2, "reason": "A personal gesture; nothing structural changes."},
+      "honestStatus": {"pass": false, "reason": "'the 2018 liking-gap studies suggest they'll assume the worst' stretches a study of post-conversation liking into a claim about newcomers, and 'settles that question' overstates it."}
+    },
+    "nbr-book-box": {
+      "actionable": {"score": 4, "reason": "'Look up the map on littlefreelibrary.org and walk a book over' is specific, if not quite a neighbor-meeting step."},
+      "nonObvious": {"score": 4, "reason": "Moves past the familiar box to 'Check your town's rules first' and 'a box near a bus stop, laundromat or school'."},
+      "namedExample": {"score": 5, "reason": "'Todd Bol built the first... in Hudson, Wisconsin, in 2009... more than 150,000 registered in 115 countries'."},
+      "surprise": {"score": 4, "reason": "'Whitefish Bay, Wisconsin, made a family take theirs down' is a detail people repeat."},
+      "voice": {"score": 4, "reason": "Candid and matter-of-fact about the critics; the lowercase 'little free library' in a title is a small slip."},
+      "power": {"score": 3, "reason": "Placing boxes 'where books are hard to come by' shifts who benefits, modestly."},
+      "honestStatus": {"pass": true, "reason": "Cites the ordinance and wealth-clustering limits from the exemplar plainly."}
+    },
+    "nbr-buy-nothing": {
+      "actionable": {"score": 5, "reason": "'Search Facebook or the Buy Nothing app for the group that covers your street and ask to join' takes ten minutes."},
+      "nonObvious": {"score": 3, "reason": "'Offer your time, not only your things' adds a useful twist to a known group."},
+      "namedExample": {"score": 3, "reason": "'started on Bainbridge Island, Washington, in 2013' is named and dated but has no number or result."},
+      "surprise": {"score": 3, "reason": "'gifts of self' is the one fresh element."},
+      "voice": {"score": 4, "reason": "Warm with a little wryness: 'than handing over a lamp'."},
+      "power": {"score": 3, "reason": "Moves goods and help outside the market among neighbors, a small change in who gets what."},
+      "honestStatus": {"pass": true, "reason": "Describes the groups as they are and claims no outcomes the exemplar lacks."}
+    },
+    "nbr-borrow-tools": {
+      "actionable": {"score": 4, "reason": "'Search \"tool library\" with your city's name' is quick; 'Write down three things you'd happily lend' is a real start."},
+      "nonObvious": {"score": 3, "reason": "The mailbox note listing 'a ladder, a drill and a pressure washer' makes a known idea concrete."},
+      "namedExample": {"score": 4, "reason": "'West Philly Tool Library has lent more than 100,000 tools to over 4,000 members since 2007'."},
+      "surprise": {"score": 3, "reason": "The scale of one tool library is mildly surprising."},
+      "voice": {"score": 4, "reason": "Plain and practical; 'meet the people who fix things in your part of town' is personal."},
+      "power": {"score": 3, "reason": "Shared ownership of tools changes conditions for the block."},
+      "honestStatus": {"pass": true, "reason": "Mostly accurate; 'someone usually answers with their own list' is an unsourced generalization but low-stakes."}
+    },
+    "nbr-online-board": {
+      "actionable": {"score": 4, "reason": "'Ask a neighbor which online group people on your street actually read' is easy and smart."},
+      "nonObvious": {"score": 3, "reason": "'One post with a set time and place, like coffee at the corner on Saturday at ten' is a useful twist on a familiar tool."},
+      "namedExample": {"score": 4, "reason": "'more than 80,000 of the state's roughly 260,000 households' in Vermont, though with no year."},
+      "surprise": {"score": 4, "reason": "Nearly a third of a state's households on one civil local list is striking."},
+      "voice": {"score": 3, "reason": "'a good way to find people and a poor way to know them' is a contrast punchline the guide rules out."},
+      "power": {"score": 2, "reason": "Joins an existing channel; little changes in who decides."},
+      "honestStatus": {"pass": true, "reason": "Figures match the exemplar and are attributed to Front Porch Forum without overclaiming."}
+    },
+    "nbr-block-party": {
+      "actionable": {"score": 4, "reason": "'Search your city's name plus \"block party permit\"' and 'write a one-line invitation to bring when you knock' are clear steps."},
+      "nonObvious": {"score": 4, "reason": "'Treat the petition as your chance to knock on every door' turns paperwork into meaning, exactly the founder's bar."},
+      "namedExample": {"score": 5, "reason": "Philadelphia's '75 percent of the households' and '$25 fee', plus National Night Out's '34.2 million people in 10,325 communities'."},
+      "surprise": {"score": 4, "reason": "The petition reframe and the shared August date are both worth repeating."},
+      "voice": {"score": 4, "reason": "Clear, plain titles and calm detail; slightly list-like."},
+      "power": {"score": 3, "reason": "Neighbors collectively take over their street for a day."},
+      "honestStatus": {"pass": true, "reason": "Philadelphia is offered 'for example'; 'Most cities let residents' is broad but reasonable, and organizer counts are attributed."}
+    },
+    "nbr-building-dinner": {
+      "actionable": {"score": 4, "reason": "'Ask your building manager or landlord whether you can use the lobby or yard one evening' is a real first step."},
+      "nonObvious": {"score": 4, "reason": "'a dish they grew up eating' gives the potluck a reason to talk."},
+      "namedExample": {"score": 5, "reason": "'began in Paris in 1999', 'About 10 million people in France', and the Big Lunch's '9.3 million people'."},
+      "surprise": {"score": 5, "reason": "'an elderly woman in his area had died alone and gone unnoticed for two months' stops the reader."},
+      "voice": {"score": 4, "reason": "Unhurried and humane; the origin story is told plainly rather than dramatized."},
+      "power": {"score": 3, "reason": "Creates a shared yearly ritual for the building, beyond personal coping."},
+      "honestStatus": {"pass": false, "reason": "The Périfan origin details ('two months') and 'Périfan's own advice' about dishes are not in the exemplar record, so the copy asserts more than the evidence supports; verify before shipping."}
+    },
+    "nbr-play-street": {
+      "actionable": {"score": 5, "reason": "'Ask two parents on your street whether they'd stand at the ends of the block for an hour' is concrete and starts it."},
+      "nonObvious": {"score": 4, "reason": "Closing a street for kids as a way the 'adults finally talk' is a fresh path for this pain."},
+      "namedExample": {"score": 5, "reason": "Seattle 'since 2014... more than 500 times in 2025' and Bristol 2009 leading to '17 Bristol streets' by 2012."},
+      "surprise": {"score": 4, "reason": "Two neighbors' single afternoon prompting a new city permit is a precedent worth retelling."},
+      "voice": {"score": 4, "reason": "Plain, clear titles ('Start with one afternoon after school') and matter-of-fact examples."},
+      "power": {"score": 4, "reason": "Changes who gets to use the street and asks the city to change permits."},
+      "honestStatus": {"pass": true, "reason": "Examples match exemplars; the city ask is labeled a societal proposal."}
+    },
+    "nbr-city-rules": {
+      "actionable": {"score": 3, "reason": "'look up your own city's block party page today' is real but mostly informational."},
+      "nonObvious": {"score": 4, "reason": "Using open permit data to 'show you nearby blocks that have done this, so you can ask them how it went' is a fresh idea."},
+      "namedExample": {"score": 4, "reason": "Philadelphia's '75 percent' and New York's open event permits ground the proposals."},
+      "surprise": {"score": 3, "reason": "That NYC publishes approved block parties as open data is a mild surprise."},
+      "voice": {"score": 4, "reason": "Honest 'It could...' framing and plain titles; 'the hardest part left is knocking on doors' is well judged."},
+      "power": {"score": 3, "reason": "Lowers the barrier to collective action, but no one's authority changes."},
+      "honestStatus": {"pass": true, "reason": "Every It idea is written 'It could' with proposed_it_feature status."}
+    },
+    "nbr-matching-grant": {
+      "actionable": {"score": 3, "reason": "'Search your city's name plus \"neighborhood matching grant\"' is a real but slow-to-matter step."},
+      "nonObvious": {"score": 4, "reason": "'neighbors can match the city's money with volunteer hours instead of cash' is new to most readers."},
+      "namedExample": {"score": 5, "reason": "'In one 2024 round alone, the city gave $1,077,003 to 24 community projects', grants 'up to $5,000'."},
+      "surprise": {"score": 4, "reason": "A city paying a million dollars a round for neighbor-chosen projects is repeatable."},
+      "voice": {"score": 4, "reason": "Plain and direct; 'a project gives them a reason to meet' explains why it helps."},
+      "power": {"score": 5, "reason": "Neighbors decide how city money is spent on their street."},
+      "honestStatus": {"pass": true, "reason": "Labels Seattle as one program, keeps the city ask as a proposal and the finder as 'It could'."}
+    },
+    "nbr-care-public-space": {
+      "actionable": {"score": 3, "reason": "'find out which city department is responsible for it' is doable but a slow first move."},
+      "nonObvious": {"score": 5, "reason": "Residents signing written agreements with the city to care for a place is something few readers have considered."},
+      "namedExample": {"score": 4, "reason": "'In 2014, Bologna, Italy... more than 180 had been signed', though 'in the first few years' adds timing the exemplar does not give."},
+      "surprise": {"score": 5, "reason": "Bologna's collaboration pacts are a precedent a reader would pass on."},
+      "voice": {"score": 4, "reason": "Calm and specific, and offers 'adopt-a-park or adopt-a-lot' as the nearer version."},
+      "power": {"score": 5, "reason": "Shifts who cares for and decides about public space."},
+      "honestStatus": {"pass": true, "reason": "Uses the conservative 180 count and frames the letter as 'It could help'."}
+    },
+    "nbr-public-health": {
+      "actionable": {"score": 3, "reason": "'Email your county or city health department and ask whether it has any plan' is real but generic."},
+      "nonObvious": {"score": 4, "reason": "Framing neighbor ties as a health budget line 'the same way it pays for parks and clinics' is a meaningful reframe."},
+      "namedExample": {"score": 3, "reason": "'In 2023 the U.S. Surgeon General' is named and dated but has no concrete result."},
+      "surprise": {"score": 3, "reason": "The advisory is known to many; one moderately surprising element."},
+      "voice": {"score": 3, "reason": "'social infrastructure' and 'Local health departments are the ones who could act on that' lean policy-paper."},
+      "power": {"score": 5, "reason": "Aims at the city budget, who gets the money."},
+      "honestStatus": {"pass": true, "reason": "Calls it an advisory and offers the funding case as contested ('Some people would rather spend that money elsewhere')."}
+    }
+  },
+  "pairwise": [
+    {"a": "nbr-play-street", "b": "nbr-care-public-space", "winner": "nbr-play-street", "reason": "Both precedents are strong, but play streets have a step a parent can take this week."},
+    {"a": "nbr-play-street", "b": "nbr-building-dinner", "winner": "nbr-play-street", "reason": "Dinner's story is moving, but play streets combine strong examples with a clean honest record."},
+    {"a": "nbr-play-street", "b": "nbr-matching-grant", "winner": "nbr-play-street", "reason": "Kids in the street is easier to picture and start than a grant search."},
+    {"a": "nbr-play-street", "b": "nbr-book-box", "winner": "nbr-play-street", "reason": "Play streets put whole households outside together; a book box is a lighter touch."},
+    {"a": "nbr-play-street", "b": "nbr-block-party", "winner": "nbr-play-street", "reason": "Similar idea, but the Bristol-to-city-permit arc is more surprising than a yearly party."},
+    {"a": "nbr-play-street", "b": "nbr-names-next-door", "winner": "nbr-play-street", "reason": "Names is quicker, but play streets change the street, not just one habit."},
+    {"a": "nbr-play-street", "b": "nbr-buy-nothing", "winner": "nbr-play-street", "reason": "Richer examples and more power than joining a gift group."},
+    {"a": "nbr-care-public-space", "b": "nbr-building-dinner", "winner": "nbr-building-dinner", "reason": "A lobby potluck is easier to imagine doing, and the origin story lands hard."},
+    {"a": "nbr-care-public-space", "b": "nbr-matching-grant", "winner": "nbr-matching-grant", "reason": "Concrete dollar amounts and an existing program feel more reachable than Bologna's framework."},
+    {"a": "nbr-care-public-space", "b": "nbr-book-box", "winner": "nbr-book-box", "reason": "A book box is something to do this week; Bologna pacts are a longer road."},
+    {"a": "nbr-care-public-space", "b": "nbr-block-party", "winner": "nbr-block-party", "reason": "The petition-as-door-knocking reframe answers the pain more directly."},
+    {"a": "nbr-care-public-space", "b": "nbr-names-next-door", "winner": "nbr-names-next-door", "reason": "Someone who knows nobody would rather start with a name tonight."},
+    {"a": "nbr-care-public-space", "b": "nbr-buy-nothing", "winner": "nbr-care-public-space", "reason": "Bologna is the more surprising and powerful idea; Buy Nothing is familiar."},
+    {"a": "nbr-building-dinner", "b": "nbr-matching-grant", "winner": "nbr-building-dinner", "reason": "A dinner in the lobby speaks to the loneliness directly, with a memorable origin."},
+    {"a": "nbr-building-dinner", "b": "nbr-book-box", "winner": "nbr-building-dinner", "reason": "Eating together builds more connection than leaving a book."},
+    {"a": "nbr-building-dinner", "b": "nbr-block-party", "winner": "nbr-building-dinner", "reason": "Works for apartment dwellers too and carries the stronger story."},
+    {"a": "nbr-building-dinner", "b": "nbr-names-next-door", "winner": "nbr-building-dinner", "reason": "Meets the whole building at once, with a dish prompt that eases the talk."},
+    {"a": "nbr-building-dinner", "b": "nbr-buy-nothing", "winner": "nbr-building-dinner", "reason": "More vivid and more meaningful than item handoffs."},
+    {"a": "nbr-matching-grant", "b": "nbr-book-box", "winner": "nbr-book-box", "reason": "The book box is doable now and has the sharper details."},
+    {"a": "nbr-matching-grant", "b": "nbr-block-party", "winner": "nbr-block-party", "reason": "The block party is the clearer path from strangers to names."},
+    {"a": "nbr-matching-grant", "b": "nbr-names-next-door", "winner": "nbr-names-next-door", "reason": "Names addresses the pain tonight; the grant comes after people already know each other."},
+    {"a": "nbr-matching-grant", "b": "nbr-buy-nothing", "winner": "nbr-matching-grant", "reason": "City money for a block's own project is more surprising and more powerful."},
+    {"a": "nbr-book-box", "b": "nbr-block-party", "winner": "nbr-block-party", "reason": "Knocking on every door for the petition does more for knowing neighbors."},
+    {"a": "nbr-book-box", "b": "nbr-names-next-door", "winner": "nbr-names-next-door", "reason": "The liking-gap fact and a five-minute hello hit the pain more squarely."},
+    {"a": "nbr-book-box", "b": "nbr-buy-nothing", "winner": "nbr-book-box", "reason": "Richer example and the honest equity angle."},
+    {"a": "nbr-block-party", "b": "nbr-names-next-door", "winner": "nbr-block-party", "reason": "The petition walk delivers everyone's names, not just two."},
+    {"a": "nbr-block-party", "b": "nbr-buy-nothing", "winner": "nbr-block-party", "reason": "Stronger examples and a reframe that turns paperwork into meeting people."},
+    {"a": "nbr-names-next-door", "b": "nbr-buy-nothing", "winner": "nbr-names-next-door", "reason": "A more surprising fact and the most direct answer to knowing nobody."}
+  ],
+  "seed": 17
+}

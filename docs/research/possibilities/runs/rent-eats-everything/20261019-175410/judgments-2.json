@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "painId": "rent-eats-everything",
+  "runId": "20261019-142013",
+  "judge": {"context": "isolated", "at": "2026-10-19"},
+  "scores": {
+    "rent-help-short-month": {
+      "actionable": {"score": 5, "reason": "\"Call 211 and ask which rental assistance programs are taking applications\" is a 15-minute call that directly opens a door."},
+      "nonObvious": {"score": 3, "reason": "A known basic made useful by \"Money from these programs often takes a few weeks to arrive, so calling before the rent is late\"."},
+      "namedExample": {"score": 2, "reason": "\"The federal consumer bureau points renters to 211\" names a resource but gives no place, year or result."},
+      "surprise": {"score": 2, "reason": "Calling 211 and a \"free housing counselor\" is about what a reader expects under this pain."},
+      "voice": {"score": 4, "reason": "Calm and practical: \"calling before the rent is late gives you the most room\"; the dream line is plain and clear."},
+      "power": {"score": 2, "reason": "Coping inside unchanged conditions: finding one-time help \"before it turns into an eviction notice\"."},
+      "honestStatus": {"pass": true, "reason": "Resources match the CFPB exemplar, the delay limit is stated, and the program matcher is written \"It could ask...\" as an unbuilt idea."}
+    },
+    "rent-renewal-ask": {
+      "actionable": {"score": 5, "reason": "\"Look up your city's latest median rent ... and write it next to your renewal offer\" is quick and gives real leverage."},
+      "nonObvious": {"score": 4, "reason": "\"If your landlord wants more than new tenants are paying down the street\" and trading an 18- or 24-month lease are useful twists most renters don't think of."},
+      "namedExample": {"score": 3, "reason": "\"Oregon became the first state ... in 2019, at inflation plus 7%\" and Apartment List data are named, but no renter outcome."},
+      "surprise": {"score": 3, "reason": "Using new-lease medians as a counteroffer is one angle a reader might repeat."},
+      "voice": {"score": 4, "reason": "Mentor-like advice: \"a reasonable point to raise, politely and in writing\"."},
+      "power": {"score": 3, "reason": "Changes my own rent through negotiation, not who decides."},
+      "honestStatus": {"pass": true, "reason": "Mostly supported; \"Many landlords will accept a smaller raise\" rests on common practice rather than a study, but is a modest, plausible claim."}
+    },
+    "rent-lower-bills": {
+      "actionable": {"score": 4, "reason": "\"List every charge on your last rent statement and circle the ones your lease doesn't mention\" is concrete and fast."},
+      "nonObvious": {"score": 3, "reason": "Utility help is a basic; looking at fees for \"trash, 'amenities' or online payment\" makes it useful."},
+      "namedExample": {"score": 3, "reason": "\"Tenants at Independence Towers near Kansas City got these extra fees dropped\" is named but has no year or amount."},
+      "surprise": {"score": 3, "reason": "The candid note \"through a long rent strike, not a single letter\" is one surprising, honest element."},
+      "voice": {"score": 3, "reason": "Mostly plain, but \"Every dollar you save on power is a dollar more for the rent\" reads like a leaflet tagline."},
+      "power": {"score": 3, "reason": "Lowers my own costs; the fee fight hints at collective power but the step is individual."},
+      "honestStatus": {"pass": true, "reason": "LIHEAP is described as the exemplar supports, and the strike example is honestly framed as not a single letter."}
+    },
+    "rent-fair-price": {
+      "actionable": {"score": 4, "reason": "\"Divide your monthly rent by your monthly take-home pay to see your share\" is a 5-minute step, though it informs more than it changes."},
+      "nonObvious": {"score": 3, "reason": "Comparing rent to the local median is known; ordering an \"official rent history\" in New York is a useful detail."},
+      "namedExample": {"score": 3, "reason": "\"In New York City, the free JustFix tools\" and \"Who Owns What\" are named with no result."},
+      "surprise": {"score": 3, "reason": "Seeing \"what other buildings their landlord owns\" is one fact a reader might pass on."},
+      "voice": {"score": 4, "reason": "Plain and candid: \"Most people can't remember what they paid three years ago\"."},
+      "power": {"score": 2, "reason": "Knowing \"whether my rent is high\" is information, not a change in conditions."},
+      "honestStatus": {"pass": true, "reason": "Both It ideas say \"It could...\", and JustFix is limited to New York City and rent-stabilized units as stated."}
+    },
+    "rent-share-home": {
+      "actionable": {"score": 4, "reason": "\"Check whether Nesterly or a similar home-sharing program serves your area\" is a 10-minute step."},
+      "nonObvious": {"score": 4, "reason": "Renting from \"older homeowners\" and trading \"groceries or yard work, for lower rent\" goes well past the obvious roommate."},
+      "namedExample": {"score": 3, "reason": "Nesterly with \"Greater Boston, Central Ohio and Maine\" is named, but no numbers or results."},
+      "surprise": {"score": 3, "reason": "Trading help around the house for lower rent is one element a reader might repeat."},
+      "voice": {"score": 4, "reason": "Warm and honest: \"Nesterly works only in a handful of regions so far\"."},
+      "power": {"score": 3, "reason": "Changes my own housing costs meaningfully."},
+      "honestStatus": {"pass": true, "reason": "Nesterly's regional limit is stated; \"heads off most of the fights\" is an unsupported but mild common-practice claim."}
+    },
+    "rent-move-cheaper": {
+      "actionable": {"score": 4, "reason": "\"Find your local public housing authority's website and check whether its voucher waiting list is open\" is concrete."},
+      "nonObvious": {"score": 3, "reason": "Moving and Section 8 are familiar, but \"a reason to get on one now rather than later\" makes the basic useful."},
+      "namedExample": {"score": 2, "reason": "Apartment List and \"Section 8\" are named resources with no place, year or result."},
+      "surprise": {"score": 2, "reason": "\"Compare rents in neighborhoods and cities you'd consider\" is predictable from the pain."},
+      "voice": {"score": 4, "reason": "Plain and caring: \"Count the cost of a longer commute too\" sounds like a mentor."},
+      "power": {"score": 3, "reason": "Changes my own conditions, at the cost of moving."},
+      "honestStatus": {"pass": true, "reason": "Voucher description matches the exemplar, and long waits are stated plainly."}
+    },
+    "rent-nonprofit-landlord": {
+      "actionable": {"score": 4, "reason": "\"Search your city or county name plus 'community land trust'\" is a 10-minute step with a real next lead."},
+      "nonObvious": {"score": 4, "reason": "\"They rarely show up on the big listing sites, but local housing counselors know where they are\" is a genuinely useful tip."},
+      "namedExample": {"score": 3, "reason": "\"A 2024 survey counted 308 community land trusts across 48 states\" gives a number but no named trust or renter result."},
+      "surprise": {"score": 4, "reason": "That there are 308 land trusts, some renting, is something a reader would repeat."},
+      "voice": {"score": 4, "reason": "Clear title \"Renting from a landlord that isn't trying to maximize rent\" and a plain limit, \"Many have waiting lists\"."},
+      "power": {"score": 4, "reason": "Moves me to a landlord whose rent \"tracks the real costs instead of the market\", a change in who owns."},
+      "honestStatus": {"pass": true, "reason": "Counts match the exemplar and waiting lists are noted; \"affordable for good\" is slightly strong but consistent with how land trusts work."}
+    },
+    "rent-tenant-union": {
+      "actionable": {"score": 5, "reason": "\"Knock on two neighbors' doors or leave a note asking if they'd share what their last increase was\" is small and clearly starts something."},
+      "nonObvious": {"score": 4, "reason": "\"Most tenants never compare notes, which leaves each one negotiating alone\" reframes a familiar idea meaningfully."},
+      "namedExample": {"score": 5, "reason": "\"In 2017 more than 300 tenants across 12 buildings in Toronto's Parkdale\" and KC Tenants' \"more than 10,000 members\" with flat rents won."},
+      "surprise": {"score": 4, "reason": "An eight-month strike that won \"rents flat, drop extra fees and set a deadline for repairs\" is worth telling a friend."},
+      "voice": {"score": 4, "reason": "Candid and unhurried: \"A rent strike carries real eviction risk, so unions plan them carefully\"."},
+      "power": {"score": 5, "reason": "Changes who decides: \"an increase is something we discuss instead of something that just happens to us\"."},
+      "honestStatus": {"pass": true, "reason": "Examples match exemplars, strike risk is stated once, and the private comparison tool is written \"It could...\"."}
+    },
+    "rent-land-trust": {
+      "actionable": {"score": 3, "reason": "\"Sign up for its newsletter or next public meeting\" is real but slow to matter."},
+      "nonObvious": {"score": 4, "reason": "\"Handing some to a land trust, instead of selling them to the highest bidder\" is an idea most renters haven't considered."},
+      "namedExample": {"score": 5, "reason": "\"Champlain Housing Trust in Burlington, Vermont ... A 2009 study ... an average of $12,000 in equity\"."},
+      "surprise": {"score": 4, "reason": "Homes affordable at about half the median that still gave owners $12,000 in equity is a striking precedent."},
+      "voice": {"score": 4, "reason": "Honest in one plain line: \"Those were homes for sale rather than rentals, but the same idea can hold rents down.\""},
+      "power": {"score": 5, "reason": "Changes who owns the land so homes \"stay within reach of people like me no matter how prices rise\"."},
+      "honestStatus": {"pass": true, "reason": "The ownership-not-rental limit of the Champlain evaluation is stated plainly; the public-land idea is labeled a change we'd make together."}
+    },
+    "rent-social-housing": {
+      "actionable": {"score": 3, "reason": "\"Write down one question about public housing to ask at your next city council or candidate forum\" is real but slow."},
+      "nonObvious": {"score": 4, "reason": "Public housing that \"ordinary working people rent for years\" reframes a stigmatized idea."},
+      "namedExample": {"score": 4, "reason": "\"Vienna owns about 220,000 apartments and co-ops own about 200,000 more\" with eligibility rules, but no year or rent figure."},
+      "surprise": {"score": 4, "reason": "The size of Vienna's city-owned housing is a fact a reader would repeat."},
+      "voice": {"score": 4, "reason": "Fair to both sides: \"Critics note that newcomers can wait years\"; titles are plain."},
+      "power": {"score": 5, "reason": "Changes who owns and builds housing: \"My city builds and owns good apartments\"."},
+      "honestStatus": {"pass": true, "reason": "Offered as a contested idea with supporters and critics named; the US public-developer claim lacks an exemplar but is hedged as \"Some American cities\"."}
+    },
+    "rent-more-homes": {
+      "actionable": {"score": 4, "reason": "\"Write two sentences about what your rent costs you\" for a specific proposal is quick and concrete."},
+      "nonObvious": {"score": 4, "reason": "\"Planning boards mostly hear from people who oppose new housing\" makes a renter's comment feel newly meaningful."},
+      "namedExample": {"score": 4, "reason": "\"In 2018 Minneapolis became the first major American city to end single-family-only zoning\" with three homes per lot, but no measured result."},
+      "surprise": {"score": 3, "reason": "Minneapolis's zoning change is known to some; the planning-board point is the one surprise."},
+      "voice": {"score": 4, "reason": "Respectful of objectors: \"Neighbors who object often worry about traffic, parking and the feel of the street\"."},
+      "power": {"score": 4, "reason": "Puts renters into decisions about what gets built."},
+      "honestStatus": {"pass": true, "reason": "Contested policy offered as supporters' view, and \"researchers are still measuring the effect on rents\" matches the exemplar limit."}
+    },
+    "rent-limits": {
+      "actionable": {"score": 3, "reason": "\"Write down whether you'd keep, loosen or tighten it\" is reflection more than action; checking for a filed bill is better."},
+      "nonObvious": {"score": 3, "reason": "Rent caps are familiar; a cap \"that only stops extreme increases\" is a useful twist."},
+      "namedExample": {"score": 4, "reason": "\"St. Paul voters approved a 3% yearly cap in 2021 ... exempted new housing for 20 years\" and Oregon's inflation plus 7%."},
+      "surprise": {"score": 3, "reason": "St. Paul rolling back its own cap is one surprising element."},
+      "voice": {"score": 3, "reason": "Fair but dense and civics-class: \"Weigh the arguments for and against rent caps\" with stacked counterarguments."},
+      "power": {"score": 4, "reason": "Changes the rules on how much landlords can raise rent."},
+      "honestStatus": {"pass": true, "reason": "Presents caps as contested with both sides and notes the St. Paul permit cause \"is disputed\"."}
+    },
+    "rent-free-lawyer": {
+      "actionable": {"score": 5, "reason": "\"Search your city's name plus 'right to counsel eviction' and save the phone number of local legal aid\" takes minutes and matters if trouble comes."},
+      "nonObvious": {"score": 4, "reason": "Many renters don't know some cities guarantee a free eviction lawyer, and \"so call early\" adds a useful detail."},
+      "namedExample": {"score": 5, "reason": "\"New York City passed the country's first right to counsel in 2017 ... 84% ... in 2023\" plus \"only 42%\" and Kansas City in June 2022."},
+      "surprise": {"score": 4, "reason": "That a city guarantees eviction lawyers, yet only 42% got one, is worth repeating."},
+      "voice": {"score": 4, "reason": "The dream line \"I don't walk in alone against my landlord's attorney\" is plain and human; the shortage is said once."},
+      "power": {"score": 4, "reason": "Shifts power in housing court toward tenants."},
+      "honestStatus": {"pass": true, "reason": "The 84% is framed as \"the city reported\" and the lawyer shortage is stated, staying within the exemplar limits."}
+    },
+    "rent-tell-officials": {
+      "actionable": {"score": 4, "reason": "\"Write down the three protections you'd most want in your city's rental rules\" is quick and concrete."},
+      "nonObvious": {"score": 3, "reason": "Writing to officials is familiar; \"your actual rent and your last increase\" makes it more useful."},
+      "namedExample": {"score": 4, "reason": "\"In December 2019 Kansas City passed a tenants' bill of rights\" with \"24 hours' notice\" named."},
+      "surprise": {"score": 4, "reason": "\"KC Tenants, a renters' group that hadn't existed at the start of that year\" is a fact a reader would repeat."},
+      "voice": {"score": 4, "reason": "Plain and direct: \"One letter is easy to set aside.\""},
+      "power": {"score": 4, "reason": "Brings renters' numbers into who decides local rules."},
+      "honestStatus": {"pass": true, "reason": "Both It ideas say \"It could...\" and the Kansas City example matches its exemplar."}
+    }
+  },
+  "pairwise": [
+    {"a": "rent-tenant-union", "b": "rent-free-lawyer", "winner": "rent-tenant-union", "reason": "Knocking on two doors starts changing my rent now; the lawyer card matters only if eviction comes."},
+    {"a": "rent-tenant-union", "b": "rent-land-trust", "winner": "rent-tenant-union", "reason": "A first step about my own building beats a newsletter signup, with equally strong examples."},
+    {"a": "rent-tenant-union", "b": "rent-social-housing", "winner": "rent-tenant-union", "reason": "Concrete wins in real buildings feel closer than Vienna."},
+    {"a": "rent-tenant-union", "b": "rent-nonprofit-landlord", "winner": "rent-tenant-union", "reason": "Stronger named examples and a clearer shift in power."},
+    {"a": "rent-tenant-union", "b": "rent-more-homes", "winner": "rent-tenant-union", "reason": "Direct effect on my rent versus a slow citywide supply change."},
+    {"a": "rent-tenant-union", "b": "rent-tell-officials", "winner": "rent-tenant-union", "reason": "Both use KC Tenants, but the union card gives a win I can picture in my building."},
+    {"a": "rent-tenant-union", "b": "rent-renewal-ask", "winner": "rent-tenant-union", "reason": "Renewal tips help, but negotiating as a group is the more meaningful change."},
+    {"a": "rent-free-lawyer", "b": "rent-land-trust", "winner": "rent-free-lawyer", "reason": "Saving a legal aid number is useful today; land trusts are a long road."},
+    {"a": "rent-free-lawyer", "b": "rent-social-housing", "winner": "rent-free-lawyer", "reason": "A protection that exists now beats a policy idea from another country."},
+    {"a": "rent-free-lawyer", "b": "rent-nonprofit-landlord", "winner": "rent-free-lawyer", "reason": "Sharper numbers and a more surprising fact."},
+    {"a": "rent-free-lawyer", "b": "rent-more-homes", "winner": "rent-free-lawyer", "reason": "Speaks to the fear behind this pain with a concrete safeguard."},
+    {"a": "rent-free-lawyer", "b": "rent-tell-officials", "winner": "rent-free-lawyer", "reason": "Stronger outcome data and a step that protects me directly."},
+    {"a": "rent-free-lawyer", "b": "rent-renewal-ask", "winner": "rent-free-lawyer", "reason": "Close, but the right to counsel is more surprising and higher stakes."},
+    {"a": "rent-land-trust", "b": "rent-social-housing", "winner": "rent-land-trust", "reason": "A US example with a concrete $12,000 result feels nearer than Vienna."},
+    {"a": "rent-land-trust", "b": "rent-nonprofit-landlord", "winner": "rent-land-trust", "reason": "Champlain's named result makes the land trust idea real; the other card has only a count."},
+    {"a": "rent-land-trust", "b": "rent-more-homes", "winner": "rent-land-trust", "reason": "Permanent affordability is a more hopeful, concrete picture than zoning debates."},
+    {"a": "rent-land-trust", "b": "rent-tell-officials", "winner": "rent-land-trust", "reason": "A deeper structural change with a stronger example."},
+    {"a": "rent-renewal-ask", "b": "rent-land-trust", "winner": "rent-renewal-ask", "reason": "A renter facing a renewal letter would rather see a step that lowers this year's increase."},
+    {"a": "rent-renewal-ask", "b": "rent-social-housing", "winner": "rent-renewal-ask", "reason": "Immediate leverage at renewal beats reading about Vienna."},
+    {"a": "rent-renewal-ask", "b": "rent-nonprofit-landlord", "winner": "rent-renewal-ask", "reason": "Works where I already live, without moving or a waiting list."},
+    {"a": "rent-renewal-ask", "b": "rent-more-homes", "winner": "rent-renewal-ask", "reason": "Pays off this year rather than over a decade."},
+    {"a": "rent-renewal-ask", "b": "rent-tell-officials", "winner": "rent-renewal-ask", "reason": "Two of the officials ideas are unbuilt; the renewal steps work today."},
+    {"a": "rent-nonprofit-landlord", "b": "rent-social-housing", "winner": "rent-nonprofit-landlord", "reason": "Nonprofit apartments are something I can look for now; public housing on Vienna's scale is far off."},
+    {"a": "rent-nonprofit-landlord", "b": "rent-more-homes", "winner": "rent-nonprofit-landlord", "reason": "A personal path to lower rent beats a contested citywide policy."},
+    {"a": "rent-nonprofit-landlord", "b": "rent-tell-officials", "winner": "rent-nonprofit-landlord", "reason": "Points to an actual cheaper home rather than a letter."},
+    {"a": "rent-tell-officials", "b": "rent-social-housing", "winner": "rent-tell-officials", "reason": "The Kansas City story shows ordinary renters winning within a year, which feels reachable."},
+    {"a": "rent-tell-officials", "b": "rent-more-homes", "winner": "rent-tell-officials", "reason": "A more surprising example and a protection list I can write tonight."},
+    {"a": "rent-social-housing", "b": "rent-more-homes", "winner": "rent-social-housing", "reason": "Vienna's scale is more striking and more hopeful than the zoning debate."}
+  ],
+  "seed": 17
+}

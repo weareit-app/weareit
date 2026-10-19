@@ -1,0 +1,665 @@
+{
+  "schemaVersion": 1,
+  "painId": "doomscrolling",
+  "runId": "20261019-142003",
+  "judge": {
+    "context": "isolated-consensus",
+    "judges": 3,
+    "files": [
+      "judgments-1.json",
+      "judgments-2.json",
+      "judgments-3.json"
+    ],
+    "at": "2026-10-19T18:32:40+00:00"
+  },
+  "scores": {
+    "scroll-phone-out-of-bedroom": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"Plug your charger in by the kitchen counter or a hallway outlet tonight\" is a five-minute step that changes the night. | \"Plug your charger in by the kitchen counter or a hallway outlet tonight\" is a five-minute step that obviously changes the night. | \"Plug your charger in by the kitchen counter or a hallway outlet tonight\" is a five-minute step that changes tonight."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "A known basic made useful by the twist \"silencing notifications was linked to less sleep than switching the phone off completely.\" | A well-chosen basic made useful by the twist that \"silencing notifications was linked to less sleep than switching the phone off completely\". | A familiar basic made useful by \"silencing notifications was linked to less sleep than switching the phone off completely.\""
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"about 9,400 kids aged 11 and 12\" with a UCSF pediatrician and \"still true a year later\" gives who, size and result. | \"about 9,400 kids aged 11 and 12\" with a result that held \"a year later\", from a named UCSF pediatrician. | \"about 9,400 kids aged 11 and 12\" with a result \"still true a year later\" and a UCSF pediatrician."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Off beating silenced is a fact a reader would repeat to a friend. | The silenced-versus-off finding is the kind of fact a reader would repeat. | The silenced-versus-off finding is the detail I'd repeat to a friend."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"the last thing I see before sleep isn't a feed\" is warm and plain; the study limit is said once, calmly. | Plain and warm (\"so the last thing I see before sleep isn't a feed\"), candid that \"The study didn't include adults\". | Plain and warm (\"leave the phone there\"), and the adult limit is said once, plainly."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Changes my own conditions at night; no shift in who decides. | Changes my own conditions at night; no shift in who decides. | Changes my own bedroom conditions: \"My phone spends the night in the kitchen.\""
+      },
+      "honestStatus": {
+        "pass": false,
+        "reason": "FAIL: \"he moved his own phone out of the bedroom\" and \"thinks buzzes and screen light can still wake people up\" attribute claims to a named researcher that the exemplar does not support. | FAIL: \"he moved his own phone out of the bedroom\" and \"thinks buzzes and screen light can still wake people up\" go beyond the exemplar, which only says Nagata extends the advice to grownups. | FAIL: \"he moved his own phone out of the bedroom\" and \"thinks buzzes and screen light can still wake people up\" go beyond the exemplar, which only says Nagata extends the advice to adults."
+      }
+    },
+    "scroll-gray-quiet-phone-at-night": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"turn it on for one evening\" under Accessibility is a five-minute step that obviously changes the screen. | \"turn it on for one evening\" and \"set Bedtime mode to start when you usually want to be asleep\" are five-minute steps. | \"turn it on for one evening\" under Accessibility takes five minutes and is easy to test."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Grayscale is a twist most people haven't tried, and \"Color is a lot of what makes feeds pleasant\" says why it works. | Grayscale is a twist most people haven't tried, explained with \"Color is a lot of what makes feeds pleasant to keep scrolling\". | Most people haven't tried \"Color is a lot of what makes feeds pleasant to keep scrolling.\""
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"about 220 college students\" and \"39 minutes less a day\" with a named campus, though no year. | \"about 220 college students\" cut \"about 39 minutes less a day\", attributed to a UC Blue Ash psychologist, but no year. | \"about 220 college students... about 39 minutes less a day\" from a named University of Cincinnati campus."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Losing 39 minutes a day just by removing color is a stop-and-repeat fact. | 39 minutes a day from just removing color is a stop-and-repeat fact. | That simply removing color cuts \"39 minutes less a day\" is a repeatable fact."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Plain and candid (\"You can dismiss the limit\"), though \"having to make that choice on purpose is the point\" leans toward a punchline. | Candid and unjudging: \"You can dismiss the limit when it pops up, but having to make that choice on purpose is the point.\" | Clear title \"A phone that turns gray and quiet at bedtime\"; \"having to make that choice on purpose is the point\" is candid."
+      },
+      "power": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "A personal setting change inside unchanged apps. | A personal settings change within unchanged apps. | Phone settings that ease coping; the feeds themselves are unchanged."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Study and settings are stated as described in the exemplars, and the dismissible limit is admitted. | pass: Grayscale result is attributed and stated as what happened; phone features are described as they exist. | pass: Study described as college students; Screen Time limits noted as dismissable; nothing oversold."
+      }
+    },
+    "scroll-pause-before-opening": {
+      "actionable": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "\"attach it to the one app you lose the most evenings to\" is specific and takes ten minutes. | \"attach it to the one app you lose the most evenings to\" is concrete, though it requires installing and configuring an app. | \"attach it to the one app you lose the most evenings to\" is specific and fast."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "A deliberate breath before opening, and \"adds just enough effort that habit stops carrying you,\" reframes friction usefully. | \"makes you wait and breathe for a few seconds before an app opens\" is a mechanism most readers haven't heard of. | A breathing delay before an app opens is a twist most readers haven't heard of."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Names one sec, \"a six-week study of 280 users published in 2023\" and \"57% less often.\" | \"a six-week study of 280 users published in 2023\" with openings down \"57% less often\". | \"six-week study of 280 users published in 2023... 57% less often.\""
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "A few seconds' delay cutting openings by more than half is memorable. | A few seconds of delay cutting openings by more than half is surprising. | A few seconds' wait cutting openings by \"57% less often\" is the kind of fact people repeat."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Candid limit said once (\"Those users signed up wanting to cut back, which helps\"); the dream line \"something makes me wait a breath\" is a little vague. | Plain and candid, with one honest limit: \"Those users signed up wanting to cut back, which helps.\" | \"Those users signed up wanting to cut back, which helps\" is an honest, unhurried limit; the line \"wait a breath\" is slightly staged."
+      },
+      "power": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "Changes my own phone, not who designs it. | Changes my own phone behavior only. | Personal friction inside the same apps."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Result matches the exemplar and the self-selection limit is stated plainly. | pass: Result and its self-selection limit are both stated; the home-screen tip is labeled speculative and not overclaimed. | pass: Self-selection is stated plainly; the folder tip makes no study claim."
+      }
+    },
+    "scroll-month-without-feed": {
+      "actionable": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "\"put a four-week end date on your calendar\" is real and quick, though the change starts later. | \"put a four-week end date on your calendar\" is real and quick, though the change itself plays out over a month. | \"put a four-week end date on your calendar\" is real but the payoff takes a month."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Framing a break as \"Finding out what a month without the feed feels like\" makes a familiar idea feel newly meaningful. | Reframes quitting as an experiment: \"notice what I actually do with my evenings instead\". | Quitting a platform is familiar; \"keeping it only on a laptop\" is a useful twist."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"In a 2018 experiment\" people \"got back about an hour a day\" and used the app \"about 22 percent less\" afterward. | \"In a 2018 experiment\" people \"got back about an hour a day\" and used the app \"about 22 percent less\" afterward. | \"In a 2018 experiment... got back about an hour a day... about 22 percent less.\""
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "An hour a day back, spent with friends and family, is worth repeating. | The lasting 22 percent drop after the experiment ended is a repeatable fact. | \"about an hour a day\" back, and lower use weeks later, is striking."
+      },
+      "voice": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"notice what I actually do with my evenings instead\" sounds like a mentor offering an experiment, not a rule; the paid detail is said plainly. | Mentor-like and unhurried; says plainly \"researchers paid people\" and \"a little happier\" without overselling. | \"notice what I actually do with my evenings instead\" and \"said they were a little happier\" are calm and exact."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "A personal fix meaningful enough to count: it gives back an hour a day with people. | A meaningful personal change but no shift in who decides. | Removes the feed from my own life for a month."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: States the paid design and \"a little happier\" without overselling; the desktop-only fix makes no study claim. | pass: Paid participants and small happiness gains are stated as what happened, matching exemplar limits. | pass: Says researchers \"paid people\" and that happiness gains were small."
+      }
+    },
+    "scroll-simpler-phone": {
+      "actionable": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"Check whether your carrier lets you move your number\" is real but doesn't obviously move anything tonight. | \"Check whether your carrier lets you move your number between two phones\" is real but slow to matter. | \"Check whether your carrier lets you move your number between two phones\" is research before an expensive purchase."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "A separate \"night phone\" and a block \"you leave in another room\" are ideas many readers haven't considered. | A \"night phone\" and a physical block in \"another room\" are known ideas with a useful twist. | A separate \"night phone\" and a block \"you leave in another room\" are fresh angles."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Light Phone III \"At $799\" and Brick \"about $59\" are named with prices, but no result. | Named products with prices: \"At $799\" and \"about $59\". | Light Phone III at \"$799\" and Brick at \"about $59\" are named products with prices, not results."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Making yourself \"walk over and tap again\" is one surprising element. | Walking over to \"tap again\" is one surprising element; the rest is product description. | Having to \"walk over and tap again\" is a clever mechanism but not a stopping fact."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Candid on cost (\"it isn't cheap\") and suggests comparing \"with a free app blocker before buying.\" | Plain but reads partly like a product listing (\"calls, texts, maps, music and an alarm\"). | \"At $799 it isn't cheap\" is candid; \"compare Brick with a free app blocker before buying\" is mentor-like."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Changes my own device, at a cost. | Changes my own tools, at a cost. | Changes the device I carry, my own conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Products and prices match exemplars; \"many people try it as a second phone\" is an unsourced aside but not a material overclaim. | pass: Cost is stated plainly; \"many people try it as a second phone\" and \"no subscription\" are unsourced but minor and not misleading about status. | pass: Costs stated; \"many people try it as a second phone\" is lightly unsupported but not a risky claim."
+      }
+    },
+    "scroll-evenings-together": {
+      "actionable": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "\"Ask your partner tonight if they'd try putting both phones in one spot after 9 for a week\" is concrete and quick. | \"Ask your partner tonight if they'd try putting both phones in one spot after 9 for a week\" is concrete and quick. | \"Ask your partner tonight if they'd try putting both phones in one spot after 9 for a week.\""
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"nobody is left sitting next to someone who's scrolling\" gives a familiar idea a useful reason. | Familiar idea with a useful point: \"nobody is left sitting next to someone who's scrolling\". | \"nobody is left sitting next to someone who's scrolling\" gives the basic a meaningful reason."
+      },
+      "namedExample": {
+        "score": 1,
+        "mean": 1.33,
+        "reason": "No real example; the drawer fix is speculative and the schedule fix only points to a phone setting. | No real example; the drawer fix is speculative and the schedule fix only cites a phone feature. | No named example; \"A drawer or a basket by the door works fine\" is generic."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Predictable from the title. | Predictable from the title. | Predictable from the title \"both put phones away.\""
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Warm and plain (\"A drawer or a basket by the door works fine\"), with a mild contrast in \"a household habit rather than a rule one person keeps.\" | Warm and specific: \"neither of you has to be the one asking\". | Warm and plain: \"we actually talk or watch something together\"; no judging."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Changes household conditions between two people. | Changes a shared household condition, but small in scope. | Changes household norms, \"a household habit rather than a rule one person keeps.\""
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Makes no study claims; the drawer fix is offered as a practice, not a finding. | pass: Presented as common practice without claimed evidence. | pass: Makes no research claims; offered as a common practice."
+      }
+    },
+    "scroll-parents-wait-together": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"send the link to two parents in your kid's grade\" is a ten-minute step that starts the threshold. | \"send the link to two parents in your kid's grade\" is a ten-minute step that obviously starts something. | \"send the link to two parents in your kid's grade\" is ten minutes and starts the threshold."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"only kicks in once ten families from the same grade and school sign, so no child is the only one\" is a mechanism most parents don't know. | The threshold design, \"only kicks in once ten families from the same grade and school sign, so no child is the only one\", is a twist most parents haven't heard. | \"only kicks in once ten families from the same grade and school sign, so no child is the only one\" reframes the problem."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"More than 155,000 parents\" and \"over 140,000 parents from 13,500 schools\" since early 2024. | Wait Until 8th with \"More than 155,000 parents\" and the UK pact with \"140,000 parents from 13,500 schools\". | \"More than 155,000 parents\" and \"140,000 parents from 13,500 schools\" since early 2024."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "The ten-family trigger is the detail a parent would pass along. | The ten-family trigger is a precedent worth repeating to a friend. | The ten-family trigger is a design worth repeating."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"My kid isn't the only one in class without a smartphone\" names the real fear plainly; the It idea is written \"It could.\" | The dream line \"My kid isn't the only one in class without a smartphone\" is personal and plain. | \"My kid isn't the only one in class without a smartphone, because a group of us decided together\" is personal and clear."
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Changes a shared norm among families instead of one household coping alone. | Changes the norm for a whole grade by deciding \"together\". | Parents collectively change the norm for a whole grade."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Counts match exemplars and the It feature is clearly \"It could\" and proposed. | pass: Counts match exemplars; the It idea is written \"It could\" and labeled proposed. | pass: Counts stated as signups; the It idea starts \"It could\" and is labeled proposed."
+      }
+    },
+    "scroll-school-phone-lockers": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Find the date of your school board's next meeting and whether it takes public comments\" is concrete, though slow to matter. | \"Find the date of your school board's next meeting and whether it takes public comments\" is quick and concrete. | \"Find the date of your school board's next meeting\" is quick, though the change is slow."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "A known idea made useful by \"Your district might already be required to act.\" | School phone bans are familiar; the state-law check (\"Your district might already be required to act\") is a useful twist. | Phone bans are widely discussed; \"Your district might already be required to act\" adds a useful twist."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Two schools in Nijmegen in 2024 and \"at least 20 passed new laws,\" but the Nijmegen result has no number. | \"two schools in Nijmegen in the Netherlands\" in 2024, plus \"at least 20 passed new laws\" in 2025. | \"two schools in Nijmegen... in 2024\" and \"at least 20 passed new laws,\" but no outcome number."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "That at least 20 states have already passed laws, and students \"liked the rule less afterward,\" both stop the reader. | Candid that \"Students liked the rule less afterward\" is an unexpected, trustworthy detail. | \"Students liked the rule less afterward\" is an unexpected honest note."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Candid about the downside: \"some missed reaching their parents, so a good policy plans for that.\" | Honest without hedging: \"some missed reaching their parents, so a good policy plans for that\". | \"some missed reaching their parents, so a good policy plans for that\" is the candid mentor tone."
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Changes what a whole school decides for every child. | Changes school policy for every student, not just one family. | Changes school policy for every student."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: States the two-school scope and the drop in student approval; tracker counts match. | pass: Limits of the two-school study are stated; \"at lunch\" is a slight sharpening of \"more conversation\" but not a misleading claim. | pass: Two-school scope and student downsides are stated; \"talked more at lunch\" is a slight gloss on \"more conversation.\""
+      }
+    },
+    "scroll-apps-not-built-to-hook": {
+      "actionable": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"Read the Commission's two-page summary\" is a real step but passive. | \"Read the Commission's two-page summary\" and \"Look up whether your state has a bill\" are real but slow to matter. | \"Read the Commission's two-page summary\" informs but doesn't move anything yet."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Moves the problem from willpower to design: \"stop feeding me more at night instead of being built to keep me up.\" | Regulating design rather than users is a known idea made concrete by \"infinite scroll, autoplay and push notifications\". | That regulators target \"infinite scroll, autoplay and push notifications\" themselves is new to most readers."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"In February 2026 the European Commission\" on TikTok, and New York \"starting January 2027\" with \"between midnight and 6am.\" | \"In February 2026 the European Commission\" on TikTok and New York's act \"starting January 2027\" with midnight-to-6am rules. | \"In February 2026 the European Commission\" on TikTok, and New York's \"midnight and 6am\" rule from January 2027."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "A regulator saying infinite scroll and autoplay \"break European law\" is worth repeating. | A regulator saying infinite scroll itself may \"break European law\" is a stop-and-repeat fact. | A government saying infinite scroll may \"break European law\" is worth repeating."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Calm and specific; flags that \"The case isn't decided yet\" and calls age checks \"a fair question to ask your legislator.\" | Plain and fair: \"Some people worry about the age checks these laws need, which is a fair question to ask your legislator.\" | \"which is a fair question to ask your legislator\" is respectful; title \"Support rules against endless scroll\" leans toward advocacy."
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Changes what platforms are allowed to build. | Changes how platforms are allowed to design for everyone. | Changes how the apps are designed for everyone."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Labels the EU findings preliminary and names the age-check concern; the \"two-page summary\" detail is unsourced but minor. | pass: \"preliminary findings\" and \"The case isn't decided yet\" match exemplar limits; opposing concerns are named. | pass: \"preliminary findings\" and \"The case isn't decided yet\"; age-check concerns named."
+      }
+    },
+    "scroll-teen-accounts-quiet-overnight": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"Open your teen's Instagram settings with them and confirm sleep mode is on\" is quick and specific. | \"Open your teen's Instagram settings with them and confirm sleep mode is on\" is a ten-minute step. | \"Open your teen's Instagram settings with them and confirm sleep mode is on.\""
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "A known default made useful by the hours \"from 10pm to 7am every day.\" | A basic made useful by the detail \"sleep mode from 10pm to 7am every day\". | \"the rule applies to everyone, adults included\" makes a basic more meaningful."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Instagram teen accounts \"Since 2024\" is named but thin, with no result. | Instagram teen accounts \"Since 2024\" with specific hours; no outcome number. | Instagram sleep mode \"from 10pm to 7am\" since 2024; a named feature, not a result."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Many parents won't know messages \"get an automatic reply\" overnight. | Many parents won't know sleep mode is already on by default; one surprising element. | Many parents won't know the default exists, but it's not a stopper."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"without me having to fight about it\" is warm and true to a parent's life. | Personal and unjudging: \"without me having to fight about it\". | \"without me having to fight about it\" is honest and unjudging."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Uses a platform default inside unchanged conditions. | Changes household conditions using defaults a company already set. | Changes household and account defaults."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "FAIL: \"makes it much easier for a teenager to accept\" is stated as fact and tied to an unrelated bedroom-sleep study; \"Under-16s need a parent's permission\" goes beyond the exemplar. | pass: Sleep mode described as it exists; the shared-charging claim is modest. | pass: Feature described accurately; the shared-charging claim is offered as reasoning, not a study result."
+      }
+    },
+    "scroll-companies-answer-for-design": {
+      "actionable": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"Search your attorney general's website to see whether your state joined\" is real but mostly informational. | \"Search your attorney general's website to see whether your state joined\" is real but mostly informational. | \"Search your attorney general's website\" is a real step but only informs."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Comparing Australia's age limit with Minnesota's warning shows a choice of approaches most readers haven't weighed. | Comparing \"Australia\" and \"Minnesota\" approaches is a useful framing of a known debate. | Comparing \"Australia\" and \"Minnesota\" approaches is a thoughtful frame, not a new idea."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "\"In 2023, 41 states and Washington, DC sued Meta\" plus Australia's ten apps and Minnesota's warning. | \"In 2023, 41 states and Washington, DC sued Meta\" plus Australia and Minnesota laws. | \"In 2023, 41 states and Washington, DC sued Meta\"; no outcome since none exists."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "A mental health warning \"every time they open\" is a fact people would repeat. | The scale of the suit is notable, but the topic is widely covered. | The scale of 41 states is notable but widely reported."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "The title \"designing for compulsion\" is abstract and a little clinical, though the text is plain and fair. | Calm and fair: \"People disagree about which approach respects privacy and free choice\". | \"People disagree about which approach respects privacy and free choice\" is even-handed and calm."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Changes who answers for how apps are built. | The dream is about accountability, but the steps are following and reading, not changing who decides. | Points at who answers for design, though the reader's role is following, not deciding."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Says \"claims in court, not findings\" and that \"People disagree\" about which approach works. | pass: \"These are claims in court, not findings\" and named disagreement keep contested policy offered as ideas. | pass: \"These are claims in court, not findings\"; contested approaches are offered as disagreements."
+      }
+    },
+    "scroll-see-where-nights-go": {
+      "actionable": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "\"look at this week's Screen Time report tonight\" works today without It. | \"look at this week's Screen Time report tonight\" is doable but modest. | \"look at this week's Screen Time report tonight\" works without It."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "\"reminders that stop once you're done\" and picking \"which basic to try first\" are fresh angles. | Using the data \"your phone's screen time report already shows\" to pick \"one thing to try for two weeks\" is a useful twist. | Tracking is familiar; \"suggest one thing to try for two weeks\" is a modest twist."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Proposed It ideas, not penalized; it grounds them in the screen time report \"your phone ... already shows.\" | Clearly labeled It ideas; not penalized for lacking a precedent. | Proposed It idea; not penalized for lacking an example, and it leans on existing screen time reports."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "A tool promising to \"go quiet\" is one surprising element. | \"check in after two weeks to ask how the change went, and then go quiet\" is one surprising element. | \"We don't want It to become one more app that asks for your evenings\" is an unexpected promise."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"We don't want It to become one more app that asks for your evenings\" is candid and a little wry about itself. | Candid and a little wry: \"We don't want It to become one more app that asks for your evenings.\" | Candid and self-aware: \"check in after two weeks... and then go quiet.\""
+      },
+      "power": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "Helps me change my own conditions. | A personal fix with help. | Self-monitoring inside unchanged conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Every fix starts \"It could\" and is labeled as something It could build. | pass: Every It fix says \"It could\" and is labeled proposed; data stays \"on your device\". | pass: Every fix says \"It could\" and is labeled proposed."
+      }
+    },
+    "scroll-contact-legislators": {
+      "actionable": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "\"find your state representative's name\" is quick but doesn't move much by itself. | \"find your state representative's name on your state legislature's website\" is a concrete ten-minute step. | \"find your state representative's name on your state legislature's website\" is quick and useful."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"Most addictive-design bills are at the state level, so state legislators matter most\" is a useful twist on calling Congress. | Contacting legislators is familiar; \"state legislators matter most\" is the useful twist. | \"Most addictive-design bills are at the state level, so state legislators matter most\" sharpens a familiar step."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"more than 300 such bills across 45 states\" in 2025 and 5 Calls, though no outcome. | \"more than 300 such bills\" in 2025 and the 5 Calls model, though thin on outcome. | \"In 2025 there were more than 300 such bills across 45 states\" and 5 Calls as a model."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "300-plus bills in one year is one surprising number. | The 300-bill count is one surprising element. | 300 bills is a striking count, otherwise expected."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Plain, but the first step uses the unexpanded \"NCSL tracker\" and \"the way 5 Calls does\" assumes the reader knows it. | Plain and direct; the dream line \"My state representative knows people here want apps that don't keep us up all night\" is clear. | Plain titles; \"short, plain script\" is clear; slightly impersonal."
+      },
+      "power": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "Aims to change what legislators decide. | Aims to change who decides app rules, but through It ideas not yet built. | Puts pressure on who writes the rules."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Written as \"It could\" with proposed status; the bill count matches the tracker. | pass: It fixes say \"It could\"; bill counts match the tracker. | pass: It ideas written \"It could\"; tracker figures match the source."
+      }
+    },
+    "scroll-group-chats-quiet": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"Send one message to your busiest group saying you'll see their messages in the morning\" takes two minutes. | \"add them to your Do Not Disturb exceptions\" and \"Send one message to your busiest group\" are quick and concrete. | \"add them to your Do Not Disturb exceptions\" in ten minutes."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Naming group chats as what \"turns a quick check into an hour of scrolling\" is a useful reframe. | A basic made useful: \"Group chats are often what turns a quick check into an hour of scrolling.\" | \"Group chats are often what turns a quick check into an hour of scrolling\" names a real trigger."
+      },
+      "namedExample": {
+        "score": 1,
+        "mean": 1.33,
+        "reason": "No real example; both fixes rest on general practice. | No named example; the cited phone feature doesn't cover Do Not Disturb exceptions. | No named example in the copy; \"Most phones let you\" is generic."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Mostly predictable from the title. | Predictable from the title. | Predictable from \"Group chats that don't buzz all night.\""
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Warm and plain (\"so a real emergency still reaches you\"), though \"Friends often say they've wanted to do the same\" is a little assumed. | Warm and practical: \"so a real emergency still reaches you\". | \"you'll see their messages in the morning\" is friendly and plain."
+      },
+      "power": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "Changes my own conditions with a small social shift. | Changes my own conditions and a small social norm. | Personal settings; coping inside unchanged conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Do Not Disturb exceptions are a common feature stated accurately; no study is implied. | pass: Framed as common practice; \"Friends often say\" is unsourced but modest. | pass: Claims are everyday observations; \"Friends often say\" is soft but not risky."
+      }
+    }
+  },
+  "pairwise": [],
+  "consensus": {
+    "scroll-phone-out-of-bedroom": {
+      "borda": 4,
+      "ranks": [
+        13,
+        14,
+        14
+      ],
+      "spread": 1,
+      "honestVotes": "0/3 pass"
+    },
+    "scroll-gray-quiet-phone-at-night": {
+      "borda": 35,
+      "ranks": [
+        4,
+        3,
+        3
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "scroll-pause-before-opening": {
+      "borda": 38,
+      "ranks": [
+        3,
+        2,
+        2
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "scroll-month-without-feed": {
+      "borda": 38,
+      "ranks": [
+        2,
+        1,
+        4
+      ],
+      "spread": 3,
+      "honestVotes": "3/3 pass"
+    },
+    "scroll-simpler-phone": {
+      "borda": 13,
+      "ranks": [
+        10,
+        12,
+        10
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "scroll-evenings-together": {
+      "borda": 9,
+      "ranks": [
+        11,
+        13,
+        12
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "scroll-parents-wait-together": {
+      "borda": 39,
+      "ranks": [
+        1,
+        4,
+        1
+      ],
+      "spread": 3,
+      "honestVotes": "3/3 pass"
+    },
+    "scroll-school-phone-lockers": {
+      "borda": 29,
+      "ranks": [
+        5,
+        5,
+        6
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "scroll-apps-not-built-to-hook": {
+      "borda": 28,
+      "ranks": [
+        6,
+        6,
+        5
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "scroll-teen-accounts-quiet-overnight": {
+      "borda": 14,
+      "ranks": [
+        14,
+        8,
+        9
+      ],
+      "spread": 6,
+      "honestVotes": "2/3 pass"
+    },
+    "scroll-companies-answer-for-design": {
+      "borda": 21,
+      "ranks": [
+        7,
+        9,
+        8
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "scroll-see-where-nights-go": {
+      "borda": 14,
+      "ranks": [
+        9,
+        11,
+        11
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "scroll-contact-legislators": {
+      "borda": 23,
+      "ranks": [
+        8,
+        7,
+        7
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "scroll-group-chats-quiet": {
+      "borda": 10,
+      "ranks": [
+        12,
+        10,
+        13
+      ],
+      "spread": 3,
+      "honestVotes": "3/3 pass"
+    }
+  },
+  "seed": 17
+}

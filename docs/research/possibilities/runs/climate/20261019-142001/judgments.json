@@ -1,0 +1,665 @@
+{
+  "schemaVersion": 1,
+  "painId": "climate",
+  "runId": "20261019-142001",
+  "judge": {
+    "context": "isolated-consensus",
+    "judges": 3,
+    "files": [
+      "judgments-1.json",
+      "judgments-2.json",
+      "judgments-3.json"
+    ],
+    "at": "2026-10-19T18:27:25+00:00"
+  },
+  "scores": {
+    "climate-biggest-choices": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Write down roughly how many miles you drove and how many flights you took' is a concrete 10-minute step, though it diagnoses rather than changes anything yet. | \"Write down roughly how many miles you drove and how many flights you took\" is a concrete 10-minute start, though it only sets up the next move. | \"Write down roughly how many miles you drove and how many flights you took\" is quick and sets up real prioritizing."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Ranking actions, with plant-based eating 'roughly four times what thorough recycling does', reframes familiar advice so it means something. | \"roughly four times what thorough recycling does\" reframes effort people already spend. | Reframes guilt into focus: \"stop feeling guilty about the rest\" plus plant-based at \"roughly four times what thorough recycling does\"."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "'A 2017 review of 39 studies by researchers at Lund University' with 2.4, 1.6 and 0.8 tonne figures. | \"A 2017 review of 39 studies by researchers at Lund University\" with 2.4, 1.6 and 0.8 tonne figures. | \"A 2017 review of 39 studies by researchers at Lund University\" with 2.4, 1.6 and 0.8 tonne figures."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "The recycling comparison is a fact a reader would repeat to a friend. | Plant-based eating saving \"roughly four times what thorough recycling does\" is worth repeating. | The recycling comparison is a fact a reader would repeat."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'I stop feeling guilty about the rest' is warm and non-judging; titles are plain and clear. | \"I stop feeling guilty about the rest\" is warm and candid; metric \"tonnes\" is not everyday American. | Plain, candid mentor tone; the EPA fix adds a calm limit: \"Flights and food aren't included, so add those in your head.\""
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "'Focus first on driving, flying and food' changes my own choices, not who decides. | \"I put my effort into the few things that make a real dent\" changes my own choices, not who decides. | Changes my own choices; meaningful personal fix but not shared power."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Figures match the exemplar; the ranked tool is written as 'It could ask a few questions' and labeled proposed. | pass: Lund figures match the exemplar, and the ranking tool is written \"It could ask a few questions\". | pass: Figures match the verified Lund exemplar; the ranking tool is written \"It could ask...\" and labeled proposed."
+      }
+    },
+    "climate-home-energy-tonight": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "'Set it a few degrees lower for the hours you are asleep or away' and the back-of-the-hand draft check are doable tonight. | \"set it a few degrees lower for the hours you are asleep or away\" can be done tonight. | \"Set it a few degrees lower for the hours you are asleep or away\" can be done tonight."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Basics made useful by one detail: heating and cooling are '52% of the energy an average American home uses'. | Familiar basics made useful by \"That's why the thermostat matters more than light bulbs.\" | Familiar basics made useful by \"52% of the energy\" and \"the back of your hand\" draft test."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "'The Energy Information Administration's 2020 survey' is named with one number; the other two fixes have no example. | \"Energy Information Administration's 2020 survey\" gives 52%, but drafts and checkup fixes have no example. | \"Energy Information Administration's 2020 survey\" is named but thin; drafts and audit fixes have no example."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2,
+        "reason": "'The thermostat matters more than light bulbs' is mildly useful but predictable from the title. | \"Heating and air conditioning take 52%\" is mildly interesting; the rest is predictable. | \"The thermostat matters more than light bulbs\" is mostly predictable."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'On a windy day you can usually feel exactly where the leaks are' sounds like a practical neighbor or mentor. | \"On a windy day you can usually feel exactly where the leaks are\" sounds like a practical neighbor. | Warm and practical: \"On a windy day you can usually feel exactly where the leaks are.\""
+      },
+      "power": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "'Seal the drafts around doors and windows' changes my own home, nothing more. | \"My heating and cooling bills go down\" changes my own conditions only. | Coping and savings inside unchanged conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The EIA figure matches; unsourced claims ('Many utilities send someone') are hedged and modest. | pass: Unsourced checkup claim is softened to \"Many utilities\", and the 52% figure matches the exemplar. | pass: Speculative basics are hedged (\"Many utilities\"); the 52% matches the EIA exemplar."
+      }
+    },
+    "climate-heat-pump": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Find the label on your furnace or air conditioner and write down how old it is' is quick and sets up a real decision. | \"Find the label on your furnace or air conditioner and write down how old it is\" is quick and sets up a planned replacement. | \"Find the label on your furnace... write down how old it is\" is concrete and starts a timely plan."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Get a heat pump quote before your old system breaks' is a useful twist most people miss until the furnace dies. | \"Replacing a furnace in an emergency usually means taking whatever the installer has on the truck\" is a useful insight. | \"Replacing a furnace in an emergency usually means taking whatever the installer has on the truck\" is a useful twist."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "The ended federal credit 'of up to $2,000' is named, but there is no example of someone it worked for. | The ended \"federal tax credit of up to $2,000\" is named, but the $8,000 state rebate has no verified source. | The ended federal credit \"of up to $2,000\" is named, but no place or result shows a heat pump working."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "That the credit 'ended for systems installed after December 31, 2025' is one fact that would stop some readers. | Learning the credit \"ended for systems installed after December 31, 2025\" is one notable fact. | Learning the credit \"ended for systems installed after December 31, 2025\" would stop many readers."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Taking whatever the installer has on the truck' is candid, plain mentor talk. | \"check state and utility rebates before you count on help\" is candid, plain advice. | Candid about money: \"check state and utility rebates before you count on help.\""
+      },
+      "power": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Replacing gas heat is a personal change big enough to count. | \"I replace it with an electric heat pump I can afford\" changes my own home. | Changes my own home's conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The unverified $8,000 rebate is offered with 'many states haven't launched theirs and a few have already run out'; the rebate list is written as 'It could check'. | FAIL: \"rebates of up to $8,000 on a heat pump\" is stated as fact in money advice, but the only source is unverified vendor-blog summaries. | pass: The unverified $8,000 rebate is hedged (\"many states haven't launched theirs\"); the rebate list is written \"It could check\"."
+      }
+    },
+    "climate-food": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "'Pick two dinners this week where you'd normally have beef and plan a different protein' is specific and obviously moves something. | \"Pick two dinners this week where you'd normally have beef and plan a different protein\" is specific and quick. | \"Pick two dinners this week where you'd normally have beef and plan a different protein\" is quick and moves something."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Worry less about where food comes from than what it is' overturns the common food-miles instinct. | \"Worry less about where food comes from than what it is\" turns a common belief around. | \"Worry less about where food comes from than what it is\" reframes the local-food instinct."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "'A 2018 study of 38,000 farms in 119 countries' with 60 kilos for beef versus about one for peas. | \"A 2018 study of 38,000 farms in 119 countries\" with 60 kilos versus one, though the study is not named. | \"A 2018 study of 38,000 farms in 119 countries\" with \"about 60 kilos\" versus \"about one\"."
+      },
+      "surprise": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "'Local beef still has a far bigger footprint than imported beans' is a fact people repeat. | \"Local beef still has a far bigger footprint than imported beans\" is a fact people repeat. | \"Local beef still has a far bigger footprint than imported beans\" is worth repeating to a friend."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'You don't have to give up beef to make a big difference' is reassuring and never judging. | \"You don't have to give up beef to make a big difference\" is warm and non-judging; \"kilo\" is not everyday American. | Non-judging: \"You don't have to give up beef to make a big difference.\""
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Changes my own meals only. | \"my meals put out a lot less carbon\" is a personal change. | A personal fix meaningful enough to count, but no shared change."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Numbers match the meta-analysis summary and are presented as averages, without overclaiming. | pass: The 60-to-1 and under-10% figures match the exemplar; \"half a percent for beef\" goes slightly beyond what the exemplar states but isn't oversold. | pass: Core figures match the exemplar; the beef shipping \"half a percent\" figure goes slightly past the exemplar but is consistent with it."
+      }
+    },
+    "climate-car-trips": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Ask a bike shop near you whether they rent e-bikes for a weekend' is a real 15-minute step toward a trial. | \"Ask a bike shop near you whether they rent e-bikes for a weekend\" is a real, easy trial. | \"Ask a bike shop near you whether they rent e-bikes for a weekend\" is a real test of the idea."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "E-bikes for short trips are a known idea, made useful with the rebate and council angles. | E-bikes and rebates are known ideas, made useful with \"trips under five miles\" and the waitlist tip. | E-bikes are a known idea; trying \"your usual errands\" first is a useful twist."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Denver 2022, '$4.7 million', '67% of the money went to income-qualified residents', '3.4 round trips by car each week'. | \"When Denver gave out e-bike rebates in 2022, riders averaged 26 miles a week\" plus $4.7 million and 67%. | Denver 2022, \"$4.7 million\", \"67%\", \"26 miles a week\" and \"3.4 round trips\"."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "'Seven in ten said they drove less' is one striking result. | \"replaced about 3.4 round trips by car each week\" is a solid but unsurprising result. | \"Seven in ten said they drove less\" is notable but not startling."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'They tend to sell out fast, so sign up for notices' is plain, practical and honest. | \"They tend to sell out fast, so sign up for notices\" is plain mentor advice. | Plain and specific; the council fix explains why the number helps: \"gives a council member something concrete to look at.\""
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Ask your city council member to fund e-bike rebates' moves public money toward lower-income riders. | \"Ask your city council member to fund e-bike rebates\" moves public money, mostly to income-qualified residents. | The council ask shifts public money toward \"income-qualified residents\"."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The council fix says 'Riders surveyed in the first nine months', keeping the self-reported, early nature of the result. | pass: Denver figures are framed as \"Riders surveyed in the first nine months said\", matching the exemplar's self-reported limit. | pass: Results are framed as self-reported (\"said they replaced\", \"Riders surveyed in the first nine months\")."
+      }
+    },
+    "climate-flying": {
+      "actionable": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "'Search your next trip on Google Flights and sort or filter by emissions' is concrete and quick. | \"see whether any two could become one\" is real but slow to matter. | \"Search your next trip on Google Flights and sort or filter by emissions\" is quick and concrete."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "'Sometimes the person who flies the most is just the one who always visits' reframes flying as a family arrangement. | \"Sometimes the person who flies the most is just the one who always visits\" reframes flying as a family question. | \"The nonstop isn't always the lowest\" and \"the one who always visits\" add useful detail to a known idea."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "The Lund review's 1.6 tonnes and Google Flights labels are named, with one comparison number. | Lund review \"about 1.6 tonnes\" and Google Flights labels are named with figures. | Lund review \"about 1.6 tonnes\" plus Google Flights labels, though not tied to a place."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "One transatlantic round trip is 'about two-thirds of what a year without a car saves', and 'the nonstop isn't always the lowest'. | \"The nonstop isn't always the lowest\" and one flight being \"about two-thirds of what a year without a car saves\". | One flight being \"about two-thirds of what a year without a car saves\" is a mild surprise."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "'Flying less without seeing my family less' and 'I still visit the people I love' are warm, clear and never moralizing. | \"Flying less without seeing my family less\" is clear and kind; \"tonnes\" is a small slip. | The title \"Flying less without seeing my family less\" is clear and warm, and the family fix is gentle."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Changes my own and my family's travel, not anyone's rules. | \"Taking turns, meeting halfway by train\" changes my family's arrangements, not wider conditions. | Changes my own and my family's travel patterns."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The arithmetic (1.6 of 2.4) is correct and Google's labels are described as comparisons, not guarantees. | pass: 1.6 versus 2.4 tonnes is computed correctly from the exemplar, and Google Flights is described as labels, not guarantees. | pass: Figures match the exemplar; the family idea is speculative but offered softly (\"Sometimes\")."
+      }
+    },
+    "climate-community-solar": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Search your state name with community solar and see whether any program serves your utility' is a real 10-minute step. | \"Search your state name with \\\"community solar\\\" and see whether any program serves your utility\" is a 10-minute step. | \"Search your state name with \\\"community solar\\\"\" and finding \"your two state lawmakers\" are 10-15 minute steps."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Plug-in solar 'straight into a home outlet' is something most readers have never heard of. | \"plug solar systems of up to 1,200 watts straight into a home outlet\" is new to most readers. | Plug-in solar \"straight into a home outlet\" is new to most readers."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Minnesota's '939 megawatts in 2024' with 3% to 8% savings, and Utah's 2025 law at 1,200 watts against a '$30,000 rooftop quote'. | \"In Minnesota, community solar gardens reached 939 megawatts in 2024\" and Utah 2025 \"no votes against\". | Minnesota \"939 megawatts in 2024\", \"3% to 8%\", and Utah 2025 \"no votes against\"."
+      },
+      "surprise": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "Plugging solar into an outlet, passed 'with no votes against', is a fact to repeat. | \"a few hundred dollars, compared with a $30,000 rooftop quote\" passed unanimously is something I'd repeat. | \"A few hundred dollars, compared with a $30,000 rooftop quote\" is a striking contrast."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Calmly names who objects: 'bills for non-subscribers rise 2% to 3%'. | Candid about tradeoffs: \"Some people object that bills for non-subscribers rise 2% to 3%\". | Honest about both sides: \"bills for non-subscribers rise 2% to 3%\" and \"no complete plug-in system had been certified by UL\"."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Ask your state lawmakers to allow plug-in solar panels' changes what households are allowed to do. | \"Ask your state lawmakers to allow plug-in solar panels\" changes state rules. | Asking lawmakers to change who can generate power at home shifts rules, not just habits."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Trade-offs and the UL certification gap are stated; note that 'a few hundred dollars' is at the low end of the exemplar's roughly $550 to $1,300. | pass: States the non-subscriber cost and missing UL certification; \"a few hundred dollars\" slightly understates $550+ for parts. | pass: Limits from both exemplars are stated once; the program finder is \"It could check\"; \"a few hundred dollars\" slightly understates the $550-$1,300 parts range."
+      }
+    },
+    "climate-shared-ownership": {
+      "actionable": {
+        "score": 3,
+        "mean": 3,
+        "reason": "'Search your state name with community-owned solar and read about one project' is real but slow to matter. | \"Search your state name with \\\"community-owned solar\\\" ... and read about one project\" is a research step, slow to matter. | \"Read about one project\" and looking up an open co-op are real but slow to matter."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Owning part of the power plant, not just buying from it, is new to most readers. | Owning, not just buying, clean power: \"the savings stay here\". | Owning \"part of the wind or solar that powers our town\" is a fresh frame for most readers."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "'8,553 people own half of a 20-turbine wind farm', built in 2000, supplying 'about 4% of the city's electricity'. | \"Off Copenhagen, 8,553 people own half of a 20-turbine wind farm ... built in 2000 ... about 4% of the city's electricity.\" | \"8,553 people own half of a 20-turbine wind farm\", built 2000, \"about 4% of the city's electricity\"."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Thousands of ordinary people owning offshore turbines would stop a reader. | 8,553 residents owning half an offshore wind farm is a striking precedent. | Thousands of ordinary people co-owning an offshore wind farm is a fact worth repeating."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'The savings stay here' and 'get one outside quote too and compare' are candid and warm. | \"get one outside quote too and compare\" is a trusted-friend caution. | Candid limit: \"so get one outside quote too and compare.\""
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "'My neighbors and I own part of the wind or solar' changes who owns the power. | \"My neighbors and I own part of the wind or solar that powers our town\" changes who owns. | Changes who owns the power: \"the savings stay here.\""
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Danish rules and the missing co-op savings figures are stated plainly; the gather tool says 'It could let you see'. | pass: Notes \"Danish rules at the time favored local ownership\" and that Solar United Neighbors publishes no savings figures. | pass: States the Danish rules caveat and that savings figures aren't published; the gathering tool is \"It could let you\"."
+      }
+    },
+    "climate-town-power": {
+      "actionable": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "'Search your state name with community choice aggregation' is a real step, but slow and jargon-dependent. | \"Enter your ZIP code in the EPA Power Profiler and write down the share of coal and gas\" is concrete. | \"Enter your ZIP code in the EPA Power Profiler\" is quick but only informs; the real change is slow."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "A city choosing everyone's power supplier 'while the utility kept running the lines' is unfamiliar to most. | \"pooled their residents' buying power to choose their own power supplier\" is unknown to most people. | Cities buying power \"on residents' behalf\" while \"the utility kept running the lines\" is new to most."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Marin County, 2010, with '27% renewable' and '100% renewable' plans; no result figure. | \"In 2010 the cities of Marin County, California\" with \"27% renewable\" and \"100% renewable\" plans; no result numbers. | Marin County 2010 with \"27% renewable\" and \"100% renewable\" plans, though no outcome numbers."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "That a city can buy power for residents is one surprising element. | That a city can choose the supplier while \"the utility kept running the lines\" surprises some readers. | That a town can pick its own power supplier would surprise many readers."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "'Community choice aggregation' is jargon, and 'harder to set aside than fifty separate emails' leans toward a slogan. | \"Ask your city to buy electricity on residents' behalf\" is a plain, clear title. | Plain and clear; one limit said once: \"only some states allow this.\""
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "'Every home in my town gets cleaner power by default' changes who decides the supply. | \"Every home in my town gets cleaner power by default\" changes who decides the supply. | Changes who decides: \"Every home in my town gets cleaner power by default.\""
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: 'Only some states allow this' is stated and the letter tool says 'It could help'; the fifty-names claim is unsourced but modest. | pass: Says \"only some states allow this\"; the letter tool is \"It could help\"; the fifty-names claim is a mild, unsourced opinion. | pass: Community choice limited to \"some states\"; the letter tool is \"It could help\", though \"harder to set aside\" is an unsourced claim."
+      }
+    },
+    "climate-local-risks": {
+      "actionable": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "'Open the FEMA Resilience Analysis and Planning Tool and find your county' is real but generic, and it yields no action yet. | \"find your county on the map\" is quick and concrete. | \"Find your county on the map\" is a real step but doesn't obviously move anything."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "'A plan for one real risk is more useful than worrying about all of them' is a useful reframe of standard preparedness advice. | \"A plan for one real risk is more useful than worrying about all of them\" is a useful focus on a known idea. | \"A plan for one real risk is more useful than worrying about all of them\" is close to standard preparedness advice."
+      },
+      "namedExample": {
+        "score": 2,
+        "mean": 2,
+        "reason": "FEMA's index of '18 natural hazards' is named with no place, year or result; the other fixes have none. | \"FEMA's National Risk Index covers 18 natural hazards\" is named but has no result; other fixes say only \"Many cities\". | FEMA's index \"covers 18 natural hazards\" but has no place, year result, or outcome; other fixes have none."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Nothing here a reader would repeat. | Predictable from the title \"Knowing how heat, fire and flooding could affect my street\". | Predictable from the title."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Calm and plain: 'If heat is your biggest risk, that might mean knowing where the nearest cooling center is'. | \"checking whether your insurance covers floods\" is calm, specific advice. | Calm and specific: \"knowing where the nearest cooling center is; if flooding is, checking whether your insurance covers floods.\""
+      },
+      "power": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Mostly coping with conditions; asking about a city heat plan is weak pressure. | Mostly preparing inside unchanged conditions; \"Ask your city whether it has a plan\" is light. | Mostly coping inside unchanged conditions; the heat plan ask is light."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The lookup is 'It could look up your address', and the copy says 'your area' rather than claiming street-level data the exemplar couldn't confirm. | pass: Lookup is written \"It could look up your address\", and the vague city claims are hedged with \"Many cities\". | pass: The lookup is written \"It could look up\" and labeled proposed; other claims are hedged (\"Many cities\")."
+      }
+    },
+    "climate-state-laws": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Send one of your state legislators a two-sentence email asking whether they would support a plug-in solar bill like Utah's'. | \"Send one of your state legislators a two-sentence email\" is doable in 10 minutes. | \"Send one of your state legislators a two-sentence email\" is specific and quick."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "'Write to lawmakers in your own words, not a form letter' is familiar civic advice with a small twist. | \"Staff tend to count form emails and read personal ones\" is a useful twist on writing lawmakers. | \"Write in your own words, not a form letter\" is known advice, made concrete by the two-sentence detail."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Utah's 2025 law 'passed without a single vote against' and Open States are named but thin. | Utah's 2025 law \"passed without a single vote against\" and Open States are named but thin. | Utah's 2025 law \"passed without a single vote against\"; Open States is named."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "A unanimous energy bill is one surprising element. | Plug-in solar as \"one of the rare energy ideas both parties have backed\" is one notable angle. | A unanimous energy bill is a mild surprise."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Two sentences about how energy costs or heat affect your family' is plain and personal. | \"Two sentences about how energy costs or heat affect your family\" is personal and plain. | Plain and grounded: \"Two sentences about how energy costs or heat affect your family carry more weight.\""
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Puts pressure on who writes the rules. | \"my lawmakers have heard from me\" pushes on who decides. | Puts the reader in front of the people who write the rules."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Bill watch is 'It could use that data'; 'one of the rare energy ideas both parties have backed' and 'Staff tend to count form emails' go a little beyond the sources but stay modest. | pass: Bill tool is \"It could use that data\"; \"rare energy ideas both parties have backed\" stretches one unanimous vote but isn't false. | pass: The bill tool is \"It could use\"; \"Staff tend to count form emails\" is unsourced but hedged and low risk."
+      }
+    },
+    "climate-courts": {
+      "actionable": {
+        "score": 3,
+        "mean": 3,
+        "reason": "'Search your state constitution for the word environment' is specific but slow to matter. | \"Search your state constitution for the word \\\"environment\\\"\" is real but slow to matter. | \"Search your state constitution for the word environment\" is easy but slow to matter."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "A state constitution's environment clause as a climate lever is new to most readers. | Using a state constitution and permit comments, \"asks how its emissions were counted\", is new to most. | Checking your own state constitution is an angle few readers would think of."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Montana, December 2024, '16 young people', 'striking down two 2023 laws'. | \"In December 2024, Montana's Supreme Court sided with 16 young people ... striking down two 2023 laws.\" | Montana Supreme Court, \"December 2024\", \"16 young people\", \"two 2023 laws\" struck down."
+      },
+      "surprise": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "A court ruling that a clean environment 'includes a stable climate system' would stop a reader. | A court ruling that a clean environment \"includes a stable climate system\" stops a reader. | A court ruling that a right \"includes a stable climate system\" is something you'd repeat."
+      },
+      "voice": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "The title 'Courts treating a stable climate as a right' is a bit abstract and the dream line is legalistic. | \"Courts treating a stable climate as a right\" is impersonal, and \"weigh climate harm when it approves\" reads a bit official. | Even-handed: \"The state argued that lawmakers, not courts, should decide climate policy, and people still disagree on that.\""
+      },
+      "power": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "Changes what the state must weigh when it 'approves new power plants and mines'. | \"My state has to weigh climate harm when it approves new power plants and mines\" changes who decides. | Changes what the state must weigh when it approves projects."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The contested point is named: 'The state argued that lawmakers, not courts, should decide climate policy, and people still disagree'. | pass: Contested role is named: \"lawmakers, not courts, should decide climate policy, and people still disagree on that.\" | pass: The contested role of courts is named rather than asserted; the public comment claim is modest."
+      }
+    },
+    "climate-talk": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Look up your county on the Yale Climate Opinion Maps, and mention one number to someone this week'. | \"Look up your county on the Yale Climate Opinion Maps, and mention one number to someone this week.\" | \"Look up your county on the Yale Climate Opinion Maps, and mention one number to someone this week.\""
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "'The person across the table probably agrees more than you assume' reframes the loneliness. | \"the person across the table probably agrees more than you assume\" reframes worry as shared. | Starting \"with something local, like a hot summer or a new bike lane\" is a useful twist on talking about it."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Climate cafes 'began in rural Scotland around 2015', and Yale's '72% of Americans'. | \"Climate cafes began in rural Scotland around 2015\" and Yale's \"72% of Americans\". | Climate cafes from \"rural Scotland around 2015\" and Yale's \"72% of Americans\"."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Cafes 'partly modeled on death cafes' and the 72% figure are worth repeating. | Climate cafes \"partly modeled on death cafes\" is one surprising detail. | Climate cafes \"partly modeled on death cafes\" is a small surprise."
+      },
+      "voice": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "'The people around me turn out to care more than I guessed' and 'starting with something local' are warm and unhurried. | \"the people around me turn out to care more than I guessed\" and \"Starting with something local, like a hot summer\" are warm and unhurried. | Warm and honest: \"though the research is still thin.\""
+      },
+      "power": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Mostly about feelings; only the proposed find-others tool moves toward shared action. | Mostly easing worry; \"connect you with people near you\" hints at more but is a proposed feature. | Mostly emotional coping; the connect-neighbors idea hints at more."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: 'The research is still thin' is said once; the matching tool is 'It could connect you'. | pass: Says \"the research is still thin\", and the matching tool is written \"It could connect you\". | pass: Study size is acknowledged; the matching tool is written \"It could connect\"."
+      }
+    },
+    "climate-renters": {
+      "actionable": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "'Find one heat pump rebate your utility offers and send your landlord a short note about it'. | \"Find one heat pump rebate your utility offers and send your landlord a short note\" is concrete. | \"Find one heat pump rebate your utility offers and send your landlord a short note\" is real but may take longer than 15 minutes."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Asking the landlord with 'one specific rebate' is a useful twist; community solar repeats another card. | \"Landlords often don't know what rebates their utility or state offers\" is a modest twist. | \"A friendly note with one specific rebate is easier to say yes to\" makes a known idea useful."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Minnesota's '3% to 8%' is reused with thin detail; the landlord fix has no example. | Reuses Minnesota's \"3% to 8%\" with thin detail; the landlord fix has no example. | Minnesota \"3% to 8%\" is reused from another card; the landlord fix has no example."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Predictable from the title. | Community solar for renters repeats another card; little new. | Nothing beyond what the title suggests."
+      },
+      "voice": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Plain, but the fix title 'Sign up for community solar, which works without a roof of your own' is clunky. | \"Sign up for community solar, which works without a roof of your own\" is a clunky title. | Plain and kind: \"Landlords often don't know what rebates their utility or state offers.\""
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Nudges what the landlord decides, modestly. | \"my landlord knows I want cleaner heating\" nudges my own building. | Nudges the landlord's decision a little but mostly my own bill."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: 'The rules and savings differ by state' is stated; the landlord claim is modest and hedged with 'could'. | pass: Minnesota savings are hedged \"rules and savings differ by state\"; heat pump savings are \"could lower\". | pass: \"a heat pump could lower the bill\" is hedged; rules \"differ by state\" is stated."
+      }
+    }
+  },
+  "pairwise": [],
+  "consensus": {
+    "climate-biggest-choices": {
+      "borda": 36,
+      "ranks": [
+        4,
+        3,
+        2
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "climate-home-energy-tonight": {
+      "borda": 10,
+      "ranks": [
+        12,
+        11,
+        12
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "climate-heat-pump": {
+      "borda": 16,
+      "ranks": [
+        9,
+        14,
+        6
+      ],
+      "spread": 8,
+      "honestVotes": "2/3 pass"
+    },
+    "climate-food": {
+      "borda": 41,
+      "ranks": [
+        1,
+        2,
+        1
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "climate-car-trips": {
+      "borda": 27,
+      "ranks": [
+        6,
+        7,
+        5
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "climate-flying": {
+      "borda": 25,
+      "ranks": [
+        2,
+        8,
+        10
+      ],
+      "spread": 8,
+      "honestVotes": "3/3 pass"
+    },
+    "climate-community-solar": {
+      "borda": 38,
+      "ranks": [
+        3,
+        1,
+        3
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "climate-shared-ownership": {
+      "borda": 32,
+      "ranks": [
+        5,
+        4,
+        4
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "climate-town-power": {
+      "borda": 22,
+      "ranks": [
+        10,
+        6,
+        7
+      ],
+      "spread": 4,
+      "honestVotes": "3/3 pass"
+    },
+    "climate-local-risks": {
+      "borda": 4,
+      "ranks": [
+        14,
+        13,
+        14
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "climate-state-laws": {
+      "borda": 15,
+      "ranks": [
+        11,
+        10,
+        9
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "climate-courts": {
+      "borda": 24,
+      "ranks": [
+        8,
+        5,
+        8
+      ],
+      "spread": 3,
+      "honestVotes": "3/3 pass"
+    },
+    "climate-talk": {
+      "borda": 18,
+      "ranks": [
+        7,
+        9,
+        11
+      ],
+      "spread": 4,
+      "honestVotes": "3/3 pass"
+    },
+    "climate-renters": {
+      "borda": 7,
+      "ranks": [
+        13,
+        12,
+        13
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    }
+  },
+  "seed": 17
+}

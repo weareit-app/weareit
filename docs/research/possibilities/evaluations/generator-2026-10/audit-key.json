@@ -1,0 +1,394 @@
+{
+  "a01": {
+    "origin": "sample",
+    "painId": "burnout",
+    "sourceCardId": "burnout-workplace-plans-rest",
+    "runId": "20261019-175357",
+    "heldOut": false
+  },
+  "a02": {
+    "origin": "finalist",
+    "painId": "meaningless-work",
+    "sourceCardId": "meaning-it-matching",
+    "runId": "20261019-175404",
+    "heldOut": false
+  },
+  "a03": {
+    "origin": "sample",
+    "painId": "meaningless-work",
+    "sourceCardId": "meaning-side-project",
+    "runId": "20261019-175404",
+    "heldOut": false
+  },
+  "a04": {
+    "origin": "finalist",
+    "painId": "doomscrolling",
+    "sourceCardId": "scroll-contact-legislators",
+    "runId": "20261019-175401",
+    "heldOut": false
+  },
+  "a05": {
+    "origin": "finalist",
+    "painId": "nobody-knows-anybody",
+    "sourceCardId": "nbr-matching-grant",
+    "runId": "20261019-175407",
+    "heldOut": false
+  },
+  "a06": {
+    "origin": "sample",
+    "painId": "rent-eats-everything",
+    "sourceCardId": "rent-nonprofit-landlord",
+    "runId": "20261019-175410",
+    "heldOut": false
+  },
+  "a07": {
+    "origin": "finalist",
+    "painId": "nobody-knows-anybody",
+    "sourceCardId": "nbr-names-next-door",
+    "runId": "20261019-175407",
+    "heldOut": false
+  },
+  "a08": {
+    "origin": "sample",
+    "painId": "doomscrolling",
+    "sourceCardId": "scroll-teen-accounts-quiet-overnight",
+    "runId": "20261019-175401",
+    "heldOut": false
+  },
+  "a09": {
+    "origin": "finalist",
+    "painId": "rent-eats-everything",
+    "sourceCardId": "rent-land-trust",
+    "runId": "20261019-175410",
+    "heldOut": false
+  },
+  "a10": {
+    "origin": "finalist",
+    "painId": "we-cant-talk",
+    "sourceCardId": "talk-family-close",
+    "runId": "20261019-175413",
+    "heldOut": false
+  },
+  "a11": {
+    "origin": "finalist",
+    "painId": "rent-eats-everything",
+    "sourceCardId": "rent-renewal-ask",
+    "runId": "20261019-175410",
+    "heldOut": false
+  },
+  "a12": {
+    "origin": "finalist",
+    "painId": "burnout",
+    "sourceCardId": "burnout-job-not-me",
+    "runId": "20261019-175357",
+    "heldOut": false
+  },
+  "a13": {
+    "origin": "finalist",
+    "painId": "burnout",
+    "sourceCardId": "burnout-off-after-hours",
+    "runId": "20261019-175357",
+    "heldOut": false
+  },
+  "a14": {
+    "origin": "finalist",
+    "painId": "loneliness",
+    "sourceCardId": "lonely-young-and-old",
+    "runId": "20261019-175403",
+    "heldOut": false
+  },
+  "a15": {
+    "origin": "finalist",
+    "painId": "nobody-covers-here",
+    "sourceCardId": "news-neighbors-share-coverage",
+    "runId": "20261019-175406",
+    "heldOut": false
+  },
+  "a16": {
+    "origin": "sample",
+    "painId": "loneliness",
+    "sourceCardId": "lonely-standing-plan",
+    "runId": "20261019-175403",
+    "heldOut": false
+  },
+  "a17": {
+    "origin": "finalist",
+    "painId": "meaningless-work",
+    "sourceCardId": "meaning-coworkers-decide",
+    "runId": "20261019-175404",
+    "heldOut": false
+  },
+  "a18": {
+    "origin": "finalist",
+    "painId": "rent-eats-everything",
+    "sourceCardId": "rent-tenant-union",
+    "runId": "20261019-175410",
+    "heldOut": false
+  },
+  "a19": {
+    "origin": "finalist",
+    "painId": "nobody-covers-here",
+    "sourceCardId": "news-reporter-in-county",
+    "runId": "20261019-175406",
+    "heldOut": false
+  },
+  "a20": {
+    "origin": "finalist",
+    "painId": "loneliness",
+    "sourceCardId": "lonely-doctor-takes-it-seriously",
+    "runId": "20261019-175403",
+    "heldOut": false
+  },
+  "a21": {
+    "origin": "finalist",
+    "painId": "nobody-knows-anybody",
+    "sourceCardId": "nbr-play-street",
+    "runId": "20261019-175407",
+    "heldOut": false
+  },
+  "a22": {
+    "origin": "finalist",
+    "painId": "nobody-covers-here",
+    "sourceCardId": "news-answers-by-text",
+    "runId": "20261019-175406",
+    "heldOut": false
+  },
+  "a23": {
+    "origin": "sample",
+    "painId": "nobody-knows-anybody",
+    "sourceCardId": "nbr-out-front",
+    "runId": "20261019-175407",
+    "heldOut": false
+  },
+  "a24": {
+    "origin": "finalist",
+    "painId": "meaningless-work",
+    "sourceCardId": "meaning-common-feeling",
+    "runId": "20261019-175404",
+    "heldOut": false
+  },
+  "a25": {
+    "origin": "finalist",
+    "painId": "loneliness",
+    "sourceCardId": "lonely-someone-to-talk-to",
+    "runId": "20261019-175403",
+    "heldOut": false
+  },
+  "a26": {
+    "origin": "sample",
+    "painId": "nobody-knows-anybody",
+    "sourceCardId": "nbr-welcome-new",
+    "runId": "20261019-175407",
+    "heldOut": false
+  },
+  "a27": {
+    "origin": "finalist",
+    "painId": "we-cant-talk",
+    "sourceCardId": "talk-know-other-side",
+    "runId": "20261019-175413",
+    "heldOut": false
+  },
+  "a28": {
+    "origin": "sample",
+    "painId": "loneliness",
+    "sourceCardId": "lonely-work-friends",
+    "runId": "20261019-175403",
+    "heldOut": false
+  },
+  "a29": {
+    "origin": "sample",
+    "painId": "meaningless-work",
+    "sourceCardId": "meaning-reshape-the-job",
+    "runId": "20261019-175404",
+    "heldOut": false
+  },
+  "a30": {
+    "origin": "finalist",
+    "painId": "meaningless-work",
+    "sourceCardId": "meaning-own-the-workplace",
+    "runId": "20261019-175404",
+    "heldOut": false
+  },
+  "a31": {
+    "origin": "sample",
+    "painId": "doomscrolling",
+    "sourceCardId": "scroll-see-where-nights-go",
+    "runId": "20261019-175401",
+    "heldOut": false
+  },
+  "a32": {
+    "origin": "finalist",
+    "painId": "we-cant-talk",
+    "sourceCardId": "talk-move-minds",
+    "runId": "20261019-175413",
+    "heldOut": false
+  },
+  "a33": {
+    "origin": "sample",
+    "painId": "nobody-covers-here",
+    "sourceCardId": "news-who-decides",
+    "runId": "20261019-175406",
+    "heldOut": false
+  },
+  "a34": {
+    "origin": "finalist",
+    "painId": "we-cant-talk",
+    "sourceCardId": "talk-prepared",
+    "runId": "20261019-175413",
+    "heldOut": false
+  },
+  "a35": {
+    "origin": "finalist",
+    "painId": "burnout",
+    "sourceCardId": "burnout-coworkers-together",
+    "runId": "20261019-175357",
+    "heldOut": false
+  },
+  "a36": {
+    "origin": "finalist",
+    "painId": "doomscrolling",
+    "sourceCardId": "scroll-month-without-feed",
+    "runId": "20261019-175401",
+    "heldOut": false
+  },
+  "a37": {
+    "origin": "finalist",
+    "painId": "we-cant-talk",
+    "sourceCardId": "talk-town-agrees",
+    "runId": "20261019-175413",
+    "heldOut": false
+  },
+  "a38": {
+    "origin": "sample",
+    "painId": "we-cant-talk",
+    "sourceCardId": "talk-town-forum",
+    "runId": "20261019-175413",
+    "heldOut": false
+  },
+  "a39": {
+    "origin": "sample",
+    "painId": "we-cant-talk",
+    "sourceCardId": "talk-pause",
+    "runId": "20261019-175413",
+    "heldOut": false
+  },
+  "a40": {
+    "origin": "finalist",
+    "painId": "burnout",
+    "sourceCardId": "burnout-see-it-change",
+    "runId": "20261019-175357",
+    "heldOut": false
+  },
+  "a41": {
+    "origin": "finalist",
+    "painId": "nobody-knows-anybody",
+    "sourceCardId": "nbr-block-party",
+    "runId": "20261019-175407",
+    "heldOut": false
+  },
+  "a42": {
+    "origin": "finalist",
+    "painId": "doomscrolling",
+    "sourceCardId": "scroll-pause-before-opening",
+    "runId": "20261019-175401",
+    "heldOut": false
+  },
+  "a43": {
+    "origin": "finalist",
+    "painId": "doomscrolling",
+    "sourceCardId": "scroll-gray-quiet-phone-at-night",
+    "runId": "20261019-175401",
+    "heldOut": false
+  },
+  "a44": {
+    "origin": "finalist",
+    "painId": "nobody-knows-anybody",
+    "sourceCardId": "nbr-city-rules",
+    "runId": "20261019-175407",
+    "heldOut": false
+  },
+  "a45": {
+    "origin": "finalist",
+    "painId": "loneliness",
+    "sourceCardId": "lonely-friendly-errands",
+    "runId": "20261019-175403",
+    "heldOut": false
+  },
+  "a46": {
+    "origin": "finalist",
+    "painId": "doomscrolling",
+    "sourceCardId": "scroll-parents-wait-together",
+    "runId": "20261019-175401",
+    "heldOut": false
+  },
+  "a47": {
+    "origin": "finalist",
+    "painId": "burnout",
+    "sourceCardId": "burnout-four-day-week",
+    "runId": "20261019-175357",
+    "heldOut": false
+  },
+  "a48": {
+    "origin": "sample",
+    "painId": "rent-eats-everything",
+    "sourceCardId": "rent-social-housing",
+    "runId": "20261019-175410",
+    "heldOut": false
+  },
+  "a49": {
+    "origin": "finalist",
+    "painId": "rent-eats-everything",
+    "sourceCardId": "rent-tell-officials",
+    "runId": "20261019-175410",
+    "heldOut": false
+  },
+  "a50": {
+    "origin": "finalist",
+    "painId": "rent-eats-everything",
+    "sourceCardId": "rent-free-lawyer",
+    "runId": "20261019-175410",
+    "heldOut": false
+  },
+  "a51": {
+    "origin": "finalist",
+    "painId": "loneliness",
+    "sourceCardId": "lonely-know-where-i-stand",
+    "runId": "20261019-175403",
+    "heldOut": false
+  },
+  "a52": {
+    "origin": "finalist",
+    "painId": "nobody-covers-here",
+    "sourceCardId": "news-paid-documenter",
+    "runId": "20261019-175406",
+    "heldOut": false
+  },
+  "a53": {
+    "origin": "finalist",
+    "painId": "meaningless-work",
+    "sourceCardId": "meaning-skills-for-a-cause",
+    "runId": "20261019-175404",
+    "heldOut": false
+  },
+  "a54": {
+    "origin": "sample",
+    "painId": "burnout",
+    "sourceCardId": "burnout-talk-to-manager",
+    "runId": "20261019-175357",
+    "heldOut": false
+  },
+  "a55": {
+    "origin": "finalist",
+    "painId": "nobody-covers-here",
+    "sourceCardId": "news-state-funds-reporters",
+    "runId": "20261019-175406",
+    "heldOut": false
+  },
+  "a56": {
+    "origin": "sample",
+    "painId": "nobody-covers-here",
+    "sourceCardId": "news-watch-from-home",
+    "runId": "20261019-175406",
+    "heldOut": false
+  }
+}

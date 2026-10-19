@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "painId": "loneliness",
+  "runId": "20261019-142005",
+  "judge": {"context": "isolated", "at": "2026-10-19"},
+  "scores": {
+    "lonely-someone-to-talk-to": {
+      "actionable": {"score": 5, "reason": "\"Save 988 in your phone's contacts under a name you'll remember\" takes two minutes and is ready the next bad night."},
+      "nonObvious": {"score": 4, "reason": "\"People think of it as a suicide line, but you can also call... when you just need someone to talk to\" reframes a known number."},
+      "namedExample": {"score": 4, "reason": "988 and the Friendship Line at 888-670-1360 are named precisely, but there is no year or result."},
+      "surprise": {"score": 4, "reason": "That the Friendship Line will \"call you on a regular schedule, so you don't have to be the one who dials\" is news worth repeating."},
+      "voice": {"score": 5, "reason": "\"under a name you'll remember, like 'Someone to talk to'\" is the gentle, specific tone of a mentor."},
+      "power": {"score": 2, "reason": "\"Call or text 988 when you need someone right now\" eases the night without changing the conditions behind it."},
+      "honestStatus": {"pass": true, "reason": "988 and Friendship Line claims match their exemplars, including the age limits; the reconnecting text is labeled real now and claims only \"most people are glad\"."}
+    },
+    "lonely-not-my-fault": {
+      "actionable": {"score": 3, "reason": "\"block out one hour for time with someone else\" is a real step but generic and slow to matter."},
+      "nonObvious": {"score": 3, "reason": "\"put time with people on the calendar the way you would a doctor's appointment\" adds a small twist to familiar advice."},
+      "namedExample": {"score": 4, "reason": "\"A 2010 review of 148 studies, covering 308,849 people\" and the 2023 Surgeon General figure give names and numbers."},
+      "surprise": {"score": 3, "reason": "\"50% more likely to be alive at follow-up\" is striking, but the one-in-two figure is widely heard."},
+      "voice": {"score": 3, "reason": "\"says something about how our lives are arranged, not about what kind of person you are\" leans on a contrast punchline, and \"Remember how many adults feel this way\" sounds like a leaflet."},
+      "power": {"score": 2, "reason": "\"Remember how many adults feel this way\" is reassurance inside unchanged conditions."},
+      "honestStatus": {"pass": true, "reason": "The review is framed as \"found that people with stronger social ties were 50% more likely to be alive\", an association rather than a promise."}
+    },
+    "lonely-standing-plan": {
+      "actionable": {"score": 5, "reason": "\"suggest the same time every week, like Sunday at 4pm, for a phone call or a walk\" is a five-minute text that sets something in motion."},
+      "nonObvious": {"score": 4, "reason": "\"A plan that repeats on its own means neither of you has to remember to ask\" makes a familiar idea newly meaningful."},
+      "namedExample": {"score": 3, "reason": "\"The Harvard study that has followed people since 1938\" is named, but the result is thin, with no number."},
+      "surprise": {"score": 2, "reason": "\"close relationships kept people happy and healthy more than money or fame\" is a finding many readers have heard."},
+      "voice": {"score": 5, "reason": "\"Every week I already know when I'll next see or talk to someone who knows me well\" is plain, warm and concrete."},
+      "power": {"score": 3, "reason": "\"Go to the same place at the same time each week\" changes my own conditions."},
+      "honestStatus": {"pass": true, "reason": "This passes, but only just: \"kept people happy\" sounds more causal than the exemplar's \"predicted\" and leaves out that the original group was all men."}
+    },
+    "lonely-friendly-errands": {
+      "actionable": {"score": 4, "reason": "\"go at a quiet hour this week, and ask the person at the counter how their day is going\" is concrete and quick."},
+      "nonObvious": {"score": 4, "reason": "\"Ask your grocery store to try a no-rush checkout lane\" is an idea few readers would come up with."},
+      "namedExample": {"score": 4, "reason": "\"In 2019 a Dutch supermarket chain, Jumbo, opened its first slow 'chat checkout' in the town of Vlijmen\" gives place, year and planned scale, but no result."},
+      "surprise": {"score": 5, "reason": "A supermarket \"chat checkout\" backed by \"a Dutch health ministry program against loneliness\" is a fact people would repeat."},
+      "voice": {"score": 4, "reason": "The copy is mostly warm, but \"the idea has a track record of a store and a government working together\" is clunky."},
+      "power": {"score": 4, "reason": "\"A store manager here can try one lane on slow mornings\" changes how a local business spends staff time."},
+      "honestStatus": {"pass": true, "reason": "Jumbo is described as rollout news (\"planned hundreds more\"), with no claimed effect on loneliness."}
+    },
+    "lonely-making-things-together": {
+      "actionable": {"score": 4, "reason": "\"Search the shed finder at usmenssheds.org\" and \"Call 211 and ask which local groups need weekly volunteers\" are specific."},
+      "nonObvious": {"score": 4, "reason": "\"we build or fix things side by side\" reframes friendship as shared work instead of talk."},
+      "namedExample": {"score": 5, "reason": "\"started in Australia in the mid-1990s... about 900 of them worldwide\" plus a member in Hopkins, Minnesota."},
+      "surprise": {"score": 4, "reason": "\"the friends he made there stood by him after his wife died\" stays with you."},
+      "voice": {"score": 4, "reason": "\"somewhere to go each week where people expect me\" is warm, though \"Men's Sheds\" may not land for readers who aren't men."},
+      "power": {"score": 4, "reason": "\"Start a workshop group if there isn't one nearby\" builds a lasting community structure."},
+      "honestStatus": {"pass": true, "reason": "The second fix covers the sparse US coverage. Flag: the Hopkins widower anecdote is not in the exemplar record and should be checked against the source."}
+    },
+    "lonely-new-friends": {
+      "actionable": {"score": 4, "reason": "\"Check whether Timeleft or a similar dinner group runs in your city, and look at the next date\" is quick."},
+      "nonObvious": {"score": 3, "reason": "\"Going more than once gives you a better chance\" adds a useful twist to a known idea."},
+      "namedExample": {"score": 3, "reason": "\"Timeleft... more than 200 cities\" is a company's own figure, with no year or result."},
+      "surprise": {"score": 3, "reason": "\"a weekly dinner with five people you haven't met\" is one mildly surprising element."},
+      "voice": {"score": 4, "reason": "\"After moving or losing someone, I have a few people nearby I can call friends again\" is plain and tender, but the copy never says Timeleft costs money."},
+      "power": {"score": 3, "reason": "\"Find regular local groups that fit your schedule\" changes my own conditions."},
+      "honestStatus": {"pass": true, "reason": "The It idea is written \"It could ask what you enjoy\". \"matched by age and personality\" is not in the exemplar, and the copy leaves out that the service is paid."}
+    },
+    "lonely-doctor-takes-it-seriously": {
+      "actionable": {"score": 4, "reason": "\"Write one line to bring to your next appointment, like 'I've been feeling isolated and want to find local activities'\" is concrete."},
+      "nonObvious": {"score": 4, "reason": "\"Ask your doctor about local groups, not only medicine\" is a new idea to most US readers."},
+      "namedExample": {"score": 4, "reason": "\"In England... more than 3,300 of them by 2023\" gives place, year and number."},
+      "surprise": {"score": 4, "reason": "Doctors referring patients to \"clubs, gardening groups and other activities\" is a precedent people would mention."},
+      "voice": {"score": 5, "reason": "\"Few US practices offer this yet, so you'll likely need to ask directly\" gives one candid limit, said plainly."},
+      "power": {"score": 3, "reason": "\"Find local programs for older adults by phone\" connects me to help but leaves the system as it is."},
+      "honestStatus": {"pass": true, "reason": "The copy states the US rarity, claims no outcome, and writes the It note as \"It could take your answers\"."}
+    },
+    "lonely-know-where-i-stand": {
+      "actionable": {"score": 4, "reason": "\"Ask yourself the three questions today and answer each with hardly ever, some of the time or often\" takes five minutes."},
+      "nonObvious": {"score": 5, "reason": "\"some people see almost no one, while others have people around but don't feel understood\" reframes what help to look for."},
+      "namedExample": {"score": 3, "reason": "\"When Japan named a minister in 2021\" is thin, but this is a proposed It feature and isn't penalized."},
+      "surprise": {"score": 4, "reason": "\"the last time you saw people in person and the last time you felt understood\" is an angle worth repeating."},
+      "voice": {"score": 4, "reason": "\"without treating the score as a diagnosis\" is careful, but \"Answer three questions researchers use to measure loneliness\" reads a little clinical."},
+      "power": {"score": 2, "reason": "\"I know whether I need more people around me\" is self-knowledge, not a change in conditions."},
+      "honestStatus": {"pass": true, "reason": "Every It idea is \"It could...\", and the score is explicitly not a diagnosis."}
+    },
+    "lonely-neighbors-check-in": {
+      "actionable": {"score": 4, "reason": "\"Join your local Buy Nothing group and post one thing you no longer need\" takes ten minutes."},
+      "nonObvious": {"score": 4, "reason": "\"Picking up or dropping off a gift is an easy reason to meet the people nearby\" turns a swap group into a way to meet people."},
+      "namedExample": {"score": 4, "reason": "\"more than 14 million members\" and \"In 2018 England tried a program with Royal Mail in three towns\" are named and specific."},
+      "surprise": {"score": 4, "reason": "\"postal workers checked on lonely people during their usual rounds\" makes a reader stop."},
+      "voice": {"score": 4, "reason": "\"A few people on my street know me well enough to notice if I haven't been around\" is clear and warm."},
+      "power": {"score": 4, "reason": "\"Ask your town to have regular visitors check on people living alone\" changes who takes responsibility."},
+      "honestStatus": {"pass": true, "reason": "The Royal Mail pilot is stated as three towns and only \"tried\", and the check-in list is \"It could help\"."}
+    },
+    "lonely-young-and-old": {
+      "actionable": {"score": 4, "reason": "\"Call a nearby retirement home and ask for the activities coordinator\" is specific, though the student-housing email is slow to matter."},
+      "nonObvious": {"score": 5, "reason": "\"six university students free housing in exchange for 30 hours a month with residents\" is an idea most people haven't heard of."},
+      "namedExample": {"score": 5, "reason": "\"In 2015 a retirement home run by Humanitas in Deventer\" gives place, year and concrete terms."},
+      "surprise": {"score": 5, "reason": "Free rent for students in exchange for time with residents is a precedent you'd tell a friend about."},
+      "voice": {"score": 4, "reason": "\"teaching computer skills, cooking together and sometimes just talking\" is plain and human, though \"not just a holiday visit\" leans on contrast."},
+      "power": {"score": 4, "reason": "\"Ask a local retirement home about students living there\" changes who gets housing and time."},
+      "honestStatus": {"pass": true, "reason": "Describes one home and six students as what happened, and claims nothing broader."}
+    },
+    "lonely-government-plan": {
+      "actionable": {"score": 3, "reason": "\"Look up your governor's contact page and save it\" is weak, though \"Send your city council member one sentence about Seoul's line\" is real."},
+      "nonObvious": {"score": 4, "reason": "\"Ask your city for a phone line for loneliness\" is a concrete local version of a policy idea."},
+      "namedExample": {"score": 5, "reason": "\"Seoul opened a... loneliness line in April 2025... more calls in six weeks than it expected all year\" gives place, date and result."},
+      "surprise": {"score": 5, "reason": "\"Most callers were middle-aged, not elderly\" overturns an assumption."},
+      "voice": {"score": 4, "reason": "\"Some people prefer that this work stay with families and local groups\" is fair-minded, though \"Send your representatives the same request as others who care\" is roundabout."},
+      "power": {"score": 5, "reason": "\"name someone responsible for loneliness\" changes who owns the problem."},
+      "honestStatus": {"pass": true, "reason": "The contested policy is offered with the other side named, and Resistbot is \"It could gather\". Flag: \"24-hour\" is not in the Seoul exemplar record."}
+    },
+    "lonely-work-friends": {
+      "actionable": {"score": 4, "reason": "\"Invite two coworkers to lunch on the same day next week\" takes five minutes."},
+      "nonObvious": {"score": 3, "reason": "\"a monthly team lunch on company time\" gives a familiar basic a small useful twist."},
+      "namedExample": {"score": 3, "reason": "\"large employers such as the grocery chain Sainsbury's promised to do more\" is named but thin."},
+      "surprise": {"score": 2, "reason": "\"Start a regular lunch with a few coworkers\" is predictable from the title."},
+      "voice": {"score": 4, "reason": "\"a few people I eat lunch with and could call if something went wrong\" is plain and clear."},
+      "power": {"score": 4, "reason": "\"building time for people to meet into the workweek\" changes who pays for the time."},
+      "honestStatus": {"pass": true, "reason": "The pledge is stated as a promise (\"promised to do more\"), not a result."}
+    },
+    "lonely-place-to-show-up": {
+      "actionable": {"score": 4, "reason": "\"Look up your nearest senior center or library events page and pick one program this week\" is concrete."},
+      "nonObvious": {"score": 3, "reason": "\"A vacant storefront or an unused church hall could do the same job\" gives a known idea a local twist."},
+      "namedExample": {"score": 4, "reason": "\"England's 2018 loneliness strategy promised £1.8 million\" gives year and amount, but no result."},
+      "surprise": {"score": 3, "reason": "A government funding community cafés is one surprising element."},
+      "voice": {"score": 4, "reason": "\"sit with other people without paying or being invited\" is clear, but \"£1.8 million\" is unfamiliar to US readers."},
+      "power": {"score": 4, "reason": "\"Ask your city to turn an empty space into a community room\" changes how shared space is used."},
+      "honestStatus": {"pass": true, "reason": "The funding is described as \"promised\", which matches the exemplar's limit."}
+    },
+    "lonely-street-gathering": {
+      "actionable": {"score": 4, "reason": "\"Ask one neighbor whether they'd host the gathering after yours\" is quick and moves things forward."},
+      "nonObvious": {"score": 3, "reason": "\"Take turns hosting so no one burns out\" gives the potluck basic a useful twist."},
+      "namedExample": {"score": 3, "reason": "There is no example, but this is a clearly labeled It idea, so it gets a neutral score."},
+      "surprise": {"score": 2, "reason": "\"a monthly potluck or porch hour\" is predictable."},
+      "voice": {"score": 4, "reason": "\"A first gathering can be as small as coffee on one porch\" is warm and low-pressure."},
+      "power": {"score": 3, "reason": "\"the planning is shared\" changes conditions on one street, modestly."},
+      "honestStatus": {"pass": true, "reason": "Both fixes say \"It could...\" and are labeled proposed It features."}
+    }
+  },
+  "pairwise": [
+    {"a": "lonely-young-and-old", "b": "lonely-government-plan", "winner": "lonely-young-and-old", "reason": "The Deventer students feel personal and vivid, while the government plan feels distant."},
+    {"a": "lonely-young-and-old", "b": "lonely-friendly-errands", "winner": "lonely-young-and-old", "reason": "Students living with residents is a bigger, more moving idea than a slow checkout lane."},
+    {"a": "lonely-young-and-old", "b": "lonely-making-things-together", "winner": "lonely-making-things-together", "reason": "A lonely reader can find a shed this week, and the widower story lands harder."},
+    {"a": "lonely-young-and-old", "b": "lonely-someone-to-talk-to", "winner": "lonely-someone-to-talk-to", "reason": "A lonely reader on a heavy evening wants someone to talk to tonight first."},
+    {"a": "lonely-young-and-old", "b": "lonely-doctor-takes-it-seriously", "winner": "lonely-young-and-old", "reason": "The Humanitas precedent is more surprising and more hopeful than a doctor's referral."},
+    {"a": "lonely-young-and-old", "b": "lonely-neighbors-check-in", "winner": "lonely-young-and-old", "reason": "Shared housing across generations is more striking than Buy Nothing."},
+    {"a": "lonely-young-and-old", "b": "lonely-know-where-i-stand", "winner": "lonely-young-and-old", "reason": "A real precedent beats a proposed self-check."},
+    {"a": "lonely-government-plan", "b": "lonely-friendly-errands", "winner": "lonely-friendly-errands", "reason": "The chat checkout is charming and something the reader can try at the store this week."},
+    {"a": "lonely-government-plan", "b": "lonely-making-things-together", "winner": "lonely-making-things-together", "reason": "A weekly group beats a letter to the governor for someone lonely now."},
+    {"a": "lonely-government-plan", "b": "lonely-someone-to-talk-to", "winner": "lonely-someone-to-talk-to", "reason": "Immediate, personal help beats a policy campaign."},
+    {"a": "lonely-government-plan", "b": "lonely-doctor-takes-it-seriously", "winner": "lonely-doctor-takes-it-seriously", "reason": "Raising loneliness with a doctor is a concrete step at the reader's next visit."},
+    {"a": "lonely-government-plan", "b": "lonely-neighbors-check-in", "winner": "lonely-neighbors-check-in", "reason": "Meeting a neighbor through Buy Nothing is closer to home than a minister."},
+    {"a": "lonely-government-plan", "b": "lonely-know-where-i-stand", "winner": "lonely-know-where-i-stand", "reason": "Telling isolation apart from loneliness helps the reader personally right away."},
+    {"a": "lonely-friendly-errands", "b": "lonely-making-things-together", "winner": "lonely-making-things-together", "reason": "Weekly side-by-side work builds friendships, while counter chats stay brief."},
+    {"a": "lonely-friendly-errands", "b": "lonely-someone-to-talk-to", "winner": "lonely-someone-to-talk-to", "reason": "Saving 988 under 'Someone to talk to' covers the hardest hour."},
+    {"a": "lonely-friendly-errands", "b": "lonely-doctor-takes-it-seriously", "winner": "lonely-doctor-takes-it-seriously", "reason": "Social prescribing points to more lasting connection than a cashier chat."},
+    {"a": "lonely-friendly-errands", "b": "lonely-neighbors-check-in", "winner": "lonely-neighbors-check-in", "reason": "Neighbors who notice you're gone matter more than a friendly checkout."},
+    {"a": "lonely-friendly-errands", "b": "lonely-know-where-i-stand", "winner": "lonely-friendly-errands", "reason": "A real precedent and an easy errand beat a proposed self-assessment."},
+    {"a": "lonely-making-things-together", "b": "lonely-someone-to-talk-to", "winner": "lonely-making-things-together", "reason": "A place where people expect you every week does more than a helpline."},
+    {"a": "lonely-making-things-together", "b": "lonely-doctor-takes-it-seriously", "winner": "lonely-making-things-together", "reason": "The reader can go straight to a group without waiting for an appointment."},
+    {"a": "lonely-making-things-together", "b": "lonely-neighbors-check-in", "winner": "lonely-making-things-together", "reason": "The Men's Sheds story and the weekly rhythm are more vivid."},
+    {"a": "lonely-making-things-together", "b": "lonely-know-where-i-stand", "winner": "lonely-making-things-together", "reason": "Real people and a real place beat a self-check."},
+    {"a": "lonely-someone-to-talk-to", "b": "lonely-doctor-takes-it-seriously", "winner": "lonely-someone-to-talk-to", "reason": "A two-minute step that helps tonight beats an appointment weeks away."},
+    {"a": "lonely-someone-to-talk-to", "b": "lonely-neighbors-check-in", "winner": "lonely-someone-to-talk-to", "reason": "Knowing someone will pick up at any hour is the most reassuring thing on offer."},
+    {"a": "lonely-someone-to-talk-to", "b": "lonely-know-where-i-stand", "winner": "lonely-someone-to-talk-to", "reason": "Help ready now beats a measurement."},
+    {"a": "lonely-doctor-takes-it-seriously", "b": "lonely-neighbors-check-in", "winner": "lonely-doctor-takes-it-seriously", "reason": "England's 3,300 link workers is a more surprising precedent, with a candid US limit."},
+    {"a": "lonely-doctor-takes-it-seriously", "b": "lonely-know-where-i-stand", "winner": "lonely-doctor-takes-it-seriously", "reason": "A real resource beats a proposed It feature."},
+    {"a": "lonely-neighbors-check-in", "b": "lonely-know-where-i-stand", "winner": "lonely-neighbors-check-in", "reason": "Meeting actual neighbors beats answering questions about yourself."}
+  ],
+  "seed": 17
+}

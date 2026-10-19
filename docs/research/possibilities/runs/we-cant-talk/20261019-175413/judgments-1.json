@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "painId": "we-cant-talk",
+  "runId": "20261019-142015",
+  "judge": {"context": "isolated", "at": "2026-10-19"},
+  "scores": {
+    "talk-heard-first": {
+      "actionable": {"score": 5, "reason": "\"before you give your view, say back what you heard and ask whether you got it right\" is doable today."},
+      "nonObvious": {"score": 3, "reason": "Active listening is familiar; \"keep going until they say yes\" gives it a useful twist."},
+      "namedExample": {"score": 2, "reason": "Cites Amanda Ripley's High Conflict but no place, number or result."},
+      "surprise": {"score": 2, "reason": "\"Most people find the first round humbling\" is the only unexpected note."},
+      "voice": {"score": 4, "reason": "Plain and warm: \"The point is for them to feel understood before you give your side.\""},
+      "power": {"score": 2, "reason": "A personal habit inside unchanged conditions."},
+      "honestStatus": {"pass": true, "reason": "Describes the looping exercise without claiming outcome data, matching the exemplar."}
+    },
+    "talk-raise-touchy-subject": {
+      "actionable": {"score": 5, "reason": "\"suggest three simple rules and ask the other person to add one of their own\" takes five minutes."},
+      "nonObvious": {"score": 4, "reason": "Opening with \"I'm not trying to change your mind\" reframes the goal usefully."},
+      "namedExample": {"score": 4, "reason": "Brookline 1994, six leaders, six years; Thanksgiving ad effect \"about three times larger\"."},
+      "surprise": {"score": 4, "reason": "\"Nobody changed sides, and they became friends\" is worth repeating."},
+      "voice": {"score": 4, "reason": "\"Turning off the news won't settle anything, but it takes away a lot of fuel\" is candid and plain."},
+      "power": {"score": 2, "reason": "Personal conversation tactics only."},
+      "honestStatus": {"pass": false, "reason": "Quotes a participant saying \"we were never going to agree\", which the exemplar doesn't contain, and presents the Thanksgiving finding without the smaller replicated effect."}
+    },
+    "talk-know-other-side": {
+      "actionable": {"score": 5, "reason": "\"Take the free Perception Gap quiz\" is a specific 10-minute step."},
+      "nonObvious": {"score": 4, "reason": "Asking \"What do you actually think should happen?\" because we overestimate extremity is a fresh angle."},
+      "namedExample": {"score": 5, "reason": "\"2019 survey of 2,100 Americans, More in Common and YouGov\", \"almost twice as many\"."},
+      "surprise": {"score": 5, "reason": "\"The people who followed the news most closely were the furthest off\" is a fact you'd repeat."},
+      "voice": {"score": 4, "reason": "Calm and factual; the \"It could ask you\" idea is clearly framed."},
+      "power": {"score": 2, "reason": "Changes your own perceptions, not conditions."},
+      "honestStatus": {"pass": true, "reason": "Survey stated with its size and year; the It idea is written \"It could\"."}
+    },
+    "talk-family-close": {
+      "actionable": {"score": 5, "reason": "\"Text the relative you're most likely to clash with and tell them you're looking forward to seeing them\" is concrete and quick."},
+      "nonObvious": {"score": 5, "reason": "Reframes the shortened-dinner research: \"those families still sat down together, and that's the part worth protecting\"."},
+      "namedExample": {"score": 4, "reason": "\"A careful 2020 follow-up put the difference at about 24 minutes\"; Boston leaders' first two years."},
+      "surprise": {"score": 4, "reason": "The 24-minute figure turns a gloomy study into a hopeful one."},
+      "voice": {"score": 5, "reason": "Sounds like a mentor: \"Decide the visit matters more than the argument\"."},
+      "power": {"score": 3, "reason": "A personal fix meaningful enough to protect family ties."},
+      "honestStatus": {"pass": true, "reason": "Uses the replication's smaller number honestly rather than the larger original effect."}
+    },
+    "talk-cross-party-friend": {
+      "actionable": {"score": 5, "reason": "\"Fill out the sign-up form at takeonesmallstep.org\" is a 10-minute step."},
+      "nonObvious": {"score": 3, "reason": "Known programs, made useful by \"one friend who leans the other way and one who leans your way\"."},
+      "namedExample": {"score": 5, "reason": "\"2020 study on four college campuses, participants showed 22% less hostility\"."},
+      "surprise": {"score": 3, "reason": "\"some of that was still there six months on\" is one notable element."},
+      "voice": {"score": 4, "reason": "Plain and direct: \"about their lives, not a debate\"."},
+      "power": {"score": 3, "reason": "Changes your own social conditions by meeting the other side."},
+      "honestStatus": {"pass": true, "reason": "Names the campus sample and partial durability; existing resources labeled as such."}
+    },
+    "talk-town-forum": {
+      "actionable": {"score": 4, "reason": "\"Ask your town library or neighborhood association whether there's a moderated local email list\" is real but depends on others."},
+      "nonObvious": {"score": 4, "reason": "\"no anonymous posting and no comment threads\" is a design detail most wouldn't think of."},
+      "namedExample": {"score": 5, "reason": "Front Porch Forum, Vermont, \"2023 University of Texas survey... 80%\"."},
+      "surprise": {"score": 4, "reason": "A town forum where 80% say people are respectful is a striking counterexample."},
+      "voice": {"score": 4, "reason": "Clear title \"Ask for a neighbors-only forum with a human moderator\"."},
+      "power": {"score": 4, "reason": "Changes how a town's shared space is run."},
+      "honestStatus": {"pass": true, "reason": "Survey is attributed to its members; \"about 200 more\" may overlap the 275, a small wording risk but not a status overclaim."}
+    },
+    "talk-citizen-panels": {
+      "actionable": {"score": 3, "reason": "\"Email a political science professor\" is a real step but slow to matter."},
+      "nonObvious": {"score": 4, "reason": "Random citizen panels are unfamiliar to most readers."},
+      "namedExample": {"score": 5, "reason": "\"523 randomly chosen registered voters... 22 of the 26\"; Ireland's 99 people over 12 weekends."},
+      "surprise": {"score": 5, "reason": "Ireland's assembly recommendation \"led to a national referendum\"."},
+      "voice": {"score": 4, "reason": "Calm limits: \"This was one weekend, run by people who believe in the method.\""},
+      "power": {"score": 5, "reason": "Changes who decides on hard public questions."},
+      "honestStatus": {"pass": true, "reason": "Each example carries its plain limit; framed as asks, not asserted policy."}
+    },
+    "talk-town-agrees": {
+      "actionable": {"score": 4, "reason": "\"Send one city council member a link about Pol.is\" is quick, though the result depends on them."},
+      "nonObvious": {"score": 5, "reason": "\"Nobody can reply to anyone, only add statements and vote\" is a genuinely new idea."},
+      "namedExample": {"score": 5, "reason": "Taiwan 2015, about 3,000 people; Bowling Green 2025, \"2,370 were backed by more than 80%\"."},
+      "surprise": {"score": 5, "reason": "A tool that bans replies to find agreement is something to tell a friend."},
+      "voice": {"score": 4, "reason": "Plain explanation; \"It could let you add a statement\" is honest."},
+      "power": {"score": 5, "reason": "Shifts how a city or county decides."},
+      "honestStatus": {"pass": true, "reason": "Notes that screening was still needed; It idea framed as \"It could\"."}
+    },
+    "talk-prepared": {
+      "actionable": {"score": 4, "reason": "\"Write down one thing you want the other person to understand\" works without It."},
+      "nonObvious": {"score": 3, "reason": "Rehearsing with \"It could play the other side\" is a useful twist on preparation."},
+      "namedExample": {"score": 3, "reason": "Proposed It ideas, fairly linked to Essential Partners and One Small Step."},
+      "surprise": {"score": 2, "reason": "Predictable from \"prepared instead of braced\"."},
+      "voice": {"score": 4, "reason": "\"before you try it with someone you love\" is warm and plain."},
+      "power": {"score": 2, "reason": "Personal preparation only."},
+      "honestStatus": {"pass": true, "reason": "Every fix starts \"It could\" and is labeled proposed."}
+    },
+    "talk-leaders-model": {
+      "actionable": {"score": 3, "reason": "\"Write a short note to your governor\" is real but slow to matter."},
+      "nonObvious": {"score": 4, "reason": "Asking leaders to \"record an ad with someone from the other party\" is unexpected."},
+      "namedExample": {"score": 4, "reason": "Utah's Spencer Cox and Colorado's Jared Polis, 2023-24, but no result."},
+      "surprise": {"score": 4, "reason": "A Republican and a Democratic governor making a video together is notable."},
+      "voice": {"score": 4, "reason": "Plain, though \"across the aisle\" is a stock phrase."},
+      "power": {"score": 4, "reason": "Pushes the people in power to change public norms."},
+      "honestStatus": {"pass": true, "reason": "States what the initiative suggests without claiming results; It list is \"It could\"."}
+    },
+    "talk-move-minds": {
+      "actionable": {"score": 4, "reason": "\"ask the other person about a time they've been treated unfairly\" is specific, if a bit awkward to raise."},
+      "nonObvious": {"score": 4, "reason": "\"asking people about their own experiences and listening, rather than arguing facts\" turns persuasion around."},
+      "namedExample": {"score": 4, "reason": "\"2015 study in Miami... 10 to 15 minutes... three months later\", though no size of effect."},
+      "surprise": {"score": 4, "reason": "A short listening talk lasting three months is surprising."},
+      "voice": {"score": 4, "reason": "\"You don't have to choose\" is a candid mentor line."},
+      "power": {"score": 3, "reason": "Adds \"show up where decisions get made\"."},
+      "honestStatus": {"pass": true, "reason": "Critique offered as \"Some critics... argue\"; study scope stated, though the one-in-ten limit is omitted."}
+    },
+    "talk-pause": {
+      "actionable": {"score": 5, "reason": "\"pick one together\" tonight is immediate and specific."},
+      "nonObvious": {"score": 2, "reason": "\"time out\" is the first thing anyone would suggest, though \"say exactly when you'll pick it up again\" helps."},
+      "namedExample": {"score": 1, "reason": "No example at all."},
+      "surprise": {"score": 1, "reason": "Predictable from the title."},
+      "voice": {"score": 4, "reason": "\"turns a stop into a postponement\" is plain, close to a punchline."},
+      "power": {"score": 2, "reason": "Coping inside the relationship as it is."},
+      "honestStatus": {"pass": true, "reason": "Makes no claims beyond common sense and cites no study."}
+    },
+    "talk-local-alliance": {
+      "actionable": {"score": 4, "reason": "\"Check the Braver Angels site for a local group near you\" is concrete."},
+      "nonObvious": {"score": 4, "reason": "Measuring your own group with \"one 0-to-100 question\" is an unusual twist."},
+      "namedExample": {"score": 4, "reason": "\"10 Clinton and 10 Trump supporters\" in Ohio; warmth \"rose from 36 to 54\"."},
+      "surprise": {"score": 4, "reason": "Own-side feelings \"barely moved\" while warmth to the other rose."},
+      "voice": {"score": 4, "reason": "Candid: \"Most participants so far are older and college-educated\"."},
+      "power": {"score": 4, "reason": "Builds a lasting local group across party lines."},
+      "honestStatus": {"pass": true, "reason": "Labels the 36-to-54 figure as \"Braver Angels' own surveys\"."}
+    },
+    "talk-kids-school": {
+      "actionable": {"score": 4, "reason": "\"Send your child's teacher the link... with a one-line note\" is quick."},
+      "nonObvious": {"score": 3, "reason": "Classroom listening drills are a known basic made concrete."},
+      "namedExample": {"score": 2, "reason": "Names Inspired Teaching and Essential Partners but no result."},
+      "surprise": {"score": 2, "reason": "Little here a reader wouldn't expect."},
+      "voice": {"score": 4, "reason": "Plain titles like \"Ask your school about free dialogue training for teachers\"."},
+      "power": {"score": 3, "reason": "Changes what a school teaches."},
+      "honestStatus": {"pass": true, "reason": "Describes available resources without claiming outcomes."}
+    }
+  },
+  "pairwise": [
+    {"a": "talk-family-close", "b": "talk-know-other-side", "winner": "talk-family-close", "reason": "Protecting the holiday visit speaks straight to this pain; the quiz is interesting but more distant."},
+    {"a": "talk-family-close", "b": "talk-town-agrees", "winner": "talk-family-close", "reason": "A reader who can't talk to family wants the dinner table before a city tool."},
+    {"a": "talk-family-close", "b": "talk-cross-party-friend", "winner": "talk-family-close", "reason": "Keeping your own family close matters more than meeting a stranger."},
+    {"a": "talk-family-close", "b": "talk-move-minds", "winner": "talk-family-close", "reason": "The 24-minute reframe is warmer and more hopeful than the canvassing study."},
+    {"a": "talk-family-close", "b": "talk-citizen-panels", "winner": "talk-family-close", "reason": "A five-minute text to a relative beats an email to a professor for this reader."},
+    {"a": "talk-family-close", "b": "talk-local-alliance", "winner": "talk-family-close", "reason": "More personal and immediate than joining a group."},
+    {"a": "talk-family-close", "b": "talk-town-forum", "winner": "talk-family-close", "reason": "Family ties are closer to the pain than a town email list."},
+    {"a": "talk-know-other-side", "b": "talk-town-agrees", "winner": "talk-know-other-side", "reason": "The news-readers-most-wrong finding plus a 10-minute quiz is easier to act on tonight."},
+    {"a": "talk-know-other-side", "b": "talk-cross-party-friend", "winner": "talk-know-other-side", "reason": "The perception gap is more surprising than familiar dialogue programs."},
+    {"a": "talk-know-other-side", "b": "talk-move-minds", "winner": "talk-know-other-side", "reason": "A free quiz is a cleaner first step than steering a talk toward unfair treatment."},
+    {"a": "talk-know-other-side", "b": "talk-citizen-panels", "winner": "talk-know-other-side", "reason": "Readers can act on it today; citizen panels need institutions."},
+    {"a": "talk-know-other-side", "b": "talk-local-alliance", "winner": "talk-know-other-side", "reason": "A sharper fact and a faster step."},
+    {"a": "talk-know-other-side", "b": "talk-town-forum", "winner": "talk-know-other-side", "reason": "More personally useful and surprising than a forum request."},
+    {"a": "talk-town-agrees", "b": "talk-cross-party-friend", "winner": "talk-town-agrees", "reason": "A no-replies tool with Taiwan and Kentucky results is fresher than known sign-ups."},
+    {"a": "talk-town-agrees", "b": "talk-move-minds", "winner": "talk-town-agrees", "reason": "Bigger, more surprising idea with stronger numbers."},
+    {"a": "talk-town-agrees", "b": "talk-citizen-panels", "winner": "talk-town-agrees", "reason": "Both are societal, but Pol.is plus an It idea feels more reachable than an assembly."},
+    {"a": "talk-town-agrees", "b": "talk-local-alliance", "winner": "talk-town-agrees", "reason": "More novel mechanism and larger results."},
+    {"a": "talk-town-agrees", "b": "talk-town-forum", "winner": "talk-town-agrees", "reason": "Surfacing agreement goes further than keeping a forum polite."},
+    {"a": "talk-cross-party-friend", "b": "talk-move-minds", "winner": "talk-cross-party-friend", "reason": "A ready-made sign-up with a 22% result is an easier yes."},
+    {"a": "talk-cross-party-friend", "b": "talk-citizen-panels", "winner": "talk-cross-party-friend", "reason": "Something you can join this month beats lobbying for panels."},
+    {"a": "talk-cross-party-friend", "b": "talk-local-alliance", "winner": "talk-cross-party-friend", "reason": "One conversation is a lower bar than joining a monthly group."},
+    {"a": "talk-cross-party-friend", "b": "talk-town-forum", "winner": "talk-cross-party-friend", "reason": "Three ready programs feel more doable than a town list."},
+    {"a": "talk-move-minds", "b": "talk-citizen-panels", "winner": "talk-move-minds", "reason": "Listening that shifts minds is closer to the pain than civic panels."},
+    {"a": "talk-move-minds", "b": "talk-local-alliance", "winner": "talk-move-minds", "reason": "Speaks to the wish to actually move someone, with a solid study."},
+    {"a": "talk-move-minds", "b": "talk-town-forum", "winner": "talk-move-minds", "reason": "More personal and usable in the next conversation."},
+    {"a": "talk-citizen-panels", "b": "talk-local-alliance", "winner": "talk-citizen-panels", "reason": "Ireland's referendum and 22 of 26 proposals are more striking."},
+    {"a": "talk-citizen-panels", "b": "talk-town-forum", "winner": "talk-citizen-panels", "reason": "Higher ambition and stronger examples."},
+    {"a": "talk-local-alliance", "b": "talk-town-forum", "winner": "talk-local-alliance", "reason": "A group you can join or start is more concrete than asking for a forum."}
+  ],
+  "seed": 17
+}
