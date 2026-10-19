@@ -65,5 +65,6 @@ v0.1 is staged: **core** must ship; **optional** ships if time allows; **soon** 
 | soon | Sharing a future or path | Picks are private by default; sharing must be an explicit act on a separate copy |
 | soon | Matching people with goals to people offering help | Help-page answers use structured lists (job titles, skills), not just free text |
 | soon | Starting from a dream instead of a pain ("I want to write a novel") | Dreams can exist without a parent pain in the content model |
+| ? soon | Explicit paths: an ordered set of ways toward a future (first, next, then); icon idea: Footprints, with each step keeping the Task icon (2026-10-18) | Picked ways are stored per pain → future path with stable way IDs, so an order can be added later |
 
 ? Anything missing from "soon"?
