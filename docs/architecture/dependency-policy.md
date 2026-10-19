@@ -21,3 +21,8 @@ NativeWind 5.0.0-rc.0 and react-native-css 3.1.0-rc.0 are an intentional prerele
 
 The Expo CLI's dependency resolver owns SDK-specific package versions. Re-run `expo install --check` after dependency changes. `pnpm outdated` is useful for finding candidates, but its `Latest` column is not an Expo compatibility guarantee. pnpm added exact-version entries to `minimumReleaseAgeExclude` for Expo packages selected by the CLI because those releases were newer than pnpm's release-age window at install time.
 
+
+## Spec and agent tooling
+
+- OpenSpec CLI 1.14.1 (`npm install -g @fission-ai/openspec@1.14.1`; chosen 2026-10-19 as the newest release at least two weeks old). Telemetry off (`openspec config set telemetry.enabled false`). Generated files: `openspec/`, `.claude/skills/openspec-*`, `.claude/commands/opsx/`, `.agents/skills/openspec-*`. Refresh with `openspec update` after upgrading the CLI, and review the diff.
+- Matt Pocock's skills (MIT), vendored from `github.com/mattpocock/skills` at commit `5beb35b040e3de97e54fa9e386d7e42d15c295c2` (2026-10-19), copied unmodified into `.claude/skills/` and `.agents/skills/`: grill-me, grilling, grill-with-docs, handoff, writing-for-agents, to-tickets, domain-modeling, tdd, implement, code-review, research, setup-matt-pocock-skills. Not vendored: `to-spec` (OpenSpec's `/opsx:propose` writes specs instead) and the rest of the catalog. To update, check out a newer reviewed commit, read the diff of these folders, and copy them again.
