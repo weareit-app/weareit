@@ -35,7 +35,7 @@ test("shows the watercolor loader while content loads, then the content (US2)", 
 }) => {
   const canvasKit = recordCanvasKit(page);
   await serveContent(page, 2500);
-  await page.goto("/onboarding/personal");
+  await page.goto("/");
 
   // No words on screen; screen readers hear "Loading…".
   await expect(
@@ -46,9 +46,10 @@ test("shows the watercolor loader while content loads, then the content (US2)", 
   await expect(page.locator(DOT)).toHaveAttribute("aria-hidden", "true");
 
   await expect(
-    page.getByRole("heading", { name: "What do you want to change?" }),
+    page.getByRole("heading", { name: "It can be better." }),
   ).toBeVisible({ timeout: 15_000 });
-  await expect(page.locator(DOT)).toHaveCount(0);
+  // The loader is gone; the logo's still dot remains.
+  await expect(page.getByRole("progressbar")).toHaveCount(0);
   expect(canvasKit).toEqual([]);
 });
 
@@ -57,7 +58,7 @@ test("draws the gathering loader with WebGL on web: it keeps changing, not growi
 }) => {
   const canvasKit = recordCanvasKit(page);
   await page.route("**/rpc/**", () => new Promise(() => {}));
-  await page.goto("/onboarding/personal");
+  await page.goto("/");
   const canvas = page.locator(`${DOT} canvas`);
   await expect(canvas).toBeVisible();
 
@@ -113,7 +114,7 @@ test("shows retry and no dot when content fails to load (FR-013)", async ({
   await page.route("**/rpc/**", (route) =>
     route.fulfill({ status: 500, body: "unavailable" }),
   );
-  await page.goto("/onboarding/personal");
+  await page.goto("/");
 
   await expect(page.getByText("Try again", { exact: true })).toBeVisible({
     timeout: 15_000,
@@ -125,9 +126,8 @@ test("does not load Skia's web runtime outside the lab", async ({ page }) => {
   const canvasKit = recordCanvasKit(page);
   await serveContent(page, 0);
   await page.goto("/");
-  await page.getByRole("link", { name: "Get started" }).click();
   await expect(
-    page.getByRole("heading", { name: "What do you want to change?" }),
+    page.getByRole("heading", { name: "It can be better." }),
   ).toBeVisible({ timeout: 15_000 });
   expect(canvasKit).toEqual([]);
 });

@@ -165,6 +165,13 @@ export default function CmsScreen() {
               ? value
               : link.dreamId,
         })),
+        fixDreamLinks: graph.fixDreamLinks.map((link) => ({
+          ...link,
+          dreamId:
+            kind === "dreams" && link.dreamId === selectedId
+              ? value
+              : link.dreamId,
+        })),
         actionPainLinks: graph.actionPainLinks.map((link) => ({
           actionId:
             kind === "firstActions" && link.actionId === selectedId

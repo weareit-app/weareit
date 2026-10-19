@@ -1,9 +1,7 @@
 import { Link } from "expo-router";
 import { Image, Pressable, View } from "react-native";
 import { Text } from "../../src/components/text";
-import { ChoiceCard } from "../../src/components/choice-card";
 import { FirstActionCard } from "../../src/components/first-action-card";
-import { dreamIllustrations } from "../../src/content/illustrations";
 import { Page } from "../../src/components/page";
 import { useOnboardingStore } from "../../src/state/onboarding-store";
 import { usePublishedContent } from "../../src/content/use-published-content";
@@ -12,17 +10,11 @@ import { ContentQueryState } from "../../src/components/content-query-state";
 export default function FuturesScreen() {
   const personalIds = useOnboardingStore((state) => state.personalPainIds);
   const worldIds = useOnboardingStore((state) => state.worldPainIds);
-  const selectedPersonalDreams = useOnboardingStore(
+  const chosenPersonalDreamIds = useOnboardingStore(
     (state) => state.personalDreamIds,
   );
-  const selectedWorldDreams = useOnboardingStore(
+  const chosenWorldDreamIds = useOnboardingStore(
     (state) => state.worldDreamIds,
-  );
-  const togglePersonalDream = useOnboardingStore(
-    (state) => state.togglePersonalDream,
-  );
-  const toggleWorldDream = useOnboardingStore(
-    (state) => state.toggleWorldDream,
   );
   const contentQuery = usePublishedContent();
   if (!contentQuery.data) {
@@ -36,20 +28,14 @@ export default function FuturesScreen() {
     if (state) return state;
   }
   const content = contentQuery.data!.content;
-  const personalDreamIds = new Set(
-    content.painDreamLinks
-      .filter(({ painId }) => personalIds.includes(painId))
-      .map(({ dreamId }) => dreamId),
-  );
-  const worldDreamIds = new Set(
-    content.painDreamLinks
-      .filter(({ painId }) => worldIds.includes(painId))
-      .map(({ dreamId }) => dreamId),
-  );
+  // Futures are chosen on the personal and societal pages; here they are a
+  // reminder.
   const personalDreams = content.dreams.filter(({ id }) =>
-    personalDreamIds.has(id),
+    chosenPersonalDreamIds.includes(id),
   );
-  const worldDreams = content.dreams.filter(({ id }) => worldDreamIds.has(id));
+  const worldDreams = content.dreams.filter(({ id }) =>
+    chosenWorldDreamIds.includes(id),
+  );
   const actionsFor = (painIds: string[]) => {
     const matchedActionIds = new Set(
       content.actionPainLinks
@@ -80,18 +66,28 @@ export default function FuturesScreen() {
           {personalDreams.length ? (
             <View className="gap-3">
               <Text className="font-ui-bold text-lg text-ink">
-                For your life · choose what calls to you
+                For your life
               </Text>
               {personalDreams.map((dream) => (
-                <ChoiceCard
+                <View
                   key={dream.id}
-                  title={dream.title}
-                  description={dream.description}
-                  selected={selectedPersonalDreams.includes(dream.id)}
-                  onPress={() => togglePersonalDream(dream.id)}
-                  illustration={dreamIllustrations[dream.id]}
-                />
+                  className="gap-1 border-b border-rule py-3"
+                >
+                  <Text className="font-heading text-lg text-ink">
+                    {dream.title}
+                  </Text>
+                  <Text className="font-ui text-[15px] leading-5 text-ink-soft">
+                    {dream.description}
+                  </Text>
+                </View>
               ))}
+              <Link href="/" asChild>
+                <Pressable className="self-start py-2">
+                  <Text className="text-ink-soft underline">
+                    Change what could be better for you
+                  </Text>
+                </Pressable>
+              </Link>
             </View>
           ) : null}
           {worldDreams.length ? (
@@ -100,15 +96,25 @@ export default function FuturesScreen() {
                 For the world we share
               </Text>
               {worldDreams.map((dream) => (
-                <ChoiceCard
+                <View
                   key={dream.id}
-                  title={dream.title}
-                  description={dream.description}
-                  selected={selectedWorldDreams.includes(dream.id)}
-                  onPress={() => toggleWorldDream(dream.id)}
-                  illustration={dreamIllustrations[dream.id]}
-                />
+                  className="gap-1 border-b border-rule py-3"
+                >
+                  <Text className="font-heading text-lg text-ink">
+                    {dream.title}
+                  </Text>
+                  <Text className="font-ui text-[15px] leading-5 text-ink-soft">
+                    {dream.description}
+                  </Text>
+                </View>
               ))}
+              <Link href="/onboarding/world" asChild>
+                <Pressable className="self-start py-2">
+                  <Text className="text-ink-soft underline">
+                    Change what could be better for us
+                  </Text>
+                </Pressable>
+              </Link>
             </View>
           ) : null}
         </View>

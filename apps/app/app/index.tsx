@@ -1,54 +1,50 @@
 import { Link } from "expo-router";
-import { Image, Pressable, View } from "react-native";
+import { Pressable, View } from "react-native";
 import { Text } from "../src/components/text";
-import { Page } from "../src/components/page";
+import { PainExplorer } from "../src/components/personal/pain-explorer";
+import { BrandMark } from "../src/watercolor/brand-mark";
 
-export default function WelcomeScreen() {
+// The landing page, "What could be better for you?" (spec 001).
+export default function LandingScreen() {
   return (
-    <Page
-      brand
-      title="Let’s start the good timeline."
-      description={
-        "Become who you want to be.\nBuild the world you want to live in."
-      }
-    >
-      <View className="h-44 w-full items-center justify-center overflow-hidden rounded-3xl bg-white">
-        <Image
-          source={require("../assets/brand/watercolor-orb.jpg")}
-          resizeMode="contain"
-          className="h-full w-44"
-          accessibilityLabel="Watercolor orb in blue and green"
-        />
-      </View>
-      <View className="gap-5">
-        <Text className="font-heading text-3xl leading-9 text-ink">
-          It can be better.
-        </Text>
-        <Text className="font-body text-lg leading-7 text-ink">
-          Explore what you want to change, imagine what could be different, and
-          find a first step.
-        </Text>
-        <Link href="/onboarding/personal" asChild>
-          <Pressable className="min-h-14 items-center justify-center rounded-xl bg-tide px-6">
-            <Text className="text-base font-ui-semibold text-on-tide">
-              Get started
+    <PainExplorer
+      scope="personal"
+      next="/onboarding/world"
+      header={(interacted) => (
+        <>
+          {/* The landing view: the mark and the promise, centered. */}
+          <View className="items-center gap-8 pb-4 pt-10 md:pt-16">
+            {/* Between the onboarding design's 76 × 54 and the lab's lockup. */}
+            <BrandMark living maxWidth={152} maxHeight={108} />
+            <Text
+              accessibilityRole="header"
+              aria-level={1}
+              className={`text-center font-display tracking-tight text-ink ${interacted ? "text-[36px] leading-[40px] md:text-[48px] md:leading-[52px]" : "text-[52px] leading-[56px] md:text-[72px] md:leading-[76px]"}`}
+            >
+              It can be better.
             </Text>
-          </Pressable>
-        </Link>
-      </View>
-      <Text className="font-ui text-sm leading-6 text-ink-soft">
-        No account needed to explore. Your choices stay on this device until you
-        decide to save them.
-      </Text>
-      {__DEV__ && (
-        <Link href="/lab/loader" asChild>
-          <Pressable className="min-h-12 items-center justify-center rounded-xl border border-ink-soft px-6">
-            <Text className="text-base text-ink">
-              Loader lab (development only)
-            </Text>
-          </Pressable>
-        </Link>
+          </View>
+
+          <Text
+            accessibilityRole="header"
+            aria-level={2}
+            className="mt-6 font-display text-[24px] leading-[30px] text-ink md:text-[30px] md:leading-[36px]"
+          >
+            What could be better for you?
+          </Text>
+        </>
       )}
-    </Page>
+      footer={
+        __DEV__ ? (
+          <Link href="/lab/loader" asChild>
+            <Pressable className="min-h-11 items-center justify-center">
+              <Text className="text-sm text-ink-soft underline">
+                Loader lab (development only)
+              </Text>
+            </Pressable>
+          </Link>
+        ) : null
+      }
+    />
   );
 }

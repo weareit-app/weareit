@@ -16,6 +16,8 @@ export default function SaveProgressScreen() {
       worldPainIds: state.worldPainIds,
       personalDreamIds: state.personalDreamIds,
       worldDreamIds: state.worldDreamIds,
+      personalPaths: state.personalPaths,
+      worldPaths: state.worldPaths,
       helpInterests: state.helpInterests,
       draftUpdatedAt: state.draftUpdatedAt,
     })),

@@ -9,6 +9,9 @@ import { useOnboardingStore } from "../src/state/onboarding-store";
 import { getSessionCookie } from "../src/auth/auth-client";
 import { setSessionCookieProvider } from "@it/api/client";
 import { appFonts } from "../src/theme/fonts";
+import { useThemeStore } from "../src/state/theme-store";
+import { applyColorScheme } from "../src/theme/apply-color-scheme";
+import { ThemeSwitchCorner } from "../src/components/theme-switch";
 
 export default function RootLayout() {
   // Loaded synchronously here so static web rendering embeds the fonts in
@@ -30,12 +33,19 @@ export default function RootLayout() {
     setSessionCookieProvider(getSessionCookie);
   }, []);
 
+  const scheme = useThemeStore((state) => state.scheme);
+  useEffect(() => {
+    void useThemeStore.persist.rehydrate();
+  }, []);
+  useEffect(() => applyColorScheme(scheme), [scheme]);
+
   if (!fontsLoaded && !fontError) return null;
 
   return (
     <QueryClientProvider client={queryClient}>
       <StatusBar style="auto" />
       <Stack screenOptions={{ headerShown: false, animation: "fade" }} />
+      <ThemeSwitchCorner />
     </QueryClientProvider>
   );
 }

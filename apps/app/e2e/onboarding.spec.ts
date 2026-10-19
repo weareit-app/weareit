@@ -23,21 +23,34 @@ test("keeps choices on device and connects them to futures and first actions", a
   page,
 }) => {
   await page.goto("/");
-  await page.getByRole("link", { name: "Get started" }).click();
+  await page.getByRole("button", { name: /^Purpose/ }).click();
   await page.getByRole("checkbox", { name: /Procrastination/ }).click();
+  await page.getByRole("checkbox", { name: "Follow-through" }).click();
+  await expect(page.getByText("Ways it can be better")).toBeVisible();
+  await page
+    .getByRole("checkbox", { name: "Map a route to your goal" })
+    .click();
+  await expect(
+    page.getByRole("button", { name: /Done for now/ }),
+  ).toBeVisible();
   await expect(
     page.getByText("1 selected · kept on this device"),
   ).toBeVisible();
   await page.getByRole("link", { name: "Continue" }).click();
 
-  await page.getByRole("checkbox", { name: /Nothing ever changes/ }).click();
+  await expect(
+    page.getByRole("heading", { name: "What could be better for us?" }),
+  ).toBeVisible();
+  await page.getByRole("button", { name: /^Making change/ }).click();
+  await page.getByRole("checkbox", { name: /Gridlock/ }).click();
+  await page.getByRole("checkbox", { name: "Momentum" }).click();
   await page.getByRole("link", { name: "Continue" }).click();
 
   await expect(
     page.getByRole("heading", { name: "Picture a life with more room in it." }),
   ).toBeVisible();
-  await expect(page.getByText("Follow-through")).toBeVisible();
-  await expect(page.getByText("Momentum")).toBeVisible();
+  await expect(page.getByText("Follow-through").last()).toBeVisible();
+  await expect(page.getByText("Momentum").last()).toBeVisible();
   await expect(page.getByText("Make the first step smaller")).toBeVisible();
   await expect(
     page.getByText("Invite one person to explore with you"),
@@ -47,11 +60,21 @@ test("keeps choices on device and connects them to futures and first actions", a
     JSON.parse(window.localStorage.getItem("it-onboarding-draft-v1") ?? "null"),
   );
   expect(savedDraft.state.personalPainIds).toContain("procrastination");
+  expect(savedDraft.state.personalPaths).toEqual([
+    {
+      painId: "procrastination",
+      dreamIds: ["follow-through"],
+      fixIds: ["map-a-route-to-your-goal"],
+    },
+  ]);
   expect(savedDraft.state.worldPainIds).toContain("nothing-ever-changes");
+  expect(savedDraft.state.worldPaths).toEqual([
+    { painId: "nothing-ever-changes", dreamIds: ["momentum"], fixIds: [] },
+  ]);
 
   await page.reload();
-  await expect(page.getByText("Follow-through")).toBeVisible();
-  await expect(page.getByText("Momentum")).toBeVisible();
+  await expect(page.getByText("Follow-through").last()).toBeVisible();
+  await expect(page.getByText("Momentum").last()).toBeVisible();
 
   await page.getByRole("link", { name: "See ways to help" }).click();
   await expect(
@@ -72,7 +95,8 @@ test("keeps choices on device and connects them to futures and first actions", a
 test("lets someone clear their local choices after confirmation", async ({
   page,
 }) => {
-  await page.goto("/onboarding/personal");
+  await page.goto("/");
+  await page.getByRole("button", { name: /^Mind/ }).click();
   await page.getByRole("checkbox", { name: /Anxiety/ }).click();
   await expect(
     page.getByText("1 selected · kept on this device"),

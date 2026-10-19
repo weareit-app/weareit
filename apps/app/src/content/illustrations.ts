@@ -8,17 +8,24 @@ import {
 
 // Presentation-only mapping: domain content stays independent of React Native.
 export const painIllustrations: Record<string, ImageSourcePropType> = {
-  procrastination: require("../../assets/brand/icon-procrastination.jpg"),
-  anxiety: require("../../assets/brand/icon-anxiety.jpg"),
-  loneliness: require("../../assets/brand/icon-loneliness.jpg"),
   "no-accountability": require("../../assets/brand/icon-corruption.jpg"),
   "dont-know-whats-true": require("../../assets/brand/icon-misinformation.jpg"),
   "shouting-into-void": require("../../assets/brand/icon-advocacy.jpg"),
 };
 
 export const dreamIllustrations: Record<string, ImageSourcePropType> = {
-  belonging: require("../../assets/brand/icon-connection.jpg"),
   "found-my-people": require("../../assets/brand/icon-connection.jpg"),
+};
+
+// Personal page stage art (riso ink, onboarding prototype 2026-10-18): a pain
+// is drawn in black ink; a future changes what the person is doing and adds
+// spot color. Most pains and futures have no art yet and read as text alone.
+export const painStageArt: Record<string, ImageSourcePropType> = {
+  anxiety: require("../../assets/brand/stage-anxiety.png"),
+};
+
+export const dreamStageArt: Record<string, ImageSourcePropType> = {
+  "steady-enough-to-plan": require("../../assets/brand/stage-steady-enough-to-plan.png"),
 };
 
 function assertKnownIds(
@@ -50,5 +57,15 @@ assertKnownIds(
       ...getAllDreams(worldPainDomains),
     ].map((dream) => dream.id),
   ),
+  "dream",
+);
+assertKnownIds(
+  painStageArt,
+  new Set(getAllPains(personalPainDomains).map((pain) => pain.id)),
+  "pain",
+);
+assertKnownIds(
+  dreamStageArt,
+  new Set(getAllDreams(personalPainDomains).map((dream) => dream.id)),
   "dream",
 );
