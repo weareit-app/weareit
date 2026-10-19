@@ -91,13 +91,13 @@ function withPath(
   painId: string,
   update: (path: PersonalPath) => PersonalPath,
 ): PathSelection {
-  const current = selection.paths.find(
-    (path) => path.painId === painId,
-  ) ?? { painId, dreamIds: [], fixIds: [] };
+  const current = selection.paths.find((path) => path.painId === painId) ?? {
+    painId,
+    dreamIds: [],
+    fixIds: [],
+  };
   const next = update(current);
-  const others = selection.paths.filter(
-    (path) => path.painId !== painId,
-  );
+  const others = selection.paths.filter((path) => path.painId !== painId);
   return {
     painIds: selection.painIds.includes(painId)
       ? selection.painIds
@@ -123,9 +123,7 @@ export function unselectPain(
 ): PathSelection {
   return {
     painIds: selection.painIds.filter((id) => id !== painId),
-    paths: selection.paths.filter(
-      (path) => path.painId !== painId,
-    ),
+    paths: selection.paths.filter((path) => path.painId !== painId),
   };
 }
 
