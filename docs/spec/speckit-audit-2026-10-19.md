@@ -1,6 +1,6 @@
 # Spec Kit leftovers audit (2026-10-19)
 
-Read-and-report audit of Spec Kit material still in the repo, against `AGENTS.md`, `docs/architecture/decisions.md`, `docs/spec/MIGRATION.md`, `openspec/specs/brand-mark/spec.md`, `openspec/config.yaml` and the code at `4fad3b8`. Nothing was deleted or edited. "Went to" texts are proposals for `MIGRATION.md`; nothing here is applied.
+Read-and-report audit of Spec Kit material still in the repo, against `AGENTS.md`, `docs/architecture/decisions.md`, `docs/spec/MIGRATION.md`, `openspec/specs/brand-mark/spec.md`, `openspec/config.yaml` and the code at `51f4597`. Nothing was deleted or edited. "Went to" texts are proposals for `MIGRATION.md`; nothing here is applied.
 
 Status key: **reflected** (content is elsewhere; safe to close once the "Went to" row is filled), **partly** (some content would be lost), **missing** (not captured anywhere).
 

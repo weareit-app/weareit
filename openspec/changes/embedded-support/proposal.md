@@ -2,7 +2,7 @@
 
 ## Why
 
-The Support page still sends people to Stripe's hosted Checkout, offers only once or monthly, says "contribution", and stores App Store purchases without an account. The founder decided (2026-10-16 decisions, spec 009 answers of 2026-10-18, commit 322cd92) on an embedded Stripe form with once, monthly and annual support, a fixed amount layout, a public funding total, a provider-neutral ledger, and every support tied to an account on every platform (features.md §4).
+The Support page still sends people to Stripe's hosted Checkout, offers only once or monthly, says "contribution", and stores App Store purchases without an account. The founder decided (2026-10-16 decisions, spec 009 answers of 2026-10-18, commit c2a9850) on an embedded Stripe form with once, monthly and annual support, a fixed amount layout, a public funding total, a provider-neutral ledger, and every support tied to an account on every platform (features.md §4).
 
 ## What Changes
 

@@ -106,7 +106,7 @@ Clean-room rule for every task: write simulation and color code from Curtis et a
 
 ## Phase 6: User Story 3 — Welcome mark gently alive (P2) — done differently
 
-Done as `BrandMark` in the page header (commit `0f419aa`) and the large orb removed (founder, 2026-10-18); T037–T040 are not built.
+Done as `BrandMark` in the page header (commit `7e33edb`) and the large orb removed (founder, 2026-10-18); T037–T040 are not built.
 
 **Goal**: The welcome orb is the watercolor dot, blooms once, then rests completely still.
 
