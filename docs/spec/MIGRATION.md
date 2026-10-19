@@ -23,5 +23,5 @@ Rules:
 | `.specify/assessments/thing-type-relation/` | Decided 2026-10-16; referenced by decisions.md | | not started |
 | `.specify/assessments/watercolor/` | Decided; `reference-dot.png` used by `packages/watercolor/scripts/fit-orb-palette.ts` | | not started |
 | `.specify/memory/constitution.md` | Draft principles | | not started |
-| `.specify/templates/overrides/spec-template.md` | It checks (privacy, honest status, must-not-block, accessibility, research questions) | | not started |
+| `.specify/templates/overrides/spec-template.md` | It checks (privacy, honest status, must-not-block, accessibility, research questions) | `openspec/config.yaml` rules (privacy, honest status, must-not-block, accessibility, screen-by-screen first). Research questions dropped: they fed `pieces.yaml`, which is parked. | done (file deleted 2026-10-19) |
 | `docs/spec/reviews/2026-10-18-founder-answers.md` | Founder answers for 008–012 | | not started |
