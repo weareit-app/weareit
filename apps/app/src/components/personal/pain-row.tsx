@@ -298,16 +298,19 @@ function OpenPain({
   );
   const pickedFixes = path?.fixIds ?? [];
   return (
-    <View className="gap-2 px-3.5 pb-3.5">
+    <View className="gap-1 px-3.5 pb-3.5 pt-1">
+      {/* The same rule as above the ways: 12px above, 16px below. */}
+      <View className="mb-3 border-t border-rule" />
       {dreams.length ? (
         <>
+          {/* Sub-questions of the page's question, set as headings. */}
           <Text
             accessibilityRole="header"
-            className="font-ui-bold text-base leading-5 text-ink"
+            className="font-heading text-base leading-5 text-ink"
           >
             What would be better?
           </Text>
-          <Text className="-mt-1 mb-0.5 text-[13px] text-ink-soft">
+          <Text className="-mt-0.5 mb-1.5 text-[13px] text-ink-soft">
             Pick as many as fit.
           </Text>
         </>
@@ -324,7 +327,8 @@ function OpenPain({
           <View
             key={dream.id}
             ref={dreamRef(dream.id)}
-            className={`flex-row items-center rounded-xl border ${on ? "border-transparent" : "border-rule"} ${flashDreamId === dream.id ? "bg-paper-sunk" : "bg-paper-raised"}`}
+            // A plain row with a check, like the pains: no box of its own.
+            className={`flex-row items-center rounded-xl ${flashDreamId === dream.id ? "bg-paper-sunk" : ""}`}
           >
             <Pressable
               accessibilityRole="checkbox"
@@ -332,7 +336,7 @@ function OpenPain({
               aria-checked={on}
               accessibilityLabel={dream.title}
               onPress={() => onToggleDream(dream.id)}
-              className="min-h-12 w-11 items-center justify-center"
+              className="min-h-11 w-11 items-center justify-center"
             >
               <CheckCircle checked={on} size={on ? 24 : 22} />
             </Pressable>
@@ -340,7 +344,7 @@ function OpenPain({
               accessibilityRole="button"
               accessibilityLabel={`${on ? "Unpick" : "Pick"} ${dream.title}`}
               onPress={() => onToggleDream(dream.id)}
-              className="min-h-12 flex-1 justify-center py-1.5 pr-3"
+              className="min-h-11 flex-1 justify-center py-1.5 pr-3"
             >
               {/* The same type picked or not, so nothing reflows on a tap. */}
               <Text className="font-ui-bold text-base leading-5 text-ink">
@@ -358,13 +362,13 @@ function OpenPain({
         <View
           aria-live="polite"
           accessibilityLiveRegion="polite"
-          className="mt-2.5 gap-1 border-t border-rule pt-3.5"
+          className="mt-3 gap-1 border-t border-rule pt-4"
         >
           {ways.length ? (
             <>
               <Text
                 accessibilityRole="header"
-                className="mb-1 font-ui-bold text-base leading-5 text-ink"
+                className="mb-0.5 font-heading text-base leading-5 text-ink"
               >
                 Ways it can be better
               </Text>
@@ -396,7 +400,7 @@ function OpenPain({
         </View>
       ) : null}
 
-      <View className="mt-1.5 flex-row justify-end">
+      <View className="mt-2 flex-row justify-end">
         <Pressable
           accessibilityRole="button"
           accessibilityLabel={`${pickedFixes.length ? "Done for now" : "Close"}: ${pain.title}`}

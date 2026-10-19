@@ -91,11 +91,13 @@ function Chip({
       accessibilityLabel={label}
       onPress={onPress}
       hitSlop={{ top: 8, bottom: 8 }}
-      className={`min-h-7 flex-row items-center gap-1.5 rounded-full border bg-paper-raised px-2.5 ${strong ? "border-ink" : "border-rule"} ${open ? "border-2 border-ink" : ""}`}
+      // Quiet text, not a pill: an icon and a label under the title. Open,
+      // it reads in ink and underlined.
+      className="min-h-7 flex-row items-center gap-1.5"
     >
       {children}
       <Text
-        className={`font-ui-bold text-xs ${strong ? "text-ink" : "text-ink-soft"}`}
+        className={`text-xs ${strong || open ? "text-ink" : "text-ink-soft"} ${open ? "underline" : ""}`}
       >
         {label}
       </Text>
@@ -144,7 +146,7 @@ export function WayRow({
       >
         <CheckSquare checked={picked} />
       </Pressable>
-      <View className="flex-1 gap-1.5 py-2 pr-1.5">
+      <View className="flex-1 gap-1.5 py-1.5 pr-1.5">
         <Pressable
           accessibilityRole="button"
           accessibilityLabel={`${picked ? "Unpick" : "Pick"} ${fix.title}`}
@@ -154,13 +156,11 @@ export function WayRow({
           <Text className="font-ui-bold text-[15px] leading-5 text-ink">
             {fix.title}
           </Text>
-          {picked ? null : (
-            <Text className="text-[13px] leading-[18px] text-ink-soft">
-              {fix.description}
-            </Text>
-          )}
+          <Text className="text-[13px] leading-[18px] text-ink-soft">
+            {fix.description}
+          </Text>
         </Pressable>
-        <View className="flex-row flex-wrap gap-1.5">
+        <View className="-my-1 flex-row flex-wrap gap-x-3.5">
           <Chip
             label={type}
             strong={fix.kind === "feature"}
