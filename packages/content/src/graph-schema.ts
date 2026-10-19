@@ -3,6 +3,18 @@ import { z } from "zod";
 const idSchema = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
 const copySchema = z.string().trim().min(1).max(4000);
 
+export const fixKinds = ["once", "habit", "group", "feature"] as const;
+export const featureStatuses = ["planned", "idea"] as const;
+export const evidenceLevels = [
+  "strong",
+  "some",
+  "limited",
+  "untested",
+] as const;
+export type FixKind = (typeof fixKinds)[number];
+export type FeatureStatus = (typeof featureStatuses)[number];
+export type EvidenceLevel = (typeof evidenceLevels)[number];
+
 export const contentDomainSchema = z
   .object({
     id: idSchema,
@@ -44,6 +56,19 @@ export const contentFirstActionSchema = z
   })
   .strict();
 
+export const contentFixSchema = z
+  .object({
+    id: idSchema,
+    title: copySchema,
+    description: copySchema,
+    kind: z.enum(fixKinds),
+    featureStatus: z.enum(featureStatuses).optional(),
+    evidence: z.enum(evidenceLevels),
+    evidenceNote: copySchema,
+    sortOrder: z.number().int().nonnegative(),
+  })
+  .strict();
+
 export const contentSourceSchema = z
   .object({
     id: idSchema,
@@ -56,7 +81,7 @@ export const contentSourceSchema = z
 
 export const contentProvenanceSchema = z
   .object({
-    entityType: z.enum(["domain", "pain", "dream", "first_action"]),
+    entityType: z.enum(["domain", "pain", "dream", "first_action", "fix"]),
     entityId: idSchema,
     sourceId: idSchema,
     locator: copySchema,
@@ -78,6 +103,11 @@ export const contentGraphSchema = z
     actionPainLinks: z.array(
       z.object({ actionId: idSchema, painId: idSchema }).strict(),
     ),
+    // Defaults keep content versions published before fixes existed readable.
+    fixes: z.array(contentFixSchema).default([]),
+    fixDreamLinks: z
+      .array(z.object({ fixId: idSchema, dreamId: idSchema }).strict())
+      .default([]),
     sources: z.array(contentSourceSchema),
     provenance: z.array(contentProvenanceSchema),
   })
@@ -110,6 +140,14 @@ export const contentGraphSchema = z
       graph.firstActions.map(({ id }) => id),
     );
     uniqueIds(
+      "fixes",
+      graph.fixes.map(({ id }) => id),
+    );
+    uniqueIds(
+      "fixDreamLinks",
+      graph.fixDreamLinks.map(({ fixId, dreamId }) => `${fixId}:${dreamId}`),
+    );
+    uniqueIds(
       "sources",
       graph.sources.map(({ id }) => id),
     );
@@ -135,6 +173,7 @@ export const contentGraphSchema = z
     const painIds = new Set(graph.pains.map(({ id }) => id));
     const dreamIds = new Set(graph.dreams.map(({ id }) => id));
     const actionIds = new Set(graph.firstActions.map(({ id }) => id));
+    const fixIds = new Set(graph.fixes.map(({ id }) => id));
     const sourceIds = new Set(graph.sources.map(({ id }) => id));
 
     graph.pains.forEach((pain, index) => {
@@ -174,12 +213,35 @@ export const contentGraphSchema = z
           message: `Unknown pain ${link.painId}.`,
         });
     });
+    graph.fixDreamLinks.forEach((link, index) => {
+      if (!fixIds.has(link.fixId))
+        context.addIssue({
+          code: "custom",
+          path: ["fixDreamLinks", index, "fixId"],
+          message: `Unknown fix ${link.fixId}.`,
+        });
+      if (!dreamIds.has(link.dreamId))
+        context.addIssue({
+          code: "custom",
+          path: ["fixDreamLinks", index, "dreamId"],
+          message: `Unknown dream ${link.dreamId}.`,
+        });
+    });
+    graph.fixes.forEach((fix, index) => {
+      if ((fix.kind === "feature") !== Boolean(fix.featureStatus))
+        context.addIssue({
+          code: "custom",
+          path: ["fixes", index, "featureStatus"],
+          message: "Features, and only features, carry a roadmap status.",
+        });
+    });
     graph.provenance.forEach((reference, index) => {
       const entityIds = {
         domain: domainIds,
         pain: painIds,
         dream: dreamIds,
         first_action: actionIds,
+        fix: fixIds,
       }[reference.entityType];
       if (!entityIds.has(reference.entityId))
         context.addIssue({
@@ -197,3 +259,4 @@ export const contentGraphSchema = z
   });
 
 export type ContentGraph = z.infer<typeof contentGraphSchema>;
+export type ContentFix = z.infer<typeof contentFixSchema>;

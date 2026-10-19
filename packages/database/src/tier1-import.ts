@@ -4,6 +4,7 @@ import {
   worldPainDomains,
 } from "@it/content/tier-1";
 import { firstActions } from "@it/content/first-actions";
+import { fixes } from "@it/content/fixes";
 import {
   contentGraphSchema,
   type ContentGraph,
@@ -43,6 +44,13 @@ export function buildTier1ContentGraph(): ContentGraph {
       sourceType: "research_registry",
       rights:
         "Mixed external source rights; original sources remain attributed individually.",
+    },
+    {
+      id: "onboarding-prototype",
+      title: "It onboarding prototype: What can be better for you?",
+      documentPath: "specs/001-personal-page/spec.md",
+      sourceType: "content_spec",
+      rights: "Authored guides and prose: CC BY-SA 4.0 working decision.",
     },
     {
       id: "mvp-fix-corpus",
@@ -116,6 +124,21 @@ export function buildTier1ContentGraph(): ContentGraph {
       sortOrder,
     }),
   );
+  const knownDreamIds = new Set(dreams.keys());
+  const fixRows: ContentGraph["fixes"] = fixes.map(
+    ({ dreamIds: _dreamIds, featureStatus, ...fix }, sortOrder) => ({
+      ...fix,
+      ...(featureStatus ? { featureStatus } : {}),
+      sortOrder,
+    }),
+  );
+  const fixDreamLinks: ContentGraph["fixDreamLinks"] = fixes.flatMap((fix) =>
+    fix.dreamIds.map((dreamId) => {
+      if (!knownDreamIds.has(dreamId))
+        throw new Error(`Fix ${fix.id} references missing dream ${dreamId}.`);
+      return { fixId: fix.id, dreamId };
+    }),
+  );
 
   const provenance: ContentGraph["provenance"] = [];
   for (const domain of domains) {
@@ -180,6 +203,21 @@ export function buildTier1ContentGraph(): ContentGraph {
       reviewStatus: "reviewed",
     });
   }
+  for (const fix of fixRows) {
+    provenance.push({
+      entityType: "fix",
+      entityId: fix.id,
+      sourceId: "onboarding-prototype",
+      locator:
+        "Founder-reviewed prototype ways; evidence ratings have no linked sources yet",
+      evidenceType:
+        fix.kind === "feature"
+          ? "Product roadmap idea"
+          : "Candidate intervention",
+      rights: authoredRights,
+      reviewStatus: "reviewed",
+    });
+  }
   return contentGraphSchema.parse({
     domains,
     pains,
@@ -187,6 +225,8 @@ export function buildTier1ContentGraph(): ContentGraph {
     painDreamLinks,
     firstActions: firstActionRows,
     actionPainLinks,
+    fixes: fixRows,
+    fixDreamLinks,
     sources: sourceRecords,
     provenance,
   });

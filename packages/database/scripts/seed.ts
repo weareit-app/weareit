@@ -10,7 +10,7 @@ try {
   const graph = buildTier1ContentGraph();
   const result = await initializeContent(db, graph);
   console.log(
-    `Imported ${graph.pains.length} pains, ${graph.dreams.length} dreams, and ${graph.firstActions.length} first actions; published version 1 (revision ${result.revision}).`,
+    `Imported ${graph.pains.length} pains, ${graph.dreams.length} dreams, ${graph.fixes.length} ways forward, and ${graph.firstActions.length} first actions; published version 1 (revision ${result.revision}).`,
   );
 } finally {
   await db.destroy();

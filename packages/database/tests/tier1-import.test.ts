@@ -10,13 +10,19 @@ describe("Tier 1 database import", () => {
     expect(contentGraphSchema.safeParse(graph).success).toBe(true);
     expect(
       graph.domains.filter(({ scope }) => scope === "personal"),
-    ).toHaveLength(6);
+    ).toHaveLength(8);
     expect(graph.domains.filter(({ scope }) => scope === "world")).toHaveLength(
-      6,
+      10,
     );
     expect(graph.pains.length).toBeGreaterThan(0);
     expect(graph.dreams.length).toBeGreaterThan(0);
     expect(graph.firstActions).toHaveLength(5);
+    expect(graph.fixes.length).toBeGreaterThan(0);
+    expect(
+      graph.fixes.every((fix) =>
+        graph.fixDreamLinks.some(({ fixId }) => fixId === fix.id),
+      ),
+    ).toBe(true);
     expect(validatePublishableGraph(graph).issues).toEqual([]);
     expect(
       graph.provenance.every(

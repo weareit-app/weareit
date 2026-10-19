@@ -7,6 +7,7 @@
     "./tier-1": "./src/tier-1.ts",
     "./schema": "./src/schema.ts",
     "./first-actions": "./src/first-actions.ts",
+    "./fixes": "./src/fixes.ts",
     "./graph-schema": "./src/graph-schema.ts"
   },
   "dependencies": {

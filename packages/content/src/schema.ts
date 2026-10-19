@@ -16,7 +16,8 @@ export const painSchema = z
     id: contentIdSchema,
     title: copySchema,
     description: copySchema,
-    dreams: z.array(dreamSchema).min(1),
+    // Empty until futures are written; the page says so (CONFLICTS.md P7).
+    dreams: z.array(dreamSchema),
   })
   .strict();
 
@@ -51,12 +52,21 @@ export const painDomainListSchema = z
       });
     }
 
-    const dreams = pains.flatMap((pain) => pain.dreams);
-    if (!hasUniqueIds(dreams)) {
-      context.addIssue({
-        code: "custom",
-        message: "Dream IDs must be unique across the content set.",
-      });
+    // A dream may serve several pains; every use of its ID must carry the same copy.
+    const dreamsById = new Map<string, Dream>();
+    for (const dream of pains.flatMap((pain) => pain.dreams)) {
+      const existing = dreamsById.get(dream.id);
+      if (
+        existing &&
+        (existing.title !== dream.title ||
+          existing.description !== dream.description)
+      ) {
+        context.addIssue({
+          code: "custom",
+          message: `Dream ${dream.id} has different copy in different pains.`,
+        });
+      }
+      dreamsById.set(dream.id, dream);
     }
   });
 
