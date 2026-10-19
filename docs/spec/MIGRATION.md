@@ -10,7 +10,7 @@ Rules:
 
 | Artifact | State at retirement | Went to | Status |
 |---|---|---|---|
-| `specs/001-personal-page/` | Spec; largely built (onboarding redesign); synced with the 2026-10-17/18 review | | not started |
+| `specs/001-personal-page/` | Spec; largely built (onboarding redesign); synced with the 2026-10-17/18 review | Built behaviour baselined in `openspec/specs/pain-explorer` and `on-device-choices` (2026-10-19). Unbuilt parts (own contributions, evidence levels, pain-page links, measurement) still to become changes. | in progress |
 | `specs/007-watercolor-dot/` | Full plan and tasks; approved 2026-10-17 | | not started |
 | `specs/008-signup-gate/` | Spec, founder answers applied; 4 open questions | | not started |
 | `specs/009-support-page/` | Spec, founder answers applied; 3 open questions | | not started |
