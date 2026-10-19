@@ -26,16 +26,13 @@ export type PainRowProps = {
   fixDreamLinks: { fixId: string; dreamId: string }[];
   fixOrder: string[];
   focusDreamId: string | undefined;
-  flashDreamId: string | null;
   openChip: { fixId: string; chip: WayChip } | null;
   rowRef: RefObject<View | null>;
-  dreamRef: (dreamId: string) => (view: View | null) => void;
   onCheck: () => void;
   onRowPress: () => void;
   onToggleDream: (dreamId: string) => void;
   onToggleFix: (fixId: string) => void;
   onChip: (fixId: string, chip: WayChip) => void;
-  onGoToDream: (dreamId: string) => void;
   onClose: () => void;
 };
 
@@ -279,13 +276,10 @@ function OpenPain({
   fixes,
   fixDreamLinks,
   fixOrder,
-  flashDreamId,
   openChip,
-  dreamRef,
   onToggleDream,
   onToggleFix,
   onChip,
-  onGoToDream,
   onClose,
   chosen,
   titleOf,
@@ -326,9 +320,8 @@ function OpenPain({
         return (
           <View
             key={dream.id}
-            ref={dreamRef(dream.id)}
             // A plain row with a check, like the pains: no box of its own.
-            className={`flex-row items-center rounded-xl ${flashDreamId === dream.id ? "bg-paper-sunk" : ""}`}
+            className="flex-row items-center rounded-xl"
           >
             <Pressable
               accessibilityRole="checkbox"
@@ -380,15 +373,6 @@ function OpenPain({
                   onToggle={() => onToggleFix(fixId)}
                   openChip={openChip?.fixId === fixId ? openChip.chip : null}
                   onChip={(chip) => onChip(fixId, chip)}
-                  helpsWith={
-                    chosen.length > 1
-                      ? dreamIds.map((id) => ({
-                          id,
-                          title: titleOf(id),
-                          onPress: () => onGoToDream(id),
-                        }))
-                      : null
-                  }
                 />
               ))}
             </>

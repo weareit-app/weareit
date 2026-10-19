@@ -23,7 +23,7 @@ import { groupIcons } from "../../content/group-icons";
 // A page of pains grouped under collapsible headings: a pain opens in place
 // into futures, and chosen futures into ways it can be better (spec 001;
 // onboarding prototype, 2026-10-18). The personal page and the societal page
-// both use it. Choices live on this device; what is open or flashing is
+// both use it. Choices live on this device; what is open is
 // screen state only.
 export function PainExplorer({
   scope,
@@ -70,13 +70,11 @@ export function PainExplorer({
     chip: WayChip;
   } | null>(null);
   const [focus, setFocus] = useState<Record<string, string>>({});
-  const [flash, setFlash] = useState<string | null>(null);
   const [inviteDismissed, setInviteDismissed] = useState(false);
 
   const scrollRef = useRef<ScrollView>(null);
   const contentRef = useRef<View>(null);
   const painRefs = useRef(new Map<string, { current: View | null }>());
-  const dreamRefs = useRef(new Map<string, View | null>());
 
   const content = contentQuery.data?.content;
   const model = useMemo(() => {
@@ -151,11 +149,6 @@ export function PainExplorer({
     setOpenPain(null);
     setOpenChip(null);
     if (keepPlace) afterLayout(() => scrollTo(painRef(painId).current));
-  }
-  function goToDream(painId: string, dreamId: string) {
-    scrollTo(dreamRefs.current.get(`${painId}:${dreamId}`));
-    setFlash(`${painId}:${dreamId}`);
-    setTimeout(() => setFlash(null), 1400);
   }
 
   const interacted = selected.length > 0 || paths.length > 0;
@@ -282,19 +275,8 @@ export function PainExplorer({
                             fixDreamLinks={model.fixDreamLinks}
                             fixOrder={model.fixOrder}
                             focusDreamId={focus[pain.id]}
-                            flashDreamId={
-                              flash?.startsWith(`${pain.id}:`)
-                                ? flash.slice(pain.id.length + 1)
-                                : null
-                            }
                             openChip={openChip}
                             rowRef={painRef(pain.id)}
-                            dreamRef={(dreamId) => (view) => {
-                              dreamRefs.current.set(
-                                `${pain.id}:${dreamId}`,
-                                view,
-                              );
-                            }}
                             onCheck={() => {
                               if (!isSelected) return open(pain.id, group.id);
                               unselectPain(pain.id);
@@ -328,9 +310,6 @@ export function PainExplorer({
                                   ? null
                                   : { fixId, chip },
                               )
-                            }
-                            onGoToDream={(dreamId) =>
-                              goToDream(pain.id, dreamId)
                             }
                             onClose={() => close(pain.id, true)}
                           />

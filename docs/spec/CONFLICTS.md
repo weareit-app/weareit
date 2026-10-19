@@ -23,7 +23,7 @@ The personal page now follows the Design canvas "What can be better for you?" an
 
 | # | Topic | Earlier record says | Prototype / decisions say | Status |
 |---|---|---|---|---|
-| P1 | Idea labels | Spec 001 FR-006: do now / already exists / It might build / change for society | A type tag (Task, Habit, Takes a group, Feature), a status tag on features (Idea, Planned) plus a separate evidence tag (Strong, Some, Limited, Not tested yet) | Applied. "Already exists" has no type of its own yet. |
+| P1 | Idea labels | Spec 001 FR-006: do now / already exists / It might build / change for society | A type tag (Task, Habit, Takes a group, Feature), a status tag on features (Idea, Planned); evidence levels (Strong, Some, Limited, Not tested yet) are recorded but not shown in v0.1 (2026-10-19) | Applied. "Already exists" has no type of its own yet. |
 | P2 | Personal headings | Body, Head, Money, Time, People, Doing; the prototype canvas used Mind, Body, Time, Money, People, Work | The pain tree's eight: Body, Mind, Money, Work, Home, Time, People, Purpose, with every inventory pain top level (no "More like this"; founder, 2026-10-18) | Applied. Five canvas-only pains are gone (always behind, dead-end job, no close friends, no one nearby, screens all day). |
 | P3 | Primary button color | `docs/brand/colors.md`: tide is the main call to action | Decisions chat: federal blue (`harbor` #3D5588) for the one primary button | Applied tide, per the brand doc and the master palette. Open. |
 | P4 | Fast scan | 2026-10-17: a pain can be checked without opening it | Tapping a pain or its check selects and opens it | Applied prototype. Open: the fast-scan path is gone. |

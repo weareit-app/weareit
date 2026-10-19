@@ -13,7 +13,7 @@ import type { ContentFix } from "@it/content/graph-schema";
 import { Text } from "../text";
 import { CheckSquare } from "./marks";
 
-export type WayChip = "type" | "status" | "evidence";
+export type WayChip = "type" | "status";
 
 // Each type has a small icon before its label; the label carries the meaning.
 export const kindCopy: Record<
@@ -60,16 +60,6 @@ export const statusCopy: Record<
   },
 };
 
-const evidenceCopy: Record<
-  ContentFix["evidence"],
-  { label: string; bars: number }
-> = {
-  strong: { label: "Strong evidence", bars: 3 },
-  some: { label: "Some evidence", bars: 2 },
-  limited: { label: "Limited evidence", bars: 1 },
-  untested: { label: "Not tested yet", bars: 0 },
-};
-
 function Chip({
   label,
   open,
@@ -113,17 +103,13 @@ export function WayRow({
   onToggle,
   openChip,
   onChip,
-  helpsWith,
 }: {
   fix: ContentFix;
   picked: boolean;
   onToggle: () => void;
   openChip: WayChip | null;
   onChip: (chip: WayChip) => void;
-  /** Chosen futures this way is for, as a last "For …" line; shown when two or more are chosen. */
-  helpsWith: { id: string; title: string; onPress: () => void }[] | null;
 }) {
-  const evidence = evidenceCopy[fix.evidence];
   const type = kindCopy[fix.kind].label;
   const status =
     fix.kind === "feature" && fix.featureStatus
@@ -188,55 +174,18 @@ export function WayRow({
               />
             </Chip>
           ) : null}
-          <Chip
-            label={evidence.label}
-            open={openChip === "evidence"}
-            onPress={() => onChip("evidence")}
-          >
-            <View aria-hidden className="flex-row gap-0.5">
-              {[1, 2, 3].map((bar) => (
-                <View
-                  key={bar}
-                  className={`h-2.5 w-[3px] rounded-[1px] ${bar <= evidence.bars ? "bg-ink" : "bg-rule"}`}
-                />
-              ))}
-            </View>
-          </Chip>
         </View>
         {openChip ? (
           <View className="gap-1 rounded-lg bg-paper-sunk px-2.5 py-2">
             <Text className="text-[13px] leading-5 text-ink">
-              {openChip === "type"
-                ? kindCopy[fix.kind].detail
-                : openChip === "status" && status
-                  ? status.detail
-                  : fix.evidenceNote}
+              {openChip === "status" && status
+                ? status.detail
+                : kindCopy[fix.kind].detail}
             </Text>
             <Text className="text-[13px] text-ink-soft">
-              {openChip === "evidence"
-                ? "Sources aren't linked yet."
-                : "Tap again to close."}
+              Tap again to close.
             </Text>
           </View>
-        ) : null}
-        {helpsWith ? (
-          // One quiet line, last: which of the chosen futures this is for.
-          <Text className="text-[13px] leading-5 text-ink-soft">
-            For{" "}
-            {helpsWith.map((dream, i) => (
-              <Text key={dream.id}>
-                {i > 0 ? ", " : null}
-                <Text
-                  accessibilityRole="link"
-                  accessibilityHint="Scrolls to this future"
-                  onPress={dream.onPress}
-                  className="underline"
-                >
-                  {dream.title}
-                </Text>
-              </Text>
-            ))}
-          </Text>
         ) : null}
       </View>
     </View>

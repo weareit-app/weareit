@@ -9,6 +9,13 @@ This file records decisions made with the project owner. Source architecture pro
 - MVP includes the Support It flow. Call giving money "support" (2026-10-16); never "donation" or charitable status.
 - First platforms are web and iOS.
 
+## Showing information
+
+Decided 2026-10-19.
+
+- Show information when it helps the person make the decision they are making now, not because the system knows it. In onboarding the question is "could this help me?"; detail for "should I do this, and why believe it?" (evidence, sources, costs, downsides) belongs where someone weighs acting on a way.
+- Keep what is hidden in the data. Ways keep their evidence levels, notes and sources, and every future–way link, so later views and paths can use them.
+
 ## Contributions: people add pains, futures and ways
 
 Decided 2026-10-18. This replaces spec 001's "no free text in v0.1" assumption; founder approval of everything others see stays.
