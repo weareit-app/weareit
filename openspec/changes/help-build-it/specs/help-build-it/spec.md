@@ -110,7 +110,7 @@ When Spanish is active, occupations and skills SHALL use ESCO's Spanish labels. 
 - **THEN** it shows in English with the tag
 
 ### Requirement: Attribution
-The page SHALL show a notice crediting ESCO and saying its labels were modified, and SHALL credit ISCED, in wording that meets their licence terms.
+The page SHALL credit ESCO under CC BY 4.0, with a link to the licence and a note that labels were modified, and SHALL credit ISCED in wording that meets its terms.
 
 #### Scenario: Notice present
 - **WHEN** the Help build It page is shown

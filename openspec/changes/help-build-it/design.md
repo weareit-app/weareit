@@ -24,7 +24,7 @@ See proposal.md. Nothing for Help exists today except the pre-signup interests s
 - [Uncapped skills overwhelm people] → Grouped, 8 shown per group, "Keep all"; measure share kept (launch measure).
 - [Offers nobody answers] → Honest copy, "followed up" marks and the founder page; follow-up rate is a launch measure.
 - [ESCO import size] → Import only occupations, skills and the essential relation; check size before shipping.
-- [Licence terms differ from the assumption] → Tasks verify ESCO and ISCED terms before shipping; adjust the notice or label edits.
+- [Licence terms] → ESCO is CC BY 4.0 (founder, 2026-10-19), so edited labels are fine with attribution, a licence link and a note that labels were changed. ISCED terms are still verified before shipping.
 
 ## Migration Plan
 

@@ -40,4 +40,4 @@ Must leave room for (features.md Stages): matching people with goals to people o
 
 ## Open questions
 
-- None for the founder. Tasks include verifying ESCO's and ISCED's licence terms and the exact "modified from ESCO" notice, and the founder approving the 10 to 20 launch asks and final copy.
+- None for the founder. ESCO is CC BY 4.0 (founder, 2026-10-19), so edited labels need attribution, a licence link and a note of changes. Tasks include verifying ISCED's terms, and the founder approving the 10 to 20 launch asks and final copy.
