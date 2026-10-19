@@ -60,17 +60,16 @@ Founder review, 2026-10-17/18: the new numbers stand. Earlier drafts (including 
 - ✔ **core** Comparison sidebar: big companies' revenue and staff vs It's yearly support run rate and team, sourced and dated (founder, 2026-10-19: moved into v0.1).
 - ✔ **core** Skip without supporting.
 
-## 5. Help: "What could you help make possible?" — ? ILL-DEFINED, needs its own design pass
+## 5. Help build It: "What could you help make possible?" (after signup)
 
-Founder's rough direction (2026-10-16), not settled:
+Decided 2026-10-19 (founder go on the full flow, override of the weak-evidence rule; change `openspec/changes/help-build-it/`).
 
-1. ? Say your background (education, work, or whatever fits).
-2. ? Suggest relevant skills from It's modified ESCO skills list; you confirm or adjust.
-3. ? Recommend specific things It needs help with (curated roadmap items, not generic "idea cards"), matched to those skills.
-
+- ✔ **core** Say your background: jobs and volunteering (ESCO occupations), education (ISCED levels and field), an optional short note only the founder sees.
+- ✔ **core** Suggested skills from your background (ESCO, edited labels credited); keep or remove them.
+- ✔ **core** Asks It needs help with (founder-approved, not limited to the roadmap): matched ones first, then every other open ask. Offering means It may contact you about it; "We can't reply to everyone."
+- ✔ **core** See, change or withdraw your background and offers from your account.
 - ✔ **core** Skip.
-- ✗ Dropped: generic "would you use it?" idea cards. Replaced by curated roadmap items (?).
-- ? Homefront's pickers (job titles, skills, roles, interests) are inspiration only; roles and interests would be done very differently.
+- ✗ Dropped: generic "would you use it?" idea cards; the pre-signup interests screen.
 
 ## 6. Admin (founder only)
 
