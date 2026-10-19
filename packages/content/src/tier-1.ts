@@ -52,7 +52,7 @@ const personalPainDomainData = [
           [
             "moving-with-friends",
             "Moving with friends",
-            "Exercise is something we do together.",
+            "I exercise with people I like.",
           ],
         ],
       ),

@@ -1,4 +1,5 @@
 import { Link, type Href } from "expo-router";
+import { CornerLeftDown } from "lucide-react-native";
 import { useMemo, useRef, useState, type ReactNode } from "react";
 import { Pressable, ScrollView, View } from "react-native";
 import { useReducedMotion } from "react-native-reanimated";
@@ -7,6 +8,7 @@ import { ClearDraftControl } from "../clear-draft-control";
 import { ContentQueryState } from "../content-query-state";
 import { GroupIcon } from "./group-icon";
 import { printLook } from "./riso";
+import { joinFutureLines } from "./future-sentence";
 import { Chevron } from "./marks";
 import { PainRow } from "./pain-row";
 import type { WayChip } from "./way-row";
@@ -15,6 +17,7 @@ import {
   type PainScope,
 } from "../../state/onboarding-store";
 import { usePublishedContent } from "../../content/use-published-content";
+import { useTokenColor } from "../../theme/use-token-color";
 import { groupIcons } from "../../content/group-icons";
 
 // A page of pains grouped under collapsible headings: a pain opens in place
@@ -35,6 +38,7 @@ export function PainExplorer({
   next: Href;
   footer?: ReactNode;
 }) {
+  const softInk = useTokenColor("--color-ink-soft", "#606162");
   const selected = useOnboardingStore((state) =>
     scope === "personal" ? state.personalPainIds : state.worldPainIds,
   );
@@ -186,13 +190,21 @@ export function PainExplorer({
           <View className="gap-2.5">
             {model.groups.map((group) => {
               const expanded = openGroup === group.id;
-              // In content order, as the closed pain's sentence is.
-              const chosenTitles = group.pains.flatMap((pain) => {
+              // Each pain with picked futures, as its closed row reads: the
+              // pain's name and one sentence, in content order. The rest of
+              // the group's pains follow, still to explore.
+              const summaries = group.pains.flatMap((pain) => {
                 const chosen = pathFor(pain.id)?.dreamIds ?? [];
-                return pain.dreams
+                const lines = pain.dreams
                   .filter((dream) => chosen.includes(dream.id))
-                  .map((dream) => dream.title);
+                  .map((dream) => dream.description);
+                return lines.length
+                  ? [{ pain, sentence: joinFutureLines(lines) }]
+                  : [];
               });
+              const others = group.pains.filter(
+                (pain) => !summaries.some((summary) => summary.pain === pain),
+              );
               return (
                 <View
                   key={group.id}
@@ -221,16 +233,33 @@ export function PainExplorer({
                         <Chevron open={expanded} />
                       </View>
                       {expanded ? null : (
-                        <View className="-mt-3.5 gap-[3px]">
-                          {chosenTitles.length ? (
-                            <Text className="font-ui-bold text-[15px] leading-5 text-ink">
-                              {chosenTitles.join(" · ")}
+                        <View className="-mt-2 gap-[3px]">
+                          {summaries.map(({ pain, sentence }) => (
+                            <View key={pain.id} className="mb-2.5">
+                              {/* A small turn down from the pain's name to its
+                                  sentence. */}
+                              <View className="mb-0.5 flex-row items-center gap-1">
+                                <CornerLeftDown
+                                  aria-hidden
+                                  size={12}
+                                  strokeWidth={2.2}
+                                  color={softInk}
+                                />
+                                <Text className="font-ui-bold text-[11px] uppercase tracking-[1.2px] text-ink-soft">
+                                  {pain.title}
+                                </Text>
+                              </View>
+                              <Text className="font-heading text-[15px] leading-[21px] text-ink">
+                                {sentence}
+                              </Text>
+                            </View>
+                          ))}
+                          {/* The pains themselves are listed once it's open. */}
+                          {others.length ? (
+                            <Text className="text-sm leading-5 text-ink-faint">
+                              {others.map((pain) => pain.title).join(" · ")}
                             </Text>
                           ) : null}
-                          {/* The pains themselves are listed once it's open. */}
-                          <Text className="text-sm leading-5 text-ink-faint">
-                            {group.pains.map((pain) => pain.title).join(" · ")}
-                          </Text>
                         </View>
                       )}
                     </View>
