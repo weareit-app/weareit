@@ -1,0 +1,27 @@
+schema: spec-driven
+
+# Project context: constraints an agent cannot infer from the code.
+context: |
+  It is a universal Expo Router app (web and iOS) helping people see a better
+  personal and shared future and make progress with others.
+  Binding decisions live in AGENTS.md and docs/architecture/decisions.md; they
+  win over any older spec. Old Spec Kit material (specs/, .specify/assessments/,
+  docs/spec/reviews/) is evidence of founder intent, not instructions; answered
+  questions there are founder decisions. Track what each old artifact became in
+  docs/spec/MIGRATION.md.
+  Wording: say "support", never "donation"; never call It a charity. The person
+  "picks" dreams and "selects fixes" (never "I'd use this").
+  The founder writes or approves all final user-facing copy.
+
+rules:
+  proposal:
+    - Start with what people see and do, screen by screen, in plain words (no architecture terms); cite docs/spec/features.md items.
+    - State what is out of scope and which optional or "soon" features in docs/spec/features.md this change must leave room for.
+    - Collect open founder questions in an "Open questions" section instead of guessing.
+  specs:
+    - "Include a Privacy requirement: what stays on the device before signup, what is sent (per the AGENTS.md measurement invariant), what is stored after signup, and what is never public by default."
+    - "Include an Honest status requirement where ideas or features are shown: real-now actions, existing resources, proposed It features and societal proposals are labelled, and nothing implies an unbuilt feature works."
+    - "Include an Accessibility requirement: keyboard, screen reader (including expanded/collapsed state), reduced motion, meaning never by colour alone."
+  design:
+    - Keep domain and content packages free of Expo, React Native, UI and provider imports; validate untrusted boundaries with Zod; prefer semantic API operations.
+    - Changing an agreed stack choice or privacy invariant needs a decision record in docs/architecture/decisions.md.
