@@ -1,6 +1,6 @@
 # Open questions: 013 measurement
 
-For founder review. Q0 was answered on 2026-10-18 and Q1–Q10 on 2026-10-19. The answers are written into `spec.md`, and the original options are kept here as the record. **Still open: Q11, Q12.**
+For founder review. Q0 was answered on 2026-10-18 and Q1–Q12 on 2026-10-19. The answers are written into `spec.md`, and the original options are kept here as the record. **Nothing is open.**
 
 ## Founder direction (2026-10-19)
 
@@ -76,29 +76,24 @@ Options were: A link only the visit in which signup or sign-in happens · B stor
 
 **Founder answer**: A. No identifier is stored on the device. → FR-006–FR-008.
 
-## Open
+### Q11. Record which pains a visit opens? — ANSWERED
 
-### Q11. Should in-place pain opens and picks be sent as events? *(spec FR-005)*
+"Opened in place" means a pain tapped open on the personal or societal page to show its dreams. Options were: A keep opens on the device · B record each open by pain ID, linked at signup like page views · C send every open, pick and fix selection live. Recommended A.
 
-The founder's reason for linking is personalised fixes. Today, only "first pain opened" and "first dream picked" are sent. Which pains a person opened on the personal page (without picking anything) stays on the device; 008 lists it as "not sent". Picks reach the account at signup anyway.
+**Founder answer**: B. Each pain opened is recorded once per visit, by pain ID; picks and selected fixes still reach the account only at signup. → FR-005, Pain-Open rule. 008's "not sent: opened pains" line must change.
 
-- A. No change: picks arrive at signup; pain opens stay on the device.
-- B. Also send each in-place pain open (by pain ID) as an event, linked at signup like page views.
-- C. Send every open, pick and fix selection as it happens.
-- **Recommendation**: A. Picks already reach the account. B adds "looked at but didn't pick" data, which is useful for research but sensitive for health-related pains. C breaks "picks stay on the device until signup" (features.md §1).
+### Q12. Linked visits when an account is deleted — ANSWERED
 
-### Q12. What happens to linked visits when an account is deleted?
+Options were: A delete them · B unlink and keep as visits with no account. Recommended B.
 
-- A. Delete them with the account.
-- B. Unlink them and keep them as anonymous visits (stages and page views stay in the totals).
-- **Recommendation**: B, for continuity of the research totals. Until this is answered, the spec assumes A, which is the safer default.
+**Founder answer**: B. → FR-015.
 
 ## Follow-ups outside this spec (not done here)
 
 - **001**: FR-014, Privacy and SC-006 should point to 013's lists. "first idea seen" becomes `personal-first-fix-seen`, and "I'd use this" becomes "selected fixes". The wording "identifier that outlives the visit" needs revisiting now that linking exists.
-- **008**: reverse FR-028's "never linked to the account". Add "the pages and steps of this visit" to the gate's list, and send the visit number with signup and sign-in.
+- **008**: reverse FR-028's "never linked to the account". Add "the pages, pains opened and steps of this visit" to the gate's list and drop "opened pains" from its not-sent list, and send the visit number with signup and sign-in.
 - **009**: in FR-026, replace "assumed unlinked (confirm in review)" with "linked through the visit; no amount on the stage".
-- **010**: rewrite "What we count", the privacy note, Q37 (lawful basis: linked page views are personal data, and some pain pages may be health data), and account deletion (Q12).
+- **010**: rewrite "What we count", the privacy note, Q37 (lawful basis: linked page views are personal data, and some pain pages may be health data), and account deletion (unlink and keep, Q12).
 - **012**: reverse the per-pain part of FR-020. How a visit arrived stays unrecorded.
 - **assess/help-page**: in decision.md "Still open" 10, point to 013 rows 17–20.
 - **006 admin**: place the funnel and page-view report.

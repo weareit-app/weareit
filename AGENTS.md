@@ -21,7 +21,7 @@ Help people see a better personal and shared future as possible, find a concrete
 
 - Pre-signup personal answers, ratings, narrative, free text, and location remain on device.
 - Do not create a stable anonymous identity: nothing persistent on the device, and no link between visits before signup.
-- Measurement (spec 013; changed 2026-10-19): a per-visit stage funnel plus per-page views, including each pain page by ID; never picks or selected fixes before signup; visit ID in memory only. The visit in which a person signs up or signs in is linked to their account. Records are kept indefinitely. Document it in UI copy before sending data.
+- Measurement (spec 013; changed 2026-10-19): a per-visit stage funnel plus per-page views (each pain page by ID) and each pain opened (by ID); never picks or selected fixes before signup; visit ID in memory only. The visit in which a person signs up or signs in is linked to their account. Records are kept indefinitely. Document it in UI copy before sending data.
 - Never expose personal selections or their sensitive derivatives in public artifacts by default.
 
 ## Engineering conventions

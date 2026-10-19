@@ -13,7 +13,7 @@
 
 ## Requirement Completeness
 
-- [ ] No [NEEDS CLARIFICATION] markers remain — 1 remains (Q11 in-place pain opens); Q12 (account deletion) open with a default; see `questions.md`
+- [x] No [NEEDS CLARIFICATION] markers remain (Q0–Q12 answered 2026-10-19)
 - [x] Requirements are testable and unambiguous
 - [x] Success criteria are measurable
 - [x] Success criteria are technology-agnostic (no implementation details)
