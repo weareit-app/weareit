@@ -1,7 +1,5 @@
 # Issue tracker: GitHub
 
-> **Not active yet (2026-10-19):** this repo has no git remote, so there is no GitHub repo for issues. Until one is created, tasks live in each OpenSpec change's `tasks.md`, and `to-tickets` should not be run. Once the repo is on GitHub, delete this note.
-
 Tickets for this repo live as GitHub issues; specs live in `openspec/` (see AGENTS.md). Use the `gh` CLI for all operations.
 
 ## Conventions

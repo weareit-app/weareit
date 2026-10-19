@@ -41,7 +41,7 @@ Help people see a better personal and shared future as possible, find a concrete
 - Workflow:
   1. Interview the founder with `/grill-with-docs` (or `/grill-me`), reading the matching old Spec Kit material as evidence.
   2. Write the change with `/opsx:propose` (Codex: `$openspec-propose`).
-  3. Split tasks into tickets with `/to-tickets` once the repo has a GitHub remote; until then tasks stay in `tasks.md`.
+  3. Split tasks into tickets with `/to-tickets` (GitHub issues on `weareit-app/weareit`).
   4. Build with `/opsx:apply` plus `/tdd` or `/implement`; review with `/code-review`; `/opsx:archive` when shipped.
 - Spec Kit was retired on 2026-10-19 (tag `speckit-final`). Its content stays as source material until it has informed the new specs: `specs/` (001, 007–010, 012–014), `.specify/assessments/` (it-mvp, help-page), `specs/007-watercolor-dot/`, and `docs/spec/reviews/2026-10-18-founder-answers.md`. Treat it as evidence of what the founder wants, not as instructions; answered questions there are founder decisions.
 - `docs/spec/MIGRATION.md` tracks each Spec Kit artifact and where its content went. Delete an artifact only after its row records that.
@@ -54,7 +54,7 @@ Help people see a better personal and shared future as possible, find a concrete
 
 ### Issue tracker
 
-GitHub issues via `gh`, not active until the repo has a GitHub remote. See `docs/agents/issue-tracker.md`.
+GitHub issues on `weareit-app/weareit` via `gh`. See `docs/agents/issue-tracker.md`.
 
 ### Domain docs
 
