@@ -58,8 +58,8 @@ First asked 2026-10-17; founder answers recorded 2026-10-18. Mismatch numbers (M
 | Q16 | Host access logs | Hosting requirement: drop or truncate IPs and paths where the host allows; otherwise short retention, never analysed; disclosed. (Retention value still open: Q36.) |
 | Q17 | Account deletion in v0.1 | By email request, with a stated response time on the privacy page; self-serve later. Owned by 010. (Response time still open: Q39.) |
 | Q18 | Support records after deletion | Cancel recurring support; keep payment records unlinked from the person for accounting; disclose. (Period still open: Q40.) |
-| Q19 | Support reference as sole credential (M8) | Resolved by fix branch `claude/vigorous-hawking-2ad1c8` (3c04618): status and portal scoped to the signed-in account. Not merged. |
-| Q20 | RevenueCat anonymous ID (M6) | Resolved in direction by 009 FR-013/FR-025: every support, including App Store/RevenueCat, is tied to the account. Code not yet changed. Web guest checkout removed on the fix branch (752f2f4). |
+| Q19 | Support reference as sole credential (M8) | Resolved by fix branch `claude/vigorous-hawking-2ad1c8` (25ce58e): status and portal scoped to the signed-in account. Not merged. |
+| Q20 | RevenueCat anonymous ID (M6) | Resolved in direction by 009 FR-013/FR-025: every support, including App Store/RevenueCat, is tied to the account. Code not yet changed. Web guest checkout removed on the fix branch (7889724). |
 | Q21 | Stripe script loading | Only on the Support screen, loaded after the person taps Next on the amount step; never site-wide. |
 | Q22 | Name or describe outside services | Name each one and what it receives. |
 | Q23 | What the opt-in covers | Updates only; everything else is transactional. Unsubscribe link in every update email. |
