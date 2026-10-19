@@ -43,11 +43,11 @@ See proposal.md (Why). Current state, from `openspec/specs/support` and the code
 
 6. **Webhooks.** Keep signature verification, raw body, event dedupe and order-safe updates. Map `payment_intent.*`, `invoice.paid` / `invoice.payment_failed`, `customer.subscription.*`, `charge.refunded` / `refund.*` to `supports` and `support_payments` through `support_provider_refs`; drop `checkout.session.*`. The page polls `support.getStatus` while "being confirmed".
 
-7. **Funding total.** Sum of succeeded `support_payments` minus refunds, all providers, before provider fees, in USD, as of the newest included payment or the query time (confirm.md Q10). Computed by query and cached briefly; it never returns counts or per-person data.
+7. **Funding run rate and comparison.** Run rate = active monthly support amounts × 12 + active annual support amounts, from It's own ledger, all providers, before fees, USD, with an as-of time; plus the sum of one-time payments (minus refunds) in the current calendar year. A founder-maintained list of comparison figures (company, figure, unit, source URL, date) lives in CMS content and is shown only when every field is filled (founder, 2026-10-19).
 
 8. **Founder letter.** Stored as a single published CMS entry (`support-letter`) in the versioned content snapshot and served through the existing content operation; when absent the app shows the marked placeholder. Legal lines are constants in the app.
 
-9. **iOS (pending confirm.md Q4/Q5).** RevenueCat is configured on tap with `appUserID` set to the It account ID; the purchase button only shows when signed in. `revenuecat-support.ts` resolves the app user ID to an account and refuses to record a support when it matches none. Store IDs go into `support_provider_refs`.
+9. **iOS (founder, 2026-10-19: one-time only, $10/$20/$50/$100/$250/$500).** RevenueCat is configured on tap with `appUserID` set to the It account ID; the purchase button only shows when signed in. `revenuecat-support.ts` resolves the app user ID to an account and refuses to record a support when it matches none. Store IDs go into `support_provider_refs`.
 
 10. **Support moments.** Reuse the `required-signup-gate` emitter with three typed moments: `support-reached`, `support-completed` (fired when `getStatus` first reports confirmed), `support-skipped`. No payload beyond the name. The measurement change maps them to spec 013 stages 14–16 and owns sending and linking.
 

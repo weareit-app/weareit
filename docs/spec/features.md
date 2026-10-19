@@ -58,7 +58,7 @@ Founder review, 2026-10-17/18: the new numbers stand. Earlier drafts (including 
 - ✔ **core** Support once, monthly or annually, with an embedded Stripe form right on the page. Wording: "support", never "donate".
 - ✔ **core** Link to Stripe's hosted portal to cancel or change recurring support.
 - ✔ *(optional)* Manage or cancel recurring support inside It.
-- ✔ *(optional)* Comparison sidebar: big companies' revenue and staff vs It's actual funding and team, sourced and dated.
+- ✔ **core** Comparison sidebar: big companies' revenue and staff vs It's yearly support run rate and team, sourced and dated (founder, 2026-10-19: moved into v0.1).
 - ✔ **core** Skip without supporting.
 
 ## 5. Help: "What could you help make possible?" — ? ILL-DEFINED, needs its own design pass

@@ -23,6 +23,8 @@ What people see and do, screen by screen. Where the page sits in the flow (after
 - **BREAKING (API and data)**: the hosted-Checkout operation is replaced by a "start support" operation for the embedded form; the support ledger is restructured with provider IDs moved into separate provider-reference records (no production data exists).
 - **Wording**: every Support screen says "support", never "donation", "donate", "donor", "contribution" or "charity".
 
+Founder answers (2026-10-19) changed three things from the draft: per-cadence maximums (once $10,000, monthly $1,000, annual $10,000) with "get in touch" above them; the public number is the yearly run rate plus a one-time line, beside a sourced comparison with other companies; the statement descriptor is "WEAREIT.APP" ("WE ARE IT" until the site is live).
+
 Out of scope: the flow position and "You're all set" screen (`required-signup-gate`); sending and linking measurement (the measurement change owning spec 013; this change only emits the Support moments); the full privacy page text (spec 010, `privacy-page`); account deletion itself (no deletion flow exists yet); Apple subscriptions and the iOS link-out to web, which wait for App Review research; managing support inside It and the comparison sidebar (optional, deferred by the founder, 009 Q22); admin support list and totals (features.md §6, optional); production Stripe and App Store Connect account setup.
 
 Must leave room for (features.md §4, §6 and Stages): managing or cancelling recurring support inside It (status stays account-scoped and semantic); the comparison sidebar (space beside the funding total, no build); native iOS once/monthly/annual (annual cadence and provider-reference records accept Apple purchases without changing the core record); admin support totals (the funding-total query works from It's records alone); Help build It replacing "You're all set" as the next screen.
@@ -49,16 +51,4 @@ None.
 
 ## Open questions
 
-Each is also in `confirm.md` with options and a recommendation.
-
-1. Custom amount maximum (009 O2; today $1,000).
-2. Refund window N days (009 O1; set by the founder) and what the app says before N is set.
-3. Card-statement descriptor wording (009 O3).
-4. What iOS offers in this change, given Apple subscriptions and the link-out both wait for App Review research.
-5. iOS one-time amounts if App Store purchases stay: today's $5/$15/$30 or the web Once presets.
-6. Support funnel stages: spec 009 assumed them unlinked from the account; the 2026-10-19 invariant (spec 013) links the signup visit and later signed-in visits. AGENTS.md wins; confirm this change only emits the moments.
-7. Next screen after Support: spec 009 says Help build It; `required-signup-gate` says "You're all set" until Help ships.
-8. Account deletion does not exist yet: specify only the Support side now.
-9. Whether recurring support that is scheduled to end blocks starting a new one.
-10. Funding total definition and whether it shows from the first payment.
-11. Final copy: letter, headline, summary sentences, states, not-tax-deductible and card-handling lines (founder).
+All eleven were answered by the founder on 2026-10-19; see `confirm.md`. Still to set outside this change: the refund window N (founder) and final copy (founder).

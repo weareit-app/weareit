@@ -1,6 +1,6 @@
 # Tasks
 
-Prerequisites: `required-signup-gate` merged (migration `006_signup_gate`, header/menu chrome, `/all-set`, moment emitter); founder answers to `confirm.md` Q1, Q4, Q5, Q9 and Q10 before groups 1, 7 and 3.5.
+Prerequisites: `required-signup-gate` merged (migration `006_signup_gate`, header/menu chrome, `/all-set`, moment emitter); founder answers to `confirm.md` (all answered 2026-10-19) Q1, Q4, Q5, Q9 and Q10 before groups 1, 7 and 3.5.
 
 ## 1. Ledger
 
@@ -50,10 +50,17 @@ Prerequisites: `required-signup-gate` merged (migration `006_signup_gate`, heade
 ## 8. Docs and integration
 
 - [ ] 8.1 Revise `docs/architecture/payments.md` from hosted Checkout to the embedded form, ledger shape and account rules; verify it names no Checkout Session flow
-- [ ] 8.2 Configure Stripe test mode (methods, portal, statement descriptor per confirm.md Q3) and record the settings in `docs/architecture/payments.md`
+- [ ] 8.2 Configure Stripe test mode (methods, portal, statement descriptor "WE ARE IT" until weareit.app is live, then "WEAREIT.APP") and record the settings in `docs/architecture/payments.md`
 - [ ] 8.3 Full run: `pnpm test` and the onboarding e2e from signup through Support to "You're all set", with skip, once, monthly and annual paths
 
 ## Workflow follow-up
 
 - Update `docs/spec/MIGRATION.md` row for `specs/009-support-page/` once this change is approved (not edited by this change).
 - Archive the change after review; the archive replaces the "Known divergence" notes in `openspec/specs/support/spec.md`.
+
+## 9. Founder answers (2026-10-19)
+
+- [ ] 9.1 Per-cadence maximums (once $10,000, monthly $1,000, annual $10,000) on device and server, with "For larger support, get in touch" linking to the contact email
+- [ ] 9.2 Compute the public funding figure as the yearly run rate plus the one-time line for the year, and tests for the definition
+- [ ] 9.3 Add CMS content for comparison figures (company, figure, unit, source, date) and show them beside the run rate only when complete
+- [ ] 9.4 Ship the not-tax-deductible line

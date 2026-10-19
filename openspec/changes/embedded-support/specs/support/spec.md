@@ -14,8 +14,8 @@ The page SHALL be shown only to a signed-in person. Step 1 SHALL show the headli
 - **THEN** they are asked to sign in and no amount or payment controls are shown
 
 #### Scenario: Amount out of range
-- **WHEN** the person enters $0.50 or $2,000
-- **THEN** the page says "Enter an amount between $1 and $1,000."
+- **WHEN** the person enters $0.50, or more than the maximum for the chosen cadence
+- **THEN** the page explains the limits for that cadence and offers "get in touch" for larger support
 
 ### Requirement: Web checkout requires an account
 Starting a web support SHALL require a signed-in session and SHALL create a pending support record tied to that account before the payment form is shown. A signed-out call SHALL fail with UNAUTHORIZED.
@@ -81,11 +81,15 @@ Step 1 SHALL show six preset amounts for the selected cadence in two rows of thr
 - **THEN** the six Every year presets replace the Monthly ones
 
 ### Requirement: Amount limits
-Amounts SHALL be in US dollars, at least $1 and at most $1,000 per payment (maximum pending founder confirmation), and the same limits SHALL be enforced on the device and on the server before any provider call.
+Amounts SHALL be in US dollars, at least $1, and at most $10,000 for one-time, $1,000 for monthly and $10,000 for annual support. Above the maximum, the page SHALL say "For larger support, get in touch" with a link to It's contact email. The same limits SHALL be enforced on the device and on the server before any provider call.
 
 #### Scenario: Custom amount out of range
-- **WHEN** the person enters $0.50 or $2,000 in the custom field
-- **THEN** Next is unavailable and the page explains the limits, and no provider call is made
+- **WHEN** the person enters $0.50, or $2,000 with Monthly selected, in the custom field
+- **THEN** Next is unavailable, the page explains the limits and offers "get in touch", and no provider call is made
+
+#### Scenario: Large annual amount
+- **WHEN** the person enters $5,000 with Every year selected
+- **THEN** the amount is accepted
 
 #### Scenario: Server check
 - **WHEN** a start-support call arrives with an amount outside the limits
@@ -124,7 +128,7 @@ Card numbers and billing details SHALL be handled only by the payment provider; 
 - **THEN** no request to It's server contains card numbers or billing address
 
 ### Requirement: Not tax-deductible line
-Step 2 SHALL show one plain line near the confirm button saying support is not tax-deductible, in wording approved by the founder.
+Step 2 SHALL show one plain line near the confirm button saying support is not tax-deductible.
 
 #### Scenario: Line present
 - **WHEN** step 2 is shown
@@ -145,7 +149,7 @@ The founder letter SHALL be loaded from the CMS as published content. Until the 
 - **THEN** the page shows the marked placeholder and works otherwise
 
 ### Requirement: Public funding total
-The page SHALL show an aggregate funding total computed from It's own support records across all providers, with a plain statement of what it counts and its as-of date, and SHALL never name or count out any individual supporter.
+The page SHALL show It's yearly support run rate, computed from It's own records across all providers: active monthly support times 12 plus active annual support, in USD before fees, labelled as yearly support from people like you with its as-of date, and a separate line for one-time support received this year. It SHALL never name or single out any individual supporter.
 
 #### Scenario: Total shown
 - **WHEN** step 1 loads
@@ -153,7 +157,25 @@ The page SHALL show an aggregate funding total computed from It's own support re
 
 #### Scenario: Public read
 - **WHEN** the funding total is requested
-- **THEN** the response contains only the total, currency, definition and as-of time
+- **THEN** the response contains only the run rate, the one-time total for the year, currency, definition and as-of time
+
+### Requirement: Comparison with other companies
+Step 1 SHALL show the run rate and It's team size beside a small set of other companies' revenue and staff figures, each with a named source and date, chosen and approved by the founder. No figure SHALL be shown without a source and date, and estimates SHALL be labelled as estimates.
+
+#### Scenario: Sourced comparison
+- **WHEN** step 1 shows the comparison
+- **THEN** every company figure links to its source and shows its date
+
+#### Scenario: Missing source
+- **WHEN** a comparison figure has no source or date
+- **THEN** it is not shown
+
+### Requirement: iOS one-time amounts
+In this change, iOS SHALL offer only one-time App Store support at fixed amounts of $10, $20, $50, $100, $250 and $500, with no custom amount. Apple subscriptions and the link-out to web Support SHALL wait for a later change after App Store review research.
+
+#### Scenario: iOS options
+- **WHEN** a signed-in person opens Support in the iOS app
+- **THEN** they see the six one-time amounts and no monthly, annual or custom option
 
 ### Requirement: Skip always works
 A skip control SHALL be visible and usable at every moment on the Support page, including while the form loads, after it fails and mid-entry. Skipping SHALL NOT create a support record, contact the payment provider, or cause later support prompts during onboarding.
@@ -288,11 +310,11 @@ The app SHALL emit three Support moments for the measurement change to send: Sup
 - **THEN** a Support-skipped moment is emitted with no amount or cadence
 
 ### Requirement: Merchant identity
-Payments SHALL be taken by We Are It LLC as merchant of record, with a card-statement descriptor the founder approves.
+Payments SHALL be taken by We Are It LLC as merchant of record. The card-statement descriptor SHALL be "WEAREIT.APP" once weareit.app serves a working site, and "WE ARE IT" until then.
 
 #### Scenario: Statement
 - **WHEN** a web payment succeeds
-- **THEN** the provider account charging it belongs to We Are It LLC and uses the approved descriptor
+- **THEN** the provider account charging it belongs to We Are It LLC and the statement reads "WEAREIT.APP" (or "WE ARE IT" before the site is live)
 
 ### Requirement: Support privacy
 Nothing about Support SHALL be sent or stored before signup. After signup It SHALL store only account link, amount, currency, cadence, state, timestamps, provider references and event IDs with body hashes; Support moments follow the AGENTS.md measurement invariant. Whether, how much or how often anyone supported SHALL never be public.
@@ -306,11 +328,11 @@ Nothing about Support SHALL be sent or stored before signup. After signup It SHA
 - **THEN** no individual's support, amount or cadence appears, only the aggregate total
 
 ### Requirement: Support honest status
-The page SHALL NOT imply charity, tax deductibility, product benefits from supporting, or success before confirmation, and SHALL NOT show invented totals or social proof. Deferred features (managing support inside It, the comparison sidebar) SHALL NOT appear.
+The page SHALL NOT imply charity, tax deductibility, product benefits from supporting, or success before confirmation, and SHALL NOT show invented totals or social proof. The deferred feature (managing support inside It) SHALL NOT appear.
 
 #### Scenario: No deferred features
 - **WHEN** the Support page is reviewed
-- **THEN** no in-It management controls or comparison sidebar appear and no copy implies they exist
+- **THEN** no in-It management controls appear and no copy implies they exist
 
 ### Requirement: Support accessibility
 Cadence and preset amounts SHALL be radio groups operable by keyboard with announced selection; the charge summary SHALL be read before Next and confirm; moving to step 2 SHALL move focus to its heading; state changes SHALL be announced; motion SHALL respect reduced motion; selection and errors SHALL never rely on colour alone.
