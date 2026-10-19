@@ -21,6 +21,14 @@
   --color-ink-soft: #606162;
   --color-ink: #1F2021;
 
+  /* Illustration tokens, kept apart from the UI's: riso ink and the paper a
+     figure carries inside its outline. In dark mode the ink lifts to charcoal
+     and the paper turns cream, with no keylines (design notes, 2026-10-18). */
+  --color-riso-ink: #1F2021;
+  --color-riso-paper: #FFFFFF;
+  /* Lines drawn light on dark cards, in the drawings' own cream. */
+  --color-riso-line: #1F2021;
+
   --color-tide: #087E9F;
   --color-tide-wash: #E0F2FA;
   --color-tide-tint: #A9D6E9;
@@ -111,6 +119,9 @@
     --color-ink-faint: #818283;
     --color-ink-soft: #B3B4B5;
     --color-ink: #EEEEEE;
+    --color-riso-ink: #45423D;
+    --color-riso-paper: #EFE9DE;
+    --color-riso-line: #EFE9DE;
 
     --color-tide-wash: #062B37;
     --color-tide-tint: #02546B;
