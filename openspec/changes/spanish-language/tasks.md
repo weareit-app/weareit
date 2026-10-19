@@ -69,3 +69,9 @@ Answer `confirm.md` before starting. Tasks marked (Qn) depend on that answer; do
 - Founder (or appointed reviewer) approves Spanish copy and the Spanish founder letter before launch (Q2, Q3).
 - Pain pages (spec 012), embedded Support (009), full privacy page (010) and measurement (013) changes include Spanish when they are written.
 - Archive with `/opsx:archive` once shipped, then fill the `specs/014-i18n-spanish/` row in `docs/spec/MIGRATION.md`.
+
+## Founder answers (2026-10-19)
+
+- [ ] Show the "Solo en inglés por ahora" tag on English fallback items when Spanish is active, announced by screen readers
+- [ ] Never show unreviewed machine-assisted Spanish; fall back to English with the tag until reviewed
+- [ ] Name the Spanish reviewer before the launch gate is checked

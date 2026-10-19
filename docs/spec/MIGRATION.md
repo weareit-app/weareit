@@ -16,7 +16,7 @@ Rules:
 | `specs/009-support-page/` | Spec, founder answers applied; 3 open questions | Drafted and confirmed 2026-10-19 → `openspec/changes/embedded-support/` | confirmed; build after required-signup-gate |
 | `specs/010-safety-privacy/` | Privacy page, contact and FAQ; safety floor deferred; 9 open questions | | not started |
 | `specs/012-entry-links/` | One page per pain at `/p/<slug>`; 4 open questions | Drafted and confirmed 2026-10-19 → `openspec/changes/pain-pages/` (per-pain counting moved to `visit-measurement`; ID lock in `locked-content-ids`) | confirmed |
-| `specs/014-i18n-spanish/` | Spec, plan and tasks (approved 2026-10-17); branch `claude/it-i18n-support-plan-7006e5` holds reusable code | Drafted 2026-10-19 → `openspec/changes/spanish-language/` (18 confirm questions; reusable code noted in its design.md) | drafted; founder confirm pending |
+| `specs/014-i18n-spanish/` | Spec, plan and tasks (approved 2026-10-17); branch `claude/it-i18n-support-plan-7006e5` holds reusable code | Drafted and confirmed 2026-10-19 → `openspec/changes/spanish-language/` (reusable code noted in its design.md) | confirmed; delete branch `claude/it-i18n-support-plan-7006e5` after its code is reused |
 | `specs/013-measurement/` | Spec; all questions answered; changed the measurement invariant | Drafted and confirmed 2026-10-19 → `openspec/changes/visit-measurement/` | confirmed; build after required-signup-gate |
 | `.specify/assessments/help-page/` | Help build It; option A, awaiting founder go (reserved number 011) | | not started |
 | `.specify/assessments/it-mvp/` | v0.1 go decision (founder override) | | not started |

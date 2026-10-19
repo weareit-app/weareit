@@ -45,23 +45,4 @@ Must leave room for (features.md Stages): more languages, including right-to-lef
 
 ## Open questions
 
-All are listed with options and a recommendation in `confirm.md`. In short:
-
-1. Is Spanish still core for v0.1, and should it be added to features.md?
-2. Is 014's launch gate (100% reviewed Spanish interface text and a founder-approved letter before launch) still wanted?
-3. Who writes or reviews the Spanish interface copy, given the founder approves all final copy?
-4. Keep the "English only for now" and "Machine translation" tags, after the 2026-10-19 "show information" decision?
-5. Language as a measurement dimension: 014 FR-032 says yes; spec 013 FR-004/FR-022 (newer) say no.
-6. Save the language at signup and list it on the gate, though `required-signup-gate` says signup sends only picks, fixes and the opt-in?
-7. Opt-in wording version per language?
-8. Do `/p/<slug>` links get a language prefix, and which language do link previews use?
-9. Spanish slugs for pain pages?
-10. Spanish first-person dream lines: grammatical gender, and joining with "y"/"e".
-11. Which content fields need Spanish now (fixes' hidden evidence notes; legacy first actions)?
-12. Which items need human review before Spanish shows (014's safety rule targets first actions, which the app no longer shows)?
-13. The founder letter is now CMS content (spec 009): translate it in the editor rather than as fixed app text?
-14. What happens to the device's language choice on "clear choices" and on sign-out?
-15. People's own contributions: written in either language; how are they translated when approved?
-16. Pain-page detailed content and sources in Spanish (images with text, charts, English-only sources)?
-17. Which emails exist to translate in v0.1?
-18. Approve the decision record for the localization stack (i18next, react-i18next, expo-localization)?
+All eighteen were answered by the founder on 2026-10-19; see `confirm.md`. Differs from the draft's recommendation on Q4: only the "English only for now" tag, and unreviewed machine Spanish is never shown.

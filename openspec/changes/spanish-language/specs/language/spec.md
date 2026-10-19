@@ -85,6 +85,20 @@ When a content item has no Spanish that may be shown, it SHALL appear in English
 - **WHEN** Spanish is active and a pain has no Spanish version
 - **THEN** that pain appears in English in its usual position and can be opened and picked
 
+### Requirement: English-only tag
+When Spanish is active and a content item is shown in English because no reviewed Spanish exists, it SHALL carry a small "Solo en inglés por ahora" (English only for now) tag, which screen readers announce. There SHALL be no machine-translation tag.
+
+#### Scenario: Tagged fallback
+- **WHEN** Spanish is active and a pain has no reviewed Spanish
+- **THEN** it appears in English with the English-only tag
+
+### Requirement: No unreviewed machine Spanish
+Spanish text made with machine assistance SHALL NOT be shown to people until a reviewer has marked it reviewed; until then the item SHALL use the English fallback.
+
+#### Scenario: Unreviewed machine draft
+- **WHEN** a pain has a machine-assisted Spanish version that is not yet reviewed
+- **THEN** Spanish visitors see the English version with the English-only tag
+
 ### Requirement: Spanish wording rules
 Spanish text SHALL describe giving money as support ("apoyo", "apoyar"), never as a donation ("donación", "donar"), and neither language SHALL describe It as a charity ("caridad", "organización benéfica").
 
