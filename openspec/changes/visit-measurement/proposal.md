@@ -41,12 +41,4 @@ Conflict noted, not decided here: features.md §1 and §2b still say "coarse tot
 
 ## Open questions
 
-Numbered to match `confirm.md`, where each has options and a recommendation.
-
-1. When may sending be switched on in production?
-2. Does this change build a minimal founder-only report (behind the existing CMS admin token), or wait for the admin change (006)?
-3. Does signing in from the page-top "Sign in" link (added by required-signup-gate) count as `signed-in`, and does it count as `gate-reached`?
-4. The stage list: use spec 013's 20 stages (including `signed-in` and `help-background-given`), although one brief called it an 18-stage list?
-5. required-signup-gate's "What will be saved" ("nothing else on the device is sent") and "Signup privacy" ("Opened ... pains SHALL NOT be sent") contradict this change: amend that change before it archives?
-6. Pain IDs can still be renamed in the content editor, which would split a pain's history: block renames here, or leave it to the change that freezes IDs?
-7. Which signed-in pages count: only the listed ones (`gate` = gate, code and password steps; name step, "You're all set" and account screen not counted)?
+All seven were answered by the founder on 2026-10-19; see `confirm.md`. Notably: switched on only with the privacy wording; a minimal founder-only report ships here; the name step, "You're all set" and account screen are counted.

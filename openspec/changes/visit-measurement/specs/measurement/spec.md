@@ -75,7 +75,7 @@ Each stage SHALL be sent at most once per visit, when the visit first reaches it
 - **THEN** `support-reached` is recorded for that visit without any earlier stage
 
 ### Requirement: Page-view list
-The page-view list SHALL be: `personal`, `societal`, `pain` with the pain's stable ID (never its slug), `gate` (the signup gate and its steps), `support`, `help`, `privacy` and `faq`. Any other page SHALL NOT be counted until it is added to this list.
+The page-view list SHALL be: `personal`, `societal`, `pain` with the pain's stable ID (never its slug), `gate` (the signup gate and its steps), `name` (the name step), `support`, `all-set` (the "You're all set" screen), `account` (the account screen), `help`, `privacy` and `faq`. Any other page SHALL NOT be counted until it is added to this list.
 
 #### Scenario: Two pain pages
 - **WHEN** visits view `/p/loneliness` and `/p/broke`

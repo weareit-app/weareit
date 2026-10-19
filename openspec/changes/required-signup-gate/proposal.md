@@ -9,7 +9,7 @@ Signup is optional today, so most of what people pick never reaches It, and the 
 What people see and do, in order:
 
 - **Personal and societal pages**: unchanged for browsing. When signed out, a small "Sign in" link sits at the top. "Continue" on the societal page now goes to the signup gate instead of the futures screen.
-- **Signup gate** (new, replaces the optional save screen): one email field and "Continue". It lists exactly what will be saved (picked dreams with their pain, selected fixes, the opt-in choice), shows an unticked opt-in "Send me occasional updates about what It is building." (placeholder copy), and the line "By signing up you agree to…" linking to the privacy page. There is no "Not now". On web, the browser may offer a saved passkey on the email field.
+- **Signup gate** (new, replaces the optional save screen): one email field and "Continue". It lists exactly what will be saved (picked dreams with their pain, selected fixes, the opt-in choice, the language; plus this visit's pages, pains opened and steps once measurement is switched on), shows an unticked opt-in "Send me occasional updates about what It is building." (placeholder copy), and the line "By signing up you agree to…" linking to the privacy page. There is no "Not now". On web, the browser may offer a saved passkey on the email field.
 - **Code screen**: says a code was sent (same wording whether or not an account exists), takes the eight-digit code, and has a small "Use a password" link for people who set one. Too many requests show "Try again in a few minutes".
 - **Name step** (new, required): asks for a name; skipped by returning accounts that already have one. One line offers "Want a faster way back? Add a passkey or password", linking to the account screen.
 - **Support**: reached next, as today's Support page. Then a simple "You're all set" screen. (Help build It will slot in here in a later change.)
@@ -42,6 +42,11 @@ Must leave room for (features.md Stages): personal story of chosen futures (pick
 - Shared: `packages/domain/src/onboarding.ts` (draft and save payload), `packages/api/src/contract.ts` and `router.ts` (`saveOnboarding` payload and combine semantics), `packages/database` (opt-in record, passkey table, combine instead of overwrite).
 - Dependencies: Better Auth passkey and HaveIBeenPwned plugins (versions to pin); HaveIBeenPwned range API as a new third party.
 - Docs: `docs/architecture/decisions.md` (record password hash settings per the 2026-10-17 entry).
+
+## Decisions after review (2026-10-19)
+
+- Reconciled with the measurement rule: picks and selected fixes never leave the device before signup; disclosed measurement is the only exception; sending and linking belong to `visit-measurement`.
+- Spanish is core for v0.1: signup also saves the person's language, and the opt-in wording is versioned per language.
 
 ## Open questions
 

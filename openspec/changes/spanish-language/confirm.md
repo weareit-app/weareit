@@ -2,7 +2,7 @@
 
 Spec 014 (approved 2026-10-17) predates the onboarding redesign, required signup, the name step, the account screen, the privacy page, pain pages, the embedded Support form and the 2026-10-19 measurement change. These are the places where it now conflicts with later decisions or is unclear. Answering "yes" to a question accepts its recommendation.
 
-1. **Is Spanish still core for v0.1, and should it be added to `docs/spec/features.md`?**
+1. **Is Spanish still core for v0.1, and should it be added to `docs/spec/features.md`?** **Founder answer (2026-10-19): yes: core for v0.1, added to features.md.**
    features.md lists no language item; 014 said adding it is a founder decision.
    - A. Core for v0.1; add a "Language: English and Spanish" item to features.md.
    - B. Optional for v0.1 (ships if time allows); add it as optional.
@@ -36,13 +36,13 @@ Spec 014 (approved 2026-10-17) predates the onboarding redesign, required signup
    - B. Amend 013 to add language as a second split, disclosed on the privacy page.
    **Recommendation: A** (newer decision; AGENTS.md and decisions.md win). The `language` spec's privacy requirement is written this way.
 
-6. **Save the language at signup and list it on the gate?**
+6. **Save the language at signup and list it on the gate?** **Founder answer (2026-10-19): yes: saved at signup and listed on the gate (required-signup-gate amended).**
    014 FR-007: after signup the language is saved to the account. `required-signup-gate` "What will be saved" and "Signup privacy": signup sends only picked dreams, selected fixes and the opt-in, "nothing else on the device is sent".
    - A. Save it: add "your language" to the gate's list and to the privacy page; send it with signup or right after.
    - B. Don't send the device's language; set the account language only from the first switch made while signed in (until then the device language applies).
    **Recommendation: A**. One extra line on the gate keeps the list honest and keeps 014's promise that emails use the person's language.
 
-7. **Opt-in wording version per language?**
+7. **Opt-in wording version per language?** **Founder answer (2026-10-19): yes: wording versioned per language (required-signup-gate amended).**
    `required-signup-gate` records the opt-in choice with the version of the label wording. A Spanish label is different wording.
    - A. Each language's label is its own wording version; record the version shown.
    - B. One version covers both languages.

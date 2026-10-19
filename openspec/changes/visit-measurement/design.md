@@ -50,9 +50,9 @@ See proposal.md (Why). Current state:
 
 ## Overlaps
 
-- **required-signup-gate, account-signup "What will be saved"**: says the gate lists exactly picks, fixes and opt-in and "nothing else on the device is sent". This change ADDS "Gate lists this visit" rather than rewriting that block. The two must be reconciled before both archive (confirm.md item 5).
-- **required-signup-gate, account-signup "Signup privacy"**: says "Before signup, nothing from the device SHALL be sent" and "Opened or selected pains ... SHALL NOT be sent". Measurement sends pain opens and stages before signup, and this change ADDS "Link the visit at signup or sign-in". Same reconciliation (confirm.md item 5).
-- **required-signup-gate, account-signup "Gate moments for measurement"**: this change consumes those moments and adds a `signed-in` moment; that requirement's "SHALL NOT send them anywhere" becomes untrue once this change ships.
+- **required-signup-gate, account-signup "What will be saved"**: says the gate lists exactly picks, fixes and opt-in and "nothing else on the device is sent". This change ADDS "Gate lists this visit" rather than rewriting that block. The two must be reconciled before both archive (confirm.md item 5). *Resolved 2026-10-19: required-signup-gate amended (confirm 5).*
+- **required-signup-gate, account-signup "Signup privacy"**: says "Before signup, nothing from the device SHALL be sent" and "Opened or selected pains ... SHALL NOT be sent". Measurement sends pain opens and stages before signup, and this change ADDS "Link the visit at signup or sign-in". Same reconciliation (confirm.md item 5). *Resolved 2026-10-19: required-signup-gate amended (confirm 5).*
+- **required-signup-gate, account-signup "Gate moments for measurement"**: this change consumes those moments and adds a `signed-in` moment; that requirement's "SHALL NOT send them anywhere" becomes untrue once this change ships. *Resolved 2026-10-19: required-signup-gate amended (confirm 5).*
 - **required-signup-gate, pain-explorer "Sign-in link when signed out"**: sign-ins from that link also link the visit; whether they count as `signed-in` / `gate-reached` is confirm.md item 3.
 - **required-signup-gate, privacy-page "Placeholder content matches behaviour"**: once measurement is on, the placeholder privacy page must describe it; owned by the privacy change, gated by decision 4.
 - **on-device-choices "Nothing sent before signup"**: MODIFIED here; required-signup-gate does not touch it, but it modifies two other requirements in the same capability.

@@ -81,6 +81,10 @@ Founder's rough direction (2026-10-16), not settled:
 - ✔ *(optional)* Help offers; mark as followed up.
 - ? *(optional)* Interest in roadmap items (depends on Help page design).
 
+## 7. Language
+
+- ✔ **core** Use It in English or Spanish: follows the device, switchable anywhere without losing picks, saved to the account after signup (founder, 2026-10-19; change `openspec/changes/spanish-language/`).
+
 ## Stages
 
 v0.1 is staged: **core** must ship; **optional** ships if time allows; **soon** isn't built yet but the early build must not get in its way.

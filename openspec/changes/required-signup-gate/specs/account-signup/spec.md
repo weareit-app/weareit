@@ -18,14 +18,13 @@ After the societal page, continuing SHALL require an account. The gate SHALL ask
 - **THEN** the gate is skipped and their device picks are saved to the account
 
 ### Requirement: What will be saved
-The gate SHALL list, before the person continues, exactly what signup saves: their picked dreams with the pain each was picked under, their selected fixes, and their opt-in choice. It SHALL say that nothing else on the device is sent.
-
+The gate SHALL list, before the person continues, exactly what signup saves: their picked dreams with the pain each was picked under, their selected fixes, their opt-in choice and their language. No other choice from the device SHALL be sent. In releases where measurement is switched on, the measurement change adds its own line to this list.
 #### Scenario: Reading the list
 - **WHEN** the gate is shown
-- **THEN** it lists picked dreams, selected fixes and the opt-in choice as the only things saved
+- **THEN** it lists picked dreams, selected fixes, the opt-in choice and the language as the only choices saved
 
 ### Requirement: Email opt-in
-The gate SHALL show an opt-in checkbox for occasional update emails from It, unticked by default. It SHALL cover updates only. Its label SHALL be founder-approved copy; until then the placeholder is "Send me occasional updates about what It is building." The choice and the version of the label wording SHALL be saved with the account.
+The gate SHALL show an opt-in checkbox for occasional update emails from It, unticked by default. It SHALL cover updates only. Its label SHALL be founder-approved copy; until then the placeholder is "Send me occasional updates about what It is building." The choice and the version of the label wording, which is versioned separately for each language, SHALL be saved with the account.
 
 #### Scenario: Default
 - **WHEN** the gate is first shown
@@ -33,7 +32,7 @@ The gate SHALL show an opt-in checkbox for occasional update emails from It, unt
 
 #### Scenario: Opting in
 - **WHEN** the person ticks the opt-in and signs up
-- **THEN** the account records the opt-in and the wording version shown
+- **THEN** the account records the opt-in and the wording version shown, in the language shown
 
 ### Requirement: Terms line
 The gate SHALL show "By signing up you agree to…" with a link to the privacy page, with no checkbox.
@@ -108,18 +107,16 @@ If saving picks fails after the account exists, the person SHALL stay signed in,
 - **THEN** the picks remain on the device, a retry follows, and the person is told their picks are safe
 
 ### Requirement: Gate moments for measurement
-The app SHALL mark the moment the gate is shown and the moment an account is created and picks saved, so the measurement change can count "reached the gate" and "signed up". This change SHALL NOT send them anywhere.
-
-#### Scenario: Nothing sent yet
-- **WHEN** the gate is shown or someone signs up
-- **THEN** no measurement request is made
+The app SHALL mark the moment the gate is shown and the moment an account is created and picks saved, so the measurement change can count "reached the gate" and "signed up". Sending and linking them belongs to the measurement change; signup SHALL work the same whether or not they are sent.
+#### Scenario: Measurement switched off
+- **WHEN** the gate is shown or someone signs up in a release without measurement
+- **THEN** no measurement request is made and signup works normally
 
 ### Requirement: Signup privacy
-Before signup, nothing from the device SHALL be sent. At signup, only picked dreams (with pain and content version), selected fixes (with content version), and the opt-in choice (with wording version) SHALL be sent. Opened or selected pains, help interests and draft timestamps SHALL NOT be sent. No account's picks SHALL be public.
-
+Before signup, picks and selected fixes SHALL never leave the device; the disclosed measurement in AGENTS.md is the only thing sent before signup, and only once switched on. At signup, only picked dreams (with pain and content version), selected fixes (with content version), the opt-in choice (with wording version) and the language SHALL be saved. Selected pains, help interests and draft timestamps SHALL NOT be sent. No account's picks SHALL be public.
 #### Scenario: Payload
 - **WHEN** a person signs up with selected pains but no picked dreams
-- **THEN** the save contains no pains, only the (empty) picks and the opt-in
+- **THEN** the save contains no pains, only the (empty) picks, the opt-in and the language
 
 ### Requirement: Signup accessibility
 The gate, code and name screens SHALL be usable by keyboard with visible focus, SHALL label every field and announce errors to screen readers, SHALL not rely on colour alone for errors, and SHALL not animate when reduced motion is on.
@@ -129,7 +126,7 @@ The gate, code and name screens SHALL be usable by keyboard with visible focus, 
 - **THEN** the error is announced and focus stays on the code field
 
 ### Requirement: Save picks to the account
-After sign-in, the app SHALL send only the person's picked dreams (each with its pain), selected fixes and opt-in to the account, with the content version they were made under. The server SHALL combine them with any picks already saved on the account, keeping everything from both, and SHALL report success only once they are stored.
+After sign-in, the app SHALL send only the person's picked dreams (each with its pain), selected fixes, opt-in and language to the account, with the content version they were made under. The server SHALL combine them with any picks already saved on the account, keeping everything from both, and SHALL report success only once they are stored.
 
 #### Scenario: Returning account with different picks
 - **WHEN** a person with saved picks signs in on a new device that has different picks
