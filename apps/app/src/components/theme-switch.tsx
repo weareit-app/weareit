@@ -36,8 +36,9 @@ export function ThemeSwitchCorner() {
   return (
     <View
       pointerEvents="box-none"
-      className="absolute right-0 top-0 rounded-bl-2xl bg-paper/90 px-4 py-3"
-      style={{ paddingTop: insets.top + 12, paddingRight: insets.right + 16 }}
+      className="absolute right-0 top-0 rounded-bl-2xl bg-paper px-4 py-3"
+      // Below the status bar, which has its own frosted backdrop.
+      style={{ top: insets.top, paddingRight: insets.right + 16 }}
     >
       <ThemeSwitch />
     </View>

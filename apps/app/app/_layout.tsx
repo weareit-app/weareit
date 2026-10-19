@@ -9,8 +9,9 @@ import { useOnboardingStore } from "../src/state/onboarding-store";
 import { getSessionCookie } from "../src/auth/auth-client";
 import { setSessionCookieProvider } from "@it/api/client";
 import { appFonts } from "../src/theme/fonts";
-import { useThemeStore } from "../src/state/theme-store";
+import { useIsDark, useThemeStore } from "../src/state/theme-store";
 import { applyColorScheme } from "../src/theme/apply-color-scheme";
+import { StatusBarBackdrop } from "../src/components/status-bar-backdrop";
 import { ThemeSwitchCorner } from "../src/components/theme-switch";
 
 export default function RootLayout() {
@@ -34,6 +35,7 @@ export default function RootLayout() {
   }, []);
 
   const scheme = useThemeStore((state) => state.scheme);
+  const isDark = useIsDark();
   useEffect(() => {
     void useThemeStore.persist.rehydrate();
   }, []);
@@ -43,8 +45,10 @@ export default function RootLayout() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <StatusBar style="auto" />
+      {/* Follows the app's own light/dark choice, not only the system's. */}
+      <StatusBar style={isDark ? "light" : "dark"} />
       <Stack screenOptions={{ headerShown: false, animation: "fade" }} />
+      <StatusBarBackdrop />
       <ThemeSwitchCorner />
     </QueryClientProvider>
   );

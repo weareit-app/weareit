@@ -21,7 +21,8 @@
       "typedRoutes": true
     },
     "ios": {
-      "bundleIdentifier": "com.joshsmith.we-are-it"
+      "bundleIdentifier": "com.joshsmith.we-are-it",
+      "appleTeamId": "N9PZ6BA6J6"
     }
   }
 }
