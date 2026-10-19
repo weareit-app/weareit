@@ -186,11 +186,13 @@ export function PainExplorer({
           <View className="gap-2.5">
             {model.groups.map((group) => {
               const expanded = openGroup === group.id;
-              const chosenTitles = group.pains.flatMap((pain) =>
-                (pathFor(pain.id)?.dreamIds ?? []).map(
-                  (id) => pain.dreams.find((dream) => dream.id === id)?.title,
-                ),
-              );
+              // In content order, as the closed pain's sentence is.
+              const chosenTitles = group.pains.flatMap((pain) => {
+                const chosen = pathFor(pain.id)?.dreamIds ?? [];
+                return pain.dreams
+                  .filter((dream) => chosen.includes(dream.id))
+                  .map((dream) => dream.title);
+              });
               return (
                 <View
                   key={group.id}
@@ -208,24 +210,29 @@ export function PainExplorer({
                         <GroupIcon id={group.id} size={72} riso={printLook} />
                       </View>
                     ) : null}
-                    <View className="flex-1 gap-[3px]">
-                      <Text className="font-ui-bold text-lg leading-6 text-ink">
-                        {group.title}
-                      </Text>
-                      {!expanded && chosenTitles.length ? (
-                        <Text className="font-ui-bold text-[15px] leading-5 text-ink">
-                          {chosenTitles.join(" · ")}
+                    <View className="flex-1">
+                      {/* The name is centred on the icon, so it doesn't move
+                          when the group opens; the preview starts just
+                          under it, beside the icon. */}
+                      <View className="h-[72px] flex-row items-center gap-3">
+                        <Text className="flex-1 font-heading text-[22px] leading-7 text-ink">
+                          {group.title}
                         </Text>
-                      ) : null}
-                      {/* The pains themselves are listed once it's open. */}
+                        <Chevron open={expanded} />
+                      </View>
                       {expanded ? null : (
-                        <Text className="text-sm leading-5 text-ink-faint">
-                          {group.pains.map((pain) => pain.title).join(" · ")}
-                        </Text>
+                        <View className="-mt-3.5 gap-[3px]">
+                          {chosenTitles.length ? (
+                            <Text className="font-ui-bold text-[15px] leading-5 text-ink">
+                              {chosenTitles.join(" · ")}
+                            </Text>
+                          ) : null}
+                          {/* The pains themselves are listed once it's open. */}
+                          <Text className="text-sm leading-5 text-ink-faint">
+                            {group.pains.map((pain) => pain.title).join(" · ")}
+                          </Text>
+                        </View>
                       )}
-                    </View>
-                    <View className="mt-2">
-                      <Chevron open={expanded} />
                     </View>
                   </Pressable>
 
