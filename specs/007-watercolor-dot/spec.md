@@ -17,10 +17,10 @@ This spec has no item of its own in `docs/spec/features.md`; it adds the founder
 Two audiences see this feature: the founder (and contributors) reviewing the fidelity proof, and every person using It.
 
 - **Screen: Fidelity proof (founder only, not part of the shipped app)** - Three dots side by side, the same size: the painted orb, the look-alike dot (Option B) and the physics-painted dot (Option E). Each is shown still and playing as a loader, first in It's palette and then in one other palette. Under each dot: its name, how it was made, and its measured smoothness on a laptop browser and an iPhone, for one large dot and for a screen of about 30 small dots. A note says which pieces are generated and which are paint. - The founder can switch palettes, switch between still and moving, look at any dot full size, and record which one is "the same family" as the painted orb (or that none is).
-- **Screen: Welcome** - The It mark is the watercolor dot instead of a fixed picture, gently alive: it slowly blooms and settles like paint drying, then rests completely still, like a dried painting. Until the generated dot is ready, the painted orb is shown in the same place and size, so nothing jumps. - The person reads the welcome and goes on as today; the dot never needs a tap and never delays the "start" action.
+- **Screen: Welcome** - The logo at the top is "we are it" with the watercolor dot, still, as the dot of the i (founder, 2026-10-18); the large painted orb that sat below the heading is removed. - The person reads the welcome and goes on as today; the dot never needs a tap and never delays the "start" action.
 - **Screen: Any page while its content loads** - Where It today shows a plain loading state, a small watercolor dot appears on its own, with no words on screen (screen readers hear "Loading…"). Drops of different sizes, in It's colors, drift in from near its edge (never cut off by it), touch and run together into one dot. While loading continues, new drops keep drifting in slowly and bloom into it, bringing sunrise and dusk colors that marble into the wash; the dot keeps its size. When content arrives the loader simply disappears. If loading fails, the dot stops and the existing error message and retry appear. - The person waits or leaves; nothing changes about what they can do.
-- **Screen: Moving between onboarding steps** (welcome → personal → societal → futures) - The page changes as it does today, and a small watercolor dot blooms once in a corner of the new page, then rests or fades. It is short and never holds the next page back. - The person keeps tapping on; going back works the same way.
-- **With reduced motion on (any screen above)** - Every dot shows its still, "dried" end state: the same picture, no movement. Screen readers still hear "Loading…". Step changes happen without the corner bloom.
+- **Screen: Moving between onboarding steps** - Dropped (founder, 2026-10-18): pages change as they do today, with no corner bloom.
+- **With reduced motion on (any screen above)** - Every dot shows its still, "dried" end state: the same picture, no movement. Screen readers still hear "Loading…".
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -60,7 +60,9 @@ A person opens a page whose content is still on its way. Instead of a plain load
 
 ---
 
-### User Story 3 - The welcome mark is gently alive (Priority: P2)
+### User Story 3 - The welcome mark is gently alive (Priority: P2) — done differently
+
+**Done differently (founder, 2026-10-18):** the welcome mark is the "we are it" logo in the page header with the settled watercolor dot as the dot of the i, still (`BrandMark`); the large painted orb below the heading is removed. The bloom-once welcome dot below is not built.
 
 A first-time visitor lands on the welcome screen and sees It's watercolor mark slowly bloom and settle, then rest. It feels like the painted orb, made living.
 
@@ -78,7 +80,9 @@ A first-time visitor lands on the welcome screen and sees It's watercolor mark s
 
 ---
 
-### User Story 4 - Moving between onboarding steps feels like one painting (Priority: P3)
+### User Story 4 - Moving between onboarding steps feels like one painting (Priority: P3) — dropped
+
+**Dropped (founder, 2026-10-18).**
 
 As a person moves from welcome to the personal page, the societal page and the futures page, a small watercolor dot blooms once in a corner of each new page, a quiet sign that the pages belong to one painting.
 
@@ -189,8 +193,8 @@ This supersedes the earlier loader answers (breath, then bloom loop with re-wet 
 **v0.1 loader (built with the approach the founder chooses)**
 
 - **FR-007**: Every content loading state in the app MUST show the watercolor dot with a text label saying content is loading, in place of today's loading indicator.
-- **FR-008**: The welcome screen's mark MUST be the watercolor dot, playing a slow bloom-and-settle once and then resting completely still in its dried end state.
-- **FR-009**: On each change between onboarding steps, the page MUST change as it does today, and a small watercolor dot MUST bloom once in a corner of the new page; no full-screen wash and no dot traveling between pages in v0.1.
+- **FR-008**: The welcome screen's mark MUST be the watercolor dot. Met as the "we are it" logo with the settled dot, still (founder, 2026-10-18; replaces the bloom-once mark).
+- **FR-009** (dropped, founder 2026-10-18): On each change between onboarding steps, the page MUST change as it does today, and a small watercolor dot MUST bloom once in a corner of the new page; no full-screen wash and no dot traveling between pages in v0.1.
 - **FR-010**: Wherever a generated dot is not ready or cannot be drawn, the painted orb MUST be shown in the same place and size, and no screen or action MUST ever wait for the generated dot to be ready.
 - **FR-011**: The first onboarding screen MUST appear no slower than it does today; any extra web download for the generated dot MUST load after it and MUST NOT exceed 1 MB (compressed). If the chosen approach cannot fit in 1 MB on web, web MUST use the animated painted orb in all three placements, and iOS MUST still use the generated dot.
 - **FR-012**: Loader animations MUST loop with no visible seam and MUST NOT suggest a percentage or progress that is not real.
