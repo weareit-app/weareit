@@ -9,6 +9,6 @@ Cause: `Pods/React-Core-prebuilt` held the Release build of React Native's prebu
 
 Running it on the simulator with Xcode 27 (no Simulator.app; DeviceHub instead): taps and swipes from the simulator panel don't reach the simulator, so the dev launcher can't be used. Everything can be opened by deep link instead:
 
-- Approve the app's URL schemes once so iOS doesn't ask "Open in It?": add `com.apple.CoreSimulator.CoreSimulatorBridge-->weareit` (and `-->exp+we-are-it`) = `com.joshsmith.we-are-it` to the device's `data/Library/Preferences/com.apple.launchservices.schemeapproval.plist` while it is shut down.
-- Skip the dev menu intro: `xcrun simctl spawn <device> defaults write com.joshsmith.we-are-it EXDevMenuIsOnboardingFinished -bool YES`.
+- Approve the app's URL schemes once so iOS doesn't ask "Open in It?": add `com.apple.CoreSimulator.CoreSimulatorBridge-->weareit` (and `-->exp+weareit`) = `app.weareit` to the device's `data/Library/Preferences/com.apple.launchservices.schemeapproval.plist` while it is shut down.
+- Skip the dev menu intro: `xcrun simctl spawn <device> defaults write app.weareit EXDevMenuIsOnboardingFinished -bool YES`.
 - Load the bundle: `xcrun simctl openurl <device> "weareit://expo-development-client/?url=http%3A%2F%2Flocalhost%3A8081"`, then open a page, for example `weareit:///lab/loader` (the gathering loader alone, development only).

@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "We Are It",
-    "slug": "we-are-it",
+    "slug": "weareit",
     "scheme": "weareit",
     "version": "0.1.0",
     "orientation": "portrait",
@@ -21,7 +21,7 @@
       "typedRoutes": true
     },
     "ios": {
-      "bundleIdentifier": "com.joshsmith.we-are-it",
+      "bundleIdentifier": "app.weareit",
       "appleTeamId": "N9PZ6BA6J6"
     }
   }
