@@ -17,7 +17,7 @@ Matches `docs/spec/features.md` §1 (all items core).
 - **Screen: Ways it can be better** - As soon as one dream is picked, a single "Ways it can be better" section appears after the dreams. Each way appears once, sorted by how many of the chosen dreams it may help. Each way has a type tag (Task, Habit, Takes a group or Feature, each with a small icon) and, on features, a roadmap status tag (Idea or Planned); tapping a tag explains it. Evidence levels are kept in the content but not shown in v0.1 (founder, 2026-10-19). Features never look as if they already work (see `docs/spec/CONFLICTS.md` P1). - The person can pick any way (and tap again to undo). A button closes the pain: "Close", or "Done for now" once a way is picked.
 - **Screen: A closed pain with picks** - When the person closes a pain where they picked dreams, it reads the pain's name in small capitals, then the picked dreams' first-person lines joined into one sentence as the headline, in the content's order rather than the order they were picked ("I drift off without a fight, sleep through the night, and wake up ready."); a pain's dreams are written in the order someone lives them, then "I could:" with the picked tasks, habits and group efforts, each with its type icon, and "I could use:" with any picked features and their status. Picking a way is exploring, not committing, so the summary never says "I'm going to"; a feature is listed apart because it isn't built. With no ways picked, a small yellow label says "No plan for this yet". Never a count like "2 dreams". After four or more pains are picked and two or more are unexplored, a light inline note suggests starting with about three, with no limit and no extra screen. - The person can reopen it and change anything. A collapsed group reads the same way, smaller: under its name, each pain with picked dreams shows its name in small capitals and its sentence in the reading serif, one pain at a time (never one long sentence across pains), then the group's other pains. Picked ways show only in the pain itself.
 - **Screen: Adding your own** - At the end of each group, "Add a pain"; under an open pain's futures, "Add a future"; under its ways, "Add a way". Each opens a short form in place: a name and a first-person line (a future also asks where it fits among the others, with a live preview of the joined sentence; a way also asks its type). What the person adds works for them straight away like any other pick, marked "Only you can see this". It stays on this device. After signup they can choose to send it for review; until then, and until it is approved, no one else sees it (decision: Contributions, 2026-10-18). - The person can add, edit or remove their own, and choose whether to send each one.
-- **Screen: Bottom of the page** - A button reading "Skip" before any interaction and "Continue" after, "Free, and you're not the product.", and a way to clear everything picked on this device. - The person moves on whenever they like; nothing is required.
+- **Screen: Bottom of the page** - A button reading "Skip" before any interaction and "Continue" after, "Free, and you're not the product.", and, before signup only, a way to clear everything picked on this device. After signup the picks are saved to the account and the device copy is cleared (spec 008), so the control is not shown. - The person moves on whenever they like; nothing is required.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -41,9 +41,9 @@ A visitor arrives with no account, recognises a pain ("Broke — money is always
 
 Having picked a dream, the visitor immediately sees ideas grouped under it, each clearly labelled, and marks the ones they would use.
 
-**Why this priority**: The ideas are what makes a picked future feel possible, and "I'd use this" marks are It's main signal of usefulness (decision.md). Equal to Story 1 in importance.
+**Why this priority**: The ideas are what makes a picked future feel possible, and selected fixes are It's main signal of usefulness (decision.md). Equal to Story 1 in importance.
 
-**Independent Test**: Pick a dream; ideas appear under it within a moment, every idea has one of the four labels, and "I'd use this" can be toggled.
+**Independent Test**: Pick a dream; ideas appear under it within a moment, every idea has one of the four labels, and an idea can be selected as a fix and unselected.
 
 **Acceptance Scenarios**:
 
@@ -51,7 +51,7 @@ Having picked a dream, the visitor immediately sees ideas grouped under it, each
 2. **Given** two picked dreams, **When** the person looks at the ideas, **Then** each dream has its own group and no idea is shown in a pooled, unlabelled list.
 3. **Given** any idea shown, **When** the person reads it, **Then** it says in everyday words whether it is something to do now, something that already exists, something It might build, or a societal change.
 4. **Given** an idea labelled as something It might build, **When** the person views it, **Then** nothing suggests it already works, and there is no button that pretends to start it.
-5. **Given** an idea, **When** the person taps "I'd use this", **Then** it shows as marked; tapping again removes the mark.
+5. **Given** an idea, **When** the person selects it as a fix, **Then** it shows as selected; selecting it again removes the selection.
 
 ---
 
@@ -66,9 +66,10 @@ The visitor closes one pain, sees their chosen future take its place, and opens 
 **Acceptance Scenarios**:
 
 1. **Given** a pain with picked dreams, **When** the person closes it, **Then** the picked dreams' lines, joined into one sentence, are the headline and the pain's name is small above it, never a count only.
-2. **Given** picks in several pains, **When** the person opens another pain, **Then** earlier picks and "I'd use this" marks are unchanged.
-3. **Given** picks on this device, **When** the person returns days later on the same device and browser, **Then** all picks and marks are still there.
-4. **Given** picks on this device, **When** the person chooses to clear them and confirms, **Then** all picks and marks are removed from the device.
+2. **Given** picks in several pains, **When** the person opens another pain, **Then** earlier picks and selected fixes are unchanged.
+3. **Given** picks on this device, **When** the person returns days later on the same device and browser, **Then** all picks and selected fixes are still there.
+4. **Given** picks on this device and no signup yet, **When** the person chooses to clear them and confirms, **Then** all picks and selected fixes are removed from the device.
+5. **Given** the person has signed up, **When** they view the page, **Then** there is no control to clear the device.
 
 ---
 
@@ -83,7 +84,7 @@ Before picking anything, the visitor can see in one line that their picks stay o
 **Acceptance Scenarios**:
 
 1. **Given** a first visit, **When** the page loads, **Then** a one-line privacy note is visible near the top without scrolling far.
-2. **Given** the explanation is opened, **When** the person reads it, **Then** it names exactly what is counted (which stages a visit reached, and coarse totals) and says that picks, marks and the pains themselves are not sent.
+2. **Given** the explanation is opened, **When** the person reads it, **Then** it names exactly what is counted (which stages a visit reached, and coarse totals) and says that picks, selected fixes and the pains themselves are not sent.
 
 ---
 
@@ -122,7 +123,7 @@ The visitor can go on to the societal page at any time, with or without picks.
 
 - A pain where every dream gets unpicked: on closing it shows as a plain pain again.
 - A dream with no approved ideas yet: it cannot be in the launch set (see FR-012); if one slips through, the page says "Ideas for this are on the way" rather than showing an empty group.
-- An idea that fits several dreams: it may appear under each relevant dream; its "I'd use this" mark is one mark, shown the same in every place.
+- An idea that fits several dreams: it may appear under each relevant dream; selecting it as a fix is one selection, shown the same in every place.
 - Content published after a person's picks (e.g. a dream renamed or removed): picks keep working; a removed dream drops out quietly, and nothing breaks.
 - Device storage unavailable (private browsing, blocked storage): the page still works for the visit and says that picks won't be remembered after closing.
 - Content fails to load: a plain message and a retry, never a blank page.
@@ -143,15 +144,15 @@ The visitor can go on to the societal page at any time, with or without picks.
 - **FR-007**: Ways typed "feature" MUST NOT offer any control that implies the feature already works.
 - **FR-008**: Each way MUST offer a one-tap pick that can be undone. The full pain → dream → way path is stored, with a stable ID for each way.
 - **FR-009**: Closing a pain with picked dreams MUST show the picked dreams' first-person lines, joined into one sentence, as the headline with the pain's name small above, then the picked ways ("I could:" for tasks, habits and group efforts; "I could use:" for features) or, with none, a "No plan for this yet" label; it MUST NOT show a count instead.
-- **FR-010**: Picks and marks MUST be kept on the device across reloads and restarts, with no automatic expiry, until the person clears them or signs up (spec 003).
-- **FR-011**: The person MUST be able to clear all picks and marks from the device, with a confirmation.
+- **FR-010**: Picks and selected fixes MUST be kept on the device across reloads and restarts, with no automatic expiry, until the person clears them or signs up (spec 008).
+- **FR-011**: Before signup, the person MUST be able to clear all picks and selected fixes from the device, with a confirmation. The control MUST NOT be shown after signup (founder, 2026-10-17/18; see spec 010).
 - **FR-012**: Only content the founder has approved MUST appear. Every pain in the launch set MUST have at least two dreams, and every dream at least two approved ideas.
 - **FR-013**: The page MUST show a one-line privacy note and a short explanation of exactly what is counted, before any counting happens.
-- **FR-014**: The page MUST count only which stages a visit reaches (page opened, first pain opened, first dream picked, first idea seen, moved on) plus coarse totals, never which pains, dreams or ideas were involved, and never with an identifier that outlives the visit.
+- **FR-014**: The page MUST count only which stages a visit reaches (stage list owned by spec 013, measurement) plus coarse totals, never which pains, dreams or ideas were involved, and never with an identifier that outlives the visit.
 - **FR-015**: Each pick and mark MUST record which version of the content it was made under.
 - **FR-016**: The person MUST be able to go on to the societal page at any time, with or without picks.
 - **FR-017**: Ideas MUST be able to carry a source where the claim matters (e.g. a health or money tip), shown as "Read more" or similar.
-- **FR-018**: "I'd use this" marks made before signup MUST stay on the device and MUST NOT be counted anywhere. Totals of marks come only from people who sign up, when their picks and marks are saved (founder, 2026-10-16).
+- **FR-018**: selected fixes made before signup MUST stay on the device and MUST NOT be counted anywhere. Totals of selected fixes come only from people who sign up, when their picks and selected fixes are saved (founder, 2026-10-16).
 - **FR-019**: The launch set MUST include "Unemployment — I can't find work" with at least these dreams: "I have a job that pays enough.", "I have a career that I care about.", "I can live well regardless of employment." (founder, 2026-10-16).
 - **FR-020**: Every pain, dream and idea MUST keep a stable ID that never changes once published, and any links to outside lists (e.g. the pain frameworks, Wikidata) MUST be recorded in one consistent form: which list, its ID, its label, who added it and when (thing-type-relation decision, Phase 1).
 - **FR-021**: The person MUST be able to add their own pain (to a group), future (to a pain) and way (to a future), each with a name and a first-person line, and use it on their page straight away like published content.
@@ -160,6 +161,7 @@ The visitor can go on to the societal page at any time, with or without picks.
 - **FR-024**: Published contributions MUST NOT show or imply who contributed them. Contributor identity is kept only as private provenance.
 - **FR-025**: A pain's futures MUST have a per-pain position that sets both their order on the page and their order in the joined sentence (FR-009); a contributor chooses their future's position, and the reviewer may change it.
 - **FR-026**: A future's line MUST be validated as one first-person sentence ending in a period, so that any chosen set joins with commas and "and".
+- **FR-027**: Each opened pain MUST link to that pain's own page at `/p/<slug>` (spec 012) [NEEDS CLARIFICATION: all pains or only 012's outreach launch set; spec 012 question N4].
 
 ### Key Entities
 
@@ -167,9 +169,9 @@ The visitor can go on to the societal page at any time, with or without picks.
 - **Dream**: a better future for one or more pains. A pain has several dreams; a dream may belong to more than one pain, and may later exist without a pain.
 - **Idea (way it can be better, "fix")**: something that could help reach a dream, with a type, an evidence level and note, a short explanation and an optional source. An idea may serve several dreams.
 - **Pick**: a person's choice of a dream for a pain, with the content version. Lives on the device until signup.
-- **"I'd use this" mark**: a person's interest in an idea, with the content version. Lives on the device until signup. Not a commitment.
+- **Selected fix**: an idea the person selected as one they would use, with the content version. Lives on the device until signup. Not a commitment. Earlier drafts called this an "I'd use this" mark; that wording is retired (founder, 2026-10-17/18).
 - **Contribution**: a pain, future or way a person wrote, with its state (on device, in review, added, not added), the place it was added (group, pain or future) and, for a future, its position. Lives on the device until the person sends it after signup; the contributor is private provenance.
-- **Content version**: the published set of pains, dreams and ideas that a pick or mark was made under.
+- **Content version**: the published set of pains, dreams and ideas that a pick or selected fix was made under.
 
 ## Success Criteria *(mandatory)*
 
@@ -179,7 +181,7 @@ The visitor can go on to the societal page at any time, with or without picks.
 - **SC-002**: Ideas for a newly picked dream are visible in under 1 second on an ordinary phone.
 - **SC-003**: 100% of ideas in the launch set carry a label, and a founder review finds zero mislabelled ideas before launch.
 - **SC-004**: At launch, every personal pain in the approved set has at least 2 dreams and every dream has at least 2 approved ideas.
-- **SC-005**: Picks and marks survive a reload and a browser restart on the same device in 100% of tested cases.
+- **SC-005**: Picks and selected fixes survive a reload and a browser restart on the same device in 100% of tested cases.
 - **SC-006**: In launch measurement, the share of visits that reach "first dream picked" and "first idea seen" is reported (no target; it guides what to change).
 - **SC-007**: An independent review of the data sent before signup finds no pain, dream or idea content and no lasting identifier.
 
@@ -187,11 +189,11 @@ The visitor can go on to the societal page at any time, with or without picks.
 
 ### Privacy
 
-- **Before signup, stays on device**: every pick, every "I'd use this" mark, which pains were opened, and the content version they were made under.
-- **Before signup, sent** (coarse totals / stage funnel only, disclosed in UI): which stages this visit reached (page opened, first pain opened, first dream picked, first idea seen, moved on), with a visit ID held in memory for that visit only, plus coarse totals (e.g. page visits). No idea, dream or pain totals are sent before signup (FR-018).
+- **Before signup, stays on device**: every pick, every selected fix, which pains were opened, and the content version they were made under.
+- **Before signup, sent** (coarse totals / stage funnel only, disclosed in UI): which stages this visit reached (stage list owned by spec 013, measurement), with a visit ID held in memory for that visit only, plus coarse totals (e.g. page visits). No idea, dream or pain totals are sent before signup (FR-018).
 - **Before signup, stays on device**: every contribution's text, place and position.
-- **After signup, stored on server**: picks and marks, saved to the account with their content version (spec 003); contributions only once the person sends them for review, with the contributor as private provenance.
-- **Never public by default**: any individual's picks or marks, any total small enough to identify someone, and who contributed any published pain, future or way.
+- **After signup, stored on server**: picks and selected fixes, saved to the account with their content version (spec 008); contributions only once the person sends them for review, with the contributor as private provenance.
+- **Never public by default**: any individual's picks or selected fixes, any total small enough to identify someone, and who contributed any published pain, future or way.
 
 ### Honest Status
 
@@ -207,8 +209,8 @@ Four everyday labels: **do now** (a real, feasible step; no specific dated event
 
 ### Accessibility
 
-- Keyboard: every pain, dream, idea and "I'd use this" control is reachable and usable by keyboard, with a visible focus outline.
-- Screen reader (incl. expanded/collapsed state): pains announce whether they are open or closed; dreams announce picked or not picked; ideas announce their label; "I'd use this" announces its state; new ideas appearing are announced politely.
+- Keyboard: every pain, dream, idea and fix-selection control is reachable and usable by keyboard, with a visible focus outline.
+- Screen reader (incl. expanded/collapsed state): pains announce whether they are open or closed; dreams announce picked or not picked; ideas announce their label; fix selection announces its state; new ideas appearing are announced politely.
 - Reduced motion: the change from pain to chosen future is a simple fade or none at all when reduced motion is on.
 - Meaning never by colour alone: picked, marked and label states all have text or icons as well as colour.
 - Tap targets are large enough for touch, and text stays readable at large text sizes.
@@ -218,15 +220,16 @@ Four everyday labels: **do now** (a real, feasible step; no specific dated event
 - Which wording of the four idea labels do people understand without explanation?
 - Do people pick more than one dream per pain when given the choice, and does that change what ideas they mark?
 - Does showing the chosen dream as the headline make the page feel more hopeful, or is it missed?
-- What share of ideas marked "I'd use this" are "do now" versus "It might build" versus "change for society"?
+- What share of ideas selected as fixes are "do now" versus "It might build" versus "change for society"?
 
 ## Assumptions
 
-- The approved pain list is `docs/spec/pains/pain-inventory.yaml`: 85 pains (47 personal on this page, 38 societal), the 31 earlier ones plus 54 added and mapped to six outside frameworks (founder-reviewed 2026-10-16). Each is filled in with several dreams and ideas; headings are set in the content.
+- The pain list is `docs/spec/pains/pain-inventory.yaml`: 125 pains (68 personal on this page, 57 societal); 31 are marked current and 94 are candidates mapped to outside frameworks (statuses as of 2026-10-19). Only founder-approved pains appear (FR-012). Each is filled in with several dreams and ideas; headings are set in the content.
 - Ideas are drafted by AI from the Fix Corpus and other sources, or contributed by people using It, and appear to others only after founder approval in the content editor (decision.md; Contributions, 2026-10-18).
 - "Several dreams" means at least two per pain and "several ideas" at least two per dream; more is welcome.
 - The societal page (002) uses the same mechanics and is specified separately.
-- Signup (003) saves the picks and marks made here; this spec only keeps them on the device.
+- Signup (008) saves the picks and selected fixes made here; this spec only keeps them on the device.
+- Spec 013 (measurement, 2026-10-19) changed the measurement privacy invariant (opened pains recorded by ID; post-signup visits linked to the account). This spec's measurement and privacy lines predate that change and are to be reconciled during the OpenSpec migration.
 - Web is the launch platform; the page must still work in the iOS build without being released there.
 - People can add their own pains, futures and ways in v0.1 (Contributions, 2026-10-18); the review queue itself is part of spec 006 (admin).
 - Picks are remembered per device and browser; there is no cross-device memory before signup.

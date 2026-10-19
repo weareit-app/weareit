@@ -2,16 +2,34 @@
 
 DRAFT. ✔ = founder decided · ? = open / from the unchecked draft spec · **core** = must ship · *(optional)* = if time allows.
 
+## Spec numbers
+
+Founder review, 2026-10-17/18: the new numbers stand. Earlier drafts (including spec 001) used 003 signup, 004 support, 005 help.
+
+| Section below | Spec | Earlier number |
+|---|---|---|
+| 1. Personal | 001 personal page | — |
+| 2. Societal | 002 societal page | — |
+| 3. Sign up | 008 signup gate | 003 |
+| 4. Support | 009 support page | 004 |
+| 5. Help | 011 Help build It | 005 |
+| 6. Admin | 006 admin | — |
+| Privacy page | 010 privacy page | — |
+| Pain pages and entry links | 012 pain pages and entry links | — |
+| Stage funnel (pre-signup measurement) | 013 measurement | was FR-014 in 001 |
+
 ## 1. Personal: "What could be better for you?" (no account)
 
 - ✔ **core** See a short list of everyday pains ("Unemployment — I can't find work").
 - ✔ **core** Tap a pain to open it and see several possible better futures ("dreams").
 - ✔ **core** Pick one or more dreams.
 - ✔ **core** Ideas that could help show up under each picked dream (things to do now, things It might build, bigger societal changes), each honestly labelled.
-- ✔ **core** Mark ideas you like ("I'd use this") with one tap; totals show in admin.
+- ✔ **core** Select the fixes you'd use with one tap ("selected fixes"; earlier drafts called these "I'd use this" marks). Totals show in admin, counted only from people who sign up.
 - ✔ **core** Collapse a pain; the chosen dream becomes the headline, the pain shown small underneath.
-- ✔ **core** Your picks stay on your device. Only coarse totals and a stage funnel (no picks) are sent, and the page says so.
+- ✔ **core** Your picks stay on your device. Only coarse totals and a stage funnel (no picks) are sent, and the page says so. The stage list belongs to the measurement spec (spec 013).
 - ✔ **core** Add your own pain, future or way. It works for you straight away and stays on your device; after signup you can send it for review, and others see it only once the founder approves it (2026-10-18).
+- ✔ **core** "Clear everything picked on this device", shown only before signup.
+- ✔ **core** Each opened pain links to its own pain page at "/p/<slug>" (spec 012). ? All pains, or only the outreach launch set (012 question N4).
 
 ## 2. Societal: "What could be better for us?" (no account)
 
