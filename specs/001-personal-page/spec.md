@@ -12,11 +12,12 @@
 
 Matches `docs/spec/features.md` §1 (all items core).
 
-- **Screen: Personal page, first view** - The headline "It can be better." and the question "What could be better for you?", then a short list of everyday pains grouped under plain headings (Body, Head, Money, Time, People, Doing). Each pain shows a short name and a first-person line, e.g. "Loneliness — I feel alone." A one-line note says that picks stay on this device and what little is counted, with a link to more detail. - The person can scroll, tap any pain, or go straight on to the next page without picking anything.
-- **Screen: An opened pain** - The pain opens in place and asks "What does better look like?" with "Pick everything that fits." Below are several possible better futures ("dreams"), each a short name and a first-person line, e.g. "Steady — a bad month stays a bad month." - The person can pick one or more dreams, unpick them, or close the pain.
-- **Screen: Ideas under a picked dream** - As soon as a dream is picked, "Ideas that could help" appear underneath that dream (never mixed with other dreams' ideas). Each idea has a short title, one or two lines of explanation, and a plain-language label saying what it is: something you could do now, something that already exists, something It might build, or a bigger change for society. Things It might build and societal changes never look clickable as if they already work. - The person can tap "I'd use this" on any idea (and tap again to undo), or read a little more about it.
-- **Screen: A closed pain with picks** - When the person closes a pain where they picked dreams, the picked dream names become the headline and the pain is shown smaller underneath, not replaced by a count like "2 dreams". - The person can reopen it and change anything.
-- **Screen: Bottom of the page** - A clear way on to "What could be better for us?" and a way to clear everything picked on this device. - The person moves on whenever they like; nothing is required.
+- **Screen: Personal page, first view** - The headline "It can be better." and the question "What could be better for you?", then everyday pains grouped under collapsible headings, each with an icon and its full list of pain names (Body, Mind, Money, Work, Home, Time, People, Purpose, from the pain tree, every pain top level; see `docs/spec/CONFLICTS.md` P2). This is the landing page (P8). The headline shrinks after the first interaction. Each pain shows a short name and a first-person line, e.g. "Loneliness — I feel alone." A one-line note says that picks stay on this device and what little is counted, with a link to more detail. - The person can scroll, tap any pain, or go straight on to the next page without picking anything.
+- **Screen: An opened pain** - Tapping a pain or its check selects it and opens it in place; only one pain is open at a time. It asks "What would be better?" with "Pick as many as fit." Below are several possible better futures ("dreams"), each a short name and a first-person line, e.g. "Steady — a bad month stays a bad month." - The person can pick one or more dreams, unpick them, or close the pain.
+- **Screen: Ways it can be better** - As soon as one dream is picked, a single "Ways it can be better" section appears after the dreams. Each way appears once, sorted by how many of the chosen dreams it may help; with two or more chosen, a last line "For …" names them, and each name scrolls to and highlights that dream. Each way has a type tag (Task, Habit, Takes a group or Feature, each with a small icon), a roadmap status tag on features (Idea or Planned), and an evidence tag (Strong, Some, Limited, Not tested yet); tapping a tag explains it. Features never look as if they already work (see `docs/spec/CONFLICTS.md` P1). - The person can pick any way (and tap again to undo). A button closes the pain: "Close", or "Done for now" once a way is picked.
+- **Screen: A closed pain with picks** - When the person closes a pain where they picked dreams, it reads the pain's name in small capitals, then the picked dreams' first-person lines joined into one sentence as the headline, in the content's order rather than the order they were picked ("I drift off without a fight, sleep through the night, and wake up ready."); a pain's dreams are written in the order someone lives them, then "I could:" with the picked tasks, habits and group efforts, each with its type icon, and "I could use:" with any picked features and their status. Picking a way is exploring, not committing, so the summary never says "I'm going to"; a feature is listed apart because it isn't built. With no ways picked, a small yellow label says "No plan for this yet". Never a count like "2 dreams". After four or more pains are picked and two or more are unexplored, a light inline note suggests starting with about three, with no limit and no extra screen. - The person can reopen it and change anything.
+- **Screen: Adding your own** - At the end of each group, "Add a pain"; under an open pain's futures, "Add a future"; under its ways, "Add a way". Each opens a short form in place: a name and a first-person line (a future also asks where it fits among the others, with a live preview of the joined sentence; a way also asks its type). What the person adds works for them straight away like any other pick, marked "Only you can see this". It stays on this device. After signup they can choose to send it for review; until then, and until it is approved, no one else sees it (decision: Contributions, 2026-10-18). - The person can add, edit or remove their own, and choose whether to send each one.
+- **Screen: Bottom of the page** - A button reading "Skip" before any interaction and "Continue" after, "Free, and you're not the product.", and a way to clear everything picked on this device. - The person moves on whenever they like; nothing is required.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -60,11 +61,11 @@ The visitor closes one pain, sees their chosen future take its place, and opens 
 
 **Why this priority**: People rarely have one pain. Keeping their work makes the page feel like theirs, and the chosen-future headline is how "it can be better" becomes visible.
 
-**Independent Test**: Pick dreams in two pains, close both, reload the page; both still show the chosen dreams as headlines with the pain smaller underneath.
+**Independent Test**: Pick dreams in two pains, close both, reload the page; both still show the chosen dreams as the headline sentence with the pain's name small above it.
 
 **Acceptance Scenarios**:
 
-1. **Given** a pain with picked dreams, **When** the person closes it, **Then** the picked dream names are the headline and the pain is smaller beneath them, never a count only.
+1. **Given** a pain with picked dreams, **When** the person closes it, **Then** the picked dreams' lines, joined into one sentence, are the headline and the pain's name is small above it, never a count only.
 2. **Given** picks in several pains, **When** the person opens another pain, **Then** earlier picks and "I'd use this" marks are unchanged.
 3. **Given** picks on this device, **When** the person returns days later on the same device and browser, **Then** all picks and marks are still there.
 4. **Given** picks on this device, **When** the person chooses to clear them and confirms, **Then** all picks and marks are removed from the device.
@@ -86,7 +87,25 @@ Before picking anything, the visitor can see in one line that their picks stay o
 
 ---
 
-### User Story 5 - Move on freely (Priority: P3)
+### User Story 5 - Add what's missing (Priority: P2)
+
+A visitor doesn't see their pain, or the future they want, or a way they know works. They add it in a few words, and it becomes part of their own page. After signing up, they can send it to be reviewed, so it may help others.
+
+**Why this priority**: "We are It" means the content comes from the people using It, not only from the founder. It also shows which pains, futures and ways the launch set is missing.
+
+**Independent Test**: Add a pain with a future and a way, close it, reload; it is still there, marked as visible only to the person. Inspect what was sent: nothing about it. Sign up, send it, and confirm it is in the CMS review queue and not on anyone else's page.
+
+**Acceptance Scenarios**:
+
+1. **Given** an open pain, **When** the person adds a future, **Then** it appears among the futures, picked, in the position they chose, and the closed pain's sentence includes it.
+2. **Given** a contribution made before signup, **When** the page sends anything, **Then** the contribution's text is not part of it.
+3. **Given** a signed-in person with a contribution, **When** they choose to send it for review, **Then** it shows "In review" to them and reaches the founder's review queue, and nobody else sees it.
+4. **Given** an approved contribution, **When** anyone else sees it, **Then** nothing says or implies who contributed it.
+5. **Given** a future line that isn't one first-person sentence, **When** the person tries to save it, **Then** the form explains how to write it and doesn't save it.
+
+---
+
+### User Story 6 - Move on freely (Priority: P3)
 
 The visitor can go on to the societal page at any time, with or without picks.
 
@@ -107,6 +126,8 @@ The visitor can go on to the societal page at any time, with or without picks.
 - Content published after a person's picks (e.g. a dream renamed or removed): picks keep working; a removed dream drops out quietly, and nothing breaks.
 - Device storage unavailable (private browsing, blocked storage): the page still works for the visit and says that picks won't be remembered after closing.
 - Content fails to load: a plain message and a retry, never a blank page.
+- A contribution that duplicates existing content: it is still accepted into the queue; the reviewer can link it to the existing pain, future or way instead of publishing a copy.
+- A contribution that is rejected: the contributor keeps their own copy, marked "Not added", and nothing about it is shown to others.
 - A very small screen or large text size: everything stays readable without sideways scrolling.
 
 ## Requirements *(mandatory)*
@@ -117,11 +138,11 @@ The visitor can go on to the societal page at any time, with or without picks.
 - **FR-002**: The page MUST show the headline "It can be better." and the question "What could be better for you?" above the pains.
 - **FR-003**: The page MUST list every personal pain in the launch set, grouped under their plain headings, each with a short name and a first-person line.
 - **FR-004**: Opening a pain MUST show at least two dreams, each with a short name and a first-person line, and allow any number of them to be picked or unpicked.
-- **FR-005**: Picking a dream MUST show that dream's ideas under it immediately, grouped by dream.
-- **FR-006**: Every idea MUST carry exactly one of four plain-language labels: do now, already exists, It might build, change for society.
-- **FR-007**: Ideas labelled "It might build" or "change for society" MUST NOT offer any control that implies the thing already works.
-- **FR-008**: Each idea MUST offer a one-tap "I'd use this" mark that can be undone.
-- **FR-009**: Closing a pain with picked dreams MUST show the picked dream names as the headline and the pain smaller beneath; it MUST NOT show a count instead.
+- **FR-005**: Picking a dream MUST immediately show the pain's ways it can be better, each once, sorted by how many chosen dreams it may help, with a last line "For …" naming those dreams when two or more are chosen.
+- **FR-006**: Every way MUST carry a type (task, habit, takes a group, or feature with a roadmap status) and, separately, an evidence level (strong, some, limited, not tested yet). Evidence for a method, for its link to a future, and for an It feature are different claims and MUST NOT be conflated.
+- **FR-007**: Ways typed "feature" MUST NOT offer any control that implies the feature already works.
+- **FR-008**: Each way MUST offer a one-tap pick that can be undone. The full pain → dream → way path is stored, with a stable ID for each way.
+- **FR-009**: Closing a pain with picked dreams MUST show the picked dreams' first-person lines, joined into one sentence, as the headline with the pain's name small above, then the picked ways ("I could:" for tasks, habits and group efforts; "I could use:" for features) or, with none, a "No plan for this yet" label; it MUST NOT show a count instead.
 - **FR-010**: Picks and marks MUST be kept on the device across reloads and restarts, with no automatic expiry, until the person clears them or signs up (spec 003).
 - **FR-011**: The person MUST be able to clear all picks and marks from the device, with a confirmation.
 - **FR-012**: Only content the founder has approved MUST appear. Every pain in the launch set MUST have at least two dreams, and every dream at least two approved ideas.
@@ -133,14 +154,21 @@ The visitor can go on to the societal page at any time, with or without picks.
 - **FR-018**: "I'd use this" marks made before signup MUST stay on the device and MUST NOT be counted anywhere. Totals of marks come only from people who sign up, when their picks and marks are saved (founder, 2026-10-16).
 - **FR-019**: The launch set MUST include "Unemployment — I can't find work" with at least these dreams: "I have a job that pays enough.", "I have a career that I care about.", "I can live well regardless of employment." (founder, 2026-10-16).
 - **FR-020**: Every pain, dream and idea MUST keep a stable ID that never changes once published, and any links to outside lists (e.g. the pain frameworks, Wikidata) MUST be recorded in one consistent form: which list, its ID, its label, who added it and when (thing-type-relation decision, Phase 1).
+- **FR-021**: The person MUST be able to add their own pain (to a group), future (to a pain) and way (to a future), each with a name and a first-person line, and use it on their page straight away like published content.
+- **FR-022**: Contributions MUST stay on the device before signup and MUST NOT be sent or counted. After signup each is sent only when the person explicitly chooses to send it for review.
+- **FR-023**: A sent contribution MUST go into the founder's review queue and MUST NOT appear to anyone else until approved (FR-012). The contributor MUST see its state: "Only you can see this", "In review", "Added" or "Not added".
+- **FR-024**: Published contributions MUST NOT show or imply who contributed them. Contributor identity is kept only as private provenance.
+- **FR-025**: A pain's futures MUST have a per-pain position that sets both their order on the page and their order in the joined sentence (FR-009); a contributor chooses their future's position, and the reviewer may change it.
+- **FR-026**: A future's line MUST be validated as one first-person sentence ending in a period, so that any chosen set joins with commas and "and".
 
 ### Key Entities
 
 - **Pain**: an everyday difficulty in first person, under a heading (Body, Head, Money, Time, People, Doing), in the personal or societal set.
 - **Dream**: a better future for one or more pains. A pain has several dreams; a dream may belong to more than one pain, and may later exist without a pain.
-- **Idea**: something that could help reach a dream, with a label (do now / already exists / It might build / change for society), a short explanation and an optional source. An idea may serve several dreams.
+- **Idea (way it can be better, "fix")**: something that could help reach a dream, with a type, an evidence level and note, a short explanation and an optional source. An idea may serve several dreams.
 - **Pick**: a person's choice of a dream for a pain, with the content version. Lives on the device until signup.
 - **"I'd use this" mark**: a person's interest in an idea, with the content version. Lives on the device until signup. Not a commitment.
+- **Contribution**: a pain, future or way a person wrote, with its state (on device, in review, added, not added), the place it was added (group, pain or future) and, for a future, its position. Lives on the device until the person sends it after signup; the contributor is private provenance.
 - **Content version**: the published set of pains, dreams and ideas that a pick or mark was made under.
 
 ## Success Criteria *(mandatory)*
@@ -161,8 +189,9 @@ The visitor can go on to the societal page at any time, with or without picks.
 
 - **Before signup, stays on device**: every pick, every "I'd use this" mark, which pains were opened, and the content version they were made under.
 - **Before signup, sent** (coarse totals / stage funnel only, disclosed in UI): which stages this visit reached (page opened, first pain opened, first dream picked, first idea seen, moved on), with a visit ID held in memory for that visit only, plus coarse totals (e.g. page visits). No idea, dream or pain totals are sent before signup (FR-018).
-- **After signup, stored on server**: picks and marks, saved to the account with their content version (spec 003).
-- **Never public by default**: any individual's picks or marks, and any total small enough to identify someone.
+- **Before signup, stays on device**: every contribution's text, place and position.
+- **After signup, stored on server**: picks and marks, saved to the account with their content version (spec 003); contributions only once the person sends them for review, with the contributor as private provenance.
+- **Never public by default**: any individual's picks or marks, any total small enough to identify someone, and who contributed any published pain, future or way.
 
 ### Honest Status
 
@@ -173,7 +202,7 @@ Four everyday labels: **do now** (a real, feasible step; no specific dated event
 - **Personal story of your chosen futures (soon)**: picks keep their content version so a story can be made later.
 - **Sharing a future or path (soon)**: picks stay private; nothing here creates a public view.
 - **Starting from a dream instead of a pain (soon)**: dreams are not required to belong to a pain.
-- **Matching people with goals (soon)**: picks are structured choices, not free text.
+- **Matching people with goals (soon)**: picks are structured choices, not free text. Contributions are free text, but become structured content (stable IDs, links) when approved, and are never matched on before then.
 - **Native iOS (optional, later)**: the page must keep working in the iOS build of the app.
 
 ### Accessibility
@@ -194,10 +223,10 @@ Four everyday labels: **do now** (a real, feasible step; no specific dated event
 ## Assumptions
 
 - The approved pain list is `docs/spec/pains/pain-inventory.yaml`: 85 pains (47 personal on this page, 38 societal), the 31 earlier ones plus 54 added and mapped to six outside frameworks (founder-reviewed 2026-10-16). Each is filled in with several dreams and ideas; headings are set in the content.
-- Ideas are drafted by AI from the Fix Corpus and other sources and appear only after founder approval in the content editor (decision.md).
+- Ideas are drafted by AI from the Fix Corpus and other sources, or contributed by people using It, and appear to others only after founder approval in the content editor (decision.md; Contributions, 2026-10-18).
 - "Several dreams" means at least two per pain and "several ideas" at least two per dream; more is welcome.
 - The societal page (002) uses the same mechanics and is specified separately.
 - Signup (003) saves the picks and marks made here; this spec only keeps them on the device.
 - Web is the launch platform; the page must still work in the iOS build without being released there.
-- A short "Something else" free-text option is not included in v0.1.
+- People can add their own pains, futures and ways in v0.1 (Contributions, 2026-10-18); the review queue itself is part of spec 006 (admin).
 - Picks are remembered per device and browser; there is no cross-device memory before signup.

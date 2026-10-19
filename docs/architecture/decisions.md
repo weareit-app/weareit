@@ -9,6 +9,19 @@ This file records decisions made with the project owner. Source architecture pro
 - MVP includes the Support It flow. Call giving money "support" (2026-10-16); never "donation" or charitable status.
 - First platforms are web and iOS.
 
+## Contributions: people add pains, futures and ways
+
+Decided 2026-10-18. This replaces spec 001's "no free text in v0.1" assumption; founder approval of everything others see stays.
+
+- The MVP lets people add their own pain, a future to a pain, or a way to a future. This is the point of "We are It", not an extra.
+- Writing one before signup is allowed and works like any other pick: the text stays on the device. It is sent only after signup, and only when the person explicitly chooses to send it for review. Writing it never sends it.
+- Sent contributions go into a review queue in the CMS. Nothing a person contributes is shown to anyone else until the founder approves it, and the founder may edit the wording. The contributor always sees their own, marked "In review" until a decision is made.
+- Published content never says who contributed it, or implies that they have that pain. Who contributed what is kept privately, as provenance, for review and abuse handling.
+- An approved way gets the usual type and an evidence level of "Not tested yet" unless the reviewer has a reason to set another.
+- Each pain's futures are ordered by a per-pain position on the link, not by the order of taps or by a global order. A contributor places their future in that order, with a live preview of the joined sentence; the reviewer can change it.
+- Contributions are validated with Zod at the boundary: a future's line is one first-person sentence ending in a period, so any set of chosen futures can be joined with commas and "and".
+- VERIFY before launch: limits on how many contributions an account can send, and reviewer guidance for contributions that suggest someone is in crisis.
+
 ## Platform and stack
 
 - Expo Router is the universal app and route system. Revisit a separate Next.js app only if a demonstrated Expo limitation requires it.
