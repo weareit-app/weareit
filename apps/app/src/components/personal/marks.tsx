@@ -1,11 +1,11 @@
 import { View } from "react-native";
 
-// Drawn marks for selection states. Picked is solid ink with a paper tick;
+// Drawn marks for selection states. Picked is solid tide with a white tick;
 // unpicked is an outline. The control's accessible state carries the meaning.
 function Tick({ size }: { size: number }) {
   return (
     <View
-      className="border-paper-raised"
+      className="border-on-tide"
       style={{
         width: size * 0.32,
         height: size * 0.56,
@@ -28,7 +28,7 @@ export function CheckCircle({
   return (
     <View
       aria-hidden
-      className={`items-center justify-center rounded-full ${checked ? "bg-ink" : "border-2 border-ink-faint bg-paper-raised"}`}
+      className={`items-center justify-center rounded-full ${checked ? "bg-tide" : "border-2 border-ink-faint bg-paper-raised"}`}
       style={{ width: size, height: size }}
     >
       {checked ? <Tick size={size * 0.6} /> : null}
@@ -46,7 +46,7 @@ export function CheckSquare({
   return (
     <View
       aria-hidden
-      className={`items-center justify-center rounded-[5px] ${checked ? "bg-ink" : "border-[1.5px] border-ink-faint bg-paper-raised"}`}
+      className={`items-center justify-center rounded-[5px] ${checked ? "bg-tide" : "border-[1.5px] border-ink-faint bg-paper-raised"}`}
       style={{ width: size, height: size }}
     >
       {checked ? <Tick size={size * 0.65} /> : null}
