@@ -1,103 +1,105 @@
 # Open questions: 013 measurement
 
-For founder review. Each question has options and a recommendation. The spec is written to the recommendation where it says "(Qn)"; the three `[NEEDS CLARIFICATION]` markers in `spec.md` are Q2, Q4 and Q5.
+For founder review. Q0 was answered on 2026-10-18 and Q1–Q10 on 2026-10-19. The answers are written into `spec.md`, and the original options are kept here as the record. **Still open: Q11, Q12.**
 
-## Q0. Spec number — ANSWERED: 013 (founder, 2026-10-18)
+## Founder direction (2026-10-19)
 
-Numbers are assigned by hand. 011 (Help build It) is reserved for the assessment on `assess/help-page`; 008–010 and 012 are taken.
+Asked why visits should "not be linked" to accounts, the founder answered: "We already know account information; part of the point of knowing this data is to be able to actually provide personalized fixes for people, so it doesn't make sense to not have this information for people who have accounts. This project needs to be treated like science."
 
-- A. 013 (this branch: `spec/013-measurement`, directory `specs/013-measurement`).
-- B. Another number.
-- **Recommendation**: A.
+This changes the 2026-10-16 privacy invariant. It is recorded in `docs/architecture/decisions.md` (2026-10-19), and AGENTS.md and constitution II were updated to match.
 
-## Q1. What "coarse aggregate counts" means, and the stages after signup
+## Answered
 
-AGENTS.md allows "coarse aggregate counts plus a per-visit stage funnel" before signup. Two things to settle:
+### Q0. Spec number — ANSWERED
 
-1. Are the counts only totals derived from the funnel (visits per week, visits per stage), or are there other counters (e.g. page views)?
-   - A. Derived from the funnel only (FR-005).
-   - B. Separate page-view counters as well.
-2. Gate, signup, Support and Help stages happen after signup starts. 008 and 009 already assume the same rules apply.
-   - A. Same rules (in-memory visit number, no credentials, never linked to the account); add one line to decisions.md saying so.
-   - B. Same rules, no decisions.md entry.
-- **Recommendation**: 1A, 2A. Fewer kinds of data, one rule to explain.
+Options were: A 013 · B another. **Founder answer**: A, 013.
 
-## Q2. How precise are stored times? *(spec FR-010)*
+### Q1. What counts, and stages after signup — ANSWERED
 
-A precise time on "signed up" or "supported" could be matched to the account's creation time or the support record, which would link the visit to a person.
+Options were: funnel-derived totals only, or separate page-view counters as well; post-signup stages under the same "unlinked" rules. Recommended funnel only, same rules.
 
-- A. Week only, for every stage.
-- B. Day for every stage.
-- C. Day, except "signed up" and "support completed" coarsened to the week.
-- **Recommendation**: A. Simplest to explain and to check; launch volumes make daily numbers noisy anyway.
+**Founder answer**: Add page-view counters, **per page, including each pain page** (this reverses the per-pain part of 012 FR-020). Post-signup stages are linked to the account (see the founder direction above). → FR-001, FR-008, Page-View List.
 
-## Q3. How long are per-visit records kept?
+### Q2. Precision of stored times — ANSWERED
 
-Per-visit records are what make "of visits that picked a dream, how many reached the gate" possible. Weekly totals per stage are kept after they are deleted.
+Options were: A week · B day · C day with "signed up"/"support completed" coarsened. Recommended A, to prevent matching a visit to an account's creation time.
 
-- A. 30 days.
-- B. 90 days.
-- C. Kept indefinitely.
-- **Recommendation**: B (FR-011). Enough to compare before and after a change; C conflicts with "no session history".
+**Founder answer**: Matching to an account's creation time "is perfectly fine". Times are stored as received. → FR-013.
 
-## Q4. Returning sign-ins on the gate *(spec Stage List)*
+### Q3. How long per-visit records are kept — ANSWERED
 
-People with an account sign in through the same gate. Without their own stage, they look like visits that reached the gate and left.
+Options were: A 30 days · B 90 days · C indefinitely. Recommended B.
 
-- A. No stage; accept the distortion.
-- B. A separate `signed-in` stage, with the same rules as `signed-up`.
-- C. Count them as `signed-up`.
-- **Recommendation**: B.
+**Founder answer**: C, indefinitely. → FR-014.
 
-## Q5. Help build It stages *(spec Stage List rows 16–18)*
+### Q4. Returning sign-ins on the gate — ANSWERED
 
-011 is not written. The assessment leaves the stage name to this spec (decision.md "Still open" 10). Counts per ask come from saved offers in 011 admin, not from measurement.
+Options were: A no stage · B separate `signed-in` stage · C count as `signed-up`. Recommended B.
 
-- A. `help-reached`, `help-offered` (at least one offer), `help-skipped`.
-- B. A, plus `help-background-given` (person filled in background or skills).
-- C. `help-reached` only.
-- **Recommendation**: A now; revisit when 011 is specified.
+**Founder answer**: B. → Stage List row 13.
 
-## Q6. Can people turn counting off?
+### Q5. Help build It stages — ANSWERED
 
-- A. A counting-off control on the privacy page, kept on the device and not sent, and respect Global Privacy Control (FR-016).
-- B. Respect Global Privacy Control only.
-- C. Neither; nothing personal is sent.
-- **Recommendation**: A. Cheap, and it matches "tell people, then let them choose". Note: the off choice is stored on the device, but it holds nothing about the person's picks.
+Options were: A reached / offered / skipped · B A plus background given · C reached only. Recommended A.
 
-## Q7. Small-number suppression in admin
+**Founder answer**: B. → Stage List rows 17–20, to revisit when 011 is specified.
 
-- A. Cells below 5 show "fewer than 5" (FR-018).
-- B. Below 10.
-- C. No suppression; admin is founder-only.
-- **Recommendation**: A. Keeps a single sign-up in a quiet week from being identifiable if a screenshot is shared.
+### Q6. Turning counting off — ANSWERED
 
-## Q8. Splits in the report
+Options were: A a control on the privacy page plus Global Privacy Control · B Global Privacy Control only · C neither. Recommended A.
 
-- A. Platform only (web / iOS app).
-- B. Platform plus browser family.
-- C. No splits.
-- **Recommendation**: A. Anything finer adds fields that edge toward fingerprinting.
+**Founder answer**: C, neither. → FR-018.
 
-## Q9. Personal and societal stages: separate or shared?
+### Q7. Small-number suppression — ANSWERED
 
-001's list was written for one page. The societal page (002) repeats the same steps.
+Options were: no suppression, or hide counts below 5. Recommended no suppression (revised after linking was accepted).
 
-- A. Separate stages per page (rows 2–10, as written).
-- B. Shared stages ("first pain opened" on either page).
-- **Recommendation**: A. It shows whether the societal page loses people, at the cost of four extra rows.
+**Founder answer**: No suppression. → FR-021.
 
-## Q10. Confirm: Support stages are unlinked and carry no amount (009 Q16)
+### Q8. Report splits — ANSWERED
 
-009 FR-026 assumed this "like the other stages (confirm in review)".
+Options were: platform only · plus browser · plus country. Recommended platform only.
 
-- A. Confirm: unlinked from the account, no amount, cadence or payment reference (FR-004, FR-007).
-- B. Allow cadence (once / monthly / annual) on `support-completed`.
-- **Recommendation**: A. Support totals by cadence already exist in 009's own records for signed-in supporters.
+**Founder answer**: Platform only. → FR-022.
+
+### Q9. Separate personal and societal stages — ANSWERED
+
+**Founder answer**: Separate. → Stage List rows 2–10.
+
+### Q10. Support stages: linked, with an amount? — ANSWERED (follows from the founder direction)
+
+009 FR-026 had assumed Support stages were unlinked. They are now linked through the visit. The stages themselves carry no amount or cadence, and research joins those from 009's records through the account. → FR-010.
+
+### Linking scope (asked 2026-10-19) — ANSWERED
+
+Options were: A link only the visit in which signup or sign-in happens · B store a visit ID on the device so all earlier visits link. Recommended A.
+
+**Founder answer**: A. No identifier is stored on the device. → FR-006–FR-008.
+
+## Open
+
+### Q11. Should in-place pain opens and picks be sent as events? *(spec FR-005)*
+
+The founder's reason for linking is personalised fixes. Today, only "first pain opened" and "first dream picked" are sent. Which pains a person opened on the personal page (without picking anything) stays on the device; 008 lists it as "not sent". Picks reach the account at signup anyway.
+
+- A. No change: picks arrive at signup; pain opens stay on the device.
+- B. Also send each in-place pain open (by pain ID) as an event, linked at signup like page views.
+- C. Send every open, pick and fix selection as it happens.
+- **Recommendation**: A. Picks already reach the account. B adds "looked at but didn't pick" data, which is useful for research but sensitive for health-related pains. C breaks "picks stay on the device until signup" (features.md §1).
+
+### Q12. What happens to linked visits when an account is deleted?
+
+- A. Delete them with the account.
+- B. Unlink them and keep them as anonymous visits (stages and page views stay in the totals).
+- **Recommendation**: B, for continuity of the research totals. Until this is answered, the spec assumes A, which is the safer default.
 
 ## Follow-ups outside this spec (not done here)
 
-- 001 FR-014, Privacy section and SC-006: point to 013's Stage List; "first idea seen" → `personal-first-fix-seen`; "I'd use this" → "selected fixes".
-- 008 FR-028 and Dependencies, 009 FR-026 and Dependencies, 010 FR-005 and Dependencies, 012 FR-020 and Dependencies, and the `assess/help-page` decision.md: replace "measurement spec (new, not yet written)" with 013 once the number is confirmed.
-- 010: add the counting-off control (Q6) to the privacy page.
-- 006 admin: place the funnel report.
+- **001**: FR-014, Privacy and SC-006 should point to 013's lists. "first idea seen" becomes `personal-first-fix-seen`, and "I'd use this" becomes "selected fixes". The wording "identifier that outlives the visit" needs revisiting now that linking exists.
+- **008**: reverse FR-028's "never linked to the account". Add "the pages and steps of this visit" to the gate's list, and send the visit number with signup and sign-in.
+- **009**: in FR-026, replace "assumed unlinked (confirm in review)" with "linked through the visit; no amount on the stage".
+- **010**: rewrite "What we count", the privacy note, Q37 (lawful basis: linked page views are personal data, and some pain pages may be health data), and account deletion (Q12).
+- **012**: reverse the per-pain part of FR-020. How a visit arrived stays unrecorded.
+- **assess/help-page**: in decision.md "Still open" 10, point to 013 rows 17–20.
+- **006 admin**: place the funnel and page-view report.
+- Account linking stays off at launch.

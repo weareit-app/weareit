@@ -8,7 +8,7 @@ DRAFT, not yet ratified by the founder. Detailed, changeable decisions live in `
 Only decisions recorded with the founder (`docs/architecture/decisions.md`, `AGENTS.md`) bind. Documents in `docs/source/` and drafts in `docs/spec/drafts/` are AI-generated or unchecked. Specs may cite them as candidates but must not treat them as requirements. Open questions go in the spec as `[NEEDS CLARIFICATION]`, never a guess.
 
 ### II. Privacy by default
-Pre-signup answers stay on the device. No stable anonymous identity or session history. Any pre-signup measurement is coarse, aggregate and described in the UI. Personal selections never appear in public artifacts by default.
+Pre-signup answers stay on the device. No stable anonymous identity: nothing persistent on the device and no link between visits before signup. Measurement is limited to what spec 013 lists, described in the UI before it is sent; the signup or sign-in visit is linked to the account. Personal selections never appear in public artifacts by default.
 
 ### III. Honest about what is real
 Every idea shown to a person carries an honest status: real now, existing resource, proposed It feature, or societal proposal. No fake metrics, fake social proof or claims of charity status. Support is a contribution and grants no product access.
@@ -27,4 +27,4 @@ v0.1 ships the core features in `docs/spec/features.md`. Each spec states what l
 
 This constitution overrides conflicting guidance in specs and plans. Amendments need founder approval and a version bump.
 
-**Version**: 0.1.0 (draft) | **Ratified**: pending | **Last Amended**: 2026-10-16
+**Version**: 0.2.0 (draft) | **Ratified**: pending | **Last Amended**: 2026-10-19

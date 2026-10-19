@@ -1,4 +1,4 @@
-# Specification Quality Checklist: Measurement — coarse totals and the per-visit stage funnel
+# Specification Quality Checklist: Measurement — stage funnel, page views and linking at signup
 
 **Purpose**: Validate specification completeness and quality before proceeding to planning
 **Created**: 2026-10-18
@@ -13,7 +13,7 @@
 
 ## Requirement Completeness
 
-- [ ] No [NEEDS CLARIFICATION] markers remain — 3 remain (Q2 time precision, Q4 returning sign-ins, Q5 Help stages); see `questions.md`
+- [ ] No [NEEDS CLARIFICATION] markers remain — 1 remains (Q11 in-place pain opens); Q12 (account deletion) open with a default; see `questions.md`
 - [x] Requirements are testable and unambiguous
 - [x] Success criteria are measurable
 - [x] Success criteria are technology-agnostic (no implementation details)
