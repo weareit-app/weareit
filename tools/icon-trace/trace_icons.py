@@ -35,6 +35,27 @@ OUT_SVG = ROOT / "apps/app/assets/brand"
 # Founder's choices, 2026-10-18. Every icon carries its own paper (cream in
 # dark mode) and riso ink; `figure=False` would draw just the UI ink.
 ICONS = {
+    # Pain and future stage art (the anxious and the steady woman), traced from
+    # 2.5x Lanczos upscales of assets/brand/stage-*.png so the tool's sizes
+    # apply. The same person in both, skin-3. The pain is ink only; its future
+    # adds one spot, a dusk shirt (founder, 2026-10-18). The worry scribble
+    # and the rays go; the streaks in her hair and shirt show the card.
+    "stage-anxiety": dict(
+        file="stage-anxiety.png",
+        figure=True,
+        despeckle=200,
+        drop_small=(60000, 320),
+        holes={(472, 549): "skin-3", (601, 1069): "skin-3"},
+        bare=[(666, 340), (503, 348), (707, 928), (846, 1034)],
+    ),
+    "stage-steady-enough-to-plan": dict(
+        file="stage-steady-enough-to-plan.png",
+        figure=True,
+        despeckle=200,
+        holes={(446, 546): "skin-3", (519, 1093): "skin-3"},
+        bare=[(576, 341), (393, 342), (623, 950), (757, 1037)],
+        solids={(700, 1150): ("dusk", [(502, 720, 1050, 1300), (232, 760, 502, 1300)])},
+    ),
     # Societal groups, as their drawings arrive.
     # Hands fitting puzzle pieces together: the rays gone, the print speckle
     # cleaned up, each piece its own color. The top two pieces touch the

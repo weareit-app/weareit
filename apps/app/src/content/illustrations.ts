@@ -17,19 +17,21 @@ export const dreamIllustrations: Record<string, ImageSourcePropType> = {
   "found-my-people": require("../../assets/brand/icon-connection.jpg"),
 };
 
-// Personal page stage art (riso ink, onboarding prototype 2026-10-18): a pain
-// is drawn in black ink; a future changes what the person is doing and adds
-// spot color. Most pains and futures have no art yet and read as text alone.
-export const painStageArt: Record<string, ImageSourcePropType> = {
-  anxiety: require("../../assets/brand/stage-anxiety.png"),
+// Personal page stage art (riso, onboarding prototype 2026-10-18), traced
+// into group-icon-art by tools/icon-trace: a pain's art and its future's
+// show the same person; the pain is ink only and the future adds one spot.
+// Each maps an id to its art's key. Most pains and futures have no art yet
+// and read as text alone.
+export const painStageArt: Record<string, string> = {
+  anxiety: "stage-anxiety",
 };
 
-export const dreamStageArt: Record<string, ImageSourcePropType> = {
-  "steady-enough-to-plan": require("../../assets/brand/stage-steady-enough-to-plan.png"),
+export const dreamStageArt: Record<string, string> = {
+  "steady-enough-to-plan": "stage-steady-enough-to-plan",
 };
 
 function assertKnownIds(
-  mapping: Record<string, ImageSourcePropType>,
+  mapping: Record<string, unknown>,
   knownIds: Set<string>,
   kind: string,
 ) {
