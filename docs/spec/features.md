@@ -83,6 +83,13 @@ Decided 2026-10-19 (founder go on the full flow, override of the weak-evidence r
 
 - ✔ **core** Use It in English or Spanish: follows the device, switchable anywhere without losing picks, saved to the account after signup (founder, 2026-10-19; change `openspec/changes/spanish-language/`).
 
+## 8. Privacy, FAQ and contact (no account)
+
+- ✔ **core** Privacy page: a plain summary, then what happens at each stage, rights and contact; only what is live; "last updated" and a change list (founder, 2026-10-19; change `openspec/changes/full-privacy-page/`).
+- ✔ **core** Short FAQ page.
+- ✔ **core** Contact: hello@weareit.app (privacy@ alias), in the footer or menu.
+- ✗ Deferred past v0.1: the safety floor (crisis resources, keyword prompt, "not monitored" notice, report button).
+
 ## Stages
 
 v0.1 is staged: **core** must ship; **optional** ships if time allows; **soon** isn't built yet but the early build must not get in its way.
