@@ -1,10 +1,11 @@
 {
   "expo": {
-    "name": "It",
+    "name": "We Are It",
     "slug": "we-are-it",
     "scheme": "weareit",
     "version": "0.1.0",
     "orientation": "portrait",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "web": {
@@ -13,13 +14,15 @@
     "plugins": [
       "expo-router",
       "expo-sqlite",
-      "./plugins/with-quoted-rn-xcode-script"
+      "./plugins/with-quoted-rn-xcode-script",
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true
     },
     "ios": {
-      "bundleIdentifier": "com.joshsmith.we-are-it"
+      "bundleIdentifier": "com.joshsmith.we-are-it",
+      "appleTeamId": "N9PZ6BA6J6"
     }
   }
 }

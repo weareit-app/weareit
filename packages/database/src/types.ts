@@ -50,6 +50,23 @@ export interface ActionPainLinksTable {
   pain_id: string;
 }
 
+export interface ContentFixesTable {
+  id: string;
+  title: string;
+  description: string;
+  kind: "once" | "habit" | "group" | "feature";
+  feature_status: "planned" | "idea" | null;
+  evidence: "strong" | "some" | "limited" | "untested";
+  evidence_note: string;
+  sort_order: number;
+  updated_at: Timestamp;
+}
+
+export interface FixDreamLinksTable {
+  fix_id: string;
+  dream_id: string;
+}
+
 export interface ContentSourcesTable {
   id: string;
   title: string;
@@ -60,7 +77,7 @@ export interface ContentSourcesTable {
 }
 
 export interface ContentProvenanceTable {
-  entity_type: "domain" | "pain" | "dream" | "first_action";
+  entity_type: "domain" | "pain" | "dream" | "first_action" | "fix";
   entity_id: string;
   source_id: string;
   locator: string;
@@ -170,6 +187,8 @@ export interface Database {
   pain_dream_links: PainDreamLinksTable;
   content_first_actions: ContentFirstActionsTable;
   action_pain_links: ActionPainLinksTable;
+  content_fixes: ContentFixesTable;
+  fix_dream_links: FixDreamLinksTable;
   content_sources: ContentSourcesTable;
   content_provenance: ContentProvenanceTable;
   content_draft_state: ContentDraftStateTable;

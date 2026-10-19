@@ -8,21 +8,30 @@ import {
 
 // Presentation-only mapping: domain content stays independent of React Native.
 export const painIllustrations: Record<string, ImageSourcePropType> = {
-  procrastination: require("../../assets/brand/icon-procrastination.jpg"),
-  anxiety: require("../../assets/brand/icon-anxiety.jpg"),
-  loneliness: require("../../assets/brand/icon-loneliness.jpg"),
   "no-accountability": require("../../assets/brand/icon-corruption.jpg"),
   "dont-know-whats-true": require("../../assets/brand/icon-misinformation.jpg"),
   "shouting-into-void": require("../../assets/brand/icon-advocacy.jpg"),
 };
 
 export const dreamIllustrations: Record<string, ImageSourcePropType> = {
-  belonging: require("../../assets/brand/icon-connection.jpg"),
   "found-my-people": require("../../assets/brand/icon-connection.jpg"),
 };
 
+// Personal page stage art (riso, onboarding prototype 2026-10-18), traced
+// into group-icon-art by tools/icon-trace: a pain's art and its future's
+// show the same person; the pain is ink only and the future adds one spot.
+// Each maps an id to its art's key. Most pains and futures have no art yet
+// and read as text alone.
+export const painStageArt: Record<string, string> = {
+  anxiety: "stage-anxiety",
+};
+
+export const dreamStageArt: Record<string, string> = {
+  "steady-enough-to-plan": "stage-steady-enough-to-plan",
+};
+
 function assertKnownIds(
-  mapping: Record<string, ImageSourcePropType>,
+  mapping: Record<string, unknown>,
   knownIds: Set<string>,
   kind: string,
 ) {
@@ -50,5 +59,15 @@ assertKnownIds(
       ...getAllDreams(worldPainDomains),
     ].map((dream) => dream.id),
   ),
+  "dream",
+);
+assertKnownIds(
+  painStageArt,
+  new Set(getAllPains(personalPainDomains).map((pain) => pain.id)),
+  "pain",
+);
+assertKnownIds(
+  dreamStageArt,
+  new Set(getAllDreams(personalPainDomains).map((dream) => dream.id)),
   "dream",
 );

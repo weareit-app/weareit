@@ -1,8 +1,7 @@
 import { Link } from "expo-router";
-import { Image, Pressable, Text, View } from "react-native";
-import { ChoiceCard } from "../../src/components/choice-card";
+import { Image, Pressable, View } from "react-native";
+import { Text } from "../../src/components/text";
 import { FirstActionCard } from "../../src/components/first-action-card";
-import { dreamIllustrations } from "../../src/content/illustrations";
 import { Page } from "../../src/components/page";
 import { useOnboardingStore } from "../../src/state/onboarding-store";
 import { usePublishedContent } from "../../src/content/use-published-content";
@@ -11,17 +10,11 @@ import { ContentQueryState } from "../../src/components/content-query-state";
 export default function FuturesScreen() {
   const personalIds = useOnboardingStore((state) => state.personalPainIds);
   const worldIds = useOnboardingStore((state) => state.worldPainIds);
-  const selectedPersonalDreams = useOnboardingStore(
+  const chosenPersonalDreamIds = useOnboardingStore(
     (state) => state.personalDreamIds,
   );
-  const selectedWorldDreams = useOnboardingStore(
+  const chosenWorldDreamIds = useOnboardingStore(
     (state) => state.worldDreamIds,
-  );
-  const togglePersonalDream = useOnboardingStore(
-    (state) => state.togglePersonalDream,
-  );
-  const toggleWorldDream = useOnboardingStore(
-    (state) => state.toggleWorldDream,
   );
   const contentQuery = usePublishedContent();
   if (!contentQuery.data) {
@@ -35,20 +28,14 @@ export default function FuturesScreen() {
     if (state) return state;
   }
   const content = contentQuery.data!.content;
-  const personalDreamIds = new Set(
-    content.painDreamLinks
-      .filter(({ painId }) => personalIds.includes(painId))
-      .map(({ dreamId }) => dreamId),
-  );
-  const worldDreamIds = new Set(
-    content.painDreamLinks
-      .filter(({ painId }) => worldIds.includes(painId))
-      .map(({ dreamId }) => dreamId),
-  );
+  // Futures are chosen on the personal and societal pages; here they are a
+  // reminder.
   const personalDreams = content.dreams.filter(({ id }) =>
-    personalDreamIds.has(id),
+    chosenPersonalDreamIds.includes(id),
   );
-  const worldDreams = content.dreams.filter(({ id }) => worldDreamIds.has(id));
+  const worldDreams = content.dreams.filter(({ id }) =>
+    chosenWorldDreamIds.includes(id),
+  );
   const actionsFor = (painIds: string[]) => {
     const matchedActionIds = new Set(
       content.actionPainLinks
@@ -78,45 +65,65 @@ export default function FuturesScreen() {
         <View className="gap-6">
           {personalDreams.length ? (
             <View className="gap-3">
-              <Text className="text-xl font-semibold text-ink">
-                For your life · choose what calls to you
+              <Text className="font-ui-bold text-lg text-ink">
+                For your life
               </Text>
               {personalDreams.map((dream) => (
-                <ChoiceCard
+                <View
                   key={dream.id}
-                  title={dream.title}
-                  description={dream.description}
-                  selected={selectedPersonalDreams.includes(dream.id)}
-                  onPress={() => togglePersonalDream(dream.id)}
-                  illustration={dreamIllustrations[dream.id]}
-                />
+                  className="gap-1 border-b border-rule py-3"
+                >
+                  <Text className="font-heading text-lg text-ink">
+                    {dream.title}
+                  </Text>
+                  <Text className="font-ui text-[15px] leading-5 text-ink-soft">
+                    {dream.description}
+                  </Text>
+                </View>
               ))}
+              <Link href="/" asChild>
+                <Pressable className="self-start py-2">
+                  <Text className="text-ink-soft underline">
+                    Change what could be better for you
+                  </Text>
+                </Pressable>
+              </Link>
             </View>
           ) : null}
           {worldDreams.length ? (
             <View className="gap-3">
-              <Text className="text-xl font-semibold text-ink">
+              <Text className="font-ui-bold text-lg text-ink">
                 For the world we share
               </Text>
               {worldDreams.map((dream) => (
-                <ChoiceCard
+                <View
                   key={dream.id}
-                  title={dream.title}
-                  description={dream.description}
-                  selected={selectedWorldDreams.includes(dream.id)}
-                  onPress={() => toggleWorldDream(dream.id)}
-                  illustration={dreamIllustrations[dream.id]}
-                />
+                  className="gap-1 border-b border-rule py-3"
+                >
+                  <Text className="font-heading text-lg text-ink">
+                    {dream.title}
+                  </Text>
+                  <Text className="font-ui text-[15px] leading-5 text-ink-soft">
+                    {dream.description}
+                  </Text>
+                </View>
               ))}
+              <Link href="/onboarding/world" asChild>
+                <Pressable className="self-start py-2">
+                  <Text className="text-ink-soft underline">
+                    Change what could be better for us
+                  </Text>
+                </Pressable>
+              </Link>
             </View>
           ) : null}
         </View>
       ) : (
-        <View className="gap-3 rounded-3xl bg-card p-6">
-          <Text className="text-lg font-semibold text-ink">
+        <View className="gap-3 rounded-3xl bg-paper-raised p-6">
+          <Text className="font-heading text-xl text-ink">
             You can start anywhere.
           </Text>
-          <Text className="leading-6 text-muted">
+          <Text className="font-body leading-6 text-ink-soft">
             A future doesn't have to begin with a problem you named. It can
             begin with something you want to help make possible.
           </Text>
@@ -124,7 +131,7 @@ export default function FuturesScreen() {
       )}
       {personalActions.length ? (
         <View className="gap-3">
-          <Text className="font-serif text-2xl font-bold text-ink">
+          <Text className="font-heading text-2xl text-ink">
             A next step for your life
           </Text>
           {personalActions.map((action) => (
@@ -134,7 +141,7 @@ export default function FuturesScreen() {
       ) : null}
       {worldActions.length ? (
         <View className="gap-3">
-          <Text className="font-serif text-2xl font-bold text-ink">
+          <Text className="font-heading text-2xl text-ink">
             A next step we could take together
           </Text>
           {worldActions.map((action) => (
@@ -142,34 +149,36 @@ export default function FuturesScreen() {
           ))}
         </View>
       ) : null}
-      <View className="gap-3 rounded-3xl border border-[#e5e5e5] bg-white p-6 md:p-8">
+      <View className="gap-3 rounded-3xl border border-rule bg-paper-raised p-6 md:p-8">
         <Image
           source={require("../../assets/brand/house-wide.jpg")}
           resizeMode="contain"
           className="h-40 w-full"
           accessibilityLabel="Watercolor home surrounded by a garden"
         />
-        <Text className="font-serif text-2xl font-bold text-ink">
+        <Text className="font-heading text-2xl text-ink">
           There are a few ways to take a first step.
         </Text>
-        <Text className="leading-6 text-muted">
+        <Text className="font-body leading-6 text-ink-soft">
           Try a practical idea for your own life, help build the shared roadmap,
           invite someone, or support the work.
         </Text>
         <Link href="/ways-to-help" asChild>
-          <Pressable className="min-h-12 items-center justify-center rounded-xl bg-blue px-5">
-            <Text className="font-bold text-white">See ways to help</Text>
+          <Pressable className="min-h-12 items-center justify-center rounded-xl bg-tide px-5">
+            <Text className="font-ui-semibold text-on-tide">
+              See ways to help
+            </Text>
           </Pressable>
         </Link>
         <Link href="/support-it" asChild>
-          <Pressable className="min-h-12 items-center justify-center rounded-xl border border-blue px-5">
-            <Text className="font-semibold text-blue">Support It</Text>
+          <Pressable className="min-h-12 items-center justify-center rounded-xl border border-ember px-5">
+            <Text className="font-ui-semibold text-ember-deep">Support It</Text>
           </Pressable>
         </Link>
       </View>
       <Link href="/onboarding/world" asChild>
         <Pressable className="self-start py-2">
-          <Text className="text-muted">Go back and change choices</Text>
+          <Text className="text-ink-soft">Go back and change choices</Text>
         </Pressable>
       </Link>
     </Page>

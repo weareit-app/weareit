@@ -11,10 +11,11 @@ DRAFT. ✔ = founder decided · ? = open / from the unchecked draft spec · **co
 - ✔ **core** Mark ideas you like ("I'd use this") with one tap; totals show in admin.
 - ✔ **core** Collapse a pain; the chosen dream becomes the headline, the pain shown small underneath.
 - ✔ **core** Your picks stay on your device. Only coarse totals and a stage funnel (no picks) are sent, and the page says so.
+- ✔ **core** Add your own pain, future or way. It works for you straight away and stays on your device; after signup you can send it for review, and others see it only once the founder approves it (2026-10-18).
 
 ## 2. Societal: "What could be better for us?" (no account)
 
-- ✔ **core** Same as personal, for society-wide problems.
+- ✔ **core** Same as personal, for society-wide problems. Includes adding your own.
 
 ## 3. Sign up (required to go further)
 
@@ -45,6 +46,7 @@ Founder's rough direction (2026-10-16), not settled:
 
 ## 6. Admin (founder only)
 
+- ✔ **core** Review queue for contributed pains, futures and ways: approve (with edits), link to existing content, or decline (2026-10-18).
 - ✔ *(optional)* Totals of pains/dreams/ideas picked (never individuals).
 - ✔ *(optional)* Support payments: list and totals.
 - ✔ *(optional)* Help offers; mark as followed up.
@@ -63,5 +65,7 @@ v0.1 is staged: **core** must ship; **optional** ships if time allows; **soon** 
 | soon | Sharing a future or path | Picks are private by default; sharing must be an explicit act on a separate copy |
 | soon | Matching people with goals to people offering help | Help-page answers use structured lists (job titles, skills), not just free text |
 | soon | Starting from a dream instead of a pain ("I want to write a novel") | Dreams can exist without a parent pain in the content model |
+| soon | Evidence tags on ways (Strong, Some, Limited, Not tested yet) with their notes and linked sources; removed from v0.1 to ship (2026-10-19) | Every way keeps its evidence level and note in the content |
+| ? soon | Explicit paths: an ordered set of ways toward a future (first, next, then); icon idea: Footprints, with each step keeping the Task icon (2026-10-18) | Picked ways are stored per pain → future path with stable way IDs, so an order can be added later |
 
 ? Anything missing from "soon"?

@@ -14,6 +14,7 @@ Help people see a better personal and shared future as possible, find a concrete
 - Remote state: TanStack Query. Use other TanStack libraries when they solve a concrete MVP need.
 - Do not build general offline sync in the MVP. Pre-signup onboarding remains local and resumable; that is not a commitment to a synced offline database.
 - Signup (email OTP or email + password) is required after the personal and societal pages.
+- People can add their own pains, futures and ways. Before signup these stay on the device; after signup they are sent only on an explicit choice, into a founder review queue. Nothing contributed is shown to others before approval, and published content never reveals who contributed it.
 - MVP includes optional **Support It** flow: one-time, monthly or annual; embedded Stripe form on web. Say "support", never "donation"; do not describe It as a charity.
 - Licensing working decisions are in `docs/architecture/licensing.md`.
 

@@ -3,15 +3,164 @@
 @import "tailwindcss/utilities.css";
 @import "nativewind/theme";
 
+/*
+  It brand colors: the tide-led palette (docs/brand/colors.md), on off-white paper.
+  Each ink has four tokens: `wash` (Radix step 3), `tint` (step 6), the spot itself
+  (the exact ink, the same in light and dark) and `deep` (step 11, for text and icons;
+  darkened in light mode only as needed for 4.5:1). Light values live in @theme; dark
+  mode overrides them below. Put text on a spot with its `on-*` color, never `*-deep`,
+  because `deep` turns light in dark mode.
+*/
+
 @theme {
-  --color-ink: #171717;
-  --color-muted: #555555;
-  --color-paper: #ffffff;
-  --color-card: #ffffff;
-  --color-leaf: #2871b8;
-  --color-blue: #2871b8;
-  --color-sun: #2871b8;
-  --color-coral: #e47961;
-  --font-sans: "Avenir Next", "Avenir", ui-sans-serif, system-ui;
-  --font-serif: Georgia, "Times New Roman", serif;
+  --color-paper: #FFFDF7;
+  --color-paper-raised: #FFFFFF;
+  --color-paper-sunk: #EDEDEE;
+  --color-rule: #D5D6D6;
+  --color-ink-faint: #727374;
+  --color-ink-soft: #606162;
+  --color-ink: #1F2021;
+
+  /* Illustration tokens, kept apart from the UI's: riso ink and the paper a
+     figure carries inside its outline. In dark mode the ink lifts to charcoal
+     and the paper turns cream, with no keylines (design notes, 2026-10-18). */
+  --color-riso-ink: #1F2021;
+  --color-riso-paper: #FFFFFF;
+  /* Lines drawn light on dark cards, in the drawings' own cream. */
+  --color-riso-line: #1F2021;
+
+  --color-tide: #087E9F;
+  --color-tide-wash: #E0F2FA;
+  --color-tide-tint: #A9D6E9;
+  --color-tide-deep: #007697;
+  --color-lagoon: #5EC8E5;
+  --color-lagoon-wash: #D6F5FE;
+  --color-lagoon-tint: #8BDCF3;
+  --color-lagoon-deep: #057693;
+  --color-harbor: #3D5588;
+  --color-harbor-wash: #E8EFFD;
+  --color-harbor-tint: #C3D3F3;
+  --color-harbor-deep: #4A6397;
+  --color-mint: #82D8A7;
+  --color-mint-wash: #E1F5E8;
+  --color-mint-tint: #9FDEB9;
+  --color-mint-deep: #0D7E45;
+  --color-sprout: #00A95C;
+  --color-sprout-wash: #E3F5E7;
+  --color-sprout-tint: #A5DDB6;
+  --color-sprout-deep: #007F3D;
+  --color-meadow: #67B346;
+  --color-meadow-wash: #E2F6DB;
+  --color-meadow-tint: #ABDD99;
+  --color-meadow-deep: #3A7B16;
+  --color-sun: #FFB511;
+  --color-sun-wash: #FFEEBF;
+  --color-sun-tint: #FFCB71;
+  --color-sun-deep: #94620B;
+  --color-ember: #FF6C2F;
+  --color-ember-wash: #FFE7DC;
+  --color-ember-tint: #FFB595;
+  --color-ember-deep: #BD3F03;
+  --color-poppy: #F15060;
+  --color-poppy-wash: #FCE8E8;
+  --color-poppy-tint: #F8BBBB;
+  --color-poppy-deep: #C82540;
+  --color-bloom: #FF48B0;
+  --color-bloom-wash: #FEE6F0;
+  --color-bloom-tint: #F2BAD3;
+  --color-bloom-deep: #C70082;
+  --color-dusk: #765BA7;
+  --color-dusk-wash: #F1EEF9;
+  --color-dusk-tint: #D3C8ED;
+  --color-dusk-deep: #6D529D;
+  --color-clay: #925F52;
+  --color-clay-wash: #F7EAE6;
+  --color-clay-tint: #ECC5BA;
+  --color-clay-deep: #875548;
+  --color-stone: #88898A;
+  --color-stone-wash: #EDEEEE;
+  --color-stone-tint: #D5D6D6;
+  --color-stone-deep: #606161;
+
+  --color-on-tide: #FFFFFF;
+  --color-on-lagoon: #1F2021;
+  --color-on-harbor: #FFFFFF;
+  --color-on-mint: #1F2021;
+  --color-on-sprout: #1F2021;
+  --color-on-meadow: #1F2021;
+  --color-on-sun: #1F2021;
+  --color-on-ember: #1F2021;
+  --color-on-poppy: #1F2021;
+  --color-on-bloom: #1F2021;
+  --color-on-dusk: #FFFFFF;
+  --color-on-clay: #FFFFFF;
+  --color-on-stone: #1F2021;
+
+  /* Type roles. Each weight is its own family; do not combine these with
+     font-bold or other weight utilities. See docs/architecture/typography.md. */
+  --font-display: "Bitter_600SemiBold", Georgia, serif;
+  --font-heading: "Bitter_600SemiBold", Georgia, serif;
+  --font-body: "Bitter_400Regular", Georgia, serif;
+  --font-body-italic: "Bitter_400Regular_Italic", Georgia, serif;
+  --font-body-semibold: "Bitter_600SemiBold", Georgia, serif;
+  --font-ui: "Inter_400Regular", ui-sans-serif, system-ui, sans-serif;
+  --font-ui-medium: "Inter_500Medium", ui-sans-serif, system-ui, sans-serif;
+  --font-ui-semibold: "Inter_600SemiBold", ui-sans-serif, system-ui, sans-serif;
+  --font-ui-bold: "Inter_700Bold", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter_400Regular", ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-paper: #13120F;
+    --color-paper-raised: #19191A;
+    --color-paper-sunk: #222323;
+    --color-rule: #3A3A3B;
+    --color-ink-faint: #818283;
+    --color-ink-soft: #B3B4B5;
+    --color-ink: #EEEEEE;
+    --color-riso-ink: #45423D;
+    --color-riso-paper: #EFE9DE;
+    --color-riso-line: #EFE9DE;
+
+    --color-tide-wash: #062B37;
+    --color-tide-tint: #02546B;
+    --color-tide-deep: #69C8EB;
+    --color-lagoon-wash: #072C35;
+    --color-lagoon-tint: #065567;
+    --color-lagoon-deep: #60CAE7;
+    --color-harbor-wash: #1A2640;
+    --color-harbor-tint: #344977;
+    --color-harbor-deep: #9CB8F1;
+    --color-mint-wash: #172B20;
+    --color-mint-tint: #2A553E;
+    --color-mint-deep: #7AD09F;
+    --color-sprout-wash: #172B1E;
+    --color-sprout-tint: #215936;
+    --color-sprout-deep: #4FD585;
+    --color-meadow-wash: #1E2A19;
+    --color-meadow-tint: #365629;
+    --color-meadow-deep: #83CE65;
+    --color-sun-wash: #2E2109;
+    --color-sun-tint: #5A3E07;
+    --color-sun-deep: #FFC137;
+    --color-ember-wash: #361B11;
+    --color-ember-tint: #6A311C;
+    --color-ember-deep: #FF9B72;
+    --color-poppy-wash: #3D1115;
+    --color-poppy-tint: #751F29;
+    --color-poppy-deep: #FF8E93;
+    --color-bloom-wash: #3C1228;
+    --color-bloom-tint: #731D4D;
+    --color-bloom-deep: #FF86C9;
+    --color-dusk-wash: #2A1F3E;
+    --color-dusk-tint: #4B386D;
+    --color-dusk-deep: #C2A7FA;
+    --color-clay-wash: #2D1F1B;
+    --color-clay-tint: #59382F;
+    --color-clay-deep: #E6AE9F;
+    --color-stone-wash: #222323;
+    --color-stone-tint: #3B3B3B;
+    --color-stone-deep: #B5B6B6;
+  }
 }

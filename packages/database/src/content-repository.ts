@@ -41,16 +41,7 @@ export function validatePublishableGraph(input: unknown): {
       message: "Publish at least one domain, pain, and dream.",
     });
   }
-  const dreamsForPain = new Set(
-    graph.painDreamLinks.map(({ painId }) => painId),
-  );
-  for (const pain of graph.pains) {
-    if (!dreamsForPain.has(pain.id))
-      issues.push({
-        path: `pain.${pain.id}.dreams`,
-        message: "Link this pain to at least one desired future.",
-      });
-  }
+  // A pain may have no futures yet; the personal page says so (CONFLICTS.md P7).
   const painsForDream = new Set(
     graph.painDreamLinks.map(({ dreamId }) => dreamId),
   );
@@ -59,6 +50,14 @@ export function validatePublishableGraph(input: unknown): {
       issues.push({
         path: `dream.${dream.id}.pains`,
         message: "Link this desired future to at least one pain.",
+      });
+  }
+  const dreamsForFix = new Set(graph.fixDreamLinks.map(({ fixId }) => fixId));
+  for (const fix of graph.fixes) {
+    if (!dreamsForFix.has(fix.id))
+      issues.push({
+        path: `fix.${fix.id}.dreams`,
+        message: "Link this way forward to at least one desired future.",
       });
   }
   const painsForAction = new Set(
@@ -79,6 +78,7 @@ export function validatePublishableGraph(input: unknown): {
     ["pain", graph.pains],
     ["dream", graph.dreams],
     ["first_action", graph.firstActions],
+    ["fix", graph.fixes],
   ] as const) {
     for (const record of records) {
       if (!references.has(`${entityType}:${record.id}`)) {
@@ -126,6 +126,8 @@ export async function saveUserOnboardingDraft(
     worldPainIds: string[];
     personalDreamIds: string[];
     worldDreamIds: string[];
+    personalPaths: { painId: string; dreamIds: string[]; fixIds: string[] }[];
+    worldPaths: { painId: string; dreamIds: string[]; fixIds: string[] }[];
     helpInterests: string[];
     draftUpdatedAt: number;
   },
@@ -160,11 +162,28 @@ export async function saveUserOnboardingDraft(
       .map((pain) => pain.id),
   );
   const dreamIds = new Set(graph.dreams.map((dream) => dream.id));
+  const painDreams = new Set(
+    graph.painDreamLinks.map(({ painId, dreamId }) => `${painId}:${dreamId}`),
+  );
+  const fixDreams = new Set(
+    graph.fixDreamLinks.map(({ fixId, dreamId }) => `${fixId}:${dreamId}`),
+  );
+  const pathIsValid =
+    (painIds: Set<string>) => (path: (typeof draft.personalPaths)[number]) =>
+      painIds.has(path.painId) &&
+      path.dreamIds.every((dreamId) =>
+        painDreams.has(`${path.painId}:${dreamId}`),
+      ) &&
+      path.fixIds.every((fixId) =>
+        path.dreamIds.some((dreamId) => fixDreams.has(`${fixId}:${dreamId}`)),
+      );
   if (
     draft.personalPainIds.some((id) => !personalPainIds.has(id)) ||
     draft.worldPainIds.some((id) => !worldPainIds.has(id)) ||
     draft.personalDreamIds.some((id) => !dreamIds.has(id)) ||
-    draft.worldDreamIds.some((id) => !dreamIds.has(id))
+    draft.worldDreamIds.some((id) => !dreamIds.has(id)) ||
+    !draft.personalPaths.every(pathIsValid(personalPainIds)) ||
+    !draft.worldPaths.every(pathIsValid(worldPainIds))
   ) {
     throw new InvalidOnboardingDraftError(
       "Some saved choices are not in the content version you explored.",
@@ -209,6 +228,8 @@ export async function readDraftContent(db: ItDatabase): Promise<{
     painDreamLinks,
     actions,
     actionPainLinks,
+    fixes,
+    fixDreamLinks,
     sources,
     provenance,
   ] = await Promise.all([
@@ -227,6 +248,8 @@ export async function readDraftContent(db: ItDatabase): Promise<{
       .orderBy("sort_order")
       .execute(),
     db.selectFrom("action_pain_links").selectAll().execute(),
+    db.selectFrom("content_fixes").selectAll().orderBy("sort_order").execute(),
+    db.selectFrom("fix_dream_links").selectAll().execute(),
     db.selectFrom("content_sources").selectAll().execute(),
     db.selectFrom("content_provenance").selectAll().execute(),
   ]);
@@ -281,6 +304,31 @@ export async function readDraftContent(db: ItDatabase): Promise<{
       actionPainLinks: actionPainLinks.map(({ action_id, pain_id }) => ({
         actionId: action_id,
         painId: pain_id,
+      })),
+      fixes: fixes.map(
+        ({
+          id,
+          title,
+          description,
+          kind,
+          feature_status,
+          evidence,
+          evidence_note,
+          sort_order,
+        }) => ({
+          id,
+          title,
+          description,
+          kind,
+          ...(feature_status ? { featureStatus: feature_status } : {}),
+          evidence,
+          evidenceNote: evidence_note,
+          sortOrder: sort_order,
+        }),
+      ),
+      fixDreamLinks: fixDreamLinks.map(({ fix_id, dream_id }) => ({
+        fixId: fix_id,
+        dreamId: dream_id,
       })),
       sources: sources.map(
         ({ id, title, document_path, source_type, rights }) => ({
@@ -529,6 +577,8 @@ async function replaceNormalizedContent(db: ItDatabase, graph: ContentGraph) {
   for (const table of [
     "content_provenance",
     "content_sources",
+    "fix_dream_links",
+    "content_fixes",
     "action_pain_links",
     "content_first_actions",
     "pain_dream_links",
@@ -612,6 +662,33 @@ async function replaceNormalizedContent(db: ItDatabase, graph: ContentGraph) {
         graph.actionPainLinks.map(({ actionId, painId }) => ({
           action_id: actionId,
           pain_id: painId,
+        })),
+      )
+      .execute();
+  if (graph.fixes.length)
+    await db
+      .insertInto("content_fixes")
+      .values(
+        graph.fixes.map((item) => ({
+          id: item.id,
+          title: item.title,
+          description: item.description,
+          kind: item.kind,
+          feature_status: item.featureStatus ?? null,
+          evidence: item.evidence,
+          evidence_note: item.evidenceNote,
+          sort_order: item.sortOrder,
+          updated_at: new Date(),
+        })),
+      )
+      .execute();
+  if (graph.fixDreamLinks.length)
+    await db
+      .insertInto("fix_dream_links")
+      .values(
+        graph.fixDreamLinks.map(({ fixId, dreamId }) => ({
+          fix_id: fixId,
+          dream_id: dreamId,
         })),
       )
       .execute();

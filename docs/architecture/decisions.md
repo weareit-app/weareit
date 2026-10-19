@@ -9,6 +9,26 @@ This file records decisions made with the project owner. Source architecture pro
 - MVP includes the Support It flow. Call giving money "support" (2026-10-16); never "donation" or charitable status.
 - First platforms are web and iOS.
 
+## Showing information
+
+Decided 2026-10-19.
+
+- Show information when it helps the person make the decision they are making now, not because the system knows it. In onboarding the question is "could this help me?"; detail for "should I do this, and why believe it?" (evidence, sources, costs, downsides) belongs where someone weighs acting on a way.
+- Keep what is hidden in the data. Ways keep their evidence levels, notes and sources, and every future–way link, so later views and paths can use them.
+
+## Contributions: people add pains, futures and ways
+
+Decided 2026-10-18. This replaces spec 001's "no free text in v0.1" assumption; founder approval of everything others see stays.
+
+- The MVP lets people add their own pain, a future to a pain, or a way to a future. This is the point of "We are It", not an extra.
+- Writing one before signup is allowed and works like any other pick: the text stays on the device. It is sent only after signup, and only when the person explicitly chooses to send it for review. Writing it never sends it.
+- Sent contributions go into a review queue in the CMS. Nothing a person contributes is shown to anyone else until the founder approves it, and the founder may edit the wording. The contributor always sees their own, marked "In review" until a decision is made.
+- Published content never says who contributed it, or implies that they have that pain. Who contributed what is kept privately, as provenance, for review and abuse handling.
+- An approved way gets the usual type and an evidence level of "Not tested yet" unless the reviewer has a reason to set another.
+- Each pain's futures are ordered by a per-pain position on the link, not by the order of taps or by a global order. A contributor places their future in that order, with a live preview of the joined sentence; the reviewer can change it.
+- Contributions are validated with Zod at the boundary: a future's line is one first-person sentence ending in a period, so any set of chosen futures can be joined with commas and "and".
+- VERIFY before launch: limits on how many contributions an account can send, and reviewer guidance for contributions that suggest someone is in crisis.
+
 ## Platform and stack
 
 - Expo Router is the universal app and route system. Revisit a separate Next.js app only if a demonstrated Expo limitation requires it.
@@ -52,6 +72,28 @@ Decided 2026-10-16; assessment in `.specify/assessments/thing-type-relation/`.
 - The layer must not block v0.1 and is built after launch. v0.1 must give every published record a stable ID, store outside references (pain frameworks, ESCO, Wikidata) in one consistent shape, store Help answers as ESCO references, and keep content versions on picks.
 - It stays on PostgreSQL + Kysely. A graph database, graph extension or formal tool needs its own decision record. Tagging people's own data by LLM needs a separate privacy decision.
 
+## Typography
+
+Decided 2026-10-18; details in `docs/architecture/typography.md`.
+
+- Bitter SemiBold for display text and headings, Bitter Regular/Italic/SemiBold for reading text, Inter for interface text. Both are free under the SIL Open Font License and ship the same files to web and iOS.
+- Type is applied through role tokens (`font-display`, `font-heading`, `font-body`, `font-ui` and their weights), not weight utilities.
+- The hand-drawn logo stays the only place its letters appear.
+
+## Graphics: `@shopify/react-native-skia` for the watercolor dot
+
+**Approved by the founder 2026-10-17.** Spec: `specs/007-watercolor-dot/spec.md`; assessment in `.specify/assessments/watercolor/`.
+
+- **Why.** Both candidates in the fidelity proof need GPU shaders: Option B (look-alike shader) draws watercolor marks live, and Option E (dots painted ahead of time by physics) is colored live with Kubelka-Munk pigment optics. Reanimated, already installed, can move, scale and fade existing images but cannot draw new watercolor shapes. Skia gives GPU 2D drawing and custom SkSL RuntimeEffect shaders on iOS and web, driven by Reanimated shared values, and is supported in the Expo SDK 57 docs.
+- **Version.** Install with `expo install` so the version matches SDK 57; record any pin in `docs/architecture/dependency-policy.md`. Not installed yet; the fidelity proof installs it.
+- **Web cost.** Skia on web loads CanvasKit (WebAssembly), about 2.9 MB gzipped, against the founder's 1 MB extra web budget loaded after the first screen (FR-011). So web will likely use the animated painted orb in all three placements, and Skia is used on iOS, unless the fidelity proof finds a web path for the chosen dot within 1 MB. The proof must report the web download for each approach.
+- **Native cost.** Roughly 4–6 MB added to the iOS binary (figures vary between sources; the proof measures it). Targets are iPhone 12 and newer (founder, 2026-10-17).
+- **License.** `@shopify/react-native-skia` is MIT and Skia itself BSD-3-Clause; both are compatible with the AGPL-3.0-or-later app license.
+- **Code that may not be copied.** sudoaquarelle.com publishes no license, so it is all-rights-reserved by default; Mixbox is CC BY-NC 4.0 (non-commercial only). Neither its code nor its data may be copied into It. Simulation and color mixing are written from published papers (Curtis et al. 1997 and later work) and the Kubelka-Munk equations.
+- **Generated dots.** Dots painted ahead of time are CC0 illustrations under `docs/architecture/licensing.md`, with seed, simulation settings and pigments recorded as provenance; the drawing and simulation code is AGPL app code (founder confirmed 2026-10-17). The simulation is a tool kept outside the shipped app; only its output ships.
+- **Web, updated 2026-10-17.** The proof found the lighter web path: dot B's shader is translated to GLSL and drawn with WebGL directly (`apps/app/src/watercolor/webgl-dot.web.tsx`). Skia stays iOS-only plus the dev lab.
+- **Fallback.** The painted orb (`apps/app/assets/brand/watercolor-orb.jpg`) is shown in the same place and size wherever a generated dot is not ready, cannot be drawn, or does not fit the web budget, on every platform. No screen or action waits for Skia. If neither B nor E passes the proof, all placements use the animated painted orb and Skia is not adopted.
+
 ## Rendering
 
 Expo Router now documents static and request-time server rendering. Start with static output for public content and app routes; evaluate server output for dynamic share previews before adding a separate web framework or custom metadata server. Dynamic server rendering requires a production server runtime, so this decision also depends on the hosting path.
@@ -70,4 +112,7 @@ Expo Router now documents static and request-time server rendering. Start with s
 ## Change log
 
 - 2026-10-16: founder resolved conflicts with an earlier spec draft (see `docs/spec/CONFLICTS.md`). Changed: signup required after personal + societal pages; email OTP plus password; embedded Stripe form on web; one-time/monthly/annual support on web and iOS; pre-signup stage funnel added (privacy invariant change); invitations optional; "support" wording; hosting lean SST. Kept: oRPC, Kysely, database + CMS.
+- 2026-10-18: added the typography decision (Bitter and Inter in display, heading, reading and interface roles).
 - 2026-10-16: added the Thing / Type / Relation content graph decision (stacked levels; link, don't convert; links as claims with a confidence threshold; must not block v0.1).
+- 2026-10-17: founder approved adding `@shopify/react-native-skia` for the watercolor dot (spec 007). Web likely uses the animated painted orb because CanvasKit (~2.9 MB gzipped) exceeds the 1 MB web budget; generated dots are CC0 with provenance.
+- 2026-10-17: founder chose dot B on web too. Web draws it with the browser's own WebGL (the same shader, translated from SkSL; a few KB), not with Skia's web runtime, so the 1 MB web budget holds. The painted orb remains the fallback where WebGL is unavailable.

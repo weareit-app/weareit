@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
-import { Pressable, Text, TextInput, View } from "react-native";
+import { Pressable, TextInput, View } from "react-native";
+import { Text } from "../../src/components/text";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiClient, setCmsToken } from "@it/api/client";
 import type { ContentGraph } from "@it/content/graph-schema";
@@ -159,6 +160,13 @@ export default function CmsScreen() {
             kind === "pains" && link.painId === selectedId
               ? value
               : link.painId,
+          dreamId:
+            kind === "dreams" && link.dreamId === selectedId
+              ? value
+              : link.dreamId,
+        })),
+        fixDreamLinks: graph.fixDreamLinks.map((link) => ({
+          ...link,
           dreamId:
             kind === "dreams" && link.dreamId === selectedId
               ? value
@@ -490,14 +498,14 @@ export default function CmsScreen() {
         title="CMS"
         description="Connect with the CMS administrator token configured for the API server."
       >
-        <View className="gap-3 rounded-3xl bg-white p-5">
+        <View className="gap-3 rounded-3xl bg-paper-raised p-5">
           <TextInput
             secureTextEntry
             value={tokenInput}
             onChangeText={setTokenInput}
             placeholder="CMS admin token"
             autoCapitalize="none"
-            className="min-h-12 rounded-xl border border-[#dce4ec] px-4 text-ink"
+            className="min-h-12 rounded-xl border border-rule px-4 font-ui text-ink"
           />
           <Button title="Connect" onPress={connect} />
         </View>
@@ -555,8 +563,11 @@ export default function CmsScreen() {
         description="This preview uses draft content and does not publish it."
       >
         {previewGraph.domains.map((domain) => (
-          <View key={domain.id} className="gap-2 rounded-2xl bg-white p-4">
-            <Text className="font-semibold text-ink">
+          <View
+            key={domain.id}
+            className="gap-2 rounded-2xl bg-paper-raised p-4"
+          >
+            <Text className="font-ui-semibold text-ink">
               {domain.scope === "personal" ? "Personal" : "World"} ·{" "}
               {domain.title}
             </Text>
@@ -575,19 +586,19 @@ export default function CmsScreen() {
                 return (
                   <View
                     key={pain.id}
-                    className="gap-1 border-t border-[#e6e9ee] pt-2"
+                    className="gap-1 border-t border-rule pt-2"
                   >
-                    <Text className="font-medium text-ink">
+                    <Text className="font-ui-medium text-ink">
                       {pain.title} — {pain.description}
                     </Text>
-                    <Text className="text-sm text-muted">
+                    <Text className="text-sm text-ink-soft">
                       Possible futures:{" "}
                       {previewGraph.dreams
                         .filter((dream) => dreamIds.includes(dream.id))
                         .map((dream) => dream.title)
                         .join(", ") || "none linked"}
                     </Text>
-                    <Text className="text-sm text-muted">
+                    <Text className="text-sm text-ink-soft">
                       First actions:{" "}
                       {actions.map((action) => action.title).join(", ") ||
                         "none linked"}
@@ -635,8 +646,8 @@ export default function CmsScreen() {
           onPress={deleteSelectedRecord}
         />
       </View>
-      <View className="gap-3 rounded-2xl bg-white p-5">
-        <Text className="font-semibold text-ink">Sources</Text>
+      <View className="gap-3 rounded-2xl bg-paper-raised p-5">
+        <Text className="font-ui-semibold text-ink">Sources</Text>
         <View className="flex-row flex-wrap gap-2">
           {graph.sources.map((source) => (
             <Button
@@ -655,7 +666,7 @@ export default function CmsScreen() {
         </View>
         {graph.sources.find(({ id }) => id === selectedSourceId) ? (
           <>
-            <Text className="text-sm text-muted">
+            <Text className="text-sm text-ink-soft">
               Stable ID: {selectedSourceId}
             </Text>
             <Field
@@ -703,7 +714,7 @@ export default function CmsScreen() {
         ))}
       </View>
       {selected ? (
-        <View className="gap-4 rounded-3xl bg-white p-5">
+        <View className="gap-4 rounded-3xl bg-paper-raised p-5">
           <Field
             label="Stable ID"
             value={selected.id}
@@ -806,8 +817,8 @@ export default function CmsScreen() {
               onToggle={(id) => toggleRelation("pain", id)}
             />
           ) : null}
-          <View className="gap-2 border-t border-[#e6e9ee] pt-4">
-            <Text className="font-semibold text-ink">Source and rights</Text>
+          <View className="gap-2 border-t border-rule pt-4">
+            <Text className="font-ui-semibold text-ink">Source and rights</Text>
             <SelectField
               label="Source"
               value={selectedProvenance?.sourceId ?? graph.sources[0]?.id ?? ""}
@@ -840,7 +851,7 @@ export default function CmsScreen() {
           </View>
         </View>
       ) : (
-        <Text className="text-muted">
+        <Text className="text-ink-soft">
           This draft has no {labelForKind(kind).toLowerCase()}.
         </Text>
       )}
@@ -874,14 +885,14 @@ export default function CmsScreen() {
           {notice}
         </Text>
       ) : null}
-      <View className="gap-3 rounded-2xl bg-white p-5">
-        <Text className="font-semibold text-ink">Published versions</Text>
+      <View className="gap-3 rounded-2xl bg-paper-raised p-5">
+        <Text className="font-ui-semibold text-ink">Published versions</Text>
         {versionsQuery.data?.map((version) => (
           <View
             key={version.version}
             className="flex-row flex-wrap items-center justify-between gap-2"
           >
-            <Text className="text-muted">
+            <Text className="text-ink-soft">
               Version {version.version} · revision {version.source_revision}
             </Text>
             <Button
@@ -928,13 +939,13 @@ function Field({
 }) {
   return (
     <View className="gap-1">
-      <Text className="text-sm font-semibold text-ink">{label}</Text>
+      <Text className="text-sm font-ui-semibold text-ink">{label}</Text>
       <TextInput
         value={value}
         onChangeText={onChangeText}
         multiline={multiline}
         keyboardType={keyboardType}
-        className={`rounded-xl border border-[#dce4ec] px-4 py-3 text-ink ${multiline ? "min-h-24" : "min-h-12"}`}
+        className={`rounded-xl border border-rule px-4 py-3 font-ui text-ink ${multiline ? "min-h-24" : "min-h-12"}`}
       />
     </View>
   );
@@ -953,7 +964,7 @@ function SelectField({
 }) {
   return (
     <View className="gap-2">
-      <Text className="text-sm font-semibold text-ink">{label}</Text>
+      <Text className="text-sm font-ui-semibold text-ink">{label}</Text>
       <View className="flex-row flex-wrap gap-2">
         {options.map((option) => (
           <Button
@@ -981,7 +992,7 @@ function RelationPicker({
 }) {
   return (
     <View className="gap-2">
-      <Text className="font-semibold text-ink">{title}</Text>
+      <Text className="font-ui-semibold text-ink">{title}</Text>
       <View className="flex-row flex-wrap gap-2">
         {rows.map((row) => (
           <Button
@@ -1012,9 +1023,9 @@ function Button({
       accessibilityRole="button"
       disabled={disabled}
       onPress={onPress}
-      className={`min-h-10 justify-center rounded-xl border px-4 py-2 ${disabled ? "opacity-50" : ""} ${selected ? "border-blue bg-blue" : "border-[#dce4ec] bg-white"}`}
+      className={`min-h-10 justify-center rounded-xl border px-4 py-2 ${disabled ? "opacity-50" : ""} ${selected ? "border-tide bg-tide" : "border-rule bg-paper-raised"}`}
     >
-      <Text className={selected ? "font-semibold text-white" : "text-ink"}>
+      <Text className={selected ? "font-ui-semibold text-on-tide" : "text-ink"}>
         {title}
       </Text>
     </Pressable>
