@@ -1,6 +1,6 @@
 import {
   Blocks,
-  CircleDashed,
+  CircleDotDashed,
   Lightbulb,
   Milestone,
   Repeat,
@@ -23,7 +23,7 @@ export const kindCopy: Record<
   once: {
     label: "Task",
     detail: "A single step you could take today.",
-    icon: CircleDashed,
+    icon: CircleDotDashed,
   },
   habit: {
     label: "Habit",
