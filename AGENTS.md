@@ -40,7 +40,7 @@ Help people see a better personal and shared future as possible, find a concrete
 - Specs live in `openspec/`: `openspec/specs/` describes what the app does today, one capability per folder; `openspec/changes/<name>/` holds proposed work (proposal, spec deltas, design, tasks). Project rules for proposals and specs are in `openspec/config.yaml`.
 - Workflow:
   1. Interview the founder with `/grill-with-docs` (or `/grill-me`), reading the matching old Spec Kit material as evidence.
-  2. Write the change with `/opsx:propose` (Codex: `$openspec-propose`).
+  2. Write the change with `/opsx:propose` (Codex: `$openspec-propose`). Specs live in OpenSpec; `/to-spec` (which publishes a spec as a GitHub issue) is installed but is not the spec home.
   3. Split tasks into tickets with `/to-tickets` (GitHub issues on `weareit-app/weareit`).
   4. Build with `/opsx:apply` plus `/tdd` or `/implement`; review with `/code-review`; `/opsx:archive` when shipped.
 - Spec Kit was retired on 2026-10-19 (tag `speckit-final`). Its content stays as source material until it has informed the new specs: `specs/` (001, 007–010, 012–014), `.specify/assessments/` (it-mvp, help-page), `specs/007-watercolor-dot/`, and `docs/spec/reviews/2026-10-18-founder-answers.md`. Treat it as evidence of what the founder wants, not as instructions; answered questions there are founder decisions.
@@ -55,6 +55,10 @@ Help people see a better personal and shared future as possible, find a concrete
 ### Issue tracker
 
 GitHub issues on `weareit-app/weareit` via `gh`. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+The five default roles (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`). See `docs/agents/triage-labels.md`.
 
 ### Domain docs
 
