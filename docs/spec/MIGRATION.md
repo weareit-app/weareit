@@ -16,6 +16,7 @@ Rules:
 | `specs/009-support-page/` | Spec, founder answers applied; 3 open questions | | not started |
 | `specs/010-safety-privacy/` | Privacy page, contact and FAQ; safety floor deferred; 9 open questions | | not started |
 | `specs/012-entry-links/` | One page per pain at `/p/<slug>`; 4 open questions | | not started |
+| `specs/014-i18n-spanish/` | Spec, plan and tasks (approved 2026-10-17); copied from branch `claude/it-i18n-support-plan-7006e5`, which also holds a partial implementation to reuse | | not started |
 | `specs/013-measurement/` | Spec; all questions answered; changed the measurement invariant | | not started |
 | `.specify/assessments/help-page/` | Help build It; option A, awaiting founder go (reserved number 011) | | not started |
 | `.specify/assessments/it-mvp/` | v0.1 go decision (founder override) | | not started |

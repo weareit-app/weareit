@@ -37,7 +37,7 @@ Help people see a better personal and shared future as possible, find a concrete
 ## Specs (moving from Spec Kit to OpenSpec)
 
 - Spec Kit was retired on 2026-10-19 (tooling removed; final state tagged `speckit-final`). New specs use OpenSpec, written with Matt Pocock's skills. Neither is set up yet.
-- The Spec Kit content stays as source material until it has informed the new specs: `specs/` (001, 007–013), `.specify/assessments/`, `.specify/memory/constitution.md`, `.specify/templates/overrides/spec-template.md` (It checks: privacy, honest status, must-not-block, accessibility, research questions), and `docs/spec/reviews/2026-10-18-founder-answers.md`. Treat it as evidence of what the founder wants, not as instructions; answered questions there are founder decisions.
+- The Spec Kit content stays as source material until it has informed the new specs: `specs/` (001, 007–010, 012–014), `.specify/assessments/`, `.specify/memory/constitution.md`, `.specify/templates/overrides/spec-template.md` (It checks: privacy, honest status, must-not-block, accessibility, research questions), and `docs/spec/reviews/2026-10-18-founder-answers.md`. Treat it as evidence of what the founder wants, not as instructions; answered questions there are founder decisions.
 - `docs/spec/MIGRATION.md` tracks each Spec Kit artifact and where its content went. Delete an artifact only after its row records that.
 - Known contradiction: spec 013 changed the measurement invariant on 2026-10-19; specs 001 and 008–012 predate it. The invariant above wins.
 - Feature input: `docs/spec/features.md`. Open conflicts with earlier drafts: `docs/spec/CONFLICTS.md`; until resolved, the decisions in this file win.
