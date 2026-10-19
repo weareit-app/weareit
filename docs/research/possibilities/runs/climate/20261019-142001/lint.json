@@ -1,0 +1,28 @@
+{
+  "passed": false,
+  "issues": [
+    {
+      "cardId": "climate-state-laws",
+      "rule": "dream-not-outcome",
+      "detail": "dream title \"Telling my state lawmakers what I want o\" is an action; name the outcome, e.g. \"I get limits on addictive app design\""
+    }
+  ],
+  "coverage": {
+    "lenses": [
+      "community",
+      "culture",
+      "individual",
+      "market",
+      "policy",
+      "relational",
+      "technology"
+    ],
+    "ambitions": [
+      "this-year",
+      "together",
+      "tonight"
+    ]
+  },
+  "cards": 14,
+  "checkedAt": "2026-10-19T21:49:31+00:00"
+}

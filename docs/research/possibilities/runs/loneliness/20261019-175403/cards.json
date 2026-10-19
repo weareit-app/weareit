@@ -1,0 +1,790 @@
+{
+  "schemaVersion": 1,
+  "painId": "loneliness",
+  "runId": "20261019-175403",
+  "cards": {
+    "lonely-someone-to-talk-to": {
+      "title": "Someone to talk to tonight, at any hour",
+      "line": "When the evening gets heavy, I know a real person will pick up and listen.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "lonely-someone-to-talk-to-call-988",
+          "title": "Call or text 988 when you need someone right now",
+          "whatChanges": "The 988 line in the US is free and open around the clock by call, text or chat. People think of it as a suicide line, but you can also call when you’re in emotional distress or just need someone to talk to.",
+          "who": "You and a trained counselor",
+          "exemplarRef": "lifeline-988",
+          "speculative": false,
+          "firstStep": "Save 988 in your phone’s contacts under a name you’ll remember, like “Someone to talk to.”",
+          "firstStepMinutes": 2,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "lonely-someone-to-talk-to-friendship-line",
+          "title": "Ask for a regular check-in call if you’re 60 or older",
+          "whatChanges": "The Institute on Aging runs the Friendship Line at 888-670-1360, open day and night for people 60 and older, adults with disabilities and caregivers. You can also ask them to call you on a regular schedule, so you don’t have to be the one who dials.",
+          "who": "You and a volunteer",
+          "exemplarRef": "friendship-line",
+          "speculative": false,
+          "firstStep": "Call 888-670-1360 and ask how their regular check-in calls work.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "lonely-someone-to-talk-to-one-text",
+          "title": "Text one person you’ve lost touch with",
+          "whatChanges": "Most people are glad to hear from someone they haven’t talked to in a while, even when neither of you knows why it stopped. A short message with no question attached is easy to answer.",
+          "who": "You and an old friend",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Send one person a short note about something that reminded you of them.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "speculativeRationale": "Common practice; no study of reconnecting messages was opened in this run.",
+          "kind": "task"
+        },
+        {
+          "id": "lonely-someone-to-talk-to-reach-out-reminders",
+          "title": "Private reminders to text people you miss",
+          "whatChanges": "Keeps a private list of people you’d like to hear from more, and nudges you when it’s been a while since you were last in touch with one of them. Nobody on the list is contacted or told they’re on it.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and write down three people you’ve lost touch with.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Proposed It feature (tracking and nudges); no reminder tool for reconnecting was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175403",
+        "locator": "cards.json#lonely-someone-to-talk-to",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Crisis resources named as existing_resource per sensitive-pain rule. 988 explicitly covers 'someone to talk to' per its homepage."
+    },
+    "lonely-not-my-fault": {
+      "title": "Knowing loneliness is common and not my failing",
+      "line": "I can say I’m lonely without feeling ashamed, because I know how many people feel the same.",
+      "lens": "culture",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "lonely-not-my-fault-how-common",
+          "title": "Remember how many adults feel this way",
+          "whatChanges": "In 2023 the US Surgeon General reported that about one in two American adults had felt lonely, even before the pandemic. Loneliness says something about how our lives are arranged, not about what kind of person you are.",
+          "who": "You",
+          "exemplarRef": "surgeon-general-advisory",
+          "speculative": false,
+          "firstStep": "Tell one person you trust that you’ve been feeling lonely, in whatever words feel right.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "learn"
+        },
+        {
+          "id": "lonely-not-my-fault-health-matters",
+          "title": "Treat connection as part of your health",
+          "whatChanges": "A 2010 review of 148 studies, covering 308,849 people, found that people with stronger social ties were 50% more likely to be alive at follow-up. That’s a good reason to put time with people on the calendar the way you would a doctor’s appointment.",
+          "who": "You",
+          "exemplarRef": "holt-lunstad-review",
+          "speculative": false,
+          "firstStep": "Look at the coming week and block out one hour for time with someone else.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "schedule"
+        },
+        {
+          "id": "lonely-not-my-fault-saying-it-out-loud",
+          "title": "Help telling someone you’ve been lonely",
+          "whatChanges": "Helps you find your own words for telling a friend or relative you’ve been feeling lonely, suggests a low-pressure moment to say it, and checks in afterward on how the conversation went.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and pick one person you’d feel safe telling.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Proposed It feature (guided practice); no coaching tool for this conversation was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175403",
+        "locator": "cards.json#lonely-not-my-fault",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Reframe card: the fault-free framing is the point. Avoids clinical advice; states study as association."
+    },
+    "lonely-standing-plan": {
+      "title": "A standing weekly plan with a friend",
+      "line": "Every week I already know when I’ll next see or talk to someone who knows me well.",
+      "lens": "relational",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "lonely-standing-plan-recurring",
+          "title": "Set up a recurring call or walk with one friend",
+          "whatChanges": "The Harvard study that has followed people since 1938 found that close relationships kept people happy and healthy more than money or fame did. A plan that repeats on its own means neither of you has to remember to ask.",
+          "who": "You and a friend",
+          "exemplarRef": "harvard-adult-development",
+          "speculative": false,
+          "firstStep": "Text a friend and suggest the same time every week, like Sunday at 4pm, for a phone call or a walk.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "schedule"
+        },
+        {
+          "id": "lonely-standing-plan-same-place",
+          "title": "Go to the same place at the same time each week",
+          "whatChanges": "Seeing the same faces at the same class, café or service is how a lot of friendships start, before anyone plans anything. Showing up three or four times usually matters more than the first visit.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Pick one weekly class, meeting or café hour near you and put the next four dates on your calendar.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "speculativeRationale": "Common advice drawn from repeated-exposure ideas; no specific study was opened in this run.",
+          "kind": "schedule"
+        },
+        {
+          "id": "lonely-standing-plan-plan-keeper",
+          "title": "Reminders that keep a weekly plan from lapsing",
+          "whatChanges": "Keeps track of your standing calls or walks, reminds you both the day before, and nudges you to reschedule when one gets skipped, so a missed week doesn’t quietly end the habit.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and put your next call or walk with a friend on your calendar.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Proposed It feature (tracking and nudges); no study of lapsed standing plans was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175403",
+        "locator": "cards.json#lonely-standing-plan",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "lonely-friendly-errands": {
+      "title": "Friendly conversations during everyday errands",
+      "line": "When I go to the store or the post office, someone has time to talk with me.",
+      "lens": "market",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "lonely-friendly-errands-slow-lane",
+          "title": "Shop where staff have time to talk",
+          "whatChanges": "In 2019 a Dutch supermarket chain, Jumbo, opened its first slow “chat checkout” in the town of Vlijmen, for people who like to talk with the cashier, and planned hundreds more. Smaller local shops often work this way already, especially at quiet times of day.",
+          "who": "You and local shop staff",
+          "exemplarRef": "jumbo-chat-checkout",
+          "speculative": false,
+          "firstStep": "Pick one local shop and go at a quiet hour this week, and ask the person at the counter how their day is going.",
+          "firstStepMinutes": 20,
+          "status": "real_now",
+          "kind": "practice",
+          "featureIdea": "Suggests an easy opener for a short chat with someone at a shop counter, then asks afterward how it went and offers a next one to try."
+        },
+        {
+          "id": "lonely-friendly-errands-ask-store",
+          "title": "Ask your grocery store to try a no-rush checkout lane",
+          "whatChanges": "Jumbo’s chat checkouts came out of a Dutch health ministry program against loneliness, so the idea has a track record of a store and a government working together. A store manager here can try one lane on slow mornings without any law at all.",
+          "who": "Shoppers and store managers",
+          "exemplarRef": "jumbo-chat-checkout",
+          "speculative": false,
+          "firstStep": "Ask the manager at your grocery store whether they’d try one no-rush lane on weekday mornings.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "lonely-friendly-errands-no-rush-lane-campaign",
+          "title": "Shared request to a store for a no-rush checkout lane",
+          "whatChanges": "Gathers shoppers at one grocery store behind a single request for a no-rush lane on slow mornings, shows how many regulars have signed on, and sends it to the manager together. Jumbo’s chat checkouts in the Netherlands started with one lane in Vlijmen in 2019.",
+          "who": "Shoppers, store managers and It",
+          "exemplarRef": "jumbo-chat-checkout",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and ask one other regular at your store whether they’d sign on.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175403",
+        "locator": "cards.json#lonely-friendly-errands",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "lonely-making-things-together": {
+      "title": "Working on projects with other people every week",
+      "line": "I have somewhere to go each week where people expect me and we build or fix things side by side.",
+      "lens": "community",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "lonely-making-things-together-workshop",
+          "title": "Join a weekly workshop where people build things together",
+          "whatChanges": "Men’s Sheds started in Australia in the mid-1990s for older men who had lost their work friends, and there are now about 900 of them worldwide. One member of a shed in Hopkins, Minnesota, said the friends he made there stood by him after his wife died.",
+          "who": "You and other members",
+          "exemplarRef": "mens-sheds",
+          "speculative": false,
+          "firstStep": "Search the shed finder at usmenssheds.org for a group near you.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "group"
+        },
+        {
+          "id": "lonely-making-things-together-start-one",
+          "title": "Start a workshop group if there isn’t one nearby",
+          "whatChanges": "The US Men’s Shed Association has a guide for starting a new shed, and many begin with a few people meeting in a borrowed garage or community center.",
+          "who": "You and a few neighbors",
+          "exemplarRef": "us-mens-shed-finder",
+          "speculative": false,
+          "firstStep": "Read the start-a-shed page at usmenssheds.org and write down two people you’d invite.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "new-group"
+        },
+        {
+          "id": "lonely-making-things-together-volunteer",
+          "title": "Volunteer on the same day every week",
+          "whatChanges": "A weekly shift at a food bank, library or animal shelter puts you with the same people regularly, with a shared task to talk about. Your local 211 line can point you to groups that need help.",
+          "who": "You and other volunteers",
+          "exemplarRef": "help-211",
+          "speculative": false,
+          "firstStep": "Call 211 and ask which local groups need weekly volunteers.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "schedule"
+        },
+        {
+          "id": "lonely-making-things-together-enough-to-start",
+          "title": "Private match to start a workshop group nearby",
+          "whatChanges": "Lets you say privately that you’d join a weekly workshop group, and introduces you to the others only once enough people nearby want the same thing. Men’s Sheds started in Australia in the mid-1990s, but many US towns still don’t have one.",
+          "who": "You and It",
+          "exemplarRef": "mens-sheds",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down one tool or skill you’d bring to a group.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175403",
+        "locator": "cards.json#lonely-making-things-together",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "lonely-new-friends": {
+      "title": "Making new friends after a move or a loss",
+      "line": "After moving or losing someone, I have a few people nearby I can call friends again.",
+      "lens": "market",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "lonely-new-friends-dinner",
+          "title": "Sign up for a dinner with strangers",
+          "whatChanges": "Timeleft, a company that now runs in more than 200 cities, seats you at a weekly dinner with five people you haven’t met, matched by age and personality. Going more than once gives you a better chance of meeting someone you’d see again.",
+          "who": "You and five strangers",
+          "exemplarRef": "timeleft-dinners",
+          "speculative": false,
+          "firstStep": "Check whether Timeleft or a similar dinner group runs in your city, and look at the next date.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "lonely-new-friends-suggest-groups",
+          "title": "Find regular local groups that fit your schedule",
+          "whatChanges": "Asks what you enjoy and when you’re free, then lists weekly groups nearby, from workshops to walking clubs, using local listings like 211. A regular group is easier to keep up than one-off events.",
+          "who": "You and It",
+          "exemplarRef": "help-211",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down two evenings a week you’re usually free.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "lonely-new-friends-newcomers-nearby",
+          "title": "Private match with other newcomers nearby",
+          "whatChanges": "Lets you say privately that you’ve recently moved or lost someone close and want to make friends, and introduces you only once a few people nearby have said the same. Nobody sees your answer unless there’s a match.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and write down the neighborhood you’d want to meet people in.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Proposed It feature (private match at a threshold); no matching service for newcomers was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175403",
+        "locator": "cards.json#lonely-new-friends",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "lonely-doctor-takes-it-seriously": {
+      "title": "A doctor who takes my loneliness seriously",
+      "line": "When I tell my doctor I’m lonely, they connect me with people and activities, not only pills.",
+      "lens": "community",
+      "ambition": "this-year",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "lonely-doctor-takes-it-seriously-social-prescribing",
+          "title": "Ask your doctor about local groups, not only medicine",
+          "whatChanges": "In England, family doctors can refer patients to “link workers,” more than 3,300 of them by 2023, who help people find clubs, gardening groups and other activities. Few US practices offer this yet, so you’ll likely need to ask directly.",
+          "who": "You and your doctor",
+          "exemplarRef": "england-social-prescribing",
+          "speculative": false,
+          "firstStep": "Write one line to bring to your next appointment, like “I’ve been feeling isolated and want to find local activities.”",
+          "firstStepMinutes": 5,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "lonely-doctor-takes-it-seriously-eldercare",
+          "title": "Find local programs for older adults by phone",
+          "whatChanges": "The federal Eldercare Locator at 1-800-677-1116 finds programs near you, including Area Agencies on Aging, which often run senior centers and group meals. You can call for yourself or for a parent.",
+          "who": "You or a family member",
+          "exemplarRef": "eldercare-locator",
+          "speculative": false,
+          "firstStep": "Call 1-800-677-1116 or search eldercare.acl.gov with your zip code.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "lonely-doctor-takes-it-seriously-doctor-note",
+          "title": "Bring a short summary of how you’ve been to your doctor",
+          "whatChanges": "Turns your answers to a short loneliness check over a few months into a one-page note for your doctor. A written summary makes the topic easier to raise in a short visit.",
+          "who": "You and It",
+          "exemplarRef": "three-question-scale",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and jot down how many days last week you talked with someone you care about.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "lonely-doctor-takes-it-seriously-local-activities",
+          "title": "List of local activities a doctor could prescribe",
+          "whatChanges": "Builds a short list of clubs, classes and volunteer groups near you that fit what you enjoy, like the options a link worker in England’s health service suggests after a doctor’s referral. You can bring the list to your appointment, or start on one without waiting for a referral.",
+          "who": "You and It",
+          "exemplarRef": "england-social-prescribing",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down two things you used to enjoy doing with other people.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175403",
+        "locator": "cards.json#lonely-doctor-takes-it-seriously",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "lonely-know-where-i-stand": {
+      "title": "Knowing what kind of help my loneliness needs",
+      "line": "I know whether I need more people around me, closer friendships or more urgent support.",
+      "lens": "technology",
+      "ambition": "this-year",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "lonely-know-where-i-stand-three-questions",
+          "title": "Answer three questions researchers use to measure loneliness",
+          "whatChanges": "Asks you each month the three questions a national study of older Americans uses: how often you lack companionship, feel left out and feel isolated. Then shows whether things are getting better, without treating the score as a diagnosis.",
+          "who": "You and It",
+          "exemplarRef": "three-question-scale",
+          "speculative": false,
+          "firstStep": "Ask yourself the three questions today and answer each with hardly ever, some of the time or often.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "lonely-know-where-i-stand-kind-of-help",
+          "title": "Figure out whether you need more people or deeper connection",
+          "whatChanges": "Suggests which fits you, from weekly groups to one-on-one time, and points you to a crisis line if you need one right away. When Japan named a minister in 2021, the job covered both isolation and loneliness, and those aren’t the same thing: some people see almost no one, while others have people around but don’t feel understood.",
+          "who": "You and It",
+          "exemplarRef": "japan-loneliness-minister",
+          "speculative": false,
+          "firstStep": "Write down the last time you saw people in person and the last time you felt understood.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "lonely-know-where-i-stand-find-help",
+          "title": "Find nearby groups and services that match what you need",
+          "whatChanges": "Looks up local options through 211, the US helpline network that already connects people to local services. Every suggestion comes with a phone number you can call yourself.",
+          "who": "You and It",
+          "exemplarRef": "help-211",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and call 211 to ask what’s offered near you.",
+          "firstStepMinutes": 15,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175403",
+        "locator": "cards.json#lonely-know-where-i-stand",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "It-led card. Japan exemplar used for the isolation vs loneliness distinction it reported."
+    },
+    "lonely-neighbors-check-in": {
+      "title": "Neighbors who know my name and check on me",
+      "line": "A few people on my street know me well enough to notice if I haven’t been around.",
+      "lens": "community",
+      "ambition": "together",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "lonely-neighbors-check-in-give-away",
+          "title": "Give something away to a neighbor",
+          "whatChanges": "The Buy Nothing Project has more than 14 million members who give each other things for free, from baby clothes to extra tomatoes. Picking up or dropping off a gift is an easy reason to meet the people nearby.",
+          "who": "You and your neighbors",
+          "exemplarRef": "buy-nothing",
+          "speculative": false,
+          "firstStep": "Join your local Buy Nothing group and post one thing you no longer need.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "group"
+        },
+        {
+          "id": "lonely-neighbors-check-in-postal-checks",
+          "title": "Ask your town to have regular visitors check on people living alone",
+          "whatChanges": "In 2018 England tried a program with Royal Mail in three towns where postal workers checked on lonely people during their usual rounds. Mail carriers, meal deliverers and utility readers here already pass the same doors every week.",
+          "who": "Residents, local officials and delivery workers",
+          "exemplarRef": "uk-loneliness-strategy",
+          "speculative": false,
+          "firstStep": "Ask your city council member whether anyone checks on residents who live alone.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "lonely-neighbors-check-in-check-in-list",
+          "title": "Set up a simple check-in list on your street",
+          "whatChanges": "Helps a few neighbors agree to a weekly check-in, keeps a shared list of who wants one, and reminds people when it’s their turn. Nobody sees more than they chose to share.",
+          "who": "Neighbors and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and knock on one neighbor’s door to introduce yourself.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "speculativeRationale": "Proposed It feature; no pooled neighbor check-in tool was opened in this run.",
+          "kind": "feature"
+        },
+        {
+          "id": "lonely-neighbors-check-in-neighbors-who-want-to-meet",
+          "title": "Private match with neighbors who want to meet",
+          "whatChanges": "Lets you say privately that you’d like to know the people on your street, and connects you only once a few neighbors nearby have said the same. Nobody sees your answer unless there’s a match, so no one has to risk knocking on a door that doesn’t open.",
+          "who": "Neighbors and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and note the names of any neighbors you already know.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Proposed It feature (private match at a threshold); no neighbor-matching tool was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175403",
+        "locator": "cards.json#lonely-neighbors-check-in",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "lonely-young-and-old": {
+      "title": "Young and old people living in the same building",
+      "line": "Older and younger people share a building and spend real time together, not just a holiday visit.",
+      "lens": "culture",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "lonely-young-and-old-students-home",
+          "title": "Ask a local retirement home about students living there",
+          "whatChanges": "In 2015 a retirement home run by Humanitas in Deventer, in the Netherlands, gave six university students free housing in exchange for 30 hours a month with residents. One student described teaching computer skills, cooking together and sometimes just talking.",
+          "who": "Students, residents and home managers",
+          "exemplarRef": "humanitas-students",
+          "speculative": false,
+          "firstStep": "Email a nearby retirement home or college housing office and ask whether they’ve considered a student-resident program.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "lonely-young-and-old-visit-weekly",
+          "title": "Visit a retirement home on the same day each week",
+          "whatChanges": "Many residents in retirement homes see few visitors, and a regular weekly visit gives both of you something to look forward to. Homes usually have an activities coordinator who matches volunteers with residents.",
+          "who": "You and a resident",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Call a nearby retirement home and ask for the activities coordinator.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "speculativeRationale": "Common volunteer practice; no specific program page was opened in this run.",
+          "kind": "schedule"
+        },
+        {
+          "id": "lonely-young-and-old-student-resident-campaign",
+          "title": "Shared request for a student-resident program",
+          "whatChanges": "Gathers students, families and residents behind one request to a retirement home or college housing office to try a program like the one at Humanitas in Deventer, where six students lived free in exchange for 30 hours a month with residents. Shows who has signed on and sends the request together.",
+          "who": "Students, residents, home managers and It",
+          "exemplarRef": "humanitas-students",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and find the name of the activities coordinator at a nearby retirement home.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175403",
+        "locator": "cards.json#lonely-young-and-old",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "lonely-government-plan": {
+      "title": "A government plan to make loneliness rarer",
+      "line": "My state or country treats loneliness as a public problem, with someone responsible for reducing it.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "lonely-government-plan-minister",
+          "title": "Ask your governor to name someone responsible for loneliness",
+          "whatChanges": "In 2018 the United Kingdom named its first minister for loneliness, after a commission set up by Jo Cox, a former member of Parliament, called for one. Some people prefer that this work stay with families and local groups, so a request works best when it says what the person would actually do.",
+          "who": "Residents and state officials",
+          "exemplarRef": "uk-loneliness-minister",
+          "speculative": false,
+          "firstStep": "Look up your governor’s contact page and save it.",
+          "firstStepMinutes": 5,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "lonely-government-plan-city-line",
+          "title": "Ask your city for a phone line for loneliness",
+          "whatChanges": "Seoul opened a 24-hour loneliness line in April 2025, reached by calling 120 and pressing 5, and got more calls in six weeks than it expected all year. Most callers were middle-aged, not elderly.",
+          "who": "Residents and city officials",
+          "exemplarRef": "seoul-loneliness-line",
+          "speculative": false,
+          "firstStep": "Send your city council member one sentence about Seoul’s line and ask whether your city would try one.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "lonely-government-plan-send-together",
+          "title": "Send your representatives the same request as others who care",
+          "whatChanges": "Gathers people who want a loneliness plan in their state and helps them send one clear request together. Resistbot lets people write officials by text in a few minutes and reports more than 40 million letters delivered.",
+          "who": "You, It and your representatives",
+          "exemplarRef": "resistbot",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and look up who represents you in your state legislature.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175403",
+        "locator": "cards.json#lonely-government-plan",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Contested-pain handling: offers the counterview that some prefer family and local responsibility."
+    },
+    "lonely-work-friends": {
+      "title": "Coworkers I actually know and talk to",
+      "line": "At work there are a few people I eat lunch with and could call if something went wrong.",
+      "lens": "market",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "lonely-work-friends-lunch",
+          "title": "Start a regular lunch with a few coworkers",
+          "whatChanges": "A standing lunch once a week gives people who sit near each other, or only meet on video, a reason to talk about something besides work. Remote teams can do the same with a short video coffee.",
+          "who": "You and coworkers",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Invite two coworkers to lunch on the same day next week and suggest making it a regular thing.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "speculativeRationale": "Common workplace practice; no study of standing lunches was opened in this run.",
+          "kind": "schedule"
+        },
+        {
+          "id": "lonely-work-friends-employer-pledge",
+          "title": "Ask your employer to treat loneliness as a workplace issue",
+          "whatChanges": "In 2018 England’s government announced an employer pledge on loneliness, and large employers such as the grocery chain Sainsbury’s promised to do more for their employees’ social wellbeing. Your employer could start smaller, by building time for people to meet into the workweek.",
+          "who": "Employees and managers",
+          "exemplarRef": "uk-loneliness-strategy",
+          "speculative": false,
+          "firstStep": "Suggest one idea, like a monthly team lunch on company time, to your manager or employee group.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "lonely-work-friends-lunch-match",
+          "title": "Private match for coworkers who want a standing lunch",
+          "whatChanges": "Lets you say privately that you’d join a regular lunch or video coffee with coworkers, and connects you once two or three others at your workplace have said the same, so nobody has to risk asking first.",
+          "who": "You, coworkers and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and note two coworkers you’d be glad to eat lunch with.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Proposed It feature (private match at a threshold); no workplace matching tool was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175403",
+        "locator": "cards.json#lonely-work-friends",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "lonely-place-to-show-up": {
+      "title": "A free place nearby where I can just show up",
+      "line": "There’s somewhere close to home where I can sit with other people without paying or being invited.",
+      "lens": "community",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "lonely-place-to-show-up-community-space",
+          "title": "Ask your city to turn an empty space into a community room",
+          "whatChanges": "England’s 2018 loneliness strategy promised £1.8 million to add community spaces, such as turning underused areas into community cafés, art spaces and gardens. A vacant storefront or an unused church hall could do the same job where you live.",
+          "who": "Residents, landlords and city officials",
+          "exemplarRef": "uk-loneliness-strategy",
+          "speculative": false,
+          "firstStep": "Note one empty or underused space near you and who owns or runs it.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "lonely-place-to-show-up-senior-center",
+          "title": "Visit a senior center or library program near you",
+          "whatChanges": "Area Agencies on Aging run or fund senior centers with group meals and classes, and the federal Eldercare Locator at 1-800-677-1116 can tell you where the nearest one is. Many libraries also run free weekly clubs for all ages.",
+          "who": "You",
+          "exemplarRef": "eldercare-locator",
+          "speculative": false,
+          "firstStep": "Look up your nearest senior center or library events page and pick one program this week.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "lonely-place-to-show-up-drop-in-places",
+          "title": "Map of free places to drop in near you",
+          "whatChanges": "Lists free places near you where you can show up without an invitation, like senior centers with group meals, using the Eldercare Locator’s listings of Area Agencies on Aging, with each place’s hours and phone number.",
+          "who": "You and It",
+          "exemplarRef": "eldercare-locator",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and look up the hours of your nearest library or senior center.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175403",
+        "locator": "cards.json#lonely-place-to-show-up",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "lonely-street-gathering": {
+      "title": "A monthly gathering on my street with shared hosting",
+      "line": "Once a month my neighbors and I eat or sit together, and the planning is shared.",
+      "lens": "community",
+      "ambition": "together",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "lonely-street-gathering-invite",
+          "title": "Invite your neighbors to a monthly potluck or porch hour",
+          "whatChanges": "Helps you write a short invitation, find a date that suits most people, and share the planning so the same person isn’t always hosting. A first gathering can be as small as coffee on one porch.",
+          "who": "You, your neighbors and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and pick a date next month you could host a short porch hour.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "speculativeRationale": "Proposed It feature; no source on neighborhood potluck turnout was opened in this run.",
+          "kind": "feature"
+        },
+        {
+          "id": "lonely-street-gathering-rotate",
+          "title": "Take turns hosting so no one burns out",
+          "whatChanges": "Keeps the hosting rotation and sends reminders, so nobody has to chase anyone. Rotating who hosts, and keeping it simple, like coffee on a porch, keeps a monthly gathering going when one person gets busy.",
+          "who": "Neighbors and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Ask one neighbor whether they’d host the gathering after yours.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "speculativeRationale": "Proposed It feature; no study of rotating neighborhood gatherings was opened in this run.",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175403",
+        "locator": "cards.json#lonely-street-gathering",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "It-led together card."
+    }
+  }
+}

@@ -1,0 +1,771 @@
+{
+  "schemaVersion": 1,
+  "painId": "rent-eats-everything",
+  "runId": "20261019-175410",
+  "cards": {
+    "rent-help-short-month": {
+      "title": "Covering the rent in a month when money runs short",
+      "line": "When I can't make rent this month, I know where to turn before it turns into an eviction notice.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "rent-help-short-month-211",
+          "title": "Call 211 and ask about rental assistance near you",
+          "whatChanges": "The federal consumer bureau points renters to 211, where a local specialist knows which rent and utility programs are open in your area. Money from these programs often takes a few weeks to arrive, so calling before the rent is late gives you the most room.",
+          "who": "You and a 211 specialist",
+          "exemplarRef": "cfpb-renthelp",
+          "speculative": false,
+          "firstStep": "Call 211 and ask which rental assistance programs are taking applications.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "rent-help-short-month-counselor",
+          "title": "Talk with a free housing counselor before you fall behind",
+          "whatChanges": "Some housing counseling agencies approved by HUD, the federal housing department, help renters for little or nothing. They can look at your lease and budget with you and tell you what your landlord and your city allow.",
+          "who": "You and a housing counselor",
+          "exemplarRef": "cfpb-renthelp",
+          "speculative": false,
+          "firstStep": "Search for a HUD-approved housing counselor near you and check that the agency lists rental services.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "rent-help-short-month-match",
+          "title": "Find out which rent programs you qualify for",
+          "whatChanges": "Sorts through rental help split across city, county, state and charity programs, each with its own rules. Asks a few questions about your household and income and lists the programs you're likely to qualify for, with what each one asks you to bring.",
+          "who": "You and It",
+          "exemplarRef": "cfpb-renthelp",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and gather your last two pay stubs and your lease in one folder tonight.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175410",
+        "locator": "cards.json#rent-help-short-month",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "rent-renewal-ask": {
+      "title": "Renewing my lease without a big jump in rent",
+      "line": "When my lease comes up, I ask for a fair number and often get one.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "rent-renewal-ask-compare",
+          "title": "Compare your increase with what new tenants pay nearby",
+          "whatChanges": "Apartment List publishes the median rent for new leases in most American cities each month, going back to 2017. If your landlord wants more than new tenants are paying down the street, that's a reasonable point to raise, politely and in writing.",
+          "who": "You",
+          "exemplarRef": "apartment-list-data",
+          "speculative": false,
+          "firstStep": "Look up your city's latest median rent for your apartment size and write it next to your renewal offer.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "rent-renewal-ask-offer",
+          "title": "Offer a longer lease in exchange for a smaller increase",
+          "whatChanges": "Turnover is expensive for landlords: an empty month, cleaning and finding someone new. Many landlords will accept a smaller raise from a tenant who pays on time and agrees to stay longer.",
+          "who": "You and your landlord",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Write a short note offering to sign for 18 or 24 months if the increase stays at a number you name.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "speculativeRationale": "Common negotiating practice; no study of renewal outcomes was opened in this run.",
+          "kind": "task"
+        },
+        {
+          "id": "rent-renewal-ask-cap",
+          "title": "Check whether your state limits rent increases",
+          "whatChanges": "A few places cap yearly increases. Oregon became the first state to do so in 2019, at inflation plus 7%, and new buildings are exempt for 15 years. Knowing the rule where you live tells you whether an increase is even allowed.",
+          "who": "You",
+          "exemplarRef": "oregon-cap",
+          "speculative": false,
+          "firstStep": "Search your state's name plus \"rent increase limit\" and read the official page for your state or city.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "learn"
+        },
+        {
+          "id": "rent-renewal-ask-coach",
+          "title": "Coaching for your lease renewal conversation",
+          "whatChanges": "Helps you plan what to say to your landlord at renewal, with your current rent next to Apartment List's median for new leases in your city, then checks in afterward to see what you got.",
+          "who": "You and It",
+          "exemplarRef": "apartment-list-data",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and write down the one number you'd be glad to sign at.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175410",
+        "locator": "cards.json#rent-renewal-ask",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "rent-lower-bills": {
+      "title": "Paying less for the bills that come with my rent",
+      "line": "The rent is what it is, but the utility bills and add-on fees stop piling on top of it.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "rent-lower-bills-liheap",
+          "title": "Apply for help with heating and power bills",
+          "whatChanges": "The federal Low Income Home Energy Assistance Program, known as LIHEAP, helps with utility bills all year, and renters can apply too. Every dollar you save on power is a dollar more for the rent.",
+          "who": "You",
+          "exemplarRef": "cfpb-renthelp",
+          "speculative": false,
+          "firstStep": "Call the National Energy Assistance Referral Hotline and ask how to apply in your state.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "rent-lower-bills-fees",
+          "title": "Ask your landlord to explain each fee on your bill",
+          "whatChanges": "Charges for things like trash, \"amenities\" or online payment can add a lot to the real rent. Tenants at Independence Towers near Kansas City got these extra fees dropped, although they did it through a long rent strike, not a single letter.",
+          "who": "You and your landlord",
+          "exemplarRef": "kc-tenants-strike",
+          "speculative": false,
+          "firstStep": "List every charge on your last rent statement and circle the ones your lease doesn't mention.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "rent-lower-bills-lookup",
+          "title": "Lookup of utility bill help where you live",
+          "whatChanges": "Finds the programs that serve your address, starting with the federal Low Income Home Energy Assistance Program, and lists what each one asks you to bring and when it takes applications.",
+          "who": "You and It",
+          "exemplarRef": "cfpb-renthelp",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and put your last two utility bills in one folder.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175410",
+        "locator": "cards.json#rent-lower-bills",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "rent-fair-price": {
+      "title": "Knowing whether my rent is high for where I live",
+      "line": "I know what people around me pay and what share of my income my rent takes, so I can decide what to do.",
+      "lens": "technology",
+      "ambition": "this-year",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "rent-fair-price-check",
+          "title": "Check your rent against what others pay in your area",
+          "whatChanges": "Puts your rent next to the local median for your size of apartment and shows what share of your income goes to it, using public rent data that already exists, such as Apartment List's monthly city estimates, without your answers leaving your phone.",
+          "who": "You and It",
+          "exemplarRef": "apartment-list-data",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and divide your monthly rent by your monthly take-home pay to see your share.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "rent-fair-price-history",
+          "title": "Look up your landlord and your apartment's rent history",
+          "whatChanges": "In New York City, the free JustFix tools let tenants see what other buildings their landlord owns and order their apartment's official rent history, which can show whether they're being overcharged on a rent-stabilized unit.",
+          "who": "You",
+          "exemplarRef": "justfix-tools",
+          "speculative": false,
+          "firstStep": "If you rent in New York City, search your building on Who Owns What and note any open violations.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "learn"
+        },
+        {
+          "id": "rent-fair-price-track",
+          "title": "Keep a record of every rent increase you've had",
+          "whatChanges": "Keeps a simple record of each lease and increase, so at renewal time you can show your landlord or a counselor the pattern. Most people can't remember what they paid three years ago.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this, and find your current and last lease and write down the rent on each.",
+          "firstStepMinutes": 15,
+          "status": "proposed_it_feature",
+          "speculativeRationale": "Proposed It feature; no comparable rent-history tool for tenants outside New York was opened in this run.",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175410",
+        "locator": "cards.json#rent-fair-price",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "rent-share-home": {
+      "title": "Sharing a home to cut my rent",
+      "line": "I split a place with someone I get along with, and my share of the rent is far smaller than living alone.",
+      "lens": "relational",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "rent-share-home-roommate",
+          "title": "Bring in a roommate with a written agreement",
+          "whatChanges": "Splitting a two-bedroom often costs much less per person than a one-bedroom alone. Putting rent, bills, guests and chores on one page before moving in heads off most of the fights that sink roommate arrangements.",
+          "who": "You and a roommate",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Check your lease for rules on adding an occupant, then write down what you'd want in a roommate agreement.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "speculativeRationale": "Common practice; no roommate cost study was opened in this run.",
+          "kind": "project"
+        },
+        {
+          "id": "rent-share-home-homeshare",
+          "title": "Rent a room from an older homeowner for lower rent",
+          "whatChanges": "Nesterly matches people who have a spare room, often older homeowners, with guests who stay at least a month. Guests can trade help around the house, like groceries or yard work, for lower rent. Nesterly works only in a handful of regions so far, including Greater Boston, Central Ohio and Maine.",
+          "who": "You and a host",
+          "exemplarRef": "nesterly",
+          "speculative": false,
+          "firstStep": "Check whether Nesterly or a similar home-sharing program serves your area.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "project"
+        },
+        {
+          "id": "rent-share-home-match",
+          "title": "Private matching for people who want to share a home",
+          "whatChanges": "Lets you say privately that you're looking for someone to share a place with, and introduces you only when someone nearby who's looking too fits what you both want, like budget, move-in date and quiet hours.",
+          "who": "You, a possible housemate and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this, and write down your top budget and the three house rules that matter most to you.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Proposed It feature; no private roommate-matching tool was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175410",
+        "locator": "cards.json#rent-share-home",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "rent-move-cheaper": {
+      "title": "Rent that takes under a third of my pay",
+      "line": "My rent is a manageable part of my income, even if that meant a different neighborhood or city.",
+      "lens": "individual",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "rent-move-cheaper-compare",
+          "title": "Compare rents in neighborhoods and cities you'd consider",
+          "whatChanges": "Apartment List's monthly rent estimates go down to the county and city level, so you can see how much a move across town or to a nearby city would save before you start packing. Count the cost of a longer commute too.",
+          "who": "You",
+          "exemplarRef": "apartment-list-data",
+          "speculative": false,
+          "firstStep": "Pick three places you'd honestly consider and write down the median rent for each.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "learn"
+        },
+        {
+          "id": "rent-move-cheaper-voucher",
+          "title": "Get on the waiting list for a housing voucher",
+          "whatChanges": "Housing choice vouchers, also called Section 8, are run through local housing authorities and pay all or part of the rent on a privately owned apartment. Waiting lists are long in many places, which is a reason to get on one now rather than later.",
+          "who": "You and your local housing authority",
+          "exemplarRef": "cfpb-renthelp",
+          "speculative": false,
+          "firstStep": "Find your local public housing authority's website and check whether its voucher waiting list is open.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "rent-move-cheaper-alerts",
+          "title": "Alerts when a voucher waiting list opens near you",
+          "whatChanges": "Watches the housing voucher waiting lists in the places you'd consider moving and tells you as soon as one starts taking applications, so you don't miss the window.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this, and bookmark your local housing authority's voucher page.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Proposed It feature; no waiting-list alert service was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175410",
+        "locator": "cards.json#rent-move-cheaper",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "rent-nonprofit-landlord": {
+      "title": "Renting from a landlord that isn't trying to maximize rent",
+      "line": "My landlord is a nonprofit, a co-op or a land trust, so my rent tracks the real costs instead of the market.",
+      "lens": "market",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "rent-nonprofit-landlord-listings",
+          "title": "Ask a housing counselor about nonprofit and income-limited apartments",
+          "whatChanges": "Many cities have apartments owned by nonprofits or built with public money that cap rents for tenants under an income limit. They rarely show up on the big listing sites, but local housing counselors know where they are.",
+          "who": "You and a housing counselor",
+          "exemplarRef": "cfpb-renthelp",
+          "speculative": false,
+          "firstStep": "Ask a HUD-approved housing counselor for a list of income-restricted apartments near you.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "rent-nonprofit-landlord-landtrust",
+          "title": "Look for a community land trust in your region",
+          "whatChanges": "A 2024 survey counted 308 community land trusts across 48 states. They own the land and keep the homes on it affordable for good, through rentals, co-ops or homes sold with a price limit. Many have waiting lists.",
+          "who": "You",
+          "exemplarRef": "clt-count",
+          "speculative": false,
+          "firstStep": "Search your city or county name plus \"community land trust\" and see whether it rents or sells homes.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "rent-nonprofit-landlord-map",
+          "title": "Map of nonprofit, co-op and land trust rentals near you",
+          "whatChanges": "Shows the nonprofit, co-op and community land trust landlords in your area, drawing on directories like the 2024 survey that counted 308 land trusts across 48 states, so you know whom to ask about openings.",
+          "who": "You and It",
+          "exemplarRef": "clt-count",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and write down one nonprofit landlord you've heard of in your area.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175410",
+        "locator": "cards.json#rent-nonprofit-landlord",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "rent-tenant-union": {
+      "title": "Negotiating rent together with the other tenants in my building",
+      "line": "My neighbors and I talk to the landlord as a group, so an increase is something we discuss instead of something that just happens to us.",
+      "lens": "community",
+      "ambition": "together",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "rent-tenant-union-talk",
+          "title": "Talk with your neighbors about what they pay",
+          "whatChanges": "Most tenants never compare notes, which leaves each one negotiating alone. In 2017 more than 300 tenants across 12 buildings in Toronto's Parkdale neighborhood refused rent for three months together, and reached a deal with their landlord.",
+          "who": "You and your neighbors",
+          "exemplarRef": "parkdale-strike",
+          "speculative": false,
+          "firstStep": "Knock on two neighbors' doors or leave a note asking if they'd share what their last increase was.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "rent-tenant-union-union",
+          "title": "Join a tenant union in your city",
+          "whatChanges": "KC Tenants was founded in Kansas City in 2019 and now counts more than 10,000 members. After an eight-month rent strike at one building, the landlord agreed to keep rents flat, drop extra fees and set a deadline for repairs. A rent strike carries real eviction risk, so unions plan them carefully.",
+          "who": "You and other tenants",
+          "exemplarRef": "kc-tenants-strike",
+          "speculative": false,
+          "firstStep": "Look up whether there's a tenant union in your city and sign up for their next meeting or newsletter.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "group"
+        },
+        {
+          "id": "rent-tenant-union-union-start",
+          "title": "Start a tenant union in your building",
+          "whatChanges": "KC Tenants, the group mainly behind Kansas City's tenants' bill of rights, didn't exist at the beginning of 2019 and won that law by December. A building union can start with a few neighbors who agree on one thing to ask the landlord for.",
+          "who": "You and your neighbors",
+          "exemplarRef": "kc-bill-of-rights",
+          "speculative": false,
+          "firstStep": "Invite two or three neighbors to meet for half an hour about rent and repairs in your building.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "new-group"
+        },
+        {
+          "id": "rent-tenant-union-organize",
+          "title": "Compare increases with neighbors without exposing anyone",
+          "whatChanges": "Lets tenants in one building report their increases privately and see only the combined picture, since people hesitate to share what they pay. A group can then decide together whether to ask the landlord for a meeting.",
+          "who": "Neighbors and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this, and ask one neighbor whether they'd want to compare increases.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "speculativeRationale": "Proposed It feature; no anonymous building-level rent comparison tool was opened in this run.",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175410",
+        "locator": "cards.json#rent-tenant-union",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "rent-land-trust": {
+      "title": "Homes in my town kept affordable for good",
+      "line": "Some homes in my community are held in trust, so they stay within reach of people like me no matter how prices rise.",
+      "lens": "community",
+      "ambition": "together",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "rent-land-trust-support",
+          "title": "Back a community land trust in your area",
+          "whatChanges": "The Champlain Housing Trust in Burlington, Vermont, is one of the oldest land trusts in the country. A 2009 study found its homes stayed affordable to households earning about half the local median income, and owners still left with an average of $12,000 in equity when they sold. Those were homes for sale rather than rentals, but the same idea can hold rents down.",
+          "who": "Neighbors, local nonprofits and the city",
+          "exemplarRef": "champlain-equity",
+          "speculative": false,
+          "firstStep": "Find out whether your area has a land trust and sign up for its newsletter or next public meeting.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "group"
+        },
+        {
+          "id": "rent-land-trust-land",
+          "title": "Ask your city to give public land to a land trust",
+          "whatChanges": "Cities own vacant lots and old buildings. Handing some to a land trust, instead of selling them to the highest bidder, keeps whatever gets built there affordable for the long run. A 2024 survey counted 308 land trusts in the US, so there's often one nearby to partner with.",
+          "who": "City council members and residents",
+          "exemplarRef": "clt-count",
+          "speculative": false,
+          "firstStep": "Look up your city's list of surplus or vacant public property, if it publishes one.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "rent-land-trust-fund",
+          "title": "Pooled funding for a local land trust",
+          "whatChanges": "Lets neighbors and local businesses put money toward a community land trust's next home and see where every dollar went. Trusts like Champlain Housing Trust in Burlington, Vermont, keep homes affordable to households under 54% of area median income.",
+          "who": "Neighbors, local businesses and It",
+          "exemplarRef": "champlain-equity",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and check whether a land trust near you accepts money from neighbors.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175410",
+        "locator": "cards.json#rent-land-trust",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "rent-social-housing": {
+      "title": "Good public housing that working people want",
+      "line": "My city builds and owns good apartments that ordinary working people rent for years at a fair price.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "rent-social-housing-vienna",
+          "title": "Tell your city council which public housing rules you'd want",
+          "whatChanges": "Vienna owns about 220,000 apartments and co-ops own about 200,000 more, open to residents who have lived there two years and earn under an income limit. Supporters point to it as proof that public housing can be broadly shared. Critics note that newcomers can wait years and that cheap flats can pass to relatives who no longer need them.",
+          "who": "You and your city council member",
+          "exemplarRef": "vienna-city-flats",
+          "speculative": false,
+          "firstStep": "Pick one rule from Vienna's rental flat page you'd want in your city, like the income limit, and email it to your city council member in two sentences.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "rent-social-housing-ask",
+          "title": "Ask candidates where they stand on publicly owned housing",
+          "whatChanges": "Some American cities and counties are starting public developers that build mixed-income apartments and keep them. Others prefer vouchers or tax credits to private builders. Asking candidates which they favor, and why, shows them renters are paying attention.",
+          "who": "Voters and candidates",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Write down one question about public housing to ask at your next city council or candidate forum.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "speculativeRationale": "No US public-developer example was opened in this run; framed as a question, not a claim.",
+          "kind": "task"
+        },
+        {
+          "id": "rent-social-housing-campaign",
+          "title": "Shared campaign for city-built rental housing",
+          "whatChanges": "Gathers renters behind one specific ask, like having the city build and keep mixed-income apartments, tracks who has signed on in each council district, and sends the ask to the council together.",
+          "who": "Renters, city council members and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this, and ask two renters you know whether they'd sign on.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Proposed It feature; no renter campaign tool for public housing was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175410",
+        "locator": "cards.json#rent-social-housing",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "rent-more-homes": {
+      "title": "Enough new homes nearby that rents rise slowly",
+      "line": "My city lets more apartments get built where people want to live, and rents rise slowly instead of every year.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "rent-more-homes-zoning",
+          "title": "Speak up for allowing more housing near transit",
+          "whatChanges": "In 2018 Minneapolis became the first major American city to end single-family-only zoning, allowing up to three homes on any residential lot and bigger buildings along transit lines. Supporters say more homes keep rents in check. Neighbors who object often worry about traffic, parking and the feel of the street, and researchers are still measuring the effect on rents.",
+          "who": "Residents and city planners",
+          "exemplarRef": "minneapolis-zoning",
+          "speculative": false,
+          "firstStep": "Find the date of your city's next planning commission meeting and look at what's on the agenda.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "rent-more-homes-comment",
+          "title": "Send a short comment on a housing proposal near you",
+          "whatChanges": "Planning boards mostly hear from people who oppose new housing. A renter's two-sentence comment about what rent costs them is a perspective they rarely get, whether you support a project or want changes to it.",
+          "who": "You and your planning board",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Write two sentences about what your rent costs you and why you care about a specific proposal.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "speculativeRationale": "Common civic practice; no study of public comment effects was opened in this run.",
+          "kind": "task"
+        },
+        {
+          "id": "rent-more-homes-record",
+          "title": "Record of how local officials vote on new housing",
+          "whatChanges": "Summarizes planning commission and council votes on housing proposals into a lasting record of who voted for what, so you can see where your own officials stand before the next election.",
+          "who": "You, local officials and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this, and find the minutes from your city's last planning commission meeting.",
+          "firstStepMinutes": 15,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Proposed It feature; no local housing-vote record was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175410",
+        "locator": "cards.json#rent-more-homes",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "rent-limits": {
+      "title": "Rent increases with a limit I can plan around",
+      "line": "I know roughly what my rent will be next year, so one renewal letter can't upend my life.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "rent-limits-caps",
+          "title": "Tell your city council member what rent limit you'd support",
+          "whatChanges": "St. Paul voters approved a 3% yearly cap in 2021, and the city later exempted new housing for 20 years after leaders pointed to falling building permits, though what caused that slowdown is disputed. Researchers are split too: some find caps shrink the supply of rentals, and others find they help tenants stay in their homes.",
+          "who": "You and your city council member",
+          "exemplarRef": "st-paul-cap",
+          "speculative": false,
+          "firstStep": "Look up your city's current rule on rent increases, then email your council member one sentence saying whether you'd keep, loosen or tighten it.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "rent-limits-moderate",
+          "title": "Ask your state legislators about capping extreme rent increases",
+          "whatChanges": "Oregon's 2019 law caps increases at inflation plus 7% a year and leaves new buildings alone for 15 years. Supporters see it as protection against shocks that still lets building go on, while tenant groups say it allows too much and some landlords say any cap discourages investment.",
+          "who": "You and your state legislators",
+          "exemplarRef": "oregon-cap",
+          "speculative": false,
+          "firstStep": "Look up your state legislators and ask one of them whether they'd support a cap that only stops the biggest increases.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "rent-limits-watch",
+          "title": "Alerts when rent bills come up in your state",
+          "whatChanges": "Watches your state legislature and city council for bills on rent increases and tells you when one is filed or scheduled for a hearing, with your own legislators' contact details.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this, and sign up for your state legislature's email updates on housing.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Proposed It feature; no rent-bill alert service was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175410",
+        "locator": "cards.json#rent-limits",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "rent-free-lawyer": {
+      "title": "A free lawyer if I face eviction",
+      "line": "If I'm ever taken to housing court, I don't walk in alone against my landlord's attorney.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "rent-free-lawyer-check",
+          "title": "Find out whether your city guarantees a free eviction lawyer",
+          "whatChanges": "New York City passed the country's first right to counsel in 2017, and the city reported that 84% of tenants who had a lawyer in court in 2023 stayed in their homes. There aren't enough lawyers to go around, though: in late fiscal 2024 only 42% of people facing eviction in the city had full representation, so call early.",
+          "who": "You",
+          "exemplarRef": "nyc-right-to-counsel",
+          "speculative": false,
+          "firstStep": "Search your city's name plus \"right to counsel eviction\" and save the phone number of local legal aid.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "learn"
+        },
+        {
+          "id": "rent-free-lawyer-push",
+          "title": "Ask your city council to fund lawyers for tenants",
+          "whatChanges": "In June 2022 Kansas City's council promised tenants free legal help with housing cases, after the KC Tenants union helped lead the push. Critics in many cities point to the cost and to the shortage of lawyers to staff these programs.",
+          "who": "Tenants, organizers and city council members",
+          "exemplarRef": "kc-right-to-counsel",
+          "speculative": false,
+          "firstStep": "Find your city council member's email and ask whether the city has considered a right to counsel.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "rent-free-lawyer-find",
+          "title": "Finder for free eviction lawyers near you",
+          "whatChanges": "Finds the legal aid offices and tenant lawyers that serve your address, and says whether your city guarantees a lawyer in eviction cases, as New York City has since 2017.",
+          "who": "You and It",
+          "exemplarRef": "nyc-right-to-counsel",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and save your local legal aid office's phone number in your contacts.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175410",
+        "locator": "cards.json#rent-free-lawyer",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "rent-tell-officials": {
+      "title": "Showing my officials what rent really costs on our street",
+      "line": "My representatives hear from renters like me with real numbers, not just from landlords and builders.",
+      "lens": "technology",
+      "ambition": "together",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "rent-tell-officials-letter",
+          "title": "Write to your representatives with your own numbers",
+          "whatChanges": "Finds your city council member and state legislators from your address and helps you write a short letter that includes your rent, your last increase and what you'd like them to do. A letter with your actual rent and your last increase is more useful to an official than a general complaint.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this, and look up your city council member's name and email today.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "speculativeRationale": "Proposed It feature; no comparable letter tool was opened in this run.",
+          "kind": "feature"
+        },
+        {
+          "id": "rent-tell-officials-pool",
+          "title": "Send officials a combined picture from renters in your area",
+          "whatChanges": "Lets renters in a neighborhood add their increases privately and sends officials one summary, set next to public rent data like Apartment List's city estimates. One letter is easy to set aside.",
+          "who": "Renters, It and local officials",
+          "exemplarRef": "apartment-list-data",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and ask two renters you know what their last increase was.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "rent-tell-officials-kc",
+          "title": "Bring a list of renter protections you want to your city council",
+          "whatChanges": "In December 2019 Kansas City passed a tenants' bill of rights that was mainly the work of KC Tenants, a renters' group that hadn't existed at the start of that year. The rules include 24 hours' notice before a landlord enters and a ban on rejecting applicants solely for a past eviction.",
+          "who": "Tenants and city council members",
+          "exemplarRef": "kc-bill-of-rights",
+          "speculative": false,
+          "firstStep": "Write down the three protections you'd most want in your city's rental rules.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175410",
+        "locator": "cards.json#rent-tell-officials",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    }
+  }
+}

@@ -1,0 +1,602 @@
+{
+  "schemaVersion": 1,
+  "painId": "climate",
+  "runId": "20261019-142001",
+  "judge": {
+    "context": "isolated",
+    "at": "2026-10-19"
+  },
+  "scores": {
+    "climate-biggest-choices": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Write down roughly how many miles you drove and how many flights you took\" is a concrete 10-minute start, though it only sets up the next move."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "\"roughly four times what thorough recycling does\" reframes effort people already spend."
+      },
+      "namedExample": {
+        "score": 5,
+        "reason": "\"A 2017 review of 39 studies by researchers at Lund University\" with 2.4, 1.6 and 0.8 tonne figures."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "Plant-based eating saving \"roughly four times what thorough recycling does\" is worth repeating."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "\"I stop feeling guilty about the rest\" is warm and candid; metric \"tonnes\" is not everyday American."
+      },
+      "power": {
+        "score": 3,
+        "reason": "\"I put my effort into the few things that make a real dent\" changes my own choices, not who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Lund figures match the exemplar, and the ranking tool is written \"It could ask a few questions\"."
+      }
+    },
+    "climate-home-energy-tonight": {
+      "actionable": {
+        "score": 5,
+        "reason": "\"set it a few degrees lower for the hours you are asleep or away\" can be done tonight."
+      },
+      "nonObvious": {
+        "score": 3,
+        "reason": "Familiar basics made useful by \"That's why the thermostat matters more than light bulbs.\""
+      },
+      "namedExample": {
+        "score": 3,
+        "reason": "\"Energy Information Administration's 2020 survey\" gives 52%, but drafts and checkup fixes have no example."
+      },
+      "surprise": {
+        "score": 2,
+        "reason": "\"Heating and air conditioning take 52%\" is mildly interesting; the rest is predictable."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "\"On a windy day you can usually feel exactly where the leaks are\" sounds like a practical neighbor."
+      },
+      "power": {
+        "score": 3,
+        "reason": "\"My heating and cooling bills go down\" changes my own conditions only."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Unsourced checkup claim is softened to \"Many utilities\", and the 52% figure matches the exemplar."
+      }
+    },
+    "climate-heat-pump": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Find the label on your furnace or air conditioner and write down how old it is\" is quick and sets up a planned replacement."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "\"Replacing a furnace in an emergency usually means taking whatever the installer has on the truck\" is a useful insight."
+      },
+      "namedExample": {
+        "score": 3,
+        "reason": "The ended \"federal tax credit of up to $2,000\" is named, but the $8,000 state rebate has no verified source."
+      },
+      "surprise": {
+        "score": 3,
+        "reason": "Learning the credit \"ended for systems installed after December 31, 2025\" is one notable fact."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "\"check state and utility rebates before you count on help\" is candid, plain advice."
+      },
+      "power": {
+        "score": 3,
+        "reason": "\"I replace it with an electric heat pump I can afford\" changes my own home."
+      },
+      "honestStatus": {
+        "pass": false,
+        "reason": "\"rebates of up to $8,000 on a heat pump\" is stated as fact in money advice, but the only source is unverified vendor-blog summaries."
+      }
+    },
+    "climate-food": {
+      "actionable": {
+        "score": 5,
+        "reason": "\"Pick two dinners this week where you'd normally have beef and plan a different protein\" is specific and quick."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "\"Worry less about where food comes from than what it is\" turns a common belief around."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "\"A 2018 study of 38,000 farms in 119 countries\" with 60 kilos versus one, though the study is not named."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "\"Local beef still has a far bigger footprint than imported beans\" is a fact people repeat."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "\"You don't have to give up beef to make a big difference\" is warm and non-judging; \"kilo\" is not everyday American."
+      },
+      "power": {
+        "score": 3,
+        "reason": "\"my meals put out a lot less carbon\" is a personal change."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "The 60-to-1 and under-10% figures match the exemplar; \"half a percent for beef\" goes slightly beyond what the exemplar states but isn't oversold."
+      }
+    },
+    "climate-car-trips": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Ask a bike shop near you whether they rent e-bikes for a weekend\" is a real, easy trial."
+      },
+      "nonObvious": {
+        "score": 3,
+        "reason": "E-bikes and rebates are known ideas, made useful with \"trips under five miles\" and the waitlist tip."
+      },
+      "namedExample": {
+        "score": 5,
+        "reason": "\"When Denver gave out e-bike rebates in 2022, riders averaged 26 miles a week\" plus $4.7 million and 67%."
+      },
+      "surprise": {
+        "score": 3,
+        "reason": "\"replaced about 3.4 round trips by car each week\" is a solid but unsurprising result."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "\"They tend to sell out fast, so sign up for notices\" is plain mentor advice."
+      },
+      "power": {
+        "score": 4,
+        "reason": "\"Ask your city council member to fund e-bike rebates\" moves public money, mostly to income-qualified residents."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Denver figures are framed as \"Riders surveyed in the first nine months said\", matching the exemplar's self-reported limit."
+      }
+    },
+    "climate-flying": {
+      "actionable": {
+        "score": 3,
+        "reason": "\"see whether any two could become one\" is real but slow to matter."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "\"Sometimes the person who flies the most is just the one who always visits\" reframes flying as a family question."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "Lund review \"about 1.6 tonnes\" and Google Flights labels are named with figures."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "\"The nonstop isn't always the lowest\" and one flight being \"about two-thirds of what a year without a car saves\"."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "\"Flying less without seeing my family less\" is clear and kind; \"tonnes\" is a small slip."
+      },
+      "power": {
+        "score": 3,
+        "reason": "\"Taking turns, meeting halfway by train\" changes my family's arrangements, not wider conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "1.6 versus 2.4 tonnes is computed correctly from the exemplar, and Google Flights is described as labels, not guarantees."
+      }
+    },
+    "climate-community-solar": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Search your state name with \\\"community solar\\\" and see whether any program serves your utility\" is a 10-minute step."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "\"plug solar systems of up to 1,200 watts straight into a home outlet\" is new to most readers."
+      },
+      "namedExample": {
+        "score": 5,
+        "reason": "\"In Minnesota, community solar gardens reached 939 megawatts in 2024\" and Utah 2025 \"no votes against\"."
+      },
+      "surprise": {
+        "score": 5,
+        "reason": "\"a few hundred dollars, compared with a $30,000 rooftop quote\" passed unanimously is something I'd repeat."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Candid about tradeoffs: \"Some people object that bills for non-subscribers rise 2% to 3%\"."
+      },
+      "power": {
+        "score": 4,
+        "reason": "\"Ask your state lawmakers to allow plug-in solar panels\" changes state rules."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "States the non-subscriber cost and missing UL certification; \"a few hundred dollars\" slightly understates $550+ for parts."
+      }
+    },
+    "climate-shared-ownership": {
+      "actionable": {
+        "score": 3,
+        "reason": "\"Search your state name with \\\"community-owned solar\\\" ... and read about one project\" is a research step, slow to matter."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Owning, not just buying, clean power: \"the savings stay here\"."
+      },
+      "namedExample": {
+        "score": 5,
+        "reason": "\"Off Copenhagen, 8,553 people own half of a 20-turbine wind farm ... built in 2000 ... about 4% of the city's electricity.\""
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "8,553 residents owning half an offshore wind farm is a striking precedent."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "\"get one outside quote too and compare\" is a trusted-friend caution."
+      },
+      "power": {
+        "score": 5,
+        "reason": "\"My neighbors and I own part of the wind or solar that powers our town\" changes who owns."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Notes \"Danish rules at the time favored local ownership\" and that Solar United Neighbors publishes no savings figures."
+      }
+    },
+    "climate-town-power": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Enter your ZIP code in the EPA Power Profiler and write down the share of coal and gas\" is concrete."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "\"pooled their residents' buying power to choose their own power supplier\" is unknown to most people."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "\"In 2010 the cities of Marin County, California\" with \"27% renewable\" and \"100% renewable\" plans; no result numbers."
+      },
+      "surprise": {
+        "score": 3,
+        "reason": "That a city can choose the supplier while \"the utility kept running the lines\" surprises some readers."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "\"Ask your city to buy electricity on residents' behalf\" is a plain, clear title."
+      },
+      "power": {
+        "score": 5,
+        "reason": "\"Every home in my town gets cleaner power by default\" changes who decides the supply."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Says \"only some states allow this\"; the letter tool is \"It could help\"; the fifty-names claim is a mild, unsourced opinion."
+      }
+    },
+    "climate-local-risks": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"find your county on the map\" is quick and concrete."
+      },
+      "nonObvious": {
+        "score": 3,
+        "reason": "\"A plan for one real risk is more useful than worrying about all of them\" is a useful focus on a known idea."
+      },
+      "namedExample": {
+        "score": 2,
+        "reason": "\"FEMA's National Risk Index covers 18 natural hazards\" is named but has no result; other fixes say only \"Many cities\"."
+      },
+      "surprise": {
+        "score": 2,
+        "reason": "Predictable from the title \"Knowing how heat, fire and flooding could affect my street\"."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "\"checking whether your insurance covers floods\" is calm, specific advice."
+      },
+      "power": {
+        "score": 2,
+        "reason": "Mostly preparing inside unchanged conditions; \"Ask your city whether it has a plan\" is light."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Lookup is written \"It could look up your address\", and the vague city claims are hedged with \"Many cities\"."
+      }
+    },
+    "climate-state-laws": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Send one of your state legislators a two-sentence email\" is doable in 10 minutes."
+      },
+      "nonObvious": {
+        "score": 3,
+        "reason": "\"Staff tend to count form emails and read personal ones\" is a useful twist on writing lawmakers."
+      },
+      "namedExample": {
+        "score": 3,
+        "reason": "Utah's 2025 law \"passed without a single vote against\" and Open States are named but thin."
+      },
+      "surprise": {
+        "score": 3,
+        "reason": "Plug-in solar as \"one of the rare energy ideas both parties have backed\" is one notable angle."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "\"Two sentences about how energy costs or heat affect your family\" is personal and plain."
+      },
+      "power": {
+        "score": 4,
+        "reason": "\"my lawmakers have heard from me\" pushes on who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Bill tool is \"It could use that data\"; \"rare energy ideas both parties have backed\" stretches one unanimous vote but isn't false."
+      }
+    },
+    "climate-courts": {
+      "actionable": {
+        "score": 3,
+        "reason": "\"Search your state constitution for the word \\\"environment\\\"\" is real but slow to matter."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Using a state constitution and permit comments, \"asks how its emissions were counted\", is new to most."
+      },
+      "namedExample": {
+        "score": 5,
+        "reason": "\"In December 2024, Montana's Supreme Court sided with 16 young people ... striking down two 2023 laws.\""
+      },
+      "surprise": {
+        "score": 5,
+        "reason": "A court ruling that a clean environment \"includes a stable climate system\" stops a reader."
+      },
+      "voice": {
+        "score": 3,
+        "reason": "\"Courts treating a stable climate as a right\" is impersonal, and \"weigh climate harm when it approves\" reads a bit official."
+      },
+      "power": {
+        "score": 5,
+        "reason": "\"My state has to weigh climate harm when it approves new power plants and mines\" changes who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Contested role is named: \"lawmakers, not courts, should decide climate policy, and people still disagree on that.\""
+      }
+    },
+    "climate-talk": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Look up your county on the Yale Climate Opinion Maps, and mention one number to someone this week.\""
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "\"the person across the table probably agrees more than you assume\" reframes worry as shared."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "\"Climate cafes began in rural Scotland around 2015\" and Yale's \"72% of Americans\"."
+      },
+      "surprise": {
+        "score": 3,
+        "reason": "Climate cafes \"partly modeled on death cafes\" is one surprising detail."
+      },
+      "voice": {
+        "score": 5,
+        "reason": "\"the people around me turn out to care more than I guessed\" and \"Starting with something local, like a hot summer\" are warm and unhurried."
+      },
+      "power": {
+        "score": 2,
+        "reason": "Mostly easing worry; \"connect you with people near you\" hints at more but is a proposed feature."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Says \"the research is still thin\", and the matching tool is written \"It could connect you\"."
+      }
+    },
+    "climate-renters": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Find one heat pump rebate your utility offers and send your landlord a short note\" is concrete."
+      },
+      "nonObvious": {
+        "score": 3,
+        "reason": "\"Landlords often don't know what rebates their utility or state offers\" is a modest twist."
+      },
+      "namedExample": {
+        "score": 3,
+        "reason": "Reuses Minnesota's \"3% to 8%\" with thin detail; the landlord fix has no example."
+      },
+      "surprise": {
+        "score": 2,
+        "reason": "Community solar for renters repeats another card; little new."
+      },
+      "voice": {
+        "score": 3,
+        "reason": "\"Sign up for community solar, which works without a roof of your own\" is a clunky title."
+      },
+      "power": {
+        "score": 3,
+        "reason": "\"my landlord knows I want cleaner heating\" nudges my own building."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Minnesota savings are hedged \"rules and savings differ by state\"; heat pump savings are \"could lower\"."
+      }
+    }
+  },
+  "pairwise": [
+    {
+      "a": "climate-community-solar",
+      "b": "climate-courts",
+      "winner": "climate-community-solar",
+      "reason": "Rather see climate-community-solar: plug-in solar for a few hundred dollars versus a $30,000 roof is surprising and usable now; climate-courts is slower to act on."
+    },
+    {
+      "a": "climate-community-solar",
+      "b": "climate-shared-ownership",
+      "winner": "climate-community-solar",
+      "reason": "Rather see climate-community-solar: plug-in solar for a few hundred dollars versus a $30,000 roof is surprising and usable now; climate-shared-ownership is slower to act on."
+    },
+    {
+      "a": "climate-community-solar",
+      "b": "climate-food",
+      "winner": "climate-community-solar",
+      "reason": "Rather see climate-community-solar: plug-in solar for a few hundred dollars versus a $30,000 roof is surprising and usable now; climate-food is less striking."
+    },
+    {
+      "a": "climate-community-solar",
+      "b": "climate-biggest-choices",
+      "winner": "climate-community-solar",
+      "reason": "Rather see climate-community-solar: plug-in solar for a few hundred dollars versus a $30,000 roof is surprising and usable now; climate-biggest-choices is less striking."
+    },
+    {
+      "a": "climate-community-solar",
+      "b": "climate-town-power",
+      "winner": "climate-community-solar",
+      "reason": "Rather see climate-community-solar: plug-in solar for a few hundred dollars versus a $30,000 roof is surprising and usable now; climate-town-power is less striking."
+    },
+    {
+      "a": "climate-community-solar",
+      "b": "climate-car-trips",
+      "winner": "climate-community-solar",
+      "reason": "Rather see climate-community-solar: plug-in solar for a few hundred dollars versus a $30,000 roof is surprising and usable now; climate-car-trips is less striking."
+    },
+    {
+      "a": "climate-community-solar",
+      "b": "climate-talk",
+      "winner": "climate-community-solar",
+      "reason": "Rather see climate-community-solar: plug-in solar for a few hundred dollars versus a $30,000 roof is surprising and usable now; climate-talk is less striking."
+    },
+    {
+      "a": "climate-courts",
+      "b": "climate-shared-ownership",
+      "winner": "climate-shared-ownership",
+      "reason": "Rather see climate-shared-ownership: 8,553 Copenhagen co-owners make neighbor ownership feel real; climate-courts is less striking."
+    },
+    {
+      "a": "climate-courts",
+      "b": "climate-food",
+      "winner": "climate-food",
+      "reason": "Rather see climate-food: two beef-free dinners and the local-beef-versus-beans fact are immediate and memorable; climate-courts is slower to act on."
+    },
+    {
+      "a": "climate-courts",
+      "b": "climate-biggest-choices",
+      "winner": "climate-biggest-choices",
+      "reason": "Rather see climate-biggest-choices: ranking driving, flying and food against recycling tells me where effort counts; climate-courts is slower to act on."
+    },
+    {
+      "a": "climate-courts",
+      "b": "climate-town-power",
+      "winner": "climate-courts",
+      "reason": "Rather see climate-courts: the Montana ruling is a striking precedent with real power; climate-town-power is less striking."
+    },
+    {
+      "a": "climate-courts",
+      "b": "climate-car-trips",
+      "winner": "climate-courts",
+      "reason": "Rather see climate-courts: the Montana ruling is a striking precedent with real power; climate-car-trips is less striking."
+    },
+    {
+      "a": "climate-courts",
+      "b": "climate-talk",
+      "winner": "climate-courts",
+      "reason": "Rather see climate-courts: the Montana ruling is a striking precedent with real power; climate-talk is less striking."
+    },
+    {
+      "a": "climate-shared-ownership",
+      "b": "climate-food",
+      "winner": "climate-food",
+      "reason": "Rather see climate-food: two beef-free dinners and the local-beef-versus-beans fact are immediate and memorable; climate-shared-ownership is slower to act on."
+    },
+    {
+      "a": "climate-shared-ownership",
+      "b": "climate-biggest-choices",
+      "winner": "climate-biggest-choices",
+      "reason": "Rather see climate-biggest-choices: ranking driving, flying and food against recycling tells me where effort counts; climate-shared-ownership is slower to act on."
+    },
+    {
+      "a": "climate-shared-ownership",
+      "b": "climate-town-power",
+      "winner": "climate-shared-ownership",
+      "reason": "Rather see climate-shared-ownership: 8,553 Copenhagen co-owners make neighbor ownership feel real; climate-town-power is less striking."
+    },
+    {
+      "a": "climate-shared-ownership",
+      "b": "climate-car-trips",
+      "winner": "climate-shared-ownership",
+      "reason": "Rather see climate-shared-ownership: 8,553 Copenhagen co-owners make neighbor ownership feel real; climate-car-trips is less striking."
+    },
+    {
+      "a": "climate-shared-ownership",
+      "b": "climate-talk",
+      "winner": "climate-shared-ownership",
+      "reason": "Rather see climate-shared-ownership: 8,553 Copenhagen co-owners make neighbor ownership feel real; climate-talk is less striking."
+    },
+    {
+      "a": "climate-food",
+      "b": "climate-biggest-choices",
+      "winner": "climate-food",
+      "reason": "Rather see climate-food: two beef-free dinners and the local-beef-versus-beans fact are immediate and memorable; climate-biggest-choices is slower to act on."
+    },
+    {
+      "a": "climate-food",
+      "b": "climate-town-power",
+      "winner": "climate-food",
+      "reason": "Rather see climate-food: two beef-free dinners and the local-beef-versus-beans fact are immediate and memorable; climate-town-power is slower to act on."
+    },
+    {
+      "a": "climate-food",
+      "b": "climate-car-trips",
+      "winner": "climate-food",
+      "reason": "Rather see climate-food: two beef-free dinners and the local-beef-versus-beans fact are immediate and memorable; climate-car-trips is slower to act on."
+    },
+    {
+      "a": "climate-food",
+      "b": "climate-talk",
+      "winner": "climate-food",
+      "reason": "Rather see climate-food: two beef-free dinners and the local-beef-versus-beans fact are immediate and memorable; climate-talk is slower to act on."
+    },
+    {
+      "a": "climate-biggest-choices",
+      "b": "climate-town-power",
+      "winner": "climate-biggest-choices",
+      "reason": "Rather see climate-biggest-choices: ranking driving, flying and food against recycling tells me where effort counts; climate-town-power is less striking."
+    },
+    {
+      "a": "climate-biggest-choices",
+      "b": "climate-car-trips",
+      "winner": "climate-biggest-choices",
+      "reason": "Rather see climate-biggest-choices: ranking driving, flying and food against recycling tells me where effort counts; climate-car-trips is less striking."
+    },
+    {
+      "a": "climate-biggest-choices",
+      "b": "climate-talk",
+      "winner": "climate-biggest-choices",
+      "reason": "Rather see climate-biggest-choices: ranking driving, flying and food against recycling tells me where effort counts; climate-talk is less striking."
+    },
+    {
+      "a": "climate-town-power",
+      "b": "climate-car-trips",
+      "winner": "climate-town-power",
+      "reason": "Rather see climate-town-power: Marin's city-chosen supply changes the default for everyone; climate-car-trips is less striking."
+    },
+    {
+      "a": "climate-town-power",
+      "b": "climate-talk",
+      "winner": "climate-town-power",
+      "reason": "Rather see climate-town-power: Marin's city-chosen supply changes the default for everyone; climate-talk is less striking."
+    },
+    {
+      "a": "climate-car-trips",
+      "b": "climate-talk",
+      "winner": "climate-car-trips",
+      "reason": "Rather see climate-car-trips: Denver's 3.4 replaced car trips make an e-bike trial concrete; climate-talk is less striking."
+    }
+  ],
+  "seed": 17
+}

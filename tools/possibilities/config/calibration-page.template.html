@@ -1,0 +1,247 @@
+<title>Possibility Calibration</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: one centered reading column; a single card under review, rating bar beneath, progress strip above. */
+:root {
+  --bg: #f3f5f4; --surface: #ffffff; --fg: #1d2523; --muted: #5d6a66; --line: #d6dddb;
+  --accent: #1f6b5c; --love: #b2365f; --keep: #1f6b5c; --kill: #4a524f; --skip: #8a948f;
+  --focus: #1f6b5c;
+  --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-ui: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #121716; --surface: #1a2120; --fg: #e4ebe8; --muted: #9aa8a3; --line: #2e3836;
+  --accent: #5fbfa9; --love: #e57a9b; --keep: #5fbfa9; --kill: #b4bfbb; --skip: #7d8a85; --focus: #5fbfa9; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #121716; --surface: #1a2120; --fg: #e4ebe8; --muted: #9aa8a3; --line: #2e3836;
+  --accent: #5fbfa9; --love: #e57a9b; --keep: #5fbfa9; --kill: #b4bfbb; --skip: #7d8a85; --focus: #5fbfa9; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-ui); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 720px; margin: 0 auto; padding-block: 28px 64px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 20px; }
+header { display: grid; gap: 6px; }
+h1 { font-family: var(--font-display); font-weight: 600; font-size: 1.6rem; margin: 0; text-wrap: balance; }
+.intro { color: var(--muted); margin: 0; max-width: 62ch; }
+.status { font-size: 0.85rem; color: var(--muted); }
+.status[data-tone="warn"] { color: var(--love); }
+.progress { display: flex; flex-wrap: wrap; gap: 4px; }
+.progress button { width: 22px; height: 22px; border-radius: 4px; border: 1px solid var(--line); background: var(--surface); font: 600 10px/1 var(--font-ui); color: var(--muted); cursor: pointer; padding: 0; }
+.progress button[data-r="love"] { background: var(--love); color: var(--surface); border-color: var(--love); }
+.progress button[data-r="keep"] { background: var(--keep); color: var(--surface); border-color: var(--keep); }
+.progress button[data-r="kill"] { background: var(--kill); color: var(--surface); border-color: var(--kill); }
+.progress button[data-r="skip"] { border-style: dashed; }
+.progress button[aria-current="true"] { outline: 2px solid var(--fg); outline-offset: 1px; }
+.count { font-variant-numeric: tabular-nums; font-size: 0.9rem; color: var(--muted); }
+article { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 24px; display: grid; gap: 14px; min-width: 0; }
+.pain { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; font-weight: 600; color: var(--accent); margin: 0; }
+.pain-line { font-size: 0.9rem; color: var(--muted); margin: -10px 0 0; }
+.dream { font-family: var(--font-display); font-size: 1.45rem; font-weight: 600; line-height: 1.25; margin: 0; text-wrap: balance; }
+.line { font-family: var(--font-display); font-size: 1.08rem; font-style: italic; margin: 0; }
+.fixes { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; border-top: 1px solid var(--line); padding-top: 14px; }
+.fixes h3 { margin: 0 0 2px; font-size: 0.98rem; font-weight: 600; }
+.kind { display: inline-flex; align-items: center; gap: 5px; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 4px; }
+.kind svg { width: 14px; height: 14px; stroke: currentColor; }
+.kind[data-kind="feature"] { color: var(--accent); }
+button.kind { background: none; border: 1px dashed var(--line); border-radius: 999px; padding: 2px 8px; cursor: pointer; font-family: var(--font-ui); }
+button.kind::after { content: "ⓘ"; font-size: 0.8rem; margin-left: 2px; }
+.practice-note { font-size: 0.85rem; color: var(--muted); background: var(--bg); border-radius: 6px; padding: 6px 10px; margin: 2px 0 6px; }
+.fixes p { margin: 0; color: var(--fg); max-width: 65ch; }
+.fixes .ex, .fixes .step { color: var(--muted); font-size: 0.86rem; margin-top: 4px; }
+.rate { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.rate button { font: 600 0.95rem var(--font-ui); padding: 12px 8px; border-radius: 8px; border: 1.5px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; display: grid; gap: 2px; justify-items: center; }
+.rate button kbd { font: 500 0.7rem var(--font-ui); color: var(--muted); }
+.rate button[data-v="love"][aria-pressed="true"] { border-color: var(--love); color: var(--love); }
+.rate button[data-v="keep"][aria-pressed="true"] { border-color: var(--keep); color: var(--keep); }
+.rate button[data-v="kill"][aria-pressed="true"] { border-color: var(--kill); color: var(--kill); }
+.rate button[data-v="skip"][aria-pressed="true"] { border-color: var(--skip); color: var(--skip); }
+.rate button[aria-pressed="true"]::before { content: "✓ "; }
+label { font-size: 0.85rem; color: var(--muted); }
+textarea { width: 100%; box-sizing: border-box; font: inherit; border: 1px solid var(--line); border-radius: 8px; padding: 10px; background: var(--surface); color: var(--fg); resize: vertical; min-height: 56px; }
+.nav { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.nav button { font: 500 0.9rem var(--font-ui); background: none; border: 1px solid var(--line); color: var(--fg); border-radius: 8px; padding: 8px 14px; cursor: pointer; }
+.nav button.primary { background: var(--accent); border-color: var(--accent); color: var(--surface); font-weight: 600; }
+.nav button.primary kbd { font: 500 0.7rem var(--font-ui); opacity: 0.8; margin-left: 4px; }
+button:focus-visible, textarea:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.done { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 24px; display: grid; gap: 8px; }
+.done h2 { font-family: var(--font-display); margin: 0; font-size: 1.3rem; }
+@media (max-width: 480px) { .rate { grid-template-columns: repeat(2, minmax(0, 1fr)); } article { padding: 18px; } }
+@media (prefers-reduced-motion: no-preference) { article { transition: opacity .15s ease; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Which of these would you want to see?</h1>
+    <p class="intro">Rate each card the way you'd react if It showed it to you. <strong>Love</strong> means this is the kind of thing It should be full of. <strong>Keep</strong> means it's good enough to show. <strong>Kill</strong> means it shouldn't be shown. A word or two on why helps most. You can stop and come back; your ratings are saved as you go.</p>
+    <div class="status" id="status" role="status" aria-live="polite">Connecting to saved ratings…</div>
+  </header>
+  <nav class="progress" id="progress" aria-label="Cards"></nav>
+  <div class="count" id="count" aria-live="polite"></div>
+  <article id="card" aria-live="polite"></article>
+  <div class="rate" role="group" aria-label="Your rating">
+    <button type="button" data-v="love" id="r-love" aria-pressed="false">Love<kbd>L</kbd></button>
+    <button type="button" data-v="keep" id="r-keep" aria-pressed="false">Keep<kbd>K</kbd></button>
+    <button type="button" data-v="kill" id="r-kill" aria-pressed="false">Kill<kbd>X</kbd></button>
+    <button type="button" data-v="skip" id="r-skip" aria-pressed="false">Skip<kbd>S</kbd></button>
+  </div>
+  <p class="status">Picking a rating keeps you on this card. Press it again to clear it. Move on with Next.</p>
+  <div>
+    <label for="reason">Why? (optional, saved with your rating)</label>
+    <textarea id="reason" placeholder="e.g. vague title, love the real example, too preachy"></textarea>
+  </div>
+  <div class="nav">
+    <button type="button" id="prev">← Previous</button>
+    <button type="button" id="next">Skip ahead one</button>
+    <button type="button" id="next-unrated" class="primary">Next <kbd>Enter</kbd></button>
+  </div>
+  <section class="done" id="done" hidden>
+    <h2>All cards rated</h2>
+    <p id="done-summary"></p>
+    <p>Thanks. Claude can read these ratings directly; just say you're done in the chat.</p>
+  </section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+<script id="items" type="application/json">/*ITEMS*/</script>
+<script>
+const ITEMS = JSON.parse(document.getElementById('items').textContent).items;
+const ratings = {};          // id -> {rating, reason, ratedAt}
+let idx = 0, db = null, canWrite = true;
+const $ = (id) => document.getElementById(id);
+const statusEl = $('status');
+const KINDS = {
+  feature: ['hammer', 'Feature'], task: ['circle-dot-dashed', 'Task'], schedule: ['calendar-sync', 'Schedule'],
+  habit: ['repeat', 'Habit'], practice: ['sprout', 'Practice'], learn: ['graduation-cap', 'Learn'], project: ['folder-kanban', 'Project'],
+  group: ['users', 'Group'], 'new-group': ['user-round-plus', 'New group'], path: ['footprints', 'Path'],
+};
+function setStatus(text, tone) { statusEl.textContent = text; statusEl.dataset.tone = tone || ''; }
+
+function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+function render() {
+  const it = ITEMS[idx];
+  const card = $('card'); card.replaceChildren();
+  card.append(el('p', 'pain', it.painName || it.painLine));
+  if (it.painName) card.append(el('p', 'pain-line', it.painLine));
+  card.append(el('h2', 'dream', it.title), el('p', 'line', it.line));
+  const ul = el('ul', 'fixes');
+  for (const f of it.fixes) {
+    const li = el('li');
+    if (f.kind && KINDS[f.kind]) {
+      const practice = f.kind === 'practice' && f.featureIdea;
+      const k = document.createElement(practice ? 'button' : 'span');
+      k.className = 'kind'; k.dataset.kind = f.kind;
+      const icon = document.createElement('i'); icon.setAttribute('data-lucide', KINDS[f.kind][0]); icon.setAttribute('aria-hidden', 'true');
+      k.append(icon, document.createTextNode(KINDS[f.kind][1]));
+      li.append(k);
+      if (practice) {
+        // Practices aren't built into It yet; the note names the coaching feature they suggest.
+        const note = el('p', 'practice-note', 'An idea for a coaching feature: ' + f.featureIdea);
+        note.id = 'pn-' + it.id + '-' + li.parentElement?.children.length + '-' + Math.random().toString(36).slice(2, 7);
+        note.hidden = true;
+        k.type = 'button'; k.title = note.textContent;
+        k.setAttribute('aria-expanded', 'false'); k.setAttribute('aria-controls', note.id);
+        k.addEventListener('click', () => { note.hidden = !note.hidden; k.setAttribute('aria-expanded', String(!note.hidden)); });
+        li.append(note);
+      }
+    }
+    li.append(el('h3', null, f.title), el('p', null, f.whatChanges));
+    if (f.example) li.append(el('p', 'ex', 'Example: ' + f.example));
+    if (f.firstStep) li.append(el('p', 'step', 'First step: ' + f.firstStep));
+    ul.append(li);
+  }
+  card.append(ul);
+  try { window.lucide?.createIcons(); } catch (e) { /* icons are decorative; the kind word still shows */ }
+  const r = ratings[it.id];
+  for (const b of document.querySelectorAll('.rate button')) b.setAttribute('aria-pressed', String(!!r && r.rating === b.dataset.v));
+  $('reason').value = r?.reason || '';
+  const rated = ITEMS.filter(i => ratings[i.id] && ratings[i.id].rating !== 'skip').length;
+  $('count').textContent = `Card ${idx + 1} of ${ITEMS.length} · ${rated} rated`;
+  const prog = $('progress');
+  if (!prog.children.length) ITEMS.forEach((i, n) => { const b = el('button', null, String(n + 1)); b.type = 'button'; b.addEventListener('click', () => { saveReason(); idx = n; render(); }); prog.append(b); });
+  [...prog.children].forEach((b, n) => {
+    const rr = ratings[ITEMS[n].id]?.rating; b.dataset.r = rr || '';
+    b.setAttribute('aria-current', String(n === idx));
+    b.setAttribute('aria-label', `Card ${n + 1}: ${rr ? rr : 'not rated'}`);
+  });
+  const allDone = ITEMS.every(i => ratings[i.id]);
+  $('done').hidden = !allDone;
+  if (allDone) {
+    const c = { love: 0, keep: 0, kill: 0, skip: 0 };
+    for (const i of ITEMS) c[ratings[i.id].rating]++;
+    $('done-summary').textContent = `Love ${c.love} · Keep ${c.keep} · Kill ${c.kill} · Skipped ${c.skip}`;
+  }
+}
+
+async function write(id) {
+  if (!db || !canWrite) return;
+  try { await db.collection('ratings').doc(id).set(ratings[id]); setStatus('Saved.'); }
+  catch (e) {
+    if (e?.code === 'invalid_argument') { canWrite = false; setStatus('This view can read but not save ratings. Only the page owner can rate.', 'warn'); }
+    else setStatus('Could not save that rating. Try again in a moment.', 'warn');
+  }
+}
+
+function rate(v) {
+  const it = ITEMS[idx];
+  if (ratings[it.id]?.rating === v) {
+    // Pressing the chosen rating again clears it.
+    delete ratings[it.id];
+    clearRating(it.id);
+    setStatus('Rating cleared.');
+  } else {
+    ratings[it.id] = { rating: v, reason: $('reason').value.trim(), ratedAt: new Date().toISOString() };
+    write(it.id);
+    setStatus(`Marked ${v[0].toUpperCase() + v.slice(1)}. Add a reason if you like, then press Next.`);
+  }
+  render();
+}
+
+async function clearRating(id) {
+  if (!db || !canWrite) return;
+  try { await db.collection('ratings').doc(id).delete(); }
+  catch (e) { setStatus('Could not clear that rating. Try again in a moment.', 'warn'); }
+}
+
+function goNext() {
+  saveReason();
+  const n = ITEMS.findIndex((i, k) => k > idx && !ratings[i.id]);
+  idx = n !== -1 ? n : Math.min(ITEMS.length - 1, idx + 1);
+  render();
+  $('card').scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+}
+
+function saveReason() {
+  const it = ITEMS[idx], r = ratings[it.id], text = $('reason').value.trim();
+  if (r && r.reason !== text) { r.reason = text; write(it.id); }
+}
+
+document.querySelectorAll('.rate button').forEach(b => b.addEventListener('click', () => rate(b.dataset.v)));
+$('prev').addEventListener('click', () => { saveReason(); idx = Math.max(0, idx - 1); render(); });
+$('next').addEventListener('click', () => { saveReason(); idx = Math.min(ITEMS.length - 1, idx + 1); render(); });
+$('next-unrated').addEventListener('click', goNext);
+$('reason').addEventListener('blur', saveReason);
+document.addEventListener('keydown', (e) => {
+  if (e.target.tagName === 'TEXTAREA' || e.metaKey || e.ctrlKey || e.altKey) return;
+  const map = { l: 'love', k: 'keep', x: 'kill', s: 'skip' };
+  if (map[e.key.toLowerCase()]) { e.preventDefault(); rate(map[e.key.toLowerCase()]); }
+  else if (e.key === 'Enter') { e.preventDefault(); goNext(); }
+  else if (e.key === 'ArrowRight') { saveReason(); idx = Math.min(ITEMS.length - 1, idx + 1); render(); }
+  else if (e.key === 'ArrowLeft') { saveReason(); idx = Math.max(0, idx - 1); render(); }
+});
+
+render();
+(async () => {
+  db = await window.claude?.use?.('db') ?? null;
+  if (!db) { setStatus('Ratings can\'t be saved in this view. Open the page signed in to rate.', 'warn'); return; }
+  try {
+    const user = await window.claude.use('user');
+    if (user && user.can && (await user.can('data.write')) === false) { canWrite = false; setStatus('You can read these cards, but only the page owner can rate them.', 'warn'); }
+    const snap = await db.collection('ratings').get();
+    for (const d of snap.docs) ratings[d.id] = d.data();
+    const first = ITEMS.findIndex(i => !ratings[i.id]);
+    idx = first === -1 ? 0 : first;
+    if (canWrite) setStatus(snap.size ? `Welcome back. ${snap.size} saved ratings loaded.` : 'Ready. Ratings save as you go.');
+    render();
+  } catch (e) { setStatus('Could not load saved ratings. Ratings you make now will still try to save.', 'warn'); }
+})();
+</script>

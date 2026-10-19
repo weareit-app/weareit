@@ -1,0 +1,29 @@
+{
+  "passed": false,
+  "issues": [
+    {
+      "cardId": "ai-union-contract",
+      "fixId": "ai-union-contract-writers",
+      "rule": "not-an-action",
+      "detail": "fix title \"Learn what the writers' and actors' unio\" asks the reader to learn; if it gives a usable skill or knowledge make it kind learn, otherwise say what they do with it"
+    }
+  ],
+  "coverage": {
+    "lenses": [
+      "community",
+      "culture",
+      "individual",
+      "market",
+      "policy",
+      "relational",
+      "technology"
+    ],
+    "ambitions": [
+      "this-year",
+      "together",
+      "tonight"
+    ]
+  },
+  "cards": 14,
+  "checkedAt": "2026-10-19T21:49:31+00:00"
+}

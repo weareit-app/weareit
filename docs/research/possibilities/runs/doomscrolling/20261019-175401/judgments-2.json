@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "painId": "doomscrolling",
+  "runId": "20261019-142003",
+  "judge": {"context": "isolated", "at": "2026-10-19"},
+  "scores": {
+    "scroll-phone-out-of-bedroom": {
+      "actionable": {"score": 5, "reason": "\"Plug your charger in by the kitchen counter or a hallway outlet tonight\" is a five-minute step that obviously changes the night."},
+      "nonObvious": {"score": 3, "reason": "A well-chosen basic made useful by the twist that \"silencing notifications was linked to less sleep than switching the phone off completely\"."},
+      "namedExample": {"score": 5, "reason": "\"about 9,400 kids aged 11 and 12\" with a result that held \"a year later\", from a named UCSF pediatrician."},
+      "surprise": {"score": 4, "reason": "The silenced-versus-off finding is the kind of fact a reader would repeat."},
+      "voice": {"score": 4, "reason": "Plain and warm (\"so the last thing I see before sleep isn't a feed\"), candid that \"The study didn't include adults\"."},
+      "power": {"score": 3, "reason": "Changes my own conditions at night; no shift in who decides."},
+      "honestStatus": {"pass": false, "reason": "\"he moved his own phone out of the bedroom\" and \"thinks buzzes and screen light can still wake people up\" go beyond the exemplar, which only says Nagata extends the advice to grownups."}
+    },
+    "scroll-gray-quiet-phone-at-night": {
+      "actionable": {"score": 5, "reason": "\"turn it on for one evening\" and \"set Bedtime mode to start when you usually want to be asleep\" are five-minute steps."},
+      "nonObvious": {"score": 4, "reason": "Grayscale is a twist most people haven't tried, explained with \"Color is a lot of what makes feeds pleasant to keep scrolling\"."},
+      "namedExample": {"score": 4, "reason": "\"about 220 college students\" cut \"about 39 minutes less a day\", attributed to a UC Blue Ash psychologist, but no year."},
+      "surprise": {"score": 4, "reason": "39 minutes a day from just removing color is a stop-and-repeat fact."},
+      "voice": {"score": 4, "reason": "Candid and unjudging: \"You can dismiss the limit when it pops up, but having to make that choice on purpose is the point.\""},
+      "power": {"score": 3, "reason": "A personal settings change within unchanged apps."},
+      "honestStatus": {"pass": true, "reason": "Grayscale result is attributed and stated as what happened; phone features are described as they exist."}
+    },
+    "scroll-pause-before-opening": {
+      "actionable": {"score": 4, "reason": "\"attach it to the one app you lose the most evenings to\" is concrete, though it requires installing and configuring an app."},
+      "nonObvious": {"score": 4, "reason": "\"makes you wait and breathe for a few seconds before an app opens\" is a mechanism most readers haven't heard of."},
+      "namedExample": {"score": 5, "reason": "\"a six-week study of 280 users published in 2023\" with openings down \"57% less often\"."},
+      "surprise": {"score": 4, "reason": "A few seconds of delay cutting openings by more than half is surprising."},
+      "voice": {"score": 4, "reason": "Plain and candid, with one honest limit: \"Those users signed up wanting to cut back, which helps.\""},
+      "power": {"score": 3, "reason": "Changes my own phone behavior only."},
+      "honestStatus": {"pass": true, "reason": "Result and its self-selection limit are both stated; the home-screen tip is labeled speculative and not overclaimed."}
+    },
+    "scroll-month-without-feed": {
+      "actionable": {"score": 4, "reason": "\"put a four-week end date on your calendar\" is real and quick, though the change itself plays out over a month."},
+      "nonObvious": {"score": 4, "reason": "Reframes quitting as an experiment: \"notice what I actually do with my evenings instead\"."},
+      "namedExample": {"score": 5, "reason": "\"In a 2018 experiment\" people \"got back about an hour a day\" and used the app \"about 22 percent less\" afterward."},
+      "surprise": {"score": 4, "reason": "The lasting 22 percent drop after the experiment ended is a repeatable fact."},
+      "voice": {"score": 5, "reason": "Mentor-like and unhurried; says plainly \"researchers paid people\" and \"a little happier\" without overselling."},
+      "power": {"score": 3, "reason": "A meaningful personal change but no shift in who decides."},
+      "honestStatus": {"pass": true, "reason": "Paid participants and small happiness gains are stated as what happened, matching exemplar limits."}
+    },
+    "scroll-simpler-phone": {
+      "actionable": {"score": 3, "reason": "\"Check whether your carrier lets you move your number between two phones\" is real but slow to matter."},
+      "nonObvious": {"score": 3, "reason": "A \"night phone\" and a physical block in \"another room\" are known ideas with a useful twist."},
+      "namedExample": {"score": 4, "reason": "Named products with prices: \"At $799\" and \"about $59\"."},
+      "surprise": {"score": 3, "reason": "Walking over to \"tap again\" is one surprising element; the rest is product description."},
+      "voice": {"score": 3, "reason": "Plain but reads partly like a product listing (\"calls, texts, maps, music and an alarm\")."},
+      "power": {"score": 3, "reason": "Changes my own tools, at a cost."},
+      "honestStatus": {"pass": true, "reason": "Cost is stated plainly; \"many people try it as a second phone\" and \"no subscription\" are unsourced but minor and not misleading about status."}
+    },
+    "scroll-evenings-together": {
+      "actionable": {"score": 4, "reason": "\"Ask your partner tonight if they'd try putting both phones in one spot after 9 for a week\" is concrete and quick."},
+      "nonObvious": {"score": 3, "reason": "Familiar idea with a useful point: \"nobody is left sitting next to someone who's scrolling\"."},
+      "namedExample": {"score": 1, "reason": "No real example; the drawer fix is speculative and the schedule fix only cites a phone feature."},
+      "surprise": {"score": 2, "reason": "Predictable from the title."},
+      "voice": {"score": 4, "reason": "Warm and specific: \"neither of you has to be the one asking\"."},
+      "power": {"score": 3, "reason": "Changes a shared household condition, but small in scope."},
+      "honestStatus": {"pass": true, "reason": "Presented as common practice without claimed evidence."}
+    },
+    "scroll-parents-wait-together": {
+      "actionable": {"score": 5, "reason": "\"send the link to two parents in your kid's grade\" is a ten-minute step that obviously starts something."},
+      "nonObvious": {"score": 4, "reason": "The threshold design, \"only kicks in once ten families from the same grade and school sign, so no child is the only one\", is a twist most parents haven't heard."},
+      "namedExample": {"score": 5, "reason": "Wait Until 8th with \"More than 155,000 parents\" and the UK pact with \"140,000 parents from 13,500 schools\"."},
+      "surprise": {"score": 4, "reason": "The ten-family trigger is a precedent worth repeating to a friend."},
+      "voice": {"score": 4, "reason": "The dream line \"My kid isn't the only one in class without a smartphone\" is personal and plain."},
+      "power": {"score": 5, "reason": "Changes the norm for a whole grade by deciding \"together\"."},
+      "honestStatus": {"pass": true, "reason": "Counts match exemplars; the It idea is written \"It could\" and labeled proposed."}
+    },
+    "scroll-school-phone-lockers": {
+      "actionable": {"score": 4, "reason": "\"Find the date of your school board's next meeting and whether it takes public comments\" is quick and concrete."},
+      "nonObvious": {"score": 3, "reason": "School phone bans are familiar; the state-law check (\"Your district might already be required to act\") is a useful twist."},
+      "namedExample": {"score": 5, "reason": "\"two schools in Nijmegen in the Netherlands\" in 2024, plus \"at least 20 passed new laws\" in 2025."},
+      "surprise": {"score": 4, "reason": "Candid that \"Students liked the rule less afterward\" is an unexpected, trustworthy detail."},
+      "voice": {"score": 4, "reason": "Honest without hedging: \"some missed reaching their parents, so a good policy plans for that\"."},
+      "power": {"score": 5, "reason": "Changes school policy for every student, not just one family."},
+      "honestStatus": {"pass": true, "reason": "Limits of the two-school study are stated; \"at lunch\" is a slight sharpening of \"more conversation\" but not a misleading claim."}
+    },
+    "scroll-apps-not-built-to-hook": {
+      "actionable": {"score": 3, "reason": "\"Read the Commission's two-page summary\" and \"Look up whether your state has a bill\" are real but slow to matter."},
+      "nonObvious": {"score": 3, "reason": "Regulating design rather than users is a known idea made concrete by \"infinite scroll, autoplay and push notifications\"."},
+      "namedExample": {"score": 5, "reason": "\"In February 2026 the European Commission\" on TikTok and New York's act \"starting January 2027\" with midnight-to-6am rules."},
+      "surprise": {"score": 4, "reason": "A regulator saying infinite scroll itself may \"break European law\" is a stop-and-repeat fact."},
+      "voice": {"score": 4, "reason": "Plain and fair: \"Some people worry about the age checks these laws need, which is a fair question to ask your legislator.\""},
+      "power": {"score": 5, "reason": "Changes how platforms are allowed to design for everyone."},
+      "honestStatus": {"pass": true, "reason": "\"preliminary findings\" and \"The case isn't decided yet\" match exemplar limits; opposing concerns are named."}
+    },
+    "scroll-teen-accounts-quiet-overnight": {
+      "actionable": {"score": 5, "reason": "\"Open your teen's Instagram settings with them and confirm sleep mode is on\" is a ten-minute step."},
+      "nonObvious": {"score": 3, "reason": "A basic made useful by the detail \"sleep mode from 10pm to 7am every day\"."},
+      "namedExample": {"score": 4, "reason": "Instagram teen accounts \"Since 2024\" with specific hours; no outcome number."},
+      "surprise": {"score": 3, "reason": "Many parents won't know sleep mode is already on by default; one surprising element."},
+      "voice": {"score": 4, "reason": "Personal and unjudging: \"without me having to fight about it\"."},
+      "power": {"score": 3, "reason": "Changes household conditions using defaults a company already set."},
+      "honestStatus": {"pass": true, "reason": "Sleep mode described as it exists; the shared-charging claim is modest."}
+    },
+    "scroll-companies-answer-for-design": {
+      "actionable": {"score": 3, "reason": "\"Search your attorney general's website to see whether your state joined\" is real but mostly informational."},
+      "nonObvious": {"score": 3, "reason": "Comparing \"Australia\" and \"Minnesota\" approaches is a useful framing of a known debate."},
+      "namedExample": {"score": 5, "reason": "\"In 2023, 41 states and Washington, DC sued Meta\" plus Australia and Minnesota laws."},
+      "surprise": {"score": 3, "reason": "The scale of the suit is notable, but the topic is widely covered."},
+      "voice": {"score": 4, "reason": "Calm and fair: \"People disagree about which approach respects privacy and free choice\"."},
+      "power": {"score": 3, "reason": "The dream is about accountability, but the steps are following and reading, not changing who decides."},
+      "honestStatus": {"pass": true, "reason": "\"These are claims in court, not findings\" and named disagreement keep contested policy offered as ideas."}
+    },
+    "scroll-see-where-nights-go": {
+      "actionable": {"score": 3, "reason": "\"look at this week's Screen Time report tonight\" is doable but modest."},
+      "nonObvious": {"score": 3, "reason": "Using the data \"your phone's screen time report already shows\" to pick \"one thing to try for two weeks\" is a useful twist."},
+      "namedExample": {"score": 3, "reason": "Clearly labeled It ideas; not penalized for lacking a precedent."},
+      "surprise": {"score": 3, "reason": "\"check in after two weeks to ask how the change went, and then go quiet\" is one surprising element."},
+      "voice": {"score": 4, "reason": "Candid and a little wry: \"We don't want It to become one more app that asks for your evenings.\""},
+      "power": {"score": 3, "reason": "A personal fix with help."},
+      "honestStatus": {"pass": true, "reason": "Every It fix says \"It could\" and is labeled proposed; data stays \"on your device\"."}
+    },
+    "scroll-contact-legislators": {
+      "actionable": {"score": 4, "reason": "\"find your state representative's name on your state legislature's website\" is a concrete ten-minute step."},
+      "nonObvious": {"score": 3, "reason": "Contacting legislators is familiar; \"state legislators matter most\" is the useful twist."},
+      "namedExample": {"score": 4, "reason": "\"more than 300 such bills\" in 2025 and the 5 Calls model, though thin on outcome."},
+      "surprise": {"score": 3, "reason": "The 300-bill count is one surprising element."},
+      "voice": {"score": 4, "reason": "Plain and direct; the dream line \"My state representative knows people here want apps that don't keep us up all night\" is clear."},
+      "power": {"score": 4, "reason": "Aims to change who decides app rules, but through It ideas not yet built."},
+      "honestStatus": {"pass": true, "reason": "It fixes say \"It could\"; bill counts match the tracker."}
+    },
+    "scroll-group-chats-quiet": {
+      "actionable": {"score": 5, "reason": "\"add them to your Do Not Disturb exceptions\" and \"Send one message to your busiest group\" are quick and concrete."},
+      "nonObvious": {"score": 3, "reason": "A basic made useful: \"Group chats are often what turns a quick check into an hour of scrolling.\""},
+      "namedExample": {"score": 2, "reason": "No named example; the cited phone feature doesn't cover Do Not Disturb exceptions."},
+      "surprise": {"score": 2, "reason": "Predictable from the title."},
+      "voice": {"score": 4, "reason": "Warm and practical: \"so a real emergency still reaches you\"."},
+      "power": {"score": 3, "reason": "Changes my own conditions and a small social norm."},
+      "honestStatus": {"pass": true, "reason": "Framed as common practice; \"Friends often say\" is unsourced but modest."}
+    }
+  },
+  "pairwise": [
+    {"a": "scroll-parents-wait-together", "b": "scroll-month-without-feed", "winner": "scroll-month-without-feed", "reason": "Most readers with this pain are adults; \"got back about an hour a day\" speaks to them directly, while the pledge applies only to parents."},
+    {"a": "scroll-parents-wait-together", "b": "scroll-school-phone-lockers", "winner": "scroll-parents-wait-together", "reason": "The ten-family pledge has a faster, more personal first step than waiting for a school board meeting."},
+    {"a": "scroll-parents-wait-together", "b": "scroll-phone-out-of-bedroom", "winner": "scroll-phone-out-of-bedroom", "reason": "Moving the charger works for anyone tonight, and the silenced-versus-off finding is memorable."},
+    {"a": "scroll-parents-wait-together", "b": "scroll-gray-quiet-phone-at-night", "winner": "scroll-gray-quiet-phone-at-night", "reason": "\"39 minutes less a day\" from a setting is something every reader can try tonight."},
+    {"a": "scroll-parents-wait-together", "b": "scroll-pause-before-opening", "winner": "scroll-pause-before-opening", "reason": "A delay that cut openings \"57% less often\" addresses the reader's own scrolling, not their kid's."},
+    {"a": "scroll-parents-wait-together", "b": "scroll-apps-not-built-to-hook", "winner": "scroll-parents-wait-together", "reason": "Both shift power, but the pledge has a concrete first step instead of reading a summary."},
+    {"a": "scroll-parents-wait-together", "b": "scroll-teen-accounts-quiet-overnight", "winner": "scroll-parents-wait-together", "reason": "The pledge changes a whole grade's norm; checking a setting is narrower."},
+    {"a": "scroll-month-without-feed", "b": "scroll-school-phone-lockers", "winner": "scroll-month-without-feed", "reason": "Speaks to the reader's own evenings with a strong, honest result."},
+    {"a": "scroll-month-without-feed", "b": "scroll-phone-out-of-bedroom", "winner": "scroll-month-without-feed", "reason": "The month experiment reframes the habit more meaningfully, and its example stays within what the study shows."},
+    {"a": "scroll-month-without-feed", "b": "scroll-gray-quiet-phone-at-night", "winner": "scroll-month-without-feed", "reason": "\"notice what I actually do with my evenings instead\" feels more meaningful than a settings change."},
+    {"a": "scroll-month-without-feed", "b": "scroll-pause-before-opening", "winner": "scroll-month-without-feed", "reason": "Both have strong studies; the month off reaches toward a different life, not just a speed bump."},
+    {"a": "scroll-month-without-feed", "b": "scroll-apps-not-built-to-hook", "winner": "scroll-month-without-feed", "reason": "A personal experiment the reader can start today beats reading about a pending EU case."},
+    {"a": "scroll-month-without-feed", "b": "scroll-teen-accounts-quiet-overnight", "winner": "scroll-month-without-feed", "reason": "Applies to every reader, not just parents of teens."},
+    {"a": "scroll-school-phone-lockers", "b": "scroll-phone-out-of-bedroom", "winner": "scroll-phone-out-of-bedroom", "reason": "A five-minute step tonight for the reader's own sleep is more immediately useful."},
+    {"a": "scroll-school-phone-lockers", "b": "scroll-gray-quiet-phone-at-night", "winner": "scroll-gray-quiet-phone-at-night", "reason": "The grayscale result is personal and immediate; the school card fits only parents."},
+    {"a": "scroll-school-phone-lockers", "b": "scroll-pause-before-opening", "winner": "scroll-pause-before-opening", "reason": "The reader's own scrolling is the pain; a breathing delay addresses it directly."},
+    {"a": "scroll-school-phone-lockers", "b": "scroll-apps-not-built-to-hook", "winner": "scroll-school-phone-lockers", "reason": "A school board meeting is a closer, more winnable lever than European regulation."},
+    {"a": "scroll-school-phone-lockers", "b": "scroll-teen-accounts-quiet-overnight", "winner": "scroll-school-phone-lockers", "reason": "The candid Nijmegen detail and bell-to-bell change carry more weight than checking a setting."},
+    {"a": "scroll-phone-out-of-bedroom", "b": "scroll-gray-quiet-phone-at-night", "winner": "scroll-gray-quiet-phone-at-night", "reason": "Both are tonight fixes; grayscale is less obvious and its copy stays within its source."},
+    {"a": "scroll-phone-out-of-bedroom", "b": "scroll-pause-before-opening", "winner": "scroll-pause-before-opening", "reason": "The delay app is newer to most readers and its example is stated honestly."},
+    {"a": "scroll-phone-out-of-bedroom", "b": "scroll-apps-not-built-to-hook", "winner": "scroll-phone-out-of-bedroom", "reason": "A reader in bed tonight would rather move the charger than read about TikTok findings."},
+    {"a": "scroll-phone-out-of-bedroom", "b": "scroll-teen-accounts-quiet-overnight", "winner": "scroll-phone-out-of-bedroom", "reason": "Applies to everyone and rests on a large study."},
+    {"a": "scroll-gray-quiet-phone-at-night", "b": "scroll-pause-before-opening", "winner": "scroll-pause-before-opening", "reason": "\"57% less often\" in a named study is the stronger hook, and the pause targets the reflex itself."},
+    {"a": "scroll-gray-quiet-phone-at-night", "b": "scroll-apps-not-built-to-hook", "winner": "scroll-gray-quiet-phone-at-night", "reason": "Immediate, personal and surprising versus distant and slow."},
+    {"a": "scroll-gray-quiet-phone-at-night", "b": "scroll-teen-accounts-quiet-overnight", "winner": "scroll-gray-quiet-phone-at-night", "reason": "Fits every reader and has a measured result."},
+    {"a": "scroll-pause-before-opening", "b": "scroll-apps-not-built-to-hook", "winner": "scroll-pause-before-opening", "reason": "A ten-minute fix with a strong result beats a pending case."},
+    {"a": "scroll-pause-before-opening", "b": "scroll-teen-accounts-quiet-overnight", "winner": "scroll-pause-before-opening", "reason": "Addresses the reader's own habit with a named study."},
+    {"a": "scroll-apps-not-built-to-hook", "b": "scroll-teen-accounts-quiet-overnight", "winner": "scroll-apps-not-built-to-hook", "reason": "Changes design for everyone, and the EU finding is the more surprising fact."}
+  ],
+  "seed": 17
+}

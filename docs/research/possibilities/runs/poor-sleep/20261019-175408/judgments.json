@@ -1,0 +1,665 @@
+{
+  "schemaVersion": 1,
+  "painId": "poor-sleep",
+  "runId": "20261019-142010",
+  "judge": {
+    "context": "isolated-consensus",
+    "judges": 3,
+    "files": [
+      "judgments-1.json",
+      "judgments-2.json",
+      "judgments-3.json"
+    ],
+    "at": "2026-10-19T18:27:25+00:00"
+  },
+  "scores": {
+    "sleep-dark-quiet-room": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "'Stand in your bedroom tonight with the lights off and notice where light gets in' takes five minutes and leads straight to curtains or earplugs. | \"Stand in your bedroom tonight with the lights off and notice where light gets in\" takes five minutes and points straight at the fix. | \"Stand in your bedroom tonight with the lights off and notice where light gets in\" takes five minutes and points straight at the fix."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Familiar basics given a useful edge: 'if you can see things clearly in your bedroom, it's too bright' and 'pink noise did better than white noise'. | Basics made useful: \"if you can see things clearly in your bedroom, it's too bright\" and \"pink noise did better than white noise\". | Blackout curtains and noise are basics, made useful by \"pink noise did better than white noise\" and \"foam earplugs are worth trying first.\""
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'A Northwestern study' plus a 2022 review of '34 studies' and Ozlo at '$279' are named, but the light study gives no numbers or limits. | Northwestern study, \"a 2022 review of 34 studies\" and \"about $279\" are concrete, though the light study has no year or number in the copy. | Names the Northwestern study, \"a 2022 review of 34 studies\" and Ozlo at \"about $279\", though the light study has no year or size."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "One lit night 'raised people's heart rate and made their bodies handle sugar worse the next morning' is worth repeating to a friend. | \"raised people's heart rate and made their bodies handle sugar worse the next morning\" is a fact I'd repeat. | \"one night with a room light on raised people's heart rate and made their bodies handle sugar worse\" is worth repeating."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Calm and practical ('foam earplugs are worth trying first'), though 'the researchers' rule of thumb' reads a bit secondhand. | Candid and unhurried: \"They cost about $279, so foam earplugs are worth trying first.\" | Plain and candid (\"found the research thin\"), and the title says exactly what changes; slightly list-like across fixes."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Changes my own room ('A bedroom that stays dark and quiet all night') without touching the streetlights or traffic. | Changes my own room only: \"Put up blackout curtains or wear an eye mask\". | Changes my own room, \"Streetlights, early sun and traffic noise stop waking me up\", without touching the sources."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Basics are labeled real now or existing resource; the review is called 'thin' and the earbuds' price is stated plainly. | pass: Says \"one night\" and \"the research thin\"; earbud claims are framed as what they're made for, not proven results. | pass: Basics are real now; the earbud claim is limited to \"seal out some sound\", and the noise review is described as thin. The one-night light study is stated without its small size, but not as health advice."
+      }
+    },
+    "sleep-without-pills": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Write down when you went to bed and got up for the next week' is easy and useful, but the therapy itself waits on a doctor. | \"Write down when you went to bed and got up for the next week\" is a real start, though the payoff waits for an appointment. | \"Write down when you went to bed and got up for the next week\" is concrete, but the payoff waits on a doctor visit."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Ask your doctor' becomes specific: 'four short sessions with a practice nurse' and an online course 'recommended... over sleeping pills'. | Many people don't know \"four short sessions with a practice nurse\" or an online course can be recommended \"over sleeping pills\". | \"four short sessions with a practice nurse\" beating the leaflet, \"without pills\", reframes 'see a doctor' into a specific ask."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "A 'large trial in England's health service' plus 'Sleepio' recommended 'in 2022, after reviewing 12 trials' feels real. | \"England's health guidance body ... in 2022, after reviewing 12 trials\" is solid; the nurse trial has no number in the copy. | England's health service trial plus Sleepio recommended \"over sleeping pills in 2022, after reviewing 12 trials.\""
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "That a nurse's 'four short sessions' beat the leaflet is mildly surprising; the rest is expected. | A health body recommending an online course \"over sleeping pills\" is mildly surprising. | That a national body recommended an online course \"over sleeping pills\" would surprise most readers."
+      },
+      "voice": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "'I go to bed expecting to sleep, and most nights I do' and 'the nurse checks first' sound like the hometown doctor. | Warm and clear, \"This therapy isn't right for everyone, so the nurse checks first\"; the diary fix gets a little procedural. | \"I go to bed expecting to sleep, and most nights I do\" and \"This therapy isn't right for everyone, so the nurse checks first\" are calm, candid mentor lines."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "A personal fix that matters, ending pills 'or dread', and the diary gives me something to 'show a doctor'. | Getting off pills and dread at bedtime is a personal fix that counts: \"I go to bed expecting to sleep\". | A personal fix meaningful enough to count: treating insomnia without pills."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The diary is written as 'It could ask you' with status proposed; the therapy limit 'isn't right for everyone' is said once. | pass: The diary idea is written \"It could ask you\" and labeled proposed; the nurse limit is stated once. | pass: The diary feature is written as \"It could ask you\" with proposed status; the therapy limit is stated once; referral needs are noted (\"where it's offered\")."
+      }
+    },
+    "sleep-know-whats-wrong": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Ask whoever you live with whether you snore, gasp or stop breathing at night' is concrete and quick. | \"Ask whoever you live with whether you snore, gasp or stop breathing at night\" is quick and useful. | \"Ask whoever you live with whether you snore, gasp or stop breathing at night\" is quick and useful."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "'Snoring, trouble falling asleep and waking too early point to different problems' is a useful twist on 'see a sleep doctor'. | \"Snoring, trouble falling asleep and waking too early point to different problems with different treatments\" reframes the problem helpfully. | \"Snoring, trouble falling asleep and waking too early point to different problems with different treatments\" usefully reframes 'see a doctor'."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "The directory 'at sleepeducation.org' and FDA clearance 'since 2024' after 'about ten nights' are named, but neither gives a result. | \"Since 2024, some smartwatches have been cleared by the FDA\" and \"sleepeducation.org\" are named but thin. | sleepeducation.org and FDA-cleared smartwatches \"since 2024\" are named but thin; no result or number."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "That smartwatches can 'flag possible sleep apnea' is the one surprising element. | FDA-cleared smartwatch apnea alerts are one surprising element. | The smartwatch apnea flag \"after about ten nights\" is one mildly surprising element."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Without pretending to diagnose you' and 'a reason to see a doctor, not a diagnosis' are candid and calm. | \"without pretending to diagnose you\" is warm, but \"a reason to see a doctor, not a diagnosis\" leans on a contrast line. | Clear and non-judging (\"without pretending to diagnose you\"); the dream line \"know who can help with it\" is a little generic."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Helps me understand my own sleep ('know who can help with it') but changes no one else's decisions. | Helps me get the right care, which changes my own conditions. | Helps me get the right care, which changes my own conditions rather than who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Both It ideas say 'It could', and the watch alert is honestly framed as 'not a diagnosis'. | pass: Proposed ideas use \"It could\"; the watch alert is framed as screening; first step implies directory search works, which wasn't confirmed but is low-stakes. | pass: Both It ideas start with \"It could\"; the watch alert is called \"a reason to see a doctor, not a diagnosis.\""
+      }
+    },
+    "sleep-noise-near-me": {
+      "actionable": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "'Install a free sound-level app and leave it recording on your nightstand tonight' is specific and fast. | \"Install a free sound-level app and leave it recording on your nightstand tonight\" is concrete and fast. | \"Install a free sound-level app and leave it recording on your nightstand tonight\" is doable, though it only diagnoses."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "'Knowing whether it's trucks at 2am or a neighbor's TV at midnight changes what will actually help' is a useful reframe of a known idea. | \"Knowing whether it's trucks at 2am or a neighbor's TV at midnight changes what will actually help\" is a useful twist. | \"Knowing whether it's trucks at 2am or a neighbor's TV at midnight changes what will actually help\" is a useful twist most people skip."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "The 'US Department of Transportation' noise map is named but gives no year or result, and the recording fix has no example. | \"The US Department of Transportation publishes a map of airport and highway noise\" is named but has no year or result. | \"The US Department of Transportation publishes a map of airport and highway noise, down to the county\" is named but has no year or result."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "A federal map of 'airport and highway noise' is the one thing most readers wouldn't know exists. | A public federal noise map is one mildly surprising element. | That a federal noise map exists is one surprising element."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Plain and clear ('which fixes are worth trying'), though 'down to the county' is a little dry. | Plain and helpful, \"from earplugs to a neighbors' complaint\", if a little impersonal. | Plain and specific; \"from earplugs to a neighbors' complaint\" is clear. The title is clear but a little flat."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Mostly diagnosis of my own conditions, with a nod toward 'a neighbors' complaint'. | Diagnostic step toward changing my own conditions. | Information that changes my own choices; the link to collective action is only hinted at."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The It idea says 'It could look up your address'; the map is not overstated as measured noise at a home. | pass: The address lookup is written \"It could look up\"; the map is described honestly as county-level. | pass: The map feature is \"It could look up your address\"; the county-level limit is stated; the app fix makes no outcome claim."
+      }
+    },
+    "sleep-no-planes": {
+      "actionable": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "'Look up whether there's a noise group for your nearest airport and read their latest update' is real but slow to matter. | \"Look up whether there's a noise group for your nearest airport\" is real but slow to matter. | \"Write down the time of the next plane that wakes you, and find your airport's noise complaint page\" is concrete; the organizing path is slow."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Moving from personal earplugs to organizing neighbors, plus 'one organized record' instead of 'a single email', is a useful twist. | Organizing against night flights is a known idea; the pooled-record idea adds a modest twist. | \"A stack of dated complaints from many households is much harder to set aside than a single email\" turns complaining into leverage."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "'In Frankfurt, neighbors took the airport to court and won a ban on flights between 11pm and 5am'. | Frankfurt, \"a ban on flights between 11pm and 5am\", is concrete but has no year in the copy. | Frankfurt neighbors \"won a ban on flights between 11pm and 5am\"; no year given."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "That residents won an actual nightly flight ban in court is a precedent worth repeating. | Residents winning a court ban on night flights is a precedent worth repeating. | That residents won a court ban on night flights would be repeated to a friend."
+      },
+      "voice": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "Honest and unhurried ('The fight took years'), with a clear title, 'No planes over my house at night'. | Honest and calm: \"The fight took years, and the ban came as part of a dispute over a new runway.\" | \"The fight took years, and the ban came as part of a dispute over a new runway\" is calm, honest mentor talk; the titles are plain actions."
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Changes who decides when planes fly: 'Residents, local officials and the courts'. | Changes who decides: \"Residents, local officials and the courts\". | Changes who decides when planes fly over homes."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Frankfurt's context is stated ('part of a dispute over a new runway'); the pooled record is 'It could'. The FAA process is described generally and labeled an existing resource. | pass: Frankfurt's limits are stated; the complaint process is hedged with \"usually\"; the pooled record is \"It could\". | pass: Frankfurt's limits are stated plainly; the pooled record is \"It could help\" with proposed status; the FAA process is described only generally."
+      }
+    },
+    "sleep-protect-by-law": {
+      "actionable": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "'Look up who your state representative is and save their contact page' is a real step but far from better sleep. | \"Look up who your state representative is and save their contact page\" is quick but only a setup step. | \"Look up who your state representative is and save their contact page\" is quick, though it doesn't change much by itself."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Telling lawmakers 'which year-round time you'd want' is a mild twist; 'laws that protect sleep' is otherwise broad. | Writing to representatives is familiar; asking which year-round time you'd want is a small twist. | 'Write your representative' is familiar; \"tell your representative which year-round time you'd want\" adds a useful twist."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Resistbot's '35 million letters' is named but has nothing to do with sleep; the AASM position has no year or result. | Resistbot \"35 million letters\" and the sleep doctors' group are named, but neither is tied to a sleep result. | Resistbot's \"35 million letters\" and the sleep academy's position are named, but neither is a sleep result."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "That sleep doctors 'want to end clock changes and keep standard time' is the one surprising element. | Mostly predictable from the title \"Laws that protect sleep\". | Sleep doctors wanting \"standard time all year\" is the one surprising element."
+      },
+      "voice": {
+        "score": 3,
+        "mean": 3,
+        "reason": "'Join others asking representatives for laws that protect sleep' is roundabout, and the dream line is long and listy. | \"Join others asking representatives for laws that protect sleep\" is roundabout, and the dream line is long and abstract. | The title and dream line read as a list (\"Night flights, late work messages and clock changes are covered by rules\"); plain but broad."
+      },
+      "power": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "Aims to change rules so 'I'm not fighting them alone', but the step only reaches one representative. | Aims at rules that change who decides: \"covered by rules that protect sleep\". | Aims at laws, which changes who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Clock time is offered as a choice ('Others in Congress prefer permanent daylight time'), and the lobbying tool is 'It could'. | pass: Clock-change policy is offered with both sides (\"Others in Congress prefer permanent daylight time\"); the mass-letter idea is \"It could\". | pass: The clock fix offers both sides (\"Others in Congress prefer permanent daylight time\"); the lobbying tool is \"It could help\"; Resistbot is not credited with sleep results."
+      }
+    },
+    "sleep-work-quiet": {
+      "actionable": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "'Suggest a simple rule, like no work messages between 8pm and 8am, and see who's in' is concrete, though it needs coworkers to agree. | \"Suggest a simple rule, like no work messages between 8pm and 8am, and see who's in\" is specific, though socially harder than 20 minutes suggests. | \"Suggest a simple rule, like no work messages between 8pm and 8am, and see who's in\" is a 10-minute step that moves something."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Your team doesn't need a law to agree on the same thing' turns a foreign law into something I can do on Monday. | \"Your team doesn't need a law to agree on the same thing\" turns a foreign law into something I can do Monday. | \"Your team doesn't need a law to agree on the same thing\" turns a national law into a team habit."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Portugal's law 'passed... in 2021, in effect since 2022', with a serious-violation penalty, but no sleep outcome. | Portugal, \"passed a law in 2021, in effect since 2022\", with a \"serious violation\" rule; no outcome number. | Portugal's law \"passed in 2021, in effect since 2022\", where contact counts \"as a serious violation\"."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "That a whole country bars employers from contacting staff after hours is a fact people repeat. | A country making late work contact a violation is something I'd repeat. | That a country bars bosses from contacting staff after hours is worth repeating."
+      },
+      "voice": {
+        "score": 5,
+        "mean": 5,
+        "reason": "'When I finish work, I'm actually finished' and 'how considerate your boss happens to be' sound like a candid mentor. | Candid mentor tone: \"There's no data yet on how well the law is enforced or whether people sleep better\". | \"When I finish work, I'm actually finished\" and \"instead of leaving it to how considerate your boss happens to be\" sound like a candid mentor."
+      },
+      "power": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "Changes who decides about my evenings: the team, and then 'Lawmakers, unions and workers'. | Shifts who decides when I can be reached, from my boss to the team or the law. | Changes who controls evening time, from the team to the law."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Says plainly 'There's no data yet on how well the law is enforced or whether people sleep better'. | pass: Explicitly says there's no enforcement or sleep data; the law is offered as something to ask for. | pass: Says plainly \"There's no data yet on how well the law is enforced or whether people sleep better\"; the law is offered as an ask."
+      }
+    },
+    "sleep-teen-start": {
+      "actionable": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "'Find the date of the next board meeting and how to sign up to speak' is quick and leads to a real ask. | \"Find the date of the next board meeting and how to sign up to speak\" is quick and real. | \"Find the date of the next board meeting and how to sign up to speak\" is a 10-minute step with a clear path."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Recasts a teen who won't wake up as a school schedule problem: 'My teenager wakes up on their own'. | Later school start times are a known idea, made useful by the Seattle numbers. | Turns a parent's morning fight into a school-board question with numbers \"everyone\" can point to."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "'Seattle moved high school start times from 7:50 to 8:45 in 2016, teens slept about 34 minutes more'. | \"Seattle moved high school start times from 7:50 to 8:45 in 2016, teens slept about 34 minutes more\". | Seattle moved start times \"from 7:50 to 8:45 in 2016, teens slept about 34 minutes more\"."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "An hour's later start buying 34 more minutes of sleep and better grades is worth repeating. | The 34 minutes is a good fact, but the idea is widely discussed and fits only parents of teens. | \"34 minutes more\" from a start-time change is a fact parents repeat."
+      },
+      "voice": {
+        "score": 5,
+        "mean": 5,
+        "reason": "A plain title and an honest limit: 'The study covered only two schools, so your district would be the real test'. | Exactly the guide's voice: \"The study covered only two schools, so your district would be the real test.\" | \"The study covered only two schools, so your district would be the real test\" gives one plain limit in a warm voice; the title is a plain action."
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Changes what the institution decides: 'Parents, teachers and the school board'. | Changes who decides the schedule: \"Parents, teachers and the school board\". | Changes an institutional schedule for every teen in the district."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The limits to 'only two schools' and grades in 'one class' are stated, and nothing is overstated. | pass: The two-school limit is stated and the grades claim is limited to \"one class\". | pass: Limits are faithful to the exemplar (two schools, \"grades in one class\"); nothing is overstated."
+      }
+    },
+    "sleep-separate-rooms": {
+      "actionable": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "'Pick a start date together and decide who gets which room' is a 10-minute step that changes tonight. | \"Pick a start date together and decide who gets which room\" is simple and concrete. | \"Pick a start date together and decide who gets which room\" takes 10 minutes and starts the change."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Reframes separate rooms as normal: 'it doesn't have to mean anything is wrong between you'. | Reframes sleeping apart as ordinary: \"it doesn't have to mean anything is wrong between you\". | Reframes sleeping apart: \"it doesn't have to mean anything is wrong between you.\""
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "'More than a third of American adults' is a real number, but the copy names no source or year. | \"More than a third of American adults\" has a number but no source or year in the copy. | \"More than a third of American adults\" gives a number but no named source or year in the copy."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "That over a third of adults sleep apart at least sometimes surprises most readers. | That more than a third of adults sleep apart at least sometimes is a fact people repeat. | That more than a third of adults sleep apart at least sometimes is a fact people repeat."
+      },
+      "voice": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Warm and nonjudging: 'My partner and I both sleep through the night, even if that means separate rooms some nights'. | Warm and non-judging: \"Sleeping apart is common, and it doesn't have to mean anything is wrong between you.\" | Warm and non-judging: \"even if that means separate rooms some nights\"; the title says exactly what changes."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "A meaningful change inside my own household, but only that. | Changes my own household's conditions. | A meaningful personal and relational change, plus getting snoring treated."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Stated as a poll-style fact with no claim about relationships; snoring is 'sometimes a treatable condition', not a diagnosis. | pass: Presents the survey as how common it is, not as proof it helps relationships; apnea fix says \"sometimes\". | pass: The poll figure is stated without claims about relationship quality; snoring is \"sometimes a treatable condition\", not a diagnosis."
+      }
+    },
+    "sleep-shift-schedule": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Mark every time a shift started earlier than the one before' is concrete; asking a coworker to share a ride is even quicker. | \"Write down your last two weeks of shift start times and mark every time a shift started earlier\" is specific, about 15 minutes. | \"mark every time a shift started earlier than the one before\" is a concrete 15-minute step; the ride share is even quicker."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Most shift workers haven't heard that shift order matters: 'days to afternoons to nights rather than the other way around'. | Rotation direction is something most shift workers haven't heard of. | The order of shifts (\"days to afternoons to nights\") is something most shift workers haven't thought to ask about."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'North Yorkshire Police in the UK' with 'four days off' and 'about two hours of sleep' lost, but no year in the copy. | North Yorkshire Police with \"about two hours of sleep\" lost on nights; no year. | North Yorkshire Police, with \"night shifts still cost people about two hours of sleep\"; no year."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "'Two people reported nodding off at the wheel' is striking, though it's a warning more than hope. | \"two people reported nodding off at the wheel\" is sobering, but the main result undercuts the fix. | \"two people reported nodding off at the wheel\" makes you stop."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Candid about weak evidence ('though the evidence is limited'), with a clear dream title. | \"though the evidence is limited\" plus \"night shifts still cost people about two hours\" stacks caveats, leaving the reader unsure why to try it. | Candid (\"though the evidence is limited\"); the first fix text carries two qualifiers, slightly stacked."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Asks 'Shift workers, schedulers and unions' to change the schedule itself. | Asks schedulers and unions to change the rota, which shifts who decides. | Asks schedulers and unions to change how shifts are set."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Doesn't oversell: says the evidence is limited and that nights 'still cost people about two hours of sleep'. | pass: Openly says the evidence is limited and reports the weak result plainly. | pass: Doesn't oversell forward rotation (\"evidence is limited\", nights \"still cost\" sleep); the driving advice is low-risk."
+      }
+    },
+    "sleep-steady-wake": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "'Set one alarm for the same time every day this week and delete the others' is about as concrete as it gets. | \"Set one alarm for the same time every day this week and delete the others\" is a five-minute step. | \"Set one alarm for the same time every day this week and delete the others\" is immediate and specific."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "A well-chosen basic made useful by 'weekends included' and 'get up and come back when you feel sleepy'. | \"Get up and read in another room when you can't sleep\" is counterintuitive to most people lying awake. | \"Lying awake teaches your brain that bed is a place for worrying\" gives the familiar 'get up' advice its reason."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "'A large insomnia trial in England' and 'Sleepio' are named thinly, with no numbers. | \"a large insomnia trial in England\" and \"Sleepio\" are named with no numbers. | Refers to \"a large insomnia trial in England\" and Sleepio, with no numbers attached here."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "A steady wake-up time is predictable from the title. | \"Lying awake teaches your brain that bed is a place for worrying\" is one surprising idea. | Getting out of bed when you can't sleep is the one counterintuitive element."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Plain and kind: 'Put a lamp and a paper book in another room tonight, ready for if you need them'. | Plain and kind; \"gives your body clock something to set itself by\" is clear, if a little impersonal. | Plain and kind (\"ready for if you need them\"); the dream line is clear but generic."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Changes my own routine only. | Personal routine change inside unchanged conditions. | A personal habit change within unchanged conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Low-risk habits tied to the trials they come from, with no outcome claims beyond them. | pass: Claims are framed as what the trial and course taught; the HABIT exemplar's clinical caveats apply to sleep restriction, not a fixed wake time alone. | pass: Low-risk habits tied accurately to the trial and course content; no outcome overclaimed."
+      }
+    },
+    "sleep-phone-outside": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "'Plug your charger in somewhere in the kitchen tonight and set an old-fashioned alarm' is immediate. | \"Plug your charger in somewhere in the kitchen tonight\" is as easy as it gets. | \"Plug your charger in somewhere in the kitchen tonight and set an old-fashioned alarm\" is immediate."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "A familiar basic made useful by the household twist: 'phones in the kitchen from 10pm this week'. | Phone out of the bedroom is the first thing anyone would say; \"A cheap alarm clock\" is the only added detail. | A well-chosen basic made useful by \"A cheap alarm clock covers the one thing you actually needed it for.\""
+      },
+      "namedExample": {
+        "score": 1,
+        "mean": 1,
+        "reason": "No example on either fix. | No example at all. | No example in either fix."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 1.67,
+        "reason": "'Move your phone charger to the kitchen' is the advice anyone expects. | Fully predictable from the title. | Predictable from the title; the household phone bedtime is a small twist."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Gently wry and practical: 'A cheap alarm clock covers the one thing you actually needed it for'. | Natural and unpreachy: \"covers the one thing you actually needed it for\". | Plain and lightly wry; the dream line \"a book, not my phone\" leans toward a contrast line."
+      },
+      "power": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "Changes my own room and, at most, my household's habits. | Coping within unchanged conditions; the household version adds a little. | Changes my own room and household habits."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Makes no evidence claims and simply describes common-sense practice. | pass: Makes no claims beyond common sense and cites no evidence it doesn't have. | pass: Makes no research claims; speaks only to convenience (\"stops being the easy option\")."
+      }
+    },
+    "sleep-loud-vehicles": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'Email your city council member about the Paris noise camera' is specific, but results are slow. | \"Email your city council member about the Paris noise camera and name the street that keeps you up\" is concrete. | \"Email your city council member about the Paris noise camera and name the street that keeps you up\" is 10 minutes and specific."
+      },
+      "nonObvious": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "Few people know you can catch loud vehicles by noise: 'pairs microphones with a camera... read its plate'. | Most people assume loud cars are unenforceable; a camera that \"can tell which vehicle made the noise\" is new. | A camera that hears which car is loud and \"read its plate\" is something most people haven't thought of."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "'In 2022 Paris' with a lamppost device is named and dated, but there's no result yet. | Paris, 2022, \"pairs microphones with a camera\"; no number or result yet. | Paris, 2022, a lamppost device with microphones and a camera; no result number."
+      },
+      "surprise": {
+        "score": 5,
+        "mean": 5,
+        "reason": "A camera that tickets cars for being loud is a fact I'd repeat. | A lamppost that hears a loud car and \"read its plate\" is a fact I'd repeat to a friend. | Noise cameras that fine by plate are worth telling a friend about."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "A clear title and plain text, with the trial status said calmly: 'The city treated it as a trial at first'. | Clear and matter-of-fact; the dream line \"get caught and fined\" is a bit punitive for a mentor. | Plain and honest; the dream line \"get caught and fined\" is a little punitive for the mentor voice."
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Moves enforcement to 'Your city council and police' instead of me coping with it. | Changes what the city enforces: \"Your city council and police\". | Moves enforcement onto the people making the noise through the city."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Calls Paris a trial 'with fines planned for later'; it doesn't claim fines or noise reductions happened. | pass: Says it was a trial \"with fines planned for later\", matching the exemplar limits. | pass: \"The city treated it as a trial at first, with fines planned for later\" matches the exemplar's limits; offered as an ask."
+      }
+    },
+    "sleep-employer-rest": {
+      "actionable": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "'Send HR the story and ask whether something similar could work here' is real but awkward and slow to matter. | \"Send HR the story and ask whether something similar could work here\" is real but awkward and unlikely to move fast. | \"Send HR the story and ask whether something similar could work here\" is quick but easy to brush off."
+      },
+      "nonObvious": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Paying staff to sleep, and asking for 'a version with no tracking app', is something I hadn't thought of. | Being paid to sleep is something I had not thought of. | Paying people to sleep, with \"a version with no tracking app\", is a fresh angle."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "'Crazy Inc., a wedding company in Tokyo' and 'about $570 a year' are concrete, but there's no year or outcome. | Crazy Inc., Tokyo, \"up to ¥64,000 (about $570) a year\" for \"six hours or more on five nights a week\". | Crazy Inc. in Tokyo, \"up to ¥64,000 (about $570) a year\" for six hours on five nights."
+      },
+      "surprise": {
+        "score": 5,
+        "mean": 5,
+        "reason": "A company that rewards 'sleeping six hours or more' is a story I'd tell a friend. | A company paying staff to sleep is a story people repeat. | A company that pays staff in points for sleeping makes you stop."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Plain and considerate about privacy: 'without your employer seeing your nights'. | The main fix text is a bare fact with no warmth or why-it-helps; the privacy fix is clearer and kinder. | Clear titles and a plain privacy point (\"without your employer seeing your nights\"); the dream line is slightly corporate."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Changes what the employer rewards: 'HR, managers and staff'. | Changes what the employer pays for and rewards. | Changes what the employer pays for and keeps sleep data private."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Reports the program as one firm's practice without claiming results, and raises the tracking concern itself. | pass: Reports the program as what one company does; the privacy fix addresses the tracking limit. Not noting it is one small firm is a minor omission. | pass: The example is stated as what one firm does with no outcome claimed; the privacy concern is raised plainly."
+      }
+    }
+  },
+  "pairwise": [],
+  "consensus": {
+    "sleep-dark-quiet-room": {
+      "borda": 32,
+      "ranks": [
+        3,
+        1,
+        9
+      ],
+      "spread": 8,
+      "honestVotes": "3/3 pass"
+    },
+    "sleep-without-pills": {
+      "borda": 40,
+      "ranks": [
+        1,
+        3,
+        1
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "sleep-know-whats-wrong": {
+      "borda": 12,
+      "ranks": [
+        10,
+        12,
+        11
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "sleep-noise-near-me": {
+      "borda": 13,
+      "ranks": [
+        11,
+        9,
+        12
+      ],
+      "spread": 3,
+      "honestVotes": "3/3 pass"
+    },
+    "sleep-no-planes": {
+      "borda": 25,
+      "ranks": [
+        6,
+        7,
+        7
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "sleep-protect-by-law": {
+      "borda": 6,
+      "ranks": [
+        13,
+        13,
+        13
+      ],
+      "spread": 0,
+      "honestVotes": "3/3 pass"
+    },
+    "sleep-work-quiet": {
+      "borda": 39,
+      "ranks": [
+        2,
+        2,
+        2
+      ],
+      "spread": 0,
+      "honestVotes": "3/3 pass"
+    },
+    "sleep-teen-start": {
+      "borda": 29,
+      "ranks": [
+        4,
+        8,
+        4
+      ],
+      "spread": 4,
+      "honestVotes": "3/3 pass"
+    },
+    "sleep-separate-rooms": {
+      "borda": 31,
+      "ranks": [
+        5,
+        6,
+        3
+      ],
+      "spread": 3,
+      "honestVotes": "3/3 pass"
+    },
+    "sleep-shift-schedule": {
+      "borda": 18,
+      "ranks": [
+        9,
+        10,
+        8
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "sleep-steady-wake": {
+      "borda": 12,
+      "ranks": [
+        12,
+        11,
+        10
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "sleep-phone-outside": {
+      "borda": 3,
+      "ranks": [
+        14,
+        14,
+        14
+      ],
+      "spread": 0,
+      "honestVotes": "3/3 pass"
+    },
+    "sleep-loud-vehicles": {
+      "borda": 29,
+      "ranks": [
+        7,
+        4,
+        5
+      ],
+      "spread": 3,
+      "honestVotes": "3/3 pass"
+    },
+    "sleep-employer-rest": {
+      "borda": 26,
+      "ranks": [
+        8,
+        5,
+        6
+      ],
+      "spread": 3,
+      "honestVotes": "3/3 pass"
+    }
+  },
+  "seed": 17
+}

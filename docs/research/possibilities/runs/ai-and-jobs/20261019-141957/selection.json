@@ -1,0 +1,89 @@
+{
+  "finalists": [
+    "ai-fair-hiring-software",
+    "ai-staff-not-replaced",
+    "ai-know-ahead",
+    "ai-comfortable-with-tools",
+    "ai-coworkers-decide"
+  ],
+  "auditSample": [
+    "ai-public-retraining",
+    "ai-young-workers"
+  ],
+  "seed": 17,
+  "itLedGuaranteed": "ai-coworkers-decide",
+  "itLedMissing": false,
+  "ranking": [
+    {
+      "cardId": "ai-fair-hiring-software",
+      "wins": 42,
+      "meanScore": 4.5
+    },
+    {
+      "cardId": "ai-staff-not-replaced",
+      "wins": 37,
+      "meanScore": 4
+    },
+    {
+      "cardId": "ai-know-ahead",
+      "wins": 33,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "ai-comfortable-with-tools",
+      "wins": 32,
+      "meanScore": 4
+    },
+    {
+      "cardId": "ai-growing-work",
+      "wins": 31,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "ai-union-contract",
+      "wins": 28,
+      "meanScore": 4
+    },
+    {
+      "cardId": "ai-know-my-tasks",
+      "wins": 23,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "ai-coworkers-decide",
+      "wins": 17,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "ai-public-retraining",
+      "wins": 17,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "ai-experience-counts",
+      "wins": 15,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "ai-young-workers",
+      "wins": 15,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "ai-money-cushion",
+      "wins": 15,
+      "meanScore": 3.33
+    },
+    {
+      "cardId": "ai-field-updates",
+      "wins": 6,
+      "meanScore": 3
+    },
+    {
+      "cardId": "ai-calm-conversation",
+      "wins": 4,
+      "meanScore": 3
+    }
+  ],
+  "excluded": []
+}

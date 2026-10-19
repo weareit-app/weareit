@@ -1,0 +1,778 @@
+{
+  "schemaVersion": 1,
+  "painId": "nobody-covers-here",
+  "runId": "20261019-175406",
+  "cards": {
+    "news-agendas-in-inbox": {
+      "title": "Knowing what my town will vote on before the meeting",
+      "line": "I know what my city council and school board will vote on while there’s still time to say something.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "news-agendas-in-inbox-signup",
+          "title": "Sign up for agenda emails from your city and school board",
+          "whatChanges": "Most city, county and school board websites have a meetings page, and many let you get the agenda by email when it’s posted. In Whatcom and Skagit counties in Washington, the local paper keeps one guide to city, county and school board meetings, with agendas and recordings.",
+          "who": "You",
+          "exemplarRef": "cascadia-meetings",
+          "speculative": false,
+          "firstStep": "Search your city’s name plus “agendas,” open the meetings page, and look for a “notify me” or email sign-up link.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "news-agendas-in-inbox-alert",
+          "title": "Set a free email alert for your town’s name",
+          "whatChanges": "Google Alerts emails you when something new online mentions a phrase you choose, like your town’s name plus “school board” or the name of the road being widened. In a town with little coverage you won’t get many emails, but the ones you get tend to matter.",
+          "who": "You",
+          "exemplarRef": "google-alerts",
+          "speculative": false,
+          "firstStep": "Make two alerts tonight: one for your town plus “city council” and one for your town plus “school board.”",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "news-agendas-in-inbox-skim",
+          "title": "Skim the first page of the next agenda",
+          "whatChanges": "Agendas look dull, but the first page usually lists every item up for a vote, and the attached staff reports explain each one in plain numbers. Ten minutes with one is often more than most residents ever see.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Open the next city council agenda and circle any item about your street, your school or your taxes.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "speculativeRationale": "Common practice; general description of agenda packets, no single source opened.",
+          "kind": "task"
+        },
+        {
+          "id": "news-agendas-in-inbox-lookup",
+          "title": "Agenda sign-ups for every board that covers your address",
+          "whatChanges": "Finds the meeting pages for your city, county and school board from your address and links each one’s email sign-up, so you can get every agenda in one sitting. In Whatcom and Skagit counties in Washington, a local newsroom keeps a guide like this by hand.",
+          "who": "You and It",
+          "exemplarRef": "cascadia-meetings",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down which city, county and school district you live in.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175406",
+        "locator": "cards.json#news-agendas-in-inbox",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Basics sweep: agendas and alerts."
+    },
+    "news-public-notices": {
+      "title": "Seeing public notices about my neighborhood before decisions are final",
+      "line": "When a hearing, rezoning or land sale is planned near me, I hear about it while I can still comment.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "news-public-notices-search",
+          "title": "Search the public notices for your county",
+          "whatChanges": "By law, governments publish notices of hearings, zoning changes, budgets and foreclosures, usually in a newspaper. State newspaper associations collect them on free search sites, and USA Legal Notice links many of them in one place.",
+          "who": "You",
+          "exemplarRef": "usa-legal-notice",
+          "speculative": false,
+          "firstStep": "Search your county’s public notices for the last month and note anything within a mile of home.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "news-public-notices-street",
+          "title": "Look up your street name in the notices",
+          "whatChanges": "Notices often name the exact address or road, so searching your own street turns a wall of legal text into a short list that’s actually about you.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Type your street name into your state’s notice search and read whatever comes up.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "speculativeRationale": "Follows from how notice sites are searched; not separately sourced.",
+          "kind": "learn"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175406",
+        "locator": "cards.json#news-public-notices",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Public notices are an overlooked basic."
+    },
+    "news-one-trusted-source": {
+      "title": "Having one local news source I actually read",
+      "line": "I have one place, a paper, a newsletter or a local station, that tells me what changed in my town this week.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "news-one-trusted-source-check",
+          "title": "Check how many news outlets still cover your county",
+          "whatChanges": "Northwestern’s Medill journalism school counted 213 counties across the country with no local news source in 2025, and about 50 million Americans with limited or no local news. The same count found more than 300 local news startups in five years, so there may be a newer source near you that you’ve never heard of.",
+          "who": "You",
+          "exemplarRef": "medill-news-deserts",
+          "speculative": false,
+          "firstStep": "Open the Medill local news map, find your county, and write down the outlets it lists.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "news-one-trusted-source-subscribe",
+          "title": "Subscribe to the local paper or newsroom newsletter you find",
+          "whatChanges": "A free email newsletter from a local newsroom is the easiest habit to keep. If there’s a paywall, ask your library whether a card includes digital access to the local paper; some do.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Sign up for one local newsletter today and give it a month before deciding.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "speculativeRationale": "Common practice; no specific library offer page opened in this run.",
+          "kind": "task"
+        },
+        {
+          "id": "news-one-trusted-source-radio",
+          "title": "Find your local public radio station’s newscast",
+          "whatChanges": "Many public radio stations air short local newscasts that are free to hear. The station often covers the whole region more than your own town, but it’s a steady place to start.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Look up your nearest public radio station and note when its local news airs.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "speculativeRationale": "Common practice; no station or report page opened that supports a specific claim, so the copy names none.",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175406",
+        "locator": "cards.json#news-one-trusted-source",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Basics: subscribe, library, radio."
+    },
+    "news-neighbors-forum": {
+      "title": "Hearing from neighbors about what’s going on nearby",
+      "line": "If the road’s closing or the library’s cutting hours, someone on my street mentions it and I see it the same day.",
+      "lens": "relational",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "news-neighbors-forum-join",
+          "title": "Join your neighborhood’s email forum or list",
+          "whatChanges": "Front Porch Forum started in Vermont in 2006 and is now in all 251 towns there, as a once-a-day email for each town or neighborhood. Outside Vermont, many neighborhoods have a similar email list or online group that’s easy to miss.",
+          "who": "You",
+          "exemplarRef": "front-porch-forum",
+          "speculative": false,
+          "firstStep": "Ask a neighbor or your neighborhood association whether there’s an email list for your area, and join it.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "group"
+        },
+        {
+          "id": "news-neighbors-forum-join-start",
+          "title": "Start a neighborhood email forum",
+          "whatChanges": "Front Porch Forum organizers in Vermont found a neighborhood forum starts to work once about 100 residents join, so begin with a few nearby streets and grow from there.",
+          "who": "You and your neighbors",
+          "exemplarRef": "front-porch-forum",
+          "speculative": false,
+          "firstStep": "Ask three neighbors whether they’d read a shared neighborhood email and collect their addresses.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "new-group"
+        },
+        {
+          "id": "news-neighbors-forum-share",
+          "title": "Share one meeting note with your neighbors each month",
+          "whatChanges": "Most people won’t read an agenda, but they’ll read two sentences from a neighbor about what the council decided on the park. Being that neighbor is a small, useful job.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "After the next meeting, post a two-sentence summary to your neighborhood group or email list.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "speculativeRationale": "Relational practice; no specific study opened.",
+          "kind": "schedule"
+        },
+        {
+          "id": "news-neighbors-forum-threshold",
+          "title": "Neighborhood forum that starts when enough neighbors want one",
+          "whatChanges": "Lets you say privately that you’d read a neighborhood email forum, and starts one for your area only once enough neighbors nearby say the same. Front Porch Forum organizers in Vermont found a forum starts to work once about 100 residents join.",
+          "who": "You, your neighbors and It",
+          "exemplarRef": "front-porch-forum",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and ask one neighbor whether they’d read it too.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175406",
+        "locator": "cards.json#news-neighbors-forum",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "news-paid-documenter": {
+      "title": "Getting paid to sit in on public meetings",
+      "line": "I go to a few meetings a month, take notes for my neighbors, and get paid for my time.",
+      "lens": "community",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "news-paid-documenter-apply",
+          "title": "Sign up to take paid notes at local meetings",
+          "whatChanges": "Since 2018, a Chicago nonprofit called City Bureau has trained residents to attend public meetings, take notes and get paid for their time. In 2022 every site paid more than $15 an hour and Minneapolis paid $20, and rates now vary by city.",
+          "who": "You",
+          "exemplarRef": "documenters-network",
+          "speculative": false,
+          "firstStep": "Check documenters.org for a program near you and sign up for the next orientation.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "group"
+        },
+        {
+          "id": "news-paid-documenter-scale",
+          "title": "Ask what meetings in your area go uncovered",
+          "whatChanges": "In Cleveland, Documenters covered more than 1,400 public meetings in five years, and their notes informed more than 700 news stories. That count comes from the newsroom that runs the program, in one city.",
+          "who": "You",
+          "exemplarRef": "signal-cleveland-documenters",
+          "speculative": false,
+          "firstStep": "List the boards in your town, like planning, zoning and health, and check which ones had no news story about them last year.",
+          "firstStepMinutes": 20,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "news-paid-documenter-uncovered",
+          "title": "Uncovered public meetings near you",
+          "whatChanges": "Lists the public boards in your town, shows which ones nobody has taken notes at or reported on recently, and matches you with one that meets when you’re free.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and list the boards in your town that meet on evenings you’re free.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Feature idea built from public meeting calendars; no tool that tracks uncovered meetings was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175406",
+        "locator": "cards.json#news-paid-documenter",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "news-cover-every-meeting": {
+      "title": "Someone from my town at every public meeting",
+      "line": "Every council, school board and planning meeting in my town has someone there taking notes that anyone can read.",
+      "lens": "community",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "news-cover-every-meeting-host",
+          "title": "Ask a local library or newsroom to host a notes program",
+          "whatChanges": "In 2023 New Jersey’s state-created news consortium announced a partnership with City Bureau to pay residents $20 an hour to document local meetings. Some New Jersey sites are now paused, so check what’s active near you before you ask.",
+          "who": "Libraries, newsrooms and community groups",
+          "exemplarRef": "nj-documenters",
+          "speculative": false,
+          "firstStep": "Email your library director to ask whether they’d host volunteers or paid note-takers at public meetings.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "news-cover-every-meeting-foundation",
+          "title": "Ask your community foundation to fund local meeting coverage",
+          "whatChanges": "Documenters programs pay residents to take notes at public meetings, and that money usually has to be raised locally. Community foundations already fund things like libraries and parks, so asking whether yours would fund meeting coverage is a fair question.",
+          "who": "Community foundation and residents",
+          "exemplarRef": "documenters-network",
+          "speculative": false,
+          "firstStep": "Find your area’s community foundation online and look for whether it has ever funded local news.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "news-cover-every-meeting-joint-request",
+          "title": "Joint request for paid meeting coverage",
+          "whatChanges": "Gathers residents behind one request to a library, newsroom or community foundation to host a paid notes program, tracks who has signed on, and sends it together. In 2023 New Jersey’s state-created news consortium partnered with City Bureau to pay residents $20 an hour to document local meetings, which gives the request a model.",
+          "who": "You, your neighbors and It",
+          "exemplarRef": "nj-documenters",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and ask two neighbors whether they’d sign a request to your library.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175406",
+        "locator": "cards.json#news-cover-every-meeting",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "news-state-funds-reporters": {
+      "title": "My state paying to keep local reporters on the job",
+      "line": "The reporters who cover my county have steady pay, and my state helped make that happen without telling them what to write.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "news-state-funds-reporters-credit",
+          "title": "Ask your state legislator about a tax credit for local reporters",
+          "whatChanges": "In 2025, the first year of Illinois’s payroll tax credit for local news, more than $4 million in credits supported more than 260 local journalist jobs at 55 news organizations, and over half the money went outside the Chicago area. Most of the money set aside for hiring new reporters went unclaimed, according to an advocacy group that helped design the law.",
+          "who": "You and your state legislator",
+          "exemplarRef": "illinois-tax-credit",
+          "speculative": false,
+          "firstStep": "Look up your state legislator and send a short note asking whether they’d support a local journalism tax credit like Illinois’s.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "news-state-funds-reporters-consortium",
+          "title": "Push for an independent state fund for local news",
+          "whatChanges": "New Jersey created a civic information consortium in 2018 after residents organized for it, and it gives grants through an independent nonprofit board instead of state agencies. Some people worry that any government money weakens a paper’s independence, so the way the money is handed out matters as much as the amount.",
+          "who": "Residents, universities and state lawmakers",
+          "exemplarRef": "nj-consortium",
+          "speculative": false,
+          "firstStep": "Read the New Jersey consortium’s list of grants and pick one you’d want in your state.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "news-state-funds-reporters-fellows",
+          "title": "Ask your state university about placing new reporters in local newsrooms",
+          "whatChanges": "Washington’s legislature set aside $2.4 million in 2023 to place eight recent graduates a year in local newsrooms for two years, copying a California program. Funding was cut two years later, which shows why these programs need steady support.",
+          "who": "State universities and lawmakers",
+          "exemplarRef": "washington-fellowship",
+          "speculative": false,
+          "firstStep": "Search your state university’s journalism school for a local news fellowship and note who runs it.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "news-state-funds-reporters-tax-credit-campaign",
+          "title": "Shared request for a local news tax credit",
+          "whatChanges": "Gathers residents in one legislative district behind a request for a local journalism tax credit like Illinois’s, tracks who has signed on, and sends it to the legislator together. In its first year, Illinois’s credit supported more than 260 local journalist jobs at 55 news organizations.",
+          "who": "You, your neighbors and It",
+          "exemplarRef": "illinois-tax-credit",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and look up your state legislator’s email address.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175406",
+        "locator": "cards.json#news-state-funds-reporters",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Contested: government funding of news. Included independence concern and two models."
+    },
+    "news-keep-notices-public": {
+      "title": "Public notices staying where ordinary people can find them",
+      "line": "When my county plans a hearing or a sale, the notice goes somewhere I’ll see it, not buried on a page nobody visits.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "news-keep-notices-public-bills",
+          "title": "Follow your state’s bills about where public notices go",
+          "whatChanges": "Arizona, Iowa, Florida and Rhode Island have all weighed letting local governments post notices on their own websites instead of in newspapers. Newspapers say this hides notices and costs them income; governments say it saves money, and people reasonably disagree.",
+          "who": "Residents and state lawmakers",
+          "exemplarRef": "notice-bills",
+          "speculative": false,
+          "firstStep": "Search your state legislature’s site for “public notice” bills this session and read one summary.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "news-keep-notices-public-ask",
+          "title": "Ask your county to email notices to anyone who signs up",
+          "whatChanges": "Whichever side you take on newspapers, an email list for notices by neighborhood is cheap and puts the information in front of the people it affects.",
+          "who": "Residents and county clerk",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Email your county clerk asking whether residents can sign up for notices by area.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "speculativeRationale": "A reasonable middle path; no county with this exact feature was opened in this run.",
+          "kind": "task"
+        },
+        {
+          "id": "news-keep-notices-public-bill-alerts",
+          "title": "Alerts when public notice bills move in your state",
+          "whatChanges": "Tracks bills in your state legislature about where public notices are published, and tells you when one gets a hearing or a vote so you can comment in time. Plural publishes open legislative data for every state, so the bills can be followed.",
+          "who": "You and It",
+          "exemplarRef": "plural-legislators",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and search your legislature’s site for “public notice” bills this session.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175406",
+        "locator": "cards.json#news-keep-notices-public",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Contested: newspaper notice requirement. Two directions shown."
+    },
+    "news-reporter-in-county": {
+      "title": "A full-time reporter covering my county again",
+      "line": "Someone whose job is my county goes to the meetings, reads the budgets and tells us what they found.",
+      "lens": "market",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "news-reporter-in-county-host",
+          "title": "Encourage your local paper to apply for a funded reporter",
+          "whatChanges": "Report for America placed 107 new reporters in 101 local newsrooms in 2025, paying a large share of each salary for up to three years. The newsroom has to raise the rest locally, which is where readers and local businesses come in.",
+          "who": "Local newsroom, readers and businesses",
+          "exemplarRef": "report-for-america",
+          "speculative": false,
+          "firstStep": "Email your local editor to ask whether they’ve considered applying to Report for America.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "news-reporter-in-county-match",
+          "title": "Pledge a small amount toward a local reporter’s salary",
+          "whatChanges": "The local share of a funded reporter’s salary often comes from readers and nearby businesses, not one big donor. Asking what a beat would cost makes the request concrete.",
+          "who": "Readers",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Ask your local newsroom whether it takes reader support for a specific beat, and what amount would help.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "speculativeRationale": "Follows from the Report for America matching model; no source on reader-funded beats opened.",
+          "kind": "task"
+        },
+        {
+          "id": "news-reporter-in-county-shared-reporting",
+          "title": "Shared reporting by neighbors in your county",
+          "whatChanges": "Lets neighbors split up meetings and public records, share sources and notes, and publish what they find together, so a county without a reporter still gets covered. Documenters programs work this way with paid residents in about two dozen cities.",
+          "who": "You, your neighbors and It",
+          "exemplarRef": "documenters-sites",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down one local meeting or record you’d be willing to look into.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "news-reporter-in-county-pooled-fund",
+          "title": "Pooled funding for a county reporter",
+          "whatChanges": "Lets readers and local businesses pledge toward a reporter’s salary in one place and shows where the money goes. Report for America pays a large share of a new reporter’s salary for up to three years, and the newsroom has to raise the rest locally.",
+          "who": "Readers, local businesses and It",
+          "exemplarRef": "report-for-america",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and ask your local editor what a year of county coverage would cost.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175406",
+        "locator": "cards.json#news-reporter-in-county",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "news-answers-by-text": {
+      "title": "Getting straight answers about local problems that affect me",
+      "line": "When I get an eviction notice or a strange tax bill, I can ask someone who knows the local rules and get a real answer.",
+      "lens": "market",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "news-answers-by-text-ask",
+          "title": "Text a question to a local newsroom that answers residents",
+          "whatChanges": "Since 2016, Outlier Media in Detroit has answered residents’ questions about eviction, property taxes and utility shutoffs by text, and people can also talk one-on-one with a reporter. Outlier says it lets the community decide what it covers.",
+          "who": "You and a local newsroom",
+          "exemplarRef": "outlier-media",
+          "speculative": false,
+          "firstStep": "If you’re in Detroit, text DETROIT to 67485; elsewhere, email your local newsroom one question you can’t get answered.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "news-answers-by-text-pitch",
+          "title": "Suggest a question-answering service to your local newsroom",
+          "whatChanges": "Many local newsrooms have tip lines but no promise to answer everyday questions. Outlier’s model is small and specific, starting with the problems that cost people money or housing.",
+          "who": "Readers and a local newsroom",
+          "exemplarRef": "outlier-media",
+          "speculative": false,
+          "firstStep": "Write down three questions about your town you’ve never been able to answer, and send them to a local editor.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "news-answers-by-text-answer-service",
+          "title": "Sourced answers to your local questions",
+          "whatChanges": "Takes your question about a local problem, like an eviction notice or a confusing tax bill, finds an answer backed by public records and local rules, and checks back to see whether it helped. Outlier Media in Detroit has answered residents’ questions this way by text since 2016.",
+          "who": "You and It",
+          "exemplarRef": "outlier-media",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down one local question you haven’t been able to answer.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175406",
+        "locator": "cards.json#news-answers-by-text",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "news-week-ahead": {
+      "title": "Knowing what’s coming up in my town this week",
+      "line": "Every week I get a short, plain summary of what my city, county and school board will decide, and what’s near me.",
+      "lens": "technology",
+      "ambition": "this-year",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "news-week-ahead-digest",
+          "title": "Get one weekly summary of upcoming local votes",
+          "whatChanges": "Gathers the agendas your city, county and school board already post and turns them into a short list of what’s up for a vote. Tools like Agenda Watch already collect meeting documents daily for journalists, so the documents can be gathered.",
+          "who": "You and It",
+          "exemplarRef": "agenda-watch",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and bookmark your city’s agenda page in the meantime.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "news-week-ahead-notices",
+          "title": "Get notices that mention your street or neighborhood",
+          "whatChanges": "Checks the public notice sites state newspaper associations run and tells you when a hearing, rezoning or sale is near your address. The search sites already exist; what’s missing is matching them to where you live.",
+          "who": "You and It",
+          "exemplarRef": "usa-legal-notice",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and search your street name in your state’s notice site tonight.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "news-week-ahead-coverage",
+          "title": "See how well your county is covered by local news",
+          "whatChanges": "Shows you the outlets that cover your county, using Northwestern’s count of local news sources, and suggests the newsletters and stations worth trying first.",
+          "who": "You and It",
+          "exemplarRef": "medill-maps",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down every local news source you already read.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175406",
+        "locator": "cards.json#news-week-ahead",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "It-led card. Feasibility: Agenda Watch, Councilmatic, notice sites, Medill maps."
+    },
+    "news-who-decides": {
+      "title": "Knowing who runs my town and how to reach them",
+      "line": "I know who my council member, school board member and state legislator are, and I’ve written to them at least once.",
+      "lens": "technology",
+      "ambition": "this-year",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "news-who-decides-lookup",
+          "title": "Look up every official who represents your address",
+          "whatChanges": "Takes your address and lists your state legislators, using the free lookup and open data that Plural (formerly Open States) publishes, and adds city and school board members where local data exists.",
+          "who": "You and It",
+          "exemplarRef": "plural-legislators",
+          "speculative": false,
+          "firstStep": "Enter your address in Plural’s free “Find your legislators” tool and save the names.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "news-who-decides-comment",
+          "title": "Write a short public comment before the meeting",
+          "whatChanges": "Helps you write a few clear sentences about an agenda item and shows you the deadline and where to send them. Many councils read written comments into the record, so you don’t have to speak in person.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Find the public comment instructions on your city council’s agenda page.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "speculativeRationale": "Feature idea; written comment rules vary by city and no single source was opened.",
+          "kind": "feature"
+        },
+        {
+          "id": "news-who-decides-follow",
+          "title": "Follow your council’s bills from start to finish",
+          "whatChanges": "Councilmatic, an open-source site, lets Chicago residents search more than 70,000 city council bills since 2010 and follow committee meetings. Your city’s own legislative site often has a similar search.",
+          "who": "You",
+          "exemplarRef": "councilmatic",
+          "speculative": false,
+          "firstStep": "Search your city’s legislative site for the last ordinance about your neighborhood.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175406",
+        "locator": "cards.json#news-who-decides",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "It-led card."
+    },
+    "news-neighbors-share-coverage": {
+      "title": "Neighbors taking turns covering the meetings nobody attends",
+      "line": "A dozen of us split the meetings, so every board in town has someone there, and nobody has to go to all of them.",
+      "lens": "community",
+      "ambition": "together",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "news-neighbors-share-coverage-schedule",
+          "title": "Split up meeting coverage with neighbors",
+          "whatChanges": "Lists every public board in your town, lets neighbors sign up for the meetings they’ll attend, and posts their notes in one place. Documenters programs work this way in about two dozen cities, with editors and pay that a neighbor group won’t have.",
+          "who": "You, your neighbors and It",
+          "exemplarRef": "documenters-sites",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and ask two neighbors which local meeting they’d be willing to attend.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "news-neighbors-share-coverage-law",
+          "title": "Shared request to your state for local news funding",
+          "whatChanges": "Helps people in one district send their state legislator the same request, pointing to what other states have done. In New Jersey, a coalition of residents, universities and journalists organized from 2017 to win the state law that created its local news fund.",
+          "who": "You, your neighbors and It",
+          "exemplarRef": "nj-organizing",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and look up your state legislator’s email address.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175406",
+        "locator": "cards.json#news-neighbors-share-coverage",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "It-led, community."
+    },
+    "news-watch-from-home": {
+      "title": "Watching a public meeting from home once a month",
+      "line": "Once a month I watch part of a council or school board meeting from my couch, so I know the people and the issues.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "news-watch-from-home-recording",
+          "title": "Watch the recording of last month’s council meeting",
+          "whatChanges": "Many cities and school boards post video and minutes for every meeting. Watching the first half hour, when public comment usually happens, shows you what neighbors care about and who’s listening.",
+          "who": "You",
+          "exemplarRef": "cascadia-meetings",
+          "speculative": false,
+          "firstStep": "Find last month’s council recording and watch the first 20 minutes.",
+          "firstStepMinutes": 20,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "news-watch-from-home-minutes",
+          "title": "Check how each board member voted in the latest minutes",
+          "whatChanges": "Minutes are the official short record of what was decided and who voted which way, and they’re usually posted a few weeks after the meeting. When the video is too long, they’re the quickest way to see where each member stood.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Open the minutes from the last school board meeting and note the votes.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "speculativeRationale": "Common practice; general description of meeting minutes.",
+          "kind": "task"
+        },
+        {
+          "id": "news-watch-from-home-voting-record",
+          "title": "Voting record for each local official",
+          "whatChanges": "Summarizes meeting minutes into a lasting record of what each council and school board member voted for, so when they’re up for election you can see what they decided and judge whether to vote for them again. Agenda Watch already collects local meeting documents daily for journalists, so the documents can be gathered.",
+          "who": "You and It",
+          "exemplarRef": "agenda-watch",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this.",
+          "firstStepMinutes": 2,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175406",
+        "locator": "cards.json#news-watch-from-home",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Basic."
+    }
+  }
+}

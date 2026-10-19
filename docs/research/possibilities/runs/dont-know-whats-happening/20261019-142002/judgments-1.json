@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "painId": "dont-know-whats-happening",
+  "runId": "20261019-142002",
+  "judge": {"context": "isolated", "at": "2026-10-19"},
+  "scores": {
+    "coord-know-local-groups": {
+      "actionable": {"score": 5, "reason": "'Search Nonprofit Explorer for your town and one word that describes your issue, and write down the first three groups' is a concrete 15-minute step."},
+      "nonObvious": {"score": 4, "reason": "Full-text search 'turns up groups whose names never mention it' is a useful twist most people would not know."},
+      "namedExample": {"score": 4, "reason": "Named tools with numbers ('about 13 million requests', '450,000 volunteer openings'), though no place or dated result."},
+      "surprise": {"score": 4, "reason": "Searching tax filings for a word like \"tenants\" or \"river\" is a trick worth repeating."},
+      "voice": {"score": 4, "reason": "Plain and candid, with one useful limit: 'treat the results as a starting list.'"},
+      "power": {"score": 3, "reason": "Changes what I know about my own town; does not shift who decides."},
+      "honestStatus": {"pass": true, "reason": "Names the small-group gap from the exemplar limits; 'shows who is active right now' slightly stretches Idealist's cumulative counts but is framed around current postings."}
+    },
+    "coord-hear-neighbors": {
+      "actionable": {"score": 5, "reason": "'Ask one neighbor which email list or forum they read for local news, and sign up for it' takes 10 minutes and plugs me in."},
+      "nonObvious": {"score": 4, "reason": "Using a gift group because it is 'one of the few places where many neighbors already read each other's posts' is a fresh angle on a basic."},
+      "namedExample": {"score": 5, "reason": "'Started in Burlington in 2006... by 2013 every town could have one, with 57,000 members across half the state' has place, years and number."},
+      "surprise": {"score": 3, "reason": "The Buy Nothing angle is one surprising element; neighborhood lists are expected."},
+      "voice": {"score": 4, "reason": "Warm, matter-of-fact: 'Most places have something similar, whether a forum, an email list or a neighborhood association newsletter.'"},
+      "power": {"score": 3, "reason": "Hearing 'before it happens, not after' improves my own access but not who decides."},
+      "honestStatus": {"pass": true, "reason": "Front Porch Forum figures are dated to 2013 and Buy Nothing's purpose ('to give things away') is stated plainly."}
+    },
+    "coord-city-hall-record": {
+      "actionable": {"score": 4, "reason": "'Search your city's meeting minutes or council transcripts for your issue and note who spoke about it' is real, though 20 minutes may not finish it."},
+      "nonObvious": {"score": 5, "reason": "'People who spoke during public comment are often the ones already organizing, and their names are in the record' reframes public minutes as a contact list."},
+      "namedExample": {"score": 4, "reason": "Council Data Project in '17 cities', started by a UW professor and student after an arena vote; no year in the copy."},
+      "surprise": {"score": 4, "reason": "The public-comment record as a way to find organizers is something I'd tell a friend."},
+      "voice": {"score": 4, "reason": "Plain titles like 'Search past city council meetings for your issue'; the origin sentence runs a little long."},
+      "power": {"score": 3, "reason": "Positions me to speak up informed, but the fix itself changes only my knowledge."},
+      "honestStatus": {"pass": true, "reason": "Says 'in 17 cities' rather than implying my town is covered; bill-testimony claim is hedged with 'usually'."}
+    },
+    "coord-ask-around": {
+      "actionable": {"score": 4, "reason": "'Write down every group you already know of... then message one of them asking who else you should talk to' is doable now."},
+      "nonObvious": {"score": 3, "reason": "Asking for referrals is familiar; 'librarians hear from the groups that book their meeting rooms' adds a useful detail."},
+      "namedExample": {"score": 3, "reason": "Kretzmann and McKnight 'in 1993' is named but has no result; the librarian fix has no example."},
+      "surprise": {"score": 3, "reason": "The meeting-room angle on librarians is the one surprising element."},
+      "voice": {"score": 3, "reason": "Title 'Knowing who to ask about who is working on this' is clunky and leans on a vague 'this'."},
+      "power": {"score": 3, "reason": "Builds my own network; no change in who decides."},
+      "honestStatus": {"pass": true, "reason": "Librarian fix is marked speculative and written as general practice ('Many public libraries'); ABCD attribution slightly broadens the method but does not overclaim results."}
+    },
+    "coord-one-list-near-me": {
+      "actionable": {"score": 3, "reason": "Mostly 'Tell us you'd use this', but 'check the year of its most recent filing' is a real 10-minute step."},
+      "nonObvious": {"score": 4, "reason": "'whether you are writing to a busy office or one volunteer' is a meaningful detail beyond a plain directory idea."},
+      "namedExample": {"score": 4, "reason": "Grounded in a real IRS file of 'nearly two million tax-exempt organizations with addresses' (not penalized as a proposal)."},
+      "surprise": {"score": 3, "reason": "The two-million-record public file is a mild surprise; a search tool is predictable from the pain."},
+      "voice": {"score": 4, "reason": "Starts 'It could...' and states the headquarters-address limit once, plainly."},
+      "power": {"score": 3, "reason": "Changes my own ability to find groups; does not shift ownership or decisions."},
+      "honestStatus": {"pass": true, "reason": "Every fix is written 'It could...' with proposed status; 'Many local referral lines... share their listings' mildly overstates HSDS adoption but is not a claim that It exists."}
+    },
+    "coord-council-alerts": {
+      "actionable": {"score": 3, "reason": "'sign up for your city council's agenda emails if it offers them' is real but generic."},
+      "nonObvious": {"score": 3, "reason": "Agenda alerts are a known idea; adding 'who spoke' is a small twist."},
+      "namedExample": {"score": 3, "reason": "Council Data Project 'in 17 cities' and Open States API, with thin detail."},
+      "surprise": {"score": 2, "reason": "Getting notified about hearings is predictable from the title 'Knowing when my issue comes up in government'."},
+      "voice": {"score": 4, "reason": "Plain and clear: 'send you a short note with the date and who spoke.'"},
+      "power": {"score": 4, "reason": "Showing up 'in time to show up, instead of reading about it afterward' gives me a voice in decisions."},
+      "honestStatus": {"pass": true, "reason": "Written as 'It could watch sources like these'; does not claim It already sends alerts."}
+    },
+    "coord-neighbors-same-issue": {
+      "actionable": {"score": 4, "reason": "'Draft a three-sentence invitation naming the issue, a place and a date, and send it to one neighborhood list' is specific and moves things."},
+      "nonObvious": {"score": 5, "reason": "'you say privately what you care about, and only when enough people nearby have said the same would It offer to introduce you' is an idea I hadn't considered."},
+      "namedExample": {"score": 4, "reason": "Front Porch Forum's waiting stage 'until 100 residents sign up' is a concrete, named precedent."},
+      "surprise": {"score": 4, "reason": "The 100-resident threshold 'so nobody posts to an empty room' is a precedent worth repeating."},
+      "voice": {"score": 4, "reason": "The dream line 'four people on my side of town want the same crosswalk I do' is vivid without staging; 'You don't have to wait for a tool' is mentor-like."},
+      "power": {"score": 4, "reason": "Turns isolated concern into a group of neighbors who can act together."},
+      "honestStatus": {"pass": true, "reason": "Proposal uses 'It could work the same way' and 'with your permission'; the meeting fix is marked speculative and stated as common practice."}
+    },
+    "coord-start-it-myself": {
+      "actionable": {"score": 4, "reason": "'Search for a civic tech or hack night group in your city and check when the next meeting is' is quick and concrete."},
+      "nonObvious": {"score": 4, "reason": "Bringing a non-tech issue to a hack night for helpers is not the first thing most people would think of."},
+      "namedExample": {"score": 4, "reason": "g0v in Taiwan 'since 2012' and Code for America's 2016 reorganization, with no outcome numbers."},
+      "surprise": {"score": 4, "reason": "The g0v motto 'You are the nobody' is the kind of line I'd repeat."},
+      "voice": {"score": 3, "reason": "The quoted motto lands like a punchline, and 'a civic tech group with a similar spirit' is vague."},
+      "power": {"score": 4, "reason": "Starting the effort myself changes who is doing the work."},
+      "honestStatus": {"pass": true, "reason": "Says plainly 'many chapters have changed since, so check that your local group is still meeting.'"}
+    },
+    "coord-shared-plan": {
+      "actionable": {"score": 4, "reason": "'Look up your area's community foundation and email to ask whether a coalition already works on your issue' is a clear 15-minute step."},
+      "nonObvious": {"score": 4, "reason": "Asking funders, since 'Community foundations often know whether something like this already exists', is a useful angle few would try."},
+      "namedExample": {"score": 5, "reason": "Cincinnati, 'more than 300 leaders', '53 student measures', '34 of them were trending up' four years in."},
+      "surprise": {"score": 4, "reason": "Hundreds of rival institutions agreeing on one set of measures is striking."},
+      "voice": {"score": 4, "reason": "States the example as what happened, plainly, without hype."},
+      "power": {"score": 5, "reason": "Changes how groups coordinate and decide together, not just what I know."},
+      "honestStatus": {"pass": true, "reason": "Reports trends ('were trending up') without claiming the partnership caused them, consistent with the advocate-reported limit."}
+    },
+    "coord-public-directory": {
+      "actionable": {"score": 3, "reason": "'email the office that runs it to ask whether it can share the data openly' is real but slow to matter."},
+      "nonObvious": {"score": 3, "reason": "Open data for directories is a known idea; 211 as one of the largest lists is a useful detail."},
+      "namedExample": {"score": 3, "reason": "Open Referral and 'More than 200 local organizations run 211 lines', with no result shown."},
+      "surprise": {"score": 2, "reason": "Little here would make a reader stop."},
+      "voice": {"score": 3, "reason": "'publish its service directory in an open format' and 'free data standard' drift toward technical register."},
+      "power": {"score": 4, "reason": "Asks a county to change what it publishes for everyone."},
+      "honestStatus": {"pass": true, "reason": "Contested view framed as 'Some people want every county to publish its directory this way'."}
+    },
+    "coord-ask-officials": {
+      "actionable": {"score": 4, "reason": "'send their office a two-sentence email asking which local groups have contacted them' is specific and quick."},
+      "nonObvious": {"score": 4, "reason": "Using lawmakers' staff as a directory of organized groups is a useful twist."},
+      "namedExample": {"score": 3, "reason": "Open States lookup is named but has no number or result."},
+      "surprise": {"score": 3, "reason": "One surprising angle: staff 'hear from organized groups'."},
+      "voice": {"score": 4, "reason": "Candid limit said once: 'though some offices won't share who contacted them.'"},
+      "power": {"score": 3, "reason": "Opens a channel to an official but mainly improves my own knowledge."},
+      "honestStatus": {"pass": true, "reason": "The It drafting fix starts 'It could look up' and carries proposed status; the real fix states its limit."}
+    },
+    "coord-offer-skills": {
+      "actionable": {"score": 5, "reason": "'Write a three-sentence email offering one skill for a set number of hours, and send it to one group' is concrete and clearly moves something."},
+      "nonObvious": {"score": 4, "reason": "'Searching by skill rather than cause' and 'A specific offer... is much easier to say yes to' turn a basic into useful advice."},
+      "namedExample": {"score": 3, "reason": "Idealist 'more than 200,000 organizations', thin detail."},
+      "surprise": {"score": 3, "reason": "The skill-first search is one surprising element."},
+      "voice": {"score": 4, "reason": "Mentor-like and specific: 'building a simple website or keeping the books for three months.'"},
+      "power": {"score": 3, "reason": "A meaningful personal contribution, but within existing groups."},
+      "honestStatus": {"pass": true, "reason": "The offer fix is marked speculative and stated as practical advice, not a measured result."}
+    },
+    "coord-check-group": {
+      "actionable": {"score": 5, "reason": "'Look up one group on Nonprofit Explorer and check the year of its latest filing' takes five minutes."},
+      "nonObvious": {"score": 4, "reason": "Filing year as a sign of life ('has often gone quiet') is a useful check most people would not think of."},
+      "namedExample": {"score": 3, "reason": "Nonprofit Explorer is named with no number or result."},
+      "surprise": {"score": 3, "reason": "'Websites outlive the groups that made them' is a small, true surprise."},
+      "voice": {"score": 4, "reason": "Plain and practical; 'before I give it my evenings' is personal."},
+      "power": {"score": 2, "reason": "A screening step that protects my time without changing anything else."},
+      "honestStatus": {"pass": true, "reason": "Hedged with 'often gone quiet'; the recency check is marked speculative."}
+    },
+    "coord-neighborhood-map": {
+      "actionable": {"score": 4, "reason": "'Ask two neighbors to spend 20 minutes listing the groups, churches and clubs within walking distance' is concrete."},
+      "nonObvious": {"score": 3, "reason": "Listing what exists 'before anyone asks what is missing' is a known organizing idea with a modest twist."},
+      "namedExample": {"score": 3, "reason": "Kretzmann and McKnight's '1993 book' is named but has no outcome."},
+      "surprise": {"score": 3, "reason": "Posting the map to a Buy Nothing group is the one surprising element."},
+      "voice": {"score": 4, "reason": "Candid limit: 'Those groups are mostly for giving things away, so keep the post short.'"},
+      "power": {"score": 4, "reason": "Neighbors build a shared picture they own together."},
+      "honestStatus": {"pass": true, "reason": "Asset mapping is presented as a method, not a measured result, matching the exemplar limits."}
+    }
+  },
+  "pairwise": [
+    {"a": "coord-shared-plan", "b": "coord-neighbors-same-issue", "winner": "coord-neighbors-same-issue", "reason": "The crosswalk dream and privacy-respecting threshold idea feel closer to this reader than a funder coalition."},
+    {"a": "coord-shared-plan", "b": "coord-know-local-groups", "winner": "coord-shared-plan", "reason": "Cincinnati's 34-of-53 result gives more hope and power than a search tip."},
+    {"a": "coord-shared-plan", "b": "coord-hear-neighbors", "winner": "coord-shared-plan", "reason": "A concrete coalition result outweighs signing up for a neighborhood list."},
+    {"a": "coord-shared-plan", "b": "coord-city-hall-record", "winner": "coord-city-hall-record", "reason": "Public-comment records directly answer 'who is already working on this' tonight; the coalition is a bigger leap."},
+    {"a": "coord-shared-plan", "b": "coord-start-it-myself", "winner": "coord-shared-plan", "reason": "Stronger example and steadier voice than the hack-night motto."},
+    {"a": "coord-shared-plan", "b": "coord-offer-skills", "winner": "coord-shared-plan", "reason": "More ambitious and better evidenced; offering skills is a bit off this pain."},
+    {"a": "coord-shared-plan", "b": "coord-one-list-near-me", "winner": "coord-shared-plan", "reason": "A real result now beats a proposed search tool."},
+    {"a": "coord-neighbors-same-issue", "b": "coord-know-local-groups", "winner": "coord-neighbors-same-issue", "reason": "Meeting like-minded neighbors is more meaningful than a list of filers."},
+    {"a": "coord-neighbors-same-issue", "b": "coord-hear-neighbors", "winner": "coord-neighbors-same-issue", "reason": "The threshold idea is newer and the dream line more vivid."},
+    {"a": "coord-neighbors-same-issue", "b": "coord-city-hall-record", "winner": "coord-neighbors-same-issue", "reason": "Both are strong; finding the four neighbors who want the same crosswalk is more memorable."},
+    {"a": "coord-neighbors-same-issue", "b": "coord-start-it-myself", "winner": "coord-neighbors-same-issue", "reason": "Clearer voice and a step that fits any issue, not just tech projects."},
+    {"a": "coord-neighbors-same-issue", "b": "coord-offer-skills", "winner": "coord-neighbors-same-issue", "reason": "More directly addresses not knowing who else cares."},
+    {"a": "coord-neighbors-same-issue", "b": "coord-one-list-near-me", "winner": "coord-neighbors-same-issue", "reason": "Includes a real step today and a more distinctive It idea."},
+    {"a": "coord-know-local-groups", "b": "coord-hear-neighbors", "winner": "coord-know-local-groups", "reason": "The full-text tax-filing search is a trick the reader can use tonight and would not find alone."},
+    {"a": "coord-know-local-groups", "b": "coord-city-hall-record", "winner": "coord-city-hall-record", "reason": "Public-comment speakers as organizers is the more striking reframe."},
+    {"a": "coord-know-local-groups", "b": "coord-start-it-myself", "winner": "coord-know-local-groups", "reason": "Most readers should look for existing groups before starting one, and the voice is cleaner."},
+    {"a": "coord-know-local-groups", "b": "coord-offer-skills", "winner": "coord-know-local-groups", "reason": "Answers the pain more directly."},
+    {"a": "coord-know-local-groups", "b": "coord-one-list-near-me", "winner": "coord-know-local-groups", "reason": "Does today what the It idea only proposes."},
+    {"a": "coord-hear-neighbors", "b": "coord-city-hall-record", "winner": "coord-city-hall-record", "reason": "More surprising and more specific to finding organizers."},
+    {"a": "coord-hear-neighbors", "b": "coord-start-it-myself", "winner": "coord-hear-neighbors", "reason": "Fits nearly everyone and has a stronger dated example."},
+    {"a": "coord-hear-neighbors", "b": "coord-offer-skills", "winner": "coord-hear-neighbors", "reason": "Closer to the pain of not knowing what is happening nearby."},
+    {"a": "coord-hear-neighbors", "b": "coord-one-list-near-me", "winner": "coord-hear-neighbors", "reason": "Real now with a 10-minute step and a vivid Vermont example."},
+    {"a": "coord-city-hall-record", "b": "coord-start-it-myself", "winner": "coord-city-hall-record", "reason": "Concrete and broadly useful; the hack-night route fits fewer people."},
+    {"a": "coord-city-hall-record", "b": "coord-offer-skills", "winner": "coord-city-hall-record", "reason": "Directly reveals who is working on the issue."},
+    {"a": "coord-city-hall-record", "b": "coord-one-list-near-me", "winner": "coord-city-hall-record", "reason": "Usable tonight with a striking reframe."},
+    {"a": "coord-start-it-myself", "b": "coord-offer-skills", "winner": "coord-start-it-myself", "reason": "More ambitious and the g0v example is memorable."},
+    {"a": "coord-start-it-myself", "b": "coord-one-list-near-me", "winner": "coord-start-it-myself", "reason": "A real path today with more power than a proposed lookup."},
+    {"a": "coord-offer-skills", "b": "coord-one-list-near-me", "winner": "coord-one-list-near-me", "reason": "The 'busy office or one volunteer' idea fits this pain better than volunteering advice."}
+  ],
+  "seed": 17
+}

@@ -1,0 +1,89 @@
+{
+  "finalists": [
+    "sleep-without-pills",
+    "sleep-work-quiet",
+    "sleep-dark-quiet-room",
+    "sleep-separate-rooms",
+    "sleep-noise-near-me"
+  ],
+  "auditSample": [
+    "sleep-shift-schedule",
+    "sleep-teen-start"
+  ],
+  "seed": 17,
+  "itLedGuaranteed": "sleep-noise-near-me",
+  "itLedMissing": false,
+  "ranking": [
+    {
+      "cardId": "sleep-without-pills",
+      "wins": 40,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "sleep-work-quiet",
+      "wins": 39,
+      "meanScore": 4.33
+    },
+    {
+      "cardId": "sleep-dark-quiet-room",
+      "wins": 32,
+      "meanScore": 4
+    },
+    {
+      "cardId": "sleep-separate-rooms",
+      "wins": 31,
+      "meanScore": 4
+    },
+    {
+      "cardId": "sleep-loud-vehicles",
+      "wins": 29,
+      "meanScore": 4.5
+    },
+    {
+      "cardId": "sleep-teen-start",
+      "wins": 29,
+      "meanScore": 4.5
+    },
+    {
+      "cardId": "sleep-employer-rest",
+      "wins": 26,
+      "meanScore": 4.33
+    },
+    {
+      "cardId": "sleep-no-planes",
+      "wins": 25,
+      "meanScore": 4.33
+    },
+    {
+      "cardId": "sleep-shift-schedule",
+      "wins": 18,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "sleep-noise-near-me",
+      "wins": 13,
+      "meanScore": 3.5
+    },
+    {
+      "cardId": "sleep-steady-wake",
+      "wins": 12,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "sleep-know-whats-wrong",
+      "wins": 12,
+      "meanScore": 3.5
+    },
+    {
+      "cardId": "sleep-protect-by-law",
+      "wins": 6,
+      "meanScore": 3.5
+    },
+    {
+      "cardId": "sleep-phone-outside",
+      "wins": 3,
+      "meanScore": 3
+    }
+  ],
+  "excluded": []
+}

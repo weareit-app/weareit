@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "painId": "broke",
+  "runId": "20261019-141958",
+  "judge": {"context": "isolated", "at": "2026-10-19"},
+  "scores": {
+    "broke-know-recurring-costs": {
+      "actionable": {"score": 5, "reason": "\"highlight every charge that shows up both months\" is a 15-minute step that pays off at once."},
+      "nonObvious": {"score": 3, "reason": "Tracking subscriptions is familiar; the guessed-versus-real gap makes it useful, but \"the 50/30/20 split\" is stock budgeting advice."},
+      "namedExample": {"score": 4, "reason": "\"a 2022 survey of 1,000 Americans ... $86 ... $219\" has year and numbers, though the survey is unnamed."},
+      "surprise": {"score": 4, "reason": "\"guessed ... $86 ... the average was $219\" is a fact a reader would repeat."},
+      "voice": {"score": 4, "reason": "Plain and kind: \"you're far from alone, and the bigger fix is more likely raising income\"."},
+      "power": {"score": 2, "reason": "\"Knowing exactly what leaves my account\" is mostly coping inside unchanged conditions."},
+      "honestStatus": {"pass": true, "reason": "Survey figures match the exemplar; the court ruling is stated accurately and the budget rule is offered as \"a common starting point\"."}
+    },
+    "broke-lower-phone-internet": {
+      "actionable": {"score": 5, "reason": "\"Look up what a competitor charges ... then call your provider and ask them to match it\" is concrete and quick."},
+      "nonObvious": {"score": 4, "reason": "Lifeline, with \"$21,546 a year for one person\" and SNAP/Medicaid eligibility, is a benefit many people don't know about."},
+      "namedExample": {"score": 4, "reason": "\"2018 Consumer Reports survey of more than 176,000 members, 80% ... got something\" is named, dated and quantified."},
+      "surprise": {"score": 3, "reason": "\"80% of the people who tried to negotiate got something\" is a mild surprise."},
+      "voice": {"score": 4, "reason": "Clear, direct titles like \"Call your provider and ask for a lower monthly rate\"."},
+      "power": {"score": 2, "reason": "Lowers one's own bill; doesn't change who sets prices."},
+      "honestStatus": {"pass": true, "reason": "Survey is described as TV-bill results and the compare tool is written \"It could look up\" and labeled proposed."}
+    },
+    "broke-claim-tax-credits": {
+      "actionable": {"score": 5, "reason": "\"Find last year's tax return and look for the line labeled earned income credit\" takes 10 minutes and answers a real question."},
+      "nonObvious": {"score": 4, "reason": "Filing past returns within \"three years from a return's due date\" turns a known credit into money people forgot."},
+      "namedExample": {"score": 5, "reason": "\"The IRS estimates ... one in five ... up to $7,830 ... average ... $2,743\" is named, dated and concrete."},
+      "surprise": {"score": 4, "reason": "\"one in five people who qualify for this credit don't claim it\" is worth repeating."},
+      "voice": {"score": 4, "reason": "Calm and specific: \"so the volunteers know to look for it\"."},
+      "power": {"score": 3, "reason": "Recovers real money owed, changing one's own conditions."},
+      "honestStatus": {"pass": true, "reason": "IRS figures match the exemplar; the three-year rule is hedged \"In general\" and is the standard IRS window."}
+    },
+    "broke-hospital-bills": {
+      "actionable": {"score": 5, "reason": "\"Search your hospital's name with the words financial assistance policy, and download the application\" is fast and obviously useful."},
+      "nonObvious": {"score": 5, "reason": "\"Nonprofit hospitals have to offer charity care that reduces or erases bills\" is something most people with a bill never hear."},
+      "namedExample": {"score": 4, "reason": "\"Dollar For ... more than $38 million in medical bills since 2019\" is named with a number, attributed to the group itself."},
+      "surprise": {"score": 5, "reason": "A bill being \"reduced or erased before I pay anything\" by right is a stop-and-tell-a-friend fact."},
+      "voice": {"score": 4, "reason": "Plain, steady advice: \"Asking for the application is how you find out where you stand.\""},
+      "power": {"score": 3, "reason": "Shifts what one household owes, using a right that already exists."},
+      "honestStatus": {"pass": true, "reason": "Dollar For's total is framed \"The group says\" and hospital-set limits are stated once."}
+    },
+    "broke-every-benefit": {
+      "actionable": {"score": 4, "reason": "\"Search your state's name with SNAP application\" is real; the main fix's step is \"Tell us you'd use this\"."},
+      "nonObvious": {"score": 3, "reason": "A benefits screener is a known idea; renewal tracking because \"one missed letter can end coverage\" is a useful twist."},
+      "namedExample": {"score": 4, "reason": "\"MyFriendBen ... 55,000 households ... $33 million\" and GetCalFresh \"45 minutes to under 10\" are specific."},
+      "surprise": {"score": 3, "reason": "\"$33 million in benefits\" through a screener is a moderate surprise."},
+      "voice": {"score": 4, "reason": "Honest and warm: \"A faster form doesn't mean a faster decision, so it's worth applying as soon as you can.\""},
+      "power": {"score": 3, "reason": "Brings in money a household is owed; conditions change for the household only."},
+      "honestStatus": {"pass": true, "reason": "Screener and renewals are written \"It could\" and labeled proposed; MyFriendBen figures are attributed to \"the nonprofit says\"."}
+    },
+    "broke-surprise-expense": {
+      "actionable": {"score": 5, "reason": "\"Call a credit union near you and ask whether it offers payday alternative loans\" is a 10-minute step."},
+      "nonObvious": {"score": 4, "reason": "Payday-alternative loans \"capped at 28% a year\" are little known; the auto-transfer basic is made concrete with \"$10 or $20 each payday\"."},
+      "namedExample": {"score": 3, "reason": "Federal credit union rules with \"up to $2,000\" are specific but there's no place or result."},
+      "surprise": {"score": 3, "reason": "That a credit union can lend \"up to $2,000\" at a capped rate is one surprising element."},
+      "voice": {"score": 4, "reason": "The dream line \"without a loan that costs more than the repair did\" is plain and vivid; text is calm."},
+      "power": {"score": 3, "reason": "Moves borrowing from payday lenders to member-owned credit unions for one household."},
+      "honestStatus": {"pass": true, "reason": "Notes once that \"Credit unions aren't required to offer them\"; savings claim is modest."}
+    },
+    "broke-lending-circle": {
+      "actionable": {"score": 4, "reason": "\"Look up Mission Asset Fund's lending circles and check whether they serve your state\" is quick, though joining takes longer."},
+      "nonObvious": {"score": 5, "reason": "Turning \"tanda, susu or hui\" into credit building reframes a familiar practice as newly meaningful."},
+      "namedExample": {"score": 5, "reason": "\"In San Francisco, Mission Asset Fund ... almost twice as likely ... to raise their score by 20 points\" has place, group and result."},
+      "surprise": {"score": 4, "reason": "Informal family savings circles raising credit scores is a fact readers would pass on."},
+      "voice": {"score": 4, "reason": "Respectful and specific: \"Many families already do this informally, under names like tanda, susu or hui.\""},
+      "power": {"score": 4, "reason": "\"I borrow from a circle of people I know\" moves lending toward people one trusts instead of lenders."},
+      "honestStatus": {"pass": true, "reason": "Result is framed \"In one study\" for low/no-score members, and the group tool is written \"It could\" and labeled proposed."}
+    },
+    "broke-paid-enough": {
+      "actionable": {"score": 4, "reason": "\"Ask one coworker you trust whether pay has been on their mind too\" is small and real, though slow to matter."},
+      "nonObvious": {"score": 3, "reason": "Unionizing is a familiar idea; checking local wage data before asking for a raise is a useful detail."},
+      "namedExample": {"score": 4, "reason": "\"median weekly earnings of $1,404, compared with $1,174\" from BLS 2025 is concrete, though not a place or group."},
+      "surprise": {"score": 2, "reason": "A union wage premium is largely expected from the title."},
+      "voice": {"score": 4, "reason": "Candid limit said once: \"Part of that gap comes from differences in jobs and industries\"."},
+      "power": {"score": 5, "reason": "\"I had a say in how my pay was set\" changes who decides pay."},
+      "honestStatus": {"pass": true, "reason": "The raw gap is caveated as BLS does, and the wage lookup is written \"It could\" and labeled proposed."}
+    },
+    "broke-own-the-business": {
+      "actionable": {"score": 3, "reason": "\"Search for worker cooperatives ... and read how one of them started\" is a real step but slow to matter."},
+      "nonObvious": {"score": 4, "reason": "Buying out \"a retiring owner\" as employees is an angle most workers haven't considered."},
+      "namedExample": {"score": 3, "reason": "\"Cooperative Home Care Associates ... more than 2,200 people\" is named but has no year or pay result."},
+      "surprise": {"score": 3, "reason": "A worker-owned firm of \"more than 2,200\" in the Bronx is one surprising element."},
+      "voice": {"score": 3, "reason": "\"Worker-owned companies share profits and decisions with the people who do the work\" reads like a leaflet line."},
+      "power": {"score": 5, "reason": "\"I own part of the business where I work\" changes ownership."},
+      "honestStatus": {"pass": true, "reason": "CHCA facts match the exemplar; the buyout route is offered as \"Some owners\" and \"sometimes\"."}
+    },
+    "broke-income-floor": {
+      "actionable": {"score": 3, "reason": "\"Search your city's name with guaranteed income pilot\" is quick but rarely leads anywhere personally."},
+      "nonObvious": {"score": 3, "reason": "Guaranteed income is widely discussed; the Stockton job finding gives it a twist."},
+      "namedExample": {"score": 5, "reason": "\"Stockton, California gave 125 residents $500 a month for two years ... full-time jobs at more than twice the rate\" is fully specific."},
+      "surprise": {"score": 4, "reason": "Recipients finding full-time work \"at more than twice the rate\" cuts against the usual assumption."},
+      "voice": {"score": 4, "reason": "Fair and calm: \"supporters and critics still disagree about cost at a larger scale\"."},
+      "power": {"score": 5, "reason": "A guaranteed floor changes who gets the money at a policy level."},
+      "honestStatus": {"pass": true, "reason": "Both fixes name the disagreement; borderline only in omitting that Census is revising the 2021 poverty figures."}
+    },
+    "broke-local-spending": {
+      "actionable": {"score": 2, "reason": "\"Find the date of your city council's next meeting\" is a step toward a step, with no clear ask."},
+      "nonObvious": {"score": 4, "reason": "Steering city purchasing to local firms is an angle few people with this pain would think of."},
+      "namedExample": {"score": 3, "reason": "\"Preston, in northwest England ... since about 2013\" is named but has no result or number."},
+      "surprise": {"score": 3, "reason": "A city rerouting its own spending to local co-ops is one surprising element."},
+      "voice": {"score": 4, "reason": "Fair and plain: \"a local opposition leader called it a marketing gimmick\"."},
+      "power": {"score": 4, "reason": "\"When my city buys things, more of that money pays people who live here\" shifts where public money goes."},
+      "honestStatus": {"pass": true, "reason": "Preston is presented as contested, and the contract lookup is written \"It could\" and labeled proposed."}
+    },
+    "broke-easy-cancel-law": {
+      "actionable": {"score": 4, "reason": "\"send one a short note about a subscription you struggled to cancel\" is doable in 15 minutes."},
+      "nonObvious": {"score": 2, "reason": "Asking lawmakers for a law and filing a complaint are the expected moves."},
+      "namedExample": {"score": 4, "reason": "\"struck down ... on July 8, 2025, days before it took effect\" plus California's law is concrete."},
+      "surprise": {"score": 3, "reason": "The federal rule falling \"days before it took effect\" is one surprising element."},
+      "voice": {"score": 4, "reason": "The dream line \"If I signed up online in a minute, I can cancel online in a minute too\" is clear without being a slogan."},
+      "power": {"score": 4, "reason": "Pushes a rule change that shifts power from companies to customers."},
+      "honestStatus": {"pass": true, "reason": "The ruling is described accurately \"over how the rule was made\", and the ask is framed as one person's request."}
+    },
+    "broke-see-the-month": {
+      "actionable": {"score": 4, "reason": "\"ask whether you can move your due date to a few days after payday\" is a quick, real call."},
+      "nonObvious": {"score": 4, "reason": "Moving due dates to after payday is a small trick many people don't know they can ask for."},
+      "namedExample": {"score": 2, "reason": "Only the reused \"42% of people were still paying\" survey; the calendar idea has no example."},
+      "surprise": {"score": 2, "reason": "A bill calendar is predictable from the title."},
+      "voice": {"score": 4, "reason": "Plain and exact: \"flag the weeks where more goes out than comes in\"."},
+      "power": {"score": 2, "reason": "Coping by timing within unchanged income."},
+      "honestStatus": {"pass": true, "reason": "Both It ideas are written \"It could\" and labeled proposed; due-date advice says \"Many\", not all."}
+    },
+    "broke-tell-officials": {
+      "actionable": {"score": 3, "reason": "\"write one sentence about a program that has helped your household\" is easy but goes nowhere without a recipient."},
+      "nonObvious": {"score": 2, "reason": "\"Find all your elected representatives\" is a familiar civic-tool idea."},
+      "namedExample": {"score": 2, "reason": "The child tax credit is mentioned in passing with no number in this card."},
+      "surprise": {"score": 2, "reason": "Little here a reader wouldn't predict from the title."},
+      "voice": {"score": 3, "reason": "\"which came in the year child poverty hit a record low\" leans toward advocacy in a tool description."},
+      "power": {"score": 4, "reason": "Organizing testimony aims to change what officials decide."},
+      "honestStatus": {"pass": true, "reason": "Both ideas are written \"It could\" and labeled proposed; the child-poverty link is stated as timing, not proven cause."}
+    }
+  },
+  "pairwise": [
+    {"a": "broke-hospital-bills", "b": "broke-lending-circle", "winner": "broke-hospital-bills", "reason": "Erasing a bill by right is more immediately useful to someone broke today."},
+    {"a": "broke-hospital-bills", "b": "broke-claim-tax-credits", "winner": "broke-hospital-bills", "reason": "Charity care is less known than the EITC and the surprise lands harder."},
+    {"a": "broke-hospital-bills", "b": "broke-income-floor", "winner": "broke-hospital-bills", "reason": "A reader can act on charity care tonight; the income floor is mostly a policy hope."},
+    {"a": "broke-hospital-bills", "b": "broke-know-recurring-costs", "winner": "broke-hospital-bills", "reason": "Potentially thousands erased beats trimming subscriptions."},
+    {"a": "broke-hospital-bills", "b": "broke-lower-phone-internet", "winner": "broke-hospital-bills", "reason": "Bigger stakes and a more surprising right."},
+    {"a": "broke-hospital-bills", "b": "broke-surprise-expense", "winner": "broke-hospital-bills", "reason": "Stronger example and more surprise."},
+    {"a": "broke-hospital-bills", "b": "broke-paid-enough", "winner": "broke-hospital-bills", "reason": "Faster relief and more surprising, though less power."},
+    {"a": "broke-lending-circle", "b": "broke-claim-tax-credits", "winner": "broke-lending-circle", "reason": "Reframing tandas and susus as credit building is more memorable and more communal."},
+    {"a": "broke-lending-circle", "b": "broke-income-floor", "winner": "broke-lending-circle", "reason": "Equally vivid example but something the reader can actually join."},
+    {"a": "broke-lending-circle", "b": "broke-know-recurring-costs", "winner": "broke-lending-circle", "reason": "More meaningful and less obvious than auditing subscriptions."},
+    {"a": "broke-lending-circle", "b": "broke-lower-phone-internet", "winner": "broke-lending-circle", "reason": "A new idea with community power versus a bill call."},
+    {"a": "broke-lending-circle", "b": "broke-surprise-expense", "winner": "broke-lending-circle", "reason": "Both address lump sums, but the circle has a real named result and a trusted-people angle."},
+    {"a": "broke-lending-circle", "b": "broke-paid-enough", "winner": "broke-lending-circle", "reason": "Less obvious and quicker to start than organizing a union."},
+    {"a": "broke-claim-tax-credits", "b": "broke-income-floor", "winner": "broke-claim-tax-credits", "reason": "Concrete money owed now beats a pilot elsewhere."},
+    {"a": "broke-claim-tax-credits", "b": "broke-know-recurring-costs", "winner": "broke-claim-tax-credits", "reason": "Thousands in unclaimed credits outweigh subscription savings."},
+    {"a": "broke-claim-tax-credits", "b": "broke-lower-phone-internet", "winner": "broke-claim-tax-credits", "reason": "Larger sums and a stronger named source."},
+    {"a": "broke-claim-tax-credits", "b": "broke-surprise-expense", "winner": "broke-claim-tax-credits", "reason": "Brings in money rather than making borrowing cheaper."},
+    {"a": "broke-claim-tax-credits", "b": "broke-paid-enough", "winner": "broke-claim-tax-credits", "reason": "Faster, surer payoff with a more surprising fact."},
+    {"a": "broke-income-floor", "b": "broke-know-recurring-costs", "winner": "broke-income-floor", "reason": "Stockton's result is more striking and the dream is bigger."},
+    {"a": "broke-income-floor", "b": "broke-lower-phone-internet", "winner": "broke-income-floor", "reason": "A more vivid example and real ambition, despite a weaker first step."},
+    {"a": "broke-income-floor", "b": "broke-surprise-expense", "winner": "broke-income-floor", "reason": "The Stockton jobs finding is something a reader would repeat."},
+    {"a": "broke-income-floor", "b": "broke-paid-enough", "winner": "broke-income-floor", "reason": "More surprising example with similar power."},
+    {"a": "broke-know-recurring-costs", "b": "broke-lower-phone-internet", "winner": "broke-know-recurring-costs", "reason": "The $86 versus $219 gap is the more surprising hook."},
+    {"a": "broke-know-recurring-costs", "b": "broke-surprise-expense", "winner": "broke-surprise-expense", "reason": "Avoiding a payday loan matters more than trimming subscriptions."},
+    {"a": "broke-know-recurring-costs", "b": "broke-paid-enough", "winner": "broke-know-recurring-costs", "reason": "Quicker payoff and a better surprise, though less power."},
+    {"a": "broke-lower-phone-internet", "b": "broke-surprise-expense", "winner": "broke-surprise-expense", "reason": "The payday-alternative loan is less known and protects against a costlier harm."},
+    {"a": "broke-lower-phone-internet", "b": "broke-paid-enough", "winner": "broke-lower-phone-internet", "reason": "Lifeline and the negotiation call pay off this week."},
+    {"a": "broke-surprise-expense", "b": "broke-paid-enough", "winner": "broke-surprise-expense", "reason": "More concrete and less obvious for someone short on cash now."}
+  ],
+  "seed": 17
+}

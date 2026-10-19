@@ -1,0 +1,665 @@
+{
+  "schemaVersion": 1,
+  "painId": "ai-and-jobs",
+  "runId": "20261019-141957",
+  "judge": {
+    "context": "isolated-consensus",
+    "judges": 3,
+    "files": [
+      "judgments-1.json",
+      "judgments-2.json",
+      "judgments-3.json"
+    ],
+    "at": "2026-10-19T18:27:25+00:00"
+  },
+  "scores": {
+    "ai-know-my-tasks": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"Search your job title on onetonline.org and mark the five tasks you spend the most time on\" is concrete and 15 minutes. | \"Search your job title on onetonline.org and mark the five tasks you spend the most time on\" is concrete and fits in 15 minutes. | \"Search your job title on onetonline.org and mark the five tasks you spend the most time on\" is concrete and 15 minutes."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Seeing your job as a list of tasks, rather than one title\" reframes a vague fear into something checkable. | \"Seeing your job as a list of tasks, rather than one title\" is a useful reframe most people haven't tried. | \"Seeing your job as a list of tasks, rather than one title\" reframes a vague fear into something checkable."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "O*NET's \"more than 19,000 specific task statements\" and the study of \"5,179 customer support agents\" with \"14%\". | O*NET's \"more than 19,000 specific task statements\" and the study of \"5,179 customer support agents\" with 14% are named and numbered. | O*NET's \"more than 19,000 specific task statements\" and the study of \"5,179 customer support agents\" with 14%."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "The 14% gain is a useful fact but not one most readers would repeat. | The 19,000 task statements is mildly surprising; the rest is expected from the title. | The task-level view is useful but not something I'd repeat to a friend."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Plain and calm: \"the quickest way to see where it helps and where it gets things wrong.\" | Plain and calm (\"where it helps and where it gets things wrong\"), titles clear without knowing the examples. | Plain and calm: \"which pieces software is likely to take over and which stay with you.\""
+      },
+      "power": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "Changes the reader's own understanding of their job; no shift in who decides. | \"I know which of my tasks software is getting good at\" builds understanding but changes no conditions. | Changes my own understanding and choices, not who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The ILO idea is written \"It could match your task list\" and labeled proposed; O*NET is described as a task list, not an AI predictor, though \"much easier to tell\" leans a little. | pass: The ILO matching idea is written \"It could match\" and labeled proposed_it_feature; O*NET is described as what it is. | pass: The ILO matching idea is written \"It could match\" and labeled proposed_it_feature; O*NET claims stay within its limits."
+      }
+    },
+    "ai-comfortable-with-tools": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"ask an AI assistant to walk you through it\" and the \"AI mistakes\" phone note are quick and real. | \"Start a note on your phone called 'AI mistakes'\" and asking an assistant about one slow task are quick and real. | \"Start a note on your phone called 'AI mistakes'\" and \"finish the first chapter tonight\" are real, quick steps."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Use AI first on the parts of your job you're newest at\" and keeping a mistakes list to \"tell whoever chooses the tools\" are fresh twists. | \"Use AI first on the parts of your job you're newest at\" turns a generic \"learn AI\" into a pointed strategy. | \"Use AI first on the parts of your job you're newest at\" and keeping a list of what the tool gets wrong are fresh angles."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"In 2018 the University of Helsinki... Nearly 90,000 people from 80 countries\" plus the \"34%\" novice gain and Klarna 2025. | \"In 2018 the University of Helsinki... Nearly 90,000 people from 80 countries,\" plus Klarna in 2025, give place, year and numbers. | Elements of AI in 2018: \"Nearly 90,000 people from 80 countries signed up in about four months\"; Klarna in 2025."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"the newest and least experienced agents improved the most, by 34%\" is a fact worth repeating. | \"the newest and least experienced agents improved the most, by 34%\" and Klarna rehiring humans are worth repeating. | \"the newest and least experienced agents improved the most, by 34%\" is worth repeating."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Warm and specific, e.g. \"The assistant was passing along what the best agents already did.\" | Warm and specific (\"about one in five were over 45\"), no hype. | \"In the same customer support study\" refers to a study this card never introduced, so the reader is lost."
+      },
+      "power": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "Builds personal footing; the mistakes list hints at influence over tool choices. | Mostly personal comfort; the mistakes list \"gives you something specific to tell whoever chooses the tools\" adds a little leverage. | Personal readiness, plus a little leverage by having \"something specific to tell whoever chooses the tools.\""
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Figures match the exemplars; Klarna is stated as the CEO's account, not a general rule. | pass: Figures match the exemplars (21% over 45 as \"about one in five\"); Klarna is stated as the CEO's account. | pass: Figures match the exemplars (about one in five over 45 vs 21%); Klarna is described as the CEO's account."
+      }
+    },
+    "ai-money-cushion": {
+      "actionable": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"set up a small automatic transfer on payday\" and noting weekly unemployment amounts are doable today. | \"note how much you'd get each week and for how long\" and setting a payday transfer are specific 15-minute steps. | \"note how much you'd get each week and for how long\" is a specific 15-minute lookup."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Well-chosen basics; the twist that Trade Adjustment Assistance covered jobs lost \"to trade, never to technology\" makes the benefits check meaningful. | Saving is a basic, but the TAA point that it covered trade \"never to technology\" makes it newly useful. | Saving and updating a resume are basics, made useful by \"Build it around the tasks that take your judgment.\""
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "CFPB guidance has no number; TAA's \"expired on July 1, 2022\" is the only concrete detail. | TAA with its July 1, 2022 expiry is concrete; the CFPB and resume fixes are thin or have no example. | CFPB guidance has no number; TAA \"expired on July 1, 2022\" is dated but thin on results."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "That the federal retraining program never covered technology and has lapsed is one real surprise. | That the federal retraining program \"expired on July 1, 2022\" and never covered technology is something I'd tell a friend. | That TAA covered \"workers who lost jobs to trade, never to technology\" is one genuine surprise."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Calm and unjudging: \"even a small amount gives you some security.\" | \"enough saved to think clearly about what comes next\" sounds like a mentor, not a finance leaflet. | Candid and unhurried: \"The bureau's point is that even a small amount gives you some security.\""
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Changes the reader's own conditions only. | Changes my own conditions with a cushion and clear knowledge of benefits. | Changes my own cushion and options, nothing structural."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: No target amount or risky financial claim; TAA described accurately; the resume tip is generic practice, mildly asserted (\"hardest to hand to software\"). | pass: Savings guidance is attributed to the CFPB as a suggestion, not stated as personal financial advice; TAA lapse is stated plainly. | pass: Savings advice is attributed to the CFPB and kept general; the TAA lapse is stated accurately."
+      }
+    },
+    "ai-growing-work": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"save two jobs that use skills you already have\" from the Bright Outlook list is concrete. | \"save two jobs that use skills you already have\" and asking who you'd learn from in an interview are concrete. | \"save two jobs that use skills you already have\" and searching the handbook for \"tuition\" are concrete."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"write down who you'd be learning from, and ask about it in the interview\" is a genuinely new lens. | \"choose jobs where you learn from people\" is a twist on career advice tied to the AI evidence. | \"choose jobs where you learn from people\" is a twist I hadn't considered for early careers."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Stanford payroll research: 22- to 25-year-olds \"19% below where it would otherwise be.\" | \"employment of 22- to 25-year-olds... was 19% below\" from Stanford payroll data, plus O*NET Bright Outlook. | Stanford payroll research: 22- to 25-year-olds \"19% below where it would otherwise be.\""
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "The 19% drop for young workers in exposed jobs is a stop-and-repeat fact. | The 19% drop for young workers in exposed jobs is striking. | The 19% drop for young workers in exposed jobs is a fact I'd pass along."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Candid without alarm: \"The study shows a link, not the cause, but if you're starting out...\" | Candid limit said once: \"The study shows a link, not the cause.\" | One plain limit, said once: \"The study shows a link, not the cause.\""
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Redirects one person's career; the tuition fix is generic. | Changes my own direction; tuition ask taps employer money but is thin. | Redirects my own career, without changing who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: States the Stanford limit plainly (\"a link, not the cause\"); tuition fix makes no specific claim. | pass: Correlation caveat stated; tuition fix makes no claim beyond \"Some employers offer\". | pass: The Stanford finding is stated as a link, not a cause; the tuition fix makes no unsupported claim."
+      }
+    },
+    "ai-know-ahead": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"Bring one question to your next one-on-one\" and asking \"two coworkers over lunch\" take minutes and move something. | \"Bring one question to your next one-on-one\" and asking two coworkers over lunch take minutes. | \"Bring one question to your next one-on-one\" takes five minutes and clearly moves something."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Borrowing the EU's notice rule as a personal ask, \"nothing stops you from asking for the same notice,\" is a useful reframe. | Asking your manager is familiar, made useful by \"nothing stops you from asking for the same notice.\" | Asking your manager is familiar, made sharper by \"nothing stops you from asking for the same notice.\""
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "EU AI Act notice for \"hiring, promotion or firing\" and the 2023 writers' rule, though no numbers. | EU AI Act notice rule and the 2023 Hollywood writers' rule are named with year and terms. | EU AI Act notice rule and the 2023 writers' rule that \"AI can't write or rewrite their scripts.\""
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "That writers can still choose AI \"with the studio's consent\" is interesting but not startling. | That EU employers must inform staff before high-risk AI is a modest surprise for US readers. | The EU notice requirement is new to many readers but not startling."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Mentor-like and direct: \"which parts of the work you're glad to hand off and which you want to keep doing yourselves.\" | Plain and unhurried (\"which parts of the work you're glad to hand off\"). | Warm and practical: \"Ask two coworkers over lunch which part of the job they'd happily hand to software.\""
+      },
+      "power": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Moves the reader and coworkers toward a say in how AI changes their work. | Gains advance knowledge and some team voice, not formal say. | Gives workers advance notice and a say in \"which parts of the work you're glad to hand off.\""
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Says plainly \"There's no such rule in most of the US\"; EU rule described as informing, not consulting. | pass: Says plainly \"There's no such rule in most of the US\" and frames team talk as informal. | pass: Says plainly \"There's no such rule in most of the US\"; claims fit the exemplars."
+      }
+    },
+    "ai-union-contract": {
+      "actionable": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "\"Email your union steward... and ask whether AI rules are on the agenda\" is concrete, but only for union members; others get reading. | \"Email your union steward\" only helps if you have a union; reading the summary is a slow-to-matter step. | \"Email your union steward or representative and ask whether AI rules are on the agenda\" is specific, though only for union members."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Unions bargaining over AI is known; the consent framing for \"voice, writing or recorded work\" adds a twist. | Extending replica consent to \"anyone whose voice, writing or recorded work gets fed into AI\" is a useful twist. | Unions bargaining over AI is known; extending consent rules to \"anyone whose voice, writing or recorded work\" adds a twist."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "WGA 2023 terms, SAG-AFTRA consent rule, and the \"April 2026... tentative four-year deal.\" | WGA 2023 terms, SAG-AFTRA consent rule and the April 2026 tentative deal, with years and specifics. | WGA 2023 terms, SAG-AFTRA \"explicit signed or initialed consent\", and the April 2026 tentative four-year deal."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Training on scripts being left open \"so the fight continued\" is mildly surprising. | Hollywood AI terms are widely reported; the training-license detail is the fresh part. | The Hollywood wins are widely reported; the training question \"so the fight continued\" is the fresh part."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Matter-of-fact: \"the next contract is where rules like these get written.\" | Plain and honest, though \"so the fight continued\" leans toward drama. | Calm and honest: \"though members still had to vote on it.\""
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Changes who writes the rules: \"my coworkers and I helped write them.\" | \"my coworkers and I helped write them\" changes who decides. | Workers \"helped write\" the rules; this changes who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The 2026 deal is called tentative with \"members still had to vote\"; unresolved training terms are stated. | pass: The 2026 deal is called tentative with \"members still had to vote on it\"; open training question is noted. | pass: The 2026 deal is called tentative and pending a vote; the unresolved training issue is disclosed."
+      }
+    },
+    "ai-staff-not-replaced": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Suggest to your manager that any AI rollout include a review after three months, with staff input\" is specific. | \"Suggest to your manager that any AI rollout include a review after three months, with staff input\" is specific. | \"Suggest to your manager that any AI rollout include a review after three months, with staff input\" is a clear ask."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "A trial with a set review date \"before it lets anyone go\" is a practical, unusual ask. | \"A trial with a set review date lets a company learn that before it lets anyone go\" is a fresh, practical frame. | A trial \"with a set review date\" before any cuts is a practical reframe I hadn't thought of."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Klarna rehiring in 2025 and newer agents getting \"34% more done\" with better retention. | Klarna rehiring in 2025 and the 34% gain for newer agents are named and concrete. | Klarna rehiring in 2025 and the support study where newer agents \"got 34% more done.\""
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "A company that cut for AI then \"started hiring people again\" is a precedent people repeat. | A company that leaned on AI \"then started hiring people again\" is a precedent people repeat. | A company that bet on AI and then \"started hiring people again\" makes me stop."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Plain and candid: \"That was one firm, but it's a real example.\" | One plain limit (\"That was one firm, but...\"), no hype. | Honest without hedging: \"That was one firm, but it's a real example.\""
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Pushes on whether cuts happen and on staff input into rollout. | Shapes whether people keep jobs and gives staff input into rollout decisions. | Puts staff input into whether jobs are cut."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Limits stated (\"That was one firm\"); Klarna attributed to its chief executive. | pass: Single-firm limit stated; Klarna attributed to its chief executive. | pass: Limits the study to \"one firm\"; Klarna is described as the CEO's own account."
+      }
+    },
+    "ai-fair-hiring-software": {
+      "actionable": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "\"Next time you apply, email the recruiter and ask whether an automated tool reviews applications\" is a 5-minute step. | \"send a two-line note asking whether your city regulates AI in hiring\" is doable now; the recruiter ask waits for an application. | \"email the recruiter and ask whether an automated tool reviews applications\" is five minutes and concrete."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"You can ask the same question anywhere, even where no law requires an answer\" turns a local law into a personal tool. | \"You can ask the same question anywhere, even where no law requires an answer\" is a useful move most applicants never make. | \"You can ask the same question anywhere, even where no law requires an answer\" turns a law into a personal move."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "NYC enforcement \"Since July 2023\" and the comptroller's audit: \"one problem among 32 companies, while the auditors found at least 17.\" | NYC law enforced since July 2023, and the 2025 audit: \"one problem among 32 companies, while the auditors found at least 17.\" | NYC law enforced since July 2023; the 2025 audit found the city \"flagged one problem among 32 companies, while the auditors found at least 17.\""
+      },
+      "surprise": {
+        "score": 5,
+        "mean": 5,
+        "reason": "One flagged versus at least 17 found is a fact I'd repeat to a friend. | One flagged versus at least 17 found is the kind of fact you'd repeat. | One versus 17 is a fact I'd repeat to a friend."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Even-handed: \"Employers' groups say rules like these add cost, but a law on paper does little without someone checking.\" | Calm and fair, naming the other side: \"Employers' groups say rules like these add cost.\" | Fair to both sides: \"Employers' groups say rules like these add cost, but a law on paper does little without someone checking.\""
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Moves toward public oversight of who screens and decides hiring. | Pushes enforcement that changes how employers screen people. | Pushes accountability onto employers and the city."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Weak enforcement is stated, the opposing view is named, and the drafting tool is written \"It could draft\". | pass: Weak enforcement stated with numbers; the contested rule is balanced; drafting tool is \"It could draft\". | pass: The drafting tool is written \"It could draft\"; the opposing view is named; the audit figures match the exemplar."
+      }
+    },
+    "ai-public-retraining": {
+      "actionable": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Asking a member of Congress or the library is real but slow to matter. | \"Find your member of Congress at house.gov\" and asking the library are concrete 10-15 minute steps. | \"ask where they stand on retraining help\" is a real step but a generic one."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Pushing for retraining help is familiar; library AI classes add a modest local twist. | Calling representatives is familiar; the TAA precedent and library classes add useful detail. | Asking the library for a class is a useful local twist on a familiar policy ask."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "TAA's \"lapsed on July 1, 2022\" and Finland's \"about 54,000\" goal with \"nearly 90,000 sign-ups.\" | TAA's retraining, income support and \"wage top-up for workers 50 and older,\" plus Finland's 54,000 goal and 90,000 sign-ups. | TAA's \"wage top-up for workers 50 and older\" lapsing July 1, 2022; Finland's 54,000 goal and 90,000 sign-ups."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "The wage top-up for workers 50 and older is a detail, but the overall angle is expected. | That a federal retraining program existed and lapsed in 2022 surprises most people. | That the main federal retraining program has lapsed is one surprising element."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Balanced: \"Some people want a similar program... while others argue broad help for every worker... works better.\" | Contested idea offered fairly: \"Some people want... while others argue broad help... works better.\" | Contested idea offered as an idea: \"Some people want... while others argue broad help for every worker... works better.\""
+      },
+      "power": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "Changes who pays for retraining and income while people learn. | Would change who pays for retraining and income while learning. | Changes who pays for retraining and income while people learn."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The contested policy is offered with both sides named; TAA's lapse is stated. | pass: Policy framed as a view some hold, with the counterargument; TAA lapse stated. | pass: The policy is presented with both views, and the TAA lapse is accurate."
+      }
+    },
+    "ai-field-updates": {
+      "actionable": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "\"Look at job postings in your field this week and count how many are entry-level\" is concrete without It. | \"count how many are entry-level\" and reading related occupations are real but slow to matter. | \"count how many are entry-level\" is doable but slow to matter; the rest is \"Tell us you'd use this.\""
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Watching for \"a drop in entry-level postings\" as an early signal is a useful idea many wouldn't think of. | Watching entry-level postings as an early signal is a fair twist on generic news. | Watching entry-level postings as an early warning is a modest twist on a newsletter."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Stanford's \"19% below where they'd otherwise be\" and O*NET related jobs; proposed ideas not penalized. | Proposed features cite ILO, Stanford's 19% and O*NET, without needing past results. | The ILO and Stanford are named, but used as general support for proposed features."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "The 19% figure repeats from other cards; the framing is useful but expected. | A regular update service is predictable from \"A plain, regular update on AI in my field.\" | The 19% figure reappears; nothing new beyond it."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Clearly offered: \"It could pull that research together... in plain words.\" | \"without the hype or the doom\" and \"in plain words\" fit the mentor voice, though \"Researchers such as the ILO\" is loose. | Plain and honest about status: \"It could pull that research together.\""
+      },
+      "power": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Mostly information to cope better inside unchanged conditions. | Information only; conditions stay unchanged. | Mostly staying informed inside unchanged conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Every fix is written \"It could\" and labeled proposed; the Stanford claim matches the exemplar. | pass: Every fix is \"It could...\" and labeled proposed_it_feature; first steps work without It. | FAIL: \"the clearest effect so far is fewer young workers\" calls a correlation an effect, which the Stanford exemplar's limit (\"not proof of cause\") doesn't support."
+      }
+    },
+    "ai-coworkers-decide": {
+      "actionable": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "\"Write down the one rule about AI you'd most want at your job\" is real but small; the other step is \"Tell us you'd use this.\" | \"Write down the one rule about AI you'd most want\" is small; the other step is only \"Tell us you'd use this.\" | The steps are \"Tell us you'd use this\" and \"Write down the one rule\", which are thin."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Private combined answers \"so no one has to go first\" names a real barrier and a clever fix. | \"see only the combined results, so no one has to go first\" addresses the real barrier to speaking up. | \"see only the combined results, so no one has to go first\" names a real barrier and a clever answer."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "WGA disclosure is named but thin; the private check is unexampled, acceptable for a proposed idea. | The writers' disclosure rule anchors the group request; the private check is a labeled It idea. | Only the WGA disclosure rule, with thin detail."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "The \"no one has to go first\" angle is the one surprising element. | The private-poll angle is one surprising element. | The private-poll angle is one surprising element."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Warm and honest: \"Speaking up first is the hardest part of raising anything at work.\" | \"Speaking up first is the hardest part\" is candid and warm. | Candid and kind: \"Speaking up first is the hardest part of raising anything at work.\""
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Coworkers asking \"as a group\" changes who decides how AI is used. | \"ask for it as a group\" shifts who decides how AI is used. | Coworkers asking \"as a group\" changes who has a say."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Both It ideas start \"It could\"; \"advance notice and a say in which tasks change\" are framed as requests, not what writers won, though slightly beyond the WGA terms. | pass: Both fixes written \"It could...\" with proposed_it_feature status. | pass: Both fixes are clearly \"It could...\" proposals labeled proposed_it_feature."
+      }
+    },
+    "ai-young-workers": {
+      "actionable": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"Offer to look over one young person's resume or introduce them to someone in your field\" is concrete and kind. | \"Offer to look over one young person's resume or introduce them to someone\" is specific and quick. | \"Offer to look over one young person's resume or introduce them to someone in your field\" is concrete."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Turning a scary statistic into an hour of mentoring someone you know is a meaningful reframe. | Turning AI job anxiety into helping a young person is a meaningful reframe. | Mentoring is familiar; the link to how the AI \"spread the habits of the best agents\" gives it some meaning."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Stanford: 22- to 25-year-olds \"19% below where it would otherwise be by 2026.\" | Stanford's \"22- to 25-year-olds... running 19% below\" is named with a number. | Stanford's 19% for 22- to 25-year-olds, and the support study."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "The young-worker drop is the fact people would repeat. | The 19% figure for young workers in exposed jobs would stop a parent. | That the drop is \"concentrated in those exposed jobs rather than spread across every field\" is worth repeating."
+      },
+      "voice": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Title promises \"a first job that teaches\" the fixes don't deliver, and \"opens doors software can't\" edges toward a punchline. | Mostly plain, but \"opens doors software can't\" edges toward a punchline and \"That pattern is real\" is flat. | \"Offer an hour of your experience\" is a vague title, and \"That pattern is real\" is a little emphatic."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "A meaningful personal act for someone else; conditions unchanged. | A personal introduction changes someone else's start, a meaningful personal fix. | A meaningful personal fix for someone else, without structural change."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: \"That pattern is real\" refers to the observed pattern, not cause; \"concentrated in those exposed jobs\" stays near the exemplar, though the correlation limit isn't restated. | pass: Pattern is described, not called a cause; limited to exposed jobs. | pass: States a pattern, not a cause, and keeps it to exposed jobs."
+      }
+    },
+    "ai-calm-conversation": {
+      "actionable": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "\"Read the short United Nations news summary... and tell one person what surprised you\" is quick. | \"Read the short United Nations news summary... and tell one person\" fits in 10 minutes. | \"Read the short United Nations news summary\" is a real step but low-impact."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Getting facts straight is familiar; the one-in-four nuance is a useful detail. | \"tasks changing within jobs is the most likely result\" is a useful correction to headlines. | \"tasks changing within jobs is the most likely result\" is a useful correction, but generic."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "ILO 2025 \"one in four jobs\" is named; Finland is vaguer (\"tens of thousands\"). | ILO 2025 one-in-four is solid; Finland's \"tens of thousands of people took its free course\" is vague. | The ILO figure is solid, but Finland gets only \"tens of thousands of people.\""
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"tasks changing within jobs is the most likely result\" is reassuring, mildly surprising. | Transformation over replacement is a modest surprise. | Transformation rather than replacement is one surprising element."
+      },
+      "voice": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"An hour of trying a tool together does more to calm nerves than any article\" is an unsupported punchy claim. | \"An hour of trying a tool together does more to calm nerves than any article\" is an overstated, slogan-like claim. | \"Learn what the one-in-four estimate really means\" assumes the reader knows the estimate, and \"does more to calm nerves than any article\" is a sweeping claim."
+      },
+      "power": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Coping through better conversation; conditions unchanged. | Helps me talk calmly; conditions are unchanged. | Calmer conversations, with conditions unchanged."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: ILO claims match the exemplar; \"took its free course\" slightly overstates enrollment and \"Finland treated\" blurs a university course with a national effort, but not enough to mislead materially. | FAIL: \"tens of thousands of people took its free course\" treats enrollment (from 80 countries) as Finns completing it, and the calm-nerves claim is asserted without support. | pass: The ILO finding is stated as an estimate of exposure; nothing risky is asserted."
+      }
+    },
+    "ai-experience-counts": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"List three times this month you caught a problem others missed, and how you knew\" is specific and 15 minutes. | \"List three times this month you caught a problem others missed, and how you knew\" is specific and quick. | \"List three times this month you caught a problem others missed, and how you knew\" is specific and quick."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Volunteering to be the one who checks AI drafts is a smart repositioning. | Volunteering to be the one who checks AI drafts reframes experience as the quality gate. | Turning experience into the role of the person who \"checks AI drafts\" is a useful reframe."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Klarna and the support study are named but with no number here. | Klarna and the support study are named but stretched: Klarna's rehiring says nothing about experienced reviewers. | Klarna is used thinly; nothing shows its rehires were experienced reviewers."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Candid that written know-how may end up \"training people or tools\"; otherwise expected. | \"AI helped new agents most because it copied what the best agents already did\" is the one striking element. | Nothing here I'd repeat beyond the familiar Klarna story."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Mentor-like: \"Someone has to know good work when they see it.\" | \"Someone has to know good work when they see it\" is a bit aphoristic; otherwise plain. | Warm and respectful: \"Someone has to know good work when they see it.\""
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Strengthens one person's position at work. | Strengthens my own position on the team. | Strengthens my own position on the team."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Klarna supports human quality but \"bring people back\" and the reviewer link stretch the exemplar a little; not presented as proof. | pass: Claims are modest, though the Klarna link to experienced reviewers is loose. | pass: Klarna's rehiring is stated accurately; the experience claim is offered as \"usually\", not as fact."
+      }
+    }
+  },
+  "pairwise": [],
+  "consensus": {
+    "ai-know-my-tasks": {
+      "borda": 23,
+      "ranks": [
+        5,
+        10,
+        7
+      ],
+      "spread": 5,
+      "honestVotes": "3/3 pass"
+    },
+    "ai-comfortable-with-tools": {
+      "borda": 32,
+      "ranks": [
+        3,
+        4,
+        6
+      ],
+      "spread": 3,
+      "honestVotes": "3/3 pass"
+    },
+    "ai-money-cushion": {
+      "borda": 15,
+      "ranks": [
+        13,
+        5,
+        12
+      ],
+      "spread": 8,
+      "honestVotes": "3/3 pass"
+    },
+    "ai-growing-work": {
+      "borda": 31,
+      "ranks": [
+        6,
+        3,
+        5
+      ],
+      "spread": 3,
+      "honestVotes": "3/3 pass"
+    },
+    "ai-know-ahead": {
+      "borda": 33,
+      "ranks": [
+        2,
+        7,
+        3
+      ],
+      "spread": 5,
+      "honestVotes": "3/3 pass"
+    },
+    "ai-union-contract": {
+      "borda": 28,
+      "ranks": [
+        7,
+        6,
+        4
+      ],
+      "spread": 3,
+      "honestVotes": "3/3 pass"
+    },
+    "ai-staff-not-replaced": {
+      "borda": 37,
+      "ranks": [
+        4,
+        2,
+        2
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "ai-fair-hiring-software": {
+      "borda": 42,
+      "ranks": [
+        1,
+        1,
+        1
+      ],
+      "spread": 0,
+      "honestVotes": "3/3 pass"
+    },
+    "ai-public-retraining": {
+      "borda": 17,
+      "ranks": [
+        11,
+        8,
+        9
+      ],
+      "spread": 3,
+      "honestVotes": "3/3 pass"
+    },
+    "ai-field-updates": {
+      "borda": 6,
+      "ranks": [
+        12,
+        13,
+        14
+      ],
+      "spread": 2,
+      "honestVotes": "2/3 pass"
+    },
+    "ai-coworkers-decide": {
+      "borda": 17,
+      "ranks": [
+        9,
+        9,
+        10
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "ai-young-workers": {
+      "borda": 15,
+      "ranks": [
+        8,
+        11,
+        11
+      ],
+      "spread": 3,
+      "honestVotes": "3/3 pass"
+    },
+    "ai-calm-conversation": {
+      "borda": 4,
+      "ranks": [
+        14,
+        14,
+        13
+      ],
+      "spread": 1,
+      "honestVotes": "2/3 pass"
+    },
+    "ai-experience-counts": {
+      "borda": 15,
+      "ranks": [
+        10,
+        12,
+        8
+      ],
+      "spread": 4,
+      "honestVotes": "3/3 pass"
+    }
+  },
+  "seed": 17
+}

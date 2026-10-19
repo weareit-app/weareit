@@ -1,0 +1,745 @@
+{
+  "schemaVersion": 1,
+  "painId": "doomscrolling",
+  "runId": "20261019-175401",
+  "cards": {
+    "scroll-phone-out-of-bedroom": {
+      "title": "Charging my phone outside the bedroom",
+      "line": "My phone spends the night in the kitchen, so the last thing I see before sleep isn't a feed.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "scroll-phone-out-of-bedroom-charge-elsewhere",
+          "title": "Move your phone charger to another room",
+          "whatChanges": "In a study of about 9,400 kids aged 11 and 12, the ones whose phones stayed out of the bedroom slept longer and better, and that was still true a year later. The study didn't include adults, but the lead researcher says the same advice goes for grownups, and he moved his own phone out of the bedroom.",
+          "who": "You",
+          "exemplarRef": "abcd-bedroom",
+          "speculative": false,
+          "firstStep": "Plug your charger in by the kitchen counter or a hallway outlet tonight and leave the phone there.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "scroll-phone-out-of-bedroom-turn-off",
+          "title": "Turn the phone off instead of just silencing it",
+          "whatChanges": "The same study found that silencing notifications was linked to less sleep than switching the phone off completely. The lead researcher, a pediatrician at the University of California, San Francisco, thinks buzzes and screen light can still wake people up.",
+          "who": "You",
+          "exemplarRef": "abcd-bedroom",
+          "speculative": false,
+          "firstStep": "Tonight, power the phone all the way down when you put it on the charger.",
+          "firstStepMinutes": 2,
+          "status": "real_now",
+          "kind": "habit"
+        },
+        {
+          "id": "scroll-phone-out-of-bedroom-alarm-clock",
+          "title": "Buy a cheap alarm clock so the phone isn't your alarm",
+          "whatChanges": "Plenty of people keep the phone by the bed because it's their alarm. A basic alarm clock costs about $15 and takes that reason away.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Order a plain alarm clock, or dig out an old one, and set it for tomorrow.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "speculativeRationale": "Common practice; no product or survey page was opened in this run.",
+          "kind": "task"
+        },
+        {
+          "id": "scroll-phone-out-of-bedroom-charge-reminder",
+          "title": "Nightly reminder to charge your phone in another room",
+          "whatChanges": "Reminds you at a time you pick to plug the phone in outside the bedroom, and asks once a week how you slept on the nights you did, so you can see whether the change matters for you.",
+          "who": "You and It",
+          "firstStep": "Tell us you'd use this, and set a phone alarm for 30 minutes before bed tonight labeled \"charger\".",
+          "firstStepMinutes": 3,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculative": true,
+          "speculativeRationale": "Tracking and nudges pattern; the bedroom study supports the change but not reminders."
+        }
+      ],
+      "writerNotes": "Basic sweep: charging elsewhere. ABCD is observational and in young teens; copy says 'linked' and adapts to adults carefully.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175401",
+        "locator": "cards.json#scroll-phone-out-of-bedroom",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "scroll-gray-quiet-phone-at-night": {
+      "title": "A phone that turns gray and quiet at bedtime",
+      "line": "After about 10, my phone goes black and white, the apps I scroll lock until morning, and checking it stops being much fun.",
+      "lens": "technology",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "scroll-gray-quiet-phone-at-night-grayscale",
+          "title": "Set your screen to grayscale",
+          "whatChanges": "When about 220 college students switched their phones to grayscale, they used them about 39 minutes less a day, according to a psychologist at the University of Cincinnati's Blue Ash campus. Color is a lot of what makes feeds pleasant to keep scrolling.",
+          "who": "You",
+          "exemplarRef": "grayscale-uc",
+          "speculative": false,
+          "firstStep": "Find the grayscale or color filter setting under Accessibility and turn it on for one evening.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "scroll-gray-quiet-phone-at-night-android-bedtime",
+          "title": "Schedule a black-and-white bedtime mode on your phone",
+          "whatChanges": "Android's Digital Wellbeing settings include a Bedtime mode that turns the screen black and white on a schedule, or whenever you plug the phone in at night. App timers can also close a chosen app after a daily limit.",
+          "who": "You",
+          "exemplarRef": "android-bedtime",
+          "speculative": false,
+          "firstStep": "Open Digital Wellbeing in Settings and set Bedtime mode to start when you usually want to be asleep.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "scroll-gray-quiet-phone-at-night-iphone-limits",
+          "title": "Set a nightly schedule and app limits on an iPhone",
+          "whatChanges": "Screen Time on an iPhone lets you limit whole categories like social media, by a daily total or by time of day. You can dismiss the limit when it pops up, but having to make that choice on purpose is the point.",
+          "who": "You",
+          "exemplarRef": "apple-screen-time",
+          "speculative": false,
+          "firstStep": "In Settings, open Screen Time and set a one-hour daily limit on social media apps.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "scroll-gray-quiet-phone-at-night-setup-guide",
+          "title": "Setup steps for your exact phone",
+          "whatChanges": "Asks which phone you have and walks you through the exact menus for grayscale, Bedtime mode and app limits, since Android menus differ by phone maker.",
+          "who": "You and It",
+          "firstStep": "Tell us you'd use this, and note your phone's make and model from Settings.",
+          "firstStepMinutes": 2,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "exemplarRef": "android-bedtime",
+          "speculative": false
+        }
+      ],
+      "writerNotes": "Basics: phone settings, grayscale, app limits. Apple page opened is the family-controls version; copy keeps to features named there.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175401",
+        "locator": "cards.json#scroll-gray-quiet-phone-at-night",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "scroll-pause-before-opening": {
+      "title": "A short pause before the apps that eat my evenings",
+      "line": "When I reach for the app out of habit, something makes me wait a breath, and a lot of the time I close it.",
+      "lens": "technology",
+      "ambition": "tonight",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "scroll-pause-before-opening-one-sec",
+          "title": "Add a short delay before your most-scrolled apps",
+          "whatChanges": "An app called one sec makes you wait and breathe for a few seconds before an app opens. In a six-week study of 280 users published in 2023, people ended up opening the apps they'd chosen 57% less often. Those users signed up wanting to cut back, which helps.",
+          "who": "You",
+          "exemplarRef": "one-sec-pnas",
+          "speculative": false,
+          "firstStep": "Install a delay app like one sec and attach it to the one app you lose the most evenings to.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "scroll-pause-before-opening-move-apps",
+          "title": "Move the scrolling apps off your home screen",
+          "whatChanges": "Putting an app in a folder on the last screen, or logging out after each use, adds just enough effort that habit stops carrying you straight into it.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Drag your two most-scrolled apps into a folder on the last page of your home screen.",
+          "firstStepMinutes": 3,
+          "status": "real_now",
+          "speculativeRationale": "Widely shared tip; no study page opened in this run.",
+          "kind": "task"
+        },
+        {
+          "id": "scroll-pause-before-opening-reflect-prompt",
+          "title": "Pause-and-reflect prompts before habit apps",
+          "whatChanges": "Asks one short question when you open an app you marked, such as what you came to do, and shows you privately how often you closed the app instead, the way one sec adds a pause before the apps you pick.",
+          "who": "You and It",
+          "firstStep": "Tell us you'd use this, and write down the one app you'd want a pause in front of.",
+          "firstStepMinutes": 2,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "exemplarRef": "one-sec-pnas",
+          "speculative": false
+        }
+      ],
+      "writerNotes": "Friction basics. one sec study coauthored by app founder (Riedel); limit kept in exemplar, copy notes self-selection plainly.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175401",
+        "locator": "cards.json#scroll-pause-before-opening",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "scroll-month-without-feed": {
+      "title": "Finding out what a month without the feed feels like",
+      "line": "I take one app off my phone for a month and notice what I actually do with my evenings instead.",
+      "lens": "individual",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "scroll-month-without-feed-deactivate",
+          "title": "Deactivate one social media account for four weeks",
+          "whatChanges": "In a 2018 experiment, researchers paid people to stay off Facebook for four weeks. They got back about an hour a day, spent more of it with friends and family, and said they were a little happier. Several weeks after, they were using the Facebook app about 22 percent less than people who hadn't quit.",
+          "who": "You",
+          "exemplarRef": "facebook-deactivation",
+          "speculative": false,
+          "firstStep": "Pick the account that costs you the most nights and put a four-week end date on your calendar.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "scroll-month-without-feed-desktop-only",
+          "title": "Delete the app but keep the account on a computer",
+          "whatChanges": "If you need an account for family photos or a group, keeping it only on a laptop means you can still check it, just not in bed.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Delete one social app from your phone tonight and log in once from a computer to make sure it still works.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "speculativeRationale": "Common practice; no source opened for this exact approach.",
+          "kind": "task"
+        },
+        {
+          "id": "scroll-month-without-feed-break-checkins",
+          "title": "Weekly check-ins during a four-week break",
+          "whatChanges": "Asks once a week during your four-week break what you did with the evenings you got back, and at the end shows your answers side by side so you can decide whether to return to the app.",
+          "who": "You and It",
+          "firstStep": "Tell us you'd use this, and write tonight's date on a note where you'll see it in four weeks.",
+          "firstStepMinutes": 3,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "exemplarRef": "facebook-deactivation",
+          "speculative": false
+        }
+      ],
+      "writerNotes": "Turns a known idea (take a break) into a test with a number. Effects were small; copy says 'a little happier'.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175401",
+        "locator": "cards.json#scroll-month-without-feed",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "scroll-simpler-phone": {
+      "title": "A night phone with calls and music but no feeds",
+      "line": "The phone I carry at night can't load a feed, so there's nothing to fall into.",
+      "lens": "market",
+      "ambition": "this-year",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "scroll-simpler-phone-light-phone",
+          "title": "Look at a minimalist phone for evenings and weekends",
+          "whatChanges": "The Light Phone III has calls, texts, maps, music and an alarm, and no social media or browser. At $799 it isn't cheap, so many people try it as a second phone for evenings first, or use an old basic phone.",
+          "who": "You",
+          "exemplarRef": "light-phone-3",
+          "speculative": false,
+          "firstStep": "Check whether your carrier lets you move your number between two phones, so you could try a simpler one some nights.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "scroll-simpler-phone-brick",
+          "title": "Lock your apps with a physical block you leave in another room",
+          "whatChanges": "Brick is a small block you tap your phone against to lock the apps you pick, up to 50 of them. To open them again, you have to walk over and tap again. In the US it costs about $59, with no subscription.",
+          "who": "You",
+          "exemplarRef": "brick-device",
+          "speculative": false,
+          "firstStep": "Decide which room the block would live in, then compare Brick with a free app blocker before buying.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        }
+      ],
+      "writerNotes": "Market lens. One plain limit (price).",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175401",
+        "locator": "cards.json#scroll-simpler-phone",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "scroll-evenings-together": {
+      "title": "Evenings when my partner and I both put phones away",
+      "line": "After dinner our phones go in the same drawer, and we actually talk or watch something together.",
+      "lens": "relational",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "scroll-evenings-together-drawer",
+          "title": "Agree on a shared place where both phones go at night",
+          "whatChanges": "When both people put phones away at the same time, nobody is left sitting next to someone who's scrolling. A drawer or a basket by the door works fine, as long as you both use it.",
+          "who": "You and your partner or housemates",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Ask your partner tonight if they'd try putting both phones in one spot after 9 for a week.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "speculativeRationale": "Common household practice; no study of shared phone spots was opened in this run.",
+          "kind": "task"
+        },
+        {
+          "id": "scroll-evenings-together-same-schedule",
+          "title": "Set the same bedtime schedule on both phones",
+          "whatChanges": "If both phones go gray and quiet at the same hour, neither of you has to be the one asking. Doing it together makes it a household habit rather than a rule one person keeps.",
+          "who": "You and your partner",
+          "exemplarRef": "android-bedtime",
+          "speculative": false,
+          "firstStep": "Sit down together for ten minutes and set the same bedtime schedule on both phones.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "scroll-evenings-together-ask-partner",
+          "title": "Help suggesting a phones-away evening to your partner",
+          "whatChanges": "Helps you put the idea to your partner as something you'd both try for a week, not a complaint about their phone, and checks in afterward on how the week went.",
+          "who": "You, your partner and It",
+          "firstStep": "Tell us you'd use this, and think of one thing you'd like to do together after dinner instead.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculative": true,
+          "speculativeRationale": "Guided practice pattern; no source opened on how couples raise phone use."
+        }
+      ],
+      "writerNotes": "Relational lens. Avoid moralizing about the partner.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175401",
+        "locator": "cards.json#scroll-evenings-together",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "scroll-parents-wait-together": {
+      "title": "Parents in my kid's grade agreeing to wait on smartphones",
+      "line": "My kid isn't the only one in class without a smartphone, because a group of us decided together.",
+      "lens": "community",
+      "ambition": "together",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "scroll-parents-wait-together-wait-8th",
+          "title": "Sign a pledge that starts when ten families in the grade join",
+          "whatChanges": "Wait Until 8th asks parents to hold off on a smartphone until the end of eighth grade. The pledge only kicks in once ten families from the same grade and school sign, so no child is the only one. More than 155,000 parents have signed.",
+          "who": "Parents",
+          "exemplarRef": "wait-until-8th",
+          "speculative": false,
+          "firstStep": "Read the pledge at waituntil8th.org and send the link to two parents in your kid's grade.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "scroll-parents-wait-together-uk-pact",
+          "title": "Start a parent pact at your kid's school to wait until 14",
+          "whatChanges": "Smartphone Free Childhood was started by parents in the UK in early 2024. Since then, over 140,000 parents from 13,500 schools have signed a pact to hold off on smartphones until their kids are 14.",
+          "who": "Parents",
+          "exemplarRef": "smartphone-free-childhood",
+          "speculative": false,
+          "firstStep": "Ask in your class parents' group chat whether anyone else is thinking about this.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "new-group"
+        },
+        {
+          "id": "scroll-parents-wait-together-it-find-parents",
+          "title": "Find other parents in your school who'd wait too",
+          "whatChanges": "Lets parents at the same school say privately that they'd delay a smartphone, and only tells everyone once enough families agree. Nobody's choice is shown until then.",
+          "who": "Parents and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this.",
+          "firstStepMinutes": 1,
+          "status": "proposed_it_feature",
+          "speculativeRationale": "Proposed It feature modeled on the Wait Until 8th threshold; not built.",
+          "kind": "feature"
+        }
+      ],
+      "writerNotes": "Community lens. It idea preserves privacy invariant (no exposure of individual choices).",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175401",
+        "locator": "cards.json#scroll-parents-wait-together",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "scroll-school-phone-lockers": {
+      "title": "A school day where phones stay in lockers",
+      "line": "At my kid's school, phones are put away from first bell to last, and kids talk at lunch again.",
+      "lens": "community",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "scroll-school-phone-lockers-ask-board",
+          "title": "Ask your school board about a bell-to-bell phone policy",
+          "whatChanges": "When two schools in Nijmegen in the Netherlands banned phones in 2024, teachers saw more attention in class and students talked more at lunch. Students liked the rule less afterward, and some missed reaching their parents, so a good policy plans for that.",
+          "who": "Parents, students and school boards",
+          "exemplarRef": "dutch-nijmegen",
+          "speculative": false,
+          "firstStep": "Find the date of your school board's next meeting and whether it takes public comments.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "scroll-school-phone-lockers-state-law",
+          "title": "Check whether your state already has a school phone law",
+          "whatChanges": "In 2025 alone, more than 45 states introduced bills on kids and social media, and at least 20 passed new laws, several of them limiting phones in schools. Your district might already be required to act.",
+          "who": "Parents",
+          "exemplarRef": "ncsl-tracker",
+          "speculative": false,
+          "firstStep": "Search the National Conference of State Legislatures tracker for your state's 2025 laws.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "learn"
+        },
+        {
+          "id": "scroll-school-phone-lockers-parent-campaign",
+          "title": "Shared parent request for a bell-to-bell phone policy",
+          "whatChanges": "Gathers parents and teachers at your kid's school behind one written request to the school board, shows how many have signed on, and sends it together before the board meets.",
+          "who": "Parents, teachers and It",
+          "firstStep": "Tell us you'd use this, and ask one other parent whether they'd sign a request like this.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculative": true,
+          "speculativeRationale": "Campaign organizing pattern (founder F3); no source opened for school phone campaigns."
+        }
+      ],
+      "writerNotes": "Policy/school lens. National Dutch survey unverified (403); used only verified Nijmegen. Honest about student approval drop.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175401",
+        "locator": "cards.json#scroll-school-phone-lockers",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "scroll-apps-not-built-to-hook": {
+      "title": "Apps that aren't designed to keep me scrolling past midnight",
+      "line": "The apps I use stop feeding me more at night instead of being built to keep me up.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "scroll-apps-not-built-to-hook-eu-design",
+          "title": "Support rules against endless scroll and autoplay",
+          "whatChanges": "In February 2026 the European Commission said, in preliminary findings, that TikTok's infinite scroll, autoplay and push notifications break European law, and that TikTok should change the basic design, including breaks at night. The case isn't decided yet.",
+          "who": "Regulators and voters",
+          "exemplarRef": "eu-tiktok-dsa",
+          "speculative": false,
+          "firstStep": "Read the Commission's two-page summary so you know what such a rule would actually require.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "scroll-apps-not-built-to-hook-ny-nights",
+          "title": "Ask your state to stop overnight notifications for teens",
+          "whatChanges": "New York's SAFE for Kids Act, starting January 2027, bars platforms from sending minors notifications between midnight and 6am without a parent's consent, and makes a plain chronological feed the default for them. Some people worry about the age checks these laws need, which is a fair question to ask your legislator.",
+          "who": "State legislators and voters",
+          "exemplarRef": "ny-safe-kids",
+          "speculative": false,
+          "firstStep": "Look up whether your state has a bill like New York's on the National Conference of State Legislatures tracker.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        }
+      ],
+      "writerNotes": "Policy lens. Contested: names privacy concern about age checks as a reasonable view.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175401",
+        "locator": "cards.json#scroll-apps-not-built-to-hook",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "scroll-teen-accounts-quiet-overnight": {
+      "title": "Teen accounts that go quiet overnight by default",
+      "line": "My teenager's apps stop buzzing at night without me having to fight about it.",
+      "lens": "market",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "scroll-teen-accounts-quiet-overnight-ig-sleep",
+          "title": "Check that your teen's social apps use teen settings",
+          "whatChanges": "Since 2024, Instagram teen accounts turn on sleep mode from 10pm to 7am every day: notifications are muted and messages get an automatic reply. Under-16s need a parent's permission to change it.",
+          "who": "Parents and teens",
+          "exemplarRef": "instagram-sleep-mode",
+          "speculative": false,
+          "firstStep": "Open your teen's Instagram settings with them and confirm sleep mode is on.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "scroll-teen-accounts-quiet-overnight-charge-together",
+          "title": "Charge the whole family's phones in one spot",
+          "whatChanges": "A shared charging spot in the kitchen means the rule applies to everyone, adults included, which makes it much easier for a teenager to accept.",
+          "who": "The whole household",
+          "exemplarRef": "abcd-bedroom",
+          "speculative": false,
+          "firstStep": "Pick a spot with enough outlets and put a power strip there tonight.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "scroll-teen-accounts-quiet-overnight-settings-lookup",
+          "title": "Overnight settings for the apps your teen uses",
+          "whatChanges": "Shows which of your teen's apps have a quiet-overnight setting like Instagram's teen sleep mode, where to find it, and what your teen can change without you.",
+          "who": "Parents and It",
+          "firstStep": "Tell us you'd use this, and list the three apps your teen uses most at night.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "exemplarRef": "instagram-sleep-mode",
+          "speculative": false
+        }
+      ],
+      "writerNotes": "Market default + household basic. Avoids implying Instagram's default solves the problem.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175401",
+        "locator": "cards.json#scroll-teen-accounts-quiet-overnight",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "scroll-companies-answer-for-design": {
+      "title": "Holding app makers responsible for designing for compulsion",
+      "line": "The companies that profit from my late nights have to answer for how their apps are built.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "scroll-companies-answer-for-design-state-lawsuits",
+          "title": "Tell your attorney general where you stand on the app design lawsuit",
+          "whatChanges": "In 2023, 41 states and Washington, DC sued Meta, saying features on Instagram and Facebook were built to keep young people using them compulsively. These are claims in court, not findings, and the case was still going on when this was reported, so your attorney general is still deciding how hard to press.",
+          "who": "You and your state attorney general",
+          "exemplarRef": "states-v-meta",
+          "speculative": false,
+          "firstStep": "Check your attorney general's website to see whether your state joined, then use its contact form to say whether you want them to keep going.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "scroll-companies-answer-for-design-different-directions",
+          "title": "Tell your state legislator whether you want an age limit or a warning label",
+          "whatChanges": "Australia now requires platforms to keep under-16s off ten major apps. Another approach, already law in one state, makes apps show a mental health warning every time they open. People disagree about which approach respects privacy and free choice, and about whether either one works.",
+          "who": "You and your state legislators",
+          "exemplarRef": "australia-under16",
+          "speculative": false,
+          "firstStep": "Write two sentences on which approach you'd want in your state and why, and send them through your state legislator's contact form.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "scroll-companies-answer-for-design-state-record",
+          "title": "Record of your state's actions on app design",
+          "whatChanges": "Shows whether your state joined lawsuits like the one 41 states brought against Meta, and how each of your legislators voted on app design bills, so you know who acted when you vote.",
+          "who": "Voters and It",
+          "firstStep": "Tell us you'd use this, and note your state attorney general's name from the state website.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "exemplarRef": "states-v-meta",
+          "speculative": false
+        }
+      ],
+      "writerNotes": "Contested: presents ban, warning label and lawsuit as different directions; doesn't assert one is right.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175401",
+        "locator": "cards.json#scroll-companies-answer-for-design",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "scroll-see-where-nights-go": {
+      "title": "Seeing plainly where my nights go",
+      "line": "I know which app takes my evenings and what time I usually lose track, so I know what to try first.",
+      "lens": "technology",
+      "ambition": "this-year",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "scroll-see-where-nights-go-it-weekly",
+          "title": "Track your late-night phone use week to week",
+          "whatChanges": "Asks you once a week for the late-night numbers your phone's screen time report already shows, and keeps them on your device so you can see whether a change is working.",
+          "who": "You and It",
+          "exemplarRef": "apple-screen-time",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and look at this week's Screen Time report tonight.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "scroll-see-where-nights-go-it-pick",
+          "title": "Figure out which basic to try first",
+          "whatChanges": "Asks a few questions, like whether you scroll in bed or on the couch and which app pulls you in, and suggests one thing to try for two weeks, such as charging elsewhere, grayscale or an app delay.",
+          "who": "You and It",
+          "exemplarRef": "grayscale-uc",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and write down the one app you opened last night after you meant to stop.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "scroll-see-where-nights-go-it-honest",
+          "title": "Get reminders that stop once you're done",
+          "whatChanges": "Checks in after two weeks to ask how the change went, and then goes quiet, instead of becoming one more app that asks for your evenings.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this.",
+          "firstStepMinutes": 1,
+          "status": "proposed_it_feature",
+          "speculativeRationale": "Product principle: It promises not to monopolize attention; no external source.",
+          "kind": "feature"
+        }
+      ],
+      "writerNotes": "It-led card. Privacy invariant: data stays on device pre-signup.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175401",
+        "locator": "cards.json#scroll-see-where-nights-go",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "scroll-contact-legislators": {
+      "title": "Limits on addictive app design in my state",
+      "line": "My state has rules that keep apps from being built to keep us up all night, and my representative heard from people like me before the vote.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "scroll-contact-legislators-it-bills",
+          "title": "See which bills about app design your state is considering",
+          "whatChanges": "Shows bills in your state on feeds, notifications and kids online, using the tracker the National Conference of State Legislatures already keeps. In 2025 there were more than 300 such bills across 45 states.",
+          "who": "You and It",
+          "exemplarRef": "ncsl-tracker",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and look up your state on the NCSL tracker.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "scroll-contact-legislators-it-call",
+          "title": "Call or write your representatives with a short script",
+          "whatChanges": "Finds your state and federal representatives and gives you a short, plain script, the way 5 Calls does for issues in Congress. Most addictive-design bills are at the state level, so state legislators matter most.",
+          "who": "You and It",
+          "exemplarRef": "five-calls",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and find your state representative's name on your state legislature's website.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "scroll-contact-legislators-it-neighbors",
+          "title": "Bring neighbors and other parents to the same hearing",
+          "whatChanges": "Shows people near you who care about this when a hearing is coming, so you can plan to speak or submit comments together.",
+          "who": "You, neighbors and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this.",
+          "firstStepMinutes": 1,
+          "status": "proposed_it_feature",
+          "speculativeRationale": "Proposed It organizing feature; no source opened.",
+          "kind": "feature"
+        }
+      ],
+      "writerNotes": "It-led civic card.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175401",
+        "locator": "cards.json#scroll-contact-legislators",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "scroll-group-chats-quiet": {
+      "title": "Group chats that don't buzz all night",
+      "line": "My friends and family can still reach me, but the chats don't keep pulling me back to the phone after 10.",
+      "lens": "relational",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "scroll-group-chats-quiet-mute-chats",
+          "title": "Mute busy group chats and let only a few people through",
+          "whatChanges": "Most phones let you silence everything at night except calls from a short list of people, so a real emergency still reaches you. Group chats are often what turns a quick check into an hour of scrolling.",
+          "who": "You",
+          "exemplarRef": "android-bedtime",
+          "speculative": false,
+          "firstStep": "Pick the three people who should always be able to reach you and add them to your Do Not Disturb exceptions.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "scroll-group-chats-quiet-tell-friends",
+          "title": "Tell your group chat when you're off for the night",
+          "whatChanges": "Saying you don't check the phone after 10 takes the pressure off answering. Friends often say they've wanted to do the same.",
+          "who": "You and your friends",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Send one message to your busiest group saying you'll see their messages in the morning.",
+          "firstStepMinutes": 2,
+          "status": "real_now",
+          "speculativeRationale": "Common practice; no source opened.",
+          "kind": "task"
+        }
+      ],
+      "writerNotes": "Relational basic.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175401",
+        "locator": "cards.json#scroll-group-chats-quiet",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    }
+  }
+}

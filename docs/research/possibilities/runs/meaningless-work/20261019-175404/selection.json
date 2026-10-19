@@ -1,0 +1,89 @@
+{
+  "finalists": [
+    "meaning-skills-for-a-cause",
+    "meaning-coworkers-decide",
+    "meaning-common-feeling",
+    "meaning-own-the-workplace",
+    "meaning-it-matching"
+  ],
+  "auditSample": [
+    "meaning-reshape-the-job",
+    "meaning-side-project"
+  ],
+  "seed": 17,
+  "itLedGuaranteed": "meaning-it-matching",
+  "itLedMissing": false,
+  "ranking": [
+    {
+      "cardId": "meaning-skills-for-a-cause",
+      "wins": 39,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "meaning-coworkers-decide",
+      "wins": 38,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "meaning-common-feeling",
+      "wins": 32,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "meaning-own-the-workplace",
+      "wins": 30,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "meaning-meet-who-it-helps",
+      "wins": 29,
+      "meanScore": 4.5
+    },
+    {
+      "cardId": "meaning-reshape-the-job",
+      "wins": 27,
+      "meanScore": 3.5
+    },
+    {
+      "cardId": "meaning-ownership-law",
+      "wins": 25,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "meaning-service-year",
+      "wins": 18,
+      "meanScore": 3.5
+    },
+    {
+      "cardId": "meaning-it-matching",
+      "wins": 17,
+      "meanScore": 3.5
+    },
+    {
+      "cardId": "meaning-side-project",
+      "wins": 17,
+      "meanScore": 3.5
+    },
+    {
+      "cardId": "meaning-manager-conversation",
+      "wins": 11,
+      "meanScore": 3.17
+    },
+    {
+      "cardId": "meaning-it-reflection",
+      "wins": 10,
+      "meanScore": 3.17
+    },
+    {
+      "cardId": "meaning-change-roles",
+      "wins": 8,
+      "meanScore": 3
+    }
+  ],
+  "excluded": [
+    {
+      "cardId": "meaning-employee-buyout",
+      "reason": "honest status failed: FAIL: \"about half of American businesses with employees are owned by baby boomers nearing retirement\" is attributed to Project Equity but is not in the exemplar record. | pass: The boomer figure is attributed to Project Equity, and the card says most stock plans give \"a share of the value, not a vote\". | FAIL: \"about half of American businesses with employees are owned by baby boomers nearing retirement\" is not in the Project Equity exemplar."
+    }
+  ]
+}

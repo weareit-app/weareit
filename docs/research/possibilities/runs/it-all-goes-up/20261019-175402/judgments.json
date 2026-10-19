@@ -1,0 +1,619 @@
+{
+  "schemaVersion": 1,
+  "painId": "it-all-goes-up",
+  "runId": "20261019-142004",
+  "judge": {
+    "context": "isolated-consensus",
+    "judges": 3,
+    "files": [
+      "judgments-1.json",
+      "judgments-2.json",
+      "judgments-3.json"
+    ],
+    "at": "2026-10-19T18:31:23+00:00"
+  },
+  "scores": {
+    "ineq-claim-credits": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"Open the IRS EITC Assistant and answer its questions using last year's income\" is a 15-minute step that can be worth real money. | \"Open the IRS EITC Assistant and answer its questions using last year's income\" is a 15-minute step that can put money in hand. | 'Open the IRS EITC Assistant and answer its questions using last year's income' is a 15-minute step that can put real money in hand."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Claiming credits is a known basic, made useful by \"about one in five people who qualify... never claim it\" and the free VITA sites. | A known basic made sharp by \"about one in five people who qualify ... never claim it\" and free volunteer preparers who \"know which credits people tend to miss.\" | A well-chosen basic made sharper by 'about one in five people who qualify... never claim it'."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "IRS estimate with a concrete number, \"about $2,541 for tax year 2022\", though it is a statistic rather than a place or story. | IRS estimate with \"average credit was about $2,541 for tax year 2022\"; concrete, though a national statistic, not a place. | IRS estimate with 'about $2,541 for tax year 2022'; national, no place, but concrete."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"About one in five\" eligible people leaving roughly $2,500 unclaimed is a fact worth repeating to a friend. | Learning that a fifth of eligible families leave about $2,541 unclaimed is something you'd tell a friend. | 'one in five... never claim it' is a fact worth repeating to a friend."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Plain and warm: \"Have a trained volunteer do your taxes for free\" and \"so book early\" sound like a mentor's practical tip. | Plain and warm: \"Most sites are open from January to April, so book early\"; dream line \"the money the tax system sets aside for working families like mine\" reads like a person. | Plain and warm: 'volunteers there know which credits people tend to miss... so book early.'"
+      },
+      "power": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Puts money already owed back in my pocket; changes my own conditions without changing who decides. | Recovering money \"my family is already owed\" is a personal fix meaningful enough to count against rising costs. | Changes my own money ('get back the money the tax system sets aside') without changing who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Existing IRS resources described accurately with the income limit and seasonal hours; no overclaiming. | pass: Existing IRS resources described as they are, with the seasonal limit and the $70,244 income guide stated plainly. | pass: Existing IRS tools described as they are; amounts tied to 'tax year 2022' and VITA's seasonal limit stated."
+      }
+    },
+    "ineq-fair-pay": {
+      "actionable": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "\"Ask one coworker you trust whether they'd be willing to swap hourly pay numbers\" is a five-minute step that moves something. | \"Ask one coworker you trust whether they'd be willing to swap hourly pay numbers\" is specific and quick, though socially harder than it looks. | 'Ask one coworker you trust whether they'd be willing to swap hourly pay numbers' takes five minutes and moves something."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Many people assume pay talk is forbidden; \"a right federal law protects for most private-sector workers, with or without a union\" reframes it. | Knowing that comparing pay is \"a right federal law protects for most private-sector workers, with or without a union\" is a useful twist on a familiar idea. | Reframes pay talk as 'a right federal law protects for most private-sector workers, with or without a union'."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "Labor Department rights page is named, but there is no place, year or result showing what comparing pay changed. | Cites \"The Labor Department\" listing a right, but no place, year or result. | Labor Department rule is named but has no number or result."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "That discussing wages is legally protected \"with or without a union\" will surprise many readers. | One surprising element: the legal protection holds \"with or without a union.\" | Legal protection 'with or without a union' surprises some readers; little else does."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Calm and direct (\"help you write a short, calm raise request\"); \"Pay gaps tend to last when nobody compares notes\" is a touch aphoristic. | Calm and candid: \"Pay gaps tend to last when nobody compares notes. Supervisors usually aren't covered.\" | Mentor-like: 'help you write a short, calm raise request' and 'Pay gaps tend to last when nobody compares notes.'"
+      },
+      "power": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Shifts bargaining information toward workers: \"ask for a raise with real numbers.\" | Asking \"for a raise with real numbers\" changes my own conditions, not who sets pay. | Shared pay knowledge shifts bargaining power: 'ask for a raise with real numbers'."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The It idea is written \"It could take your job title...\", labeled proposed, and the supervisor exclusion is stated once. | pass: The It idea is written \"It could take your job title and ZIP code...\" and labeled proposed; the legal right carries its supervisor limit. | pass: Limit 'Supervisors usually aren't covered' stated; the wage tool is written 'It could take your job title' and labeled proposed."
+      }
+    },
+    "ineq-local-spending": {
+      "actionable": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "\"Pick one thing you buy every week... and find a locally owned place\" is concrete and quick. | \"Pick one thing you buy every week ... and find a locally owned place\" is real but slow to matter. | 'Pick one thing you buy every week... and find a locally owned place' is real but generic."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "\"Shop local\" is the obvious answer; the employee-owned twist (\"picking an employee-owned one\") adds some freshness. | Buy-local is familiar; asking \"whether it's employee-owned\" is a useful twist. | 'Move one regular purchase to a locally owned business' is the first thing anyone says; the ESOP angle helps slightly."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Preston \"from 5% in 2012/13 to 19% in 2016/17\" and ESOP counts are specific, though neither is about households. | Preston \"5% in 2012/13 to 19% in 2016/17\" is concrete but, as the card admits, about \"large institutions, not households.\" | Preston, 'from 5% in 2012/13 to 19% in 2016/17', plus ESOPs paying 'more than $166 billion to workers in 2023'."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "The $166 billion ESOP payout is notable, but the card admits Preston \"was large institutions, not households.\" | Predictable from the title; the ESOP payout figure is the only stop-and-notice fact. | '$166 billion' to ESOP workers is one surprising element."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Candid limit said once: \"moving one of your own purchases is a much smaller version of the same idea.\" | Plain and honest (\"a much smaller version of the same idea\"), but the ESOP sentence is long and a bit lecture-like. | Candid limit: 'That was large institutions, not households, so moving one of your own purchases is a much smaller version.'"
+      },
+      "power": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Moving \"one regular purchase\" is close to coping inside unchanged conditions for someone whose costs keep rising. | Moving \"one regular purchase\" barely shifts where money goes and leaves my own costs unchanged. | Mostly a consumer choice within unchanged conditions: 'Move one regular purchase'."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Honestly flags that Preston was institutions, and that ESOP payouts \"vary a lot.\" | pass: Openly says Preston was institutions, not households, and that \"how much each plan pays them varies a lot.\" | pass: Openly says Preston was 'large institutions, not households' and ESOP payouts 'vary a lot'."
+      }
+    },
+    "ineq-credit-cheaply": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Pull your free credit report and write down your score\" is doable, though a preliminary step rather than joining a circle. | \"Pull your free credit report and write down your score\" is a concrete 15-minute start, though one step short of joining a circle. | 'Pull your free credit report and write down your score' is quick and concrete, though one step removed from joining."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Turning \"the old custom of friends pooling money\" into loans \"reported to the credit bureaus\" is a twist most people haven't heard. | Turning \"the old custom of friends pooling money and taking turns\" into loans \"reported to the credit bureaus\" is new to most readers. | Turns 'the old custom of friends pooling money' into loans 'reported to the credit bureaus'."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "Mission Asset Fund, San Francisco, 2011 to 2013, \"almost twice as likely to raise it by 20 points.\" | Mission Asset Fund, San Francisco, Boston Fed study 2011 to 2013, \"almost twice as likely to raise it by 20 points.\" | Mission Asset Fund, San Francisco, 2011 to 2013, 'almost twice as likely to raise it by 20 points'."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "An informal custom becoming a credit-building tool is something I'd repeat. | That a tanda or susu can build a credit score is an angle worth repeating. | A tanda that builds a credit score is an angle worth repeating."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Respectful of cultural practice (\"call it a tanda, susu or chit fund\") and plain throughout. | Respectful of practice people already know: \"Many families already pool money this way and call it a tanda, susu or chit fund.\" | Respectful and plain: 'Many families already pool money this way and call it a tanda, susu or chit fund.'"
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Improves my own access to fair credit; does not change who sets prices or lends. | Changes my own borrowing conditions, through a community practice rather than a change in who lends. | Changes my own borrowing conditions: 'borrow when I need to at a fair price'."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "FAIL: Credits the result to \"a Boston Fed study\", which the exemplar does not support, and drops its limits (one neighborhood, no effect for people already above 620); the informal circle sits under a credit-building title with no risk noted. | pass: Study period and population are named; the do-it-yourself circle is described as common practice without promising credit gains. | pass: Result scoped to 'people who started with no score or a poor one'; naming 'a Boston Fed study' goes slightly beyond the exemplar record but overstates nothing."
+      }
+    },
+    "ineq-see-the-gap": {
+      "actionable": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"Search data.census.gov for 'Gini index'\" is a real step but doesn't obviously change anything for me; the officials step is better. | \"Look up your state legislators on USA.gov and save their email addresses\" is doable but generic. | 'search data.census.gov for \"Gini index\" with your county's name' is doable but changes little by itself."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "A county inequality score and a benefits screener are useful but familiar civic-data ideas. | A county Gini score and a benefits screener are useful tools, but \"write to your representatives\" is a familiar basic. | A county Gini lookup and a benefits screener are useful but known ideas."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "San Bernardino's \"0.435\" is specific but arbitrary for most readers; MyFriendBen's \"55,000 households\" is stronger. | MyFriendBen \"more than 55,000 households ... $33 million\" is strong; San Bernardino's \"0.435\" is an arbitrary sample, not a result. | 'San Bernardino County, California, scored 0.435' and MyFriendBen's '55,000 households... $33 million'."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Gini numbers like \"0.435, below the state's 0.485\" are hard to feel and predictable from the title. | A county scoring \"0.435, below the state's 0.485\" doesn't make a reader stop. | A Gini of '0.435' means little to most readers; MyFriendBen is the only real surprise."
+      },
+      "voice": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Leans technical (\"called the Gini index, where 0 means...\") and vague in \"what local choices are on the table.\" | \"Where 0 means every household earns the same\" is clear, but the Gini explanation leans clinical. | A bit clinical ('a yearly inequality score... called the Gini index'), with vague phrasing like 'what local choices are on the table'."
+      },
+      "power": {
+        "score": 2,
+        "mean": 2.33,
+        "reason": "Mostly seeing the gap; little changes for the reader beyond awareness, aside from writing to representatives. | Points toward \"what I could ask for locally\" but mostly delivers information. | Mostly information: 'I know how unequal incomes are in my county'."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: All It ideas are written \"It could...\" and labeled proposed; existing resources (Census, USA.gov) are described accurately. | pass: All three It ideas are written \"It could...\" and labeled proposed; existing resources (Census, USA.gov, MyFriendBen) are named as existing. | pass: Every It idea is written 'It could show/offer/find' and labeled proposed; USA.gov and Census are described as existing."
+      }
+    },
+    "ineq-baby-bonds": {
+      "actionable": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"Search your state legislature's website for 'baby bonds'\" is quick but slow to matter; the savings account step is more direct. | \"Search your state legislature's website for 'baby bonds'\" is real but slow to matter; the bank question is a basic. | 'Ask your bank or credit union what kind of savings account they offer for children' is real but slow to matter."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Baby bonds will be new to some; the personal account is a familiar basic made meaningful by the comparison. | Framing a child's savings account as \"the public version of something some families do on their own\" makes a familiar habit meaningful. | Links the private habit to policy: 'the public version of something some families do on their own'."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Connecticut, \"$3,200 for each baby born on the state's Medicaid program\", usable at 18; no results yet. | Connecticut, \"$3,200 for each baby born on the state's Medicaid program,\" usable at 18; no year in the text and no outcomes yet. | Connecticut's '$3,200 for each baby born on the state's Medicaid program', no year given."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "A state investing money for each baby at birth is a decent surprise, though outcomes are years away. | A state quietly investing $3,200 per low-income newborn is a fact people repeat. | That a state already invests money at birth surprises some readers."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Fair and calm: \"Supporters see it as a way to narrow the wealth gap from birth; others would rather spend the money on cash help.\" | Balanced and unhurried: \"Supporters see it as a way to narrow the wealth gap from birth; others would rather spend the money on cash help.\" | Balanced and calm: 'others would rather spend the money on cash help for families now.'"
+      },
+      "power": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Changes who starts adult life with capital: \"Kids born into families like mine turn 18 with real money.\" | Public money to every child changes who gets wealth at the start of adult life. | Changes who starts adult life with assets: 'turn 18 with real money for school, a home or a business'."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Presents the policy with an opposing view, and the $10-a-month claim is modest arithmetic. | pass: The contested policy is offered with both views named, and \"$10 a month adds up\" makes no investment promise. | pass: Contested view attributed ('Supporters see it as...; others would rather...'); the $10-a-month claim is modest arithmetic."
+      }
+    },
+    "ineq-cash-floor": {
+      "actionable": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "\"Look up whether your city or county has run a guaranteed income pilot\" is real but mostly informational. | \"Look up whether your city or county has run a guaranteed income pilot\" is a research step, not one that moves anything. | 'Look up whether your city or county has run a guaranteed income pilot' and reading senators' views don't change much soon."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Guaranteed income is familiar; the work finding, from \"28% to 40%\", gives it a useful edge. | Guaranteed income and the child tax credit are widely discussed; the concrete numbers make them useful. | Cash raising work, 'full-time work among them rose from 28% to 40%', is a useful twist on a known debate."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Stockton, 2019, 125 residents, $500 a month, full-time work \"from 28% to 40%\"; child poverty \"from 5.2% in 2021 to 12.4% in 2022.\" | Stockton 2019, \"125 residents $500 a month,\" full-time work \"from 28% to 40%\"; child poverty \"5.2% in 2021 to 12.4% in 2022.\" | Stockton, 2019, 125 residents, $500 a month, 28% to 40%; child poverty 'from 5.2% in 2021 to 12.4% in 2022'."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Child poverty that \"more than doubled\" after the credit ended is a fact I'd repeat. | Full-time work rising with no-strings cash, and child poverty more than doubling when the credit ended, both stop a reader. | Child poverty that 'more than doubled' after the credit ended makes you stop."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Plain, with limits said once: \"Philanthropy paid for it, and it was a small, one-year test.\" | One plain limit each: \"Philanthropy paid for it, and it was a small, one-year test\"; disagreement named without taking sides. | Plain, but the title 'Look at what a $500-a-month pilot did' points at an example, and the CTC text stacks caveats."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "A public cash floor changes who carries the risk of \"one bad month.\" | A cash floor changes who gets money when \"my hours get cut.\" | Changes who gets money: 'a small, reliable amount of money that keeps my family afloat'."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: States the pilot's size, funding and one-year scope, and notes that people disagree about the child tax credit. | pass: Pilot scale, funding and the overlapping end of other pandemic aid are all stated; the policy is posed as \"Weigh,\" not asserted. | pass: Says 'Philanthropy paid for it, and it was a small, one-year test' and notes the CTC debate without taking sides."
+      }
+    },
+    "ineq-wage-boards": {
+      "actionable": {
+        "score": 2,
+        "mean": 2.33,
+        "reason": "\"Look up whether your state has ever used a wage board for any industry\" is vague; reading both sides is slow. | \"Look up whether your state has ever used a wage board\" and a 20-minute reading step are real but slow to matter. | 'Look up whether your state has ever used a wage board' and a 20-minute reading assignment are slow to matter."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Industry-wide pay set by a council \"rather than one employer at a time\" is a frame most people haven't considered. | Industry-wide pay set by \"a state council\" is unfamiliar to most American workers. | Industry-wide wage setting, 'not just one employer at a time', is new to most readers."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "California, April 2024, $20 an hour, 60-location chains, raises capped at 3.5% a year, Berkeley's \"about 18%\" finding. | California, April 2024, $20 for chains with 60+ locations, Berkeley \"about 18%\" pay and \"3.7%\" prices. | California, 'Since April 2024', $20, 60 or more locations, up to 3.5% a year, '18%' pay rise."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Pay up 18% with a one-time price rise of \"about 3.7%\" is striking. | A deal where \"unions and the industry agreeing to it rather than one side winning outright\" is a precedent worth repeating. | A state council that 'can raise that by up to 3.5% a year' is one surprising element."
+      },
+      "voice": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Accurate but dense, with qualifiers piled up (\"with a few exceptions such as some bakeries\") and an unexplained \"KQED.\" | Plain, but the title \"Read both sides of the evidence on the $20 wage\" assumes you already know the example, and \"the KQED summary\" is unexplained. | The title 'Wages set with workers at the table' leans on an idiom, and the fix text is dense with qualifiers."
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Changes who decides pay: \"help decide what the whole industry pays.\" | Workers helping \"decide what the whole industry pays\" changes who decides wages. | Changes who decides pay: 'help decide what the whole industry pays'."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Presents the contested evidence on both sides: \"the debate isn't over.\" | pass: The contested job-loss evidence is named (\"about 2,200 lost jobs\") and \"the debate isn't over.\" | pass: Presents the contested evidence both ways: 'Critics point to... about 2,200 lost jobs... so the debate isn't over.'"
+      }
+    },
+    "ineq-own-workplace": {
+      "actionable": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"Ask your boss, casually, whether they've thought about who takes over\" is five minutes, though a little delicate. | \"Ask your boss, casually, whether they've thought about who takes over when they step back\" takes five minutes and opens a real door. | 'Ask your boss, casually, whether they've thought about who takes over' takes five minutes and opens a real door."
+      },
+      "nonObvious": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Linking an owner's retirement to employee ownership is an angle I hadn't thought of. | Turning an owner's retirement into a chance for staff ownership is an angle few workers have thought of. | Succession as the opening to ownership is an angle I hadn't thought of."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Richer Sounds, 2019, 60% to a trust, 522 staff, \"about £8,000 on average\"; 2.34 million boomer-owned businesses. | Richer Sounds 2019, \"60%\" into a trust, \"522 staff ... about £8,000 on average\"; plus \"2.34 million\" boomer-owned businesses. | Richer Sounds, 2019, 60%, 53 stores, 522 staff, 'about £8,000 on average'; Project Equity's 2.34 million businesses."
+      },
+      "surprise": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"About 80 percent of those businesses have no plan for what happens next\" is a stop-and-repeat fact. | \"About 80 percent of those businesses have no plan for what happens next\" is a fact I'd repeat to a friend. | 'about 80 percent of those businesses have no plan for what happens next' is a fact to repeat."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Warm and practical (\"Owners are often more open to this when they hear how another owner did it\"), with a plain-terms title. | Mentor-like and practical: \"Owners are often more open to this when they hear how another owner did it.\" | Warm and practical: 'Owners are often more open to this when they hear how another owner did it.'"
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Changes who owns the business: \"I get part of the gain, not just my wages.\" | Changes who owns the business: \"I get part of the gain, not just my wages.\" | Changes who owns: 'I get part of the gain, not just my wages'."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The numbers are attributed to Project Equity and \"one estimate\"; the UK example is presented as one founder's choice. | pass: Project Equity figures are attributed (\"one estimate says\"), and the Richer Sounds story is presented as one founder's choice. | pass: Figures attributed ('Project Equity... estimates', 'one estimate says'); Richer Sounds is presented as one founder's choice."
+      }
+    },
+    "ineq-pay-gap-at-work": {
+      "actionable": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "\"Ask your manager or HR whether the pay range for your role is written down\" is quick; the proxy lookup applies only to public companies. | \"Find the CEO pay ratio in its latest proxy statement\" and asking HR \"whether the pay range for your role is written down\" are quick and concrete. | 'Ask your manager or HR whether the pay range for your role is written down' is quick; the proxy-ratio step fits only public companies."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Pay transparency is known; Mondragon's \"6 to 1\" cap adds a concrete twist. | Pay caps and transparency are known ideas; the proxy-statement step is a useful twist. | Pay caps and published ranges are known ideas, but the 6-to-1 detail helps."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Mondragon, \"nearly 70,000 member-owners\", 6 to 1; New York's 2023 law. | Mondragon \"6 to 1 across nearly 70,000 member-owners\"; New York 2023 pay-range law. | Mondragon '6 to 1 across nearly 70,000 member-owners'; New York's 2023 law."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "A 6-to-1 cap at that scale is interesting but fairly well known. | Mondragon's cap is the one surprising element; Fagor's bankruptcy is honest but deflating. | A '6 to 1' cap at that scale is one surprising element."
+      },
+      "voice": {
+        "score": 3,
+        "mean": 3,
+        "reason": "The title \"Top pay that isn't hundreds of times bottom pay\" reads like a slogan, and the line is about seeing the gap rather than capping it. | The card title \"Top pay that isn't hundreds of times bottom pay\" reads like a slogan; the fix text is plain. | The title 'Top pay that isn't hundreds of times bottom pay' reads like a slogan; the text is plain and candid."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Pay ranges and caps change how pay is decided at work. | Making the gap \"something we can see and talk about\" shifts some say over pay. | Moves pay toward something workers 'can see and talk about' and potentially cap."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Names Mondragon's limits (\"Fagor went bankrupt after 2008\") and frames transparency as a choice. | pass: Mondragon's limits (\"Not every worker there is a member,\" Fagor) are stated, and the cap is offered as a proposal. | pass: Names the limits: 'Not every worker there is a member, and its appliance maker Fagor went bankrupt'."
+      }
+    },
+    "ineq-tax-top": {
+      "actionable": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"Ask your state legislator's office where they stand\" is real but generic civic action. | \"Ask your state legislator's office where they stand on taxing top incomes\" is real but slow to matter. | 'Ask your state legislator's office where they stand on taxing top incomes' is real but slow to change anything."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Taxing the rich is a familiar idea; the earmarking for schools and transit gives it a concrete twist. | Taxing the rich is familiar; tying it to \"free school meals and free community college\" gives it a useful concrete edge. | Taxing the rich is familiar; tying it to 'free school meals and free community college' adds meaning."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Massachusetts, 4% above about $1.1 million, \"more than $3.38 billion\" in fiscal 2026; Norway, 30-plus departures. | Massachusetts 4% above \"about $1.1 million,\" \"more than $3.38 billion\" in the year ending June 30, 2026; Norway \"at least 30\" departures. | Massachusetts, 4% above about $1.1 million, 'more than $3.38 billion'; Norway's 30 departures."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "$3.38 billion in one year for free school meals and community college is a fact I'd repeat. | $3.38 billion from one state's surtax, and the Norway counterpoint, are both worth repeating. | '$3.38 billion' in one year, alongside Norway's 'more than in the previous 13 years combined'."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Even-handed and plain: \"from sources you'd trust on each side.\" | Even-handed: \"Supporters and critics disagree about how much that cost the country.\" | Plain but report-like and dense: 'a wealth tax is different from a tax on income.'"
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Changes who pays: \"paid for partly by the people who've gained the most.\" | Changes who pays for \"public schools and buses near me.\" | Changes who pays for public goods: 'paid for partly by the people who've gained the most'."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: A contested policy offered with the strongest counterpoint (Norway); \"adopted in 2022\" loosely matches the exemplar's 2022 push and 2023 date. | pass: The contested policy is balanced by \"Weigh the chance that wealthy people move away\" and a read-both-sides step; minor note that the exemplar dates adoption to 2023 after a 2022 push. | pass: Offered as a choice with the counterargument given its own fix: 'Weigh the chance that wealthy people move away'."
+      }
+    },
+    "ineq-land-trust": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Search for a community land trust in your area and check its income limits\" is concrete and quick. | \"Search for a community land trust in your area and check its income limits\" is specific and quick. | 'Search for a community land trust in your area and check its income limits' is specific and quick."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Separating land from house (\"the price doesn't include the land\") is new to most buyers. | \"Keeps the land and sells only the house\" is a mechanism most home seekers haven't heard of. | 'keeps the land and sells only the house' is a model most readers haven't heard of."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Champlain Housing Trust, Vermont, sellers \"gained about $12,000 on resale\"; no year given. | Champlain Housing Trust in Vermont with \"about $12,000 on resale\"; no year given in the text. | Champlain Housing Trust, 'about $12,000 on resale', no year given."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "A home that stays affordable for the next family while the seller still gains is a striking combination. | Buying a house without buying the land under it makes a reader stop. | Buying a house without the land is one surprising element."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Candid tradeoff said once: \"You build less wealth than in a booming open market.\" | Candid about the cost: \"You build less wealth than in a booming open market, which is the tradeoff.\" | Honest mentor tone: 'You build less wealth than in a booming open market, which is the tradeoff.'"
+      },
+      "power": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Changes who owns the land and keeps housing out of speculation. | Keeps the home affordable \"for the next family\" and asks the city to change what happens to public land. | Changes who owns land and keeps homes affordable 'for good'."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: States the capped equity; the city fix is labeled a societal proposal and makes no false example claim. | pass: The equity cap is stated; the city fix is labeled a societal proposal, though \"usually with little public attention\" is unsupported. | pass: States the equity tradeoff plainly; the city fix is marked a societal proposal, though 'usually with little public attention' goes unsourced."
+      }
+    },
+    "ineq-anchor-buying": {
+      "actionable": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"Find your city's purchasing or procurement page\" is doable but bureaucratic and slow to matter. | \"Find your city's purchasing or procurement page\" is a real step but slow to matter. | 'Find your city's purchasing or procurement page' is doable but slow, and the page may not exist."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Hospitals and colleges changing what they buy is an angle few residents consider. | Getting hospitals and city hall to buy local is a lever most residents don't know exists. | Asking hospitals and colleges to buy local is a fresh lever for most readers."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Preston, \"from 5% to 19% in four years\"; thin on what that meant for jobs. | Preston \"from 5% to 19% in four years,\" without naming the institutions or the years. | Preston, 'from 5% to 19% in four years', with thin detail on how."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "A near-fourfold rise in locally kept spending is memorable. | Nearly quadrupling local spend is surprising, but it repeats the Preston fact used elsewhere. | Nearly quadrupling local spending is notable but stated briefly."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Fair and plain: \"Some critics ask whether local preference makes suppliers less competitive.\" | Plain and fair: \"Some critics ask whether local preference makes suppliers less competitive, which is worth raising too.\" | Words like 'procurement' lean bureaucratic; 'Groups tend to stall when nobody remembers who promised what' is good."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Changes where institutional money goes: \"so the jobs stay here.\" | Changes where \"the biggest employers in my area spend their money.\" | Changes where institutional money goes: 'so the jobs stay here'."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Notes the critics; the organizing tool is written \"It could help\" and labeled proposed. | pass: The organizing tool is written \"It could help...\" and labeled proposed; the critics' concern is named. | pass: Raises the critics' concern and labels the organizing tool 'It could help'; leaves out that total spending fell, but the result isn't presented as universal."
+      }
+    }
+  },
+  "pairwise": [],
+  "consensus": {
+    "ineq-claim-credits": {
+      "borda": 38,
+      "ranks": [
+        1,
+        1,
+        2
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "ineq-fair-pay": {
+      "borda": 24,
+      "ranks": [
+        3,
+        11,
+        4
+      ],
+      "spread": 8,
+      "honestVotes": "3/3 pass"
+    },
+    "ineq-local-spending": {
+      "borda": 6,
+      "ranks": [
+        11,
+        13,
+        12
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "ineq-credit-cheaply": {
+      "borda": 21,
+      "ranks": [
+        13,
+        3,
+        5
+      ],
+      "spread": 10,
+      "honestVotes": "2/3 pass"
+    },
+    "ineq-see-the-gap": {
+      "borda": 5,
+      "ranks": [
+        12,
+        12,
+        13
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "ineq-baby-bonds": {
+      "borda": 17,
+      "ranks": [
+        9,
+        6,
+        10
+      ],
+      "spread": 4,
+      "honestVotes": "3/3 pass"
+    },
+    "ineq-cash-floor": {
+      "borda": 25,
+      "ranks": [
+        5,
+        5,
+        7
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "ineq-wage-boards": {
+      "borda": 19,
+      "ranks": [
+        8,
+        7,
+        8
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "ineq-own-workplace": {
+      "borda": 37,
+      "ranks": [
+        2,
+        2,
+        1
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "ineq-pay-gap-at-work": {
+      "borda": 11,
+      "ranks": [
+        10,
+        10,
+        11
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "ineq-tax-top": {
+      "borda": 22,
+      "ranks": [
+        6,
+        8,
+        6
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "ineq-land-trust": {
+      "borda": 31,
+      "ranks": [
+        4,
+        4,
+        3
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "ineq-anchor-buying": {
+      "borda": 17,
+      "ranks": [
+        7,
+        9,
+        9
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    }
+  },
+  "seed": 17
+}

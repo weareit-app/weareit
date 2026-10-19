@@ -1,0 +1,529 @@
+{
+  "schemaVersion": 1,
+  "heldOut": [
+    {
+      "id": "c01",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c01",
+        "painLine": "I worry AI will take work and no one's ready.",
+        "title": "More time to live",
+        "line": "When AI saves work, people gain free time and share in the gains.",
+        "fixes": [
+          {
+            "title": "Trade saved hours for time off",
+            "whatChanges": "If AI really saves work, agree to use some of the gain for shorter hours while protecting pay.",
+            "example": null,
+            "firstStep": null
+          },
+          {
+            "title": "Own the tools together",
+            "whatChanges": "Build or adopt an AI tool owned and governed by the people who use it.",
+            "example": null,
+            "firstStep": null
+          }
+        ]
+      },
+      "painId": "ai-and-jobs"
+    },
+    {
+      "id": "c02",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c02",
+        "painLine": "I see the gap between those with plenty and those struggling grow.",
+        "title": "An affordable home that stays affordable for the next family",
+        "line": "I own my home at a price I can manage, and when I sell, another family gets the same chance.",
+        "fixes": [
+          {
+            "title": "Buy a home through a community land trust",
+            "whatChanges": "The Champlain Housing Trust in Vermont keeps the land and sells only the house, so the price doesn't include the land, and a study found sellers still gained about $12,000 on resale while the home stayed affordable for the next buyer. You build less wealth than in a booming open market, which is the tradeoff.",
+            "example": "Champlain Housing Trust · Burlington, VT · 1984 · The trust, in Vermont, keeps the land and sells only the home, so the land cost is not in the price; a Davis and Stokes evaluation found sellers gained about $12,000 on resale while homes stayed affordable; $2.1 million of subsidies retained",
+            "firstStep": "Search for a community land trust in your area and check its income limits."
+          },
+          {
+            "title": "Ask your city to put public land into a land trust",
+            "whatChanges": "Cities that own vacant lots or old buildings can hand them to a land trust instead of selling them, so the homes built there stay affordable for good. City council members decide this, usually with little public attention.",
+            "example": null,
+            "firstStep": "Find your city's list of vacant city-owned property, or ask your council member's office for it."
+          }
+        ]
+      },
+      "painId": "it-all-goes-up"
+    },
+    {
+      "id": "c05",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c05",
+        "painLine": "I put things off.",
+        "title": "Letting go of tasks I don’t actually need to do",
+        "line": "I’ve stopped carrying around tasks I was never going to do, and the ones left on my list are ones I mean.",
+        "fixes": [
+          {
+            "title": "Cross off a task you’ve already decided against",
+            "whatChanges": "A task that has sat on the list for months is sometimes one you’ve quietly decided not to do. Crossing it off on purpose frees up the attention it keeps taking every time you see it.",
+            "example": null,
+            "firstStep": "Read your to-do list and cross off one item you’ve kept for months and don’t want to do."
+          },
+          {
+            "title": "Flip a coin on a decision you’ve put off for months",
+            "whatChanges": "In a study published in 2021, the economist Steven Levitt had people who were stuck on a big decision, like quitting a job or a class, let a coin toss guide them. Those the coin told to make the change were happier six months later than those it told to stay put.",
+            "example": "Heads or Tails coin-toss experiment (Steven Levitt) · United States (online) · 2021 · People told by a coin to make a change they were stuck on were happier six months later",
+            "firstStep": "Write the decision as a yes-or-no question, flip a coin, and notice whether you feel relieved or disappointed."
+          },
+          {
+            "title": "Pay or trade someone to do a task you dread",
+            "whatChanges": "If a task matters but you’ve dreaded it for a year, someone else can often do it for a fee or a trade, like a tax preparer, a handyman, or a friend who enjoys paperwork. Paying for it is a reasonable trade when the dread has been costing you for months.",
+            "example": null,
+            "firstStep": "Write down one task you’d happily pay to never think about again, and look up what it would cost."
+          }
+        ]
+      },
+      "painId": "procrastination"
+    },
+    {
+      "id": "c07",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c07",
+        "painLine": "I don't sleep well.",
+        "title": "Evenings free from work messages",
+        "line": "When I finish work, I’m actually finished, and my phone stays quiet until morning.",
+        "fixes": [
+          {
+            "title": "Agree on quiet hours with your team",
+            "whatChanges": "Portugal passed a law in 2021, in effect since 2022: outside working hours, employers aren’t supposed to contact staff except in a real emergency. Your team doesn’t need a law to agree on the same thing.",
+            "example": "Portugal Law 83/2021 duty of no contact · Portugal · 2022 · Employers barred from contacting staff in rest periods; breach is a grave violation",
+            "firstStep": "Suggest a simple rule, like no work messages between 8pm and 8am, and see who’s in."
+          },
+          {
+            "title": "Ask lawmakers for a law that protects time off",
+            "whatChanges": "Under Portugal’s law, contacting staff during their rest time counts as a serious violation. There’s no data yet on how well the law is enforced or whether people sleep better, but it puts the rule in writing instead of leaving it to how considerate your boss happens to be.",
+            "example": "Portugal Law 83/2021 duty of no contact · Portugal · 2022 · Employers barred from contacting staff in rest periods; breach is a grave violation",
+            "firstStep": "Send your representative a short note about Portugal’s law and why you’d want one here."
+          }
+        ]
+      },
+      "painId": "poor-sleep"
+    },
+    {
+      "id": "c09",
+      "rating": "kill",
+      "reason": "Keep but doesn't really answer \"Safe through heat and floods\", which would be good. Also maybe \"safe during severe weather\" would be better? This is mixing up different things.",
+      "item": {
+        "id": "c09",
+        "painLine": "I'm worried about the planet heating up.",
+        "title": "Safe through heat and floods",
+        "line": "People can stay safe when heat or floods hit, even if they have little money.",
+        "fixes": [
+          {
+            "title": "Own clean power together",
+            "whatChanges": "Form or join a group that owns a clean power project and agrees who pays and who gains.",
+            "example": null,
+            "firstStep": null
+          },
+          {
+            "title": "Fix homes street by street",
+            "whatChanges": "Organize home upgrades together, such as insulation, shade or safer cooling, with fair costs for residents.",
+            "example": null,
+            "firstStep": null
+          }
+        ]
+      },
+      "painId": "climate"
+    },
+    {
+      "id": "c10",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c10",
+        "painLine": "I worry AI will take work and no one's ready.",
+        "title": "AI that helps my coworkers instead of replacing them",
+        "line": "At my company, AI takes over the tedious parts of the work and the people stay.",
+        "fixes": [
+          {
+            "title": "Suggest a trial with a review before any job cuts",
+            "whatChanges": "Klarna leaned heavily on AI for customer service, then started hiring people again in 2025 after its chief executive said the quality had dropped. A trial with a set review date lets a company learn that before it lets anyone go.",
+            "example": "Klarna returns to human customer service · Klarna (payments company) · 2025 · CEO said AI customer service gave lower quality; company began hiring human agents again",
+            "firstStep": "Suggest to your manager that any AI rollout include a review after three months, with staff input."
+          },
+          {
+            "title": "Make the case for using AI to train people",
+            "whatChanges": "In a 2023 study at one customer support company, newer agents using an AI assistant got 34% more done, and more of the staff stayed on. That was one firm, but it's a real example of AI used to bring people up to speed rather than to cut them.",
+            "example": "Generative AI at Work (Brynjolfsson, Li and Raymond) · Customer support at one US software firm · 2023 · 5,179 agents; 14% more issues resolved per hour on average, 34% for novice and low-skilled workers; AI assistance also increased employee retention",
+            "firstStep": "Share the study's main finding with your manager in two sentences and ask how your team plans to use AI."
+          }
+        ]
+      },
+      "painId": "ai-and-jobs"
+    },
+    {
+      "id": "c12",
+      "rating": "keep",
+      "reason": "Keep for \"Shared ownership\nThe people who do the work own a share and have a say in where the gains go.\"\n\nBut the futures are a little lame. Very vague. I don't even know what \"Put a floor under income\" means; I think you're trying to avoid saying UBI or something like it, but it doesn't read like anything a normal person would understand.",
+      "item": {
+        "id": "c12",
+        "painLine": "I see the gap between those with plenty and those struggling grow.",
+        "title": "Shared ownership",
+        "line": "The people who do the work own a share and have a say in where the gains go.",
+        "fixes": [
+          {
+            "title": "Own a source of income together",
+            "whatChanges": "Join or build a business where the people doing the work own a share.",
+            "example": null,
+            "firstStep": null
+          },
+          {
+            "title": "Put a floor under income",
+            "whatChanges": "Create a steady income payment so a loss of paid work need not mean losing the basics.",
+            "example": null,
+            "firstStep": null
+          }
+        ]
+      },
+      "painId": "it-all-goes-up"
+    },
+    {
+      "id": "c13",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c13",
+        "painLine": "I'm worried about the planet heating up.",
+        "title": "Eating in a way that is easier on the climate",
+        "line": "I still enjoy what I eat, and my meals put out a lot less carbon than they used to.",
+        "fixes": [
+          {
+            "title": "Swap beef for chicken, beans or lentils a few nights a week",
+            "whatChanges": "A 2018 study of 38,000 farms in 119 countries found that a kilo of beef puts out about 60 kilos of greenhouse gases, while a kilo of peas puts out about one. You don’t have to give up beef to make a big difference; eating less of it does most of the work.",
+            "example": "Poore and Nemecek food emissions meta-analysis (via Our World in Data) · 38,000 farms in 119 countries · 2018 · 1 kg of beef emits about 60 kg CO2e versus about 1 kg for peas; transport is under 10% of most foods' emissions",
+            "firstStep": "Pick two dinners this week where you'd normally have beef and plan a different protein."
+          },
+          {
+            "title": "Worry less about where food comes from than what it is",
+            "whatChanges": "The same study found that shipping is less than 10% of the emissions for most foods, and about half a percent for beef. Local beef still has a far bigger footprint than imported beans.",
+            "example": "Poore and Nemecek food emissions meta-analysis (via Our World in Data) · 38,000 farms in 119 countries · 2018 · 1 kg of beef emits about 60 kg CO2e versus about 1 kg for peas; transport is under 10% of most foods' emissions",
+            "firstStep": "Look at your last grocery receipt and circle the three items with meat or dairy in them."
+          }
+        ]
+      },
+      "painId": "climate"
+    },
+    {
+      "id": "c15",
+      "rating": "kill",
+      "reason": "This is a little vague.",
+      "item": {
+        "id": "c15",
+        "painLine": "I can't find who's already working on this.",
+        "title": "We can pull it off",
+        "line": "People with different pieces of a shared goal can bring them together and make it happen.",
+        "fixes": [
+          {
+            "title": "Find the missing piece",
+            "whatChanges": "Help a team find who may hold a needed skill, tool, space or source of money, then ask if they want to help.",
+            "example": null,
+            "firstStep": null
+          },
+          {
+            "title": "Share the jobs that recur",
+            "whatChanges": "Agree how to split recurring jobs, train backups and let people step back.",
+            "example": null,
+            "firstStep": null
+          }
+        ]
+      },
+      "painId": "dont-know-whats-happening"
+    },
+    {
+      "id": "c20",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c20",
+        "painLine": "I'm always short on money.",
+        "title": "Getting every tax credit my family is owed",
+        "line": "When I file my taxes, I get back every credit we qualify for without paying someone to find them.",
+        "fixes": [
+          {
+            "title": "Check whether you qualify for the earned income tax credit",
+            "whatChanges": "The IRS estimates that about one in five people who qualify for this credit don’t claim it. For tax year 2024, families with children could get up to $7,830, and the average credit the year before was $2,743.",
+            "example": "IRS estimate of unclaimed EITC · United States · 2025 · About one in five eligible taxpayers miss the credit; up to $7,830 with children for tax year 2024; average $2,743 for 2023",
+            "firstStep": "Find last year’s tax return and look for the line labeled earned income credit to see whether you claimed it."
+          },
+          {
+            "title": "Have your taxes done free at a volunteer tax site",
+            "whatChanges": "The IRS supports free tax preparation sites staffed by trained volunteers, mainly for people earning about $70,244 or less. The sites mostly serve people who qualify for the earned income credit, so the volunteers know to look for it.",
+            "example": "IRS Volunteer Income Tax Assistance (VITA) · United States · 2026 · Free tax preparation by trained volunteers, mainly for people earning about $70,244 or less",
+            "firstStep": "Search for the IRS VITA site locator and write down the closest site and its hours."
+          },
+          {
+            "title": "File past returns to claim credits you missed",
+            "whatChanges": "In general, you have three years from a return’s due date to claim a refund, including refundable credits you didn’t know about. Many volunteer sites can prepare past-year returns too.",
+            "example": null,
+            "firstStep": "Make a list of which of the last three years you didn’t file, or filed without claiming any credits."
+          }
+        ]
+      },
+      "painId": "broke"
+    },
+    {
+      "id": "c21",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c21",
+        "painLine": "I see the gap between those with plenty and those struggling grow.",
+        "title": "Getting the tax credits my family is already owed",
+        "line": "Each spring I get back the money the tax system sets aside for working families like mine.",
+        "fixes": [
+          {
+            "title": "Check whether you qualify for the tax credit for working families",
+            "whatChanges": "The IRS estimates that about one in five people who qualify for the Earned Income Tax Credit never claim it, and the average credit was about $2,541 for tax year 2022. The IRS has a free online EITC Assistant that asks a few questions and tells you whether you qualify.",
+            "example": "IRS estimate of unclaimed Earned Income Tax Credit · United States · 2024 · About one in five eligible taxpayers don't claim the EITC; average credit about $2,541 (tax year 2022); IRS EITC Assistant checks eligibility",
+            "firstStep": "Open the IRS EITC Assistant and answer its questions using last year's income."
+          },
+          {
+            "title": "Have a trained volunteer do your taxes for free",
+            "whatChanges": "The IRS runs free tax preparation sites for people who generally earn about $70,244 or less, and volunteers there know which credits people tend to miss. Most sites are open from January to April, so book early.",
+            "example": "IRS Volunteer Income Tax Assistance (VITA) and AARP Tax-Aide · United States · 2026 · Free tax preparation for people who generally make about $70,244 or less; locator tool and phone line",
+            "firstStep": "Look up the nearest free tax site with the IRS locator tool and write down its hours."
+          }
+        ]
+      },
+      "painId": "it-all-goes-up"
+    },
+    {
+      "id": "c22",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c22",
+        "painLine": "I can't find who's already working on this.",
+        "title": "Knowing which local groups already work on my issue",
+        "line": "When something in my town bothers me, I can name the groups already working on it.",
+        "fixes": [
+          {
+            "title": "Search nonprofit tax filings for your town and issue",
+            "whatChanges": "ProPublica's free Nonprofit Explorer lets you search the full text of the tax forms nonprofits file each year, so a search for your town plus a word like \"tenants\" or \"river\" turns up groups whose names never mention it. Small informal groups that never filed won't show up, so treat the results as a starting list.",
+            "example": "ProPublica Nonprofit Explorer · United States · 2026 · Free search of nonprofits by name and full text of IRS Form 990 filings, with financial summaries",
+            "firstStep": "Search Nonprofit Explorer for your town and one word that describes your issue, and write down the first three groups."
+          },
+          {
+            "title": "Call or text 211 when the issue is a basic need",
+            "whatChanges": "If what you care about is food, housing, rides or health care, 211 is a free, confidential line answered by local specialists, and about 13 million requests reach it each year. The people there know which local groups are actually doing that work.",
+            "example": "211 information and referral line · United States · 2000 · Free, confidential line run by 200+ local organizations; about 13 million requests a year",
+            "firstStep": "Dial 211 and ask which groups near you work on the need you care about."
+          },
+          {
+            "title": "Look at volunteer listings near you",
+            "whatChanges": "Groups that need help tend to post it. Idealist, a long-running nonprofit directory, has posted 450,000 volunteer openings over the years, and a search by your ZIP code shows who is active right now.",
+            "example": "Idealist nonprofit directory · United States and worldwide · 2026 · More than 200,000 organizations connected with volunteers and job seekers; 450,000 volunteer opportunities posted",
+            "firstStep": "Search Idealist for volunteer openings near your ZIP code and note which groups keep showing up."
+          }
+        ]
+      },
+      "painId": "dont-know-whats-happening"
+    },
+    {
+      "id": "c24",
+      "rating": "kill",
+      "reason": "This is super vague.",
+      "item": {
+        "id": "c24",
+        "painLine": "I'm always short on money.",
+        "title": "Comfortable",
+        "line": "I do not have to worry about money often.",
+        "fixes": [
+          {
+            "title": "Earn from a skill again and again",
+            "whatChanges": "Explore whether a skill could bring in money more than once.",
+            "example": null,
+            "firstStep": null
+          },
+          {
+            "title": "Own a source of income together",
+            "whatChanges": "Join or build a business where the people doing the work own a share.",
+            "example": null,
+            "firstStep": null
+          }
+        ]
+      },
+      "painId": "broke"
+    },
+    {
+      "id": "c27",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c27",
+        "painLine": "I worry AI will take work and no one's ready.",
+        "title": "Knowing in advance how AI will change my job",
+        "line": "Before a new AI system changes my work, my manager tells us what it will do and asks what we think.",
+        "fixes": [
+          {
+            "title": "Ask your manager which AI tools are coming and why",
+            "whatChanges": "In the European Union, the AI Act requires employers to inform staff and their representatives before using high-risk AI in hiring, promotion or firing. There's no such rule in most of the US, but nothing stops you from asking for the same notice.",
+            "example": "European Union AI Act rules for AI at work · European Union · 2024 · Employers must inform staff and representatives before using high-risk AI; workplace emotion recognition prohibited",
+            "firstStep": "Bring one question to your next one-on-one: which AI tools is the team planning to use this year?"
+          },
+          {
+            "title": "Agree with coworkers on which tasks you want to keep",
+            "whatChanges": "Hollywood writers won a rule in 2023 that AI can't write or rewrite their scripts, though a writer can choose to use it with the studio's consent. A team can talk through the same question informally: which parts of the work you're glad to hand off and which you want to keep doing yourselves.",
+            "example": "Writers Guild of America 2023 contract AI terms · Los Angeles and New York · 2023 · AI can't write or rewrite literary material; studios must disclose AI-made materials",
+            "firstStep": "Ask two coworkers over lunch which part of the job they'd happily hand to software and which they wouldn't."
+          }
+        ]
+      },
+      "painId": "ai-and-jobs"
+    },
+    {
+      "id": "c29",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c29",
+        "painLine": "I'm not heard by the people in charge.",
+        "title": "Our money, our say",
+        "line": "People here decide how part of our shared budget is spent.",
+        "fixes": [
+          {
+            "title": "Let residents decide what gets funded",
+            "whatChanges": "Set aside a real public budget and let residents choose which projects it pays for.",
+            "example": null,
+            "firstStep": null
+          },
+          {
+            "title": "Give residents a real vote",
+            "whatChanges": "Choose residents from across the community and give them a vote that counts on one public issue.",
+            "example": null,
+            "firstStep": null
+          }
+        ]
+      },
+      "painId": "they-dont-listen"
+    },
+    {
+      "id": "c30",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c30",
+        "painLine": "I'm worried about the planet heating up.",
+        "title": "Knowing which of my choices matter most for the climate",
+        "line": "I put my effort into the few things that make a real dent, and I stop feeling guilty about the rest.",
+        "fixes": [
+          {
+            "title": "Focus first on driving, flying and food",
+            "whatChanges": "A 2017 review of 39 studies by researchers at Lund University found that living without a car saves about 2.4 tonnes of carbon a year, and skipping one round-trip flight across the Atlantic saves about 1.6. Eating plant-based saves about 0.8 tonnes, roughly four times what thorough recycling does.",
+            "example": "Wynes and Nicholas review of high-impact personal climate actions · Lund University, Sweden (global literature) · 2017 · Car-free living saves about 2.4 t CO2e a year; each round-trip transatlantic flight avoided 1.6 t; plant-based diet about 0.8 t, roughly 4 times recycling",
+            "firstStep": "Write down roughly how many miles you drove and how many flights you took in the past year."
+          },
+          {
+            "title": "Run your bills through a free household carbon calculator",
+            "whatChanges": "The Environmental Protection Agency's calculator asks about your heating, utility bills, cars and recycling, then compares your household with the US average and shows what each change would save. Flights and food aren't included, so add those in your head.",
+            "example": "U.S. Environmental Protection Agency (EPA) household carbon footprint calculator · United States · Free calculator covering home energy, vehicles and waste; gives estimated pounds of CO2 a year against the US average and shows savings from planned actions",
+            "firstStep": "Pull up last month's electric and gas bills and enter them in the EPA's carbon footprint calculator."
+          },
+          {
+            "title": "See your own biggest climate choices ranked in order",
+            "whatChanges": "It could ask a few questions about your home, car, flights and meals, then use published averages like the Lund figures to show which two or three changes would cut the most for you in particular.",
+            "example": "Wynes and Nicholas review of high-impact personal climate actions · Lund University, Sweden (global literature) · 2017 · Car-free living saves about 2.4 t CO2e a year; each round-trip transatlantic flight avoided 1.6 t; plant-based diet about 0.8 t, roughly 4 times recycling",
+            "firstStep": "Tell us you'd use this, and note which of driving, flying, food or home heating you think is biggest for you."
+          }
+        ]
+      },
+      "painId": "climate"
+    },
+    {
+      "id": "c37",
+      "rating": "kill",
+      "reason": "\"Choose what to do\" is super vague for procrastination. Like no fucking duh?",
+      "item": {
+        "id": "c37",
+        "painLine": "I put things off.",
+        "title": "Choose what to do",
+        "line": "I work on goals I choose.",
+        "fixes": [
+          {
+            "title": "Make a small real version",
+            "whatChanges": "Choose the smallest version of an idea that someone could use, read or try, then make it.",
+            "example": null,
+            "firstStep": null
+          },
+          {
+            "title": "Change or drop the task",
+            "whatChanges": "Talk about changing the task or not doing it if it does not fit.",
+            "example": null,
+            "firstStep": null
+          }
+        ]
+      },
+      "painId": "procrastination"
+    },
+    {
+      "id": "c39",
+      "rating": "kill",
+      "reason": "Super vague title. Super vague options.",
+      "item": {
+        "id": "c39",
+        "painLine": "I don't sleep well.",
+        "title": "Room for rest",
+        "line": "I get enough rest and still have time for the people and things I care about.",
+        "fixes": [
+          {
+            "title": "Find sleep care that fits",
+            "whatChanges": "Get help to work out why sleep is hard and what care may fit.",
+            "example": null,
+            "firstStep": null
+          },
+          {
+            "title": "Share the load to protect rest",
+            "whatChanges": "Help people agree who covers which duties so each has time to rest.",
+            "example": null,
+            "firstStep": null
+          }
+        ]
+      },
+      "painId": "poor-sleep"
+    },
+    {
+      "id": "c40",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c40",
+        "painLine": "I'm not heard by the people in charge.",
+        "title": "Deciding with neighbors how some city money gets spent",
+        "line": "My neighbors and I vote on what gets built in our part of town, and then we see it built.",
+        "fixes": [
+          {
+            "title": "Vote in participatory budgeting where your city offers it",
+            "whatChanges": "In participatory budgeting, residents propose and vote on projects paid for with real public money. In New York City’s 2016–17 round, 102,800 residents voted on how to spend over $40 million across 31 council districts.",
+            "example": "New York City Council participatory budgeting · New York City · 2017 · In the 2016-2017 cycle, 102,800 residents voted on how to spend over $40 million in capital funds across 31 council districts",
+            "firstStep": "Search your city council’s website for “participatory budgeting” to see if your district takes part."
+          },
+          {
+            "title": "Ask your council member to let residents decide part of their budget",
+            "whatChanges": "In 2009 Alderman Joe Moore of Chicago’s 49th Ward handed residents about $1 million of his ward’s capital money; more than 1,300 people voted, funding beach showers, heated bus shelters and a dog park. Skeptics point out that small organized groups can win more than their share, so turnout matters.",
+            "example": "Chicago 49th Ward participatory budgeting · Rogers Park, Chicago · 2009 · Alderman Joe Moore let residents decide about $1 million of ward capital money; over 1,300 voted, funding beach showers, heated bus shelters and a dog park; about 400 people attended nine neighborhood meetings the previous fall, per the May 2012 article",
+            "firstStep": "Email your council member’s office and ask whether they’d try participatory budgeting next year."
+          },
+          {
+            "title": "Get told when your city opens a vote on spending",
+            "whatChanges": "It could keep track of which cities and districts run participatory budgeting and let you know when proposals or voting open near you. Cities already publish their schedules, but they’re scattered across council websites.",
+            "example": "New York City Council participatory budgeting · New York City · 2017 · In the 2016-2017 cycle, 102,800 residents voted on how to spend over $40 million in capital funds across 31 council districts",
+            "firstStep": "Tell us you’d use this."
+          }
+        ]
+      },
+      "painId": "they-dont-listen"
+    }
+  ]
+}

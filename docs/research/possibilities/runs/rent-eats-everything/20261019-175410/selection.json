@@ -1,0 +1,89 @@
+{
+  "finalists": [
+    "rent-tenant-union",
+    "rent-free-lawyer",
+    "rent-renewal-ask",
+    "rent-land-trust",
+    "rent-tell-officials"
+  ],
+  "auditSample": [
+    "rent-nonprofit-landlord",
+    "rent-social-housing"
+  ],
+  "seed": 17,
+  "itLedGuaranteed": null,
+  "itLedMissing": false,
+  "ranking": [
+    {
+      "cardId": "rent-tenant-union",
+      "wins": 42,
+      "meanScore": 4.5
+    },
+    {
+      "cardId": "rent-free-lawyer",
+      "wins": 39,
+      "meanScore": 4.33
+    },
+    {
+      "cardId": "rent-renewal-ask",
+      "wins": 36,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "rent-land-trust",
+      "wins": 31,
+      "meanScore": 4.33
+    },
+    {
+      "cardId": "rent-tell-officials",
+      "wins": 30,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "rent-nonprofit-landlord",
+      "wins": 29,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "rent-social-housing",
+      "wins": 23,
+      "meanScore": 4
+    },
+    {
+      "cardId": "rent-more-homes",
+      "wins": 22,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "rent-share-home",
+      "wins": 15,
+      "meanScore": 3.5
+    },
+    {
+      "cardId": "rent-limits",
+      "wins": 14,
+      "meanScore": 3.33
+    },
+    {
+      "cardId": "rent-fair-price",
+      "wins": 13,
+      "meanScore": 3.17
+    },
+    {
+      "cardId": "rent-lower-bills",
+      "wins": 12,
+      "meanScore": 3.17
+    },
+    {
+      "cardId": "rent-help-short-month",
+      "wins": 6,
+      "meanScore": 3
+    },
+    {
+      "cardId": "rent-move-cheaper",
+      "wins": 3,
+      "meanScore": 3
+    }
+  ],
+  "excluded": []
+}

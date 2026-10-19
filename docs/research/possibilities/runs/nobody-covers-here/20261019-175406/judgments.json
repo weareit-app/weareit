@@ -1,0 +1,665 @@
+{
+  "schemaVersion": 1,
+  "painId": "nobody-covers-here",
+  "runId": "20261019-142008",
+  "judge": {
+    "context": "isolated-consensus",
+    "judges": 3,
+    "files": [
+      "judgments-1.json",
+      "judgments-2.json",
+      "judgments-3.json"
+    ],
+    "at": "2026-10-19T18:32:40+00:00"
+  },
+  "scores": {
+    "news-agendas-in-inbox": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"Make two alerts tonight: one for your town plus 'city council'\" is a five-minute step that clearly works. | \"Make two alerts tonight: one for your town plus 'city council'\" is a five-minute step that clearly moves something. | \"Search your city's name plus 'agendas'... look for a 'notify me'\" is a 10-minute step that sets up a standing feed."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Agenda emails are a known basic made useful by \"the first page usually lists every item up for a vote.\" | Agenda emails and Google Alerts are known basics, made useful by \"the first page usually lists every item up for a vote.\" | Agenda emails and Google Alerts are known basics, made useful by \"the first page usually lists every item up for a vote.\""
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Names the Whatcom and Skagit counties meetings guide but with no number or result. | Names Whatcom and Skagit counties' guide \"with agendas and recordings\" but gives no year or result. | Cascadia's Whatcom and Skagit meetings guide is named but has no year or result."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Mostly predictable from the title; only \"the ones you get tend to matter\" adds an angle. | \"Sign up for agenda emails from your city and school board\" is close to what the pain title predicts. | \"Agendas look dull\" but skimming them is predictable from the title; nothing to repeat to a friend."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Plain, warm and candid: \"Agendas look dull, but... Ten minutes with one is often more than most residents ever see.\" | \"Ten minutes with one is often more than most residents ever see\" is warm and candid; the dream title is clear. | Plain and candid: \"you won't get many emails, but the ones you get tend to matter.\""
+      },
+      "power": {
+        "score": 2,
+        "mean": 2.33,
+        "reason": "Staying informed about \"what my town will vote on\" changes awareness, not who decides. | Changes only what I know: \"while there's still time to say something\" points to influence but takes no step toward it. | \"while there's still time to say something\" changes my own position but not who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Real-now basics stated modestly (\"many let you get the agenda by email\"); no overclaim. | pass: Real tools described plainly; the alert fix says \"you won't get many emails\" in a low-coverage town, matching the exemplar limit. | pass: Real-now basics described plainly; Cascadia is offered as one region's guide, not a universal service."
+      }
+    },
+    "news-public-notices": {
+      "actionable": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "\"Type your street name into your state's notice search\" takes five minutes and yields a personal list. | \"Type your street name into your state's notice search\" takes five minutes and gives a concrete result. | \"Type your street name into your state's notice search\" is quick, though finding the right state site may take a while."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Most people don't know notice search sites exist; \"searching your own street turns a wall of legal text into a short list\" is a useful twist. | Most readers don't know legal notices are searchable; \"turns a wall of legal text into a short list that's actually about you\" is a useful twist. | Searching your own street \"turns a wall of legal text into a short list that's actually about you\" is a useful twist most people haven't tried."
+      },
+      "namedExample": {
+        "score": 2,
+        "mean": 2.33,
+        "reason": "USA Legal Notice is named as a tool, but there is no place, year or result. | Names USA Legal Notice and state newspaper associations, with no year or number. | USA Legal Notice is named as a tool only, with no year, place or result."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"By law, governments publish notices of hearings, zoning changes, budgets and foreclosures\" is a fact many readers wouldn't know. | \"By law, governments publish notices of hearings, zoning changes, budgets and foreclosures\" is a fact many would repeat. | That \"by law\" notices of rezonings and land sales are already collected on free search sites will be news to many readers."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Clear and specific titles like \"Look up your street name in the notices\"; plain register. | Plain and specific (\"note anything within a mile of home\"); the dream title is long but clear. | Clear title and a warm, practical text; \"a short list that's actually about you\" sounds like a mentor."
+      },
+      "power": {
+        "score": 2,
+        "mean": 2.33,
+        "reason": "Hearing \"while I can still comment\" helps, but the fixes stop at reading notices. | \"I hear about it while I can still comment\" improves my own position but changes no one's decisions. | \"while I can still comment\" improves my own timing; ownership is unchanged."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Describes existing search sites accurately; \"links many of them\" does not overstate coverage. | pass: \"Links many of them in one place\" fits the exemplar's \"coverage varies by state.\" | pass: Describes existing search sites accurately and says coverage is \"many\", not all."
+      }
+    },
+    "news-one-trusted-source": {
+      "actionable": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "\"Open the Medill local news map, find your county, and write down the outlets\" is concrete, though the map's search is unconfirmed. | \"Open the Medill local news map, find your county, and write down the outlets it lists\" takes ten minutes. | \"Open the Medill local news map, find your county, and write down the outlets\" fits in 10 minutes and has a clear result."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Subscribing locally is basic, lifted by \"there may be a newer source near you that you've never heard of\" and the library-card tip. | Subscribing is a basic, but \"ask your library whether a card includes digital access to the local paper\" adds a concrete detail. | Subscribing locally is a basic, sharpened by the library tip: \"ask your library whether a card includes digital access.\""
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"213 counties... with no local news source in 2025... more than 300 local news startups in five years\" is named, dated and numbered. | \"213 counties ... with no local news source in 2025, and about 50 million Americans\" is named, dated and numbered, though it's a count rather than a story. | Medill 2025: \"213 counties... about 50 million Americans... more than 300 local news startups in five years.\""
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "The 300 startups figure flips the expected story of pure decline, which is worth repeating. | \"More than 300 local news startups in five years, so there may be a newer source near you\" flips the expected gloom. | \"more than 300 local news startups... there may be a newer source near you\" turns a bleak number hopeful."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Unhurried and kind: \"give it a month before deciding\"; plain titles throughout. | \"Give it a month before deciding\" sounds like a mentor; the radio fix's \"steady place to start\" is honest about regional coverage. | Unhurried and honest: \"give it a month before deciding\"; the radio limit is said once, plainly."
+      },
+      "power": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Finding \"one place... that tells me what changed\" is a personal habit inside unchanged conditions. | Reading one source changes my own information, not who covers the town. | Mostly a reading habit inside unchanged conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Medill figures match the exemplar; radio fix honestly notes \"covers the whole region more than your own town.\" | pass: Medill figures are stated as reported; the library and radio claims are hedged with \"some do\" and \"many.\" | pass: Medill figures match the exemplar; the library tip is hedged with \"some do.\""
+      }
+    },
+    "news-neighbors-forum": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Ask three neighbors whether they'd read a shared neighborhood email\" is a real 15-minute start. | \"Ask three neighbors whether they'd read a shared neighborhood email\" is real, though building a forum takes longer. | \"Ask three neighbors... and collect their addresses\" is a real 15-minute start, though a working forum needs far more people."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "\"Being that neighbor is a small, useful job\" reframes passing along meeting news as a role worth taking. | \"A forum starts to work once about 100 residents join\" turns a known idea into a clear target. | Neighborhood lists are familiar; \"being that neighbor is a small, useful job\" gives the idea new meaning."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "Front Porch Forum, Vermont, 2006, \"all 251 towns\" and \"once about 100 residents join.\" | \"Front Porch Forum started in Vermont in 2006 and is now in all 251 towns there\" gives a place, a year and a number. | Front Porch Forum, Vermont, 2006, \"all 251 towns\" and the \"about 100 residents\" threshold."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "The 100-member threshold is a concrete, repeatable detail; the rest is expected. | Every town in a state on a once-a-day neighbor email is worth repeating to a friend. | The 100-resident threshold is the one detail a reader would repeat."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"they'll read two sentences from a neighbor about what the council decided on the park\" sounds like a mentor. | \"Being that neighbor is a small, useful job\" is warm, unhurried and specific; the dream line about the library cutting hours is concrete. | Warm and concrete: \"they'll read two sentences from a neighbor about what the council decided on the park.\""
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Builds a shared neighborhood channel, changing local conditions beyond the individual. | Builds a shared channel neighbors own, which goes past coping but doesn't change who decides. | Builds a shared channel among neighbors but leaves ownership and decisions unchanged."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Vermont figures match the exemplar; the share fix makes no sourced claim. | pass: Vermont facts match the exemplar; nothing claims the model will work elsewhere. | pass: The Vermont figures are stated as Vermont's; the monthly-note fix makes no claim it can't support."
+      }
+    },
+    "news-paid-documenter": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"Check documenters.org for a program near you and sign up for the next orientation\" is quick and decisive. | \"Check documenters.org for a program near you and sign up for the next orientation\" is a ten-minute step. | \"Check documenters.org for a program near you and sign up for the next orientation\" takes 10 minutes and could lead to paid work."
+      },
+      "nonObvious": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"Getting paid to sit in on public meetings\" is something most readers have never imagined exists. | Few readers know you can be \"paid for my time\" to sit in on public meetings. | Most people have never heard that you can be \"paid for my time\" to sit in on public meetings."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "City Bureau since 2018, \"more than $15 an hour and Minneapolis paid $20,\" Cleveland's \"1,400 public meetings... 700 news stories.\" | City Bureau since 2018, \"more than $15 an hour and Minneapolis paid $20,\" plus Cleveland's \"1,400 public meetings ... 700 news stories.\" | City Bureau since 2018, \"more than $15 an hour and Minneapolis paid $20\"; Cleveland \"1,400 public meetings... 700 news stories.\""
+      },
+      "surprise": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Being paid by the hour to cover the town council is a fact a reader would tell a friend. | Getting paid to watch your city council and feeding 700 stories in one city would make most people stop. | Getting paid to take notes at public meetings is the fact a reader would repeat to a friend."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Plain and honest, with one limit said once: \"That count comes from the newsroom that runs the program, in one city.\" | Clear and candid (\"rates now vary by city\"); the second fix title \"Ask what meetings in your area go uncovered\" fits its step less well. | Plain and candid, with one limit said once: \"That count comes from the newsroom that runs the program, in one city.\""
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Residents become the paid record-keepers of local government, shifting who gets the time and money. | Puts residents in the room and pays them, which shifts who holds local information and gets the money. | Moves money to residents and puts them in the room where decisions happen."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Dates pay to 2022 and says \"rates now vary by city\"; Cleveland count labeled self-reported. | pass: Dates the pay to 2022 and calls Cleveland's count self-reported \"in one city,\" as the limits require. | pass: Dates the pay figures to 2022, says \"rates now vary by city\", and labels the Cleveland count as self-reported."
+      }
+    },
+    "news-cover-every-meeting": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Email your library director to ask whether they'd host... note-takers\" is concrete and quick. | \"Email your library director to ask whether they'd host\" is quick, but the payoff is slow. | \"Email your library director to ask whether they'd host... note-takers\" is a concrete 15-minute ask."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Asking a library or community foundation to fund meeting coverage is a fresh angle: \"Community foundations already fund things like libraries and parks.\" | Asking a library or community foundation to fund meeting coverage is an angle few would think of. | Asking a library or community foundation to fund meeting coverage is an angle few readers would think of."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "New Jersey 2023, \"$20 an hour,\" with the honest note that sites are now paused. | \"In 2023 New Jersey's state-created news consortium ... $20 an hour\" is named and numbered, though only as an announcement. | New Jersey 2023 partnership paying \"$20 an hour\", but it was an announcement with no result."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "A state-created consortium paying note-takers is notable but softened by the pause. | A state paying residents $20 an hour is notable, but the second fix restates the Documenters model. | A state-created consortium paying residents is surprising; the foundation fix is less so."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Plain titles and a fair framing: \"asking whether yours would fund meeting coverage is a fair question.\" | \"Asking whether yours would fund meeting coverage is a fair question\" is calm and non-pushy. | Calm limit: \"Some New Jersey sites are now paused, so check what's active near you before you ask.\""
+      },
+      "power": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Moves money from local institutions to residents covering every board. | \"Every council, school board and planning meeting ... has someone there\" changes who watches local power. | Changes who funds and who staffs local accountability: \"Libraries, newsrooms and community groups.\""
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Says it was an announcement and \"Some New Jersey sites are now paused\"; no overclaim. | pass: Says \"Some New Jersey sites are now paused,\" which matches the announcement-only limit. | pass: Discloses the paused New Jersey sites, and the foundation idea is framed as \"a fair question.\""
+      }
+    },
+    "news-state-funds-reporters": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Send a short note asking whether they'd support a local journalism tax credit like Illinois's\" is doable, though slow to matter. | \"Send a short note asking whether they'd support a local journalism tax credit like Illinois's\" is concrete, though the result is slow. | \"Look up your state legislator and send a short note asking...\" is real and fits in 15 minutes, though change is slow."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "A state payroll tax credit for reporters, and independent grant boards, are ideas most readers haven't met. | A payroll tax credit for reporters and a university fellowship are policy tools most readers haven't heard of. | A payroll tax credit for local reporters is an idea few readers know exists."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Illinois 2025: \"more than $4 million... 260 local journalist jobs at 55 news organizations\"; New Jersey 2018; Washington $2.4 million. | \"More than $4 million in credits supported more than 260 local journalist jobs at 55 news organizations\" in 2025. | Illinois 2025: \"more than $4 million in credits supported more than 260 local journalist jobs at 55 news organizations.\""
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"over half the money went outside the Chicago area\" and the unclaimed hiring money are both striking. | \"Over half the money went outside the Chicago area\" and \"most of the money ... went unclaimed\" are both repeatable. | \"over half the money went outside the Chicago area\" and \"Most... went unclaimed\" are both worth repeating."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Candid about limits and opponents: \"Some people worry that any government money weakens a paper's independence.\" | \"Without telling them what to write\" is clear; \"which shows why these programs need steady support\" leans slightly toward advocacy. | Even-handed and plain: \"the way the money is handed out matters as much as the amount.\""
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Changes who pays for local reporting at state scale. | Changes where public money goes, and \"the way the money is handed out matters as much as the amount.\" | Changes who pays for local reporting at the state level."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Names the advocacy source, notes unclaimed funds and voices the independence objection; \"shows why these programs need steady support\" leans slightly but stops short of asserting the policy. | pass: Names the advocacy source, notes unclaimed money, and offers the independence worry as \"some people worry\" rather than settling it. | pass: Names the advocacy-group source, notes unused hiring money and funding cuts, and gives the independence worry room."
+      }
+    },
+    "news-keep-notices-public": {
+      "actionable": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "\"Search your state legislature's site for 'public notice' bills\" is real but slow to change anything. | \"Email your county clerk asking whether residents can sign up for notices by area\" is a clear ten-minute step. | \"read one summary\" of a notice bill is a real step but slow to matter; the clerk email is better."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Few readers know states are moving notices off newspapers; the email-by-neighborhood ask is a practical middle path. | Few know states are debating moving notices out of newspapers; the email-list middle path is a useful twist. | Most readers don't know states are fighting over where legal notices go."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Names four states but gives no year in text and no outcome. | \"Arizona, Iowa, Florida and Rhode Island have all weighed\" names places, but gives no outcome or number. | Names four states but gives no year or outcome for any bill."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "That notices could quietly move to \"a page nobody visits\" is a fact worth repeating. | That notices could move to \"a page nobody visits\" is one surprising element. | That notices may move from newspapers to government websites is an angle a reader would mention."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Even-handed and plain: \"governments say it saves money, and people reasonably disagree.\" | \"People reasonably disagree\" and \"whichever side you take on newspapers\" are fair-minded and plain. | Fix text is balanced, but the dream line \"buried on a page nobody visits\" leans toward one side of the argument."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Shapes where governments must put information, a rule-level change. | Shapes state rules on where governments must tell residents about decisions. | Asks the county to change how it informs residents (\"email notices to anyone who signs up\")."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Presents both sides of a contested policy and offers the email list as \"Whichever side you take.\" | pass: Presents both sides of a contested policy and doesn't claim the bills passed. | pass: Presents the contested policy with both sides (\"people reasonably disagree\"); the email list is offered as a middle path."
+      }
+    },
+    "news-reporter-in-county": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Email your local editor to ask whether they've considered applying to Report for America\" is quick and specific. | \"Email your local editor to ask whether they've considered applying to Report for America\" is quick and specific. | \"Email your local editor to ask whether they've considered applying to Report for America\" is a quick, pointed ask."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "That readers can help fund a specific beat is a new idea for most: \"Asking what a beat would cost makes the request concrete.\" | Reader support is familiar; tying it to \"what a beat would cost\" makes it concrete. | Readers can help pay a reporter's local share: \"Asking what a beat would cost makes the request concrete.\""
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"107 new reporters in 101 local newsrooms in 2025... up to three years.\" | \"Report for America placed 107 new reporters in 101 local newsrooms in 2025\" is named and numbered. | Report for America 2025: \"107 new reporters in 101 local newsrooms... for up to three years.\""
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "A national program funding local reporters is interesting but not jaw-dropping. | A program paying much of a reporter's salary is one surprising element. | A national program paying much of a local salary is useful news, though not startling."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Plain and direct, with a clear role for readers: \"which is where readers and local businesses come in.\" | \"Someone whose job is my county goes to the meetings, reads the budgets\" is a clear, human dream line. | Plain and specific, with a clear dream line: \"goes to the meetings, reads the budgets and tells us what they found.\""
+      },
+      "power": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Readers help decide and pay for a reporter assigned to their county. | Readers help fund a beat, which changes who pays for coverage and therefore who gets it. | Changes who funds the reporter: \"readers and nearby businesses, not one big donor.\""
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Says the newsroom \"has to raise the rest locally\"; the pledge fix makes no sourced claim. | pass: States the matching requirement plainly; the reader-funding claim is modest and follows from the exemplar. | pass: States the local match requirement; the reader pledge fix claims only what the matching model implies."
+      }
+    },
+    "news-answers-by-text": {
+      "actionable": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "\"text DETROIT to 67485; elsewhere, email your local newsroom one question\" is immediate, though only Detroit gets the real service. | \"Text DETROIT to 67485\" works only in Detroit; elsewhere, \"email your local newsroom one question\" is generic. | \"text DETROIT to 67485\" is instant for Detroit; elsewhere \"email your local newsroom one question\" is weaker."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "A newsroom that answers your eviction or tax question by text reframes local news as help, not just stories. | A newsroom that answers your eviction or tax question one-on-one is a reframing of what local news is for. | A newsroom that answers your eviction or tax question one-on-one is a role most people don't know exists."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Outlier Media, Detroit, since 2016, with the actual number to text. | \"Since 2016, Outlier Media in Detroit\" is named and dated, but gives no result. | Outlier Media, Detroit, since 2016, with the topics, but no number on how many questions were answered."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Outlier says it lets the community decide what it covers\" is a striking model. | \"Outlier says it lets the community decide what it covers\" is an angle a reader would repeat. | \"Outlier says it lets the community decide what it covers\" flips the usual newsroom model."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Warm and concrete: \"When I get an eviction notice or a strange tax bill, I can ask someone who knows the local rules.\" | \"When I get an eviction notice or a strange tax bill\" is concrete and unjudging. | Dream line is concrete and personal: \"When I get an eviction notice or a strange tax bill...\""
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Shifts who sets coverage toward residents, but the first step is mostly personal help. | Asking a newsroom to answer reader questions shifts some agenda-setting to residents, but modestly. | Gets me real answers and nudges a newsroom's priorities, but ownership is unchanged."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Attributes the community-decides claim to Outlier and limits the text line to Detroit. | pass: Attributes \"lets the community decide\" to Outlier and limits the text line to Detroit. | pass: Limits the text line to Detroit and attributes the community-led claim to Outlier."
+      }
+    },
+    "news-week-ahead": {
+      "actionable": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "\"Tell us you'd use this, and bookmark your city's agenda page\" is easy but moves little. | \"Tell us you'd use this, and bookmark your city's agenda page\" is real but thin; the street search step is better. | \"Tell us you'd use this, and bookmark your city's agenda page\" moves little on its own."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Matching notices to \"where you live\" is a useful twist on a familiar digest idea. | A weekly digest of votes is a natural idea; matching notices \"to where you live\" adds a useful twist. | A weekly plain-language digest of upcoming votes is a natural idea, made more useful by the street-matching angle."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Agenda Watch and notice sites cited for feasibility, as expected for a proposed It idea. | Agenda Watch and Northwestern's count back feasibility without results, which is fine for a labeled It idea. | Agenda Watch and the Medill maps are cited only to show the idea is feasible, which is acceptable for an It idea."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2,
+        "reason": "A weekly summary is predictable from the title. | \"A short, plain summary of what my city, county and school board will decide\" is predictable from the pain. | Predictable from the title."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Correctly written as \"It could gather the agendas...\" with plain titles. | Every fix opens \"It could ...\" and says plainly \"what's missing is matching them to where you live.\" | Follows the guide: \"It could gather the agendas...\"; plain, with \"what's missing is matching them to where you live.\""
+      },
+      "power": {
+        "score": 2,
+        "mean": 2.33,
+        "reason": "Better information delivery; conditions and decision-makers unchanged. | Improves my own awareness; no change in who decides. | Improves my own awareness and timing."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Every fix says \"It could\" and is labeled proposed; \"the documents can be gathered\" is a fair feasibility claim. | pass: Every fix uses \"It could\" with the proposed status; feasibility claims match the exemplars. | pass: Every fix is written \"It could...\" and labeled proposed_it_feature; nothing is described as built."
+      }
+    },
+    "news-who-decides": {
+      "actionable": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"Enter your address in Plural's free 'Find your legislators' tool and save the names\" takes five minutes. | \"Enter your address in Plural's free 'Find your legislators' tool and save the names\" takes five minutes. | \"Enter your address in Plural's free 'Find your legislators' tool\" takes 5 minutes."
+      },
+      "nonObvious": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Looking up your representatives is the standard civics advice; the written-comment note is the only twist. | \"Look up every official who represents your address\" is the first civic advice anyone gives. | \"Know who your representatives are\" is the first thing anyone would say; the written-comment tip helps a little."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Plural and Councilmatic's \"70,000 city council bills\" are named but tied to tools, not results. | Councilmatic's \"more than 70,000 city council bills\" is a number, but it's about Chicago, not results. | Councilmatic's \"70,000 city council bills\" is named but covers only Chicago, and it shows no result."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2,
+        "reason": "\"you don't have to speak in person\" is mildly useful; little else surprises. | \"Many councils read written comments into the record\" is the one mildly surprising point. | \"Many councils read written comments into the record\" is the one fresh point; the rest is predictable."
+      },
+      "voice": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Plain and clear titles like \"Write a short public comment before the meeting.\" | Plain but impersonal, and it mixes It ideas with a real Chicago tool under one It-feature card. | Plain but generic; \"Follow your council's bills from start to finish\" asks more than the first step gives."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Writing to officials is a real step toward influence, but small. | \"I've written to them at least once\" engages decision-makers but doesn't change who decides. | Writing to officials gives me a voice but doesn't change who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: It ideas say \"It could\"; Councilmatic labeled real now; \"Many councils\" is suitably modest. | pass: It ideas use \"It could\"; the Councilmatic fix is labeled real now; the comment claim is hedged with \"many.\" | pass: It ideas are written \"It could...\"; the Councilmatic fix is correctly marked real now and limited to Chicago."
+      }
+    },
+    "news-neighbors-share-coverage": {
+      "actionable": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"ask two neighbors which local meeting they'd be willing to attend\" is a start, but the rest waits on It. | \"Ask two neighbors which local meeting they'd be willing to attend\" is a real step, but the second step only looks up an email. | \"ask two neighbors which local meeting they'd be willing to attend\" is real but slow to add up to coverage."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"A dozen of us split the meetings\" makes full coverage feel achievable without pay. | \"A dozen of us split the meetings ... nobody has to go to all of them\" is a fresh, unpaid take on Documenters. | Splitting the meetings so \"nobody has to go to all of them\" makes covering every board seem doable."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Documenters \"in about two dozen cities\" and New Jersey's coalition \"from 2017.\" | \"About two dozen cities\" and New Jersey's 2017 coalition are named but give no result for neighbor groups. | Documenters in \"about two dozen cities\" and New Jersey's coalition organizing \"from 2017 to win the state law.\""
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "That residents organized to win a state news fund is a good precedent. | Residents organizing to win a state news fund is one surprising element. | That residents organized and won a state law for local news is a good detail."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Title \"Ask your state for local news funding with neighbors\" is awkward and roundabout. | Candid limit: \"with editors and pay that a neighbor group won't have\"; the title \"Ask your state for local news funding with neighbors\" is a little awkward. | Honest limit said once: \"with editors and pay that a neighbor group won't have.\""
+      },
+      "power": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Neighbors collectively cover every board and press for state funding. | Neighbors collectively covering every board, and lobbying for a state fund, change who watches and who funds. | Neighbors take on the job of watching local government and press for state funding."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Written as \"It could\" and admits Documenters have \"editors and pay that a neighbor group won't have.\" | pass: Both fixes are written \"It could\" and say plainly what Documenters have that neighbors won't. | pass: Labeled as It ideas with \"It could...\", and contrasts itself honestly with paid Documenters programs."
+      }
+    },
+    "news-watch-from-home": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"Find last month's council recording and watch the first 20 minutes\" fits exactly in 20 minutes. | \"Find last month's council recording and watch the first 20 minutes\" is exactly a 20-minute step. | \"Find last month's council recording and watch the first 20 minutes\" is exactly a 20-minute step."
+      },
+      "nonObvious": {
+        "score": 2,
+        "mean": 2.33,
+        "reason": "Watching a meeting recording is obvious; \"the first half hour, when public comment usually happens\" is the only detail. | Watching recordings is basic, made useful by \"the first half hour, when public comment usually happens.\" | Watching the meeting video is a basic; the public-comment tip adds little."
+      },
+      "namedExample": {
+        "score": 1,
+        "mean": 1.33,
+        "reason": "No example named in the copy; just \"Many cities and school boards post video.\" | The text names no place, group or number; \"Many cities and school boards post video\" is vague. | The Cascadia guide is attached but not mentioned in the text, which says only \"Many cities.\""
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 1.67,
+        "reason": "Entirely predictable from the title. | Predictable from the dream title \"Watching a public meeting from home once a month.\" | Predictable from the title."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Warm and unhurried: \"from my couch, so I know the people and the issues.\" | \"From my couch, so I know the people and the issues\" is warm and plain. | Warm and unhurried dream line: \"from my couch, so I know the people and the issues.\""
+      },
+      "power": {
+        "score": 2,
+        "mean": 1.67,
+        "reason": "Personal awareness only. | Pure personal viewing inside unchanged conditions. | A personal habit inside unchanged conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Generic, modest claims (\"Many cities\", \"usually posted\"); nothing overstated. | pass: Claims are general and hedged (\"many,\" \"usually\"); nothing overstated. | pass: General claims are hedged (\"Many\", \"usually\") and nothing is oversold."
+      }
+    }
+  },
+  "pairwise": [],
+  "consensus": {
+    "news-agendas-in-inbox": {
+      "borda": 13,
+      "ranks": [
+        11,
+        11,
+        10
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "news-public-notices": {
+      "borda": 14,
+      "ranks": [
+        10,
+        10,
+        11
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "news-one-trusted-source": {
+      "borda": 25,
+      "ranks": [
+        9,
+        7,
+        4
+      ],
+      "spread": 5,
+      "honestVotes": "3/3 pass"
+    },
+    "news-neighbors-forum": {
+      "borda": 31,
+      "ranks": [
+        5,
+        2,
+        7
+      ],
+      "spread": 5,
+      "honestVotes": "3/3 pass"
+    },
+    "news-paid-documenter": {
+      "borda": 42,
+      "ranks": [
+        1,
+        1,
+        1
+      ],
+      "spread": 0,
+      "honestVotes": "3/3 pass"
+    },
+    "news-cover-every-meeting": {
+      "borda": 28,
+      "ranks": [
+        6,
+        6,
+        5
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "news-state-funds-reporters": {
+      "borda": 38,
+      "ranks": [
+        2,
+        3,
+        2
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "news-keep-notices-public": {
+      "borda": 20,
+      "ranks": [
+        8,
+        8,
+        9
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "news-reporter-in-county": {
+      "borda": 34,
+      "ranks": [
+        4,
+        4,
+        3
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "news-answers-by-text": {
+      "borda": 31,
+      "ranks": [
+        3,
+        5,
+        6
+      ],
+      "spread": 3,
+      "honestVotes": "3/3 pass"
+    },
+    "news-week-ahead": {
+      "borda": 6,
+      "ranks": [
+        13,
+        13,
+        13
+      ],
+      "spread": 0,
+      "honestVotes": "3/3 pass"
+    },
+    "news-who-decides": {
+      "borda": 7,
+      "ranks": [
+        12,
+        12,
+        14
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "news-neighbors-share-coverage": {
+      "borda": 21,
+      "ranks": [
+        7,
+        9,
+        8
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "news-watch-from-home": {
+      "borda": 5,
+      "ranks": [
+        14,
+        14,
+        12
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    }
+  },
+  "seed": 17
+}

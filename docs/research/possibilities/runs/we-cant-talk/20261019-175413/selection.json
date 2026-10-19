@@ -1,0 +1,89 @@
+{
+  "finalists": [
+    "talk-know-other-side",
+    "talk-family-close",
+    "talk-town-agrees",
+    "talk-move-minds",
+    "talk-prepared"
+  ],
+  "auditSample": [
+    "talk-pause",
+    "talk-town-forum"
+  ],
+  "seed": 17,
+  "itLedGuaranteed": "talk-prepared",
+  "itLedMissing": false,
+  "ranking": [
+    {
+      "cardId": "talk-know-other-side",
+      "wins": 41,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "talk-family-close",
+      "wins": 40,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "talk-town-agrees",
+      "wins": 35,
+      "meanScore": 4.5
+    },
+    {
+      "cardId": "talk-move-minds",
+      "wins": 33,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "talk-citizen-panels",
+      "wins": 29,
+      "meanScore": 4.33
+    },
+    {
+      "cardId": "talk-cross-party-friend",
+      "wins": 27,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "talk-town-forum",
+      "wins": 23,
+      "meanScore": 4
+    },
+    {
+      "cardId": "talk-local-alliance",
+      "wins": 20,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "talk-heard-first",
+      "wins": 19,
+      "meanScore": 3.33
+    },
+    {
+      "cardId": "talk-leaders-model",
+      "wins": 18,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "talk-kids-school",
+      "wins": 11,
+      "meanScore": 3
+    },
+    {
+      "cardId": "talk-prepared",
+      "wins": 10,
+      "meanScore": 3
+    },
+    {
+      "cardId": "talk-pause",
+      "wins": 6,
+      "meanScore": 2.67
+    }
+  ],
+  "excluded": [
+    {
+      "cardId": "talk-raise-touchy-subject",
+      "reason": "honest status failed: FAIL: Quotes a participant saying \"we were never going to agree\", which the exemplar doesn't contain, and presents the Thanksgiving finding without the smaller replicated effect. | FAIL: Attributes a direct quote, \"we were never going to agree,\" that the exemplar doesn't support, and presents the Thanksgiving \"three times larger\" finding without the replication's smaller effect. | FAIL: The direct quote \"we were never going to agree\" is not in the exemplar, and the Thanksgiving \"three times larger\" figure omits the replication that found a smaller effect."
+    }
+  ]
+}

@@ -1,0 +1,742 @@
+{
+  "schemaVersion": 1,
+  "painId": "we-cant-talk",
+  "runId": "20261019-175413",
+  "cards": {
+    "talk-heard-first": {
+      "title": "Showing someone I understood them before I answer",
+      "line": "When we disagree, the other person can tell I really heard them, so they stay in the conversation.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "talk-heard-first-loop",
+          "title": "Say back what you heard before you reply",
+          "whatChanges": "The journalist Amanda Ripley, in her book High Conflict, describes a habit called looping: you put what the other person said into your own words, ask whether you got it right, and keep going until they say yes. The point is for them to feel understood before you give your side.",
+          "who": "You",
+          "exemplarRef": "looping",
+          "speculative": false,
+          "firstStep": "In one conversation today, before you give your view, say back what you heard and ask whether you got it right.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "practice",
+          "featureIdea": "Prompts you to say back what you heard in a real conversation, then asks afterward whether the other person said you got it right."
+        },
+        {
+          "id": "talk-heard-first-practice",
+          "title": "Practice listening with a friend on an easy topic first",
+          "whatChanges": "Teachers use a simple drill: one person talks for two minutes about something they care about, the other repeats it back until the speaker says that’s right, and then you switch. Most people find the first round humbling, which is the point.",
+          "who": "You and a friend",
+          "exemplarRef": "looping",
+          "speculative": false,
+          "firstStep": "Ask a friend or partner to try one round with you this week on something light, like a favorite movie.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "practice",
+          "featureIdea": "Guides you and a friend through a timed two-minute listening round, then switches roles and asks each of you how close the repeat-back was."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175413",
+        "locator": "cards.json#talk-heard-first",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Basic listening skill. Looping is the strongest personal technique found; no outcome data, so text avoids claiming results."
+    },
+    "talk-raise-touchy-subject": {
+      "title": "Bringing up a touchy subject without a blowup",
+      "line": "I can raise the thing my brother and I disagree about, and an hour later we’re both still at the table.",
+      "lens": "relational",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "talk-raise-touchy-subject-agree-how",
+          "title": "Agree on how you’ll talk before you get into it",
+          "whatChanges": "Groups that run hard conversations for a living, like Essential Partners, start by building a few shared agreements about how the talk will go. Two people at a kitchen table can do the same in a few minutes, for example agreeing not to interrupt and that either person can call a pause.",
+          "who": "You and the other person",
+          "exemplarRef": "essential-partners",
+          "speculative": false,
+          "firstStep": "Before your next hard talk, suggest three simple rules and ask the other person to add one of their own.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "practice",
+          "featureIdea": "Helps you draft a few ground rules to suggest before a hard talk, then checks in afterward on which rules held."
+        },
+        {
+          "id": "talk-raise-touchy-subject-say-goal",
+          "title": "Tell them you want to understand, not win",
+          "whatChanges": "After the 1994 killings at abortion clinics in Brookline, Massachusetts, six Boston leaders from opposite sides of the abortion fight met in secret for six years. One said she realized “we were never going to agree,” and once that was settled they could actually listen. Nobody changed sides, and they became friends.",
+          "who": "You",
+          "exemplarRef": "boston-talks",
+          "speculative": false,
+          "firstStep": "Start your next disagreement by saying, “I’m not trying to change your mind. I want to understand how you got there.”",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "practice",
+          "featureIdea": "Helps you write an opening line that says you want to understand, not win, and asks afterward how the other person responded."
+        },
+        {
+          "id": "talk-raise-touchy-subject-news-off",
+          "title": "Keep the news off when family visits",
+          "whatChanges": "Researchers who used phone location data after the 2016 election found that families with mixed politics cut Thanksgiving short, and the drop was about three times larger where political ads saturated local TV. Turning off the news won’t settle anything, but it takes away a lot of fuel.",
+          "who": "You and whoever is hosting",
+          "exemplarRef": "thanksgiving-chen-rohla",
+          "speculative": false,
+          "firstStep": "Before your next family gathering, ask the host whether you can keep the TV off the news that day.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175413",
+        "locator": "cards.json#talk-raise-touchy-subject",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "talk-know-other-side": {
+      "title": "Knowing what the other side actually believes",
+      "line": "I picture the people I disagree with as they really are, not as the loudest voices I see online.",
+      "lens": "culture",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "talk-know-other-side-quiz",
+          "title": "Take a short quiz on what the other party really thinks",
+          "whatChanges": "In a 2019 survey of 2,100 Americans, More in Common and YouGov found that Democrats and Republicans each guessed almost twice as many people on the other side held extreme views as really do. The people who followed the news most closely were the furthest off.",
+          "who": "You",
+          "exemplarRef": "perception-gap",
+          "speculative": false,
+          "firstStep": "Take the free Perception Gap quiz at perceptiongap.us and see how close your guesses were.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "learn"
+        },
+        {
+          "id": "talk-know-other-side-ask-first",
+          "title": "Ask what they believe instead of assuming",
+          "whatChanges": "Because most of us overestimate how extreme the other side is, a plain question often turns up more agreement than you expected. “What do you actually think should happen?” is a good one.",
+          "who": "You",
+          "exemplarRef": "perception-gap",
+          "speculative": false,
+          "firstStep": "Next time someone says something political you dislike, ask what they think should actually happen, and listen to the whole answer.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "practice",
+          "featureIdea": "Suggests an open question to ask when someone says something political you dislike, then asks what you learned from their answer."
+        },
+        {
+          "id": "talk-know-other-side-it-check",
+          "title": "Check your guesses about the other side before a hard talk",
+          "whatChanges": "Asks you a few questions about what you think people on the other side believe, then shows you how real survey answers compare, using public results like More in Common’s.",
+          "who": "You and It",
+          "exemplarRef": "perception-gap",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and in the meantime try the Perception Gap quiz.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175413",
+        "locator": "cards.json#talk-know-other-side",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "talk-family-close": {
+      "title": "Keeping my family close when we vote differently",
+      "line": "We still spend the holidays together and stay as long as we used to, even in an election year.",
+      "lens": "relational",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "talk-family-close-protect-visit",
+          "title": "Decide the visit matters more than the argument",
+          "whatChanges": "Studies of Thanksgiving dinners, including the one right after the 2016 election, found that dinners with mixed politics ran shorter. A careful 2020 follow-up put the difference at about 24 minutes, so those families still sat down together, and that’s the part worth protecting.",
+          "who": "You",
+          "exemplarRef": "thanksgiving-replication",
+          "speculative": false,
+          "firstStep": "Text the relative you’re most likely to clash with and tell them you’re looking forward to seeing them.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "talk-family-close-their-story",
+          "title": "Ask what in their life made this issue matter to them",
+          "whatChanges": "The Boston leaders who met in secret on abortion spent their first two years mostly getting to know each other, not debating. Hearing how someone came to a view tends to soften things more than hearing the view again.",
+          "who": "You and a relative",
+          "exemplarRef": "boston-talks",
+          "speculative": false,
+          "firstStep": "Ask one relative you disagree with, “What happened in your life that made this matter to you?” and just listen.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "practice",
+          "featureIdea": "Helps you prepare to ask a relative what in their life made an issue matter, and reminds you afterward to note what you heard before replying."
+        },
+        {
+          "id": "talk-family-close-politics-talk",
+          "title": "Coaching for talking politics with family",
+          "whatChanges": "Helps you get ready to talk about politics with a relative: what you hope they’ll understand, a question about how they came to their view, and when you’ll stop. Afterward it asks how the talk went and suggests what to try next time. Free dialogue guides like Essential Partners’ already cover this ground for groups.",
+          "who": "You and It",
+          "exemplarRef": "essential-partners",
+          "speculative": false,
+          "firstStep": "Before your next family visit, write down one question you’d like to ask a relative about how they came to their view.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175413",
+        "locator": "cards.json#talk-family-close",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "talk-cross-party-friend": {
+      "title": "Liking someone from the other party after a real conversation",
+      "line": "I’ve had a real conversation with someone whose politics are the opposite of mine, and I liked them by the end.",
+      "lens": "community",
+      "ambition": "this-year",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "talk-cross-party-friend-one-small-step",
+          "title": "Sign up for a recorded conversation with a stranger who votes differently",
+          "whatChanges": "StoryCorps’ One Small Step matches people with different political views for a 50-minute recorded conversation about their lives, not a debate. You fill out a short form and they find you a partner.",
+          "who": "You and a stranger",
+          "exemplarRef": "one-small-step",
+          "speculative": false,
+          "firstStep": "Fill out the sign-up form at takeonesmallstep.org.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "talk-cross-party-friend-red-blue",
+          "title": "Go to a workshop with equal numbers from each party",
+          "whatChanges": "Braver Angels runs Red/Blue workshops with the same number of conservatives and liberals in the room. In a 2020 study on four college campuses, participants showed 22% less hostility toward the other party a week later, and some of that was still there six months on.",
+          "who": "You",
+          "exemplarRef": "braver-angels-campus-study",
+          "speculative": false,
+          "firstStep": "Look up the next Red/Blue workshop on the Braver Angels website and put it on your calendar.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "talk-cross-party-friend-living-room",
+          "title": "Host a small conversation at home with a free guide",
+          "whatChanges": "Living Room Conversations has offered free conversation guides since 2010 for a few people to talk through a topic, in person or online. Inviting one friend who leans the other way and one who leans your way keeps it balanced.",
+          "who": "You and a few friends",
+          "exemplarRef": "living-room-conversations",
+          "speculative": false,
+          "firstStep": "Pick a guide on livingroomconversations.org and send it to two people you’d like to invite.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "project"
+        },
+        {
+          "id": "talk-cross-party-friend-match",
+          "title": "Private match with a neighbor who votes differently",
+          "whatChanges": "Lets you say privately that you’d like a one-on-one conversation with someone nearby from the other party, and introduces you only when someone close by has asked for the same thing. Conversation programs already match strangers across politics, but not usually with neighbors.",
+          "who": "You, a neighbor and It",
+          "exemplarRef": "one-small-step",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and in the meantime fill out the One Small Step sign-up form.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175413",
+        "locator": "cards.json#talk-cross-party-friend",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Braver Angels limit (older, college-educated, more Democrats in 2021) kept for exemplar; one limit only per fix."
+    },
+    "talk-town-forum": {
+      "title": "A town email list where neighbors argue without insults",
+      "line": "When my town disagrees about a new road or a school budget, people say so under their real names and stay decent.",
+      "lens": "market",
+      "ambition": "together",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "talk-town-forum-moderated-list",
+          "title": "Ask for a neighbors-only forum with a human moderator",
+          "whatChanges": "In Vermont, Front Porch Forum sends each town an email digest of neighbors’ posts, reviewed first by a person, with no anonymous posting and no comment threads. In a 2023 University of Texas survey of its members, 80% said people there treat each other with respect.",
+          "who": "Your town or library",
+          "exemplarRef": "front-porch-forum",
+          "speculative": false,
+          "firstStep": "Ask your town library or neighborhood association whether there’s a moderated local email list, and what its rules are.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "talk-town-forum-town-debate",
+          "title": "Host a structured debate on a local issue",
+          "whatChanges": "Braver Angels had held nearly 275 structured debates in all 50 states by 2022, and a higher-education nonprofit has sponsored about 200 more on over 75 college campuses. A local library or college is a natural host for one on a town question.",
+          "who": "You, a library or a college",
+          "exemplarRef": "braver-angels-org",
+          "speculative": false,
+          "firstStep": "Email your library’s events coordinator and ask whether they’d host a Braver Angels-style debate on a local question.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "project"
+        },
+        {
+          "id": "talk-town-forum-campaign",
+          "title": "Shared request for a moderated town forum",
+          "whatChanges": "Gathers neighbors behind one request to your library or town for a neighbors-only email list with a human moderator, shows how many have signed on, and sends it together. Vermont’s Front Porch Forum shows the kind of list you’d be asking for.",
+          "who": "You, your neighbors and It",
+          "exemplarRef": "front-porch-forum",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and name one neighbor who’d sign a request like this with you.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175413",
+        "locator": "cards.json#talk-town-forum",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Debate text limited to counts on the opened page."
+    },
+    "talk-citizen-panels": {
+      "title": "Ordinary voters from every side working through hard issues together",
+      "line": "Before a big decision, people like me from both parties sit down with good information and find out where we agree.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "talk-citizen-panels-deliberative-poll",
+          "title": "Ask a local college to host a deliberative poll",
+          "whatChanges": "In 2019, 523 randomly chosen registered voters spent a weekend near Dallas discussing immigration, health care and more. On 22 of the 26 most divisive proposals, Democrats and Republicans moved closer, and each side rated the other about 13 points warmer. This was one weekend, run by people who believe in the method.",
+          "who": "A college, a newspaper or a city",
+          "exemplarRef": "america-one-room",
+          "speculative": false,
+          "firstStep": "Email a political science professor at a nearby college and ask whether they’d run a small deliberative poll on a local issue.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "talk-citizen-panels-ballot-review",
+          "title": "Ask your state to let a citizen panel review ballot measures",
+          "whatChanges": "Since 2010, Oregon has had a Citizens’ Initiative Review: about two dozen randomly chosen voters spend several days questioning both sides of a ballot measure, then write a one-page summary for the official voters’ pamphlet. Oregon hasn’t funded the review every year.",
+          "who": "Your state legislators",
+          "exemplarRef": "oregon-cir",
+          "speculative": false,
+          "firstStep": "Email your state legislator and ask whether they’d support a citizen review panel for ballot measures.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "talk-citizen-panels-assembly",
+          "title": "Ask lawmakers to send a stuck issue to a citizens’ assembly",
+          "whatChanges": "From 2016 to 2018, Ireland’s Citizens’ Assembly brought 99 randomly chosen people together over 12 weekends to study five hard issues, including abortion, and its recommendation on abortion led to a national referendum. Members served unpaid, and the workload wore many of them down.",
+          "who": "Your city council or state legislature",
+          "exemplarRef": "ireland-assembly",
+          "speculative": false,
+          "firstStep": "Pick one local issue that keeps stalling, and write two sentences to your city council member asking for a citizen panel on it.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "talk-citizen-panels-campaign",
+          "title": "Joint letter asking for a citizen panel",
+          "whatChanges": "Gathers voters from both parties behind one letter asking your state or city for a citizen review panel, like Oregon’s Citizens’ Initiative Review, tracks who has signed and from which party, and sends it once enough have.",
+          "who": "You, other voters and It",
+          "exemplarRef": "oregon-cir",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and ask one person from the other party whether they’d sign it with you.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175413",
+        "locator": "cards.json#talk-citizen-panels",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Ireland outcome stated neutrally (led to referendum), not whether it was right."
+    },
+    "talk-town-agrees": {
+      "title": "Seeing which ideas most of my town agrees on",
+      "line": "When my town argues about something, I can see the ideas that people on both sides actually support.",
+      "lens": "technology",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "talk-town-agrees-vtaiwan",
+          "title": "Ask your city to try an online tool that surfaces agreement",
+          "whatChanges": "In 2015, about 3,000 people in Taiwan used a tool called Pol.is to weigh in on how to handle Uber. Nobody can reply to anyone, only add statements and vote, so the ideas that rise are the ones supported across camps. Taiwan’s government agreed in 2016 to adopt the points of agreement.",
+          "who": "Your city council",
+          "exemplarRef": "vtaiwan-uber",
+          "speculative": false,
+          "firstStep": "Send one city council member a link about Pol.is and ask whether they’d try it on the next contested local issue.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "talk-town-agrees-county-plan",
+          "title": "Suggest this kind of tool for your county’s long-range plan",
+          "whatChanges": "In 2025, the area around Bowling Green, Kentucky, used Pol.is to draft a 25-year plan. Of 3,940 ideas people submitted, 2,370 were backed by more than 80% of respondents. Volunteers still had to screen out off-topic posts.",
+          "who": "Your county planning office",
+          "exemplarRef": "polis-tool",
+          "speculative": false,
+          "firstStep": "Find out when your county or city next updates its comprehensive plan, and ask the planning office how residents can weigh in.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "talk-town-agrees-it-neighbors",
+          "title": "See which ideas neighbors on both sides support",
+          "whatChanges": "Lets you add a statement about a local issue, vote on your neighbors’ statements, and see which ideas win support from people who usually disagree. Pol.is is open source, so this wouldn’t have to be invented from scratch.",
+          "who": "You, your neighbors and It",
+          "exemplarRef": "polis-tool",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down one local issue where you suspect neighbors agree more than it seems.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175413",
+        "locator": "cards.json#talk-town-agrees",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "talk-prepared": {
+      "title": "Going into a hard conversation prepared instead of braced",
+      "line": "Before I talk politics with my dad, I know what I want from the talk and how I’ll listen.",
+      "lens": "technology",
+      "ambition": "this-year",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "talk-prepared-plan",
+          "title": "Plan what you want from the conversation",
+          "whatChanges": "Walks you through a few questions before a hard talk: what you want them to understand, what you want to understand about them, and when you’ll stop. Free guides like Essential Partners’ already cover this ground for groups.",
+          "who": "You and It",
+          "exemplarRef": "essential-partners",
+          "speculative": false,
+          "firstStep": "Write down one thing you want the other person to understand and one thing you want to understand about them.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "talk-prepared-rehearse",
+          "title": "Rehearse saying back what you heard",
+          "whatChanges": "Plays the other side of a disagreement so you can practice looping, saying back what you heard until the speaker agrees you got it right, before you try it with someone you love.",
+          "who": "You and It",
+          "exemplarRef": "looping",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and practice one round of looping with a friend this week.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "talk-prepared-find-near-me",
+          "title": "Find a structured conversation near you",
+          "whatChanges": "Gathers the conversation programs that already exist, like One Small Step, which pairs people with different views for a recorded conversation, and shows you what’s near your ZIP code or online this month.",
+          "who": "You and It",
+          "exemplarRef": "one-small-step",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and look at One Small Step’s sign-up page today.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175413",
+        "locator": "cards.json#talk-prepared",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "It-led card. Grounded in existing free guides and programs."
+    },
+    "talk-leaders-model": {
+      "title": "Leaders from both parties showing how to disagree",
+      "line": "The people I vote for argue in public without treating each other as enemies.",
+      "lens": "culture",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "talk-leaders-model-joint-ad",
+          "title": "Ask your governor or state legislator to appear with someone from the other party",
+          "whatChanges": "Utah Governor Spencer Cox, a Republican, made Disagree Better his 2023–24 initiative as chair of the National Governors Association. The project suggests leaders record an ad with someone from the other party, and Cox made a video about the idea with Colorado Governor Jared Polis, a Democrat.",
+          "who": "Your elected officials",
+          "exemplarRef": "disagree-better",
+          "speculative": false,
+          "firstStep": "Write a short note to your governor or state legislator asking them to do one joint appearance with someone from the other party this year.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "talk-leaders-model-it-ask",
+          "title": "Ask your officials to model respectful disagreement",
+          "whatChanges": "Helps you write a short note to your representatives asking for this, and keeps a public list of officials who have done a joint appearance with someone across the aisle.",
+          "who": "You and It",
+          "exemplarRef": "disagree-better",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and look up who represents you at the state and federal level.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175413",
+        "locator": "cards.json#talk-leaders-model",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "talk-move-minds": {
+      "title": "Changing someone’s mind a little by listening first",
+      "line": "When I care about an issue, I can talk with someone who disagrees and we both come away thinking a little differently.",
+      "lens": "relational",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "talk-move-minds-experience",
+          "title": "Ask about their experience, then share yours",
+          "whatChanges": "In a 2015 study in Miami, volunteers going door to door spent 10 to 15 minutes asking people about their own experiences and listening, rather than arguing facts. On a charged social issue, the change in attitudes was still there three months later.",
+          "who": "You",
+          "exemplarRef": "deep-canvassing",
+          "speculative": false,
+          "firstStep": "Next time a topic you care about comes up, ask the other person about a time they’ve been treated unfairly, and listen before you share your own.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "practice",
+          "featureIdea": "Helps you pick a question about the other person's own experience to ask first, then checks in on whether listening first changed how your story landed."
+        },
+        {
+          "id": "talk-move-minds-beyond-talk",
+          "title": "Pair good conversations with work on the issue itself",
+          "whatChanges": "Some critics, like Alex Zamalin, author of Against Civility, argue that groups such as Braver Angels focus on politeness and don’t address who holds power. You don’t have to choose: you can keep talking across the divide and also show up where decisions get made.",
+          "who": "You",
+          "exemplarRef": "braver-angels-org",
+          "speculative": false,
+          "firstStep": "Pick one issue you care about and look up the next public meeting where it will be discussed.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "talk-move-minds-meetings",
+          "title": "Upcoming public meetings on the issues you care about",
+          "whatChanges": "Finds upcoming public meetings and hearings near you on an issue you pick, from published local agendas, and reminds you the week before so you can show up where the decision gets made.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and look up where your city posts its meeting agendas.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Founder pattern (directory or lookup) applied to finding public meetings; no exemplar in this run covers meeting agendas."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175413",
+        "locator": "cards.json#talk-move-minds",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Contested-pain rule: second fix gives a different direction (power over civility). Deep canvassing topic kept unnamed to stay nonpartisan; exemplar names it."
+    },
+    "talk-pause": {
+      "title": "Stopping an argument before it turns into a fight",
+      "line": "When I feel myself getting heated, I can stop, and we pick the conversation back up later without anyone storming off.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "talk-pause-pause-word",
+          "title": "Agree on a word either of you can use to pause",
+          "whatChanges": "A pause works best when you’ve agreed on it ahead of time, so calling one doesn’t feel like walking out. Something plain, like “time out”, is enough.",
+          "who": "You and the other person",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tonight, tell the person you argue with most that you’d like a pause word, and pick one together.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "speculativeRationale": "Common practice in mediation and couples counseling; no page opened for it this run.",
+          "kind": "task"
+        },
+        {
+          "id": "talk-pause-come-back",
+          "title": "Promise to come back to it within a day",
+          "whatChanges": "A pause only helps if the other person trusts you’ll return. Naming a time, like “tomorrow after dinner”, turns a stop into a postponement.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "The next time you pause an argument, say exactly when you’ll pick it up again, and put it on your calendar.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "speculativeRationale": "Follows from the Essential Partners practice of shared agreements; no study opened on return times.",
+          "kind": "practice",
+          "featureIdea": "Asks you to set a specific time to resume a paused argument, reminds you when it arrives and asks how the return went."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175413",
+        "locator": "cards.json#talk-pause",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "talk-local-alliance": {
+      "title": "Neighbors from both parties who meet regularly",
+      "line": "There’s a group in my town where conservatives and liberals get together every month, and I’m part of it.",
+      "lens": "community",
+      "ambition": "together",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "talk-local-alliance-join-alliance",
+          "title": "Join a local group that meets across party lines",
+          "whatChanges": "Braver Angels began after the 2016 election and today has local alliances where conservatives and liberals meet, plus groups like a book club, a film club and a faith caucus. Most participants so far are older and college-educated, so newcomers from other backgrounds add a lot.",
+          "who": "You and neighbors",
+          "exemplarRef": "braver-angels-org",
+          "speculative": false,
+          "firstStep": "Check the Braver Angels site for a local group near you, and email the organizer to ask when they next meet.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "group"
+        },
+        {
+          "id": "talk-local-alliance-join-alliance-start",
+          "title": "Start a local group that meets across party lines",
+          "whatChanges": "If there’s no group near you, you can start one. Braver Angels itself began with a single December weekend in Ohio for 10 Clinton and 10 Trump supporters, so a first meeting can be small, as long as both sides are in the room in roughly equal numbers.",
+          "who": "You and neighbors",
+          "exemplarRef": "braver-angels-org",
+          "speculative": false,
+          "firstStep": "Ask two people you know, one who votes like you and one who doesn’t, whether they’d come to a first meeting.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "new-group"
+        },
+        {
+          "id": "talk-local-alliance-measure",
+          "title": "Ask your group to check whether it’s working",
+          "whatChanges": "Braver Angels’ own surveys found that after a Red/Blue workshop, people’s warmth toward the other side rose from 36 to 54 on a 0-to-100 scale, while their feelings about their own side barely moved. A short before-and-after question at your own meetings gives you a rough version of the same check.",
+          "who": "Your group",
+          "exemplarRef": "braver-angels-thermometer",
+          "speculative": false,
+          "firstStep": "Write one 0-to-100 question about feelings toward the other party to ask at the start and end of your next meeting.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "talk-local-alliance-threshold",
+          "title": "Private signup for a cross-party group near you",
+          "whatChanges": "Lets you say privately that you’d come to monthly meetings where both parties talk, and connects you only once enough neighbors from each side nearby have said the same, so nobody has to go first alone.",
+          "who": "You, your neighbors and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this.",
+          "firstStepMinutes": 2,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Founder pattern F1 (private match at a threshold); no exemplar in this run tests it."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175413",
+        "locator": "cards.json#talk-local-alliance",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "talk-kids-school": {
+      "title": "Kids who learn in school how to disagree well",
+      "line": "My kids can argue about something they care about and still be friends with the kid on the other side.",
+      "lens": "community",
+      "ambition": "this-year",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "talk-kids-school-teacher-drill",
+          "title": "Suggest a short listening exercise to your child’s teacher",
+          "whatChanges": "Inspired Teaching, a teacher-training group, publishes a looping exercise for classrooms based on Amanda Ripley’s book: two minutes of talking, the partner repeats it back until the speaker agrees, then they switch.",
+          "who": "You and a teacher",
+          "exemplarRef": "looping",
+          "speculative": false,
+          "firstStep": "Send your child’s teacher the link to Inspired Teaching’s looping exercise with a one-line note.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "talk-kids-school-teacher-training",
+          "title": "Ask your school about free dialogue training for teachers",
+          "whatChanges": "Essential Partners, a group that leads conversations across divides, offers a one-day training for middle and high school teachers and a free field guide for leading discussions across differences.",
+          "who": "Your school",
+          "exemplarRef": "essential-partners",
+          "speculative": false,
+          "firstStep": "Ask the principal or PTA whether teachers have had any training in leading discussions on divisive topics.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175413",
+        "locator": "cards.json#talk-kids-school",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Removed unverified D.C. location."
+    }
+  }
+}

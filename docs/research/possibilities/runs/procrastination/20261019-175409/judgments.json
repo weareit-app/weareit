@@ -1,0 +1,665 @@
+{
+  "schemaVersion": 1,
+  "painId": "procrastination",
+  "runId": "20261019-142011",
+  "judge": {
+    "context": "isolated-consensus",
+    "judges": 3,
+    "files": [
+      "judgments-1.json",
+      "judgments-2.json",
+      "judgments-3.json"
+    ],
+    "at": "2026-10-19T18:29:12+00:00"
+  },
+  "scores": {
+    "proc-start-dreaded-task": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"set a 25-minute timer on your phone, and open the file or envelope\" is a five-minute start. | \"set a 25-minute timer on your phone, and open the file or envelope\" is a five-minute start. | 'set a 25-minute timer on your phone, and open the file or envelope' is doable in five minutes and obviously moves the task."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Pomodoro and if-then plans are familiar basics, made useful by \"you're allowed to quit when the timer goes off.\" | Pomodoro and if-then plans are well-known basics, made useful by \"you're allowed to quit when the timer goes off\". | Pomodoro and site blockers are well known; the 'you're allowed to quit when the timer goes off' framing makes the basic useful."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Names Cirillo, the late 1980s and the tomato timer, plus \"a 2006 review by Gollwitzer and Sheeran\" with no result number. | Cirillo, \"late 1980s\", tomato timer; Gollwitzer and Sheeran 2006 with an honest note of \"a smaller effect\". | Names Cirillo, 'late 1980s', the tomato timer, and Freedom at '$39.99 a year', but no outcome number."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2,
+        "reason": "A timer and a site blocker are what most readers expect under this pain. | The tomato-shaped timer is a nice detail, but the fixes are predictable from the pain. | Timer, when-where plan and blocker are predictable from 'the task I've been avoiding'; only the tomato detail is a small surprise."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Plain and calm, with an honest aside: \"though a later review found a smaller effect.\" | Plain and warm: \"before I can talk myself out of it\"; the if-then example of the insurance letter is concrete. | Plain and warm ('you're allowed to quit'), honest about 'a later review found a smaller effect'; title is clear."
+      },
+      "power": {
+        "score": 2,
+        "mean": 2.33,
+        "reason": "Coping tools inside unchanged conditions: \"Block the websites you escape to.\" | Coping inside unchanged conditions: a timer, a plan, a site blocker. | Changes my own conditions ('the easy way out isn't there') but nothing about who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Notes the smaller later effect and gives Freedom's real price; nothing beyond the exemplars. | pass: States the later review \"found a smaller effect\" and prices Freedom plainly; nothing overclaimed. | pass: Pomodoro described as a method, not an outcome claim; if-then effect honestly qualified by the later smaller-effect review."
+      }
+    },
+    "proc-feeling-behind-it": {
+      "actionable": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"write the one word for how it makes you feel\" takes five minutes and changes how you approach the task. | \"write the one word for how it makes you feel\" is quick, though less obviously moving than a start step. | 'write the one word for how it makes you feel' is quick and concrete, though its payoff is indirect."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Reframes delay as mood: \"mostly about getting away from a bad feeling right now... rather than a lack of willpower.\" | Reframes procrastination as dodging \"boredom, worry or self-doubt\" rather than \"a lack of willpower\", and matches feeling to fix. | Reframes procrastination as 'getting away from a bad feeling right now... rather than a lack of willpower', and matches feeling to fix ('company for a boring job')."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"a 2010 study of 134 first-year college students\" plus Sirois and Pychyl in 2013. | Sirois and Pychyl 2013; \"a 2010 study of 134 first-year college students\". | Sirois and Pychyl 2013 and 'a 2010 study of 134 first-year college students' are named with year and size."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"the ones who forgave themselves... put off studying less\" is a fact a reader would repeat. | That forgiving yourself leads to less putting off is something I'd repeat to a friend. | That students who 'forgave themselves' procrastinated less is a fact people would repeat."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Warm and non-judging, with a useful payoff: \"company for a boring job or a second opinion for a scary one.\" | Non-judging, mentor-like: \"letting yourself off the hook for the last delay\"; title is plain. | Non-judging mentor tone ('letting yourself off the hook'); title is plain and clear."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "A meaningful personal shift in how I treat myself, \"Forgive yourself for the last time you put it off.\" | A personal fix meaningful enough to change how I treat myself, not just a trick. | A personal shift in how I relate to the task; meaningful but inside unchanged conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Reports what the students did without claiming an experiment; \"tends to make the task feel worse\" leans a little causal but stays modest. | pass: Study is described as what students did, not as a trial; \"Being hard on yourself tends to make the task feel worse\" stretches a correlational survey slightly but stays modest. | pass: Mood-repair framed as 'argued'; forgiveness study reported as what happened, though 'did better' leans slightly causal for a correlational survey."
+      }
+    },
+    "proc-stuck-next-step": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"write the very next thing you'd physically do, starting with a verb\" is a ten-minute step. | \"write the very next thing you'd physically do, starting with a verb\" is a 10-minute step that unsticks. | 'write the very next thing you'd physically do, starting with a verb' and 'Send one message today' are 10-minute steps."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Next actions are well known; the \"Ask for the thing you're waiting on\" angle adds a useful twist. | GTD next action is familiar, made useful by \"'do taxes' is a project\" vs \"find last year's tax form\". | GTD next action is familiar; the 'find last year's tax form in the file drawer' contrast and the waiting-on-someone angle make it useful."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "David Allen's method is named with a good example, \"find last year's tax form in the file drawer\", but no result. | David Allen's Getting Things Done is named, but with no year or result; second fix has no example. | Names David Allen's method but no year or result; second fix has no example."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2,
+        "reason": "\"it quietly sits on your list as if it were your fault\" is the only fresh note. | The \"waiting on\" fix is a small fresh angle; otherwise predictable. | Mostly predictable; 'quietly sits on your list as if it were your fault' is the one fresh observation."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Clear and kind: \"Sending one short message to ask for what you need is often the whole step.\" | Kind and plain: \"quietly sits on your list as if it were your fault\". | Calm and specific; 'as if it were your fault' is kind and unjudging."
+      },
+      "power": {
+        "score": 2,
+        "mean": 2.33,
+        "reason": "Personal list management: \"Write down the next physical action, not the whole project.\" | Personal coping; the waiting-on fix shifts a little of the load to someone else. | Changes my own workflow and, slightly, what I ask of others."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Describes GTD as a method; the waiting-on fix is plain common practice with no claimed evidence. | pass: The unsourced fix is stated as everyday advice (\"Sometimes\", \"often\") with no invented evidence. | pass: GTD described as a method; the speculative fix makes no evidence claim ('often the whole step')."
+      }
+    },
+    "proc-work-alongside-someone": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"Book one 25-minute session for the task you've been putting off longest\" is doable tonight. | \"Text a friend\" or \"Book one 25-minute session\" are real 5-10 minute steps. | 'Book one 25-minute session' or 'Text a friend' are immediate and clearly move things."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Body doubling is new to many readers, and \"people without ADHD use it too\" widens it. | Body doubling for people \"without ADHD\" too, plus money with a referee, goes past \"try harder\". | Body doubling and paired strangers on video are new to many; the stickK referee adds a real twist."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "Focusmate with its session lengths and free tier, plus stickK's \"78%... compared with 35%.\" | Focusmate's free tier, stickK \"started in 2008 by two Yale economists\" with \"78%\" vs \"35%\". | Focusmate with session lengths and 'Three sessions a week are free'; stickK '2008', 'Yale economists', '78%... compared with 35%'."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "stickK's money-and-referee numbers are a fact readers would share. | The stickK 78% vs 35% figure and that a stranger on video helps are repeatable. | That 'even one doing something completely different' helps, and the 78% vs 35% figure, are repeatable."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Plain and warm, \"ask if they'd like to spend an hour this week working on your own lists side by side\"; title is clear. | Warm and plain: \"we both get through the tasks we've been avoiding\"; figures attributed calmly to \"The co-founder reported\". | Plain and friendly; title clear without the example; 'The co-founder reported' is said once, calmly."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Brings in another person and puts something at stake: \"Put money on a deadline with a friend as referee.\" | Changes my conditions by bringing other people in. | Brings another person into my conditions, but no change in who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: stickK figures are credited to \"The co-founder reported\", which respects the exemplar limit. | pass: stickK figures are attributed to the co-founder, not stated as independent results. | pass: stickK figures correctly attributed to 'The co-founder reported'; Focusmate described as a service, no outcome claimed."
+      }
+    },
+    "proc-drop-what-doesnt-matter": {
+      "actionable": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"flip a coin, and notice whether you feel relieved or disappointed\" takes five minutes. | \"cross off one item you've kept for months\" and the coin flip are quick and real. | 'cross off one item you've kept for months' and 'flip a coin' are fast, though the coin step mostly reveals a feeling."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Turns the to-do list around: \"Crossing it off on purpose frees up the attention it keeps taking.\" | Recasts procrastination as a list of tasks \"I was never going to do\"; noticing \"relieved or disappointed\" after a coin flip is a fresh twist. | Reframes procrastination as tasks 'you've quietly decided not to do', and the coin flip is genuinely unexpected."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Steven Levitt, 2021, with the result \"happier six months later\" but no number. | \"In a study published in 2021, the economist Steven Levitt\" with a six-month result; the other two fixes have none. | Levitt, '2021', 'happier six months later' is named and concrete, without a number."
+      },
+      "surprise": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "Letting a coin decide whether to quit a job, and the people who changed being happier, makes you stop. | A coin toss making people happier six months later is a stop-and-repeat fact. | A coin toss making people happier six months later is the kind of fact you tell a friend."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Candid and kind: \"Paying for it is a reasonable trade when the dread has been costing you for months.\" | Candid and unjudging: \"Paying for it is a reasonable trade when the dread has been costing you for months\". | Unhurried and permission-giving ('Crossing it off on purpose frees up the attention'); titles are plain."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Changes what I carry and who does it: \"Pay or trade someone to do a task you dread.\" | Changes my own conditions: what I keep and who does the work. | A personal fix, but meaningful: deciding what I actually carry, and handing some off."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The coin study is stated as what happened; the cross-off and hand-off fixes claim no evidence. | pass: Coin study is stated as what happened; unsourced fixes are plain common sense, not dressed with evidence. | pass: Coin study described as what happened among people 'stuck on a big decision'; hand-off framed as 'a reasonable trade', not advice as fact."
+      }
+    },
+    "proc-check-for-adhd": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Answer the six questions honestly about the last six months\" is quick, though the next steps take an appointment. | \"Answer the six questions\" and \"save the names of two people who see adults\" are concrete. | 'Answer the six questions' and 'save the names of two people who see adults' are concrete and short."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"Ask your doctor\" is the obvious move, made useful by \"three recent examples... to bring to your appointment.\" | \"See a doctor\" made useful: bring \"three recent examples\" and use a six-question screener first. | A well-chosen basic made useful by the six-question screener and 'examples to bring to your appointment'."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Names the World Health Organization screener, the National Institute of Mental Health and CHADD, but gives no result. | WHO workgroup, NIMH, CHADD named, but no year or result beyond \"hundreds\" of listings. | WHO screener, NIMH and CHADD are named, but no year or result beyond 'hundreds'."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "\"many people first learn they have it as adults\" is the one turn that would surprise some readers. | Predictable for anyone who has wondered about ADHD. | 'many people first learn they have it as adults' and that a screener is only six questions are mildly surprising."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Gentle and non-diagnosing: \"A high score isn't a diagnosis; it's something to bring to a doctor.\" | Careful and calm: \"A high score isn't a diagnosis; it's something to bring to a doctor.\" | Careful and non-diagnosing: 'A high score isn't a diagnosis; it's something to bring to a doctor.'"
+      },
+      "power": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Meaningful enough to count: \"the answer either way tells you which fixes are worth your time.\" | Getting the right diagnosis changes which help I get. | Changes what help I get, within my own situation."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Says plainly that a screener is not a diagnosis, and gives no medical advice as fact. | pass: Screener is clearly \"not a diagnosis\"; the CHADD directory is described without endorsement. | pass: Screener clearly 'isn't a diagnosis'; CHADD 'free' and remote-search details go slightly past the exemplar but nothing risky is asserted."
+      }
+    },
+    "proc-work-fits-attention": {
+      "actionable": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"Ask your manager for a 15-minute weekly check-in on priorities, starting next week\" is concrete. | \"Ask your manager for a 15-minute weekly check-in\" is a five-minute ask, though socially harder. | 'Ask your manager for a 15-minute weekly check-in on priorities' is a real, quick ask."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Most readers don't know there's a free advice service, or that \"You don't need a diagnosis to ask for either.\" | Few people know a free federal-law advice service lists \"to-do lists... a mentor, and timers\" as accommodations. | Many people don't know the Job Accommodation Network exists or that 'You don't need a diagnosis to ask'."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "The Job Accommodation Network is named with a list of items, but no year or result. | Job Accommodation Network and its ADHD list are named, but no year or outcome. | JAN is named with its list of changes, but no place, year or result."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "\"cost an employer nothing\" and the network being free are facts worth repeating. | \"You don't need a diagnosis to ask for either\" is a useful surprise. | A free, confidential ADHD workplace advice service is one surprising element."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Clear and practical; the dream line \"tasks in writing, a short weekly check-in, and reminders\" says what changes. | Plain and practical; the dream line \"so things I'm responsible for don't slip\" is clear. | Clear, but leans institutional ('how the Americans with Disabilities Act applies'), and the title 'A job set up around how my attention works' is a little abstract."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Changes how work is set up for me, not just my own effort. | Changes what my employer provides, backed by the Americans with Disabilities Act. | Changes how my employer structures my work, not just my own habits."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Says the network \"can also explain how the Americans with Disabilities Act applies\" rather than promising rights. | pass: Frames JAN as advice and the ADA as depending on the job; \"cost an employer nothing\" is a small unsourced claim but not a risky one. | pass: JAN described as advice; 'cost an employer nothing' and treating written tasks and check-ins as JAN items stretch the exemplar slightly but don't claim legal rights."
+      }
+    },
+    "proc-understand-my-pattern": {
+      "actionable": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "\"write down the three tasks you've put off longest\" works today without It. | First steps (\"write down the three tasks you've put off longest\") are real but slow to matter. | 'write down the three tasks you've put off longest' is real but slow to matter on its own."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Sorting delays by cause (\"a feeling... waiting on someone... do you still want it done\") is a useful twist. | Sorting by why a task is stuck is a useful twist, but restates the other cards. | Sorting delays by 'feeling, waiting on someone, still want it, nearly everything' is a useful reframe."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "A proposed It feature that cites Sirois and Pychyl and the National Institute of Mental Health; not penalized for lacking a precedent. | Leans on Sirois and Pychyl and NIMH loosely; the log fix has none (not penalized as a proposed idea). | A proposed It idea, not penalized for lacking a precedent; it cites Sirois and Pychyl and NIMH."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "\"examples from school help too\" is a small surprise. | Nothing here would make me stop. | The idea that the pattern 'is useful... for a doctor' and that 'examples from school help too' is a fresh angle."
+      },
+      "voice": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Honest framing, \"without pretending to diagnose you\"; the dream line is a bit long. | \"Understanding which kind of putting off I'm doing\" is awkward, and the dream line is a long four-part list. | Honest 'It could...' framing, but the dream line is a long list and 'without pretending to diagnose you' sounds slightly defensive."
+      },
+      "power": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "Personal insight that can lead to the right help. | A self-understanding tool; doesn't change my conditions. | Personal insight tool; changes my own conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Every fix says \"It could...\" and the log is described as on-device; nothing is presented as built. | pass: Every It idea says \"It could\" and is labeled proposed; \"without pretending to diagnose you\" sets the limit. | pass: Every fix is written 'It could...' under proposed_it_feature, with first steps doable without It."
+      }
+    },
+    "proc-weekly-work-hour": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"put the next one on your calendar\" is easy, though getting value takes going. | \"put the next one on your calendar\" is quick; starting one takes longer but is clear. | 'Look up the nearest session... and put the next one on your calendar' is quick; starting one takes more."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Using a writers' group for \"bills and emails\" is a fresh use of a known format. | Using a writers' format for \"bills and emails\" is a nice twist on body doubling. | That a writers' group welcomes 'bills and emails... as novels' is a useful twist."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Shut Up & Write \"in more than 80 countries\" is named, but there's no year or result. | Shut Up & Write in \"more than 80 countries\", but no year or result. | Shut Up & Write 'in more than 80 countries' is named, but no year or outcome."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"Nobody reads your work or comments on it\" is the one surprising detail. | That a writers' meetup welcomes bills and emails is one surprising element. | Free silent co-working sessions at the library is one surprising element."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Warm and concrete dream line: \"the same table at the library with a few other people.\" | \"the same table at the library with a few other people\" reads like a mentor describing a real habit; titles say exactly what happens. | Warm and concrete dream line ('the same table at the library'); titles clear."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Builds a small community habit: \"two or three people and a regular time are enough.\" | Builds a small shared routine with neighbors, changing conditions together. | Builds a standing community habit with neighbors, not just a personal trick."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The It match fix says \"It could match\"; nothing claims Shut Up & Write outcomes. | pass: Matching is \"It could\" with proposed status; Shut Up & Write is described as it is. | pass: Shut Up & Write described as format only; the matching idea is written 'It could...' with proposed status."
+      }
+    },
+    "proc-split-big-deadline": {
+      "actionable": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "\"mark three dates between now and your real deadline, each with what's due\" takes ten minutes. | \"mark three dates between now and your real deadline\" is clear and quick. | 'mark three dates between now and your real deadline, each with what's due' takes ten minutes."
+      },
+      "nonObvious": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Breaking a deadline into milestones is the first thing anyone would suggest, with little new detail. | Milestones and telling a friend are the first thing anyone would say, with little new detail. | Breaking a deadline into milestones is the first thing anyone suggests, with little twist."
+      },
+      "namedExample": {
+        "score": 1,
+        "mean": 1,
+        "reason": "No example; both fixes rely on common practice. | No example in either fix. | No example in either fix."
+      },
+      "surprise": {
+        "score": 1,
+        "mean": 1,
+        "reason": "Predictable from the title. | Predictable from the title. | Entirely predictable from 'one far-off deadline'."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Plain and clear: \"A date only you know about is easy to move.\" | Plain but impersonal; \"draft date, a check date and a done date\" is the warmest line. | Plain and clear: 'A date only you know about is easy to move.'"
+      },
+      "power": {
+        "score": 2,
+        "mean": 2.33,
+        "reason": "Personal scheduling inside unchanged conditions. | Personal coping. | Changes my own schedule and adds light accountability."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Rightly avoids citing a study that failed to replicate; makes no evidence claims. | pass: Rightly drops the failed-to-replicate study and makes no evidence claim. | pass: Speculative common practice with no evidence claimed; the non-replicating study was deliberately left out."
+      }
+    },
+    "proc-household-paperwork": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Each of you list the three household tasks you put off most, then trade one\" is concrete but needs a partner present. | \"put a one-hour paperwork session on the shared calendar\" is specific. | 'Each of you list the three household tasks you put off most, then trade one' is concrete."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "\"One person's dreaded phone call is another person's five-minute errand\" gives a familiar idea a useful frame. | Trading chores is familiar; \"first Sunday of the month\" is the only concrete detail. | 'One person's dreaded phone call is another person's five-minute errand' turns the obvious into something useful."
+      },
+      "namedExample": {
+        "score": 1,
+        "mean": 1,
+        "reason": "No example for either fix. | No example. | No example in either fix."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 1.67,
+        "reason": "The swap idea is mildly fresh; the monthly hour is expected. | Nothing surprising. | Mostly predictable; the swap framing is a small twist."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Warm: \"nobody faces the pile alone\"; titles are clear. | Plain; \"nobody faces the pile alone\" is kind but the card is generic. | Warm and plain: 'nobody faces the pile alone'."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Changes who carries the work at home. | Redistributes household work between partners. | Reshares work inside the household; my own conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Household practice offered plainly, with no claimed results. | pass: Offered as household practice without invented evidence. | pass: Household practice offered with no evidence claims."
+      }
+    },
+    "proc-forms-fill-themselves": {
+      "actionable": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"Read how the Swedish Tax Agency describes approving a return\" is a real step but slow to change anything. | \"Read how the Swedish Tax Agency describes approving a return\" is real but slow to matter. | 'Read how the Swedish Tax Agency describes approving a return' is a real step but slow to matter."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Treating tax procrastination as a design problem, not a personal failing, reframes the pain. | Reframes procrastination as a design problem: the form shouldn't need doing. | Recasts procrastination as a system design problem: forms that 'arrive pre-filled' remove the task entirely."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Sweden's pre-filled return plus \"140,803 people filed... 90% rated it excellent or above average.\" | Sweden's pre-filled return; IRS Direct File \"in 2024\", \"12 states\", \"140,803 people\", \"90%\". | Sweden's pre-filled return plus 'In 2024... 12 states, and 140,803 people... 90% rated it excellent'."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"approve it online, by text or by phone\" is a fact readers would repeat. | \"approve it online, by text or by phone\" in Sweden is a fact people repeat. | Approving your taxes 'by text or by phone' in Sweden would stop most American readers."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Plain, with both sides named: \"tax-prep companies and others argue against a bigger government role.\" | Calm and fair: \"Some people want the same... while tax-prep companies and others argue against\"; \"Push for\" in a title leans a little. | Calm and fair ('Some people want the same... while tax-prep companies and others argue against'); 'Push for' is the one slightly activist note."
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Changes what the government does for everyone instead of asking me to try harder. | Changes who does the work: the tax agency instead of me. | Changes who does the work: the government, not the taxpayer."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Contested policy is offered as an idea with opponents named, and the It fix says \"It could help.\" | pass: Contested idea framed as \"Some people want\" with opponents named; Direct File is called \"politically contested\"; It idea is \"It could\" and \"for or against\". | pass: Contested policy offered as what 'Some people want' with opponents named; Direct File noted as 'politically contested'; the It note is 'It could...' and 'for or against'."
+      }
+    },
+    "proc-reminders-before-deadlines": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Check whether your county court or motor vehicle office offers text reminders, and sign up\" is concrete. | \"Check whether your county court or motor vehicle office offers text reminders, and sign up\" is a real 10-minute step. | 'Check whether your county court or motor vehicle office offers text reminders, and sign up' is quick and useful."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Seeing missed deadlines as a reminder-design problem is a useful reframe. | Reframes missed deadlines as a reminder-design problem the city can fix. | Reframes missed deadlines as a reminder design problem: 'explained the consequences and asked people to plan'."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"In New York City in 2018... cut missed court dates by 26%... the drop was 36%.\" | \"In New York City in 2018\", \"cut missed court dates by 26%\", \"36%\" with the redesigned form. | 'New York City in 2018... cut missed court dates by 26%... 36%' has place, year and numbers."
+      },
+      "surprise": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "A text message that cuts missed court dates by a quarter is a fact worth repeating. | A text that says what happens if you miss it cutting missed court dates by a quarter is very repeatable. | That a text cut missed court dates by a quarter is a repeatable fact."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Clear title and a dream line that says exactly what changes: \"when, where and what happens if I miss it.\" | Plain and humane; the dream line says exactly what the reminder includes. | Clear, but 'Ask your city or county for plain text reminders' reads ambiguously ('plain text'), and the register drifts toward policy."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Changes how local government reaches people, with a personal step too. | Asks the city to change how it treats people facing penalties. | Changes what institutions send everyone, not just my habits."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: NYC figures are stated as what happened; the It reminder is \"It could keep track\"; the low-level-summons scope goes unsaid but nothing is overstated. | pass: NYC figures match the exemplar; It idea is \"It could\"; the 'simply forgotten' line is modest. | pass: Figures match the exemplar and are tied to court dates; the It reminder is 'It could...' with proposed status."
+      }
+    },
+    "proc-saving-starts-automatically": {
+      "actionable": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "\"ask HR whether you're enrolled, and write down your contribution rate\" takes ten minutes and matters. | \"Ask HR whether new hires are enrolled... and at what rate\" is a quick, concrete ask. | 'Log in to your benefits site or ask HR whether you're enrolled, and write down your contribution rate' takes ten minutes and matters."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Reframes procrastination as something defaults can solve: \"the kind of form many people mean to fill out and never do.\" | Recasts procrastination as a default problem: the form you'd put off shouldn't exist. | Turns procrastination into a default-design question: savings that began 'without my ever having to fill out the form I'd have put off'."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Madrian and Shea, 2000, one large American company, \"raised sign-ups sharply\" with no number. | Madrian and Shea, \"first issued in 2000\", \"one large American company\", but no number. | Madrian and Shea, 2000, 'one large American company', though 'sharply' stands in for a number."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "The idea that a default beats willpower would surprise many readers. | That a default changes savings this much is a classic repeatable fact. | That a default, not willpower, decides who saves is a fact people repeat."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Calm and practical, though \"the default matters a lot\" is a little flat. | Clear and calm; \"the form I'd have put off\" ties it to the pain. | Plain and unjudging ('the kind of form many people mean to fill out and never do'); titles clear."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Changes who decides by default: \"Ask your employer to enroll new hires automatically.\" | Changes the employer's default, which shifts money toward workers. | Changes who decides the default for every new hire, and gets money working."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Stays at one company and offers no investment advice; \"Most people stayed at the default\" goes slightly past the exemplar's \"many workers\" but isn't misleading. | FAIL: \"Most people stayed at the default contribution rate\" overstates the exemplar, which says \"many workers stayed at a low default\"; \"the default matters a lot\" without noting a low default can mean saving too little edges into financial advice. | pass: Limited to 'one large American company'; 'Most people stayed at the default' slightly firms up the exemplar's 'many', but no investment advice is given."
+      }
+    }
+  },
+  "pairwise": [],
+  "consensus": {
+    "proc-start-dreaded-task": {
+      "borda": 18,
+      "ranks": [
+        11,
+        8,
+        8
+      ],
+      "spread": 3,
+      "honestVotes": "3/3 pass"
+    },
+    "proc-feeling-behind-it": {
+      "borda": 37,
+      "ranks": [
+        1,
+        3,
+        4
+      ],
+      "spread": 3,
+      "honestVotes": "3/3 pass"
+    },
+    "proc-stuck-next-step": {
+      "borda": 12,
+      "ranks": [
+        12,
+        10,
+        11
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "proc-work-alongside-someone": {
+      "borda": 40,
+      "ranks": [
+        2,
+        1,
+        2
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "proc-drop-what-doesnt-matter": {
+      "borda": 39,
+      "ranks": [
+        3,
+        2,
+        1
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "proc-check-for-adhd": {
+      "borda": 17,
+      "ranks": [
+        9,
+        9,
+        10
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "proc-work-fits-attention": {
+      "borda": 22,
+      "ranks": [
+        7,
+        7,
+        9
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "proc-understand-my-pattern": {
+      "borda": 12,
+      "ranks": [
+        10,
+        11,
+        12
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "proc-weekly-work-hour": {
+      "borda": 25,
+      "ranks": [
+        8,
+        5,
+        7
+      ],
+      "spread": 3,
+      "honestVotes": "3/3 pass"
+    },
+    "proc-split-big-deadline": {
+      "borda": 4,
+      "ranks": [
+        14,
+        13,
+        14
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "proc-household-paperwork": {
+      "borda": 7,
+      "ranks": [
+        13,
+        12,
+        13
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "proc-forms-fill-themselves": {
+      "borda": 29,
+      "ranks": [
+        5,
+        6,
+        5
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "proc-reminders-before-deadlines": {
+      "borda": 31,
+      "ranks": [
+        4,
+        4,
+        6
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "proc-saving-starts-automatically": {
+      "borda": 22,
+      "ranks": [
+        6,
+        14,
+        3
+      ],
+      "spread": 11,
+      "honestVotes": "2/3 pass"
+    }
+  },
+  "seed": 17
+}

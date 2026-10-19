@@ -1,0 +1,801 @@
+{
+  "schemaVersion": 1,
+  "painId": "climate",
+  "runId": "20261019-175358",
+  "cards": {
+    "climate-biggest-choices": {
+      "title": "Knowing which of my choices matter most for the climate",
+      "line": "I put my effort into the few things that make a real dent, and I stop feeling guilty about the rest.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "climate-biggest-choices-big-four",
+          "title": "Focus first on driving, flying and food",
+          "whatChanges": "A 2017 review of 39 studies by researchers at Lund University found that living without a car saves about 2.4 tonnes of carbon a year, and skipping one round-trip flight across the Atlantic saves about 1.6. Eating plant-based saves about 0.8 tonnes, roughly four times what thorough recycling does.",
+          "who": "You",
+          "exemplarRef": "high-impact-actions",
+          "speculative": false,
+          "firstStep": "Write down roughly how many miles you drove and how many flights you took in the past year.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "learn"
+        },
+        {
+          "id": "climate-biggest-choices-calculator",
+          "title": "Run your bills through a free household carbon calculator",
+          "whatChanges": "The Environmental Protection Agency's calculator asks about your heating, utility bills, cars and recycling, then compares your household with the US average and shows what each change would save. Flights and food aren't included, so add those in your head.",
+          "who": "You",
+          "exemplarRef": "epa-footprint-calculator",
+          "speculative": false,
+          "firstStep": "Pull up last month's electric and gas bills and enter them in the EPA's carbon footprint calculator.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "climate-biggest-choices-ranked",
+          "title": "See your own biggest climate choices ranked in order",
+          "whatChanges": "Asks a few questions about your home, car, flights and meals, then uses published averages like the Lund figures to show which two or three changes would cut the most for you in particular.",
+          "who": "You and It",
+          "exemplarRef": "high-impact-actions",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and note which of driving, flying, food or home heating you think is biggest for you.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175358",
+        "locator": "cards.json#climate-biggest-choices",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "climate-home-energy-tonight": {
+      "title": "Using less energy at home without being uncomfortable",
+      "line": "My heating and cooling bills go down and I don't spend the winter cold.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "climate-home-energy-tonight-thermostat",
+          "title": "Lower the heat while you sleep and while you are out",
+          "whatChanges": "Heating and air conditioning take 52% of the energy an average American home uses, according to the Energy Information Administration's 2020 survey. That's why the thermostat matters more than light bulbs.",
+          "who": "You",
+          "exemplarRef": "home-energy-uses",
+          "speculative": false,
+          "firstStep": "Check your thermostat schedule tonight and set it a few degrees lower for the hours you are asleep or away.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "climate-home-energy-tonight-drafts",
+          "title": "Seal the drafts around doors and windows",
+          "whatChanges": "Weatherstripping and a door sweep cost a few dollars at a hardware store and stop heated or cooled air from leaking out. On a windy day you can usually feel exactly where the leaks are.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Walk past your outside doors and windows with the back of your hand and note where you feel air moving.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "speculativeRationale": "Common practice; no weatherstripping guide was opened in this run (energy.gov pages returned 404).",
+          "kind": "task"
+        },
+        {
+          "id": "climate-home-energy-tonight-audit",
+          "title": "Ask your utility about a free or low-cost home energy checkup",
+          "whatChanges": "Many utilities send someone to find air leaks and missing insulation for little or nothing, and some install basics like weatherstripping during the visit.",
+          "who": "You and your utility",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Find the energy-saving page on your utility's website and see whether they offer home energy checkups.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "speculativeRationale": "Utility audit programs are widespread but none was opened in this run.",
+          "kind": "task"
+        },
+        {
+          "id": "climate-home-energy-tonight-checkup-lookup",
+          "title": "Home energy checkup programs for your address",
+          "whatChanges": "Looks up your electric and gas utilities from your address and lists the free or low-cost home energy checkups they offer, with what each visit includes and how to book it.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this, and find the names of your electric and gas utilities on your last bills.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Proposed It feature (directory pattern); no utility checkup program list was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175358",
+        "locator": "cards.json#climate-home-energy-tonight",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "climate-heat-pump": {
+      "title": "Heating and cooling my home without burning gas",
+      "line": "When my furnace or air conditioner wears out, I replace it with an electric heat pump I can afford.",
+      "lens": "market",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "climate-heat-pump-before-it-fails",
+          "title": "Get a heat pump quote before your old system breaks",
+          "whatChanges": "Replacing a furnace in an emergency usually means taking whatever the installer has on the truck. The federal tax credit of up to $2,000 for heat pumps ended for systems installed after December 31, 2025, so check state and utility rebates before you count on help.",
+          "who": "You and an installer",
+          "exemplarRef": "federal-credit-ended",
+          "speculative": false,
+          "firstStep": "Find the label on your furnace or air conditioner and write down how old it is.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "climate-heat-pump-state-rebates",
+          "title": "Check whether your state offers heat pump rebates right now",
+          "whatChanges": "Some states have used federal money to offer rebates of up to $8,000 on a heat pump for lower-income households, but many states haven’t launched theirs and a few have already run out.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Search for your state energy office's home energy rebates page and see whether the program is open.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "speculativeRationale": "State rebate status seen only in search summaries from vendor blogs; DOE and state pages were not opened.",
+          "kind": "task"
+        },
+        {
+          "id": "climate-heat-pump-rebate-list",
+          "title": "Get a list of the rebates your household qualifies for",
+          "whatChanges": "Checks your ZIP code and income against Rewiring America's free database of electrification rebates and who qualifies, and lists only the programs that are open to you today.",
+          "who": "You and It",
+          "exemplarRef": "rewiring-america-api",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and note your ZIP code and how your home is heated now.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175358",
+        "locator": "cards.json#climate-heat-pump",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "climate-food": {
+      "title": "Eating in a way that is easier on the climate",
+      "line": "I still enjoy what I eat, and my meals put out a lot less carbon than they used to.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "climate-food-beef-swap",
+          "title": "Swap beef for chicken, beans or lentils a few nights a week",
+          "whatChanges": "A 2018 study of 38,000 farms in 119 countries found that a kilo of beef puts out about 60 kilos of greenhouse gases, while a kilo of peas puts out about one. You don’t have to give up beef to make a big difference; eating less of it does most of the work.",
+          "who": "You",
+          "exemplarRef": "food-footprints",
+          "speculative": false,
+          "firstStep": "Pick two dinners this week where you'd normally have beef and plan a different protein.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "schedule"
+        },
+        {
+          "id": "climate-food-food-miles",
+          "title": "Worry less about where food comes from than what it is",
+          "whatChanges": "The same study found that shipping is less than 10% of the emissions for most foods, and about half a percent for beef. Local beef still has a far bigger footprint than imported beans.",
+          "who": "You",
+          "exemplarRef": "food-footprints",
+          "speculative": false,
+          "firstStep": "Look at your last grocery receipt and circle the three items with meat or dairy in them.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "learn"
+        },
+        {
+          "id": "climate-food-swap-tracker",
+          "title": "Private tally of the beef dinners you swapped",
+          "whatChanges": "Keeps a private count of the dinners each week where you swapped beef for something else, and nudges you with a few easy recipes while you're planning the week's groceries.",
+          "who": "You and It",
+          "exemplarRef": "food-footprints",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and jot down how many dinners had beef last week.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175358",
+        "locator": "cards.json#climate-food",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "climate-car-trips": {
+      "title": "Getting around town without needing the car for every trip",
+      "line": "For short trips to work, school and the store, I ride instead of drive, and I spend less on gas.",
+      "lens": "individual",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "climate-car-trips-ebike",
+          "title": "Try an electric bike for trips under five miles",
+          "whatChanges": "When Denver gave out e-bike rebates in 2022, riders averaged 26 miles a week and said they replaced about 3.4 round trips by car each week. Seven in ten said they drove less.",
+          "who": "You",
+          "exemplarRef": "denver-ebike-rebates",
+          "speculative": false,
+          "firstStep": "Ask a bike shop near you whether they rent e-bikes for a weekend so you can try your usual errands.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "climate-car-trips-rebate",
+          "title": "Look for an e-bike rebate where you live",
+          "whatChanges": "Denver's vouchers were $400 for anyone and $1,200 for income-qualified residents, and several cities and states have run similar programs. They tend to sell out fast, so sign up for notices.",
+          "who": "You",
+          "exemplarRef": "denver-ebike-rebates",
+          "speculative": false,
+          "firstStep": "Search your city or state name with the words \"e-bike rebate\" and sign up for any waitlist you find.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "climate-car-trips-ask-city",
+          "title": "Ask your city council member to fund e-bike rebates",
+          "whatChanges": "Denver's e-bike program cost $4.7 million when it launched in 2022, and 67% of the money went to income-qualified residents. Riders surveyed in the first nine months said they replaced about 3.4 car round trips a week, which gives a council member something concrete to look at.",
+          "who": "You and your city council",
+          "exemplarRef": "denver-ebike-rebates",
+          "speculative": false,
+          "firstStep": "Find your city council member and send a three-sentence email asking whether the city has looked at e-bike rebates.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "climate-car-trips-rebate-campaign",
+          "title": "One shared request for e-bike rebates to your city council",
+          "whatChanges": "Gathers residents behind one request for e-bike rebates like Denver's, shows how many people in each council district have signed on, and sends it to the council together.",
+          "who": "You, your neighbors and It",
+          "exemplarRef": "denver-ebike-rebates",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and ask one neighbor whether they'd sign a request for e-bike rebates.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175358",
+        "locator": "cards.json#climate-car-trips",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "climate-flying": {
+      "title": "Flying less without seeing my family less",
+      "line": "I still visit the people I love, and I take fewer, longer trips with lower-emission flights.",
+      "lens": "relational",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "climate-flying-longer-trips",
+          "title": "Take one longer trip instead of two short ones",
+          "whatChanges": "One round-trip flight across the Atlantic adds about 1.6 tonnes of carbon, which is about two-thirds of what a year without a car saves, according to the Lund University review. Flying is often the single biggest line in a footprint for people who do it.",
+          "who": "You and your family",
+          "exemplarRef": "high-impact-actions",
+          "speculative": false,
+          "firstStep": "Look at the trips you have planned for next year and see whether any two could become one.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "climate-flying-lower-flight",
+          "title": "Choose the lower-emission flight when you do fly",
+          "whatChanges": "Google Flights labels each flight as higher, typical or lower emissions compared with others on the same route. The nonstop isn’t always the lowest, because the type of plane and the seating matter too.",
+          "who": "You",
+          "exemplarRef": "google-flights-emissions",
+          "speculative": false,
+          "firstStep": "Search your next trip on Google Flights and sort or filter by emissions.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "habit"
+        },
+        {
+          "id": "climate-flying-take-turns",
+          "title": "Talk with family about who travels and how",
+          "whatChanges": "Sometimes the person who flies the most is just the one who always visits. Taking turns, meeting halfway by train, or staying longer when you do go can keep the visits without all the flights.",
+          "who": "You and your family",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Ask one relative you visit often whether they would ever come to you, or meet somewhere in between.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "speculativeRationale": "Family travel practice; no source opened.",
+          "kind": "task"
+        },
+        {
+          "id": "climate-flying-visit-talk-coach",
+          "title": "Help planning a talk with family about visits",
+          "whatChanges": "Helps you plan what to say when you ask family to take turns traveling or meet halfway, then checks in after the conversation to see how it went.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this, and write down which relative you'd most want to talk with about visits.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Proposed It feature (guided practice pattern); no source on family travel conversations was opened."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175358",
+        "locator": "cards.json#climate-flying",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "climate-community-solar": {
+      "title": "Getting solar power without owning a roof",
+      "line": "Part of the electricity I pay for comes from a solar farm nearby, and my bill is a little lower for it.",
+      "lens": "community",
+      "ambition": "this-year",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "climate-community-solar-subscribe",
+          "title": "Subscribe to a community solar farm",
+          "whatChanges": "In Minnesota, community solar gardens reached 939 megawatts in 2024, almost a third of the state’s solar, and subscribers’ bills are expected to drop 3% to 8%. Some people object that bills for non-subscribers rise 2% to 3%, which is why the program nearly ended in 2025.",
+          "who": "You and a community solar provider",
+          "exemplarRef": "minnesota-community-solar",
+          "speculative": false,
+          "firstStep": "Search your state name with \"community solar\" and see whether any program serves your utility.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "climate-community-solar-plug-in",
+          "title": "Ask your state lawmakers to allow plug-in solar panels",
+          "whatChanges": "In 2025 Utah became the first state to let people plug solar systems of up to 1,200 watts straight into a home outlet, and the law passed with no votes against. The parts run a few hundred dollars, compared with a $30,000 rooftop quote, but no complete plug-in system had been certified by UL yet when Grist reported on the law.",
+          "who": "You and your state lawmakers",
+          "exemplarRef": "utah-plug-in-solar",
+          "speculative": false,
+          "firstStep": "Look up whether a plug-in solar bill has been filed in your state, and find the names of your two state lawmakers.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "climate-community-solar-find-programs",
+          "title": "Find the community solar programs open to your address",
+          "whatChanges": "Checks your utility and ZIP code and lists the open community solar programs, with what each would roughly save you. Community solar rules differ by state and utility, and many people never hear about the programs they could join.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this, and find the name of your electric utility on your last bill.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "speculativeRationale": "Proposed It feature; no national community solar program database was opened in this run.",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175358",
+        "locator": "cards.json#climate-community-solar",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "climate-shared-ownership": {
+      "title": "Owning a share of clean power with my neighbors",
+      "line": "My neighbors and I own part of the wind or solar that powers our town, and the savings stay here.",
+      "lens": "community",
+      "ambition": "together",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "climate-shared-ownership-coop-share",
+          "title": "Buy into a locally owned wind or solar project",
+          "whatChanges": "Off Copenhagen, 8,553 people own half of a 20-turbine wind farm through a cooperative, built in 2000, and the farm supplies about 4% of the city's electricity. Danish rules at the time favored local ownership, so what you can join depends on the rules where you live.",
+          "who": "You and a cooperative",
+          "exemplarRef": "middelgrunden-coop",
+          "speculative": false,
+          "firstStep": "Search your state name with \"community-owned solar\" or \"energy cooperative\" and read about one project.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "climate-shared-ownership-group-buy",
+          "title": "Go solar with neighbors for a group price",
+          "whatChanges": "Solar United Neighbors organizes solar co-ops, groups of about 100 neighbors who buy in bulk for a discount, and each member signs their own contract with the installer. The group doesn't publish savings figures on that page, so get one outside quote too and compare.",
+          "who": "You and your neighbors",
+          "exemplarRef": "solar-united-neighbors-coops",
+          "speculative": false,
+          "firstStep": "Look up whether Solar United Neighbors has an open co-op in your county.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "group"
+        },
+        {
+          "id": "climate-shared-ownership-gather",
+          "title": "Gather enough interested neighbors to start a solar co-op",
+          "whatChanges": "Shows how many people near you are interested and hands that list to an organizer when there are enough. Solar United Neighbors runs its co-ops as groups of about 100 neighbors, so a handful of interested households usually isn't enough on its own.",
+          "who": "You, your neighbors and It",
+          "exemplarRef": "solar-united-neighbors-coops",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and ask two neighbors whether they've ever priced solar.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175358",
+        "locator": "cards.json#climate-shared-ownership",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "climate-town-power": {
+      "title": "My town buying cleaner electricity for everyone",
+      "line": "Every home in my town gets cleaner power by default, without anyone having to sign up.",
+      "lens": "community",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "climate-town-power-check-grid",
+          "title": "Check how clean the electricity in your area is now",
+          "whatChanges": "The Environmental Protection Agency's Power Profiler takes your ZIP code and utility and shows your region's mix of coal, gas, nuclear and renewables against the national average, using 2023 data.",
+          "who": "You",
+          "exemplarRef": "epa-power-profiler",
+          "speculative": false,
+          "firstStep": "Enter your ZIP code in the EPA Power Profiler and write down the share of coal and gas.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "learn"
+        },
+        {
+          "id": "climate-town-power-community-choice",
+          "title": "Ask your city to buy electricity on residents’ behalf",
+          "whatChanges": "In 2010 the cities of Marin County, California, pooled their residents' buying power to choose their own power supplier, while the utility kept running the lines. Customers could pick a 27% renewable plan or a 100% renewable one, and only some states allow this.",
+          "who": "Your city or county",
+          "exemplarRef": "mce-community-choice",
+          "speculative": false,
+          "firstStep": "Search your state name with \"community choice aggregation\" to see whether it is allowed where you live.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "climate-town-power-neighbor-letter",
+          "title": "Send your city council one letter signed by many neighbors",
+          "whatChanges": "Helps you collect signatures from people in your district and send one organized letter to the right council members. A single letter with fifty local names is harder to set aside than fifty separate emails.",
+          "who": "You, your neighbors and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this, and find out which council district you live in.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "speculativeRationale": "Proposed It feature; no study of signed letters versus single emails was opened.",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175358",
+        "locator": "cards.json#climate-town-power",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "climate-local-risks": {
+      "title": "Knowing how heat, fire and flooding could affect my street",
+      "line": "I know which climate risks are real for where I live, and I have done the one or two things that matter most.",
+      "lens": "technology",
+      "ambition": "this-year",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "climate-local-risks-risk-lookup",
+          "title": "Look up the natural hazard risks for your area",
+          "whatChanges": "Looks up your address in data like FEMA's National Risk Index, which covers 18 natural hazards and is now part of a public mapping tool, and explains in plain words which risks are highest for your area and what people usually do about each one.",
+          "who": "You and It",
+          "exemplarRef": "fema-risk-index",
+          "speculative": false,
+          "firstStep": "Open the FEMA Resilience Analysis and Planning Tool and find your county on the map.",
+          "firstStepMinutes": 15,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "climate-local-risks-one-change",
+          "title": "Prepare for the biggest risk on your list first",
+          "whatChanges": "A plan for one real risk is more useful than worrying about all of them. If heat is your biggest risk, that might mean knowing where the nearest cooling center is; if flooding is, checking whether your insurance covers floods.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Pick the one weather event that worries you most for your home and look up what your city says to do about it.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "speculativeRationale": "Preparedness common practice; no city guidance page was opened.",
+          "kind": "task"
+        },
+        {
+          "id": "climate-local-risks-ask-plan",
+          "title": "Ask your city whether it has a plan for extreme heat",
+          "whatChanges": "Many cities now publish heat or climate plans with cooling centers and tree planting. Asking for it by name tells officials residents are paying attention.",
+          "who": "You and your city",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Search your city name with \"heat plan\" or \"climate action plan\" and read the summary page.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "speculativeRationale": "No specific city heat plan was opened in this run.",
+          "kind": "task"
+        },
+        {
+          "id": "climate-local-risks-weather-heads-up",
+          "title": "Heads-up before a heat wave or flood near you",
+          "whatChanges": "Remembers which risk you said matters most for your home and sends a short reminder of your plan when a heat or flood warning is issued for your area.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this, and turn on weather alerts for your area on your phone.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Proposed It feature (tracking and nudges pattern); no weather alert data source was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175358",
+        "locator": "cards.json#climate-local-risks",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "climate-state-laws": {
+      "title": "State laws that make clean energy cheaper and easier",
+      "line": "My state passes the energy bills I care about, like letting me plug in my own solar panels, and my lawmakers knew where I stood.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "climate-state-laws-bill-watch",
+          "title": "Follow the energy bills moving in your state legislature",
+          "whatChanges": "Shows you the few climate and energy bills up for a vote, who represents you, and a short note you could send, using data on legislators and bills in all 50 states from Open States, now run by Plural.",
+          "who": "You and It",
+          "exemplarRef": "open-states",
+          "speculative": false,
+          "firstStep": "Use the free legislator lookup on Plural Open to find your two state legislators.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "climate-state-laws-plug-in-law",
+          "title": "Ask your legislators about a plug-in solar law",
+          "whatChanges": "Utah's 2025 plug-in solar law passed without a single vote against, which makes it one of the rare energy ideas both parties have backed. A short note pointing to Utah gives a lawmaker something concrete to look at.",
+          "who": "You and your state legislators",
+          "exemplarRef": "utah-plug-in-solar",
+          "speculative": false,
+          "firstStep": "Send one of your state legislators a two-sentence email asking whether they would support a plug-in solar bill like Utah’s.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "climate-state-laws-personal-note",
+          "title": "Write to lawmakers in your own words, not a form letter",
+          "whatChanges": "Staff tend to count form emails and read personal ones. Two sentences about how energy costs or heat affect your family carry more weight than a long template.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Write two sentences about how energy bills or hot summers affect your household, and save them for your next note.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "speculativeRationale": "Common advice from advocacy groups; no study of congressional or legislative staff was opened.",
+          "kind": "practice",
+          "featureIdea": "Helps you turn what you've noticed about your bills or summers into two sentences in your own words, then reminds you to send them when a bill you care about comes up."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175358",
+        "locator": "cards.json#climate-state-laws",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "climate-courts": {
+      "title": "Courts treating a stable climate as a right",
+      "line": "My state has to weigh climate harm when it approves new power plants and mines.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "climate-courts-montana",
+          "title": "Look up whether your state constitution protects the environment",
+          "whatChanges": "In December 2024, Montana’s Supreme Court sided with 16 young people and ruled that the state’s right to a clean environment \"includes a stable climate system,\" striking down two 2023 laws that limited climate review. The state argued that lawmakers, not courts, should decide climate policy, and people still disagree on that.",
+          "who": "You",
+          "exemplarRef": "held-v-montana",
+          "speculative": false,
+          "firstStep": "Search your state constitution for the word \"environment\" and read what it says.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "learn"
+        },
+        {
+          "id": "climate-courts-public-comment",
+          "title": "Comment when your state reviews a big new project",
+          "whatChanges": "Permits for power plants, pipelines and mines usually have a public comment period. A comment that names the project and asks how its emissions were counted goes into the official record.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Find your state environmental agency's public notices page and see what is open for comment.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "speculativeRationale": "Public comment processes vary by state; none was opened in this run.",
+          "kind": "task"
+        },
+        {
+          "id": "climate-courts-comment-alerts",
+          "title": "Alerts when big projects near you open for public comment",
+          "whatChanges": "Watches your state's public notices for power plants, pipelines and mines near you and tells you when a comment period opens and when it closes, with a plain summary of the project.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this, and bookmark your state environmental agency's public notices page.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Proposed It feature (directory and nudges pattern); no state public notice feed was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175358",
+        "locator": "cards.json#climate-courts",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "climate-talk": {
+      "title": "Talking about climate worries without feeling alone",
+      "line": "I can say out loud that I'm worried, and the people around me turn out to care more than I guessed.",
+      "lens": "culture",
+      "ambition": "this-year",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "climate-talk-cafe",
+          "title": "Go to a climate cafe to talk through how you feel",
+          "whatChanges": "Climate cafes began in rural Scotland around 2015 as informal gatherings to talk about climate feelings, partly modeled on death cafes. A small Canadian study found people valued them as safe, judgment-free spaces, though the research is still thin.",
+          "who": "You and a small group",
+          "exemplarRef": "climate-cafes",
+          "speculative": false,
+          "firstStep": "Search \"climate cafe\" with your city name, or look for an online one through the Climate Psychology Alliance.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "group"
+        },
+        {
+          "id": "climate-talk-one-friend",
+          "title": "Bring up climate with one friend or relative",
+          "whatChanges": "Yale’s surveys estimate that 72% of Americans think global warming is happening, so the person across the table probably agrees more than you assume. Starting with something local, like a hot summer or a new bike lane, is often easier than starting with the planet.",
+          "who": "You and someone you trust",
+          "exemplarRef": "yale-opinion-maps",
+          "speculative": false,
+          "firstStep": "Look up your county on the Yale Climate Opinion Maps, and mention one number to someone this week.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "practice",
+          "featureIdea": "Helps you pick a local opening and one question to start a climate conversation with someone you know, then checks in afterward on how it went."
+        },
+        {
+          "id": "climate-talk-find-others",
+          "title": "Meet people nearby who want to work on the same thing",
+          "whatChanges": "Connects you with people near you who chose the same climate goal, like community solar or safer bike routes, so you can start together. Worry is easier to carry with company and a shared task.",
+          "who": "You, your neighbors and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this, and pick the one climate change you'd most like to work on locally.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "speculativeRationale": "Proposed It feature; no matching tool was opened in this run.",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175358",
+        "locator": "cards.json#climate-talk",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "climate-renters": {
+      "title": "Cutting my carbon footprint even though I rent",
+      "line": "Even without owning my home, I've lowered my energy use and my landlord knows I want cleaner heating.",
+      "lens": "relational",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "climate-renters-portable-solar",
+          "title": "Sign up for community solar, which works without a roof of your own",
+          "whatChanges": "Community solar works for renters because nothing gets installed on your building. In Minnesota, subscribers' bills are expected to drop 3% to 8%, though the rules and savings differ by state.",
+          "who": "You",
+          "exemplarRef": "minnesota-community-solar",
+          "speculative": false,
+          "firstStep": "Find your electric utility's name on your bill and check whether it has a community solar program.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "climate-renters-landlord",
+          "title": "Ask your landlord about rebates for a heat pump",
+          "whatChanges": "Landlords often don't know what rebates their utility or state offers, and a heat pump could lower the bill you pay. A friendly note with one specific rebate is easier to say yes to.",
+          "who": "You and your landlord",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Find one heat pump rebate your utility offers and send your landlord a short note about it.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "speculativeRationale": "Landlord conversation practice; no source on landlord heat pump rebates was opened.",
+          "kind": "task"
+        },
+        {
+          "id": "climate-renters-landlord-rebates",
+          "title": "Heat pump rebates for your rental, ready to send your landlord",
+          "whatChanges": "Checks your address against Rewiring America's free database of electrification rebates and puts the programs your landlord could use into a short note you can send.",
+          "who": "You and It",
+          "exemplarRef": "rewiring-america-api",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and find out who to contact about repairs or upgrades in your building.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175358",
+        "locator": "cards.json#climate-renters",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    }
+  }
+}

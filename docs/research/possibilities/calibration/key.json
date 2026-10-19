@@ -1,0 +1,282 @@
+{
+  "c01": {
+    "origin": "old",
+    "painId": "ai-and-jobs",
+    "sourceCardId": "old-ai-and-jobs-1",
+    "runId": null,
+    "heldOut": true
+  },
+  "c02": {
+    "origin": "new",
+    "painId": "it-all-goes-up",
+    "sourceCardId": "ineq-land-trust",
+    "runId": "20261019-142004",
+    "heldOut": true
+  },
+  "c03": {
+    "origin": "new",
+    "painId": "broke",
+    "sourceCardId": "broke-lending-circle",
+    "runId": "20261019-141958",
+    "heldOut": false
+  },
+  "c04": {
+    "origin": "old",
+    "painId": "broke",
+    "sourceCardId": "old-broke-2",
+    "runId": null,
+    "heldOut": false
+  },
+  "c05": {
+    "origin": "new",
+    "painId": "procrastination",
+    "sourceCardId": "proc-drop-what-doesnt-matter",
+    "runId": "20261019-142011",
+    "heldOut": true
+  },
+  "c06": {
+    "origin": "new",
+    "painId": "ai-and-jobs",
+    "sourceCardId": "ai-fair-hiring-software",
+    "runId": "20261019-141957",
+    "heldOut": false
+  },
+  "c07": {
+    "origin": "new",
+    "painId": "poor-sleep",
+    "sourceCardId": "sleep-work-quiet",
+    "runId": "20261019-142010",
+    "heldOut": true
+  },
+  "c08": {
+    "origin": "old",
+    "painId": "climate",
+    "sourceCardId": "old-climate-1",
+    "runId": null,
+    "heldOut": false
+  },
+  "c09": {
+    "origin": "old",
+    "painId": "climate",
+    "sourceCardId": "old-climate-2",
+    "runId": null,
+    "heldOut": true
+  },
+  "c10": {
+    "origin": "new",
+    "painId": "ai-and-jobs",
+    "sourceCardId": "ai-staff-not-replaced",
+    "runId": "20261019-141957",
+    "heldOut": true
+  },
+  "c11": {
+    "origin": "new",
+    "painId": "they-dont-listen",
+    "sourceCardId": "listen-local-votes",
+    "runId": "20261019-142014",
+    "heldOut": false
+  },
+  "c12": {
+    "origin": "old",
+    "painId": "it-all-goes-up",
+    "sourceCardId": "old-it-all-goes-up-1",
+    "runId": null,
+    "heldOut": true
+  },
+  "c13": {
+    "origin": "new",
+    "painId": "climate",
+    "sourceCardId": "climate-food",
+    "runId": "20261019-142001",
+    "heldOut": true
+  },
+  "c14": {
+    "origin": "new",
+    "painId": "dont-know-whats-happening",
+    "sourceCardId": "coord-city-hall-record",
+    "runId": "20261019-142002",
+    "heldOut": false
+  },
+  "c15": {
+    "origin": "old",
+    "painId": "dont-know-whats-happening",
+    "sourceCardId": "old-dont-know-whats-happening-1",
+    "runId": null,
+    "heldOut": true
+  },
+  "c16": {
+    "origin": "old",
+    "painId": "poor-sleep",
+    "sourceCardId": "old-poor-sleep-1",
+    "runId": null,
+    "heldOut": false
+  },
+  "c17": {
+    "origin": "new",
+    "painId": "poor-sleep",
+    "sourceCardId": "sleep-dark-quiet-room",
+    "runId": "20261019-142010",
+    "heldOut": false
+  },
+  "c18": {
+    "origin": "new",
+    "painId": "procrastination",
+    "sourceCardId": "proc-feeling-behind-it",
+    "runId": "20261019-142011",
+    "heldOut": false
+  },
+  "c19": {
+    "origin": "old",
+    "painId": "procrastination",
+    "sourceCardId": "old-procrastination-1",
+    "runId": null,
+    "heldOut": false
+  },
+  "c20": {
+    "origin": "new",
+    "painId": "broke",
+    "sourceCardId": "broke-claim-tax-credits",
+    "runId": "20261019-141958",
+    "heldOut": true
+  },
+  "c21": {
+    "origin": "new",
+    "painId": "it-all-goes-up",
+    "sourceCardId": "ineq-claim-credits",
+    "runId": "20261019-142004",
+    "heldOut": true
+  },
+  "c22": {
+    "origin": "new",
+    "painId": "dont-know-whats-happening",
+    "sourceCardId": "coord-know-local-groups",
+    "runId": "20261019-142002",
+    "heldOut": true
+  },
+  "c23": {
+    "origin": "new",
+    "painId": "dont-know-whats-happening",
+    "sourceCardId": "coord-neighbors-same-issue",
+    "runId": "20261019-142002",
+    "heldOut": false
+  },
+  "c24": {
+    "origin": "old",
+    "painId": "broke",
+    "sourceCardId": "old-broke-1",
+    "runId": null,
+    "heldOut": true
+  },
+  "c25": {
+    "origin": "new",
+    "painId": "poor-sleep",
+    "sourceCardId": "sleep-without-pills",
+    "runId": "20261019-142010",
+    "heldOut": false
+  },
+  "c26": {
+    "origin": "new",
+    "painId": "they-dont-listen",
+    "sourceCardId": "listen-citizens-panel",
+    "runId": "20261019-142014",
+    "heldOut": false
+  },
+  "c27": {
+    "origin": "new",
+    "painId": "ai-and-jobs",
+    "sourceCardId": "ai-know-ahead",
+    "runId": "20261019-141957",
+    "heldOut": true
+  },
+  "c28": {
+    "origin": "new",
+    "painId": "procrastination",
+    "sourceCardId": "proc-work-alongside-someone",
+    "runId": "20261019-142011",
+    "heldOut": false
+  },
+  "c29": {
+    "origin": "old",
+    "painId": "they-dont-listen",
+    "sourceCardId": "old-they-dont-listen-2",
+    "runId": null,
+    "heldOut": true
+  },
+  "c30": {
+    "origin": "new",
+    "painId": "climate",
+    "sourceCardId": "climate-biggest-choices",
+    "runId": "20261019-142001",
+    "heldOut": true
+  },
+  "c31": {
+    "origin": "old",
+    "painId": "they-dont-listen",
+    "sourceCardId": "old-they-dont-listen-1",
+    "runId": null,
+    "heldOut": false
+  },
+  "c32": {
+    "origin": "old",
+    "painId": "ai-and-jobs",
+    "sourceCardId": "old-ai-and-jobs-2",
+    "runId": null,
+    "heldOut": false
+  },
+  "c33": {
+    "origin": "old",
+    "painId": "dont-know-whats-happening",
+    "sourceCardId": "old-dont-know-whats-happening-2",
+    "runId": null,
+    "heldOut": false
+  },
+  "c34": {
+    "origin": "new",
+    "painId": "it-all-goes-up",
+    "sourceCardId": "ineq-own-workplace",
+    "runId": "20261019-142004",
+    "heldOut": false
+  },
+  "c35": {
+    "origin": "old",
+    "painId": "it-all-goes-up",
+    "sourceCardId": "old-it-all-goes-up-2",
+    "runId": null,
+    "heldOut": false
+  },
+  "c36": {
+    "origin": "new",
+    "painId": "broke",
+    "sourceCardId": "broke-hospital-bills",
+    "runId": "20261019-141958",
+    "heldOut": false
+  },
+  "c37": {
+    "origin": "old",
+    "painId": "procrastination",
+    "sourceCardId": "old-procrastination-2",
+    "runId": null,
+    "heldOut": true
+  },
+  "c38": {
+    "origin": "new",
+    "painId": "climate",
+    "sourceCardId": "climate-community-solar",
+    "runId": "20261019-142001",
+    "heldOut": false
+  },
+  "c39": {
+    "origin": "old",
+    "painId": "poor-sleep",
+    "sourceCardId": "old-poor-sleep-2",
+    "runId": null,
+    "heldOut": true
+  },
+  "c40": {
+    "origin": "new",
+    "painId": "they-dont-listen",
+    "sourceCardId": "listen-neighbors-budget",
+    "runId": "20261019-142014",
+    "heldOut": true
+  }
+}

@@ -1,0 +1,750 @@
+{
+  "schemaVersion": 1,
+  "painId": "nobody-knows-anybody",
+  "runId": "20261019-175407",
+  "cards": {
+    "nbr-names-next-door": {
+      "title": "Knowing the names of the people next door",
+      "line": "When I pass the people on either side of me, I can say hello to them by name.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "nbr-names-introduce",
+          "title": "Introduce yourself to the neighbors on either side",
+          "whatChanges": "In a 2018 set of studies from Cornell and Yale, mostly with students, people who had just talked with a stranger consistently underestimated how much the other person liked them. Neighbors weren't studied, but the awkwardness you expect may be mostly on your side of the conversation.",
+          "who": "You",
+          "exemplarRef": "liking-gap",
+          "speculative": false,
+          "firstStep": "Next time you see a neighbor outside, say hello and tell them your name.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "nbr-names-write-down",
+          "title": "Write down names as soon as you hear them",
+          "whatChanges": "In a 2010 Pew survey, 28 percent of American adults said they didn't know any of their neighbors by name. A short note with the name and one detail, even the dog's name, makes the second hello easier than the first.",
+          "who": "You",
+          "exemplarRef": "pew-neighbors",
+          "speculative": false,
+          "firstStep": "Start a note on your phone called Neighbors and add everyone whose name you already know.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "habit"
+        },
+        {
+          "id": "nbr-names-private-list",
+          "title": "Keep a private list of the neighbors you've met",
+          "whatChanges": "Keeps a simple list of the neighbors you've met, with names and the details you choose to save, kept on your own phone and shared with no one. Before you talk to someone again, you have their name in front of you.",
+          "who": "You and It",
+          "exemplarRef": "pew-neighbors",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and tonight write down the names of the two neighbors closest to you.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "nbr-names-next-door-private-match",
+          "title": "Private matching with neighbors who also want to meet",
+          "whatChanges": "Lets you say privately that you'd like to meet the people near you, and introduces you only once a neighbor close by has said the same. Nobody sees who said no or who hasn't answered, so asking costs you nothing.",
+          "who": "You and a nearby neighbor",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this.",
+          "firstStepMinutes": 1,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Founder feature idea F1; no working example of threshold matching between neighbors was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175407",
+        "locator": "cards.json#nbr-names-next-door",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Liking-gap research turns the most obvious basic (say hello) into something reassuring. Privacy: list stays on device per AGENTS invariants."
+    },
+    "nbr-out-front": {
+      "title": "Being outside where my neighbors can see me",
+      "line": "I spend enough time in front of my home that saying hello happens on its own.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "nbr-out-front-step",
+          "title": "Spend an evening on your front step or in the front yard",
+          "whatChanges": "Most neighbors meet by accident, and that only happens when you're outside at the same time they are. Doing a chore out front, like weeding or reading the mail, gives people an easy reason to stop.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "speculativeRationale": "Common neighborly practice; no source opened for this specific advice.",
+          "firstStep": "Take your coffee or your evening phone call out to the front step tonight.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "habit"
+        },
+        {
+          "id": "nbr-out-front-walk",
+          "title": "Walk the same short loop around the block at the same time each day",
+          "whatChanges": "Seeing the same faces at the same hour turns strangers into people you nod at, and people you nod at are easy to talk to. A dog helps, but a regular time works too.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "speculativeRationale": "Familiar-stranger idea from everyday experience; no exemplar opened in this run.",
+          "firstStep": "Pick a 15-minute loop and a time you could keep most days, and walk it tonight.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "schedule"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175407",
+        "locator": "cards.json#nbr-out-front",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Pure basics card; both fixes speculative but honest."
+    },
+    "nbr-welcome-new": {
+      "title": "Being the one who welcomes new people to the street",
+      "line": "When someone moves in on my block, they meet me in their first week.",
+      "lens": "relational",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "nbr-welcome-note",
+          "title": "Bring a short welcome note to anyone who moves in",
+          "whatChanges": "People who've just moved are guessing whether they're welcome, and the 2018 liking-gap studies suggest they'll assume the worst. A card with your name and house number settles that question on day one.",
+          "who": "You",
+          "exemplarRef": "liking-gap",
+          "speculative": false,
+          "firstStep": "Put a few blank cards by the door so you're ready the next time a moving truck pulls up.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "habit"
+        },
+        {
+          "id": "nbr-welcome-useful",
+          "title": "Tell new neighbors the three things you wish you'd known",
+          "whatChanges": "Trash pickup day, a plumber you trust and which neighbor has a snowblower are worth more than cookies. Useful information gives them a reason to come back to you with a question.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "speculativeRationale": "Everyday practice; no source opened.",
+          "firstStep": "Write down three things you wish someone had told you when you moved in.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "nbr-welcome-new-street-guide",
+          "title": "Shared welcome guide for your street",
+          "whatChanges": "Collects the things neighbors wish they'd known when they moved in, like trash day, a plumber people trust and who has a snowblower, into one short guide for your street. Whoever welcomes the next new arrival has it ready to hand over.",
+          "who": "You and your neighbors",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Ask one long-time neighbor what they'd put in a welcome guide, and write it down.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Directory pattern applied to the welcome-tips fix; no shared street guide was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175407",
+        "locator": "cards.json#nbr-welcome-new",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "nbr-book-box": {
+      "title": "A book-sharing box on my street",
+      "line": "There's a small library box near my house, and people chat while they look through it.",
+      "lens": "community",
+      "ambition": "tonight",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "nbr-book-box-visit",
+          "title": "Visit the nearest little free library and leave a book",
+          "whatChanges": "Todd Bol built the first Little Free Library in Hudson, Wisconsin, in 2009 as a tribute to his mother, and there are now more than 150,000 registered in 115 countries. A box like this gives people a reason to stop and linger near a stranger's house.",
+          "who": "You",
+          "exemplarRef": "little-free-library",
+          "speculative": false,
+          "firstStep": "Look up the map on littlefreelibrary.org and walk a book over to the closest box.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "nbr-book-box-build",
+          "title": "Put up a book box in your own front yard",
+          "whatChanges": "A box out front gives people walking by a reason to stop at your house. Check your town's rules first, because Whitefish Bay, Wisconsin, made a family take theirs down under a village ordinance, and a few other towns have done the same.",
+          "who": "You",
+          "exemplarRef": "little-free-library",
+          "speculative": false,
+          "firstStep": "Check your city's rules on small structures in front yards before you buy or build a box.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "project"
+        },
+        {
+          "id": "nbr-book-box-where-needed",
+          "title": "Put a book box where books are hard to come by",
+          "whatChanges": "Critics point out that most boxes sit in wealthier neighborhoods that already have good libraries. A box near a bus stop, laundromat or school in a neighborhood with fewer bookstores does more.",
+          "who": "You and a local business or school",
+          "exemplarRef": "little-free-library",
+          "speculative": false,
+          "firstStep": "Ask a nearby laundromat or school whether they'd host a box.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "project"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175407",
+        "locator": "cards.json#nbr-book-box",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "nbr-buy-nothing": {
+      "title": "Neighbors who give things away to each other",
+      "line": "When I have something I don't need, it goes to someone on my street, and I meet them at the door.",
+      "lens": "community",
+      "ambition": "tonight",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "nbr-buy-nothing-join",
+          "title": "Join a local group where neighbors give things away",
+          "whatChanges": "Buy Nothing groups started on Bainbridge Island, Washington, in 2013: neighbors post what they'd give away or need, and the handoff happens in person. Each pickup is a short, easy conversation with someone who lives a few doors down.",
+          "who": "You",
+          "exemplarRef": "buy-nothing",
+          "speculative": false,
+          "firstStep": "Search Facebook or the Buy Nothing app for the group that covers your street and ask to join.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "group"
+        },
+        {
+          "id": "nbr-buy-nothing-time",
+          "title": "Offer your time, not only your things",
+          "whatChanges": "Buy Nothing members also give what the founders call gifts of self: an hour of help with chores, a ride, or company. Offering help is a quicker way to really know someone than handing over a lamp.",
+          "who": "You",
+          "exemplarRef": "buy-nothing",
+          "speculative": false,
+          "firstStep": "Post one offer, like an hour of yard help or a ride to the store, in your local group.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "nbr-buy-nothing-help-match",
+          "title": "Matching neighbors' offers of help with nearby requests",
+          "whatChanges": "Pairs what neighbors offer to do, like an hour of yard work or a ride to the store, with requests from people a few doors away, so offers of time actually get used. Each match ends with the two of you meeting in person.",
+          "who": "You and your neighbors",
+          "exemplarRef": "buy-nothing",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and write down one thing you'd offer a neighbor for an hour.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175407",
+        "locator": "cards.json#nbr-buy-nothing",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "nbr-borrow-tools": {
+      "title": "Borrowing a ladder from a neighbor instead of buying one",
+      "line": "When I need a tool for one job, I know who on my street has one and they know they can borrow mine.",
+      "lens": "market",
+      "ambition": "this-year",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "nbr-tools-library",
+          "title": "Borrow from a tool library if your city has one",
+          "whatChanges": "The West Philly Tool Library has lent more than 100,000 tools to over 4,000 members since 2007. You get the tool, and you also meet the people who fix things in your part of town.",
+          "who": "You",
+          "exemplarRef": "west-philly-tools",
+          "speculative": false,
+          "firstStep": "Search \"tool library\" with your city's name and see what's nearby.",
+          "firstStepMinutes": 5,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "nbr-tools-list",
+          "title": "Share a list of the tools you'd lend",
+          "whatChanges": "A short note in mailboxes saying \"I have a ladder, a drill and a pressure washer, and you're welcome to borrow them\" starts the habit, and someone usually answers with their own list. Ask people to reply with what they'd lend, and you have the start of a block tool share.",
+          "who": "You and your neighbors",
+          "exemplarRef": null,
+          "speculative": true,
+          "speculativeRationale": "Informal tool shares are common; no specific street example was opened in this run.",
+          "firstStep": "Write down three things you'd happily lend, like a ladder or a cooler.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "nbr-borrow-tools-shared-list",
+          "title": "Shared list of tools your neighbors will lend",
+          "whatChanges": "Keeps one list of what people on your street are willing to lend, like ladders, drills and coolers, so you can see who has what before you buy one. Each neighbor decides what goes on the list and who can see it.",
+          "who": "You and your neighbors",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this, and write down three things you'd happily lend.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Directory pattern applied to the informal tool share; no neighborhood tool list was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175407",
+        "locator": "cards.json#nbr-borrow-tools",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "nbr-online-board": {
+      "title": "A neighborhood message board that's really about my neighborhood",
+      "line": "There's one place online where people on my street post lost cats, spare tomatoes and invitations, and people are kind there.",
+      "lens": "technology",
+      "ambition": "this-year",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "nbr-board-moderated",
+          "title": "Join the moderated email list for your neighborhood",
+          "whatChanges": "In Vermont, more than 80,000 of the state's roughly 260,000 households take part in Front Porch Forum, a local email bulletin for each town. A list limited to your town or a few streets, with someone keeping it civil, keeps the posts about people you'll actually see.",
+          "who": "You",
+          "exemplarRef": "front-porch-forum",
+          "speculative": false,
+          "firstStep": "Ask a neighbor which online group people on your street actually read, and sign up for it.",
+          "firstStepMinutes": 5,
+          "status": "existing_resource",
+          "kind": "group"
+        },
+        {
+          "id": "nbr-board-moderated-start",
+          "title": "Start a moderated email list for your street",
+          "whatChanges": "If there's no list for your area, you can start one for a few blocks and be the person who keeps it kind. Front Porch Forum in Vermont covers one town per list, with someone keeping it civil, and a small list for your street can follow the same two rules.",
+          "who": "You",
+          "exemplarRef": "front-porch-forum",
+          "speculative": false,
+          "firstStep": "Set up a free group email list and slip a note with the signup link into the mailboxes on your block.",
+          "firstStepMinutes": 20,
+          "status": "real_now",
+          "kind": "new-group"
+        },
+        {
+          "id": "nbr-board-in-person",
+          "title": "Use the board to set up something in person",
+          "whatChanges": "Online posts are a good way to find people and a poor way to know them. One post with a set time and place, like coffee at the corner on Saturday at ten, turns readers into faces.",
+          "who": "You",
+          "exemplarRef": "front-porch-forum",
+          "speculative": false,
+          "firstStep": "Post one invitation for a walk or coffee at a set time and place.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175407",
+        "locator": "cards.json#nbr-online-board",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "nbr-block-party": {
+      "title": "A block party where most of the street shows up",
+      "line": "Once a year, our street closes to cars and almost every household comes out to eat together.",
+      "lens": "community",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "nbr-party-permit",
+          "title": "Apply for a block party permit from your city",
+          "whatChanges": "Most cities let residents close a quiet street for a party. Philadelphia, for example, asks for a petition signed by 75 percent of the households on the block and a $25 fee for a weekend, if you apply three weeks ahead.",
+          "who": "You and your city",
+          "exemplarRef": "phila-block-party",
+          "speculative": false,
+          "firstStep": "Search your city's name plus \"block party permit\" and read what it asks for.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "nbr-party-petition",
+          "title": "Treat the petition as your chance to knock on every door",
+          "whatChanges": "A signature rule like Philadelphia's means you'll talk to most of the households on your block before the party even happens. That walk is where many people learn their neighbors' names for the first time.",
+          "who": "You",
+          "exemplarRef": "phila-block-party",
+          "speculative": false,
+          "firstStep": "Pick a date about four weeks out and write a one-line invitation to bring when you knock.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "nbr-party-night-out",
+          "title": "Hold your party on the same August night as thousands of other blocks",
+          "whatChanges": "National Night Out falls on the first Tuesday in August. The first one, in 1984, drew about 400 communities, and organizers counted 34.2 million people in 10,325 communities by its 21st year, so many neighbors already know what the date means.",
+          "who": "You and your neighbors",
+          "exemplarRef": "national-night-out",
+          "speculative": false,
+          "firstStep": "Look up whether your city or police department organizes National Night Out and how a block can sign up.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "project"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175407",
+        "locator": "cards.json#nbr-block-party",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "National Night Out is police-linked; limit recorded in exemplar."
+    },
+    "nbr-building-dinner": {
+      "title": "A yearly dinner with everyone in my building",
+      "line": "Once a year, the people in my building eat together in the lobby or the yard, and we know each other afterward.",
+      "lens": "culture",
+      "ambition": "together",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "nbr-dinner-invite",
+          "title": "Put an invitation in every mailbox for a potluck downstairs",
+          "whatChanges": "France's Neighbors' Day began in Paris in 1999, after Atanase Périfan learned that an elderly woman in his area had died alone and gone unnoticed for two months. About 10 million people in France were expected to take part in 2025, mostly at simple potlucks in lobbies and courtyards.",
+          "who": "You and your building",
+          "exemplarRef": "fete-des-voisins",
+          "speculative": false,
+          "firstStep": "Ask your building manager or landlord whether you can use the lobby or yard one evening.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "project"
+        },
+        {
+          "id": "nbr-dinner-dish",
+          "title": "Ask people to bring a dish from where they grew up",
+          "whatChanges": "Périfan's own advice is that a dish from your own background is the easiest way to start a conversation with someone you don't know. Food from home gives everyone something to ask about.",
+          "who": "You",
+          "exemplarRef": "fete-des-voisins",
+          "speculative": false,
+          "firstStep": "Add one line to your invitation asking people to bring a dish they grew up eating.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "nbr-dinner-same-date",
+          "title": "Hold it on the same date every year",
+          "whatChanges": "The United Kingdom's Big Lunch is a yearly neighbors' celebration; in June 2017, organizers estimated 9.3 million people went to a community event that weekend. A fixed date lets people plan for it and makes the second year easier than the first.",
+          "who": "You and your neighbors",
+          "exemplarRef": "big-lunch",
+          "speculative": false,
+          "firstStep": "Pick a weekend you could keep every year and put it on your calendar.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "schedule"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175407",
+        "locator": "cards.json#nbr-building-dinner",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Fête origin story is factual, not staged; keep calm tone."
+    },
+    "nbr-play-street": {
+      "title": "Kids playing in the street while neighbors look on",
+      "line": "On some afternoons our block closes to cars, kids play in the street and the adults finally talk to each other.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "nbr-play-permit",
+          "title": "Close your block for children to play, if your city allows it",
+          "whatChanges": "Since 2014, Seattle has offered a free permit that lets residents close a quiet block to cars so children can play, and people closed their streets more than 500 times in 2025. Neighbors put out their own barricades or trash bins.",
+          "who": "You and your neighbors",
+          "exemplarRef": "seattle-play-streets",
+          "speculative": false,
+          "firstStep": "Search your city's name plus \"play street permit\" to see whether you can do this already.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "project"
+        },
+        {
+          "id": "nbr-play-one-afternoon",
+          "title": "Start with one afternoon after school",
+          "whatChanges": "In Bristol, England, two neighbors used the city's street party permit in 2009 to close their street for a single after-school afternoon. The city then created a play street permit for regular sessions, and by 2012, 17 Bristol streets had applied for one.",
+          "who": "You and two or three parents",
+          "exemplarRef": "playing-out-bristol",
+          "speculative": false,
+          "firstStep": "Ask two parents on your street whether they'd stand at the ends of the block for an hour one afternoon.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "nbr-play-ask-city",
+          "title": "Ask your city to make play street permits free and simple",
+          "whatChanges": "By 2015, at least a dozen other U.S. cities had programs like Seattle's. If yours doesn't, a city council member can ask the transportation department to start one.",
+          "who": "You and your city council member",
+          "exemplarRef": "kuow-play-streets",
+          "speculative": false,
+          "firstStep": "Email your city council member to ask whether the city offers play street permits, and if not, what it would take.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "nbr-play-street-campaign",
+          "title": "Group request to your city for play street permits",
+          "whatChanges": "Gathers parents and neighbors behind one request to your city council for a free play street permit like Seattle's, shows who has signed on, and sends it together once enough people have joined. A request from many households on many blocks is harder to set aside than one email.",
+          "who": "You, other parents and your city council",
+          "exemplarRef": "kuow-play-streets",
+          "speculative": false,
+          "firstStep": "Ask two other parents on your street whether they'd sign a request for play streets.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175407",
+        "locator": "cards.json#nbr-play-street",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Bristol exemplar unverified (403); flagged in exemplar limits."
+    },
+    "nbr-city-rules": {
+      "title": "Knowing what my city lets neighbors do together",
+      "line": "I know exactly what it takes to close my street, hold a party or start a play street where I live.",
+      "lens": "technology",
+      "ambition": "this-year",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "nbr-rules-lookup",
+          "title": "Find out the rules for block parties and play streets where you live",
+          "whatChanges": "Gathers each city's rules into one plain answer for your address, including the fee and how far ahead to apply. Every city writes these rules differently. Philadelphia, for example, asks for signatures from 75 percent of the households on the block, and other cities ask for less or more.",
+          "who": "You and It",
+          "exemplarRef": "phila-block-party",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and look up your own city's block party page today.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "nbr-rules-nearby",
+          "title": "See which nearby blocks have already held a party",
+          "whatChanges": "Shows you nearby blocks that have done this, so you can ask them how it went. Draws on the approved event permits some cities publish; New York posts the coming month's approved events, block parties included, as open data.",
+          "who": "You and It",
+          "exemplarRef": "nyc-event-permits",
+          "speculative": false,
+          "firstStep": "Ask a friend in a nearby neighborhood whether their block has ever closed the street for a party.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "nbr-rules-paperwork",
+          "title": "Get your block's invitation and petition ready to print",
+          "whatChanges": "Fills in your city's petition with your street's addresses and drafts a short invitation in the same step, so the hardest part left is knocking on doors.",
+          "who": "You and It",
+          "exemplarRef": "phila-block-party",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and sketch which houses are on your block.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175407",
+        "locator": "cards.json#nbr-city-rules",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "It-led card. Feasibility: city permit pages and NYC open data. No claim It connects anyone."
+    },
+    "nbr-matching-grant": {
+      "title": "City money for something our block chose together",
+      "line": "Our street got a small city grant for a bench and planters we picked, and we built them together on a Saturday.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "nbr-grant-apply",
+          "title": "Apply for a neighborhood matching grant",
+          "whatChanges": "Seattle's Neighborhood Matching Fund gives small grants of up to $5,000, and neighbors can match the city's money with volunteer hours instead of cash. In one 2024 round alone, the city gave $1,077,003 to 24 community projects.",
+          "who": "You and your neighbors",
+          "exemplarRef": "seattle-nmf",
+          "speculative": false,
+          "firstStep": "Search your city's name plus \"neighborhood matching grant\" or \"small neighborhood grants\".",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "project"
+        },
+        {
+          "id": "nbr-grant-ask",
+          "title": "Ask your city council member to start a matching fund",
+          "whatChanges": "If your city doesn't have one, Seattle's program is a working model to point to. Small grants matched by volunteer time give neighbors a project, and a project gives them a reason to meet.",
+          "who": "You and your city council member",
+          "exemplarRef": "seattle-nmf",
+          "speculative": false,
+          "firstStep": "Email your city council member a two-sentence description of Seattle's program and ask whether your city has anything like it.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "nbr-grant-finder",
+          "title": "Find grants your block could apply for",
+          "whatChanges": "Keeps track of city neighborhood grant programs like Seattle's and tells you which ones your street qualifies for, how much they give and how the match works.",
+          "who": "You and It",
+          "exemplarRef": "seattle-nmf",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and write down one small thing your block would build or fix with $5,000.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175407",
+        "locator": "cards.json#nbr-matching-grant",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "nbr-care-public-space": {
+      "title": "Neighbors caring for the empty corner lot",
+      "line": "The neglected corner near us is a garden now, and the city agreed in writing that we could take care of it.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "nbr-care-agreement",
+          "title": "Ask your city for a simple agreement to care for a public spot",
+          "whatChanges": "In 2014, Bologna, Italy, adopted a rule that lets residents sign short agreements with the city to look after a specific place, like a park corner or an old building, and more than 180 had been signed in the first few years. Ask whether your city has an adopt-a-park or adopt-a-lot program, which is a narrower version of the same idea.",
+          "who": "You and your city",
+          "exemplarRef": "bologna-pacts",
+          "speculative": false,
+          "firstStep": "Pick one neglected public spot near you and find out which city department is responsible for it.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "project"
+        },
+        {
+          "id": "nbr-care-write",
+          "title": "Write to your city council about letting neighbors care for public spaces",
+          "whatChanges": "Finds your city council member and helps you write a short letter describing what Bologna did and the spot on your street you'd like to look after.",
+          "who": "You and It",
+          "exemplarRef": "bologna-pacts",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and look up who represents your street on the city council.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175407",
+        "locator": "cards.json#nbr-care-public-space",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Bologna counts vary by source; text uses the conservative 180."
+    },
+    "nbr-public-health": {
+      "title": "My city treating neighbor ties as a health issue",
+      "line": "My city pays for places and programs where neighbors meet, the same way it pays for parks and clinics.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "nbr-health-ask",
+          "title": "Ask your local health department what it's doing about loneliness",
+          "whatChanges": "In 2023 the U.S. Surgeon General called loneliness a public health problem, and the first step in his national strategy was to strengthen the places and programs that bring neighbors together. Local health departments are the ones who could act on that.",
+          "who": "You and your health department",
+          "exemplarRef": "surgeon-general-2023",
+          "speculative": false,
+          "firstStep": "Email your county or city health department and ask whether it has any plan to address loneliness.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "nbr-health-budget",
+          "title": "Ask your city to fund places where neighbors meet",
+          "whatChanges": "Community centers, library programs and street events are what the Surgeon General's advisory means by social infrastructure. Some people would rather spend that money elsewhere, so a budget hearing is where the case gets made.",
+          "who": "You and your city council",
+          "exemplarRef": "surgeon-general-2023",
+          "speculative": false,
+          "firstStep": "Find the date of your city's next budget hearing and whether public comment is allowed.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "nbr-public-health-budget-comment",
+          "title": "Joint comment for your city's budget hearing",
+          "whatChanges": "Gathers neighbors behind one public comment asking your city to fund places where neighbors meet, like community centers and library programs, citing the Surgeon General's 2023 advisory on loneliness. Shows who has signed on and reminds everyone before the hearing date.",
+          "who": "You, your neighbors and your city",
+          "exemplarRef": "surgeon-general-2023",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and find the date of your city's next budget hearing.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175407",
+        "locator": "cards.json#nbr-public-health",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Contested spending: offered as an idea, other view acknowledged."
+    }
+  }
+}

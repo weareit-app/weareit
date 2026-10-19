@@ -1,0 +1,621 @@
+{
+  "schemaVersion": 1,
+  "painId": "poor-sleep",
+  "runId": "20261019-142010",
+  "cards": {
+    "sleep-dark-quiet-room": {
+      "title": "A bedroom that stays dark and quiet all night",
+      "line": "Streetlights, early sun and traffic noise stop waking me up.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "sleep-dark-quiet-room-curtains",
+          "title": "Put up blackout curtains or wear an eye mask",
+          "whatChanges": "A Northwestern study found that one night with a room light on raised people’s heart rate and made their bodies handle sugar worse the next morning. The researchers’ rule of thumb: if you can see things clearly in your bedroom, it’s too bright.",
+          "who": "You",
+          "exemplarRef": "northwestern-light",
+          "speculative": false,
+          "firstStep": "Stand in your bedroom tonight with the lights off and notice where light gets in.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "sleep-dark-quiet-room-noise",
+          "title": "Run a steady sound like pink or white noise",
+          "whatChanges": "A smooth background sound makes sudden noises like a door or a car less jarring. A 2022 review of 34 studies found the research thin, but pink noise did better than white noise and nobody found it harmful.",
+          "who": "You",
+          "exemplarRef": "noise-review",
+          "speculative": false,
+          "firstStep": "Play a free pink-noise track at low volume tonight and notice whether you wake up less.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "sleep-dark-quiet-room-earbuds",
+          "title": "Try sleep earbuds that cover up snoring and traffic",
+          "whatChanges": "Earbuds made for sleep, such as Ozlo’s, seal out some sound and play quiet masking noise over the rest. They cost about $279, so foam earplugs are worth trying first.",
+          "who": "You",
+          "exemplarRef": "ozlo-sleepbuds",
+          "speculative": false,
+          "firstStep": "Buy a pack of foam earplugs and try them for three nights.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142010",
+        "locator": "cards.json#sleep-dark-quiet-room",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "sleep-without-pills": {
+      "title": "Falling asleep without pills or dread",
+      "line": "I go to bed expecting to sleep, and most nights I do.",
+      "lens": "individual",
+      "ambition": "this-year",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "sleep-without-pills-therapy",
+          "title": "Ask your doctor about short, drug-free insomnia therapy",
+          "whatChanges": "In a large trial in England’s health service, four short sessions with a practice nurse helped people with insomnia more than the usual advice leaflet, without pills. This therapy isn’t right for everyone, so the nurse checks first.",
+          "who": "You and a nurse or doctor",
+          "exemplarRef": "habit-nurses",
+          "speculative": false,
+          "firstStep": "Write down when you went to bed and got up for the next week, so you have something to bring.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "sleep-without-pills-online",
+          "title": "Try an online insomnia course your doctor recommends",
+          "whatChanges": "England’s health guidance body recommended an online course called Sleepio over sleeping pills in 2022, after reviewing 12 trials. You do the course on your phone or computer, in your own time.",
+          "who": "You, with a doctor’s referral where it’s offered",
+          "exemplarRef": "nice-sleepio",
+          "speculative": false,
+          "firstStep": "Ask your doctor at your next visit whether there’s an online insomnia course they’d recommend.",
+          "firstStepMinutes": 5,
+          "status": "existing_resource",
+          "kind": "project"
+        },
+        {
+          "id": "sleep-without-pills-diary",
+          "title": "Keep a morning sleep diary you can show a doctor",
+          "whatChanges": "Asks you the standard nine-question morning sleep diary each morning and turns the answers into a summary you can show a doctor. Sleep experts agreed on that diary in 2012, and it’s what therapists ask for first.",
+          "who": "You and It",
+          "exemplarRef": "consensus-diary",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and tomorrow morning jot down when you went to bed and when you woke up.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142010",
+        "locator": "cards.json#sleep-without-pills",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "sleep-know-whats-wrong": {
+      "title": "Knowing what’s actually wrong with my sleep",
+      "line": "I understand why I sleep badly and know who can help with it.",
+      "lens": "technology",
+      "ambition": "this-year",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "sleep-know-whats-wrong-questions",
+          "title": "Answer the questions a sleep doctor would ask",
+          "whatChanges": "Walks you through the questions sleep clinics use and suggests what kind of help to ask for, without pretending to diagnose you. Snoring, trouble falling asleep and waking too early point to different problems with different treatments.",
+          "who": "You and It",
+          "exemplarRef": "consensus-diary",
+          "speculative": false,
+          "firstStep": "Ask whoever you live with whether you snore, gasp or stop breathing at night, and write down what they say.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "sleep-know-whats-wrong-provider",
+          "title": "Find a sleep clinic that treats your kind of problem",
+          "whatChanges": "Points you to the nearest sleep centers that handle your kind of problem, based on what you’ve told it, from the directory a national group of sleep doctors keeps at sleepeducation.org.",
+          "who": "You and It",
+          "exemplarRef": "aasm-directory",
+          "speculative": false,
+          "firstStep": "Search the sleep center directory at sleepeducation.org for the centers nearest you.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "sleep-know-whats-wrong-apnea",
+          "title": "Check whether snoring could be sleep apnea",
+          "whatChanges": "Since 2024, some smartwatches have been cleared by the FDA to flag possible sleep apnea after about ten nights. The alert is a reason to see a doctor, not a diagnosis.",
+          "who": "You and a doctor",
+          "exemplarRef": "apple-apnea",
+          "speculative": false,
+          "firstStep": "Book a doctor’s appointment and mention the snoring and how tired you are during the day.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142010",
+        "locator": "cards.json#sleep-know-whats-wrong",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "sleep-noise-near-me": {
+      "title": "Knowing how much noise reaches my bedroom",
+      "line": "I know whether my street is actually loud at night, and which fixes are worth trying.",
+      "lens": "technology",
+      "ambition": "this-year",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "sleep-noise-near-me-map",
+          "title": "Check which kinds of noise reach your address",
+          "whatChanges": "Looks up your address on noise maps, tells you which kinds of noise are likely to reach it, and suggests fixes that match, from earplugs to a neighbors’ complaint. The US Department of Transportation publishes one such map of airport and highway noise, down to the county.",
+          "who": "You and It",
+          "exemplarRef": "bts-noise-map",
+          "speculative": false,
+          "firstStep": "Write down the three sounds that wake you most often, and roughly when.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "sleep-noise-near-me-record",
+          "title": "Record the noise in your bedroom for one night",
+          "whatChanges": "Knowing whether it’s trucks at 2am or a neighbor’s TV at midnight changes what will actually help. Many phones have free sound-level apps that log noise overnight.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Install a free sound-level app and leave it recording on your nightstand tonight.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "speculativeRationale": "Common practice; no specific app page was opened in this run.",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142010",
+        "locator": "cards.json#sleep-noise-near-me",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "sleep-no-planes": {
+      "title": "No planes over my house at night",
+      "line": "Nothing flies overhead between when I go to bed and when I get up.",
+      "lens": "community",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "sleep-no-planes-organize",
+          "title": "Organize with neighbors to limit night flights",
+          "whatChanges": "In Frankfurt, neighbors took the airport to court and won a ban on flights between 11pm and 5am. The fight took years, and the ban came as part of a dispute over a new runway.",
+          "who": "Residents, local officials and the courts",
+          "exemplarRef": "frankfurt-nights",
+          "speculative": false,
+          "firstStep": "Look up whether there’s a noise group for your nearest airport and read their latest update.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "group"
+        },
+        {
+          "id": "sleep-no-planes-report",
+          "title": "Report night flights to the airport and federal regulators",
+          "whatChanges": "Airports are usually the first place to complain, and in the US the federal aviation agency has its own noise complaint process after that. Write down the date and time of each flight so your complaint is specific.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Write down the time of the next plane that wakes you, and find your airport’s noise complaint page.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "speculativeRationale": "The FAA complaint page blocked automated access; process seen only in search summaries.",
+          "kind": "task"
+        },
+        {
+          "id": "sleep-no-planes-together",
+          "title": "Send your neighbors’ complaints to officials as one record",
+          "whatChanges": "Lets neighbors log night flights in one place and sends officials one organized record. A stack of dated complaints from many households is much harder to set aside than a single email.",
+          "who": "Neighbors, It and local officials",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and start a list of the nights planes woke you this month.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "speculativeRationale": "Proposed It feature; no precedent for pooled neighbor complaints was opened in this run.",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142010",
+        "locator": "cards.json#sleep-no-planes",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "sleep-protect-by-law": {
+      "title": "Laws that protect sleep from noise and late work messages",
+      "line": "Night flights, late work messages and clock changes are covered by rules that protect sleep, so I’m not fighting them alone.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "sleep-protect-by-law-lobby",
+          "title": "Join others asking representatives for laws that protect sleep",
+          "whatChanges": "Helps people who care about sleep send their representatives the same clear request at the same time, such as limits on night flights or after-hours work messages. Resistbot lets people write to their officials by text in a couple of minutes, and its users have sent 35 million letters.",
+          "who": "You, It and your representatives",
+          "exemplarRef": "resistbot",
+          "speculative": false,
+          "firstStep": "Look up who your state representative is and save their contact page.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "sleep-protect-by-law-clocks",
+          "title": "Tell your representative which year-round time you’d want",
+          "whatChanges": "The American Academy of Sleep Medicine wants to end clock changes and keep standard time all year. Others in Congress prefer permanent daylight time, so it helps lawmakers to hear which one you’d choose.",
+          "who": "You and lawmakers",
+          "exemplarRef": "aasm-standard-time",
+          "speculative": false,
+          "firstStep": "Read the sleep doctors’ short statement, then send your representative one sentence about the time you’d prefer.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142010",
+        "locator": "cards.json#sleep-protect-by-law",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "sleep-work-quiet": {
+      "title": "Evenings free from work messages",
+      "line": "When I finish work, I’m actually finished, and my phone stays quiet until morning.",
+      "lens": "policy",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "sleep-work-quiet-team",
+          "title": "Agree on quiet hours with your team",
+          "whatChanges": "Portugal passed a law in 2021, in effect since 2022: outside working hours, employers aren’t supposed to contact staff except in a real emergency. Your team doesn’t need a law to agree on the same thing.",
+          "who": "You, your coworkers and your manager",
+          "exemplarRef": "portugal-no-contact",
+          "speculative": false,
+          "firstStep": "Suggest a simple rule, like no work messages between 8pm and 8am, and see who’s in.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "sleep-work-quiet-law",
+          "title": "Ask lawmakers for a law that protects time off",
+          "whatChanges": "Under Portugal’s law, contacting staff during their rest time counts as a serious violation. There’s no data yet on how well the law is enforced or whether people sleep better, but it puts the rule in writing instead of leaving it to how considerate your boss happens to be.",
+          "who": "Lawmakers, unions and workers",
+          "exemplarRef": "portugal-no-contact",
+          "speculative": false,
+          "firstStep": "Send your representative a short note about Portugal’s law and why you’d want one here.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142010",
+        "locator": "cards.json#sleep-work-quiet",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "sleep-teen-start": {
+      "title": "A school day that starts later for my teenager",
+      "line": "My teenager wakes up on their own and gets to school awake.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "sleep-teen-start-board",
+          "title": "Ask your school board for a later start time",
+          "whatChanges": "When Seattle moved high school start times from 7:50 to 8:45 in 2016, teens slept about 34 minutes more and their grades in one class went up. The study covered only two schools, so your district would be the real test.",
+          "who": "Parents, teachers and the school board",
+          "exemplarRef": "seattle-start",
+          "speculative": false,
+          "firstStep": "Find the date of the next board meeting and how to sign up to speak.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "sleep-teen-start-parents",
+          "title": "Get other parents to back a later start",
+          "whatChanges": "A board takes a change like this more seriously when it can see how many families want it, and the Seattle study gives everyone the same numbers to point to.",
+          "who": "Parents and students",
+          "exemplarRef": "seattle-start",
+          "speculative": false,
+          "firstStep": "Write a short paragraph about the Seattle study and share it with your school’s parent group.",
+          "firstStepMinutes": 20,
+          "status": "real_now",
+          "kind": "project"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142010",
+        "locator": "cards.json#sleep-teen-start",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "sleep-separate-rooms": {
+      "title": "Sleeping in separate rooms so we both rest",
+      "line": "My partner and I both sleep through the night, even if that means separate rooms some nights.",
+      "lens": "relational",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "sleep-separate-rooms-trial",
+          "title": "Try sleeping apart for two weeks, then talk about it",
+          "whatChanges": "More than a third of American adults sleep in a different room from their partner at least some of the time. Sleeping apart is common, and it doesn’t have to mean anything is wrong between you.",
+          "who": "You and your partner",
+          "exemplarRef": "aasm-sleep-apart",
+          "speculative": false,
+          "firstStep": "Pick a start date together and decide who gets which room.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "project"
+        },
+        {
+          "id": "sleep-separate-rooms-checked",
+          "title": "Have the person who snores checked for sleep apnea",
+          "whatChanges": "Loud snoring is sometimes a treatable condition rather than just a habit, and treating it can help both of you.",
+          "who": "The partner who snores and a doctor",
+          "exemplarRef": "apple-apnea",
+          "speculative": false,
+          "firstStep": "Book a doctor’s appointment and mention the snoring and any daytime sleepiness.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142010",
+        "locator": "cards.json#sleep-separate-rooms",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "sleep-shift-schedule": {
+      "title": "A shift schedule my body can keep up with",
+      "line": "My shifts change in an order my body can follow, and I get real days off to recover.",
+      "lens": "market",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "sleep-shift-schedule-forward",
+          "title": "Ask for shifts that go from days to afternoons to nights",
+          "whatChanges": "Many sleep researchers suggest moving from days to afternoons to nights rather than the other way around, though the evidence is limited. North Yorkshire Police in the UK tried that order with four days off after nights, and night shifts still cost people about two hours of sleep.",
+          "who": "Shift workers, schedulers and unions",
+          "exemplarRef": "police-forward",
+          "speculative": false,
+          "firstStep": "Write down your last two weeks of shift start times and mark every time a shift started earlier than the one before.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "sleep-shift-schedule-drive",
+          "title": "Plan a safe way home after night shifts",
+          "whatChanges": "In the same police study, two people reported nodding off at the wheel. Sharing rides after night shifts is an easy place to start.",
+          "who": "You and coworkers",
+          "exemplarRef": "police-forward",
+          "speculative": false,
+          "firstStep": "Ask one coworker whether they’d share a ride home after your next night shift.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142010",
+        "locator": "cards.json#sleep-shift-schedule",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "sleep-steady-wake": {
+      "title": "Waking at the same time every day",
+      "line": "I wake up at the same time every morning without dragging myself out of bed.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "sleep-steady-wake-alarm",
+          "title": "Keep one wake-up time for a week, weekends included",
+          "whatChanges": "Keeping the same wake time was one of the main things nurses taught in a large insomnia trial in England. A fixed wake time gives your body clock something to set itself by.",
+          "who": "You",
+          "exemplarRef": "habit-nurses",
+          "speculative": false,
+          "firstStep": "Set one alarm for the same time every day this week and delete the others.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "schedule"
+        },
+        {
+          "id": "sleep-steady-wake-get-up",
+          "title": "Get up and read in another room when you can’t sleep",
+          "whatChanges": "Lying awake teaches your brain that bed is a place for worrying. Insomnia courses like Sleepio ask you to get up and come back when you feel sleepy.",
+          "who": "You",
+          "exemplarRef": "nice-sleepio",
+          "speculative": false,
+          "firstStep": "Put a lamp and a paper book in another room tonight, ready for if you need them.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "habit"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142010",
+        "locator": "cards.json#sleep-steady-wake",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "sleep-phone-outside": {
+      "title": "My phone charging outside the bedroom",
+      "line": "The last thing I look at before sleep is a book, not my phone.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "sleep-phone-outside-charger",
+          "title": "Move your phone charger to the kitchen",
+          "whatChanges": "If the phone isn’t within reach, scrolling at midnight stops being the easy option. A cheap alarm clock covers the one thing you actually needed it for.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Plug your charger in somewhere in the kitchen tonight and set an old-fashioned alarm.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "speculativeRationale": "No study of charger placement was opened in this run.",
+          "kind": "task"
+        },
+        {
+          "id": "sleep-phone-outside-household",
+          "title": "Agree on a phone bedtime with the people you live with",
+          "whatChanges": "Putting the phone away is easier when everyone in the house does it at the same time.",
+          "who": "You and your household",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Ask at dinner whether everyone would try phones in the kitchen from 10pm this week.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "speculativeRationale": "Household practice; no source opened.",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142010",
+        "locator": "cards.json#sleep-phone-outside",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "sleep-loud-vehicles": {
+      "title": "Fewer loud cars and motorcycles on my street at night",
+      "line": "The cars and motorcycles that are loud enough to wake me get caught and fined.",
+      "lens": "technology",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "sleep-loud-vehicles-camera",
+          "title": "Ask your city to try noise cameras",
+          "whatChanges": "In 2022 Paris started testing a lamppost device that pairs microphones with a camera, so it can tell which vehicle made the noise and read its plate. The city treated it as a trial at first, with fines planned for later.",
+          "who": "Your city council and police",
+          "exemplarRef": "paris-meduse",
+          "speculative": false,
+          "firstStep": "Email your city council member about the Paris noise camera and name the street that keeps you up.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "sleep-loud-vehicles-log",
+          "title": "Keep a log of when the loudest vehicles pass",
+          "whatChanges": "Times and places make it easier for the city to decide where a camera or enforcement would help most.",
+          "who": "You and your neighbors",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Note the time of each loud pass tonight on your phone.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "speculativeRationale": "Common practice; no source opened.",
+          "kind": "project"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142010",
+        "locator": "cards.json#sleep-loud-vehicles",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "sleep-employer-rest": {
+      "title": "A job that treats sleep as part of good work",
+      "line": "At my job, getting enough sleep counts as part of doing the work well.",
+      "lens": "market",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "sleep-employer-rest-reward",
+          "title": "Suggest your employer reward people for resting",
+          "whatChanges": "Crazy Inc., a wedding company in Tokyo, gives staff points worth up to ¥64,000 (about $570) a year for sleeping six hours or more on five nights a week.",
+          "who": "HR, managers and staff",
+          "exemplarRef": "crazy-inc",
+          "speculative": false,
+          "firstStep": "Send HR the story and ask whether something similar could work here.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "sleep-employer-rest-private",
+          "title": "Ask that any rest benefit keep your sleep private",
+          "whatChanges": "Crazy Inc. tracks sleep through an app. A version where people report their own sleep, or that rewards protected time off instead, keeps the benefit without your employer seeing your nights.",
+          "who": "Staff and HR",
+          "exemplarRef": "crazy-inc",
+          "speculative": false,
+          "firstStep": "Add a line to your note asking for a version with no tracking app.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142010",
+        "locator": "cards.json#sleep-employer-rest",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "finalists": [
+    "lonely-doctor-takes-it-seriously",
+    "lonely-young-and-old",
+    "lonely-someone-to-talk-to",
+    "lonely-friendly-errands",
+    "lonely-know-where-i-stand"
+  ],
+  "auditSample": [
+    "lonely-standing-plan",
+    "lonely-work-friends"
+  ],
+  "seed": 17,
+  "itLedGuaranteed": "lonely-know-where-i-stand",
+  "itLedMissing": false,
+  "ranking": [
+    {
+      "cardId": "lonely-doctor-takes-it-seriously",
+      "wins": 38,
+      "meanScore": 4
+    },
+    {
+      "cardId": "lonely-young-and-old",
+      "wins": 36,
+      "meanScore": 4.33
+    },
+    {
+      "cardId": "lonely-someone-to-talk-to",
+      "wins": 36,
+      "meanScore": 4
+    },
+    {
+      "cardId": "lonely-friendly-errands",
+      "wins": 33,
+      "meanScore": 4
+    },
+    {
+      "cardId": "lonely-neighbors-check-in",
+      "wins": 32,
+      "meanScore": 4
+    },
+    {
+      "cardId": "lonely-making-things-together",
+      "wins": 25,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "lonely-place-to-show-up",
+      "wins": 20,
+      "meanScore": 3.5
+    },
+    {
+      "cardId": "lonely-standing-plan",
+      "wins": 19,
+      "meanScore": 3.5
+    },
+    {
+      "cardId": "lonely-government-plan",
+      "wins": 16,
+      "meanScore": 4.33
+    },
+    {
+      "cardId": "lonely-not-my-fault",
+      "wins": 15,
+      "meanScore": 3.17
+    },
+    {
+      "cardId": "lonely-know-where-i-stand",
+      "wins": 14,
+      "meanScore": 3.17
+    },
+    {
+      "cardId": "lonely-work-friends",
+      "wins": 12,
+      "meanScore": 3.33
+    },
+    {
+      "cardId": "lonely-new-friends",
+      "wins": 10,
+      "meanScore": 3.17
+    },
+    {
+      "cardId": "lonely-street-gathering",
+      "wins": 9,
+      "meanScore": 3.17
+    }
+  ],
+  "excluded": []
+}

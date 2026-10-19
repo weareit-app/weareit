@@ -1,0 +1,5 @@
+interface:
+  display_name: "Possibilities: Generate"
+  short_description: "Write sourced possibility cards for pains"
+policy:
+  allow_implicit_invocation: false

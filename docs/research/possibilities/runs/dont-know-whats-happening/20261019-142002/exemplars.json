@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "painId": "dont-know-whats-happening",
+  "runId": "20261019-142002",
+  "exemplars": {
+    "nonprofit-explorer": {
+      "name": "ProPublica Nonprofit Explorer",
+      "place": "United States",
+      "year": 2026,
+      "outcome": "Free search of nonprofits by name and full text of IRS Form 990 filings, with financial summaries",
+      "lens": "technology",
+      "verified": true,
+      "limits": "Covers registered tax-exempt groups only; informal neighborhood groups and mutual aid networks that never filed are missing. Filings lag a year or more.",
+      "url": "https://projects.propublica.org/nonprofits/",
+      "accessed": "2026-10-19",
+      "locator": "\"search the full text of filings\""
+    },
+    "us-211": {
+      "name": "211 information and referral line",
+      "place": "United States",
+      "year": 2000,
+      "outcome": "Free, confidential line run by 200+ local organizations; about 13 million requests a year",
+      "lens": "community",
+      "verified": true,
+      "limits": "Built for people seeking services such as food, housing and health care, not for finding advocacy or volunteer groups; quality varies by local operator.",
+      "url": "https://www.211.org/about-us",
+      "accessed": "2026-10-19",
+      "locator": "About us; \"most comprehensive source of information about local resources\""
+    },
+    "open-referral-hsds": {
+      "name": "Open Referral Human Services Data Specification",
+      "place": "United States",
+      "year": 2026,
+      "outcome": "Open data standard and API reference so service directories can share listings",
+      "lens": "technology",
+      "verified": true,
+      "limits": "A standard, not a directory; adoption varies, and the docs page names no specific adopters or version.",
+      "url": "https://docs.openreferral.org/en/latest/",
+      "accessed": "2026-10-19",
+      "locator": "\"specifications for HSDS' data model, API reference, and HSDS Profiles\""
+    },
+    "council-data-project": {
+      "name": "Council Data Project searchable council transcripts",
+      "place": "Seattle and 16 other U.S. cities",
+      "year": 2023,
+      "outcome": "Searchable transcripts and voting records for city council meetings in 17 cities. Started by University of Washington iSchool professor Nic Weber and undergraduate Eva Maxfield Brown after they followed a Seattle City Council vote on a proposed NBA arena",
+      "lens": "technology",
+      "verified": true,
+      "limits": "Volunteer-run open-source project covering 17 cities as of January 2023; most towns are not covered.",
+      "url": "https://ischool.uw.edu/news/2023/01/researchers-shed-light-city-governments-data",
+      "accessed": "2026-10-19",
+      "locator": "\"Let's make city council meetings easier to follow\""
+    },
+    "front-porch-forum": {
+      "name": "Front Porch Forum neighborhood bulletin boards",
+      "place": "Vermont",
+      "year": 2013,
+      "outcome": "Started in Burlington in 2006; by 2013 open to every Vermont town, with 57,000 members across half the state",
+      "lens": "community",
+      "verified": true,
+      "limits": "One state, and membership figures are from 2013; a town forum only opens fully once 100 residents sign up.",
+      "url": "https://www.vermontpublic.org/vpr-news/2013-09-11/front-porch-forum-now-available-to-all-vermont-towns-statewide",
+      "accessed": "2026-10-19",
+      "locator": "\"forums will only become fully functional if enough people sign up\""
+    },
+    "strive-cincinnati": {
+      "name": "Strive partnership in Cincinnati",
+      "place": "Cincinnati and Northern Kentucky",
+      "year": 2011,
+      "outcome": "Over 300 local leaders, including foundations, city government, school districts, universities and nonprofits, agreed on shared goals; 34 of 53 tracked student indicators trended up in the four years after launch",
+      "lens": "community",
+      "verified": true,
+      "limits": "Reported by advocates of the approach (Stanford Social Innovation Review, Winter 2011); trends, not a controlled study.",
+      "url": "https://ssir.org/articles/entry/collective_impact",
+      "accessed": "2026-10-19",
+      "locator": "\"34 of the 53 success indicators that Strive tracks have shown positive trends\""
+    },
+    "open-states": {
+      "name": "Open States legislator lookup and legislative data",
+      "place": "United States",
+      "year": 2026,
+      "outcome": "Free lookup of your state lawmakers by location, plus bulk legislative data and an API",
+      "lens": "policy",
+      "verified": true,
+      "limits": "State legislatures only; city and county officials are not covered. API needs a free key.",
+      "url": "https://pluralpolicy.com/find-your-legislator",
+      "accessed": "2026-10-19",
+      "locator": "\"enter your location in the form above to view your local legislators\""
+    },
+    "open-states-data": {
+      "name": "Open States bulk data and API",
+      "place": "United States",
+      "year": 2026,
+      "outcome": "Legislative data available for bulk download and through an API",
+      "lens": "technology",
+      "verified": true,
+      "limits": "Page does not list coverage; details are in the API docs, which were not opened.",
+      "url": "https://pluralpolicy.com/open/",
+      "accessed": "2026-10-19",
+      "locator": "\"biggest collection of open legislative data\""
+    },
+    "irs-eo-bmf": {
+      "name": "IRS Exempt Organizations Business Master File Extract",
+      "place": "United States",
+      "year": 2026,
+      "outcome": "Public CSV files by state listing 1,975,975 tax-exempt organizations (posted October 13, 2026)",
+      "lens": "policy",
+      "verified": true,
+      "limits": "Address is headquarters only; categories are broad codes, so finding groups by issue takes extra work.",
+      "url": "https://www.irs.gov/charities-non-profits/exempt-organizations-business-master-file-extract-eo-bmf",
+      "accessed": "2026-10-19",
+      "locator": "Download section; posted 10/13/2026, 1,975,975 records"
+    },
+    "buy-nothing": {
+      "name": "Buy Nothing Project",
+      "place": "Bainbridge Island, Washington",
+      "year": 2013,
+      "outcome": "Hyperlocal gift groups drawn along neighborhood lines; about 7.5 million members",
+      "lens": "community",
+      "verified": true,
+      "limits": "Built for giving things away, not for organizing; member count is self-reported and undated.",
+      "url": "https://en.wikipedia.org/wiki/Buy_Nothing_Project",
+      "accessed": "2026-10-19",
+      "locator": "Organization section; groups drawn along existing neighborhood lines"
+    },
+    "g0v-taiwan": {
+      "name": "g0v civic tech community",
+      "place": "Taiwan",
+      "year": 2012,
+      "outcome": "Open hackathons since December 2012 where anyone can present a civic project and gather helpers",
+      "lens": "culture",
+      "verified": true,
+      "limits": "One country with a strong volunteer tech culture; Wikipedia summary.",
+      "url": "https://en.wikipedia.org/wiki/G0v",
+      "accessed": "2026-10-19",
+      "locator": "\"Ask not why nobody is doing this. You are the 'nobody'!\""
+    },
+    "cfa-brigades": {
+      "name": "Code for America Brigade network",
+      "place": "United States",
+      "year": 2016,
+      "outcome": "Local volunteer groups that meet regularly to work with local government on community projects",
+      "lens": "community",
+      "verified": true,
+      "limits": "Code for America restructured the network in 2016 and ended chapter stipends; many local groups have since changed or closed.",
+      "url": "https://codeforamerica.org/news/an-open-letter-to-the-code-for-america-brigades/",
+      "accessed": "2026-10-19",
+      "locator": "\"we're revamping the structure and strategy of our Brigade network\""
+    },
+    "abcd-asset-mapping": {
+      "name": "Asset-based community development asset mapping",
+      "place": "Northwestern University, Illinois",
+      "year": 1993,
+      "outcome": "John Kretzmann and John McKnight's method, from their 1993 book Building Communities from the Inside Out, starts by mapping the capacities of individuals, associations and local institutions, listing local associations by type and who might work together",
+      "lens": "community",
+      "verified": true,
+      "limits": "A method, not a measured result; Participedia summary rather than the book itself.",
+      "url": "https://participedia.net/method/161",
+      "accessed": "2026-10-19",
+      "locator": "\"Mapping Completely the Capacities and Assets of Individuals, Associations, and Local Institutions\"; references list John P. Kretzmann and John L. McKnight"
+    },
+    "idealist": {
+      "name": "Idealist nonprofit directory",
+      "place": "United States and worldwide",
+      "year": 2026,
+      "outcome": "More than 200,000 organizations connected with volunteers and job seekers; 450,000 volunteer opportunities posted",
+      "lens": "market",
+      "verified": true,
+      "limits": "Counts are cumulative, not current listings; only groups that post are visible.",
+      "url": "https://www.idealist.org/en/partners",
+      "accessed": "2026-10-19",
+      "locator": "Partners page; \"posted 450,000 volunteer opportunities\""
+    },
+    "mutual-aid-uk": {
+      "name": "Covid-19 Mutual Aid UK group list",
+      "place": "United Kingdom",
+      "year": 2020,
+      "outcome": "Reported over 900 local mutual aid groups listed so people could find the nearest one",
+      "lens": "community",
+      "verified": false,
+      "limits": "Seen only in a search summary of an Age UK Stockport page; not opened in this run."
+    },
+    "nextdoor-groups": {
+      "name": "Nextdoor neighborhood groups",
+      "place": "United States",
+      "year": 2012,
+      "outcome": "Members can create public or private groups within their neighborhood",
+      "lens": "technology",
+      "verified": false,
+      "limits": "The 2012 announcement page returned 404; known only from a search summary."
+    },
+    "library-referral": {
+      "name": "Public library information and referral services",
+      "place": "Various U.S. and Canadian libraries",
+      "year": 2022,
+      "outcome": "Some libraries keep community organization directories and refer residents to local groups",
+      "lens": "community",
+      "verified": false,
+      "limits": "Seen only in search summaries (UNC guide, Barrie Public Library, Lincoln Library newsletter); varies widely by library."
+    }
+  },
+  "reuseNote": "Repair run copied from 20261019-140023."
+}

@@ -1,0 +1,84 @@
+{
+  "finalists": [
+    "ineq-claim-credits",
+    "ineq-own-workplace",
+    "ineq-land-trust",
+    "ineq-cash-floor",
+    "ineq-see-the-gap"
+  ],
+  "auditSample": [
+    "ineq-tax-top",
+    "ineq-wage-boards"
+  ],
+  "seed": 17,
+  "itLedGuaranteed": "ineq-see-the-gap",
+  "itLedMissing": false,
+  "ranking": [
+    {
+      "cardId": "ineq-claim-credits",
+      "wins": 38,
+      "meanScore": 4
+    },
+    {
+      "cardId": "ineq-own-workplace",
+      "wins": 37,
+      "meanScore": 4.67
+    },
+    {
+      "cardId": "ineq-land-trust",
+      "wins": 31,
+      "meanScore": 4
+    },
+    {
+      "cardId": "ineq-cash-floor",
+      "wins": 25,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "ineq-fair-pay",
+      "wins": 24,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "ineq-tax-top",
+      "wins": 22,
+      "meanScore": 4
+    },
+    {
+      "cardId": "ineq-credit-cheaply",
+      "wins": 21,
+      "meanScore": 4
+    },
+    {
+      "cardId": "ineq-wage-boards",
+      "wins": 19,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "ineq-anchor-buying",
+      "wins": 17,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "ineq-baby-bonds",
+      "wins": 17,
+      "meanScore": 3.5
+    },
+    {
+      "cardId": "ineq-pay-gap-at-work",
+      "wins": 11,
+      "meanScore": 3.5
+    },
+    {
+      "cardId": "ineq-local-spending",
+      "wins": 6,
+      "meanScore": 3.17
+    },
+    {
+      "cardId": "ineq-see-the-gap",
+      "wins": 5,
+      "meanScore": 2.67
+    }
+  ],
+  "excluded": []
+}

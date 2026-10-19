@@ -1,0 +1,619 @@
+{
+  "schemaVersion": 1,
+  "painId": "they-dont-listen",
+  "runId": "20261019-142014",
+  "judge": {
+    "context": "isolated-consensus",
+    "judges": 3,
+    "files": [
+      "judgments-1.json",
+      "judgments-2.json",
+      "judgments-3.json"
+    ],
+    "at": "2026-10-19T18:27:25+00:00"
+  },
+  "scores": {
+    "listen-know-who": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"Enter your ZIP code on house.gov... and save the office phone number in your contacts\" is a five-minute step. | \"Enter your ZIP code on house.gov's Find Your Representative page and save the office phone number\" takes five minutes. | \"Enter your ZIP code on house.gov's Find Your Representative page and save the office phone number\" is a five-minute step."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "A well-chosen basic with a useful twist: \"decisions that shape your street, like zoning, policing and school budgets\" come from people we never learn about. | A well-chosen basic made useful by \"Find your state lawmakers, mayor and county officials too\" and the ZIP-crossing tip. | A known basic made useful by the detail that USAGov links \"governors, state legislators, mayors and county officials in one place.\""
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Names house.gov and USAGov but gives no year, number or result beyond what the sites do. | Names house.gov, USAGov and Open States, but no year or result to make it vivid. | Names house.gov and USAGov, but no year, number or result beyond what the pages do."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Looking up \"who represents me\" is predictable from the pain; nothing to repeat to a friend. | \"Decisions that shape your street... are made by people whose names most of us never learn\" is the only mild jolt. | Mostly predictable; the only twist is \"decisions that shape your street... are made by people whose names most of us never learn.\""
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Plain and helpful (\"have that handy\"), title is clear: \"Knowing exactly who represents me, from city hall to Congress\". | Plain and warm: \"so have that handy\"; titles say exactly what you do. | Plain and warm: \"If your ZIP code crosses two districts, the page asks for your street address, so have that handy.\""
+      },
+      "power": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Knowing names and saving a number is preparation; it changes nothing about who decides. | Knowing names is preparation; it does not change who decides anything. | \"I know the names of the people who represent me\" is preparation; nothing about who decides changes."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Existing resources described accurately, the ZIP-code limit is stated, and the Open States idea is written as \"It could put everyone...\". | pass: Lookups are real; the Open States fix is written \"It could put everyone...\" and labeled proposed. | pass: Existing resources described as they are; the It idea is written \"It could put everyone... on one page.\""
+      }
+    },
+    "listen-get-answer": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"Write three sentences: who you are and where you live, the one issue, and how it affects you\" is concrete and fast. | \"Write three sentences: who you are and where you live, the one issue, and how it affects you\" is a 15-minute step. | \"Write three sentences: who you are and where you live, the one issue, and how it affects you\" then text them to 50409."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"ask for the staff member on your issue\" and preferring a personal note over a form letter are useful twists on \"contact your rep\". | Personal message over form letter, made concrete with \"ask the name of the staff member who handles your issue.\" | \"Ask the name of the staff member who handles your issue\" is a useful twist most people don't know."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Congressional Management Foundation surveys, \"92% of congressional staff\", but no year given. | \"92% of congressional staff said an individual email... would have some or a lot of influence\" names CMF and a number, though no year. | \"92% of congressional staff said an individual email... would have some or a lot of influence\" from the Congressional Management Foundation; no year in the copy."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "That 92% of staff say an individual email influences an undecided lawmaker is a stat worth repeating. | The 92% figure and the issue-staffer tip are things a reader would repeat. | The 92% figure for a personal email is something a reader would repeat."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Warm, specific coaching: \"Say where you live, the one issue, and what it means for you or your family.\" | Clear and direct; \"Free messages go by email, and postal mail or fax costs extra\" is the one plain limit. | Candid and specific: \"Free messages go by email, and postal mail or fax costs extra.\""
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Makes my own voice land with my office; does not change who decides. | Makes my own voice count more, but conditions of who decides stay the same. | Gets my own message read; doesn't change who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Survey stated as what staff said; Resistbot's paid-mail limit is stated plainly; nothing It-built is implied. | pass: Gives the CMF figure as staff survey answers and states Resistbot's free-versus-paid limit. | pass: Survey framed as what staff \"said\"; Resistbot's paid limits stated plainly. \"gets your message to someone who briefs the member\" is a slight stretch beyond the exemplar but reasonable."
+      }
+    },
+    "listen-face-to-face": {
+      "actionable": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"Email the office's scheduler asking for 15 minutes with the staff member who covers your issue\" is specific and doable now. | \"Email the office's scheduler asking for 15 minutes with the staff member who covers your issue\" is concrete, though the meeting itself takes weeks. | \"Email the office's scheduler asking for 15 minutes with the staff member who covers your issue\" is concrete, though the meeting itself is later."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Reframes the meeting: \"You'll usually meet a staff member... and that staff member is the one who briefs them.\" | Reframes the visit: \"that staff member is the one who briefs them.\" | \"You'll usually meet a staff member rather than the lawmaker, and that staff member is the one who briefs them\" reframes a meeting usefully."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "\"In a 2015 survey by the Congressional Management Foundation, 94% of congressional staff said...\" has who, when and a number. | \"In a 2015 survey by the Congressional Management Foundation, 94% of congressional staff\" gives group, year and number. | \"In a 2015 survey by the Congressional Management Foundation, 94% of congressional staff said an in-person visit...\""
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "94% of staff rating an in-person visit as influential is a fact readers would pass on. | 94% for in-person visits is a fact worth repeating to a friend. | 94% is striking but echoes the same survey used in the previous card."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Candid mentor tone, sets expectations plainly: \"let each person tell their own story in a minute or two.\" | Mentor-like: \"Agree beforehand on the one thing you're asking for\"; the log idea is written \"It could keep.\" | Mentor-like advice: \"let each person tell their own story in a minute or two.\""
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Builds a personal relationship with the office; bringing neighbors pushes it slightly toward shared voice. | Builds a relationship with the office, a step beyond one-off contact but not a shift in power. | Builds a personal relationship with an office; my conditions change, not the decision structure."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Survey framed as staff opinion; the log idea is written as \"It could keep\"; \"Staff remember people who come back\" is mildly unsupported but low-risk. | pass: The 94% is framed as what staff said; the log is \"It could keep\"; \"Staff remember people who come back\" is a mild, plausible claim. | pass: Log idea uses \"It could\"; \"Staff remember people who come back\" is asserted with only search-summary support, but minor."
+      }
+    },
+    "listen-on-record": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Find the next city council agenda... and see how to sign up to speak\" is real, though commenting itself takes longer than 20 minutes. | \"Search regulations.gov for a topic you care about and read the summary of one rule\" is doable now, though it's reading, not yet commenting. | \"Go to your state legislature's website and search for 'testify' or 'comment on a bill'\" is real and quick."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Many people don't know \"anyone can comment before the deadline\" on federal rules, and \"specific facts... count more than a simple yes or no\" is a useful detail. | \"A comment isn't a vote, so specific facts about how the rule would affect you count more\" is a useful twist. | \"A comment isn't a vote, so specific facts about how the rule would affect you count more than a simple yes or no.\""
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Labor Department and Washington State are named, but there is no year, number or result. | Labor Department and Washington State are named, but with no number or result. | Labor Department and Washington State sign-in are named, but no number or result."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "One surprise: the agency \"reads and considers every comment it gets in time\". | Signing in to a hearing online \"without traveling to the capitol\" will surprise some readers. | Signing in online to a committee hearing \"without traveling to the capitol\" is one surprising element."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Clear and calm (\"A comment isn't a vote\"); dream title \"My comment on the record before decisions are made\" is a little stiff. | Plain and calm; \"the details vary a lot from state to state\" is the one honest limit. | Plain and honest: \"the details vary a lot from state to state.\""
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Gets my input into the official record; doesn't change who decides. | Puts my words in the official record; it's influence, not decision. | Puts my input on the official record before decisions; still advisory."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: \"A comment isn't a vote\" matches the exemplar limit, and state variation is stated. | pass: States \"A comment isn't a vote\" and that state systems vary; the council fix is general practice stated modestly. | pass: \"comments inform the rule but are not votes\" is carried into the copy; council fix is general practice stated modestly."
+      }
+    },
+    "listen-local-votes": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"Text one friend who usually skips local elections and ask if they want to go vote together\" takes two minutes. | \"Text one friend who usually skips local elections and ask if they want to go vote together\" is a two-minute step. | \"Text one friend who usually skips local elections and ask if they want to go vote together\" takes two minutes."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Turns the obvious \"vote\" into something meaningful: \"When so few people vote, each vote is a much bigger share of the result.\" | Turns \"go vote\" into something meaningful: \"each vote is a much bigger share of the result.\" | Reframes voting: \"Whoever shows up is who local officials hear from.\""
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Portland State study, \"turnout as low as 7%... in Charlotte's primary\" and \"about 10 times as likely\". | Portland State study with \"as low as 7% of registered voters, in Charlotte's primary\"; no year given in the copy. | Portland State study, \"mayoral turnout as low as 7%... in Charlotte's primary\" and \"about 10 times as likely\"; no year given."
+      },
+      "surprise": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "Voters 65 and older \"about 10 times as likely to vote\" as 18 to 34 is the kind of fact people repeat. | \"About 10 times as likely to vote\" for 65+ over 18-34 is a repeatable fact. | \"65 and older were about 10 times as likely to vote... as voters 18 to 34\" is a fact I'd repeat."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Plain and unhurried: \"Whoever shows up is who local officials hear from\"; dream line runs long. | Warm and plain: \"Whoever shows up is who local officials hear from.\" | Clear and unhurried: \"When so few people vote, each vote is a much bigger share of the result.\""
+      },
+      "power": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Recruiting friends \"changes who that is\" that local officials hear from, which shifts who has say. | Changes who officials hear from in a small way, through one person and a friend. | Changes who local officials hear from, not just my own experience."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Percentages are given as \"of registered voters\" in mayoral races, matching the exemplar limits. | pass: Reports the four-city study as a study of registered voters without generalizing it. | pass: Figures match the exemplar and say \"of registered voters\"; four-city scope is named."
+      }
+    },
+    "listen-neighbors-budget": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Search your city council's website for 'participatory budgeting'\" is quick, though it only pays off where a district takes part. | \"Search your city council's website for 'participatory budgeting'\" is quick, though many readers won't have it. | \"Search your city council's website for 'participatory budgeting' to see if your district takes part\" is quick, though many won't find one."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Most readers haven't heard that \"residents propose and vote on projects paid for with real public money\". | Most readers have never heard that residents can vote on real public money. | Asking a council member to hand residents part of the budget is an idea most readers haven't considered."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"102,800 residents voted on how to spend over $40 million\" in NYC, and Chicago's 49th Ward in 2009 with \"beach showers, heated bus shelters and a dog park\". | \"In 2009 Alderman Joe Moore... about $1 million... more than 1,300 people voted, funding beach showers, heated bus shelters and a dog park.\" | \"In 2009 Alderman Joe Moore... about $1 million... more than 1,300 people voted, funding beach showers, heated bus shelters and a dog park\" plus NYC's 102,800 voters."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "An alderman handing residents \"about $1 million of his ward's capital money\" is a precedent worth repeating. | \"102,800 residents voted on how to spend over $40 million\" makes a reader stop. | \"102,800 residents voted on how to spend over $40 million\" stops a reader."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Clear, with one fair limit: \"Skeptics point out that small organized groups can win more than their share.\" | Plain titles and an honest limit: \"small organized groups can win more than their share, so turnout matters.\" | Calm and fair: \"Skeptics point out that small organized groups can win more than their share, so turnout matters.\""
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Changes who decides on public money: \"My neighbors and I vote on what gets built.\" | Changes who decides how public money is spent. | Residents decide where real public money goes: \"then we see it built.\""
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Examples stated as what happened, the skeptics' limit is included, and the alerts idea is \"It could keep track\". | pass: Real examples with a skeptics' limit; the It idea is written \"It could keep track.\" | pass: Limits and skeptics named; the alert idea is written \"It could keep track.\""
+      }
+    },
+    "listen-citizens-panel": {
+      "actionable": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"Write your state legislator a short note\" is real but slow to matter; the reading step is mostly learning. | \"Read a one-page summary... and write down one question\" is real but slow to matter. | \"Read a one-page summary... and write down one question\" is a real step but slow to matter."
+      },
+      "nonObvious": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Residents \"drawn by lot\" whose advice parliament \"must debate... twice within a year\" is new to most American readers. | Random selection as a way to be heard is new to most American readers. | Lot-drawn panels that \"parliament must debate... twice within a year\" are new to most readers."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Ireland 2016, \"99 citizens\", \"64% recommended a change\", \"66.4% of voters agreed\"; Ostbelgien since 2019; France's 149 recommendations. | \"In 2016 Ireland drew 99 citizens at random... 64%... 66.4% of voters agreed\" plus Ostbelgien and France. | \"In 2016 Ireland drew 99 citizens at random... 64% recommended a change, and in the 2018 referendum 66.4% of voters agreed.\""
+      },
+      "surprise": {
+        "score": 5,
+        "mean": 5,
+        "reason": "The Irish assembly's recommendation followed by a 66.4% referendum result is a striking precedent. | Parliament \"must debate it twice within a year\" and France's 3-rejected, 46-included tally are things you'd repeat. | The Ireland and Ostbelgien precedents are things I'd repeat to a friend."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "Even-handed (\"People still disagree strongly about the outcome; what drew attention elsewhere was the process\"), though dense with figures. | Calm about a contested topic: \"what drew attention elsewhere was the process\"; one title, \"Learn how a randomly chosen citizens' assembly works\", is a bit like homework. | Clear but dense, and the title \"Randomly chosen residents advising on hard questions\" is abstract; \"Learn how...works\" is a weak fix title."
+      },
+      "power": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "Changes who decides: \"lawmakers have to answer what they recommend.\" | Changes who frames hard questions, though advice is nonbinding. | Changes who studies and shapes decisions, with obligations on lawmakers."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Abortion outcome framed as contested and advice as non-binding; minor overreach (\"matched to the census\", \"many participants disappointed\", France counts that the exemplar says differ) is not risky enough to fail. | pass: Treats the abortion outcome as contested and says the Belgian advice \"isn't binding.\" | pass: Contested abortion outcome handled (\"People still disagree strongly\"); census-matching detail goes slightly past the exemplar but overstates no result."
+      }
+    },
+    "listen-vote-counting": {
+      "actionable": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"Look up whether your state allows, uses or bans ranked-choice voting\" is a real step but slow to matter. | \"Look up whether your state allows, uses or bans ranked-choice voting\" is a real step but doesn't move much. | \"Look up whether your state allows, uses or bans ranked-choice voting\" is real but doesn't move much."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Ranked-choice voting is a known idea; the even-handed framing is the twist. | Ranked-choice is a familiar idea; presenting both sides is the twist. | A familiar debate presented evenly, with a useful nudge to hear \"each side's reasons.\""
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Alaska's 2024 repeal \"failed by just 664 votes out of 340,110\" and \"Ten states banned ranked-choice voting between 2022 and 2024\". | \"Failed by just 664 votes out of 340,110\" in Alaska in 2024 is concrete. | \"failed by just 664 votes out of 340,110\" in Alaska in 2024."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "664 votes out of 340,110 is a memorable near-tie. | The 664-vote margin and ten state bans are surprising. | The 664-vote margin and ten state bans are surprising."
+      },
+      "voice": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Fair and calm: \"People who care about being heard land on both sides.\" | Balanced, but the title \"Understand why some states chose to ban it\" doesn't make sense alone. | The fix title \"Understand why some states chose to ban it\" uses \"it\" ambiguously, readable as the product; card title is abstract."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Aims at the rules for how votes are counted, which changes how power is allocated. | Telling lawmakers a preference on election rules is influence, not ownership. | Ends with telling lawmakers a preference; little change in who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Contested policy offered with both sides (\"Supporters say...\", bans explained); the It idea uses \"It could show\". | pass: Presents ranked-choice as a choice with both sides; does not assert either is correct. | pass: Contested policy offered as both sides (\"People who care about being heard land on both sides\"); It idea uses \"It could show.\""
+      }
+    },
+    "listen-track-follow-through": {
+      "actionable": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Two of three first steps are \"Tell us you'd use this\"; \"Save a copy of the next message you send\" is minor. | Two of three first steps are \"Tell us you'd use this\"; \"Save a copy of the next message you send\" is small. | Two of three first steps are \"Tell us you'd use this\"; \"Save a copy of the next message\" is small."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "Seeing \"each message you sent next to any reply and to how the official later voted\" is a useful twist on tracking. | Seeing \"whether you were heard\" next to how the official voted is a useful twist on contact. | Closing the loop, \"next to any reply and to how the official later voted,\" is a fresh angle on not being heard."
+      },
+      "namedExample": {
+        "score": 2,
+        "mean": 2.33,
+        "reason": "Open States and regulations.gov are named only as data sources, with no result; fair for an It idea, but thin. | Only Open States and regulations.gov as feasibility notes; no example with a result. | Proposed features grounded in real data sources (Open States, regulations.gov), not penalized for lacking a result."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2.33,
+        "reason": "Bill alerts are predictable from the title \"Knowing when to speak up\". | Predictable from the pain title: alerts and a record. | Seeing whether you were heard is one surprising element."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Clear, and the privacy line is said plainly: \"That record would belong to you and stay private unless you choose to share it.\" | Honest \"It could follow...\" phrasing and \"stay private unless you choose to share it.\" | Plain and reassuring: \"That record would belong to you and stay private unless you choose to share it.\""
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Helps me hold officials to account on my own record; doesn't change who decides. | Helps me act in time, but conditions stay the same. | Helps me act in time; changes my conditions, not who decides."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Every fix is written \"It could...\" with the Something It could build status; nothing claims to exist. | pass: Every fix is written \"It could...\" and none implies it exists. | pass: Every fix is written \"It could...\" and labeled as something It could build."
+      }
+    },
+    "listen-common-ground": {
+      "actionable": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"Send the Taiwan story to your council member's office\" is concrete but its effect is uncertain; the other step is \"Tell us you'd use this\". | \"Send the Taiwan story to your council member's office\" is concrete but slow to matter; the other step is \"Tell us you'd use this.\" | \"Send the Taiwan story to your council member's office\" is quick but its effect is distant."
+      },
+      "nonObvious": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"instead of replies, people voted on short statements, and the ones both sides agreed on shaped the talks\" is a genuinely new idea for most readers. | Voting on statements instead of replies, so the process shows agreement, is new to most readers. | \"instead of replies, people voted on short statements, and the ones both sides agreed on shaped the talks\" is new to most."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "Taiwan 2015, \"about 3,000 people\", \"over four weeks\", government agreed in 2016; the result is qualitative. | \"In 2015 about 3,000 people in Taiwan used a tool called Pol.is over four weeks\" and the 2016 government agreement. | \"In 2015 about 3,000 people in Taiwan used a tool called Pol.is over four weeks... In 2016 the government agreed to adopt those points.\""
+      },
+      "surprise": {
+        "score": 5,
+        "mean": 5,
+        "reason": "A government adopting the points thousands of people agreed on online is a story people would repeat. | A government adopting points both sides agreed on is something you'd tell a friend. | A consultation designed to find agreement rather than volume is a precedent worth repeating."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Plain, with an honest limit: \"though the dispute over Uber didn't go away\"; \"Pol.is\" is a little jargony. | Plain and candid: \"though the dispute over Uber didn't go away.\" | Honest without hedging: \"though the dispute over Uber didn't go away.\""
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Changes how input shapes decisions, \"instead of just who shouts loudest\". | Changes how public input gets weighed, moving power from the loudest voices. | Changes how public input is weighed: \"instead of just who shouts loudest.\""
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The Taiwan result is stated with its limit, and the poll is \"It could run\"; \"carries more weight\" is a mild claim. | pass: Notes the dispute \"didn't go away\"; the neighborhood poll is \"It could run.\" | pass: Taiwan limit stated; It poll written \"It could run\"; \"carries more weight\" is a mild unsupported claim."
+      }
+    },
+    "listen-town-hall": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Write one question, under 25 words, about a specific bill or vote\" is specific and quick. | \"Write one question, under 25 words, about a specific bill or vote\" is quick and clear. | \"Write one question, under 25 words, about a specific bill or vote\" is concrete and quick."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"a short question about one vote or bill is harder to answer vaguely\" turns a basic into something useful. | A known basic made useful: \"a short question about one vote or bill is harder to answer vaguely.\" | \"a short question about one vote or bill is harder to answer vaguely\" makes a basic useful."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "LegiStorm counted \"more than 900 town hall-style events\" in August 2013, though it's old and single-year. | LegiStorm's \"more than 900 town hall-style events\" in 2013 is named but dated. | LegiStorm's \"more than 900 town hall-style events\" is from a single 2013 recess; Town Hall Project is now defunct."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "900 events in one recess is mildly surprising; the defunct Town Hall Project adds nothing. | Recess as the time to watch is one useful angle. | A stale 2013 count is the only surprise."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Candid about the dead link (\"go straight to your member's page\"), plain throughout. | Candid about the dead link: \"its old web address now leads to an unrelated site, so go straight to your member's page.\" | Candid: \"its old web address now leads to an unrelated site, so go straight to your member's page.\""
+      },
+      "power": {
+        "score": 2,
+        "mean": 2.33,
+        "reason": "Gets me a direct answer; doesn't change who decides. | Asking a question in public is voice, not a change in who decides. | Asking one question in public; conditions unchanged."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Openly says the Town Hall Project address \"now leads to an unrelated site\" and dates the LegiStorm count. | pass: Openly says Town Hall Project's address now leads to an unrelated site. | pass: Honestly reports the Town Hall Project's dead link and dates the LegiStorm count."
+      }
+    },
+    "listen-testify": {
+      "actionable": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "\"Search Open States for your state and one keyword, like 'rent'\" is quick and concrete. | \"Find one bill on your issue... and look up when its committee hearing is\" is a lookup, slow to matter. | \"look up when its committee hearing is\" is a lookup, not yet a step that moves anything."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "That residents can testify, and \"Committee hearings are where state bills get changed\", is a known basic made useful. | \"Committee hearings are where state bills get changed\" makes a known basic useful. | \"Committee hearings are where state bills get changed\" is a useful framing of a known option."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Washington State and Open States are named, with no year or result. | Washington State and Open States named, with thin detail and no result. | Washington State and Open States named, with no number or result."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2,
+        "reason": "Mostly predictable from the title \"Testifying at a hearing\". | Predictable from the title; nothing stops me. | Largely repeats the Washington sign-in from another card."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Clear and direct, \"without knowing bill numbers\"; somewhat impersonal. | Plain and personal: \"how a bill would change my life.\" | Plain: \"without knowing bill numbers.\""
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "Puts my story before lawmakers at the point bills change; still my own voice, not decision power. | Testifying gets my story into the bill process, my own conditions at most. | Speaking where bills change gives real input, though the decision stays with lawmakers."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Says \"many legislatures\" and uses Washington as one example; nothing overstated. | pass: Says \"many legislatures\" and uses Washington as one example. | pass: Says \"many legislatures\" and names one state; Open States described as existing data."
+      }
+    },
+    "listen-shared-voice": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Send two neighbors the bill and hearing date and ask if they'll sign in too\" is concrete and quick. | \"Send two neighbors the bill and hearing date and ask if they'll sign in too\" takes ten minutes. | \"Send two neighbors the bill and hearing date and ask if they'll sign in too\" takes ten minutes."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"ten neighbors signing in on the same bill show up as ten residents\" reframes signing in as collective action. | \"Ten neighbors signing in on the same bill show up as ten residents\" is a useful twist on solo contact. | \"ten neighbors signing in on the same bill show up as ten residents\" turns a solo act into a group one."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Chicago's 49th Ward, \"nine neighborhood meetings, and about 400 people came\"; Washington State sign-in. | Chicago's 49th Ward \"nine neighborhood meetings, and about 400 people came\" is named with a number, though no year in the copy. | \"Chicago's 49th Ward held nine neighborhood meetings, and about 400 people came.\""
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "One surprising element: how easily a group sign-in multiplies a position. | Group sign-in is one surprising element. | One surprising element: the group sign-in tactic."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Warm and plain (\"each person signs in with a sentence in their own words\"); title \"Neighbors who go to city hall together\" is clear. | Warm and clear: \"Nobody would see your name until you chose to meet.\" | Warm and private: \"Nobody would see your name until you chose to meet.\""
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Moves from one voice to a group the council has to hear: \"the council hears from all of us.\" | Organizing neighbors shifts who the council hears from. | Collective presence changes who the council hears from."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The matching tool is \"It could let people...\" with a privacy note; the other fixes are real and stated accurately. | pass: Neighbor matching is \"It could let\"; sign-in and Chicago meetings match the exemplars. | pass: Neighbor matching is written \"It could let people\"; real fixes cite matching exemplars."
+      }
+    }
+  },
+  "pairwise": [],
+  "consensus": {
+    "listen-know-who": {
+      "borda": 11,
+      "ranks": [
+        11,
+        10,
+        10
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "listen-get-answer": {
+      "borda": 29,
+      "ranks": [
+        5,
+        5,
+        3
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "listen-face-to-face": {
+      "borda": 28,
+      "ranks": [
+        3,
+        4,
+        7
+      ],
+      "spread": 4,
+      "honestVotes": "3/3 pass"
+    },
+    "listen-on-record": {
+      "borda": 17,
+      "ranks": [
+        9,
+        8,
+        8
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "listen-local-votes": {
+      "borda": 32,
+      "ranks": [
+        2,
+        6,
+        2
+      ],
+      "spread": 4,
+      "honestVotes": "3/3 pass"
+    },
+    "listen-neighbors-budget": {
+      "borda": 39,
+      "ranks": [
+        1,
+        1,
+        1
+      ],
+      "spread": 0,
+      "honestVotes": "3/3 pass"
+    },
+    "listen-citizens-panel": {
+      "borda": 32,
+      "ranks": [
+        4,
+        2,
+        4
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "listen-vote-counting": {
+      "borda": 16,
+      "ranks": [
+        8,
+        9,
+        9
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    },
+    "listen-track-follow-through": {
+      "borda": 5,
+      "ranks": [
+        13,
+        13,
+        11
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "listen-common-ground": {
+      "borda": 28,
+      "ranks": [
+        6,
+        3,
+        5
+      ],
+      "spread": 3,
+      "honestVotes": "3/3 pass"
+    },
+    "listen-town-hall": {
+      "borda": 8,
+      "ranks": [
+        10,
+        11,
+        13
+      ],
+      "spread": 3,
+      "honestVotes": "3/3 pass"
+    },
+    "listen-testify": {
+      "borda": 6,
+      "ranks": [
+        12,
+        12,
+        12
+      ],
+      "spread": 0,
+      "honestVotes": "3/3 pass"
+    },
+    "listen-shared-voice": {
+      "borda": 22,
+      "ranks": [
+        7,
+        7,
+        6
+      ],
+      "spread": 1,
+      "honestVotes": "3/3 pass"
+    }
+  },
+  "seed": 17
+}

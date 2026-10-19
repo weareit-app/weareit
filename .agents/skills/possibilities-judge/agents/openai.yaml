@@ -1,0 +1,5 @@
+interface:
+  display_name: "Possibilities: Judge"
+  short_description: "Judge cards with three isolated judges"
+policy:
+  allow_implicit_invocation: false

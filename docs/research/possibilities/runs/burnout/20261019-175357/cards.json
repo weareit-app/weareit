@@ -1,0 +1,756 @@
+{
+  "schemaVersion": 1,
+  "painId": "burnout",
+  "runId": "20261019-175357",
+  "cards": {
+    "burnout-rest-this-week": {
+      "title": "Getting a few nights of real rest this week",
+      "line": "This week I go to bed on time, do a little less, and start to notice the difference.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "burnout-rest-this-week-drop-one",
+          "title": "Cancel or hand off one commitment this week",
+          "whatChanges": "When you're running on empty, the fastest relief usually comes from subtraction, not from a new routine. Pick the one thing on your calendar that costs the most energy for the least return, and let someone else have it or let it wait.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "speculativeRationale": "A common first move for exhaustion; no specific study was opened for it in this run.",
+          "firstStep": "Look at the next seven days on your calendar and cross out one thing you can cancel, move or hand off.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "burnout-rest-this-week-book-days",
+          "title": "Book the paid days off you already have",
+          "whatChanges": "In a 2023 Pew survey, 46% of American workers with paid time off took less than they were offered, and about half of those said they worried about falling behind. Days you've earned and don't use don't protect anyone, including your team.",
+          "who": "You",
+          "exemplarRef": "pew-pto",
+          "speculative": false,
+          "firstStep": "Check how many paid days you have left this year and request one of them for the next two weeks.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "burnout-rest-this-week-tell-someone",
+          "title": "Tell one person how tired you really are",
+          "whatChanges": "Saying out loud that you've got nothing left takes some of the weight off, and it lets the people close to you pick up a few things before you ask. Pick the person who would most want to know.",
+          "who": "You and someone you trust",
+          "exemplarRef": null,
+          "speculative": true,
+          "speculativeRationale": "Ordinary advice about leaning on people close to you; no source was opened for it in this run.",
+          "firstStep": "Send one honest text to a friend or family member saying how worn out you've been.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "burnout-rest-this-week-pto-nudge",
+          "title": "Reminders to use your paid days off",
+          "whatChanges": "Keeps a private count of the paid days you have left and nudges you to book one before the year runs out. In a 2023 Pew survey, many workers with paid time off left some unused because they worried about falling behind.",
+          "who": "You and It",
+          "exemplarRef": "pew-pto",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and put a reminder in your calendar for the first of next month to check your paid days.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175357",
+        "locator": "cards.json#burnout-rest-this-week",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "burnout-job-not-me": {
+      "title": "Knowing my burnout comes from the job, not from me",
+      "line": "I stop blaming myself and start looking clearly at what my work is asking of me.",
+      "lens": "culture",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "burnout-job-not-me-who",
+          "title": "Read the official definition of burnout",
+          "whatChanges": "Since 2019, the World Health Organization has described burnout as the result of chronic workplace stress that hasn't been managed, with three signs: exhaustion, feeling distant or cynical about your job, and feeling less effective at it. The organization treats burnout as a work problem rather than a personal illness, which is worth remembering on the days you blame yourself.",
+          "who": "You",
+          "exemplarRef": "who-burnout",
+          "speculative": false,
+          "firstStep": "Read the three signs and write down which of them you recognize in yourself.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "learn"
+        },
+        {
+          "id": "burnout-job-not-me-six-areas",
+          "title": "Find which part of your job is wearing you down",
+          "whatChanges": "Christina Maslach, the psychologist who has studied burnout for decades, traces it to six places where people and jobs don't fit: workload, control, reward, community, fairness and values. Knowing which one is wrong tells you what to ask for, because more rest won't fix an unfair process.",
+          "who": "You",
+          "exemplarRef": "maslach-six-areas",
+          "speculative": false,
+          "firstStep": "Rank those six areas from the one that drains you most to the one that's fine, and circle the top one.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "burnout-job-not-me-follow-up",
+          "title": "Follow-up questions about what's wearing you down",
+          "whatChanges": "Asks you a few short questions over the next weeks about workload, control, reward, community, fairness and values, the six areas Christina Maslach's research links to burnout, then narrows the suggestions to the area that's actually off.",
+          "who": "You and It",
+          "exemplarRef": "maslach-six-areas",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and note one moment this week when work drained you and what was happening.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175357",
+        "locator": "cards.json#burnout-job-not-me",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "burnout-someone-tonight": {
+      "title": "Knowing who to call tonight if it's too much",
+      "line": "If tonight gets very dark, I know exactly who I can call or text.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "burnout-someone-tonight-988",
+          "title": "Call or text 988 if you feel hopeless or unsafe",
+          "whatChanges": "The 988 Suicide and Crisis Lifeline is free, open around the clock, and you can call, text or chat. You don't have to be thinking about suicide to use it; people call when they're overwhelmed and need to talk to someone right away.",
+          "who": "You and a trained counselor",
+          "exemplarRef": "lifeline-988",
+          "speculative": false,
+          "firstStep": "Save 988 in your phone's contacts now, so it's there if you ever need it.",
+          "firstStepMinutes": 2,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "burnout-someone-tonight-eap",
+          "title": "Use the free counseling your employer already pays for",
+          "whatChanges": "Many workplaces have an employee assistance program. The federal government's version offers free, confidential assessments, short-term counseling and referrals, and your manager doesn't find out you called.",
+          "who": "You and a counselor",
+          "exemplarRef": "eap-opm",
+          "speculative": false,
+          "firstStep": "Search your benefits website or employee handbook for \"employee assistance program\" and write down the phone number.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175357",
+        "locator": "cards.json#burnout-someone-tonight",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "burnout-doctor-and-leave": {
+      "title": "Taking time away to recover, with my job still there",
+      "line": "I take the time I need to recover, knowing my job and health insurance will be there when I'm back.",
+      "lens": "individual",
+      "ambition": "this-year",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "burnout-doctor-and-leave-doctor",
+          "title": "Talk with your doctor about how drained you've been",
+          "whatChanges": "Because the World Health Organization treats burnout as a work problem rather than a diagnosis, a doctor's visit is a chance to check whether something else is adding to the exhaustion and to talk about whether time off makes sense. Bring a few notes so the appointment isn't spent remembering.",
+          "who": "You and your doctor",
+          "exemplarRef": "who-burnout",
+          "speculative": false,
+          "firstStep": "Write down three things you'd want your doctor to know, like how long this has gone on and how you're sleeping.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "burnout-doctor-and-leave-fmla",
+          "title": "Check whether you qualify for job-protected medical leave",
+          "whatChanges": "The federal Family and Medical Leave Act gives up to 12 weeks of job-protected leave for a serious health condition, and your employer keeps your health insurance going. The leave is unpaid, and you qualify only if your employer has at least 50 people nearby and you've worked there a year and 1,250 hours, though some states offer more.",
+          "who": "You, your doctor and your employer",
+          "exemplarRef": "fmla",
+          "speculative": false,
+          "firstStep": "Look up how many hours you've worked in the past 12 months on your pay stubs or payroll site.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "burnout-doctor-and-leave-which-help",
+          "title": "Figure out which kind of help to ask for first",
+          "whatChanges": "Asks a few plain questions and suggests which to try first, without pretending to diagnose you. Counseling, a doctor's visit, time off and a change at work solve different problems, and your employee assistance program's number and a crisis line are always in view.",
+          "who": "You and It",
+          "exemplarRef": "eap-opm",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and list the help you already have through work, like counseling or paid leave.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "burnout-doctor-and-leave-eligibility",
+          "title": "Eligibility check for job-protected time off",
+          "whatChanges": "Asks how big your employer is, how long you've worked there and how many hours, then shows whether the Family and Medical Leave Act covers you and whether your state adds more leave on top.",
+          "who": "You and It",
+          "exemplarRef": "fmla",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and ask your human resources office whether your workplace is covered by federal medical leave rules.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175357",
+        "locator": "cards.json#burnout-doctor-and-leave",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "burnout-see-it-change": {
+      "title": "Seeing whether I'm wearing down or recovering",
+      "line": "I can see, month by month, whether my work is draining me or I'm getting some of myself back.",
+      "lens": "technology",
+      "ambition": "this-year",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "burnout-see-it-change-score",
+          "title": "Measure how burned out you are, and from what",
+          "whatChanges": "Lets you answer the Copenhagen Burnout Inventory privately on your phone and keeps your answers there, so you can see whether the job is the main drain. Researchers at Denmark's National Institute of Occupational Health published the inventory in 2004: 19 questions that score exhaustion in general, from work and from working with clients separately.",
+          "who": "You and It",
+          "exemplarRef": "copenhagen-burnout-inventory",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and tonight rate from one to ten how drained you felt today.",
+          "firstStepMinutes": 2,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "burnout-see-it-change-track",
+          "title": "Track which weeks drain you most, and why",
+          "whatChanges": "Asks once a week which of Christina Maslach's six areas, such as workload or fairness, weighed on you most, and shows you the pattern after a couple of months. A pattern is much easier to bring to a manager than a feeling.",
+          "who": "You and It",
+          "exemplarRef": "maslach-six-areas",
+          "speculative": false,
+          "firstStep": "Write down the hardest part of this past week in one sentence and date it.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "burnout-see-it-change-summary",
+          "title": "Bring a one-page summary to a doctor or counselor",
+          "whatChanges": "Turns your check-ins into a short summary of how long this has gone on and what makes it worse, so a doctor or employee assistance counselor can start with facts instead of a blank page.",
+          "who": "You and It",
+          "exemplarRef": "eap-opm",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and note the month you first remember feeling this tired.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175357",
+        "locator": "cards.json#burnout-see-it-change",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "burnout-talk-to-manager": {
+      "title": "A workload I can actually finish, agreed with my manager",
+      "line": "My manager knows what I can't keep doing, and we've agreed on what comes off my plate.",
+      "lens": "relational",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "burnout-talk-to-manager-list",
+          "title": "Bring your manager a list of what to drop or delay",
+          "whatChanges": "Christina Maslach describes workload burnout as demands that outrun the time, people and tools you have. A manager can say yes to a specific list far more easily than to a general complaint about being busy.",
+          "who": "You and your manager",
+          "exemplarRef": "maslach-six-areas",
+          "speculative": false,
+          "firstStep": "Write down everything on your plate and mark the three things you'd drop or delay first.",
+          "firstStepMinutes": 20,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "burnout-talk-to-manager-time-off",
+          "title": "Ask your manager to plan time off for the whole team",
+          "whatChanges": "Many people skip vacation because they feel bad about coworkers covering for them; a 2023 Pew survey found 43% of workers who leave time unused say so. When a manager plans everyone's days off and who covers what, nobody has to feel like they're abandoning the team.",
+          "who": "You and your manager",
+          "exemplarRef": "pew-pto",
+          "speculative": false,
+          "firstStep": "Suggest at your next one-on-one that the team pick vacation dates for the next six months together.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "burnout-talk-to-manager-coaching",
+          "title": "Coaching for a workload talk with your manager",
+          "whatChanges": "Helps you turn your list into a short, specific ask, rehearses what your manager might say back, and checks in a week later on what actually came off your plate.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "speculativeRationale": "Guided-practice pattern from founder feedback; no coaching tool or study was opened for it in this run.",
+          "firstStep": "Tell us you'd use this, and write the one sentence you'd open with when you talk to your manager.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175357",
+        "locator": "cards.json#burnout-talk-to-manager",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "burnout-coworkers-together": {
+      "title": "Raising workload problems together with my coworkers",
+      "line": "My coworkers and I ask for changes as a group, so nobody has to stick their neck out alone.",
+      "lens": "community",
+      "ambition": "together",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "burnout-coworkers-together-group",
+          "title": "Raise the workload problem as a group",
+          "whatChanges": "Under the National Labor Relations Act, private-sector employees who act together about working conditions, such as a joint letter about staffing, are protected from retaliation even without a union. A request signed by six people lands differently from one person's complaint.",
+          "who": "You and your coworkers",
+          "exemplarRef": "nlrb-concerted",
+          "speculative": false,
+          "firstStep": "Ask two coworkers you trust whether the workload is wearing on them too.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "project"
+        },
+        {
+          "id": "burnout-coworkers-together-union",
+          "title": "Bargain for shorter hours through your union",
+          "whatChanges": "In Iceland, unions took the results of the 2015 to 2019 shorter-week trials into contract talks, and 86% of the country's workers now have shorter hours or the right to them. If you have a union, your contract is the place where workload and hours get decided.",
+          "who": "You and your union",
+          "exemplarRef": "iceland-trials",
+          "speculative": false,
+          "firstStep": "Find out when your union contract next comes up for negotiation and who your steward is.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "group"
+        },
+        {
+          "id": "burnout-coworkers-together-survey",
+          "title": "Gather your coworkers' workload numbers privately",
+          "whatChanges": "Lets coworkers report hours and unfinished work anonymously and adds them up, so you walk into a meeting with numbers instead of stories, without anyone's name attached.",
+          "who": "You, your coworkers and It",
+          "exemplarRef": "nlrb-concerted",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and jot down how many hours you actually worked last week.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175357",
+        "locator": "cards.json#burnout-coworkers-together",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "burnout-four-day-week": {
+      "title": "A four-day work week at the same pay",
+      "line": "I work four days, get paid for five, and have a whole day each week to recover.",
+      "lens": "market",
+      "ambition": "together",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "burnout-four-day-week-uk-trial",
+          "title": "Propose a six-month four-day week trial where you work",
+          "whatChanges": "In 2022, 61 companies in the United Kingdom cut hours to four days with no pay cut for six months. Seventy-one percent of the staff who answered the surveys reported less burnout, and 56 of the companies kept the shorter week. The companies chose to take part, so your workplace would be its own test.",
+          "who": "You and your employer",
+          "exemplarRef": "uk-four-day-pilot",
+          "speculative": false,
+          "firstStep": "Send the published results of the UK trial to your manager and ask whether they'd consider a trial.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "project"
+        },
+        {
+          "id": "burnout-four-day-week-japan",
+          "title": "Ask for one month of four-day weeks as a first step",
+          "whatChanges": "Microsoft Japan gave staff five Fridays off with full pay in August 2019, and the company said productivity rose 40%. That was one month at one company, measured by the company itself, but a short trial is an easy thing for a skeptical boss to agree to.",
+          "who": "You and your employer",
+          "exemplarRef": "microsoft-japan",
+          "speculative": false,
+          "firstStep": "Write a one-paragraph proposal for a one-month trial, including how you'd measure whether work still gets done.",
+          "firstStepMinutes": 20,
+          "status": "real_now",
+          "kind": "project"
+        },
+        {
+          "id": "burnout-four-day-week-private-count",
+          "title": "Private count of coworkers who want a four-day week",
+          "whatChanges": "Lets you say privately that you'd want a four-day week trial at your workplace, and tells you only once enough coworkers have said the same, so nobody has to raise it alone. In the 2022 trial in the United Kingdom, 56 companies kept the shorter week afterward.",
+          "who": "You, your coworkers and It",
+          "exemplarRef": "uk-four-day-pilot",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and ask one coworker whether they'd want to try a four-day week.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175357",
+        "locator": "cards.json#burnout-four-day-week",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "burnout-shorter-hours-for-all": {
+      "title": "Full-time work that leaves room to rest, for everyone",
+      "line": "In my country, a normal full-time job leaves enough of me for the rest of my life.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "burnout-shorter-hours-for-all-iceland",
+          "title": "Ask candidates whether they'd back a shorter work week at the same pay",
+          "whatChanges": "Between 2015 and 2019, Reykjavik and Iceland's national government moved about 2,500 workers to 35 or 36 hours with no pay cut, and wellbeing improved while most workplaces kept up their service. People disagree about whether this would work in every industry, and business groups often raise the cost, so ask where a candidate stands rather than assuming.",
+          "who": "You",
+          "exemplarRef": "iceland-trials",
+          "speculative": false,
+          "firstStep": "Write one question about a shorter work week at the same pay, and send it to a candidate's campaign or save it for the next town hall.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "burnout-shorter-hours-for-all-reps",
+          "title": "Tell your representatives what you think about shorter hours",
+          "whatChanges": "Looks up your state and federal representatives, shows any bills on work hours or burnout, and helps you write a short note in your own words, for or against.",
+          "who": "You and It",
+          "exemplarRef": "iceland-trials",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and look up who represents you in your state legislature.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175357",
+        "locator": "cards.json#burnout-shorter-hours-for-all",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "burnout-off-after-hours": {
+      "title": "Not having to answer work messages after hours",
+      "line": "When my workday ends, nobody expects me to read email or messages until the next one starts.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "burnout-off-after-hours-australia",
+          "title": "Ask your state legislator for a right to ignore work messages after hours",
+          "whatChanges": "Since August 2024, workers in Australia can refuse to read or answer work contact outside their hours unless refusing would be unreasonable, and disputes go to the national workplace tribunal. The law doesn't ban the messages, and some politicians there have promised to repeal it.",
+          "who": "You",
+          "exemplarRef": "australia-disconnect",
+          "speculative": false,
+          "firstStep": "Look up who represents you in your state legislature and send them two sentences asking whether they'd support a right to disconnect.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "burnout-off-after-hours-phone",
+          "title": "Turn off work notifications when your day ends",
+          "whatChanges": "You don't need a law to stop work apps from lighting up your phone at night. Most phones let you schedule a focus mode that silences chosen apps at a set hour.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "speculativeRationale": "Standard phone settings; no specific product page was opened in this run.",
+          "firstStep": "Set your phone to silence work email and chat apps from the end of your workday until morning.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "burnout-off-after-hours-campaign",
+          "title": "Shared campaign for a right to disconnect in your state",
+          "whatChanges": "Gathers people in your state behind one ask, a law like Australia's that lets workers ignore after-hours messages unless that would be unreasonable, tracks who has signed on, and sends the letter to your state legislators together once enough people have joined.",
+          "who": "You, other workers in your state and It",
+          "exemplarRef": "australia-disconnect",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and ask two coworkers or friends whether they'd sign a letter like this.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175357",
+        "locator": "cards.json#burnout-off-after-hours",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "burnout-caregiver-break": {
+      "title": "Regular breaks from caring for someone I love",
+      "line": "Someone else takes over for a few hours each week, so caring for my family doesn't use up everything I have.",
+      "lens": "relational",
+      "ambition": "this-year",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "burnout-caregiver-break-locator",
+          "title": "Call the federal helpline for caregivers and older adults",
+          "whatChanges": "The Eldercare Locator, run by the federal Administration for Community Living, is a free line at 1-800-677-1116 that connects older adults and their caregivers with local services. Ask specifically about respite care, which means someone trained steps in so you can rest.",
+          "who": "You",
+          "exemplarRef": "eldercare-locator",
+          "speculative": false,
+          "firstStep": "Call or text 1-800-677-1116 and ask what respite care is available in your county.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "burnout-caregiver-break-respite-directory",
+          "title": "Search a directory of respite providers in your state",
+          "whatChanges": "The ARCH National Respite Locator, supported by the federal Administration for Community Living, helps caregivers find respite services in their state and local area. The list isn't complete and providers aren't vetted, so call your state's respite program too.",
+          "who": "You",
+          "exemplarRef": "arch-respite-locator",
+          "speculative": false,
+          "firstStep": "Search the respite locator for your state and save two providers to call.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "burnout-caregiver-break-fmla-family",
+          "title": "Take protected leave to care for a parent, spouse or child",
+          "whatChanges": "The Family and Medical Leave Act also covers time off to care for a parent, spouse or child with a serious health condition, up to 12 weeks a year with your job protected. The leave is unpaid, so check whether your state adds paid family leave.",
+          "who": "You and your employer",
+          "exemplarRef": "fmla",
+          "speculative": false,
+          "firstStep": "Ask your HR department how family leave works at your company and whether it can be taken a few days at a time.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "burnout-caregiver-break-shift-signup",
+          "title": "Shared signup for covering caregiving shifts",
+          "whatChanges": "Lets family, friends and neighbors sign up for a few hours of care each week on one shared calendar and reminds them before their turn, so your breaks don't depend on you asking every time.",
+          "who": "You, the people who help and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "speculativeRationale": "Match-people-to-needs pattern from founder feedback; no shared caregiving calendar was opened in this run.",
+          "firstStep": "Tell us you'd use this, and write down two people who've offered to help and one time each could cover.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175357",
+        "locator": "cards.json#burnout-caregiver-break",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "burnout-health-workers": {
+      "title": "Enough nurses on every shift that the job is doable",
+      "line": "There are enough of us on the floor that I can do the job well and still go home with something left.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "burnout-health-workers-ratios",
+          "title": "Weigh in on whether your state should require minimum nurse staffing",
+          "whatChanges": "California requires minimum nurse-to-patient ratios, and a 2025 study found 40% of nurses there reported high burnout compared with 45% in other states. Nurses' unions push for laws like this, while some hospital groups say fixed ratios are costly and hard to staff, and the research on ratios is mixed overall.",
+          "who": "You and other health workers",
+          "exemplarRef": "ca-ratios-2025",
+          "speculative": false,
+          "firstStep": "Look up whether your state legislature has a nurse staffing bill this session, and read what supporters and opponents say.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "burnout-health-workers-breen",
+          "title": "Ask Congress to keep funding programs against health worker burnout",
+          "whatChanges": "The Dr. Lorna Breen Health Care Provider Protection Act, signed in 2022, funds hospital and training programs that address burnout among doctors, nurses and other health workers. The law is named for an emergency doctor in New York City who died by suicide in 2020, and its grants need Congress to renew them.",
+          "who": "You and your members of Congress",
+          "exemplarRef": "lorna-breen-act",
+          "speculative": false,
+          "firstStep": "Search congress.gov for the Lorna Breen act to see whether its reauthorization has passed.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "burnout-health-workers-union-staffing",
+          "title": "Track staffing on your unit with coworkers",
+          "whatChanges": "Nurses' unions have used the California ratio research to push for staffing rules elsewhere. Writing down the number of patients per nurse on each shift gives you and your coworkers something specific to bring to management or a legislator.",
+          "who": "You and your coworkers",
+          "exemplarRef": "ca-ratios-2010",
+          "speculative": false,
+          "firstStep": "Start a simple log with the date, shift and number of patients you had today.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "project"
+        },
+        {
+          "id": "burnout-health-workers-staffing-log",
+          "title": "Shared staffing log for your unit",
+          "whatChanges": "Lets nurses on a unit record the number of patients per nurse each shift, adds the entries up by month without names attached, and turns them into a one-page summary you can bring to management or a state legislator.",
+          "who": "You, your coworkers and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "speculativeRationale": "Shared-reporting pattern from founder feedback; no staffing-log tool was opened in this run.",
+          "firstStep": "Tell us you'd use this, and write down how many patients you had on your last shift.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175357",
+        "locator": "cards.json#burnout-health-workers",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "burnout-workplace-plans-rest": {
+      "title": "An employer that plans workloads and time off",
+      "line": "My employer treats reasonable workloads and time off as part of the job, not as my problem to solve alone.",
+      "lens": "market",
+      "ambition": "together",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "burnout-workplace-plans-rest-framework",
+          "title": "Share the federal workplace well-being checklist with human resources",
+          "whatChanges": "In October 2022, Surgeon General Vivek Murthy published a framework with five things employers owe workers, including making sure people are well rested and have paid leave. A government document is a useful, neutral thing to bring to human resources when you'd rather not make the case on your own.",
+          "who": "You and your employer",
+          "exemplarRef": "surgeon-general-framework",
+          "speculative": false,
+          "firstStep": "Find the Surgeon General's workplace framework online and highlight the parts your workplace is missing.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "burnout-workplace-plans-rest-compare",
+          "title": "Compare how employers handle workload and time off before you take a job",
+          "whatChanges": "Collects what workers report about workload, after-hours messages and time off, along with public facts like whether a company has run a four-day week trial, so you can weigh that next to pay when you look for work.",
+          "who": "You and It",
+          "exemplarRef": "uk-four-day-pilot",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and write down the three things about workload you'd ask in your next job interview.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175357",
+        "locator": "cards.json#burnout-workplace-plans-rest",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "burnout-workday-ends": {
+      "title": "A workday that has a clear end",
+      "line": "At a set time I stop, and the work waits until tomorrow.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "burnout-workday-ends-list",
+          "title": "Write tomorrow's list, then close the laptop",
+          "whatChanges": "Unfinished tasks keep running in your head after you stop. Writing down the next three things before you quit gives your mind permission to put them down, because they're safe on paper.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "speculativeRationale": "Common practice for ending the workday; no study was opened for it in this run.",
+          "firstStep": "Before you stop work today, write the first three things you'll do tomorrow on a sticky note.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "habit"
+        },
+        {
+          "id": "burnout-workday-ends-ritual",
+          "title": "Mark the end of work with something small you do every day",
+          "whatChanges": "People working from home lose the commute that used to separate work from the rest of the day. A short walk, a change of clothes or a shower at the same time each day does the same job.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "speculativeRationale": "Everyday advice for remote workers; no source was opened for it in this run.",
+          "firstStep": "Pick one thing you'll do right after work today, like a ten-minute walk, and set an alarm for it.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "habit"
+        },
+        {
+          "id": "burnout-workday-ends-reminder",
+          "title": "End-of-workday reminders",
+          "whatChanges": "Reminds you at the time you choose to stop, prompts you to write tomorrow's first three tasks, and keeps a private count of the days you stopped on time.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "speculativeRationale": "Tracking-and-nudges pattern from founder feedback; no reminder app was opened in this run.",
+          "firstStep": "Tell us you'd use this, and set a daily alarm for the time you want to stop work.",
+          "firstStepMinutes": 2,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-175357",
+        "locator": "cards.json#burnout-workday-ends",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    }
+  }
+}

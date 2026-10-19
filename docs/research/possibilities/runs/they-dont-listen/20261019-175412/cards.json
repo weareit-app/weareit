@@ -1,0 +1,732 @@
+{
+  "schemaVersion": 1,
+  "painId": "they-dont-listen",
+  "runId": "20261019-175412",
+  "cards": {
+    "listen-know-who": {
+      "title": "Knowing exactly who represents me, from city hall to Congress",
+      "line": "I know the names of the people who represent me and how to reach each of their offices.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "listen-know-who-house",
+          "title": "Look up your representative in Congress by ZIP code",
+          "whatChanges": "The House of Representatives has a lookup on house.gov that matches your ZIP code to your district and links to your member’s contact page. If your ZIP code crosses two districts, the page asks for your street address, so have that handy.",
+          "who": "You",
+          "exemplarRef": "house-rep-lookup",
+          "speculative": false,
+          "firstStep": "Enter your ZIP code on house.gov’s Find Your Representative page and save the office phone number in your contacts.",
+          "firstStepMinutes": 5,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "listen-know-who-local",
+          "title": "Find your state lawmakers, mayor and county officials too",
+          "whatChanges": "Many decisions that shape your street, like zoning, policing and school budgets, are made by people whose names most of us never learn. The federal USAGov site links to lookups for governors, state legislators, mayors and county officials in one place.",
+          "who": "You",
+          "exemplarRef": "usagov-officials",
+          "speculative": false,
+          "firstStep": "Open the elected officials page on USA.gov and write down the names of your state legislators and your mayor.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "listen-know-who-it",
+          "title": "See every official for your address in one list",
+          "whatChanges": "Puts everyone who represents your address on one page, from your city council member to your senators, with each office’s phone number. Free public data from Open States already matches a location to state legislators.",
+          "who": "You and It",
+          "exemplarRef": "open-states",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this.",
+          "firstStepMinutes": 1,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "writerNotes": "Basics sweep: who represents me. Lookup tools are the obvious first step; It idea combines them.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175412",
+        "locator": "cards.json#listen-know-who",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "listen-get-answer": {
+      "title": "Getting a real answer from my representative’s office",
+      "line": "When I contact my representative, a staff member reads what I wrote and I hear back.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "listen-get-answer-personal",
+          "title": "Write a short personal message instead of a form letter",
+          "whatChanges": "In surveys by the Congressional Management Foundation, 92% of congressional staff said an individual email from a constituent would have some or a lot of influence on a lawmaker who hadn’t decided. Say where you live, the one issue, and what it means for you or your family.",
+          "who": "You",
+          "exemplarRef": "cmf-staff-survey",
+          "speculative": false,
+          "firstStep": "Write three sentences: who you are and where you live, the one issue, and how it affects you.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "practice",
+          "featureIdea": "Helps you write a three-sentence message to an official saying who you are, the one issue and how it affects you, and flags lines that sound like a form letter."
+        },
+        {
+          "id": "listen-get-answer-call",
+          "title": "Call the office and ask for the staff member on your issue",
+          "whatChanges": "Every office has staff who each cover a set of issues, and asking for that person gets your message to someone who briefs the member. The House switchboard at (202) 224-3121 connects you to any member’s office, and the member’s website lists the office back home.",
+          "who": "You",
+          "exemplarRef": "house-rep-lookup",
+          "speculative": false,
+          "firstStep": "Call the office, give your ZIP code, and ask the name of the staff member who handles your issue.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "listen-get-answer-text",
+          "title": "Send one message to all your officials by text",
+          "whatChanges": "Resistbot is a free service: you text “resist” to 50409, answer a few questions, and your message goes to your senators, representative, governor, state legislators and mayor. Free messages go by email, and postal mail or fax costs extra.",
+          "who": "You",
+          "exemplarRef": "resistbot",
+          "speculative": false,
+          "firstStep": "Text “resist” to 50409 and send the three sentences you wrote.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "listen-get-answer-staff-lookup",
+          "title": "Lookup of the staff member who handles your issue",
+          "whatChanges": "Shows, for each office that represents you, which staff member covers your issue and how to reach them, so your message goes to the person who briefs the official instead of a general inbox.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this.",
+          "firstStepMinutes": 1,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Directory pattern; no public list of issue staff was opened in this run."
+        }
+      ],
+      "writerNotes": "Basics: how to actually reach the office. CMF numbers are staff perceptions; stated as survey answers.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175412",
+        "locator": "cards.json#listen-get-answer",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "listen-face-to-face": {
+      "title": "Meeting my representative’s staff face to face",
+      "line": "Someone in my representative’s office knows my name and what I care about, because we’ve sat down together.",
+      "lens": "relational",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "listen-face-to-face-meet",
+          "title": "Ask for a 15-minute meeting at the local office",
+          "whatChanges": "In a 2015 survey by the Congressional Management Foundation, 94% of congressional staff said an in-person visit from constituents would have some or a lot of influence on a lawmaker who hadn’t made up their mind. You’ll usually meet a staff member rather than the lawmaker, and that staff member is the one who briefs them.",
+          "who": "You and the office scheduler",
+          "exemplarRef": "cmf-staff-survey",
+          "speculative": false,
+          "firstStep": "Email the office’s scheduler asking for 15 minutes with the staff member who covers your issue.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "listen-face-to-face-bring",
+          "title": "Bring two or three neighbors who feel the same way",
+          "whatChanges": "A small group of constituents from the same town shows the issue isn’t just one person’s. Agree beforehand on the one thing you’re asking for, and let each person tell their own story in a minute or two.",
+          "who": "You and a few neighbors",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Ask two people you know who share the concern whether they’d come with you.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "speculativeRationale": "Common advocacy practice; no page in this run measured group visits separately.",
+          "kind": "task"
+        },
+        {
+          "id": "listen-face-to-face-log",
+          "title": "Keep a record of every contact and follow up",
+          "whatChanges": "Keeps a simple log of who you contacted, when and what they said, and reminds you to check back in a few weeks. Staff remember people who come back, and a record makes coming back easy.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Start a note on your phone listing who you contacted this year and what they said.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "speculativeRationale": "Product idea; relationship-building finding appeared only in search summaries of the CMF report.",
+          "kind": "feature"
+        }
+      ],
+      "writerNotes": "Relational lens: relationship with staff. One It idea, speculative.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175412",
+        "locator": "cards.json#listen-face-to-face",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "listen-on-record": {
+      "title": "My comment on the record before decisions are made",
+      "line": "When a rule or a bill that affects me is being decided, my comment is part of the official record.",
+      "lens": "policy",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "listen-on-record-rule",
+          "title": "Comment on a proposed federal rule",
+          "whatChanges": "Federal agencies post proposed rules on regulations.gov, and anyone can comment before the deadline. The Labor Department, for one, says it reads and considers every comment it gets in time. A comment isn’t a vote, so specific facts about how the rule would affect you count more than a simple yes or no.",
+          "who": "You",
+          "exemplarRef": "dol-comment-guide",
+          "speculative": false,
+          "firstStep": "Search regulations.gov for a topic you care about and read the summary of one rule open for comment.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "listen-on-record-bill",
+          "title": "Register your position on a state bill online",
+          "whatChanges": "In Washington State, anyone can look up a bill and sign in online to its committee hearing with a position and a comment, without traveling to the capitol. Check your own state legislature’s site for something similar; the details vary a lot from state to state.",
+          "who": "You",
+          "exemplarRef": "wa-committee-signin",
+          "speculative": false,
+          "firstStep": "Go to your state legislature’s website and search for “testify” or “comment on a bill.”",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "listen-on-record-council",
+          "title": "Speak for two minutes during public comment at a city council meeting",
+          "whatChanges": "Most city councils and school boards set aside time for residents to speak, often two or three minutes each, and the minutes record who spoke. Saying your name, your neighborhood and one specific request is enough.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Find the next city council agenda on your city’s website and see how to sign up to speak.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "speculativeRationale": "Widespread local practice; no city’s rules were opened in this run.",
+          "kind": "task"
+        },
+        {
+          "id": "listen-on-record-comment-rules",
+          "title": "Public comment rules for your city council and school board",
+          "whatChanges": "Shows when your city council and school board take public comment, how to sign up, and how long each speaker gets, gathered from each body’s posted rules so you don’t have to dig through agendas.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this.",
+          "firstStepMinutes": 1,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Directory pattern; no city’s public comment rules were opened in this run."
+        }
+      ],
+      "writerNotes": "Public comment basics at three levels.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175412",
+        "locator": "cards.json#listen-on-record",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "listen-local-votes": {
+      "title": "Voting in the local elections where a few votes decide",
+      "line": "I vote for mayor, city council and school board, not just for president, because those races are often decided by very few people.",
+      "lens": "culture",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "listen-local-votes-date",
+          "title": "Put the next local election date on your calendar",
+          "whatChanges": "A Portland State University study of four cities found mayoral turnout as low as 7% of registered voters, in Charlotte’s primary. When so few people vote, each vote is a much bigger share of the result.",
+          "who": "You",
+          "exemplarRef": "portland-state-turnout",
+          "speculative": false,
+          "firstStep": "Look up your city’s next election date on your county elections website and add it to your calendar.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "listen-local-votes-friend",
+          "title": "Ask a younger friend to vote with you",
+          "whatChanges": "The same study found registered voters 65 and older were about 10 times as likely to vote in those mayoral races as voters 18 to 34. Whoever shows up is who local officials hear from, so a couple of friends who start voting changes who that is.",
+          "who": "You and a friend",
+          "exemplarRef": "portland-state-turnout",
+          "speculative": false,
+          "firstStep": "Text one friend who usually skips local elections and ask if they want to go vote together.",
+          "firstStepMinutes": 2,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "listen-local-votes-reminders",
+          "title": "Reminders for every local election at your address",
+          "whatChanges": "Tracks the city, county and school board elections on your ballot and reminds you a week before each one, with the date and where to vote, so the small races don’t slip by.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this.",
+          "firstStepMinutes": 1,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Tracking and nudges pattern; no election-date data source was opened in this run."
+        }
+      ],
+      "writerNotes": "Culture lens: low local turnout reframes \"not heard\". Four-city study, stated plainly.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175412",
+        "locator": "cards.json#listen-local-votes",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "listen-neighbors-budget": {
+      "title": "Deciding with neighbors how some city money gets spent",
+      "line": "My neighbors and I vote on what gets built in our part of town, and then we see it built.",
+      "lens": "community",
+      "ambition": "together",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "listen-neighbors-budget-vote",
+          "title": "Vote in participatory budgeting where your city offers it",
+          "whatChanges": "In participatory budgeting, residents propose and vote on projects paid for with real public money. In New York City’s 2016–17 round, 102,800 residents voted on how to spend over $40 million across 31 council districts.",
+          "who": "You and your neighbors",
+          "exemplarRef": "nyc-pb",
+          "speculative": false,
+          "firstStep": "Search your city council’s website for “participatory budgeting” to see if your district takes part.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "listen-neighbors-budget-ask",
+          "title": "Ask your council member to let residents decide part of their budget",
+          "whatChanges": "In 2009 Alderman Joe Moore of Chicago’s 49th Ward handed residents about $1 million of his ward’s capital money; more than 1,300 people voted, funding beach showers, heated bus shelters and a dog park. Skeptics point out that small organized groups can win more than their share, so turnout matters.",
+          "who": "Your council member and neighbors",
+          "exemplarRef": "chicago-49th-pb",
+          "speculative": false,
+          "firstStep": "Email your council member’s office and ask whether they’d try participatory budgeting next year.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "listen-neighbors-budget-it",
+          "title": "Get told when your city opens a vote on spending",
+          "whatChanges": "Keeps track of which cities and districts run participatory budgeting and lets you know when proposals or voting open near you. Cities already publish their schedules, but they’re scattered across council websites.",
+          "who": "You and It",
+          "exemplarRef": "nyc-pb",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this.",
+          "firstStepMinutes": 1,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "writerNotes": "Community lens, named examples. Criticism from NPR piece included once.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175412",
+        "locator": "cards.json#listen-neighbors-budget",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "listen-citizens-panel": {
+      "title": "Randomly chosen residents advising on hard questions",
+      "line": "When my state faces a hard question, a group of ordinary residents drawn by lot studies it, and lawmakers have to answer what they recommend.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "listen-citizens-panel-ireland",
+          "title": "Ask candidates whether they’d try a citizens’ assembly chosen at random",
+          "whatChanges": "In 2016 Ireland drew 99 citizens at random, matched to the census by age, gender, class and region, to study the abortion amendment in its constitution. Most of them, 64%, recommended a change, and in the 2018 referendum 66.4% of voters agreed. People still disagree strongly about the outcome; what drew attention elsewhere was the process, and candidates can tell you whether they’d try it.",
+          "who": "You",
+          "exemplarRef": "ireland-assembly",
+          "speculative": false,
+          "firstStep": "Email one candidate for state legislature and ask whether they’d support a randomly chosen citizens’ assembly on one issue in your state.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "listen-citizens-panel-permanent",
+          "title": "Ask lawmakers for a permanent citizens’ panel",
+          "whatChanges": "Since 2019 the German-speaking region of Belgium has had a 24-person citizens’ council, drawn by lot, that picks topics for citizens’ panels. Their advice isn’t binding, but parliament must debate it twice within a year.",
+          "who": "State lawmakers and residents",
+          "exemplarRef": "ostbelgien-council",
+          "speculative": false,
+          "firstStep": "Write your state legislator a short note asking whether they’d support a trial citizens’ panel on one local issue.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "listen-citizens-panel-follow",
+          "title": "Ask what lawmakers must do with the panel’s advice",
+          "whatChanges": "France’s citizens’ convention on climate made 149 recommendations in 2020. The president rejected 3 outright and the climate bill fully included 46, which left many participants disappointed. A panel works best when everyone knows ahead of time what the government owes it.",
+          "who": "You and lawmakers",
+          "exemplarRef": "france-climate-convention",
+          "speculative": false,
+          "firstStep": "In your note, ask what the legislature would be required to do with the panel’s recommendations.",
+          "firstStepMinutes": 5,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "listen-citizens-panel-campaign",
+          "title": "Shared campaign for a citizens’ panel in your state",
+          "whatChanges": "Gathers residents behind one ask to state lawmakers, for a trial citizens’ panel on a single issue, shows how many people nearby have signed on, and sends the ask together once enough have.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this.",
+          "firstStepMinutes": 1,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Campaign organizing pattern; no campaign for a citizens’ panel was opened in this run."
+        }
+      ],
+      "writerNotes": "Contested topic: Ireland example is on abortion; framed as process, outcome disagreement acknowledged.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175412",
+        "locator": "cards.json#listen-citizens-panel",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "listen-vote-counting": {
+      "title": "Knowing the choices for how my state counts votes",
+      "line": "I understand the different ways my state could run elections, and I’ve told my lawmakers which one I prefer.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "listen-vote-counting-ranked",
+          "title": "Tell your state lawmakers whether you want ranked-choice voting",
+          "whatChanges": "Alaska uses open primaries and ranked-choice voting, and in 2024 a measure to repeal both failed by just 664 votes out of 340,110. Supporters say ranking lets you back your first choice without spoiling the race; the repeal campaign plans to try again in 2026. Races that close mean a few messages from voters can matter.",
+          "who": "You",
+          "exemplarRef": "alaska-rcv-repeal",
+          "speculative": false,
+          "firstStep": "Look up whether your state allows, uses or bans ranked-choice voting, so you know what you’re asking your lawmakers to keep or change.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "listen-vote-counting-bans",
+          "title": "Ask a candidate why they’d keep, adopt or ban ranked-choice voting",
+          "whatChanges": "Ten states banned ranked-choice voting between 2022 and 2024, including Florida, Tennessee, Kentucky and Idaho, and kept the familiar ballot where you pick one candidate. People who care about being heard land on both sides, so asking a candidate for their reasons tells you where they stand and helps you make up your own mind.",
+          "who": "You",
+          "exemplarRef": "rcv-state-bans",
+          "speculative": false,
+          "firstStep": "Email one candidate for state legislature and ask whether they’d keep, adopt or ban ranked-choice voting, and why.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "listen-vote-counting-it",
+          "title": "See how your state runs elections and what changes are proposed",
+          "whatChanges": "Shows how your state counts primaries and general elections and any bills or ballot measures to change that, with the main arguments on each side. Open States already publishes state bill data that would make tracking the bills feasible.",
+          "who": "You and It",
+          "exemplarRef": "open-states",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this.",
+          "firstStepMinutes": 1,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "writerNotes": "Contested: present both directions; do not assert RCV is better.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175412",
+        "locator": "cards.json#listen-vote-counting",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "listen-track-follow-through": {
+      "title": "Knowing when to speak up and whether anyone acted",
+      "line": "I find out when a decision I care about is coming, I say something in time, and I can see what happened afterward.",
+      "lens": "technology",
+      "ambition": "this-year",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "listen-track-bill",
+          "title": "Get a heads-up before a hearing on a bill you care about",
+          "whatChanges": "Follows the state bills you’ve written about and tells you when one is scheduled for a hearing or a vote, so you know when another message would land. Open States already publishes bill data for every state legislature.",
+          "who": "You and It",
+          "exemplarRef": "open-states",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this.",
+          "firstStepMinutes": 1,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "listen-track-comment",
+          "title": "Hear when public comment opens on issues you follow",
+          "whatChanges": "Watches for federal rules on topics you choose and reminds you before the comment deadline, with the agency’s summary in plain words. Every open federal rule is already posted on regulations.gov, where the Labor Department and others take comments.",
+          "who": "You and It",
+          "exemplarRef": "dol-comment-guide",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this.",
+          "firstStepMinutes": 1,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "listen-track-reply",
+          "title": "See what came of the messages you sent",
+          "whatChanges": "Keeps each message you sent next to any reply and to how the official later voted, so you can see whether you were heard and decide what to do next. That record belongs to you and stays private unless you choose to share it.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Save a copy of the next message you send to an official, with the date.",
+          "firstStepMinutes": 2,
+          "status": "proposed_it_feature",
+          "speculativeRationale": "Product idea; vote records exist publicly but no specific source for matching them was opened in this run.",
+          "kind": "feature"
+        }
+      ],
+      "writerNotes": "It-led card. Privacy invariant: personal contact history stays private.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175412",
+        "locator": "cards.json#listen-track-follow-through",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "listen-common-ground": {
+      "title": "Public input that shows where people actually agree",
+      "line": "When my city asks for input, the process shows what most of us agree on instead of just who shouts loudest.",
+      "lens": "technology",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "listen-common-ground-taiwan",
+          "title": "Suggest an online consultation that looks for agreement",
+          "whatChanges": "In 2015 about 3,000 people in Taiwan used a tool called Pol.is over four weeks to argue about ride-hailing; instead of replies, people voted on short statements, and the ones both sides agreed on shaped the talks. In 2016 the government agreed to adopt those points, though the dispute over Uber didn’t go away.",
+          "who": "Your city or state and residents",
+          "exemplarRef": "vtaiwan-uber",
+          "speculative": false,
+          "firstStep": "Send the Taiwan story to your council member’s office with one local issue you think could use it.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "task"
+        },
+        {
+          "id": "listen-common-ground-it",
+          "title": "Find out what your neighbors agree on before a meeting",
+          "whatChanges": "Runs a short poll for your neighborhood where people vote on statements, the way Pol.is does, and shows which ones most people back. Bringing that to a council meeting carries more weight than one person’s view.",
+          "who": "You, neighbors and It",
+          "exemplarRef": "vtaiwan-uber",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this.",
+          "firstStepMinutes": 1,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "writerNotes": "Technology lens; contested framing avoided; Taiwan limits stated once.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175412",
+        "locator": "cards.json#listen-common-ground",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "listen-town-hall": {
+      "title": "Hearing my representative answer my question in person",
+      "line": "My representative has answered my question in front of me and my neighbors, so I know where they stand.",
+      "lens": "community",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "listen-town-hall-find",
+          "title": "Find your representative’s next public town hall",
+          "whatChanges": "Members of Congress usually post their public events on their own websites. A volunteer list called Town Hall Project once tracked these events across the country, but its old web address now leads to an unrelated site, so go straight to your member’s page.",
+          "who": "You",
+          "exemplarRef": "town-hall-project",
+          "speculative": false,
+          "firstStep": "Open your representative’s website and look for an events or town hall page.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "listen-town-hall-question",
+          "title": "Write your question in one sentence ahead of time",
+          "whatChanges": "In the August 2013 recess alone, LegiStorm counted more than 900 town hall-style events, so the weeks Congress is out of session have been a good time to watch. Town halls move quickly, and a short question about one vote or bill is harder to answer vaguely.",
+          "who": "You",
+          "exemplarRef": "legistorm-town-halls",
+          "speculative": false,
+          "firstStep": "Write one question, under 25 words, about a specific bill or vote.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "practice",
+          "featureIdea": "Helps you cut a question for an official down to one sentence under 25 words about a specific bill or vote, then asks afterward what answer you got."
+        },
+        {
+          "id": "listen-town-hall-calendar",
+          "title": "Calendar of town halls for everyone who represents you",
+          "whatChanges": "Gathers public events from each of your officials’ websites into one calendar and lets you know when one is near you. Volunteers at Town Hall Project once kept a list like this for members of Congress, but the project appears to have stopped.",
+          "who": "You and It",
+          "exemplarRef": "town-hall-project",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this.",
+          "firstStepMinutes": 1,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "writerNotes": "Town Hall Project founders progressive; list is for everyone. Kept factual.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175412",
+        "locator": "cards.json#listen-town-hall",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "listen-testify": {
+      "title": "Testifying at a hearing on a bill that affects me",
+      "line": "I’ve told a committee of lawmakers, in my own words, how a bill would change my life.",
+      "lens": "policy",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "listen-testify-signup",
+          "title": "Sign up to testify at a state committee hearing",
+          "whatChanges": "Committee hearings are where state bills get changed, and many legislatures let residents sign up to speak. Washington State lets you sign up online and choose to testify or simply register your position.",
+          "who": "You",
+          "exemplarRef": "wa-committee-signin",
+          "speculative": false,
+          "firstStep": "Find one bill on your issue in your state legislature and look up when its committee hearing is.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "listen-testify-find",
+          "title": "Find the bills in your state that touch your issue",
+          "whatChanges": "Open States collects bills from every state legislature in one searchable place, so you can see what’s been filed on your issue this year without knowing bill numbers.",
+          "who": "You",
+          "exemplarRef": "open-states",
+          "speculative": false,
+          "firstStep": "Search Open States for your state and one keyword, like “rent” or “school funding.”",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "listen-testify-prepare",
+          "title": "Help preparing testimony for a hearing",
+          "whatChanges": "Helps you turn your story into two minutes of testimony on one bill, lets you practice it out loud, and checks in after the hearing on how it went and what to do next.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this.",
+          "firstStepMinutes": 1,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Guided practice pattern; no testimony coaching tool was opened in this run."
+        }
+      ],
+      "writerNotes": "This-year policy card; complements public comment card.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175412",
+        "locator": "cards.json#listen-testify",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "listen-shared-voice": {
+      "title": "Neighbors who go to city hall together",
+      "line": "When something in our neighborhood needs to change, a few of us show up together, and the council hears from all of us.",
+      "lens": "community",
+      "ambition": "together",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "listen-shared-voice-find",
+          "title": "Find neighbors who want the same thing changed",
+          "whatChanges": "Lets people on the same street or in the same neighborhood mark the issue they want fixed, and introduces them to each other once a few people share it. Nobody sees your name until you choose to meet.",
+          "who": "You, neighbors and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this.",
+          "firstStepMinutes": 1,
+          "status": "proposed_it_feature",
+          "speculativeRationale": "Product idea; no neighbor-matching tool was opened in this run.",
+          "kind": "feature"
+        },
+        {
+          "id": "listen-shared-voice-signin",
+          "title": "Register the same position together on one bill",
+          "whatChanges": "In Washington State, each person can sign in online to a committee hearing with their position, so ten neighbors signing in on the same bill show up as ten residents. Agree on the bill and the day, then each person signs in with a sentence in their own words.",
+          "who": "You and neighbors",
+          "exemplarRef": "wa-committee-signin",
+          "speculative": false,
+          "firstStep": "Send two neighbors the bill and hearing date and ask if they’ll sign in too.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "listen-shared-voice-meeting",
+          "title": "Go to a neighborhood budget meeting as a group",
+          "whatChanges": "In one year of participatory budgeting, Chicago’s 49th Ward held nine neighborhood meetings, and about 400 people came to shape the projects later put to a vote. Coming as a group with one prepared idea gives the meeting something concrete to work with.",
+          "who": "You and neighbors",
+          "exemplarRef": "chicago-49th-pb",
+          "speculative": false,
+          "firstStep": "Ask your council member’s office when the next neighborhood meeting on spending is.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        }
+      ],
+      "writerNotes": "It-led community card. \"often sees it on the ballot\" is a mild claim; keep watch.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-175412",
+        "locator": "cards.json#listen-shared-voice",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "finalists": [
+    "nbr-play-street",
+    "nbr-block-party",
+    "nbr-names-next-door",
+    "nbr-matching-grant",
+    "nbr-city-rules"
+  ],
+  "auditSample": [
+    "nbr-out-front",
+    "nbr-welcome-new"
+  ],
+  "seed": 17,
+  "itLedGuaranteed": "nbr-city-rules",
+  "itLedMissing": false,
+  "ranking": [
+    {
+      "cardId": "nbr-play-street",
+      "wins": 42,
+      "meanScore": 4.33
+    },
+    {
+      "cardId": "nbr-block-party",
+      "wins": 39,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "nbr-names-next-door",
+      "wins": 34,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "nbr-matching-grant",
+      "wins": 33,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "nbr-care-public-space",
+      "wins": 30,
+      "meanScore": 4.33
+    },
+    {
+      "cardId": "nbr-book-box",
+      "wins": 29,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "nbr-borrow-tools",
+      "wins": 24,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "nbr-buy-nothing",
+      "wins": 21,
+      "meanScore": 3.5
+    },
+    {
+      "cardId": "nbr-city-rules",
+      "wins": 18,
+      "meanScore": 3.33
+    },
+    {
+      "cardId": "nbr-online-board",
+      "wins": 14,
+      "meanScore": 3.33
+    },
+    {
+      "cardId": "nbr-public-health",
+      "wins": 13,
+      "meanScore": 3.5
+    },
+    {
+      "cardId": "nbr-out-front",
+      "wins": 9,
+      "meanScore": 2.83
+    }
+  ],
+  "excluded": [
+    {
+      "cardId": "nbr-welcome-new",
+      "reason": "honest status failed: FAIL: \"the 2018 liking-gap studies suggest they'll assume the worst\" stretches studies of conversation partners (not neighbors) into a claim about newcomers, and \"settles that question\" overclaims. | FAIL: Stretches the liking-gap studies to claim new movers \"will assume the worst\" and that a card \"settles that question on day one\", which the exemplar does not support. | FAIL: 'the 2018 liking-gap studies suggest they'll assume the worst' stretches a study of post-conversation liking into a claim about newcomers, and 'settles that question' overstates it."
+    },
+    {
+      "cardId": "nbr-building-dinner",
+      "reason": "honest status failed: FAIL: The origin story (\"gone unnoticed for two months\"), \"mostly at simple potlucks\" and \"Périfan's own advice\" go beyond what the exemplar record supports. | FAIL: Adds specifics the exemplar does not support: \"gone unnoticed for two months\" and \"Périfan's own advice\" about dishes aren't in the verified record. | FAIL: The Périfan origin details ('two months') and 'Périfan's own advice' about dishes are not in the exemplar record, so the copy asserts more than the evidence supports; verify before shipping."
+    }
+  ]
+}

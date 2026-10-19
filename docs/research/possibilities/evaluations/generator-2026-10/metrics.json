@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-19T21:36:26+00:00",
+  "calibration": {
+    "byOrigin": {
+      "old": {
+        "n": 16,
+        "love": 0.188,
+        "keep": 0.25,
+        "kill": 0.562,
+        "loveKeep": 0.438
+      },
+      "new": {
+        "n": 24,
+        "love": 1.0,
+        "keep": 0.0,
+        "kill": 0.0,
+        "loveKeep": 1.0
+      }
+    },
+    "reviewMinutes": 20.7,
+    "newMinusOldLoveKeep": 0.562
+  },
+  "audit": {
+    "freshFinalists": {
+      "n": 40,
+      "love": 0.925,
+      "keep": 0.075,
+      "kill": 0.0,
+      "loveKeep": 1.0
+    },
+    "reviewMinutes": 47.5
+  },
+  "agreement": {
+    "pains": 8,
+    "top3HitRate": 1.0,
+    "founderKillsAmongJudgeTop3": 0,
+    "heldOutJudgeTop3Rated": 11
+  },
+  "cost": {
+    "runs": 36,
+    "medianMinutes": 3.5,
+    "minutesFor125": 444,
+    "medianPages": 10.5,
+    "medianTokens": null,
+    "tokensFor125": null
+  },
+  "gate": {
+    "result": "scale-up",
+    "checks": {
+      "newLoveKeep>=0.50": true,
+      "newLove>=0.15": true,
+      "freshFinalistLoveKeep>=0.50": true,
+      "judgeTop3Agreement>=0.80": true
+    },
+    "failing": []
+  },
+  "notes": [
+    "Origin may be guessable in the blind round: old items have no named example.",
+    "Cost is approximate: wall-clock and any token counts the agent environment exposed."
+  ]
+}

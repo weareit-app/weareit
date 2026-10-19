@@ -1,0 +1,89 @@
+{
+  "finalists": [
+    "news-paid-documenter",
+    "news-state-funds-reporters",
+    "news-reporter-in-county",
+    "news-answers-by-text",
+    "news-neighbors-share-coverage"
+  ],
+  "auditSample": [
+    "news-watch-from-home",
+    "news-who-decides"
+  ],
+  "seed": 17,
+  "itLedGuaranteed": "news-neighbors-share-coverage",
+  "itLedMissing": false,
+  "ranking": [
+    {
+      "cardId": "news-paid-documenter",
+      "wins": 42,
+      "meanScore": 4.67
+    },
+    {
+      "cardId": "news-state-funds-reporters",
+      "wins": 38,
+      "meanScore": 4.33
+    },
+    {
+      "cardId": "news-reporter-in-county",
+      "wins": 34,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "news-answers-by-text",
+      "wins": 31,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "news-neighbors-forum",
+      "wins": 31,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "news-cover-every-meeting",
+      "wins": 28,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "news-one-trusted-source",
+      "wins": 25,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "news-neighbors-share-coverage",
+      "wins": 21,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "news-keep-notices-public",
+      "wins": 20,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "news-public-notices",
+      "wins": 14,
+      "meanScore": 3.33
+    },
+    {
+      "cardId": "news-agendas-in-inbox",
+      "wins": 13,
+      "meanScore": 3.17
+    },
+    {
+      "cardId": "news-who-decides",
+      "wins": 7,
+      "meanScore": 2.83
+    },
+    {
+      "cardId": "news-week-ahead",
+      "wins": 6,
+      "meanScore": 2.83
+    },
+    {
+      "cardId": "news-watch-from-home",
+      "wins": 5,
+      "meanScore": 2.67
+    }
+  ],
+  "excluded": []
+}

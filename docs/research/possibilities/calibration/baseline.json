@@ -1,0 +1,438 @@
+{
+  "schemaVersion": 1,
+  "note": "16 old cards transcribed verbatim from the October founder-review packet: each shortlisted future paired with that pain’s two listed fixes. Not improved. The founder’s earlier reaction to this set was \"super boring and mediocre\"; that is context, not a rating.",
+  "cards": {
+    "old-poor-sleep-1": {
+      "painId": "poor-sleep",
+      "title": "Rested",
+      "line": "I wake up rested and ready.",
+      "scene": "",
+      "fixes": [
+        {
+          "id": "fx-sleep-evaluation",
+          "title": "Find sleep care that fits",
+          "whatChanges": "Get help to work out why sleep is hard and what care may fit.",
+          "statusNote": "One-time action · person and suitable provider. MVP draft."
+        },
+        {
+          "id": "fx-sleep-coordinate",
+          "title": "Share the load to protect rest",
+          "whatChanges": "Help people agree who covers which duties so each has time to rest.",
+          "statusNote": "It capability · proposed, not built. People must choose to share duties."
+        }
+      ],
+      "provenance": {
+        "sourceId": "founder-review-2026-10",
+        "locator": ".specify/possibilities/evaluations/selected-pains-2026-10/founder-review.md#sleep (fu-sleep-rested)",
+        "evidenceType": "prior_packet",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "reviewed"
+      }
+    },
+    "old-poor-sleep-2": {
+      "painId": "poor-sleep",
+      "title": "Room for rest",
+      "line": "I get enough rest and still have time for the people and things I care about.",
+      "scene": "",
+      "fixes": [
+        {
+          "id": "fx-sleep-evaluation",
+          "title": "Find sleep care that fits",
+          "whatChanges": "Get help to work out why sleep is hard and what care may fit.",
+          "statusNote": "One-time action · person and suitable provider. MVP draft."
+        },
+        {
+          "id": "fx-sleep-coordinate",
+          "title": "Share the load to protect rest",
+          "whatChanges": "Help people agree who covers which duties so each has time to rest.",
+          "statusNote": "It capability · proposed, not built. People must choose to share duties."
+        }
+      ],
+      "provenance": {
+        "sourceId": "founder-review-2026-10",
+        "locator": ".specify/possibilities/evaluations/selected-pains-2026-10/founder-review.md#sleep (fu-pilot-room-for-rest)",
+        "evidenceType": "prior_packet",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "reviewed"
+      }
+    },
+    "old-broke-1": {
+      "painId": "broke",
+      "title": "Comfortable",
+      "line": "I do not have to worry about money often.",
+      "scene": "",
+      "fixes": [
+        {
+          "id": "fx-broke-repeatable-income",
+          "title": "Earn from a skill again and again",
+          "whatChanges": "Explore whether a skill could bring in money more than once.",
+          "statusNote": "One-time action · person; possible customers or employer. Prior proposal."
+        },
+        {
+          "id": "fx-pilot-shared-income",
+          "title": "Own a source of income together",
+          "whatChanges": "Join or build a business where the people doing the work own a share.",
+          "statusNote": "Group change · willing co-owners. AI proposal."
+        }
+      ],
+      "provenance": {
+        "sourceId": "founder-review-2026-10",
+        "locator": ".specify/possibilities/evaluations/selected-pains-2026-10/founder-review.md#broke (fu-broke-comfortable)",
+        "evidenceType": "prior_packet",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "reviewed"
+      }
+    },
+    "old-broke-2": {
+      "painId": "broke",
+      "title": "Free",
+      "line": "I do not have to work just to get by.",
+      "scene": "",
+      "fixes": [
+        {
+          "id": "fx-broke-repeatable-income",
+          "title": "Earn from a skill again and again",
+          "whatChanges": "Explore whether a skill could bring in money more than once.",
+          "statusNote": "One-time action · person; possible customers or employer. Prior proposal."
+        },
+        {
+          "id": "fx-pilot-shared-income",
+          "title": "Own a source of income together",
+          "whatChanges": "Join or build a business where the people doing the work own a share.",
+          "statusNote": "Group change · willing co-owners. AI proposal."
+        }
+      ],
+      "provenance": {
+        "sourceId": "founder-review-2026-10",
+        "locator": ".specify/possibilities/evaluations/selected-pains-2026-10/founder-review.md#broke (fu-broke-free)",
+        "evidenceType": "prior_packet",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "reviewed"
+      }
+    },
+    "old-procrastination-1": {
+      "painId": "procrastination",
+      "title": "My idea exists",
+      "line": "Something I care about making is real, and I can share it.",
+      "scene": "",
+      "fixes": [
+        {
+          "id": "fx-pilot-small-real-version",
+          "title": "Make a small real version",
+          "whatChanges": "Choose the smallest version of an idea that someone could use, read or try, then make it.",
+          "statusNote": "One-time action · person making it. AI proposal."
+        },
+        {
+          "id": "fx-procrastination-renegotiate",
+          "title": "Change or drop the task",
+          "whatChanges": "Talk about changing the task or not doing it if it does not fit.",
+          "statusNote": "One-time action · person and anyone sharing a commitment. Existing case proposal."
+        }
+      ],
+      "provenance": {
+        "sourceId": "founder-review-2026-10",
+        "locator": ".specify/possibilities/evaluations/selected-pains-2026-10/founder-review.md#procrastination (fu-pilot-idea-made)",
+        "evidenceType": "prior_packet",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "reviewed"
+      }
+    },
+    "old-procrastination-2": {
+      "painId": "procrastination",
+      "title": "Choose what to do",
+      "line": "I work on goals I choose.",
+      "scene": "",
+      "fixes": [
+        {
+          "id": "fx-pilot-small-real-version",
+          "title": "Make a small real version",
+          "whatChanges": "Choose the smallest version of an idea that someone could use, read or try, then make it.",
+          "statusNote": "One-time action · person making it. AI proposal."
+        },
+        {
+          "id": "fx-procrastination-renegotiate",
+          "title": "Change or drop the task",
+          "whatChanges": "Talk about changing the task or not doing it if it does not fit.",
+          "statusNote": "One-time action · person and anyone sharing a commitment. Existing case proposal."
+        }
+      ],
+      "provenance": {
+        "sourceId": "founder-review-2026-10",
+        "locator": ".specify/possibilities/evaluations/selected-pains-2026-10/founder-review.md#procrastination (fu-procrastination-choice)",
+        "evidenceType": "prior_packet",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "reviewed"
+      }
+    },
+    "old-they-dont-listen-1": {
+      "painId": "they-dont-listen",
+      "title": "People hold power",
+      "line": "People affected by a public decision have a real way to change it.",
+      "scene": "",
+      "fixes": [
+        {
+          "id": "fx-pilot-resident-budget",
+          "title": "Let residents decide what gets funded",
+          "whatChanges": "Set aside a real public budget and let residents choose which projects it pays for.",
+          "statusNote": "Group or rule change · residents and the budget holder. AI proposal."
+        },
+        {
+          "id": "fx-pilot-public-vote",
+          "title": "Give residents a real vote",
+          "whatChanges": "Choose residents from across the community and give them a vote that counts on one public issue.",
+          "statusNote": "Group or rule change · residents and the body able to grant the vote. AI proposal."
+        }
+      ],
+      "provenance": {
+        "sourceId": "founder-review-2026-10",
+        "locator": ".specify/possibilities/evaluations/selected-pains-2026-10/founder-review.md#representation (fu-pilot-shared-power)",
+        "evidenceType": "prior_packet",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "reviewed"
+      }
+    },
+    "old-they-dont-listen-2": {
+      "painId": "they-dont-listen",
+      "title": "Our money, our say",
+      "line": "People here decide how part of our shared budget is spent.",
+      "scene": "",
+      "fixes": [
+        {
+          "id": "fx-pilot-resident-budget",
+          "title": "Let residents decide what gets funded",
+          "whatChanges": "Set aside a real public budget and let residents choose which projects it pays for.",
+          "statusNote": "Group or rule change · residents and the budget holder. AI proposal."
+        },
+        {
+          "id": "fx-pilot-public-vote",
+          "title": "Give residents a real vote",
+          "whatChanges": "Choose residents from across the community and give them a vote that counts on one public issue.",
+          "statusNote": "Group or rule change · residents and the body able to grant the vote. AI proposal."
+        }
+      ],
+      "provenance": {
+        "sourceId": "founder-review-2026-10",
+        "locator": ".specify/possibilities/evaluations/selected-pains-2026-10/founder-review.md#representation (fu-pilot-budget-say)",
+        "evidenceType": "prior_packet",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "reviewed"
+      }
+    },
+    "old-dont-know-whats-happening-1": {
+      "painId": "dont-know-whats-happening",
+      "title": "We can pull it off",
+      "line": "People with different pieces of a shared goal can bring them together and make it happen.",
+      "scene": "",
+      "fixes": [
+        {
+          "id": "fx-pilot-find-missing-piece",
+          "title": "Find the missing piece",
+          "whatChanges": "Help a team find who may hold a needed skill, tool, space or source of money, then ask if they want to help.",
+          "statusNote": "It capability · proposed, not built. People control their offers."
+        },
+        {
+          "id": "fx-pilot-share-recurring-work",
+          "title": "Share the jobs that recur",
+          "whatChanges": "Agree how to split recurring jobs, train backups and let people step back.",
+          "statusNote": "Group change · willing group members and the people using its work. AI proposal."
+        }
+      ],
+      "provenance": {
+        "sourceId": "founder-review-2026-10",
+        "locator": ".specify/possibilities/evaluations/selected-pains-2026-10/founder-review.md#coordination (fu-pilot-pull-together)",
+        "evidenceType": "prior_packet",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "reviewed"
+      }
+    },
+    "old-dont-know-whats-happening-2": {
+      "painId": "dont-know-whats-happening",
+      "title": "Help that lasts",
+      "line": "Our shared work keeps going without wearing out the same few people.",
+      "scene": "",
+      "fixes": [
+        {
+          "id": "fx-pilot-find-missing-piece",
+          "title": "Find the missing piece",
+          "whatChanges": "Help a team find who may hold a needed skill, tool, space or source of money, then ask if they want to help.",
+          "statusNote": "It capability · proposed, not built. People control their offers."
+        },
+        {
+          "id": "fx-pilot-share-recurring-work",
+          "title": "Share the jobs that recur",
+          "whatChanges": "Agree how to split recurring jobs, train backups and let people step back.",
+          "statusNote": "Group change · willing group members and the people using its work. AI proposal."
+        }
+      ],
+      "provenance": {
+        "sourceId": "founder-review-2026-10",
+        "locator": ".specify/possibilities/evaluations/selected-pains-2026-10/founder-review.md#coordination (fu-pilot-lasting-help)",
+        "evidenceType": "prior_packet",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "reviewed"
+      }
+    },
+    "old-climate-1": {
+      "painId": "climate",
+      "title": "Life on clean power",
+      "line": "We can heat our homes and get around without burning coal, oil or gas.",
+      "scene": "",
+      "fixes": [
+        {
+          "id": "fx-pilot-owned-clean-power",
+          "title": "Own clean power together",
+          "whatChanges": "Form or join a group that owns a clean power project and agrees who pays and who gains.",
+          "statusNote": "Group change · users, project builders, power providers and funders. AI proposal."
+        },
+        {
+          "id": "fx-pilot-homes-together",
+          "title": "Fix homes street by street",
+          "whatChanges": "Organize home upgrades together, such as insulation, shade or safer cooling, with fair costs for residents.",
+          "statusNote": "Group change · residents, owners, skilled workers and funders. AI proposal."
+        }
+      ],
+      "provenance": {
+        "sourceId": "founder-review-2026-10",
+        "locator": ".specify/possibilities/evaluations/selected-pains-2026-10/founder-review.md#climate-change (fu-pilot-clean-daily-life)",
+        "evidenceType": "prior_packet",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "reviewed"
+      }
+    },
+    "old-climate-2": {
+      "painId": "climate",
+      "title": "Safe through heat and floods",
+      "line": "People can stay safe when heat or floods hit, even if they have little money.",
+      "scene": "",
+      "fixes": [
+        {
+          "id": "fx-pilot-owned-clean-power",
+          "title": "Own clean power together",
+          "whatChanges": "Form or join a group that owns a clean power project and agrees who pays and who gains.",
+          "statusNote": "Group change · users, project builders, power providers and funders. AI proposal."
+        },
+        {
+          "id": "fx-pilot-homes-together",
+          "title": "Fix homes street by street",
+          "whatChanges": "Organize home upgrades together, such as insulation, shade or safer cooling, with fair costs for residents.",
+          "statusNote": "Group change · residents, owners, skilled workers and funders. AI proposal."
+        }
+      ],
+      "provenance": {
+        "sourceId": "founder-review-2026-10",
+        "locator": ".specify/possibilities/evaluations/selected-pains-2026-10/founder-review.md#climate-change (fu-pilot-safe-home)",
+        "evidenceType": "prior_packet",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "reviewed"
+      }
+    },
+    "old-it-all-goes-up-1": {
+      "painId": "it-all-goes-up",
+      "title": "Shared ownership",
+      "line": "The people who do the work own a share and have a say in where the gains go.",
+      "scene": "",
+      "fixes": [
+        {
+          "id": "fx-pilot-shared-income",
+          "title": "Own a source of income together",
+          "whatChanges": "Join or build a business where the people doing the work own a share.",
+          "statusNote": "Group change · willing co-owners. Same fix as under Broke."
+        },
+        {
+          "id": "fx-pilot-income-floor",
+          "title": "Put a floor under income",
+          "whatChanges": "Create a steady income payment so a loss of paid work need not mean losing the basics.",
+          "statusNote": "Group or rule change · public decision-makers, funders and people affected. AI proposal."
+        }
+      ],
+      "provenance": {
+        "sourceId": "founder-review-2026-10",
+        "locator": ".specify/possibilities/evaluations/selected-pains-2026-10/founder-review.md#inequality (fu-pilot-shared-ownership)",
+        "evidenceType": "prior_packet",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "reviewed"
+      }
+    },
+    "old-it-all-goes-up-2": {
+      "painId": "it-all-goes-up",
+      "title": "A secure floor",
+      "line": "People can count on the basics of life even when paid work dries up.",
+      "scene": "",
+      "fixes": [
+        {
+          "id": "fx-pilot-shared-income",
+          "title": "Own a source of income together",
+          "whatChanges": "Join or build a business where the people doing the work own a share.",
+          "statusNote": "Group change · willing co-owners. Same fix as under Broke."
+        },
+        {
+          "id": "fx-pilot-income-floor",
+          "title": "Put a floor under income",
+          "whatChanges": "Create a steady income payment so a loss of paid work need not mean losing the basics.",
+          "statusNote": "Group or rule change · public decision-makers, funders and people affected. AI proposal."
+        }
+      ],
+      "provenance": {
+        "sourceId": "founder-review-2026-10",
+        "locator": ".specify/possibilities/evaluations/selected-pains-2026-10/founder-review.md#inequality (fu-pilot-basic-floor)",
+        "evidenceType": "prior_packet",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "reviewed"
+      }
+    },
+    "old-ai-and-jobs-1": {
+      "painId": "ai-and-jobs",
+      "title": "More time to live",
+      "line": "When AI saves work, people gain free time and share in the gains.",
+      "scene": "",
+      "fixes": [
+        {
+          "id": "fx-pilot-gains-as-time",
+          "title": "Trade saved hours for time off",
+          "whatChanges": "If AI really saves work, agree to use some of the gain for shorter hours while protecting pay.",
+          "statusNote": "Group change · workers and the people controlling hours and pay. AI proposal."
+        },
+        {
+          "id": "fx-pilot-own-tools",
+          "title": "Own the tools together",
+          "whatChanges": "Build or adopt an AI tool owned and governed by the people who use it.",
+          "statusNote": "Group change · willing users, builders, maintainers and funders. AI proposal."
+        }
+      ],
+      "provenance": {
+        "sourceId": "founder-review-2026-10",
+        "locator": ".specify/possibilities/evaluations/selected-pains-2026-10/founder-review.md#ai (fu-pilot-time-from-ai)",
+        "evidenceType": "prior_packet",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "reviewed"
+      }
+    },
+    "old-ai-and-jobs-2": {
+      "painId": "ai-and-jobs",
+      "title": "Tools we control",
+      "line": "We can choose, change or leave the AI tools that shape our work.",
+      "scene": "",
+      "fixes": [
+        {
+          "id": "fx-pilot-gains-as-time",
+          "title": "Trade saved hours for time off",
+          "whatChanges": "If AI really saves work, agree to use some of the gain for shorter hours while protecting pay.",
+          "statusNote": "Group change · workers and the people controlling hours and pay. AI proposal."
+        },
+        {
+          "id": "fx-pilot-own-tools",
+          "title": "Own the tools together",
+          "whatChanges": "Build or adopt an AI tool owned and governed by the people who use it.",
+          "statusNote": "Group change · willing users, builders, maintainers and funders. AI proposal."
+        }
+      ],
+      "provenance": {
+        "sourceId": "founder-review-2026-10",
+        "locator": ".specify/possibilities/evaluations/selected-pains-2026-10/founder-review.md#ai (fu-pilot-control-ai)",
+        "evidenceType": "prior_packet",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "reviewed"
+      }
+    }
+  }
+}

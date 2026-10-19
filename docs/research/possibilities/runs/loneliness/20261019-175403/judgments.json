@@ -1,0 +1,665 @@
+{
+  "schemaVersion": 1,
+  "painId": "loneliness",
+  "runId": "20261019-142005",
+  "judge": {
+    "context": "isolated-consensus",
+    "judges": 3,
+    "files": [
+      "judgments-1.json",
+      "judgments-2.json",
+      "judgments-3.json"
+    ],
+    "at": "2026-10-19T18:33:24+00:00"
+  },
+  "scores": {
+    "lonely-someone-to-talk-to": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"Save 988 in your phone's contacts under a name you'll remember\" takes two minutes and is ready the next bad night. | \"Save 988 in your phone's contacts under a name you'll remember\" takes two minutes and is ready for the next bad night. | \"Save 988 in your phone's contacts under a name you'll remember, like 'Someone to talk to'\" takes two minutes and is ready for the hard night."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"People think of it as a suicide line, but you can also call... when you just need someone to talk to\" reframes a known number. | Reframes 988 as more than a suicide line (\"you can also call when you're... just need someone to talk to\") and adds scheduled Friendship Line calls \"so you don't have to be the one who dials.\" | Reframes 988 beyond suicide (\"you can also call when you're... just need someone to talk to\") and adds \"ask them to call you on a regular schedule.\""
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "988 and the Friendship Line at 888-670-1360 are named precisely, but there is no year or result. | Named services with real numbers (988, \"888-670-1360\") and who qualifies, but no year or result. | Named services with a phone number (\"Friendship Line at 888-670-1360\") but no year or result."
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "That the Friendship Line will \"call you on a regular schedule, so you don't have to be the one who dials\" is news worth repeating. | The Friendship Line calling you on a schedule is the one element most readers wouldn't know. | \"so you don't have to be the one who dials\" is a detail most people don't know exists."
+      },
+      "voice": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "\"under a name you'll remember, like 'Someone to talk to'\" is the gentle, specific tone of a mentor. | Warm and plain (\"under a name you'll remember, like 'Someone to talk to'\"); the third fix's \"Most people are glad to hear from someone\" is a little generic. | \"When the evening gets heavy, I know a real person will pick up and listen\" is warm, plain and unhurried."
+      },
+      "power": {
+        "score": 2,
+        "mean": 2,
+        "reason": "\"Call or text 988 when you need someone right now\" eases the night without changing the conditions behind it. | Mostly coping within unchanged conditions: \"a real person will pick up and listen.\" | Support within unchanged conditions: \"Call or text 988 when you need someone right now.\""
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: 988 and Friendship Line claims match their exemplars, including the age limits; the reconnecting text is labeled real now and claims only \"most people are glad\". | pass: 988 and Friendship Line claims match exemplar records and limits; the reconnect text is plain common advice under real_now. | pass: 988 and Friendship Line described within their stated scope; the speculative reconnect text is offered as common practice."
+      }
+    },
+    "lonely-not-my-fault": {
+      "actionable": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "\"block out one hour for time with someone else\" is a real step but generic and slow to matter. | \"Tell one person you trust that you've been feeling lonely\" is specific and doable, though emotionally harder than it looks. | \"Tell one person you trust that you've been feeling lonely\" is real but emotionally heavy and open-ended."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"put time with people on the calendar the way you would a doctor's appointment\" adds a small twist to familiar advice. | \"Treat connection as part of your health\" with a calendar block gives a familiar idea a useful twist. | \"Put time with people on the calendar the way you would a doctor's appointment\" gives a familiar idea a useful frame."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "\"A 2010 review of 148 studies, covering 308,849 people\" and the 2023 Surgeon General figure give names and numbers. | \"A 2010 review of 148 studies, covering 308,849 people... 50% more likely to be alive\" plus the 2023 Surgeon General figure. | \"A 2010 review of 148 studies, covering 308,849 people... 50% more likely to be alive.\""
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "\"50% more likely to be alive at follow-up\" is striking, but the one-in-two figure is widely heard. | The 50% survival figure and \"about one in two American adults\" are facts a reader would repeat. | \"about one in two American adults\" is a striking but widely reported figure."
+      },
+      "voice": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "\"says something about how our lives are arranged, not about what kind of person you are\" leans on a contrast punchline, and \"Remember how many adults feel this way\" sounds like a leaflet. | Mostly plain, but \"how our lives are arranged, not about what kind of person you are\" is a contrast punchline and \"Remember how many adults feel this way\" reads a bit like a leaflet. | \"Loneliness says something about how our lives are arranged, not about what kind of person you are\" is kind, though close to a contrast line."
+      },
+      "power": {
+        "score": 2,
+        "mean": 2,
+        "reason": "\"Remember how many adults feel this way\" is reassurance inside unchanged conditions. | Reframes shame (\"not my failing\") but leaves conditions unchanged. | Changes how I see myself, not my conditions: \"Remember how many adults feel this way.\""
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The review is framed as \"found that people with stronger social ties were 50% more likely to be alive\", an association rather than a promise. | pass: Figures match exemplars; \"stronger social ties were... more likely to be alive\" is stated as association, though \"a good reason to\" leans slightly causal. | pass: Survival figure reported as a finding at follow-up, not as a promise that one change extends life."
+      }
+    },
+    "lonely-standing-plan": {
+      "actionable": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"suggest the same time every week, like Sunday at 4pm, for a phone call or a walk\" is a five-minute text that sets something in motion. | \"Suggest the same time every week, like Sunday at 4pm\" is a five-minute text that sets up recurring contact. | \"Suggest the same time every week, like Sunday at 4pm, for a phone call or a walk\" is five minutes and self-sustaining."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "\"A plan that repeats on its own means neither of you has to remember to ask\" makes a familiar idea newly meaningful. | \"A plan that repeats on its own means neither of you has to remember to ask\" makes a familiar idea useful. | Familiar advice made useful by \"A plan that repeats on its own means neither of you has to remember to ask.\""
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"The Harvard study that has followed people since 1938\" is named, but the result is thin, with no number. | \"The Harvard study that has followed people since 1938\" is named but has no number or result beyond a general finding. | \"The Harvard study that has followed people since 1938\" is named but has no number or result size."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2,
+        "reason": "\"close relationships kept people happy and healthy more than money or fame\" is a finding many readers have heard. | Close relationships beating money is a widely repeated finding; little here would stop a reader. | \"close relationships kept people happy and healthy more than money or fame\" is well known."
+      },
+      "voice": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "\"Every week I already know when I'll next see or talk to someone who knows me well\" is plain, warm and concrete. | Calm, mentor-like and specific (\"Showing up three or four times usually matters more than the first visit\"). | \"Every week I already know when I'll next see or talk to someone who knows me well\" sounds like a mentor."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"Go to the same place at the same time each week\" changes my own conditions. | Changes my own weekly conditions with a standing plan. | Changes my own routine: \"Set up a recurring call or walk with one friend.\""
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: This passes, but only just: \"kept people happy\" sounds more causal than the exemplar's \"predicted\" and leaves out that the original group was all men. | pass: Borderline: \"kept people happy and healthy\" is more causal than \"predicted\" and omits the all-male sample, but it does not promise a result to the reader. | pass: Harvard finding stated roughly as reported; \"usually matters more\" is mild for common advice, though the all-men sample goes unmentioned."
+      }
+    },
+    "lonely-friendly-errands": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"go at a quiet hour this week, and ask the person at the counter how their day is going\" is concrete and quick. | \"Go at a quiet hour this week, and ask the person at the counter how their day is going\" is concrete and quick. | \"go at a quiet hour this week, and ask the person at the counter how their day is going\" is easy and specific."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"Ask your grocery store to try a no-rush checkout lane\" is an idea few readers would come up with. | Treating errands as a source of contact, and asking a store manager for \"one no-rush lane on weekday mornings,\" is fresh. | A slow \"chat checkout\" for people who like to talk is an idea few readers have heard."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"In 2019 a Dutch supermarket chain, Jumbo, opened its first slow 'chat checkout' in the town of Vlijmen\" gives place, year and planned scale, but no result. | \"In 2019 a Dutch supermarket chain, Jumbo, opened its first slow 'chat checkout' in the town of Vlijmen\" with place and year, but no measured result. | \"In 2019 a Dutch supermarket chain, Jumbo, opened its first slow 'chat checkout' in the town of Vlijmen... and planned hundreds more.\""
+      },
+      "surprise": {
+        "score": 5,
+        "mean": 5,
+        "reason": "A supermarket \"chat checkout\" backed by \"a Dutch health ministry program against loneliness\" is a fact people would repeat. | A supermarket chain building slow checkouts as part of a health ministry program is something I'd tell a friend. | A supermarket lane designed for chatting is something I'd repeat to a friend."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "The copy is mostly warm, but \"the idea has a track record of a store and a government working together\" is clunky. | Plain titles that stand alone (\"Shop where staff have time to talk\"); \"track record\" is slightly off. | Plain and warm, but \"the idea has a track record of a store and a government working together\" leans on selling."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "\"A store manager here can try one lane on slow mornings\" changes how a local business spends staff time. | Asking a store to change a lane changes shared conditions a little, beyond personal coping. | \"Ask your grocery store to try a no-rush checkout lane\" changes a local store, not ownership or policy."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Jumbo is described as rollout news (\"planned hundreds more\"), with no claimed effect on loneliness. | pass: Says Jumbo \"planned hundreds more\" without claiming effects; \"track record\" refers to the partnership, not outcomes. | pass: Rollout stated as plans, with no claim of a measured effect on loneliness."
+      }
+    },
+    "lonely-making-things-together": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Search the shed finder at usmenssheds.org\" and \"Call 211 and ask which local groups need weekly volunteers\" are specific. | \"Search the shed finder at usmenssheds.org\" and \"Call 211 and ask which local groups need weekly volunteers\" are real steps. | \"Search the shed finder at usmenssheds.org\" and \"Call 211 and ask which local groups need weekly volunteers\" are concrete."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"we build or fix things side by side\" reframes friendship as shared work instead of talk. | Side-by-side work (\"we build or fix things side by side\") as a route past small talk is a useful reframing of joining groups. | Side-by-side work as the route to friendship (\"we build or fix things side by side\") is a useful twist."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"started in Australia in the mid-1990s... about 900 of them worldwide\" plus a member in Hopkins, Minnesota. | \"Started in Australia in the mid-1990s... about 900 of them worldwide\" with a Hopkins, Minnesota member. | \"started in Australia in the mid-1990s... about 900 of them worldwide\" plus Hopkins, Minnesota."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "\"the friends he made there stood by him after his wife died\" stays with you. | Men's Sheds will be new to most US readers, but the idea itself is predictable. | Men's Sheds are new to many readers, but the US scarcity is not mentioned."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"somewhere to go each week where people expect me\" is warm, though \"Men's Sheds\" may not land for readers who aren't men. | Warm and specific (\"the friends he made there stood by him after his wife died\"), not salesy. | \"somewhere to go each week where people expect me\" is plain and personal."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "\"Start a workshop group if there isn't one nearby\" builds a lasting community structure. | Starting a shed \"in a borrowed garage\" builds a shared place, beyond personal coping. | \"Start a workshop group if there isn't one nearby\" builds something local."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The second fix covers the sparse US coverage. Flag: the Hopkins widower anecdote is not in the exemplar record and should be checked against the source. | pass: Borderline: the widower anecdote and \"borrowed garage\" go beyond the exemplar summary, and the join fix skips the limit that many US towns have none, but the start-one fix covers that gap. | FAIL: \"One member... said the friends he made there stood by him after his wife died\" and \"lost their work friends\" are not in the exemplar, and the card skips its limit that the US had only about a dozen sheds."
+      }
+    },
+    "lonely-new-friends": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Check whether Timeleft or a similar dinner group runs in your city, and look at the next date\" is quick. | \"Check whether Timeleft or a similar dinner group runs in your city\" takes ten minutes. | \"Check whether Timeleft or a similar dinner group runs in your city, and look at the next date.\""
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"Going more than once gives you a better chance\" adds a useful twist to a known idea. | \"Going more than once gives you a better chance\" adds a useful detail to a known paid service. | Dinner with strangers is known; \"Going more than once gives you a better chance\" is a small useful twist."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"Timeleft... more than 200 cities\" is a company's own figure, with no year or result. | \"Timeleft... more than 200 cities\" is named but gives no result and comes from the company's own figures. | \"Timeleft... more than 200 cities\" is named but gives no year or result, and those are the company's own figures."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "\"a weekly dinner with five people you haven't met\" is one mildly surprising element. | Dinner with strangers and an app listing local groups are predictable from the title. | \"seats you at a weekly dinner with five people you haven't met\" is somewhat novel."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 3.67,
+        "reason": "\"After moving or losing someone, I have a few people nearby I can call friends again\" is plain and tender, but the copy never says Timeleft costs money. | Plain, but \"matched by age and personality\" reads like a product listing and it skips that the service costs money. | Clear and plain, though \"Sign up for a dinner with strangers\" reads a bit like a product pitch."
+      },
+      "power": {
+        "score": 2,
+        "mean": 2.33,
+        "reason": "\"Find regular local groups that fit your schedule\" changes my own conditions. | Buying a seat at a dinner is personal coping. | A paid service within unchanged conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The It idea is written \"It could ask what you enjoy\". \"matched by age and personality\" is not in the exemplar, and the copy leaves out that the service is paid. | pass: The It idea is written \"It could\"; omitting the price is a weakness, not a false claim. | pass: The It idea starts \"It could ask...\" and is labeled proposed; \"matched by age and personality\" goes slightly beyond the exemplar but is minor."
+      }
+    },
+    "lonely-doctor-takes-it-seriously": {
+      "actionable": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"Write one line to bring to your next appointment, like 'I've been feeling isolated and want to find local activities'\" is concrete. | \"Write one line to bring to your next appointment, like 'I've been feeling isolated...'\" is easy and moves the visit. | \"Write one line to bring to your next appointment, like 'I've been feeling isolated and want to find local activities.'\""
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Ask your doctor about local groups, not only medicine\" is a new idea to most US readers. | Asking a doctor for groups rather than pills (social prescribing) is new to most US readers. | \"Ask your doctor about local groups, not only medicine\" turns a doctor visit into a route to people."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"In England... more than 3,300 of them by 2023\" gives place, year and number. | \"Link workers, more than 3,300 of them by 2023\" is named and quantified, though it doesn't show loneliness eased. | \"family doctors can refer patients to 'link workers,' more than 3,300 of them by 2023.\""
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "Doctors referring patients to \"clubs, gardening groups and other activities\" is a precedent people would mention. | England's doctors referring patients to gardening groups is a precedent a reader would repeat. | That an entire health service employs people to connect patients with clubs is news to most Americans."
+      },
+      "voice": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "\"Few US practices offer this yet, so you'll likely need to ask directly\" gives one candid limit, said plainly. | Candid and practical: \"Few US practices offer this yet, so you'll likely need to ask directly.\" | \"Few US practices offer this yet, so you'll likely need to ask directly\" states the limit once, calmly."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"Find local programs for older adults by phone\" connects me to help but leaves the system as it is. | Changes what I get from care, and the Eldercare call extends to \"a parent,\" but doesn't change who decides. | Changes what my care includes, not who decides it."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The copy states the US rarity, claims no outcome, and writes the It note as \"It could take your answers\". | pass: States the US limit plainly; the doctor-note idea is written \"It could.\" | pass: The US gap is stated plainly; the note feature is \"It could take your answers\" and labeled proposed."
+      }
+    },
+    "lonely-know-where-i-stand": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Ask yourself the three questions today and answer each with hardly ever, some of the time or often\" takes five minutes. | \"Ask yourself the three questions today and answer each with hardly ever, some of the time or often\" is concrete. | \"Ask yourself the three questions today and answer each with hardly ever, some of the time or often.\""
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"some people see almost no one, while others have people around but don't feel understood\" reframes what help to look for. | Separating \"some people see almost no one\" from \"have people around but don't feel understood\" is a useful distinction. | \"some people see almost no one, while others have people around but don't feel understood\" is a useful distinction."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"When Japan named a minister in 2021\" is thin, but this is a proposed It feature and isn't penalized. | The national study and Japan's 2021 minister are named, but neither carries a result tied to this fix. | The three-question scale has no year or number in the copy, and Japan's minister is used only for a definitional point."
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "\"the last time you saw people in person and the last time you felt understood\" is an angle worth repeating. | The isolation-versus-loneliness split is the one element that would make a reader pause. | That researchers measure loneliness with just three questions is mildly surprising."
+      },
+      "voice": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "\"without treating the score as a diagnosis\" is careful, but \"Answer three questions researchers use to measure loneliness\" reads a little clinical. | Leans clinical (\"three questions researchers use to measure loneliness\"); the Japan detour is roundabout. | \"Answer three questions researchers use to measure loneliness\" and the Japan aside feel clinical and roundabout."
+      },
+      "power": {
+        "score": 2,
+        "mean": 2,
+        "reason": "\"I know whether I need more people around me\" is self-knowledge, not a change in conditions. | Self-assessment and referral, which is coping within unchanged conditions. | Self-knowledge and referral, not a change in conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Every It idea is \"It could...\", and the score is explicitly not a diagnosis. | FAIL: Uses Japan's minister appointment to back an isolation-versus-loneliness distinction and a matching feature; the exemplar says nothing about that, so the example is decorative support for a speculative idea. | pass: All It ideas use \"It could\" and the card says \"without treating the score as a diagnosis.\""
+      }
+    },
+    "lonely-neighbors-check-in": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Join your local Buy Nothing group and post one thing you no longer need\" takes ten minutes. | \"Join your local Buy Nothing group and post one thing you no longer need\" is a 10-minute step that leads to a doorstep meeting. | \"Join your local Buy Nothing group and post one thing you no longer need\" is quick and gets you meeting people."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Picking up or dropping off a gift is an easy reason to meet the people nearby\" turns a swap group into a way to meet people. | Using a free giveaway as \"an easy reason to meet,\" and noting mail carriers \"already pass the same doors every week,\" turns the obvious into something meaningful. | \"Mail carriers, meal deliverers and utility readers here already pass the same doors every week\" is a fresh angle."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"more than 14 million members\" and \"In 2018 England tried a program with Royal Mail in three towns\" are named and specific. | \"In 2018 England tried a program with Royal Mail in three towns\" and \"more than 14 million members.\" | \"In 2018 England tried a program with Royal Mail in three towns\" and \"more than 14 million members.\""
+      },
+      "surprise": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"postal workers checked on lonely people during their usual rounds\" makes a reader stop. | Postal workers checking on lonely people during their rounds is a precedent worth repeating. | Postal workers checking on lonely people is a precedent I'd repeat."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"A few people on my street know me well enough to notice if I haven't been around\" is clear and warm. | Plain, full sentences with clear titles (\"Set up a simple check-in list on your street\"). | \"A few people on my street know me well enough to notice if I haven't been around\" is plain and personal; the titles are clear."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Ask your town to have regular visitors check on people living alone\" changes who takes responsibility. | Asking the town to have regular visitors check on people changes what local services do. | \"Ask your town to have regular visitors check on people living alone\" changes what local services do."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The Royal Mail pilot is stated as three towns and only \"tried\", and the check-in list is \"It could help\". | pass: The postal pilot is described as tried in three towns with no claimed result; the check-in list is written \"It could.\" | pass: The Royal Mail pilot is stated as tried in three towns, with no claimed result; the It list is proposed."
+      }
+    },
+    "lonely-young-and-old": {
+      "actionable": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "\"Call a nearby retirement home and ask for the activities coordinator\" is specific, though the student-housing email is slow to matter. | \"Call a nearby retirement home and ask for the activities coordinator\" is real, but the main ask, emailing a home about a student program, is slow to matter. | \"Email a nearby retirement home... and ask whether they've considered a student-resident program\" is real but slow to matter; the weekly visit is more immediate."
+      },
+      "nonObvious": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"six university students free housing in exchange for 30 hours a month with residents\" is an idea most people haven't heard of. | Students living free in a retirement home \"in exchange for 30 hours a month with residents\" is an idea most readers haven't considered. | Students living free in a retirement home in exchange for time with residents is not something I'd have thought of."
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "\"In 2015 a retirement home run by Humanitas in Deventer\" gives place, year and concrete terms. | \"In 2015... Humanitas in Deventer... six university students... 30 hours a month\" is named and concrete, though with no result. | \"In 2015 a retirement home run by Humanitas in Deventer... six university students free housing in exchange for 30 hours a month.\""
+      },
+      "surprise": {
+        "score": 5,
+        "mean": 5,
+        "reason": "Free rent for students in exchange for time with residents is a precedent you'd tell a friend about. | Free housing for students in exchange for time with residents is a fact a reader would pass on. | A precedent I'd tell a friend about."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4.33,
+        "reason": "\"teaching computer skills, cooking together and sometimes just talking\" is plain and human, though \"not just a holiday visit\" leans on contrast. | Unhurried and specific (\"teaching computer skills, cooking together and sometimes just talking\"). | \"One student described teaching computer skills, cooking together and sometimes just talking\" says what happened without staging."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Ask a local retirement home about students living there\" changes who gets housing and time. | Changes who lives where and how housing is paid for, not just personal habits. | Changes who lives where and how housing is paid for."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Describes one home and six students as what happened, and claims nothing broader. | pass: Labeled as a change we'd make together and drawn from one home with six students; makes no outcome claim. | pass: Presented as one home in 2015 and labeled a societal proposal; the weekly visit is common practice."
+      }
+    },
+    "lonely-government-plan": {
+      "actionable": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"Look up your governor's contact page and save it\" is weak, though \"Send your city council member one sentence about Seoul's line\" is real. | \"Send your city council member one sentence about Seoul's line\" is real, but \"Look up your governor's contact page and save it\" barely moves anything. | \"Look up your governor's contact page and save it\" is thin; \"Send your city council member one sentence about Seoul's line\" is better."
+      },
+      "nonObvious": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Ask your city for a phone line for loneliness\" is a concrete local version of a policy idea. | A city phone line for loneliness and a named official give the policy route concrete shape. | A city loneliness phone line, and \"Most callers were middle-aged, not elderly.\""
+      },
+      "namedExample": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"Seoul opened a... loneliness line in April 2025... more calls in six weeks than it expected all year\" gives place, date and result. | Seoul's line \"in April 2025... got more calls in six weeks than it expected all year,\" plus the UK minister in 2018. | \"Seoul opened a... loneliness line in April 2025... more calls in six weeks than it expected all year.\""
+      },
+      "surprise": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "\"Most callers were middle-aged, not elderly\" overturns an assumption. | \"Most callers were middle-aged, not elderly\" overturns a common assumption. | A full year's calls in six weeks, mostly from middle-aged callers, would make a reader stop."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Some people prefer that this work stay with families and local groups\" is fair-minded, though \"Send your representatives the same request as others who care\" is roundabout. | Fair and calm (\"Some people prefer that this work stay with families and local groups\"); the middle-aged line is close to a punchline. | Calm, and \"Some people prefer that this work stay with families and local groups\" leaves room, but \"Send your representatives the same request as others who care\" is roundabout."
+      },
+      "power": {
+        "score": 5,
+        "mean": 5,
+        "reason": "\"name someone responsible for loneliness\" changes who owns the problem. | Changes who is responsible and where public money and attention go. | Changes who in government is responsible: \"name someone responsible for loneliness.\""
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The contested policy is offered with the other side named, and Resistbot is \"It could gather\". Flag: \"24-hour\" is not in the Seoul exemplar record. | pass: Contested policy is offered with the other side named; \"24-hour\" and \"calling 120\" go slightly past the exemplar's \"02-120,\" which is a detail error, not an inflated result. | FAIL: \"24-hour loneliness line\" is not supported by the exemplar, and \"calling 120\" drops the 02 area code the exemplar gives."
+      }
+    },
+    "lonely-work-friends": {
+      "actionable": {
+        "score": 5,
+        "mean": 4.67,
+        "reason": "\"Invite two coworkers to lunch on the same day next week\" takes five minutes. | \"Invite two coworkers to lunch on the same day next week\" is quick and specific. | \"Invite two coworkers to lunch on the same day next week and suggest making it a regular thing.\""
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 2.67,
+        "reason": "\"a monthly team lunch on company time\" gives a familiar basic a small useful twist. | \"Start a regular lunch with a few coworkers\" is the first thing anyone would say, with little added. | A standing lunch is a known basic; the employer pledge adds a twist."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"large employers such as the grocery chain Sainsbury's promised to do more\" is named but thin. | \"England's government announced an employer pledge... Sainsbury's\" is named but thin, a pledge with no result. | \"In 2018 England's government announced an employer pledge... Sainsbury's\" gives no number or result."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2,
+        "reason": "\"Start a regular lunch with a few coworkers\" is predictable from the title. | A government asking employers to pledge on loneliness is mildly interesting; the rest is predictable. | Predictable from the title apart from the pledge."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"a few people I eat lunch with and could call if something went wrong\" is plain and clear. | Plain and direct (\"a monthly team lunch on company time\"). | \"a few people I eat lunch with and could call if something went wrong\" is plain and clear."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "\"building time for people to meet into the workweek\" changes who pays for the time. | Asking for meeting time \"on company time\" shifts a little time from the employer. | \"a monthly team lunch on company time\" shifts a little time from the employer."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The pledge is stated as a promise (\"promised to do more\"), not a result. | pass: The pledge is described as a promise, not a result. | pass: The pledge is described as a promise, not a result."
+      }
+    },
+    "lonely-place-to-show-up": {
+      "actionable": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "\"Look up your nearest senior center or library events page and pick one program this week\" is concrete. | \"Look up your nearest senior center or library events page and pick one program\" works; \"Note one empty or underused space\" is slow to matter. | \"Note one empty or underused space near you and who owns or runs it\" is a real step but slow to matter; picking a library program is better."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"A vacant storefront or an unused church hall could do the same job\" gives a known idea a local twist. | A vacant storefront or \"unused church hall\" as a community room is a familiar idea with a useful twist. | \"A vacant storefront or an unused church hall could do the same job\" gives a useful local twist."
+      },
+      "namedExample": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"England's 2018 loneliness strategy promised £1.8 million\" gives year and amount, but no result. | \"England's 2018 loneliness strategy promised £1.8 million\" is named and quantified, though only a commitment. | \"England's 2018 loneliness strategy promised £1.8 million to add community spaces.\""
+      },
+      "surprise": {
+        "score": 3,
+        "mean": 3,
+        "reason": "A government funding community cafés is one surprising element. | A government budgeting for community cafés against loneliness is one surprising element. | A government funding community cafés is mildly surprising; the pound amount is unfamiliar to American readers."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"sit with other people without paying or being invited\" is clear, but \"£1.8 million\" is unfamiliar to US readers. | Plain and clear dream line: \"without paying or being invited.\" | \"sit with other people without paying or being invited\" is concrete and kind."
+      },
+      "power": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Ask your city to turn an empty space into a community room\" changes how shared space is used. | Turning empty space into a free shared room changes how local space is used. | Changes how public space is used and who gets it."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: The funding is described as \"promised\", which matches the exemplar's limit. | pass: Correctly says \"promised,\" matching the exemplar's commitment-not-result limit. | pass: Funding is described as \"promised\", not delivered; the senior center fix is an existing resource."
+      }
+    },
+    "lonely-street-gathering": {
+      "actionable": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"Ask one neighbor whether they'd host the gathering after yours\" is quick and moves things forward. | \"Ask one neighbor whether they'd host the gathering after yours\" is small and moves the plan. | \"Ask one neighbor whether they'd host the gathering after yours\" is quick and specific."
+      },
+      "nonObvious": {
+        "score": 3,
+        "mean": 3,
+        "reason": "\"Take turns hosting so no one burns out\" gives the potluck basic a useful twist. | Rotating hosting \"so the same person isn't always hosting\" turns a basic potluck into something that lasts. | \"Take turns hosting so no one burns out\" adds a useful detail to a familiar potluck."
+      },
+      "namedExample": {
+        "score": 3,
+        "mean": 3,
+        "reason": "There is no example, but this is a clearly labeled It idea, so it gets a neutral score. | No past example, but as a clearly labeled It idea (\"It could help you write a short invitation\") it isn't penalized. | No past example, but this is a labeled \"It could help you\" idea, so not penalized."
+      },
+      "surprise": {
+        "score": 2,
+        "mean": 2,
+        "reason": "\"a monthly potluck or porch hour\" is predictable. | A street potluck is predictable from the title. | Predictable from the title."
+      },
+      "voice": {
+        "score": 4,
+        "mean": 4,
+        "reason": "\"A first gathering can be as small as coffee on one porch\" is warm and low-pressure. | Unhurried and kind: \"A first gathering can be as small as coffee on one porch.\" | \"A first gathering can be as small as coffee on one porch\" is warm and unhurried."
+      },
+      "power": {
+        "score": 3,
+        "mean": 3.33,
+        "reason": "\"the planning is shared\" changes conditions on one street, modestly. | Shared hosting spreads the work of community across neighbors. | Builds a local habit among neighbors."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "pass: Both fixes say \"It could...\" and are labeled proposed It features. | pass: Both fixes are written \"It could\" under proposed_it_feature; \"keeps a monthly gathering going\" is stated a bit firmly but makes no evidence claim. | pass: It features are written \"It could...\" and labeled proposed."
+      }
+    }
+  },
+  "pairwise": [],
+  "consensus": {
+    "lonely-someone-to-talk-to": {
+      "borda": 36,
+      "ranks": [
+        2,
+        4,
+        3
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "lonely-not-my-fault": {
+      "borda": 15,
+      "ranks": [
+        14,
+        8,
+        8
+      ],
+      "spread": 6,
+      "honestVotes": "3/3 pass"
+    },
+    "lonely-standing-plan": {
+      "borda": 19,
+      "ranks": [
+        10,
+        10,
+        6
+      ],
+      "spread": 4,
+      "honestVotes": "3/3 pass"
+    },
+    "lonely-friendly-errands": {
+      "borda": 33,
+      "ranks": [
+        6,
+        2,
+        4
+      ],
+      "spread": 4,
+      "honestVotes": "3/3 pass"
+    },
+    "lonely-making-things-together": {
+      "borda": 25,
+      "ranks": [
+        1,
+        6,
+        13
+      ],
+      "spread": 12,
+      "honestVotes": "2/3 pass"
+    },
+    "lonely-new-friends": {
+      "borda": 10,
+      "ranks": [
+        11,
+        13,
+        11
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "lonely-doctor-takes-it-seriously": {
+      "borda": 38,
+      "ranks": [
+        4,
+        1,
+        2
+      ],
+      "spread": 3,
+      "honestVotes": "3/3 pass"
+    },
+    "lonely-know-where-i-stand": {
+      "borda": 14,
+      "ranks": [
+        7,
+        14,
+        10
+      ],
+      "spread": 7,
+      "honestVotes": "2/3 pass"
+    },
+    "lonely-neighbors-check-in": {
+      "borda": 32,
+      "ranks": [
+        5,
+        3,
+        5
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "lonely-young-and-old": {
+      "borda": 36,
+      "ranks": [
+        3,
+        5,
+        1
+      ],
+      "spread": 4,
+      "honestVotes": "3/3 pass"
+    },
+    "lonely-government-plan": {
+      "borda": 16,
+      "ranks": [
+        8,
+        7,
+        14
+      ],
+      "spread": 7,
+      "honestVotes": "2/3 pass"
+    },
+    "lonely-work-friends": {
+      "borda": 12,
+      "ranks": [
+        12,
+        12,
+        9
+      ],
+      "spread": 3,
+      "honestVotes": "3/3 pass"
+    },
+    "lonely-place-to-show-up": {
+      "borda": 20,
+      "ranks": [
+        9,
+        9,
+        7
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    },
+    "lonely-street-gathering": {
+      "borda": 9,
+      "ranks": [
+        13,
+        11,
+        12
+      ],
+      "spread": 2,
+      "honestVotes": "3/3 pass"
+    }
+  },
+  "seed": 17
+}

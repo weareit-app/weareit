@@ -1,0 +1,89 @@
+{
+  "finalists": [
+    "scroll-parents-wait-together",
+    "scroll-month-without-feed",
+    "scroll-pause-before-opening",
+    "scroll-gray-quiet-phone-at-night",
+    "scroll-contact-legislators"
+  ],
+  "auditSample": [
+    "scroll-see-where-nights-go",
+    "scroll-teen-accounts-quiet-overnight"
+  ],
+  "seed": 17,
+  "itLedGuaranteed": "scroll-contact-legislators",
+  "itLedMissing": false,
+  "ranking": [
+    {
+      "cardId": "scroll-parents-wait-together",
+      "wins": 39,
+      "meanScore": 4.5
+    },
+    {
+      "cardId": "scroll-month-without-feed",
+      "wins": 38,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "scroll-pause-before-opening",
+      "wins": 38,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "scroll-gray-quiet-phone-at-night",
+      "wins": 35,
+      "meanScore": 4
+    },
+    {
+      "cardId": "scroll-school-phone-lockers",
+      "wins": 29,
+      "meanScore": 4
+    },
+    {
+      "cardId": "scroll-apps-not-built-to-hook",
+      "wins": 28,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "scroll-contact-legislators",
+      "wins": 23,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "scroll-companies-answer-for-design",
+      "wins": 21,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "scroll-teen-accounts-quiet-overnight",
+      "wins": 14,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "scroll-see-where-nights-go",
+      "wins": 14,
+      "meanScore": 3.33
+    },
+    {
+      "cardId": "scroll-simpler-phone",
+      "wins": 13,
+      "meanScore": 3.5
+    },
+    {
+      "cardId": "scroll-group-chats-quiet",
+      "wins": 10,
+      "meanScore": 3
+    },
+    {
+      "cardId": "scroll-evenings-together",
+      "wins": 9,
+      "meanScore": 3
+    }
+  ],
+  "excluded": [
+    {
+      "cardId": "scroll-phone-out-of-bedroom",
+      "reason": "honest status failed: FAIL: \"he moved his own phone out of the bedroom\" and \"thinks buzzes and screen light can still wake people up\" attribute claims to a named researcher that the exemplar does not support. | FAIL: \"he moved his own phone out of the bedroom\" and \"thinks buzzes and screen light can still wake people up\" go beyond the exemplar, which only says Nagata extends the advice to grownups. | FAIL: \"he moved his own phone out of the bedroom\" and \"thinks buzzes and screen light can still wake people up\" go beyond the exemplar, which only says Nagata extends the advice to adults."
+    }
+  ]
+}

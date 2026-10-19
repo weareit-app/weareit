@@ -1,0 +1,45 @@
+{
+  "passed": false,
+  "issues": [
+    {
+      "cardId": "listen-citizens-panel",
+      "fixId": "listen-citizens-panel-ireland",
+      "rule": "not-an-action",
+      "detail": "fix title \"Learn how a randomly chosen citizens’ as\" asks the reader to learn; if it gives a usable skill or knowledge make it kind learn, otherwise say what they do with it"
+    },
+    {
+      "cardId": "listen-vote-counting",
+      "fixId": "listen-vote-counting-ranked",
+      "rule": "not-an-action",
+      "detail": "fix title \"Learn how ranked-choice voting works whe\" asks the reader to learn; if it gives a usable skill or knowledge make it kind learn, otherwise say what they do with it"
+    },
+    {
+      "cardId": "listen-vote-counting",
+      "fixId": "listen-vote-counting-bans",
+      "rule": "not-an-action",
+      "detail": "fix title \"Understand why some states chose to ban \" asks the reader to learn; if it gives a usable skill or knowledge make it kind learn, otherwise say what they do with it"
+    },
+    {
+      "cardId": "listen-town-hall",
+      "rule": "dream-not-outcome",
+      "detail": "dream title \"Asking my representative a question in p\" is an action; name the outcome, e.g. \"I get limits on addictive app design\""
+    }
+  ],
+  "coverage": {
+    "lenses": [
+      "community",
+      "culture",
+      "individual",
+      "policy",
+      "relational",
+      "technology"
+    ],
+    "ambitions": [
+      "this-year",
+      "together",
+      "tonight"
+    ]
+  },
+  "cards": 13,
+  "checkedAt": "2026-10-19T21:49:32+00:00"
+}

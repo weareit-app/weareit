@@ -1,0 +1,554 @@
+{
+  "schemaVersion": 1,
+  "painId": "it-all-goes-up",
+  "runId": "20261019-142004",
+  "cards": {
+    "ineq-claim-credits": {
+      "title": "Getting the tax credits my family is already owed",
+      "line": "Each spring I get back the money the tax system sets aside for working families like mine.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "ineq-claim-credits-eitc",
+          "title": "Check whether you qualify for the tax credit for working families",
+          "whatChanges": "The IRS estimates that about one in five people who qualify for the Earned Income Tax Credit never claim it, and the average credit was about $2,541 for tax year 2022. The IRS has a free online EITC Assistant that asks a few questions and tells you whether you qualify.",
+          "who": "You",
+          "exemplarRef": "irs-eitc-unclaimed",
+          "speculative": false,
+          "firstStep": "Open the IRS EITC Assistant and answer its questions using last year's income.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "task"
+        },
+        {
+          "id": "ineq-claim-credits-vita",
+          "title": "Have a trained volunteer do your taxes for free",
+          "whatChanges": "The IRS runs free tax preparation sites for people who generally earn about $70,244 or less, and volunteers there know which credits people tend to miss. Most sites are open from January to April, so book early.",
+          "who": "You and an IRS-certified volunteer",
+          "exemplarRef": "irs-vita",
+          "speculative": false,
+          "firstStep": "Look up the nearest free tax site with the IRS locator tool and write down its hours.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "task"
+        }
+      ],
+      "writerNotes": "Basics sweep: unclaimed credits are the most common, concrete money left on the table.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-142004",
+        "locator": "cards.json#ineq-claim-credits",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "ineq-fair-pay": {
+      "title": "Knowing whether I'm paid fairly for my work",
+      "line": "I know what people doing my job around here earn, and I can ask for a raise with real numbers.",
+      "lens": "relational",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "ineq-fair-pay-talk",
+          "title": "Compare pay with a coworker you trust",
+          "whatChanges": "The Labor Department lists openly talking with coworkers about your wages, benefits and conditions as a right federal law protects for most private-sector workers, with or without a union. Pay gaps tend to last when nobody compares notes. Supervisors usually aren't covered.",
+          "who": "You and a coworker",
+          "exemplarRef": "right-to-discuss-pay",
+          "speculative": false,
+          "firstStep": "Ask one coworker you trust whether they'd be willing to swap hourly pay numbers.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "ineq-fair-pay-local-data",
+          "title": "See what your job pays in your area",
+          "whatChanges": "Takes your job title and ZIP code and shows what people in the same work earn nearby, using the government's yearly wage survey, then helps you write a short, calm raise request. Your own pay stays on your device.",
+          "who": "You and It",
+          "speculative": true,
+          "speculativeRationale": "The Bureau of Labor Statistics publishes occupational wage data by metro area each year; the page was not opened in this run, so this fix is marked speculative.",
+          "firstStep": "Tell us you'd use this, and write down your current hourly pay, including regular overtime or tips.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "writerNotes": "Relational lens. Legal right framed as what the Labor Department lists, not as legal advice; one limit (supervisors).",
+      "provenance": {
+        "sourceId": "generator-run-20261019-142004",
+        "locator": "cards.json#ineq-fair-pay",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "ineq-local-spending": {
+      "title": "Spending that keeps more money in my town",
+      "line": "More of what my household spends ends up with local businesses and the people who work there.",
+      "lens": "community",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "ineq-local-spending-shift",
+          "title": "Move one regular purchase to a locally owned business",
+          "whatChanges": "In Preston, England, six big local institutions agreed to buy more from nearby suppliers, and their share of spending inside the city rose from 5% in 2012/13 to 19% in 2016/17. That was large institutions, not households, so moving one of your own purchases is a much smaller version of the same idea.",
+          "who": "You",
+          "exemplarRef": "preston-cwb",
+          "speculative": false,
+          "firstStep": "Pick one thing you buy every week, like coffee or groceries, and find a locally owned place that sells it.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "ineq-local-spending-owned",
+          "title": "Choose businesses owned by the people who work there",
+          "whatChanges": "About 6,400 American companies have an employee stock ownership plan covering 15.1 million people, and those plans paid out more than $166 billion to workers in 2023. When you have a choice of plumber, grocer or brewery, picking an employee-owned one means buying from a business its workers partly own, though how much each plan pays them varies a lot.",
+          "who": "You",
+          "exemplarRef": "nceo-esops",
+          "speculative": false,
+          "firstStep": "Next time you hire a service or try a new store, ask whether it's employee-owned.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "habit"
+        }
+      ],
+      "writerNotes": "Basics sweep: where you spend. Preston reused at the together level below.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-142004",
+        "locator": "cards.json#ineq-local-spending",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "ineq-credit-cheaply": {
+      "title": "Building credit without paying high interest",
+      "line": "I can borrow when I need to at a fair price, because I have a credit history that lenders trust.",
+      "lens": "community",
+      "ambition": "this-year",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "ineq-credit-cheaply-circle",
+          "title": "Join a lending circle that reports to the credit bureaus",
+          "whatChanges": "Mission Asset Fund in San Francisco turns the old custom of friends pooling money and taking turns into small loans that get reported to the credit bureaus. A Boston Fed study of members from 2011 to 2013 found that people who started with no score or a poor one were almost twice as likely to raise it by 20 points as similar people outside the program.",
+          "who": "You and a small group",
+          "exemplarRef": "maf-lending-circles",
+          "speculative": false,
+          "firstStep": "Pull your free credit report and write down your score, or note that you don't have one yet.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "group"
+        },
+        {
+          "id": "ineq-credit-cheaply-own-circle",
+          "title": "Start a savings circle with people you trust",
+          "whatChanges": "Many families already pool money this way and call it a tanda, susu or chit fund: each person pays in monthly and one person takes the whole pot each turn. Writing down the order and the dates keeps everyone on the same page.",
+          "who": "You and friends or family",
+          "speculative": true,
+          "speculativeRationale": "Rotating savings groups are a long-standing practice in many communities; no specific source was opened for this fix in this run.",
+          "firstStep": "Ask two or three people you trust whether they'd put in a small, fixed amount each month.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "new-group"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142004",
+        "locator": "cards.json#ineq-credit-cheaply",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "ineq-see-the-gap": {
+      "title": "Seeing how wide the gap is where I live",
+      "line": "I know how unequal incomes are in my county, whether the gap is growing, and what I could ask for locally.",
+      "lens": "technology",
+      "ambition": "this-year",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "ineq-see-the-gap-county",
+          "title": "Look up how unequal incomes are in your county",
+          "whatChanges": "Shows your county's Gini index, a yearly inequality score the Census Bureau publishes for larger counties, where 0 means every household earns the same, along with how it has changed and what local choices are on the table. In 2024 San Bernardino County, California, scored 0.435, below the state's 0.485 and the country's 0.483.",
+          "who": "You and It",
+          "exemplarRef": "acs-gini",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and search data.census.gov for \"Gini index\" with your county's name.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "ineq-see-the-gap-benefits",
+          "title": "Check which benefits and credits your household can get",
+          "whatChanges": "Offers a short questionnaire wherever you live to check which benefits and credits your household can get, with your answers kept on your device. In Colorado, a free tool of this kind called MyFriendBen helped more than 55,000 households apply for $33 million in benefits within two years.",
+          "who": "You and It",
+          "exemplarRef": "myfriendben",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and gather last month's pay stubs so the questions go quickly.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "ineq-see-the-gap-officials",
+          "title": "Write to your representatives about a specific bill",
+          "whatChanges": "Finds who represents you at the city, state and federal level and helps you write a short note, in your own words, about a bill on wages, taxes or savings for kids. USA.gov already lists those officials and how to reach them.",
+          "who": "You and It",
+          "exemplarRef": "usa-gov-officials",
+          "speculative": false,
+          "firstStep": "Look up your state legislators on USA.gov and save their email addresses.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "writerNotes": "It-led card. All three fixes are proposed It features grounded in public data or existing tools.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-142004",
+        "locator": "cards.json#ineq-see-the-gap",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "ineq-baby-bonds": {
+      "title": "Every child starting adult life with some savings",
+      "line": "Kids born into families like mine turn 18 with real money for school, a home or a business.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "ineq-baby-bonds-state",
+          "title": "Learn how a state baby bond program works",
+          "whatChanges": "Connecticut sets aside $3,200 for each baby born on the state's Medicaid program, invests it, and lets the child apply for it at 18 to pay for college, job training, a home or a business in the state. Supporters see it as a way to narrow the wealth gap from birth; others would rather spend the money on cash help for families now.",
+          "who": "State lawmakers and treasurers",
+          "exemplarRef": "ct-baby-bonds",
+          "speculative": false,
+          "firstStep": "Search your state legislature's website for \"baby bonds\" to see whether a bill has been filed.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task",
+          "needsRewrite": "learn-about-others: turn into what the reader does, keep the example in the text"
+        },
+        {
+          "id": "ineq-baby-bonds-own",
+          "title": "Open a small savings account in your child's name",
+          "whatChanges": "A baby bond is the public version of something some families do on their own: putting a little away every month so a child starts adulthood with a cushion. Even $10 a month adds up over 18 years.",
+          "who": "Parents and grandparents",
+          "speculative": true,
+          "speculativeRationale": "Basic household practice; no specific source opened. Arithmetic only: $10 x 12 x 18 = $2,160 before interest.",
+          "firstStep": "Ask your bank or credit union what kind of savings account they offer for children.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        }
+      ],
+      "writerNotes": "Contested: presents supporters' and critics' directions.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-142004",
+        "locator": "cards.json#ineq-baby-bonds",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "ineq-cash-floor": {
+      "title": "Steady cash so one bad month doesn't sink my family",
+      "line": "If my hours get cut or the car breaks down, there's a small, reliable amount of money that keeps my family afloat.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "ineq-cash-floor-pilot",
+          "title": "Look at what a $500-a-month pilot did for working families",
+          "whatChanges": "In 2019 Stockton, California, gave 125 residents $500 a month with no strings attached, and after a year full-time work among them rose from 28% to 40%, more than in a comparison group. Philanthropy paid for it, and it was a small, one-year test.",
+          "who": "City leaders and funders",
+          "exemplarRef": "stockton-seed",
+          "speculative": false,
+          "firstStep": "Look up whether your city or county has run a guaranteed income pilot, and what it found.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task",
+          "needsRewrite": "learn-about-others: turn into what the reader does, keep the example in the text"
+        },
+        {
+          "id": "ineq-cash-floor-ctc",
+          "title": "Weigh bringing back a larger child tax credit",
+          "whatChanges": "Congress made the child tax credit larger for 2021, and after that ended, child poverty under the government's supplemental poverty measure more than doubled, from 5.2% in 2021 to 12.4% in 2022. Other pandemic aid ended that year too, and people disagree about the cost and about whether monthly payments change how much parents work.",
+          "who": "Congress",
+          "exemplarRef": "ctc-2021-expiry",
+          "speculative": false,
+          "firstStep": "Read what each of your two U.S. senators has said about the child tax credit.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task",
+          "needsRewrite": "learn-about-others: turn into what the reader does, keep the example in the text"
+        }
+      ],
+      "writerNotes": "Contested: limits and disagreement stated once each.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-142004",
+        "locator": "cards.json#ineq-cash-floor",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "ineq-wage-boards": {
+      "title": "Wages set with workers at the table",
+      "line": "People who do my kind of job help decide what the whole industry pays, not just one employer at a time.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "ineq-wage-boards-council",
+          "title": "Learn how a state council sets wages for one industry",
+          "whatChanges": "Since April 2024, fast food restaurants in California that belong to chains with 60 or more locations nationwide have had to pay at least $20 an hour, with a few exceptions such as some bakeries. A state council can raise that by up to 3.5% a year, and the deal came from unions and the industry agreeing to it rather than one side winning outright.",
+          "who": "State lawmakers, unions and employers",
+          "exemplarRef": "ca-fast-food-council",
+          "speculative": false,
+          "firstStep": "Look up whether your state has ever used a wage board for any industry.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task",
+          "needsRewrite": "learn-about-others: turn into what the reader does, keep the example in the text"
+        },
+        {
+          "id": "ineq-wage-boards-evidence",
+          "title": "Read both sides of the evidence on the $20 wage",
+          "whatChanges": "A UC Berkeley study found that fast food pay in California rose about 18% on average, prices rose once by about 3.7%, and jobs held steady. Critics point to other data showing about 2,200 lost jobs in the first months, so the debate isn't over.",
+          "who": "You",
+          "exemplarRef": "ca-fast-food-berkeley",
+          "speculative": false,
+          "firstStep": "Read the KQED summary of the Berkeley study and one restaurant industry response.",
+          "firstStepMinutes": 20,
+          "status": "real_now",
+          "kind": "task",
+          "needsRewrite": "learn-about-others: turn into what the reader does, keep the example in the text"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142004",
+        "locator": "cards.json#ineq-wage-boards",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "ineq-own-workplace": {
+      "title": "Owning a share of the company I work for",
+      "line": "When the business I work for does well, I get part of the gain, not just my wages.",
+      "lens": "market",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "ineq-own-workplace-succession",
+          "title": "Ask your boss what happens to the business when they retire",
+          "whatChanges": "Project Equity, a nonprofit in Oakland, estimates that baby boomers own 2.34 million American businesses employing 24.7 million people, and one estimate says about 80 percent of those businesses have no plan for what happens next. Selling to the employees is one way to keep the jobs, and the owner still gets paid for the business.",
+          "who": "You and your employer",
+          "exemplarRef": "boomer-succession",
+          "speculative": false,
+          "firstStep": "Ask your boss, casually, whether they've thought about who takes over when they step back.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "ineq-own-workplace-founder",
+          "title": "Share how one founder handed most of his company to staff",
+          "whatChanges": "In 2019 Julian Richer put 60% of Richer Sounds, a UK entertainment retailer with 53 stores, into a trust for its employees, and each of 522 staff got £1,000 for every year they'd worked there, about £8,000 on average. Owners are often more open to this when they hear how another owner did it.",
+          "who": "You and a business owner you know",
+          "exemplarRef": "richer-sounds-eot",
+          "speculative": false,
+          "firstStep": "Send the story to one business owner you know who's thinking about stepping back.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142004",
+        "locator": "cards.json#ineq-own-workplace",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "ineq-pay-gap-at-work": {
+      "title": "Top pay that isn't hundreds of times bottom pay",
+      "line": "The gap between what the boss earns and what I earn is something we can see and talk about.",
+      "lens": "culture",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "ineq-pay-gap-at-work-cap",
+          "title": "Propose a cap on top pay compared with bottom pay",
+          "whatChanges": "Mondragon, a federation of worker cooperatives in Spain's Basque Country, caps the gap between its highest- and lowest-paid people at 6 to 1 across nearly 70,000 member-owners. Not every worker there is a member, and its appliance maker Fagor went bankrupt after 2008, so the model isn't without trouble.",
+          "who": "Workers, owners and boards",
+          "exemplarRef": "mondragon",
+          "speculative": false,
+          "firstStep": "If your employer is a public company, find the CEO pay ratio in its latest proxy statement.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "project"
+        },
+        {
+          "id": "ineq-pay-gap-at-work-bands",
+          "title": "Suggest your workplace publish its pay ranges",
+          "whatChanges": "New York passed a law in 2023 that requires employers to publish salary ranges for jobs, and several other states have pay transparency laws of their own. Your workplace can choose to share the range for every role with its own staff, even where no law requires it.",
+          "who": "Staff and managers",
+          "speculative": false,
+          "firstStep": "Ask your manager or HR whether the pay range for your role is written down anywhere.",
+          "firstStepMinutes": 5,
+          "status": "societal_proposal",
+          "exemplarRef": "pay-transparency-laws",
+          "kind": "task"
+        }
+      ],
+      "writerNotes": "Culture lens: norms about pay visibility.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-142004",
+        "locator": "cards.json#ineq-pay-gap-at-work",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "ineq-tax-top": {
+      "title": "The richest households paying more toward schools and transit",
+      "line": "Public schools and buses near me are paid for partly by the people who've gained the most.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "ineq-tax-top-surtax",
+          "title": "Learn what a state tax on million-dollar incomes raised",
+          "whatChanges": "Massachusetts adopted a 4% tax in 2022 on household income above about $1.1 million a year, and in the year ending June 30, 2026, it brought in more than $3.38 billion. That money is meant only for education and transportation, such as free school meals and free community college.",
+          "who": "Voters and state lawmakers",
+          "exemplarRef": "ma-millionaires-tax",
+          "speculative": false,
+          "firstStep": "Ask your state legislator's office where they stand on taxing top incomes, and why.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task",
+          "needsRewrite": "learn-about-others: turn into what the reader does, keep the example in the text"
+        },
+        {
+          "id": "ineq-tax-top-leaving",
+          "title": "Weigh the chance that wealthy people move away",
+          "whatChanges": "When Norway set its top wealth tax at 1.1% in 2022, at least 30 billionaires and millionaires moved abroad that year, more than in the previous 13 years combined. Supporters and critics disagree about how much that cost the country, and a wealth tax is different from a tax on income.",
+          "who": "Voters and state lawmakers",
+          "exemplarRef": "norway-wealth-tax",
+          "speculative": false,
+          "firstStep": "Read one argument for and one against a tax on top incomes in your state, from sources you'd trust on each side.",
+          "firstStepMinutes": 20,
+          "status": "real_now",
+          "kind": "task",
+          "needsRewrite": "learn-about-others: turn into what the reader does, keep the example in the text"
+        }
+      ],
+      "writerNotes": "Contested: two directions with named examples; no claim that one is right.",
+      "provenance": {
+        "sourceId": "generator-run-20261019-142004",
+        "locator": "cards.json#ineq-tax-top",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "ineq-land-trust": {
+      "title": "An affordable home that stays affordable for the next family",
+      "line": "I own my home at a price I can manage, and when I sell, another family gets the same chance.",
+      "lens": "community",
+      "ambition": "together",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "ineq-land-trust-buy",
+          "title": "Buy a home through a community land trust",
+          "whatChanges": "The Champlain Housing Trust in Vermont keeps the land and sells only the house, so the price doesn't include the land, and a study found sellers still gained about $12,000 on resale while the home stayed affordable for the next buyer. You build less wealth than in a booming open market, which is the tradeoff.",
+          "who": "You and a local land trust",
+          "exemplarRef": "champlain-housing-trust",
+          "speculative": false,
+          "firstStep": "Search for a community land trust in your area and check its income limits.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "project"
+        },
+        {
+          "id": "ineq-land-trust-city",
+          "title": "Ask your city to put public land into a land trust",
+          "whatChanges": "Cities that own vacant lots or old buildings can hand them to a land trust instead of selling them, so the homes built there stay affordable for good. City council members decide this, usually with little public attention.",
+          "who": "City council members and residents",
+          "speculative": true,
+          "speculativeRationale": "Champlain Housing Trust began with city support in Burlington (background knowledge, not confirmed on the opened page).",
+          "firstStep": "Find your city's list of vacant city-owned property, or ask your council member's office for it.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142004",
+        "locator": "cards.json#ineq-land-trust",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    },
+    "ineq-anchor-buying": {
+      "title": "Hospitals, colleges and city hall buying from local businesses",
+      "line": "The biggest employers in my area spend their money with local firms and co-ops, so the jobs stay here.",
+      "lens": "community",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "ineq-anchor-buying-ask",
+          "title": "Ask your city to track how much it buys from local firms",
+          "whatChanges": "In Preston, England, the city and five other big local institutions changed how they buy, and the share of their spending that stayed in the city rose from 5% to 19% in four years. Some critics ask whether local preference makes suppliers less competitive, which is worth raising too.",
+          "who": "City leaders and residents",
+          "exemplarRef": "preston-cwb",
+          "speculative": false,
+          "firstStep": "Find your city's purchasing or procurement page and see whether it reports local spending.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "ineq-anchor-buying-organize",
+          "title": "Organize neighbors around one local buying goal",
+          "whatChanges": "Helps a neighborhood group pick one goal, like getting the hospital to buy food from local farms, then keeps track of who's been contacted and what they said. Groups tend to stall when nobody remembers who promised what.",
+          "who": "Neighbors and It",
+          "speculative": true,
+          "speculativeRationale": "Organizing support is an It idea; feasibility rests on simple shared lists, not on a specific opened source.",
+          "firstStep": "Tell us you'd use this, and ask two neighbors which big local employer they'd most want to buy local.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261019-142004",
+        "locator": "cards.json#ineq-anchor-buying",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      }
+    }
+  }
+}

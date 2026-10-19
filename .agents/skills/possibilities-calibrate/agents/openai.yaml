@@ -1,0 +1,5 @@
+interface:
+  display_name: "Possibilities: Calibrate"
+  short_description: "Founder calibration and audit rounds"
+policy:
+  allow_implicit_invocation: false

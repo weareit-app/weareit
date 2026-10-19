@@ -1,0 +1,84 @@
+{
+  "finalists": [
+    "listen-neighbors-budget",
+    "listen-citizens-panel",
+    "listen-local-votes",
+    "listen-get-answer",
+    "listen-shared-voice"
+  ],
+  "auditSample": [
+    "listen-track-follow-through",
+    "listen-vote-counting"
+  ],
+  "seed": 17,
+  "itLedGuaranteed": "listen-shared-voice",
+  "itLedMissing": false,
+  "ranking": [
+    {
+      "cardId": "listen-neighbors-budget",
+      "wins": 39,
+      "meanScore": 4.33
+    },
+    {
+      "cardId": "listen-citizens-panel",
+      "wins": 32,
+      "meanScore": 4.5
+    },
+    {
+      "cardId": "listen-local-votes",
+      "wins": 32,
+      "meanScore": 4.33
+    },
+    {
+      "cardId": "listen-get-answer",
+      "wins": 29,
+      "meanScore": 4
+    },
+    {
+      "cardId": "listen-common-ground",
+      "wins": 28,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "listen-face-to-face",
+      "wins": 28,
+      "meanScore": 4
+    },
+    {
+      "cardId": "listen-shared-voice",
+      "wins": 22,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "listen-on-record",
+      "wins": 17,
+      "meanScore": 3.5
+    },
+    {
+      "cardId": "listen-vote-counting",
+      "wins": 16,
+      "meanScore": 3.33
+    },
+    {
+      "cardId": "listen-know-who",
+      "wins": 11,
+      "meanScore": 3.17
+    },
+    {
+      "cardId": "listen-town-hall",
+      "wins": 8,
+      "meanScore": 3.17
+    },
+    {
+      "cardId": "listen-testify",
+      "wins": 6,
+      "meanScore": 3
+    },
+    {
+      "cardId": "listen-track-follow-through",
+      "wins": 5,
+      "meanScore": 2.67
+    }
+  ],
+  "excluded": []
+}

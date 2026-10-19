@@ -1,0 +1,593 @@
+{
+  "schemaVersion": 1,
+  "anchors": [
+    {
+      "id": "c03",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c03",
+        "painLine": "I'm always short on money.",
+        "title": "Borrowing from people I trust while building my credit",
+        "line": "When I need a lump sum, I borrow from a circle of people I know, and my credit score goes up while I repay.",
+        "fixes": [
+          {
+            "title": "Join a lending circle that reports to the credit bureaus",
+            "whatChanges": "In San Francisco, Mission Asset Fund runs lending circles where six to ten people each pay in monthly and take turns receiving the pot, with payments reported to the credit bureaus. In one study, members who started with no credit score or a poor one were almost twice as likely as a comparison group to raise their score by 20 points or more.",
+            "example": "Mission Asset Fund lending circles · San Francisco, California · 2013 · Members with no or poor credit almost twice as likely as a comparison group to raise their score 20+ points in 10 months",
+            "firstStep": "Look up Mission Asset Fund’s lending circles and check whether they serve your state."
+          },
+          {
+            "title": "Start a lending circle with friends or coworkers",
+            "whatChanges": "Many families already do this informally, under names like tanda, susu or hui. It could let a group set the amount and the order, keep a shared record, and remind everyone when a payment is due.",
+            "example": "Mission Asset Fund lending circles · San Francisco, California · 2013 · Members with no or poor credit almost twice as likely as a comparison group to raise their score 20+ points in 10 months",
+            "firstStep": "Tell us you’d use this, and think of three people you’d trust to pay in every month."
+          }
+        ]
+      },
+      "painId": "broke"
+    },
+    {
+      "id": "c04",
+      "rating": "kill",
+      "reason": "I don't know what free means here.",
+      "item": {
+        "id": "c04",
+        "painLine": "I'm always short on money.",
+        "title": "Free",
+        "line": "I do not have to work just to get by.",
+        "fixes": [
+          {
+            "title": "Earn from a skill again and again",
+            "whatChanges": "Explore whether a skill could bring in money more than once.",
+            "example": null,
+            "firstStep": null
+          },
+          {
+            "title": "Own a source of income together",
+            "whatChanges": "Join or build a business where the people doing the work own a share.",
+            "example": null,
+            "firstStep": null
+          }
+        ]
+      },
+      "painId": "broke"
+    },
+    {
+      "id": "c06",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c06",
+        "painLine": "I worry AI will take work and no one's ready.",
+        "title": "Hiring software that has to prove it's fair",
+        "line": "When a computer screens my job application, someone has checked that it treats people fairly.",
+        "fixes": [
+          {
+            "title": "Ask employers whether software screened your application",
+            "whatChanges": "Since July 2023, New York City has enforced a law requiring employers that use automated hiring tools to have them audited for bias every year and to tell candidates. You can ask the same question anywhere, even where no law requires an answer.",
+            "example": "New York City Local Law 144 on automated hiring tools, and the State Comptroller's enforcement audit · New York City · 2025 · Law passed in 2021 requires employers using automated hiring tools to get a yearly bias audit and notify candidates; enforcement began July 2023; the city found 1 compliance issue among 32 companies, state auditors found at least 17",
+            "firstStep": "Next time you apply, email the recruiter and ask whether an automated tool reviews applications."
+          },
+          {
+            "title": "Ask your city council member to enforce hiring-software rules",
+            "whatChanges": "A 2025 audit by the New York State Comptroller found the city had flagged one problem among 32 companies, while the auditors found at least 17. Employers' groups say rules like these add cost, but a law on paper does little without someone checking.",
+            "example": "New York City Local Law 144 on automated hiring tools, and the State Comptroller's enforcement audit · New York City · 2025 · Law passed in 2021 requires employers using automated hiring tools to get a yearly bias audit and notify candidates; enforcement began July 2023; the city found 1 compliance issue among 32 companies, state auditors found at least 17",
+            "firstStep": "Look up your city council member and send a two-line note asking whether your city regulates AI in hiring."
+          },
+          {
+            "title": "Write to officials about AI hiring rules",
+            "whatChanges": "It could draft a short, specific note to your city council member or state legislator, pointing to New York City's law and the audit of how it's been enforced, for you to edit and send.",
+            "example": "New York City Local Law 144 on automated hiring tools, and the State Comptroller's enforcement audit · New York City · 2025 · Law passed in 2021 requires employers using automated hiring tools to get a yearly bias audit and notify candidates; enforcement began July 2023; the city found 1 compliance issue among 32 companies, state auditors found at least 17",
+            "firstStep": "Tell us you'd use this."
+          }
+        ]
+      },
+      "painId": "ai-and-jobs"
+    },
+    {
+      "id": "c08",
+      "rating": "keep",
+      "reason": "This is good, but wording could be improved.",
+      "item": {
+        "id": "c08",
+        "painLine": "I'm worried about the planet heating up.",
+        "title": "Life on clean power",
+        "line": "We can heat our homes and get around without burning coal, oil or gas.",
+        "fixes": [
+          {
+            "title": "Own clean power together",
+            "whatChanges": "Form or join a group that owns a clean power project and agrees who pays and who gains.",
+            "example": null,
+            "firstStep": null
+          },
+          {
+            "title": "Fix homes street by street",
+            "whatChanges": "Organize home upgrades together, such as insulation, shade or safer cooling, with fair costs for residents.",
+            "example": null,
+            "firstStep": null
+          }
+        ]
+      },
+      "painId": "climate"
+    },
+    {
+      "id": "c11",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c11",
+        "painLine": "I'm not heard by the people in charge.",
+        "title": "Voting in the local elections where a few votes decide",
+        "line": "I vote for mayor, city council and school board, not just for president, because those races are often decided by very few people.",
+        "fixes": [
+          {
+            "title": "Put the next local election date on your calendar",
+            "whatChanges": "A Portland State University study of four cities found mayoral turnout as low as 7% of registered voters, in Charlotte’s primary. When so few people vote, each vote is a much bigger share of the result.",
+            "example": "Portland State University 'Who Votes for Mayor' pilot · Portland, Charlotte, Detroit and St. Paul · 2016 · Mayoral turnout as low as 7% (Charlotte primary); registered voters 65+ about 10 times as likely to vote as those 18-34",
+            "firstStep": "Look up your city’s next election date on your county elections website and add it to your calendar."
+          },
+          {
+            "title": "Ask a younger friend to vote with you",
+            "whatChanges": "The same study found registered voters 65 and older were about 10 times as likely to vote in those mayoral races as voters 18 to 34. Whoever shows up is who local officials hear from, so a couple of friends who start voting changes who that is.",
+            "example": "Portland State University 'Who Votes for Mayor' pilot · Portland, Charlotte, Detroit and St. Paul · 2016 · Mayoral turnout as low as 7% (Charlotte primary); registered voters 65+ about 10 times as likely to vote as those 18-34",
+            "firstStep": "Text one friend who usually skips local elections and ask if they want to go vote together."
+          }
+        ]
+      },
+      "painId": "they-dont-listen"
+    },
+    {
+      "id": "c14",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c14",
+        "painLine": "I can't find who's already working on this.",
+        "title": "Seeing who has already raised my issue at city hall",
+        "line": "Before I speak up, I know who has spoken about this at council meetings and what they asked for.",
+        "fixes": [
+          {
+            "title": "Search past city council meetings for your issue",
+            "whatChanges": "Council Data Project, started by a University of Washington professor and a student after they followed a Seattle City Council vote on an arena, turns council meetings in 17 cities into searchable transcripts. People who spoke during public comment are often the ones already organizing, and their names are in the record.",
+            "example": "Council Data Project searchable council transcripts · Seattle and 16 other U.S. cities · 2023 · Searchable transcripts and voting records for city council meetings in 17 cities. Started by University of Washington iSchool professor Nic Weber and undergraduate Eva Maxfield Brown after they followed a Seattle City Council vote on a proposed NBA arena",
+            "firstStep": "Search your city's meeting minutes or council transcripts for your issue and note who spoke about it."
+          },
+          {
+            "title": "Look up whether your state lawmakers have taken up the issue",
+            "whatChanges": "Open States, a free tool from Plural, shows your state lawmakers from your address and keeps a record of state bills. A bill on your issue usually comes with groups that testified for or against it.",
+            "example": "Open States legislator lookup and legislative data · United States · 2026 · Free lookup of your state lawmakers by location, plus bulk legislative data and an API",
+            "firstStep": "Enter your address in the Open States lookup and write down your two state lawmakers."
+          }
+        ]
+      },
+      "painId": "dont-know-whats-happening"
+    },
+    {
+      "id": "c16",
+      "rating": "kill",
+      "reason": "\"Share the load to protect rest\" is pretty vague.",
+      "item": {
+        "id": "c16",
+        "painLine": "I don't sleep well.",
+        "title": "Rested",
+        "line": "I wake up rested and ready.",
+        "fixes": [
+          {
+            "title": "Find sleep care that fits",
+            "whatChanges": "Get help to work out why sleep is hard and what care may fit.",
+            "example": null,
+            "firstStep": null
+          },
+          {
+            "title": "Share the load to protect rest",
+            "whatChanges": "Help people agree who covers which duties so each has time to rest.",
+            "example": null,
+            "firstStep": null
+          }
+        ]
+      },
+      "painId": "poor-sleep"
+    },
+    {
+      "id": "c17",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c17",
+        "painLine": "I don't sleep well.",
+        "title": "A bedroom that stays dark and quiet all night",
+        "line": "Streetlights, early sun and traffic noise stop waking me up.",
+        "fixes": [
+          {
+            "title": "Put up blackout curtains or wear an eye mask",
+            "whatChanges": "A Northwestern study found that one night with a room light on raised people’s heart rate and made their bodies handle sugar worse the next morning. The researchers’ rule of thumb: if you can see things clearly in your bedroom, it’s too bright.",
+            "example": "Northwestern Medicine light-during-sleep study · Chicago, IL · 2022 · One night with room light (100 lux) raised heart rate and next-morning insulin resistance vs dim light (3 lux)",
+            "firstStep": "Stand in your bedroom tonight with the lights off and notice where light gets in."
+          },
+          {
+            "title": "Run a steady sound like pink or white noise",
+            "whatChanges": "A smooth background sound makes sudden noises like a door or a car less jarring. A 2022 review of 34 studies found the research thin, but pink noise did better than white noise and nobody found it harmful.",
+            "example": "Systematic review of white and pink noise for sleep (Capezuti et al.) · Journal of Clinical Sleep Medicine · 2022 · 34 studies; 9 of 11 pink-noise studies positive, under a third of white-noise studies",
+            "firstStep": "Play a free pink-noise track at low volume tonight and notice whether you wake up less."
+          },
+          {
+            "title": "Try sleep earbuds that cover up snoring and traffic",
+            "whatChanges": "Earbuds made for sleep, such as Ozlo’s, seal out some sound and play quiet masking noise over the rest. They cost about $279, so foam earplugs are worth trying first.",
+            "example": "Ozlo Sleepbuds noise-masking earbuds · United States · 2025 · $279; passive seal plus masking sounds, up to 14 hours a charge",
+            "firstStep": "Buy a pack of foam earplugs and try them for three nights."
+          }
+        ]
+      },
+      "painId": "poor-sleep"
+    },
+    {
+      "id": "c18",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c18",
+        "painLine": "I put things off.",
+        "title": "Understanding the feeling that makes me put things off",
+        "line": "When I notice I’m avoiding something, I can name what it makes me feel and still take the first step.",
+        "fixes": [
+          {
+            "title": "Name the feeling the task brings up",
+            "whatChanges": "The psychologists Sirois and Pychyl argued in 2013 that putting things off is mostly about getting away from a bad feeling right now, like boredom, worry or self-doubt, rather than a lack of willpower. Knowing which feeling you’re dodging often tells you what would make the task easier, such as company for a boring job or a second opinion for a scary one.",
+            "example": "Procrastination as short-term mood repair (F. Sirois and T. Pychyl) · 2013 · Review argues procrastination is mainly about escaping bad feelings now, at the cost of the future self",
+            "firstStep": "Write the task down, and next to it write the one word for how it makes you feel."
+          },
+          {
+            "title": "Forgive yourself for the last time you put it off",
+            "whatChanges": "In a 2010 study of 134 first-year college students, the ones who forgave themselves for putting off studying for their first exams put off studying less before the next round. Being hard on yourself tends to make the task feel worse, and the students who went easier on themselves did better.",
+            "example": "Self-forgiveness and procrastination study (Wohl, Pychyl and Bennett) · Canada · 2010 · 134 first-year students who forgave themselves for procrastinating before first exams procrastinated less before the second",
+            "firstStep": "Say or write one sentence letting yourself off the hook for the last delay, then look at what’s next."
+          }
+        ]
+      },
+      "painId": "procrastination"
+    },
+    {
+      "id": "c19",
+      "rating": "kill",
+      "reason": "\"My idea exists\nSomething I care about making is real, and I can share it.\"\n\nThis is super passive voice; needs reworked.",
+      "item": {
+        "id": "c19",
+        "painLine": "I put things off.",
+        "title": "My idea exists",
+        "line": "Something I care about making is real, and I can share it.",
+        "fixes": [
+          {
+            "title": "Make a small real version",
+            "whatChanges": "Choose the smallest version of an idea that someone could use, read or try, then make it.",
+            "example": null,
+            "firstStep": null
+          },
+          {
+            "title": "Change or drop the task",
+            "whatChanges": "Talk about changing the task or not doing it if it does not fit.",
+            "example": null,
+            "firstStep": null
+          }
+        ]
+      },
+      "painId": "procrastination"
+    },
+    {
+      "id": "c23",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c23",
+        "painLine": "I can't find who's already working on this.",
+        "title": "Meeting the neighbors who care about the same thing",
+        "line": "I find out that four people on my side of town want the same crosswalk I do.",
+        "fixes": [
+          {
+            "title": "Say privately what you care about and meet others once enough do",
+            "whatChanges": "In Vermont, each new Front Porch Forum stays in a waiting stage until 100 residents sign up, so nobody posts to an empty room. It could work the same way: you say privately what you care about, and only when enough people nearby have said the same would It offer to introduce you, with your permission.",
+            "example": "Front Porch Forum neighborhood bulletin boards · Vermont · 2013 · Started in Burlington in 2006; by 2013 open to every Vermont town, with 57,000 members across half the state",
+            "firstStep": "Tell us you'd use this, and name the one local issue you would want to meet neighbors about."
+          },
+          {
+            "title": "Invite neighbors to one meeting about a single issue",
+            "whatChanges": "You don't have to wait for a tool. A short note to a neighborhood list naming one issue, one place and one time is how many neighborhood groups began.",
+            "example": null,
+            "firstStep": "Draft a three-sentence invitation naming the issue, a place and a date, and send it to one neighborhood list."
+          }
+        ]
+      },
+      "painId": "dont-know-whats-happening"
+    },
+    {
+      "id": "c25",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c25",
+        "painLine": "I don't sleep well.",
+        "title": "Falling asleep without pills or dread",
+        "line": "I go to bed expecting to sleep, and most nights I do.",
+        "fixes": [
+          {
+            "title": "Ask your doctor about short, drug-free insomnia therapy",
+            "whatChanges": "In a large trial in England’s health service, four short sessions with a practice nurse helped people with insomnia more than the usual advice leaflet, without pills. This therapy isn’t right for everyone, so the nurse checks first.",
+            "example": "HABIT trial: nurse-delivered sleep restriction · NHS general practices, England · 2024 · 642 adults; four short nurse sessions cut insomnia scores by 3 points vs leaflet",
+            "firstStep": "Write down when you went to bed and got up for the next week, so you have something to bring."
+          },
+          {
+            "title": "Try an online insomnia course your doctor recommends",
+            "whatChanges": "England’s health guidance body recommended an online course called Sleepio over sleeping pills in 2022, after reviewing 12 trials. You do the course on your phone or computer, in your own time.",
+            "example": "NICE guidance on Sleepio digital CBT-I · England · 2022 · Recommended over sleeping pills after 12 randomised trials",
+            "firstStep": "Ask your doctor at your next visit whether there’s an online insomnia course they’d recommend."
+          },
+          {
+            "title": "Keep a simple morning sleep diary",
+            "whatChanges": "Sleep experts agreed on a standard nine-question morning diary in 2012, and it’s what therapists ask for first. It could ask you those questions each morning and turn the answers into a summary you can show a doctor.",
+            "example": "Consensus Sleep Diary (Carney et al.) · Sleep journal · 2012 · A standard 9-question morning diary built by 25 insomnia experts",
+            "firstStep": "Tell us you’d use this, and tomorrow morning jot down when you went to bed and when you woke up."
+          }
+        ]
+      },
+      "painId": "poor-sleep"
+    },
+    {
+      "id": "c26",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c26",
+        "painLine": "I'm not heard by the people in charge.",
+        "title": "Randomly chosen residents advising on hard questions",
+        "line": "When my state faces a hard question, a group of ordinary residents drawn by lot studies it, and lawmakers have to answer what they recommend.",
+        "fixes": [
+          {
+            "title": "Learn how a randomly chosen citizens’ assembly works",
+            "whatChanges": "In 2016 Ireland drew 99 citizens at random, matched to the census by age, gender, class and region, to study the abortion amendment in its constitution. Most of them, 64%, recommended a change, and in the 2018 referendum 66.4% of voters agreed. People still disagree strongly about the outcome; what drew attention elsewhere was the process.",
+            "example": "Irish Citizens' Assembly · Ireland · 2016 · 99 randomly chosen members; 64% backed changing the abortion amendment; the 2018 referendum passed with 66.4%",
+            "firstStep": "Read a one-page summary of the Irish assembly and write down one question you’d want such a group in your state to take on."
+          },
+          {
+            "title": "Ask lawmakers for a permanent citizens’ panel",
+            "whatChanges": "Since 2019 the German-speaking region of Belgium has had a 24-person citizens’ council, drawn by lot, that picks topics for citizens’ panels. Their advice isn’t binding, but parliament must debate it twice within a year.",
+            "example": "Ostbelgien permanent Citizens' Council · German-speaking Community of Belgium · 2019 · A 24-person council drawn by lot sets topics for citizens' panels; parliament must debate their recommendations twice within a year",
+            "firstStep": "Write your state legislator a short note asking whether they’d support a trial citizens’ panel on one local issue."
+          },
+          {
+            "title": "Ask what lawmakers must do with the panel’s advice",
+            "whatChanges": "France’s citizens’ convention on climate made 149 recommendations in 2020. The president rejected 3 outright and the climate bill fully included 46, which left many participants disappointed. A panel works best when everyone knows ahead of time what the government owes it.",
+            "example": "French Citizens' Convention for Climate · France · 2020 · 149 recommendations; 3 rejected outright, 46 fully included in the climate bill, others partly included or weakened",
+            "firstStep": "In your note, ask what the legislature would be required to do with the panel’s recommendations."
+          }
+        ]
+      },
+      "painId": "they-dont-listen"
+    },
+    {
+      "id": "c28",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c28",
+        "painLine": "I put things off.",
+        "title": "Getting boring tasks done with someone else there",
+        "line": "I sit down with a friend, or on a video call with a stranger, and we both get through the tasks we’ve been avoiding.",
+        "fixes": [
+          {
+            "title": "Do your task while a friend does theirs",
+            "whatChanges": "Having another person nearby, even one doing something completely different, can make it easier to stay with a dull or uncomfortable task. An ADHD coach named this body doubling, and people without ADHD use it too.",
+            "example": "Focusmate article on body doubling · 1996 · Body doubling means working with another person present, in person or virtually, while they do something unrelated; term coined by ADHD coach Linda Anderson in 1996; reported benefits strongest among people with ADHD but not limited to them",
+            "firstStep": "Text a friend and ask if they’d like to spend an hour this week working on your own lists side by side."
+          },
+          {
+            "title": "Book a video work session with a stranger",
+            "whatChanges": "Focusmate pairs you on video with another person for 25, 50 or 75 minutes: you each say what you’ll work on, work quietly, and check in at the end. Three sessions a week are free.",
+            "example": "Focusmate virtual body doubling · Online · Paired 25-, 50- or 75-minute video work sessions; three free sessions a week",
+            "firstStep": "Book one 25-minute session for the task you’ve been putting off longest."
+          },
+          {
+            "title": "Put money on a deadline with a friend as referee",
+            "whatChanges": "On stickK, a site started in 2008 by two Yale economists, you set a goal, pick a friend to confirm whether you did it, and put money on it that goes elsewhere if you miss. The co-founder reported that 78% of people who used both money and a referee reached their goal, compared with 35% of those who put no money down.",
+            "example": "stickK commitment contracts · New Haven, CT · 2008 · Co-founder reported 78% of users with money and a referee reached goals, versus 35% with no money down",
+            "firstStep": "Choose one task, a date, and a friend you’d trust to say honestly whether you did it."
+          }
+        ]
+      },
+      "painId": "procrastination"
+    },
+    {
+      "id": "c31",
+      "rating": "keep",
+      "reason": "Title is good, description is good, first possibility is good, second one is kind of vague: \"Choose residents from across the community and give them a vote that counts on one public issue.\" That's vague.",
+      "item": {
+        "id": "c31",
+        "painLine": "I'm not heard by the people in charge.",
+        "title": "People hold power",
+        "line": "People affected by a public decision have a real way to change it.",
+        "fixes": [
+          {
+            "title": "Let residents decide what gets funded",
+            "whatChanges": "Set aside a real public budget and let residents choose which projects it pays for.",
+            "example": null,
+            "firstStep": null
+          },
+          {
+            "title": "Give residents a real vote",
+            "whatChanges": "Choose residents from across the community and give them a vote that counts on one public issue.",
+            "example": null,
+            "firstStep": null
+          }
+        ]
+      },
+      "painId": "they-dont-listen"
+    },
+    {
+      "id": "c32",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c32",
+        "painLine": "I worry AI will take work and no one's ready.",
+        "title": "Tools we control",
+        "line": "We can choose, change or leave the AI tools that shape our work.",
+        "fixes": [
+          {
+            "title": "Trade saved hours for time off",
+            "whatChanges": "If AI really saves work, agree to use some of the gain for shorter hours while protecting pay.",
+            "example": null,
+            "firstStep": null
+          },
+          {
+            "title": "Own the tools together",
+            "whatChanges": "Build or adopt an AI tool owned and governed by the people who use it.",
+            "example": null,
+            "firstStep": null
+          }
+        ]
+      },
+      "painId": "ai-and-jobs"
+    },
+    {
+      "id": "c33",
+      "rating": "keep",
+      "reason": "As with others like this, vague.",
+      "item": {
+        "id": "c33",
+        "painLine": "I can't find who's already working on this.",
+        "title": "Help that lasts",
+        "line": "Our shared work keeps going without wearing out the same few people.",
+        "fixes": [
+          {
+            "title": "Find the missing piece",
+            "whatChanges": "Help a team find who may hold a needed skill, tool, space or source of money, then ask if they want to help.",
+            "example": null,
+            "firstStep": null
+          },
+          {
+            "title": "Share the jobs that recur",
+            "whatChanges": "Agree how to split recurring jobs, train backups and let people step back.",
+            "example": null,
+            "firstStep": null
+          }
+        ]
+      },
+      "painId": "dont-know-whats-happening"
+    },
+    {
+      "id": "c34",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c34",
+        "painLine": "I see the gap between those with plenty and those struggling grow.",
+        "title": "Owning a share of the company I work for",
+        "line": "When the business I work for does well, I get part of the gain, not just my wages.",
+        "fixes": [
+          {
+            "title": "Ask your boss what happens to the business when they retire",
+            "whatChanges": "Project Equity, a nonprofit in Oakland, estimates that baby boomers own 2.34 million American businesses employing 24.7 million people, and one estimate says about 80 percent of those businesses have no plan for what happens next. Selling to the employees is one way to keep the jobs, and the owner still gets paid for the business.",
+            "example": "Project Equity estimate of baby boomer–owned businesses · United States · 2017 · Project Equity, an Oakland, California-based nonprofit, says baby boomers own 2.34 million businesses employing 24.7 million people; a separate estimate says 80 percent of these businesses lack a plan for what comes next",
+            "firstStep": "Ask your boss, casually, whether they've thought about who takes over when they step back."
+          },
+          {
+            "title": "Share how one founder handed most of his company to staff",
+            "whatChanges": "In 2019 Julian Richer put 60% of Richer Sounds, a UK entertainment retailer with 53 stores, into a trust for its employees, and each of 522 staff got £1,000 for every year they'd worked there, about £8,000 on average. Owners are often more open to this when they hear how another owner did it.",
+            "example": "Richer Sounds employee ownership trust · United Kingdom · 2019 · Founder Julian Richer handed a 60% stake in the entertainment retailer, which has 53 stores across the UK, to a trust for staff; 522 employees got £1,000 per year of service, about £8,000 on average",
+            "firstStep": "Send the story to one business owner you know who's thinking about stepping back."
+          }
+        ]
+      },
+      "painId": "it-all-goes-up"
+    },
+    {
+      "id": "c35",
+      "rating": "kill",
+      "reason": "Like other places, this needs reworked to make the wording more obvious to someone.",
+      "item": {
+        "id": "c35",
+        "painLine": "I see the gap between those with plenty and those struggling grow.",
+        "title": "A secure floor",
+        "line": "People can count on the basics of life even when paid work dries up.",
+        "fixes": [
+          {
+            "title": "Own a source of income together",
+            "whatChanges": "Join or build a business where the people doing the work own a share.",
+            "example": null,
+            "firstStep": null
+          },
+          {
+            "title": "Put a floor under income",
+            "whatChanges": "Create a steady income payment so a loss of paid work need not mean losing the basics.",
+            "example": null,
+            "firstStep": null
+          }
+        ]
+      },
+      "painId": "it-all-goes-up"
+    },
+    {
+      "id": "c36",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c36",
+        "painLine": "I'm always short on money.",
+        "title": "Hospital bills cut or forgiven when I can’t pay",
+        "line": "When a hospital bill comes, I find out whether I qualify to have it reduced or erased before I pay anything.",
+        "fixes": [
+          {
+            "title": "Ask the hospital for its financial assistance application",
+            "whatChanges": "Nonprofit hospitals have to offer charity care that reduces or erases bills for patients under an income limit, and each hospital sets its own limit. Asking for the application is how you find out where you stand.",
+            "example": "Dollar For charity care help · United States · 2019 · Free nonprofit that files hospital charity care applications; more than $38 million in medical bills cleared since 2019",
+            "firstStep": "Search your hospital’s name with the words financial assistance policy, and download the application."
+          },
+          {
+            "title": "Let a free nonprofit file the application for you",
+            "whatChanges": "Dollar For, a nonprofit, prepares charity care applications, sends them to the hospital and follows up, at no cost to patients. The group says it has helped clear more than $38 million in medical bills since 2019.",
+            "example": "Dollar For charity care help · United States · 2019 · Free nonprofit that files hospital charity care applications; more than $38 million in medical bills cleared since 2019",
+            "firstStep": "Answer the eligibility questions on Dollar For’s website with your household size and income."
+          },
+          {
+            "title": "Ask for an itemized bill before you pay",
+            "whatChanges": "An itemized bill lists every charge, so you can spot duplicates or services you never received. Ask for it before you agree to a payment plan.",
+            "example": null,
+            "firstStep": "Call the billing number on your statement and ask for an itemized bill with the billing codes."
+          }
+        ]
+      },
+      "painId": "broke"
+    },
+    {
+      "id": "c38",
+      "rating": "love",
+      "reason": "",
+      "item": {
+        "id": "c38",
+        "painLine": "I'm worried about the planet heating up.",
+        "title": "Getting solar power without owning a roof",
+        "line": "Part of the electricity I pay for comes from a solar farm nearby, and my bill is a little lower for it.",
+        "fixes": [
+          {
+            "title": "Subscribe to a community solar farm",
+            "whatChanges": "In Minnesota, community solar gardens reached 939 megawatts in 2024, almost a third of the state’s solar, and subscribers’ bills are expected to drop 3% to 8%. Some people object that bills for non-subscribers rise 2% to 3%, which is why the program nearly ended in 2025.",
+            "example": "Minnesota community solar garden program · Minnesota · 2025 · 939 MW in 2024, almost a third of the state's solar; subscribers' bills expected to fall 3% to 8%; repeal dropped in June 2025 after advocates rallied",
+            "firstStep": "Search your state name with \"community solar\" and see whether any program serves your utility."
+          },
+          {
+            "title": "Ask your state lawmakers to allow plug-in solar panels",
+            "whatChanges": "In 2025 Utah became the first state to let people plug solar systems of up to 1,200 watts straight into a home outlet, and the law passed with no votes against. The parts run a few hundred dollars, compared with a $30,000 rooftop quote, but no complete plug-in system had been certified by UL yet when Grist reported on the law.",
+            "example": "Utah plug-in solar law (HB 340) · Utah · 2025 · Utah became the first state to allow residents to plug solar systems directly into home outlets; passed with no dissenting votes; output up to 1,200 watts; inverters about $300 and panels $250 to $1,000 versus a $30,000 rooftop quote; in Germany balcony panels added 10% more solar capacity",
+            "firstStep": "Look up whether a plug-in solar bill has been filed in your state, and find the names of your two state lawmakers."
+          },
+          {
+            "title": "Find the community solar programs open to your address",
+            "whatChanges": "Community solar rules differ by state and utility, and many people never hear about the programs they could join. It could check your utility and ZIP code and list the open programs, with what each would roughly save you.",
+            "example": null,
+            "firstStep": "Tell us you'd use this, and find the name of your electric utility on your last bill."
+          }
+        ]
+      },
+      "painId": "climate"
+    }
+  ]
+}
