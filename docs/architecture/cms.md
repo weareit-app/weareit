@@ -45,4 +45,13 @@ Knowledge-graph claims use the current CC0 working decision; authored guides use
 - `/cms` provides structured record and source creation/editing/removal, relationship and provenance controls, preview, publish validation, and rollback. Removing a domain also removes its child pains and related links from the unsaved draft; removing a referenced source is blocked until its provenance references are reassigned.
 - Initial CMS access uses `CMS_ADMIN_TOKEN` as a bootstrap gate. This must move to role-based authentication before multiple or outside editors are invited.
 
+## Pending content edits
+
+The seed only fills an empty database, so a copy change made in `@it/content` does not reach a database that already has content. Make each edit below through `/cms` in every existing database (local and deployed), publish, then remove it from this list.
+
+| Record | Field | From | To | Why |
+|---|---|---|---|---|
+| Dream `moving-with-friends` (Body → Fitness) | description | "Exercise is something we do together." | "I exercise with people I like." | First person, so it joins with the other Fitness lines (2026-10-19). |
+| Dream `healthcare` (world, Health) | description | "You get care when you need it." | "We get care when we need it." | The world page speaks as "us" (2026-10-18). |
+
 For local setup, see the root README. The API server uses the Node PostgreSQL driver and accepts any PostgreSQL connection URL, including Neon pooled URLs; it does not depend on Neon-specific APIs.
