@@ -98,6 +98,7 @@ v0.1 is staged: **core** must ship; **optional** ships if time allows; **soon** 
 | soon | Matching people with goals to people offering help | Help-page answers use structured lists (job titles, skills), not just free text |
 | soon | Starting from a dream instead of a pain ("I want to write a novel") | Dreams can exist without a parent pain in the content model |
 | soon | Evidence tags on ways (Strong, Some, Limited, Not tested yet) with their notes and linked sources; removed from v0.1 to ship (2026-10-19) | Every way keeps its evidence level and note in the content |
+| soon | More watercolor: a scene kit (C), live simulation for special moments (D) and the "ideas beyond the brief" in `docs/research/watercolor/options.md` (2026-10-19) | Palettes stay data and the mark keeps its painted-orb fallback |
 | ? soon | Explicit paths: an ordered set of ways toward a future (first, next, then); icon idea: Footprints, with each step keeping the Task icon (2026-10-18) | Picked ways are stored per pain → future path with stable way IDs, so an order can be added later |
 
 ? Anything missing from "soon"?

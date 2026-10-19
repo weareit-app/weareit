@@ -9,8 +9,7 @@
 import { readFileSync } from "node:fs";
 import { inflateSync } from "node:zlib";
 
-const file =
-  process.argv[2] ?? ".specify/assessments/watercolor/reference-dot.png";
+const file = process.argv[2] ?? "docs/research/watercolor/reference-dot.png";
 
 function decodeRgbaPng(buf: Buffer): {
   width: number;

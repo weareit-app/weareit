@@ -20,7 +20,7 @@ rules:
     - Collect open founder questions in an "Open questions" section instead of guessing.
   specs:
     - "Include a Privacy requirement: what stays on the device before signup, what is sent (per the AGENTS.md measurement invariant), what is stored after signup, and what is never public by default."
-    - "Include an Honest status requirement where ideas or features are shown: real-now actions, existing resources, proposed It features and societal proposals are labelled, and nothing implies an unbuilt feature works."
+    - "Include an Honest status requirement where ideas or features are shown: real-now actions, existing resources, proposed It features and societal proposals are labelled, and nothing implies an unbuilt feature works. No fake metrics, invented totals or fake social proof."
     - "Include an Accessibility requirement: keyboard, screen reader (including expanded/collapsed state), reduced motion, meaning never by colour alone."
   design:
     - Keep domain and content packages free of Expo, React Native, UI and provider imports; validate untrusted boundaries with Zod; prefer semantic API operations.

@@ -29,6 +29,17 @@ Decided 2026-10-18. This replaces spec 001's "no free text in v0.1" assumption; 
 - Contributions are validated with Zod at the boundary: a future's line is one first-person sentence ending in a period, so any set of chosen futures can be joined with commas and "and".
 - VERIFY before launch: limits on how many contributions an account can send, and reviewer guidance for contributions that suggest someone is in crisis.
 
+## v0.1 launch
+
+Decided 2026-10-16 (founder override of the assessment's weak-evidence gate); conditions confirmed 2026-10-19.
+
+- **Go** on the full v0.1, built in the order a visitor meets it, despite weak demand evidence: one informal tester, no interviews or analytics. Launching is how the evidence gets gathered.
+- **Launch target:** web. The iOS app is optional for v0.1, ships only if ready, and is kept working throughout.
+- **Smallest version over delay:** if the build is clearly slipping mid-week, ship the smallest version of the slipping feature rather than delay launch.
+- **Launch measures are never cut:** selected fixes, the stage funnel (see `visit-measurement`) and support conversion ship in v0.1.
+- **Signup review line:** if more than about half of the people who reach the signup gate leave there, revisit required signup, with a decision record.
+- **Re-assess about a month after launch:** review the measures and decide what to change.
+
 ## Platform and stack
 
 - Expo Router is the universal app and route system. Revisit a separate Next.js app only if a demonstrated Expo limitation requires it.
@@ -63,7 +74,7 @@ Decided 2026-10-18. This replaces spec 001's "no free text in v0.1" assumption; 
 
 ## Content graph: Thing / Type / Relation
 
-Decided 2026-10-16; assessment in `.specify/assessments/thing-type-relation/`.
+Decided 2026-10-16; research in `docs/research/thing-type-relation.md`.
 
 - It will have a shared layer where any record can be linked to a **Thing** (e.g. Basketball) of a **Type** (e.g. Sport) through a named **Relation**. The vocabulary is Thing / Type / Relation.
 - Types and Things sit on stacked levels: a Type can be described as a Thing only at the level above, never on the same level (as with universes in type theory).
@@ -83,11 +94,11 @@ Decided 2026-10-18; details in `docs/architecture/typography.md`.
 
 ## Graphics: `@shopify/react-native-skia` for the watercolor dot
 
-**Approved by the founder 2026-10-17.** Spec: `specs/007-watercolor-dot/spec.md`; assessment in `.specify/assessments/watercolor/`.
+**Approved by the founder 2026-10-17.** Spec: `specs/007-watercolor-dot/spec.md` (being absorbed into `openspec/specs/brand-mark` via change `watercolor-followups`); research in `docs/research/watercolor.md`.
 
 - **Why.** Both candidates in the fidelity proof need GPU shaders: Option B (look-alike shader) draws watercolor marks live, and Option E (dots painted ahead of time by physics) is colored live with Kubelka-Munk pigment optics. Reanimated, already installed, can move, scale and fade existing images but cannot draw new watercolor shapes. Skia gives GPU 2D drawing and custom SkSL RuntimeEffect shaders on iOS and web, driven by Reanimated shared values, and is supported in the Expo SDK 57 docs.
 - **Version.** Install with `expo install` so the version matches SDK 57; record any pin in `docs/architecture/dependency-policy.md`. Not installed yet; the fidelity proof installs it.
-- **Web cost.** Skia on web loads CanvasKit (WebAssembly), about 2.9 MB gzipped, against the founder's 1 MB extra web budget loaded after the first screen (FR-011). So web will likely use the animated painted orb in all three placements, and Skia is used on iOS, unless the fidelity proof finds a web path for the chosen dot within 1 MB. The proof must report the web download for each approach.
+- **Web cost.** Skia on web loads CanvasKit (WebAssembly), about 2.9 MB gzipped, against the founder's 1 MB extra web budget loaded after the first screen (FR-011). So web will likely use the animated painted orb in all three placements, and Skia is used on iOS, unless the fidelity proof finds a web path for the chosen dot within 1 MB. The proof must report the web download for each approach. *(Superseded the same day: see "Web, updated 2026-10-17" below.)*
 - **Native cost.** Roughly 4–6 MB added to the iOS binary (figures vary between sources; the proof measures it). Targets are iPhone 12 and newer (founder, 2026-10-17).
 - **License.** `@shopify/react-native-skia` is MIT and Skia itself BSD-3-Clause; both are compatible with the AGPL-3.0-or-later app license.
 - **Code that may not be copied.** sudoaquarelle.com publishes no license, so it is all-rights-reserved by default; Mixbox is CC BY-NC 4.0 (non-commercial only). Neither its code nor its data may be copied into It. Simulation and color mixing are written from published papers (Curtis et al. 1997 and later work) and the Kubelka-Munk equations.
@@ -119,3 +130,4 @@ Expo Router now documents static and request-time server rendering. Start with s
 - 2026-10-17: founder chose dot B on web too. Web draws it with the browser's own WebGL (the same shader, translated from SkSL; a few KB), not with Skia's web runtime, so the 1 MB web budget holds. The painted orb remains the fallback where WebGL is unavailable.
 - 2026-10-17 (founder review of spec 008): passkeys added as an optional sign-in method alongside email code and password (extends C3); every signup starts with an email code; password rules and hash-recording requirement set.
 - 2026-10-19: measurement privacy invariant changed (spec 013, founder answers Q1–Q12). Changed: the signup/sign-in visit is linked to the account (reverses 008 FR-028 "never linked"); per-page views including each pain page (reverses the per-pain part of 012 FR-020); each opened pain recorded by ID (reverses 008's "opened pains not sent"); deleted accounts' visits unlinked and kept; exact receive times; records kept indefinitely; no opt-out. Kept: no picks or selected fixes sent before signup; visit ID in memory only; no cross-visit link before signup; how a visit arrived is not recorded; never public. Open: when account linking switches on (010 Q37).
+- 2026-10-19: recorded the v0.1 launch decision and its conditions (from the it-mvp assessment; founder confirmed which still hold); moved assessment research to `docs/research/`.
