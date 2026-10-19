@@ -29,7 +29,6 @@ Founder review, 2026-10-17/18: the new numbers stand. Earlier drafts (including 
 - ✔ **core** Your picks stay on your device. Only coarse totals and a stage funnel (no picks) are sent, and the page says so. The stage list belongs to the measurement spec (spec 013).
 - ✔ **core** Add your own pain, future or way. It works for you straight away and stays on your device; after signup you can send it for review, and others see it only once the founder approves it (2026-10-18).
 - ✔ **core** "Clear everything picked on this device", shown only before signup.
-- ✔ **core** Each opened pain links to its own pain page at "/p/<slug>" (spec 012). ? All pains, or only the outreach launch set (012 question N4).
 
 ## 2. Societal: "What could be better for us?" (no account)
 

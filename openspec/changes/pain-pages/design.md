@@ -35,7 +35,7 @@ See proposal.md for why. Current state:
 
 4. **Detailed content is versioned content.** Sections are `{ id, kind: "text" | "image" | "chart", body or asset, alt or summary, data (chart), sources: [{ title, url, date }] }`, validated in `packages/content` with Zod and published inside the snapshot. Extend `content_provenance` entity types to `pain_detail_section`. Images are stored behind a provider-neutral asset boundary and served from It's own origin, so pain pages load no third-party resources. Charts render from the sourced data in the snapshot with a text table, not from embedded third-party widgets.
 
-5. **Lock published IDs in the editor and on the server.** The editor disables the ID field for any record present in a published version; `cms.saveDraft` rejects a draft that renames such a record. Kept in this change because pain links and saved picks both rely on it; it can move to a separate content change (confirm.md item 5) without changing the rest.
+5. **Published IDs are locked by `locked-content-ids`.** This change depends on that change (founder, 2026-10-19) and adds no lock of its own; slugs may change, IDs never do.
 
 6. **Arrival hygiene.** On load of `/p/[slug]`, the app replaces the URL with the plain path (dropping query and fragment) before anything is stored or sent. A `Referrer-Policy: no-referrer` (or `<meta name="referrer">`) is set for all web pages, and outbound links carry `rel="noreferrer noopener"`.
 

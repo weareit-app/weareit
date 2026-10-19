@@ -18,7 +18,7 @@ What people see and do, screen by screen (features.md §2b, all core):
 - **An old slug.** Opens the same pain page, and the address bar shows the current slug.
 - **Arriving with tracking tags.** Tags that social sites add to the link are removed from the address bar on arrival and never stored or sent.
 - **Signed in.** A signed-in person sees their saved picks on the pain page, and changes save to their account as on the list pages (required-signup-gate). No "clear choices" control.
-- **Personal and societal pages.** An opened pain links to its own pain page (features.md §1, spec 001 FR-027). Whether every pain links or only the launch set is open (Open questions).
+- **Personal and societal pages.** Unchanged except for the calm note when a pain link leads nowhere; they do not link to pain pages (founder, 2026-10-19).
 - **Content editor (founder).** Each pain gets a readable slug, separate from its ID and defaulting to it, approved by the founder when the pain is first published. Changing a slug keeps the old one working forever; no slug is ever reused. Pains can be retired, with an optional replacement. The editor highlights the launch set, shows each pain's link with a copy control, and holds the detailed content with its sources. Published pain IDs can no longer be renamed.
 - **iPhone.** In v0.1 links open It on the web in the phone's browser.
 
@@ -46,7 +46,7 @@ Must leave room for (features.md Stages):
 
 ### Modified Capabilities
 - `content-catalog`: slugs with permanent aliases that are never reused, founder slug approval at first publish, retired pains with an optional replacement, a launch-set flag, sourced detailed content, links shown in the editor, and published IDs locked.
-- `pain-explorer`: an opened pain links to its pain page.
+- `pain-explorer`: a calm note on the personal page when a pain link leads nowhere.
 
 ## Impact
 
@@ -58,16 +58,4 @@ Must leave room for (features.md Stages):
 
 ## Open questions
 
-Numbered to match `confirm.md`, where each has options and a recommendation.
-
-1. Do all opened pains on the personal and societal pages link to their pain page, or only the launch set? (001 FR-027 / 012 N4; specs assume all)
-2. Where do detailed sections sit on a launch-set page? (012 N1)
-3. What kinds of image are allowed? (012 N2)
-4. Fixes on a pain page appear only once a dream is picked, as on the personal page? (012 N3; specs assume yes)
-5. Does locking published IDs belong in this change or a separate content change?
-6. How are per-pain link previews rendered, given the static web build? (may need a decision record)
-7. Is AI drafting done outside It and pasted in, or a tool inside the editor?
-8. What preview image do pains without their own image use?
-9. For the record: pain-page view counting reverses 012 Q14/FR-020 per the 2026-10-19 invariant; the measurement change owns it.
-
-Final copy for every new line (calm notes, device note, share line) is written or approved by the founder; placeholders are marked.
+All nine were answered by the founder on 2026-10-19; see `confirm.md`. Changes from the draft: pain pages are reached only by link (no link from the personal or societal pages), and the published-ID lock lives in `locked-content-ids`.

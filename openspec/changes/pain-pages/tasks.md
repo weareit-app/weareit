@@ -1,13 +1,12 @@
 # Tasks
 
-Gating: do not start a group marked "needs confirm.md item N" until the founder has answered it. Groups 1–4 can start once required-signup-gate's data model (its tasks 1–2) has landed.
+Founder answers are in (2026-10-19, see confirm.md); "needs confirm.md item N" notes are kept for traceability. Depends on `locked-content-ids` for the published-ID lock. Groups 1–4 can start once required-signup-gate's data model (its tasks 1–2) has landed.
 
 ## 1. Content model and publishing
 
 - [ ] 1.1 Add `slug`, `slugAliases`, `retired`, `replacementPainId`, `launchSet` and `detail` sections with sources to the pain schema in `packages/content/src/schema.ts` and `graph-schema.ts`; verify schema tests reject bad slugs, double hyphens, sections without dated sources and images without alt text
 - [ ] 1.2 Write migration `007_pain_pages` (columns, `content_pain_slugs`, provenance entity type `pain_detail_section`) with a backfill of `slug = id` for published pains; update `packages/database/src/types.ts`; verify migrate up/down on a test database
 - [ ] 1.3 Extend publish validation: slug uniqueness against every slug ever published, aliases kept on slug change, replacement must be published and not retired, first-publish slug approval recorded; verify repository tests for reuse, alias retention and invalid replacement
-- [ ] 1.4 Reject drafts that rename a published record's ID in `cms.saveDraft` (needs confirm.md item 5 if it moves to another change); verify router test
 
 ## 2. Resolving links
 
@@ -27,12 +26,10 @@ Gating: do not start a group marked "needs confirm.md item N" until the founder 
 
 ## 4. List pages
 
-- [ ] 4.1 Add the pain-page link to an opened pain on the personal and societal pages (scope per confirm.md item 1; default every published pain); verify Playwright follows it with picks intact
 - [ ] 4.2 Add the dismissible calm note on `/` for dead-link arrivals; verify it does not show on a direct visit
 
 ## 5. Content editor
 
-- [ ] 5.1 Disable the ID field for records in any published version in `apps/app/app/cms/index.tsx` (confirm.md item 5); verify editor test
 - [ ] 5.2 Add slug editing with first-publish approval, alias list, retire with replacement, launch-set toggle and highlight with detailed-content status, and copy-link; verify editor tests and a manual publish in development
 - [ ] 5.3 Add detailed-content editing with sources and image upload behind the asset boundary (needs confirm.md items 3 and 7); verify an image is served from It's own origin
 
@@ -52,4 +49,4 @@ Gating: do not start a group marked "needs confirm.md item N" until the founder 
 ## Workflow follow-up
 
 - Founder answers `confirm.md` and approves placeholder copy.
-- Archive with `/opsx:archive` once shipped, then fill the `specs/012-entry-links/` row in `docs/spec/MIGRATION.md` (and note 001 FR-027).
+- Archive with `/opsx:archive` once shipped, then fill the `specs/012-entry-links/` row in `docs/spec/MIGRATION.md` (001 FR-027 dropped: the personal and societal pages do not link to pain pages).

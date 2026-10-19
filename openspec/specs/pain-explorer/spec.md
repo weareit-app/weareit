@@ -75,6 +75,5 @@ Groups and pains SHALL expose expanded/collapsed state; pain, dream and fix chec
 ## Known divergence from founder decisions (2026-10-19)
 - Fixes are called "ways" in the UI and appear in one section for the pain, not grouped under each dream as some drafts describe.
 - People cannot yet add their own pain, future or way (founder decision 2026-10-18; not built).
-- Each opened pain has no link to a `/p/<slug>` pain page (spec 012 direction).
 - Measurement is not built; nothing about opened pains is recorded (AGENTS.md measurement invariant, spec 013).
 - The clear-choices control is shown regardless of sign-in state (founder: pre-signup only).

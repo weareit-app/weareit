@@ -4,6 +4,8 @@ Answer each item with "yes" to accept the recommendation, or name another option
 
 ## 1. Which opened pains link to their pain page? (001 FR-027 / 012 N4)
 
+**Founder answer (2026-10-19): no: the personal and societal pages do not link to pain pages at all.**
+
 features.md §1 already says each opened pain links to `/p/<slug>`; the open part is scope.
 
 - A. Every published pain.
@@ -13,6 +15,8 @@ features.md §1 already says each opened pain links to `/p/<slug>`; the open par
 
 ## 2. Where do the detailed sections sit on a launch-set page? (012 N1)
 
+**Founder answer (2026-10-19): yes (C).**
+
 - A. Name and line, then dreams near the top; detail below ("More about this").
 - B. Detail first, then dreams.
 - C. Short summary and one image at the top, dreams next, fuller detail below.
@@ -20,6 +24,8 @@ features.md §1 already says each opened pain links to `/p/<slug>`; the open par
 **Recommendation: C.** Shows It understands the pain while keeping dreams within reach on a phone.
 
 ## 3. What kinds of image are allowed? (012 N2)
+
+**Founder answer (2026-10-19): yes (D).**
 
 - A. Illustrations in It's own style only; no photos.
 - B. Licensed or openly licensed photos with credit, plus charts.
@@ -30,12 +36,16 @@ features.md §1 already says each opened pain links to `/p/<slug>`; the open par
 
 ## 4. Fixes on a pain page appear only once a dream is picked? (012 N3)
 
+**Founder answer (2026-10-19): yes (A).**
+
 - A. Yes, exactly as on the personal page.
 - B. Show every dream's fixes from the start.
 
 **Recommendation: A.** One behaviour everywhere, and a shorter page on a phone. The specs assume A ("exactly as an opened pain does on the personal page").
 
 ## 5. Does locking published IDs belong in this change?
+
+**Founder answer (2026-10-19): the lock lives only in `locked-content-ids`; dropped from this change.**
 
 The editor lets the founder rename a published ID today (`apps/app/app/cms/index.tsx`), which would break links and saved picks. decisions.md and 001 FR-020 already require IDs never change once published.
 
@@ -45,6 +55,8 @@ The editor lets the founder rename a published ID today (`apps/app/app/cms/index
 **Recommendation: A**, unless a content change is planned to start sooner; it is small and pain links are the first thing that needs it.
 
 ## 6. How are link previews (title and image) rendered?
+
+**Founder answer (2026-10-19): yes (A), with B as fallback.**
 
 Today the web build is fully static, so a preview fetcher cannot get a per-pain title and image from published content.
 
@@ -56,6 +68,8 @@ Today the web build is fully static, so a preview fetcher cannot get a per-pain 
 
 ## 7. How does AI drafting fit the editor?
 
+**Founder answer (2026-10-19): yes (A).**
+
 The founder decided detailed content is AI-drafted, founder-approved and stored in the CMS with sources.
 
 - A. Drafting happens outside It (for example with Claude), and the draft and sources are pasted or imported into the editor for review and approval.
@@ -64,6 +78,8 @@ The founder decided detailed content is AI-drafted, founder-approved and stored 
 **Recommendation: A** for v0.1: no new provider or API key in It, and approval stays the same.
 
 ## 8. Preview image for pains without one
+
+**Founder answer (2026-10-19): yes (C).**
 
 Most pains have no image today (`apps/app/src/content/illustrations.ts`), but previews should show "the pain's title and image".
 
@@ -74,6 +90,8 @@ Most pains have no image today (`apps/app/src/content/illustrations.ts`), but pr
 **Recommendation: C.** Outreach links look right, and publishing other pains is not blocked.
 
 ## 9. Pain-page view counting reversed (for the record)
+
+**Founder answer (2026-10-19): yes (A).**
 
 Spec 012 (Q14, FR-020) said arriving by link is an ordinary visit with no per-pain counting. The 2026-10-19 measurement invariant (AGENTS.md, spec 013) counts a page view for each pain page by pain ID and each pain opened. This change follows AGENTS.md: it specifies no counting itself, leaves pain-page views to the measurement change, and keeps "how a visit arrived is never recorded" (still in decisions.md).
 

@@ -49,17 +49,6 @@ The founder SHALL be able to retire a published pain, optionally naming a publis
 - **WHEN** the named replacement is itself retired or unpublished
 - **THEN** publishing is refused with a validation error
 
-### Requirement: Published IDs are locked
-Once a pain, dream or fix has been published, the content editor SHALL NOT allow its ID to be changed. Unpublished records SHALL remain renameable.
-
-#### Scenario: Renaming a published pain's ID
-- **WHEN** the founder tries to edit the ID of a pain that appears in any published version
-- **THEN** the editor does not allow the change
-
-#### Scenario: Draft-only record
-- **WHEN** the founder edits the ID of a pain never published
-- **THEN** the change is accepted
-
 ### Requirement: Launch set
 The founder SHALL be able to mark pains as part of the outreach launch set in the content editor. The editor's pain list SHALL highlight launch-set pains and show whether each has published detailed content.
 
