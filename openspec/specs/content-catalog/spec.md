@@ -36,5 +36,5 @@ Every pain, dream and fix SHALL have a readable kebab-case ID (for example `poor
 ## Known divergence from founder decisions (2026-10-19)
 - The editor lets the founder rename a published record's ID, which cascades to links but breaks saved picks and any future `/p/<slug>` links; spec 001 FR-020 and decisions.md require IDs never change once published.
 - There are no slugs, aliases or retired states (spec 012 direction).
-- Fixes record no evidence level yet (founder 2026-10-19: record it, don't show it in v0.1).
+- Each fix already stores one evidence level and note (content schema and migration 005), but the three kinds of claim (method, link to a future, It feature) are not kept apart and the editor has no Ways tab to edit them (see change `fix-evidence-levels`).
 - No review queue for people's own contributions (decided 2026-10-18; part of admin).
