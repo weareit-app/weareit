@@ -1,0 +1,106 @@
+# Founder answers: spec review of 2026-10-17/18 (lanes 008–012)
+
+Format: [lane Q#] question → answer (notes)
+
+- [010 Q1] Crisis resources and reporting → planned for after v0.1. 010 covers the privacy page; safety Q2–Q10, Q30, Q31 kept as later notes.
+- [011 Q1] Help meaning → offering help TO It.
+- [011 Q3] Help shape → A: full flow (background → ESCO skills → matched asks). Founder accepts it is over the one-week budget.
+- [011 Q2] Help goals → all four: collect offers to follow up, show roadmap as asks, test the matching, collect skill data. Plus: asks are not limited to the prioritized roadmap; other asks can be added.
+- [011 Q4] Asks source → AI drafts, founder approves, stored in CMS with stable IDs.
+- [011 Q5] Background → covers jobs, education, volunteer experience, and other experiences.
+- [011 Q5b] Entry style → structured lists where possible (ESCO, education list) + optional short free text. No crisis prompt on free text.
+- [011 Q6] Skills → ESCO essential skills suggested from background, no cap; person confirms/removes.
+- [011 Q7] Contact consent → submitting an offer implies consent to be contacted about it (page must say so plainly).
+- [011 Q8] Follow-up → honest no-promise copy ("We'll reach out if one of these needs you now. We can't reply to everyone.") + admin "followed up" marks.
+- [009 Q1 / 011 Q9 / 009 Q21] Flow → signup → Support → Help, both skippable. Thank-you/skip on Support leads to Help.
+- [008 Q9] Gate placement → directly after the societal page; retire futures.tsx (dreams inline on both pages).
+- [008 Q19] Sent at signup → dream picks (with pain + content version), "I'd use this" marks (with content version), opt-in choice + wording version. Not opened/selected pains, help interests, or draftUpdatedAt (resolves 010 Q26 timestamp part).
+- [009, via fix session at founder's request] No guest supports on any platform (FR-013); App Store/RevenueCat purchases must tie to signed-in account (new FR-025). Committed 322cd92 on spec/009-support-page — build on it. Resolves 010 Q20 direction (configure RevenueCat with It user ID); 009 Q15 (what iOS offers) still open.
+- [terminology, all specs] There is no "I'd use this" language. Those marks are simply the person selecting a fix (an idea labeled as a possible feature). Rename "I'd use this marks" → "selected fixes" everywhere (008 Q19 list, 001 FR-018 references, 010 privacy copy).
+- [008 Q1] Returning account, different device picks → combine silently (union).
+- [008 Q4] Gate layout → email first; next screen sends a code (small "use a password" link for people who have one). After signup, person may optionally create a password OR register a passkey. NEW: passkeys are an addition to C3 (email code + password) → needs a decision-record note.
+- [008 Q2, implied] Every signup goes through the email code first, so the email is always verified before picks save. Password is added afterwards, optionally.
+- [008 Q3, implied] Forgot password → sign in with a code; code-created accounts can add a password (or passkey) once signed in. No separate reset flow in v0.1.
+- [008 Q6, implied] Code path is neutral ("we sent a code"), no account enumeration.
+- [008 Q5] Password rules → 10–12 char minimum (exact number left to plan) + breached-password check, no composition rules.
+- [008 Q7 / 010 Q23] Opt-in → updates only. Everything else at that point is transactional. Finer-grained email permissions come later, elsewhere.
+- [008 Q8] Changing opt-in → unsubscribe link in every update email in v0.1; account setting later.
+- [008 Q10 / 010 Q26] Device copy after confirmed save → clear it; signed-in pages read from the account.
+- [008 Q11] Editing picks after signup → auto-save to account.
+- [008 Q12] Name → asked right after signup completes (not on the gate). Drop the "It explorer" placeholder.
+- [008 Q12b] Name step after signup → required.
+- [008 Q13] Signup with no picks → allowed.
+- [008 Q14] Funnel → add "reached the gate" and "signed up" stages; never linked to the account.
+- [008 Q15 / 010 Q17] Deletion → by email request in v0.1, stated on privacy page with a response time; self-serve later. Owned by 010.
+- [009 Q14 / 010 Q18] Account deletion → cancel recurring support; keep payment records unlinked from the person for accounting; disclose.
+- [008 Q16 / 010 Q25] Minimum age → 16, stated on the privacy page; no age question on the gate.
+- [008 Q17] Terms → "By signing up you agree to…" line with links; no checkbox.
+- [008 Q18] Decision record → yes, short record for password hash settings + passkeys added to C3.
+- [008 Q20 / 011 Q11] Numbering → keep new numbers (008–012); update 001's references; record the mapping in features.md.
+- [009 Q2] Pre-signup Support links → remove; persistent "Support It" link after signup (account area or footer).
+- [009 Q3] Preselection → monthly, $5.
+- [009 Q4 layout] Amount picker → 6 preset buttons in 2 rows of 3, custom amount field below (reference: founder-shared screenshot of a charity form; copy still says "support", never "donation"). Cadence as a segmented control above.
+- [009 Q4] Amounts → Monthly $3/5/10/20/50/100 (default $5) · Annual $30/50/100/200/500/1,000 · Once $10/20/50/100/250/500 · custom field below; $1 minimum (custom maximum left to plan).
+- [009 Q5] Currency → USD only for v0.1.
+- [009 Q6] Payment methods → cards + wallets (Apple Pay / Google Pay on web) + Stripe saved-details option. No bank debits.
+- [009 Q7 / 010 Q21] Stripe form loads only after the person taps Next on the amount step (amount is preselected, so "picked" = Next); Stripe script only on the Support screen, never site-wide. Two-step page like founder's reference.
+- [009 Q8] Ledger → restructure now: provider IDs into separate provider-reference records (no production data yet).
+- [009 Q9] One active recurring support per account; existing supporters see "Manage support"; one-time stays available.
+- [009 Q10] Copy → founder letter in CMS; short legal lines fixed in app.
+- [009 Q11/Q12] Receipts → Stripe sends to the verified account email (prefilled, locked); one Stripe customer per It account, created on first support.
+- [009 Q13] Refunds → on request within N days, handled manually; N set by the founder (stays [NEEDS CLARIFICATION] for N).
+- [009 Q15] iOS → primary: RevenueCat once/monthly/annual (Apple subscriptions + one-time IAP), tied to the account; research App Review rule 3.1.2 ("ongoing value") risk before building. Secondary option: link out to web Support (Stripe) with an explanation that It receives more this way, optionally showing how much more for the selected amount (Apple 15% vs Stripe fees). Link-out availability by region (US post-Epic ruling) is a research question. Two management paths: Apple subscriptions in iPhone settings, Stripe portal for web. Copy says "support", never "donation".
+- [009 Q16] Support funnel → yes, track reached / supported / skipped as funnel stages. Assumed unlinked from the account like the other stages (confirm in review).
+- [009 Q17] Public totals → show an aggregate funding total in v0.1 (sourced and dated; no individual supporters).
+- [009 Q18] Merchant entity → We Are It LLC (statement descriptor wording left to plan). Also answers 010 Q12 data controller.
+- [009 Q19] Cover fees → no.
+- [009 Q20] Tax line → yes, one plain "not tax-deductible" line near the confirm button; founder approves wording.
+- [009 Q22] Extras → defer in-It manage view and comparison sidebar; funding total shown on its own.
+- [009 Q21] (answered by flow) thank-you/skip → Help.
+- [010 Q11] Privacy page reachable everywhere: footer on large screens; in the menu/settings when signed in and on mobile/small screens; plus the one-line note on pre-signup pages and the gate/Support screens.
+- [010 Q12] Legal → plain-language page only for v0.1, with a contact email; data controller We Are It LLC.
+- [010 Q32] Laws → write to US + UK/EU (GDPR/UK GDPR): lawful basis, rights, controller details.
+- [010 Q14] Measurement copy → describe only what is live; section ships with measurement code (release check).
+- [010 Q22/Q24] Vendors → name each service (Neon + region, Stripe, Apple/RevenueCat, email provider) and what it receives; code stays provider-neutral.
+- [010 Q15] Session IP/user agent → keep, disclose, delete with the session.
+- [010 Q16 / 012 Q12] Host logs → hosting requirement: drop or truncate IPs and paths where the host allows; otherwise short retention, never analysed; disclosed. Keep /p/<slug> format.
+- [010 Q27] "Clear everything on this device" → pre-signup only (shared-device privacy); hidden once signed in.
+- [010 Q13] Funnel stage list → owned by a NEW measurement spec (not yet numbered); 001, 008, 009, 012 reference it. Follow-up: create that spec.
+- [010 Q28 / 009 pieces note / 012 pieces note] pieces.yaml → parked. Leave untouched; AGENTS.md wins on conflicts. Founder questions why pieces.yaml carries research questions at all; revisit separately.
+- [010 Q29] Final privacy copy → founder writes or approves.
+- [010 Q19/Q20] Resolved by fix branch claude/vigorous-hawking-2ad1c8 (account-scoped status/portal, no web guest checkout) and 009 FR-025 (RevenueCat tied to account).
+- [011 Q10] ways-to-help.tsx / helpInterests → retire the route; reuse its items as first asks.
+- [011 Q12] Contact → contact email in shared footer (menu on mobile/signed in), owned by 010.
+- [011 Q13] FAQ → both: inline "why we ask / what's stored" copy in each spec, plus a short static FAQ page. Owner of the FAQ page not yet assigned (likely 010, alongside privacy/contact).
+- [011 Q14] ESCO → edited labels / merged skills allowed; requires licence check and a "modified from ESCO" attribution notice. Stored references keep the original ESCO URIs (decisions.md: Help answers as ESCO references).
+- [011 Q15] Admin → counts per ask plus individual offers (offering = consent to contact).
+- [011 Q16] Withdraw/change offers → yes, from their account (needs an account view listing offers).
+- [011 Q17] Asks before signup → no; Help is post-signup only. The roadmap is already communicated pre-signup through the choices (fixes) people see on the pain pages.
+- [011 Q18] §5 name → "Help build It".
+- [012 Q1] Links → every published pain has a working link; editor highlights a launch set for outreach.
+- [012 Q2] Slug → separate field, defaults to the pain ID; old slugs kept as aliases.
+- [012 Q3] One slug, one pain.
+- [012 Q4] Slugs → founder approves in editor at first publish; may change later, old slug kept as permanent alias.
+- [012 Q5] Retired pain link → open replacement pain if named, else calm "not here any more" note.
+- [012 Q6] Unknown/unpublished slug → page opens with short calm note, no pain open, reveals nothing about drafts.
+- [012 Q7] Prefix → one prefix for all pains: /p/<slug>. No /s/. (Overrides the "/s/ai-and-jobs" example in §2b.)
+- [012 model mismatch] Founder expects /p/<slug> to be a page about that one pain, not the personal/societal list page with one pain expanded (which is how spec 012 read §2b). Q8–Q10 were built on the wrong model; re-ask after the founder describes the pain page.
+- [012 model] /p/<slug> = a page for one pain: the pain, its dreams and fixes the visitor can pick, then "see more pains" into the normal flow. Q8 (placement in list) obsolete.
+- [012 Q9] Link arrival → straight to the pain page, no welcome screen. Pain page talks about the pain in detail, with images and visualizations where they make sense (not just a line about It).
+- [012 Q10] Picks on a pain page = same on-device picks as onboarding; carried into the flow and saved at signup.
+- [012 next] "See more pains" → personal page, normal flow (personal → societal → signup).
+- [012 scope change] Detailed pain pages (text, sources, images, visualizations) ARE v0.1 for the outreach launch set; other pains get the basic pain page (pain + dreams/fixes). Changes §2b's ✗ line — update features.md §2b on the lane branch. Q19 (landing pages at same address?) resolved: same /p/<slug> address.
+- [012 content] Detailed content → AI drafts, founder approves, stored in CMS with sources.
+- [012 counts] No "how many people share this" counts in v0.1.
+- [012 Q16] Obsolete: pain page → personal → societal → gate is the normal flow.
+- [012 Q11] Obsolete under single-pain-page model.
+- [012 Q15] Previews → pain's title + image (needs per-page rendering; ties to the hosting decision).
+- [012 Q14] Counting → normal visit only; no per-pain or per-link counts; picks count as usual stages.
+- [012 Q17] Signed-in visitor → same pain page with their saved picks shown; edits auto-save.
+- [012 Q18] iPhone → web only in v0.1; universal links researched for later.
+- [012 Q13] Tracking tags → strip from address bar on arrival; never stored.
+- [012 Q20] Share button → yes, "share this topic" on pain pages; shares the pain page only, never the person's picks.
+
+## Superseded later
+
+- 2026-10-19, spec 013 (branch spec/013-measurement): the founder changed the measurement privacy invariant. Post-signup visits are linked to the account, there are page-view counters per page including each pain page, and opened pains are recorded by pain ID. Where this log says "never linked to the account", "no per-pain counts", or "opened pains not sent", 013 wins. Specs 008–012 were not updated to match.
