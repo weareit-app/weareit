@@ -10,7 +10,7 @@ Rules:
 
 | Artifact | State at retirement | Went to | Status |
 |---|---|---|---|
-| `specs/001-personal-page/` | Spec; largely built (onboarding redesign); synced with the 2026-10-17/18 review | Built behaviour → baseline `openspec/specs/pain-explorer`, `on-device-choices`. Unbuilt parts → changes `own-contributions`, `fix-evidence-levels`, `locked-content-ids`, (001 FR-027, linking opened pains to pain pages, dropped by the founder 2026-10-19); measurement → `visit-measurement` (2026-10-19) | drafted; founder confirm pending |
+| `specs/001-personal-page/` | Spec; largely built (onboarding redesign); synced with the 2026-10-17/18 review | Built behaviour → baseline `openspec/specs/pain-explorer`, `on-device-choices`. Unbuilt parts → changes `own-contributions`, `fix-evidence-levels`, `locked-content-ids` (all confirmed 2026-10-19), (001 FR-027, linking opened pains to pain pages, dropped by the founder 2026-10-19); measurement → `visit-measurement` (2026-10-19) | drafted; founder confirm pending |
 | `specs/007-watercolor-dot/` | Full plan and tasks; approved 2026-10-17 | | not started |
 | `specs/008-signup-gate/` | Spec, founder answers applied; 4 open questions | Re-grilled 2026-10-19 → `openspec/changes/required-signup-gate/` (all 008 decisions kept; Q21 → one line on the name step; Q22 → browser passkey suggestion on web; password minimum 12; measurement linking moved to the measurement change) | in progress (delete after archive) |
 | `specs/009-support-page/` | Spec, founder answers applied; 3 open questions | Drafted and confirmed 2026-10-19 → `openspec/changes/embedded-support/` | confirmed; build after required-signup-gate |

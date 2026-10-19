@@ -19,7 +19,7 @@ See proposal.md for why. Current state:
 
 **Non-Goals:**
 - The admin area beyond the queue (spec 006), role-based editor access, notifications, and measurement of contributions.
-- Moderation tooling beyond approve/link/decline (crisis guidance and limits are open, confirm.md Q11).
+- Moderation tooling beyond approve/link/decline, and crisis guidance (planned for after v0.1).
 
 ## Decisions
 
@@ -50,7 +50,7 @@ See proposal.md for why. Current state:
 ## Risks / Trade-offs
 
 - [Unsent items only exist on one device, even after signup] → Say so in the "Only you can see this" help text; "Send for review" is the way to keep them with the account (confirm.md Q1).
-- [Abuse or crisis content in the queue] → Nothing is public before review; limits and reviewer guidance are open launch blockers (confirm.md Q11).
+- [Abuse in the queue] → Nothing is public before review; 20 sends per account per day and a decline note, both founder-approved before launch (confirm.md Q11).
 - [The first-person check rejects reasonable lines] → Explain with examples in the form; founder can tune the rule in one schema.
 - [Founder edits the whole graph in the CMS while approving] → Approve uses the same expected-revision check as `saveDraft`.
 

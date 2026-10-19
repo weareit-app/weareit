@@ -1,6 +1,6 @@
 # Tasks
 
-Do not start until the founder has answered `confirm.md`; adjust specs first if any answer differs from its recommendation.
+Founder answered `confirm.md` on 2026-10-19, all as recommended; the specs already match.
 
 ## 1. Per-pain order of futures
 

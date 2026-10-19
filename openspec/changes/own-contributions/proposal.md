@@ -40,19 +40,4 @@ Must leave room for (features.md Stages): personal story of chosen futures (own 
 
 ## Open questions
 
-The full list with options and recommendations is in `confirm.md`. In short:
-
-1. Where unsent contributions live after signup.
-2. What happens to device-only contributions on sign-out on a shared device.
-3. Sending a future or way whose parent is also the person's own.
-4. Withdrawing or editing while "In review".
-5. Whether a way's line is first-person (FR-021) or a plain description like published ways.
-6. Which way types a contributor can choose.
-7. How strict the first-person sentence check is.
-8. When "Added" shows: on approval or on publish.
-9. Whose wording the contributor sees after an edited approval.
-10. Length limits for names and lines.
-11. Per-account sending limits and reviewer guidance for crisis signs (decisions.md VERIFY).
-12. What happens to contributions when an account is deleted.
-13. Whether pain pages (`/p/<slug>`) also offer "Add your own".
-14. Whether the reviewer sees who sent an item by default.
+All answered by the founder on 2026-10-19, each as recommended; see `confirm.md`.

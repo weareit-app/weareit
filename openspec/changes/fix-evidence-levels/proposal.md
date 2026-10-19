@@ -37,11 +37,4 @@ None.
 
 ## Open questions
 
-The full list with options and recommendations is in `confirm.md`. In short:
-
-1. How the three claims are stored.
-2. Whether way–future link evidence is optional, and whether "not assessed" differs from "Not tested yet".
-3. How much of the Ways tab this change builds.
-4. Whether the founder re-rates the existing 14 ways' evidence by claim, or they are migrated mechanically.
-5. Whether published content keeps carrying evidence to the app while it is not shown.
-6. Whether "Strong" or "Some" need a source before publishing.
+All answered by the founder on 2026-10-19, each as recommended; see `confirm.md`.

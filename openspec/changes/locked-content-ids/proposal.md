@@ -34,11 +34,4 @@ None.
 
 ## Open questions
 
-The full list with options and recommendations is in `confirm.md`. In short:
-
-1. Which kinds of record are locked (groups? first actions? sources?).
-2. Whether "published" means any published version or only the latest.
-3. How strong the server-side guard is.
-4. Whether first-time IDs need confirmation at publish.
-5. Whether a removed ID may come back.
-6. Whether placeholder `new-…` IDs are refused at publish.
+All answered by the founder on 2026-10-19, each as recommended; see `confirm.md`.
