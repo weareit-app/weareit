@@ -9,6 +9,8 @@ Status labels are the atlas's: established result, replicated finding, machine-c
 
 ## Summary
 
+This table is the single list of threads and figures; `outline.md`, `design.md` and `questions.md` refer to threads by these numbers.
+
 The repo shows five research threads tied to the product and two engineering investigations. Only one has measured results (the possibility generator's calibration and audit, rated by one person). None has formal or machine-checked work in the repo. **No mathematical, Lean or proof work exists in the repo**; if the founder has some, it lives elsewhere and is a question for them.
 
 | # | Thread | Kind | Suggested status | Repo evidence |
@@ -18,27 +20,27 @@ The repo shows five research threads tied to the product and two engineering inv
 | 3 | What kinds of action are there, and what evidence backs each claim a fix makes? | Question | Open question (kinds); planned engineering (evidence levels) | `docs/style/copy-style-guide.md`, `openspec/changes/fix-evidence-levels/` |
 | 4 | How can anything in It link to shared Things without mixing up types and instances? | Design direction with formal grounding | Planned engineering (after launch); open question (LLM link precision) | `docs/research/thing-type-relation/`, decisions.md "Content graph" |
 | 5 | Can It be built so the effort to change an idea scales with the idea, not with It's size? | Design hypothesis | Working hypothesis | `docs/source/It_Composable_Architecture_Research_and_MVP_Plan.txt` (belongs mainly on `/technology`) |
-| 6 | Can a watercolor mark be drawn live, cheaply, on web and iOS? | Engineering investigation | Planned engineering, partly built | `docs/research/watercolor/`, decisions.md "Graphics" |
+| 6 | Can a watercolor mark be drawn live, cheaply, on web and iOS? | Engineering investigation | Planned engineering (the web shader is built) | `docs/research/watercolor/`, decisions.md "Graphics" |
 | 7 | How much can It learn about use without a stable identity before signup? | Engineering under a privacy rule | Planned engineering | AGENTS.md privacy invariants, `openspec/changes/visit-measurement/` |
-| — | Mathematical or formal work (atlas: Lean artifacts, proof audits) | — | Unknown | Nothing in the repo. **Founder question.** |
+| — | Mathematical or formal work (atlas: Lean artifacts, proof audits) | — | No label until the founder answers | Nothing in the repo. **Founder question** (questions.md 1). |
 
 ## Thread 1: the possibility generator
 
 **Question.** For each pain, can a pipeline of isolated AI agents write possibility cards (a dream with two to five fixes, built from real, opened examples) that the founder would show people? Can model judges pick the best ones?
 
 **What's been done.**
-- 25 runs across 17 pains (`docs/research/possibilities/runs/`), each with exemplars, cards, lint, three judges' judgments and a selection.
+- 25 run folders across 17 pains (`docs/research/possibilities/runs/`), each with exemplars, cards, lint, three judges' judgments and a selection.
 - A blind calibration: the founder rated 40 cards without knowing which came from the new generator. New cards: 24 of 24 Love. Old packet: 3 Love, 4 Keep, 9 Kill of 16. Founder time: 21 minutes. — `evaluations/generator-2026-10/evaluation.md`, `metrics.json`
-- A fresh-pain audit: finalists 37 of 40 Love, 3 Keep; lower-ranked samples 14 of 16 Love, 1 Keep, 1 Kill. Judge top-3 agreement with the founder 8 of 8. 48 minutes. — same files
+- A fresh-pain audit: finalists 37 of 40 Love, 3 Keep; lower-ranked samples 14 of 16 Love, 1 Keep, 1 Kill. Judge top-3 agreement with the founder 8 of 8. 48 minutes. — `evaluation.md` (Ratings table), or `audit-ratings.json` joined with `audit-key.json`; `metrics.json` holds the finalists only, as shares, and has no lower-ranked round
 - Rough cost: about 12M agent tokens for 16 pains (estimate from agent usage reports). — `evaluation.md`
 
 **Present view.**
 - *Working hypothesis:* the pipeline writes drafts the founder rates highly. Founder: "don't overassume that because I 'loved' a lot of things that the pipeline is working perfectly now."
 - *Open question:* whether three-judge ranking adds anything. Lower-ranked cards were loved about as often as finalists, so either the pool is uniformly strong or the founder's ratings reward something the judges don't rank on.
 
-**Failed approaches (usable as the page's "one failed approach").**
+**Failed approaches.** Three-judge ranking is not on this list: it's an open question, not a failure.
+- **Featured:** Habit as a kind. Of the 20 fixes labeled Habit in the audit, almost none were habits (7 were one-time settings, 6 schedules, 4 practices, 3 choices). This led to the current fix kinds in the copy guide. — `evaluation.md`
 - The earlier generator: 9 of 16 cards killed blind.
-- Habit as a kind: of the 20 fixes labeled Habit in the audit, almost none were habits (7 were one-time settings, 6 schedules, 4 practices, 3 choices). This led to the current fix kinds in the copy guide.
 - "Learn how…" fixes that only describe someone else's example; dreams written as actions instead of outcomes; topic drift.
 
 **What's open.**
@@ -91,7 +93,7 @@ The repo shows five research threads tied to the product and two engineering inv
 
 **Question.** Can It be built so the effort of changing an idea scales mainly with that idea's scope?
 
-**What's been done.** A survey of documented extension patterns in eleven products (Retool, Bubble, Appsmith, ToolJet, Budibase, n8n, Backstage, LangGraph, Temporal, Storybook, plus Expo, tRPC, Turborepo). The repo's structure (domain and content packages free of UI imports, vendors behind It-owned boundaries) follows from it.
+**What's been done.** A survey of documented extension patterns in ten products (Retool, Bubble, Appsmith, ToolJet, Budibase, n8n, Backstage, LangGraph, Temporal, Storybook) plus Expo, tRPC and Turborepo. The source says "eleven principal products"; the count is its own. The repo's structure (domain and content packages free of UI imports, vendors behind It-owned boundaries) follows from it.
 
 **Present view.** *Working hypothesis.* The document calls itself "a working proposal, not a repository audit", and its stack recommendation (tRPC, Drizzle) predates the current decisions (oRPC, Kysely), so it can't be cited as describing the repo.
 
@@ -99,7 +101,7 @@ The repo shows five research threads tied to the product and two engineering inv
 
 ## Threads 6 and 7: engineering investigations
 
-- **Watercolor dot.** Survey of watercolor simulation and pigment optics, licence checks on code that may not be copied, and a fidelity proof that found a WebGL path on web. *Planned engineering, partly built.* Strong engineering, weak fit for "what survives scrutiny"; suggested as one index row at most.
+- **Watercolor dot.** Survey of watercolor simulation and pigment optics, license checks on code that may not be copied, and a fidelity proof that found a WebGL path on web. *Planned engineering*; the web shader is built. Strong engineering, weak fit for "what survives scrutiny"; suggested as one index row at most.
 - **Measurement without identity.** A per-visit stage funnel with the visit ID in memory only, linked to an account only at signup. *Planned engineering.* The interesting research question (how much aggregate learning is possible without a stable anonymous identity) isn't written up anywhere yet.
 
 ## Should stay private pending review
@@ -126,7 +128,7 @@ Checked on 2026-10-20 against publisher metadata (Crossref for DOIs, arXiv abstr
 - **Unverified** (site blocked the check): OECD Better Life Index, https://www.oecdbetterlifeindex.org/, and the World Happiness Report, https://worldhappiness.report/, as wellbeing frameworks. Confirm before citing.
 
 **Thread 4 (Thing / Type / Relation)**
-- Spivak and Kent (2012), "Ologs: A Categorical Framework for Knowledge Representation", PLoS ONE 7(1): e24274. https://doi.org/10.1371/journal.pone.0024274 — Types as boxes, relations as labelled arrows, category theory as the basis.
+- Spivak and Kent (2012), "Ologs: A Categorical Framework for Knowledge Representation", PLoS ONE 7(1): e24274. https://doi.org/10.1371/journal.pone.0024274 — Types as boxes, relations as labeled arrows, category theory as the basis.
 - Vrandečić and Krötzsch (2014), "Wikidata: a free collaborative knowledgebase", CACM 57(10). https://doi.org/10.1145/2629489 — The design of Wikidata's items, properties and statements.
 - Patel-Schneider and Doğan (2024), "Class Order Disorder in Wikidata and First Fixes", arXiv. https://arxiv.org/abs/2411.15550 — Measured with queries how often Wikidata breaks class-order rules (classes at several orders, mixed with instances) and made first fixes. *Relevance:* the failure stacked levels are meant to prevent.
 - Zhao and Takeda (2025), "Diagnosing and Mitigating Semantic Inconsistencies in Wikidata's Classification Hierarchy", arXiv. https://arxiv.org/abs/2511.04926 — A validation method for taxonomic inconsistencies, which the authors link to loose editorial policy.

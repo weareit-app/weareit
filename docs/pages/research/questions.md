@@ -1,6 +1,6 @@
 # /research: founder questions
 
-Ready for a grilling round (`AskUserQuestion`, at most four per call, so three calls). Each has a recommended first option. Context for each is in [research.md](research.md), [outline.md](outline.md) and [design.md](design.md).
+Ready for a grilling round (`AskUserQuestion`, at most four per call, so three calls). Each has a recommended first option. Thread numbers refer to the summary table in [research.md](research.md), which also holds the figures; the outline and design are in [outline.md](outline.md) and [design.md](design.md).
 
 ## Round 1: scope and what's true
 
@@ -9,21 +9,21 @@ Ready for a grilling round (`AskUserQuestion`, at most four per call, so three c
    - Not yet: leave it off the page until something is in the repo
    - Yes, publish the statements and artifacts now
 2. **Which threads go in the index at first?**
-   - The five product threads: possibility generator, pain discovery, fix kinds and evidence, content graph, composable architecture (one line linking to /technology) (Recommended)
-   - Those five plus engineering threads (watercolor dot, privacy-respecting measurement)
+   - Threads 1–5, the product threads, with 5 as one line linking to /technology (Recommended)
+   - Threads 1–7, adding the watercolor dot and measurement
    - Only the two full entries, no index yet
 3. **Which two get the full treatment?**
-   - Possibility generator calibration, and the Thing / Type / Relation layer (Recommended)
-   - Possibility generator, and pain discovery
-   - Pain discovery, and the Thing / Type / Relation layer
+   - Thread 1 (generator) and thread 4 (Things and Types) (Recommended)
+   - Thread 1 (generator) and thread 2 (pain discovery)
+   - Thread 2 (pain discovery) and thread 4 (Things and Types)
 4. **Which failed approach should the page feature?**
-   - Three model judges ranking cards: lower-ranked cards were loved as often as finalists, so ranking added cost without helping (Recommended)
-   - The earlier generator: 9 of its 16 cards were killed in blind calibration
-   - The Habit label: almost none of the 20 "habits" in the audit were habits
+   - The Habit label: almost none of the audited "habits" were habits, which changed the fix kinds (Recommended)
+   - The earlier generator, whose cards were mostly killed in blind calibration
+   - Both, briefly (three-judge ranking stays an open question, not a failure, whichever you pick)
 
-## Round 2: how claims are labelled and attributed
+## Round 2: how claims are labeled and attributed
 
-5. **What label goes on a measured but unreplicated result**, like "the founder rated 37 of 40 finalists Love"? The atlas list has no "preliminary finding".
+5. **What label goes on a measured but unreplicated result**, like thread 1's audit ratings? The atlas list has no "preliminary finding".
    - "Working hypothesis", with the numbers and the single-rater limit shown beside it (Recommended)
    - Add a label "preliminary finding" (changes the `public-essays` spec's label list)
    - "Open question"
