@@ -237,7 +237,7 @@ STAGE_DONE = {
     'screen': lambda run: (run / 'screen.json').is_file(),
     'assemble': lambda run: (run / 'links.json').is_file(),
     'judge': lambda run: (run / 'ranking.json').is_file(),  # select writes it after the panel's consensus
-    'fix-review': lambda run: fix_review_ingested(run),
+    'fix-review': lambda run: fix_review_ingested(run),  # defined with the fix review, below
 }
 FOUNDER_STOPS = ('dream-review', 'fix-review')
 
@@ -350,6 +350,8 @@ def start(run, stage):
     pending = next_stage(run)
     if stage_index(pending) < STAGES.index(stage):
         raise ValueError('%s cannot start: %s is not complete' % (stage, pending))
+    if pending == 'done':
+        raise ValueError('%s cannot start: the fix review of %s is ingested, so the run is done' % (stage, run.name))
     if stage == 'fix-review':
         raise ValueError('fix-review is a founder stop: run fixes-review-build, then fixes-ingest')
     if stage not in STAGE_BRIEFS:
@@ -486,10 +488,10 @@ KIND_LABELS = {'feature': 'Feature', 'task': 'Task', 'schedule': 'Schedule', 'ha
                'learn': 'Learn', 'project': 'Project', 'group': 'Group', 'new-group': 'New group', 'ask': 'Ask',
                'resource': 'Use a resource', 'leave': 'Leave', 'switch': 'Switch', 'path': 'Path'}
 STATUS_LABELS = {'real_now': 'Real now', 'existing_resource': 'Existing resource',
-                 'proposed_it_feature': 'Something It could build', 'societal_proposal': 'A change we’d make together'}
+                 'proposed_it_feature': 'Something It could build', 'societal_proposal': "A change we'd make together"}
 FIX_DECISIONS = DREAM_DECISIONS  # an edit accepts the fix with the founder's wording
 FIX_WORDING = ('title', 'whatChanges', 'firstStep')  # the copy an edit may change; the drafted copy is kept beside it
-FIX_WORDING_TEXT = 'title, whatChanges, and firstStep'
+FIX_WORDING_TEXT = '%s, %s, and %s' % FIX_WORDING
 
 
 def has_fix_wording(value):
@@ -983,8 +985,7 @@ def validate_links(doc, fixes, passed, accepted, issues, pain=None):
         return []
     accepted, seen, per_dream = accepted or set(), set(), {}
     reviewed = isinstance(doc.get('review'), dict)  # fixes-ingest made these the founder's final links
-    rejected = {k for k, f in fixes.items() if isinstance(f, dict) and isinstance(f.get('review'), dict)
-                and f['review'].get('decision') == 'reject'}
+    rejected = rejected_fixes(fixes)
     for entry in links:
         entry = entry if isinstance(entry, dict) else {}
         fix, dream = entry.get('fixId'), entry.get('dreamId')
@@ -1350,6 +1351,8 @@ def judged_dreams(run):
     pending = next_stage(run)
     if stage_index(pending) < STAGES.index('judge'):
         raise ValueError('judging cannot start: %s is not complete' % pending)
+    if pending == 'done':
+        raise ValueError('judging cannot start: the fix review of %s is ingested, so the run is done' % run.name)
     issues = validate_staged_run(run, judgments=False)  # judgments.json is what the panel is about to replace
     if issues:
         raise ValueError('fix validation first: ' + '; '.join(issues))

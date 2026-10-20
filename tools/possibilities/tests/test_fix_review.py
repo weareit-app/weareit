@@ -259,6 +259,18 @@ class Gate(FixReview):
         self.assertEqual(started.returncode, 2)
         self.assertIn('fix-review is a founder stop: run fixes-review-build, then fixes-ingest', started.stderr)
 
+    def test_judging_cannot_rerun_over_the_founders_final_links(self):
+        self.ingested()
+        started = cli(self.tmp, 'start', str(self.run_dir), 'judge')
+        self.assertEqual(started.returncode, 2)
+        self.assertIn('the run is done', started.stderr)
+        with self.assertRaisesRegex(ValueError, 'the run is done'):
+            cards.judge_input(self.run_dir, self.tmp)
+
+    def test_the_built_page_is_not_committed(self):
+        rules = (ROOT / '.gitignore').read_text()
+        self.assertIn('docs/research/possibilities/runs/**/reviews/fix-review.html', rules)
+
 
 if __name__ == '__main__':
     unittest.main()

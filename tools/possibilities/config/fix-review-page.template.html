@@ -48,6 +48,7 @@ section p { margin: 0; }
 .chip { display: inline-flex; flex-wrap: wrap; gap: 6px; align-items: center; border: 1.5px solid var(--line); border-radius: 999px; padding: 4px 6px 4px 12px; }
 .chip .by { color: var(--muted); font-size: 0.82rem; }
 .chip .over { color: var(--flag); font-size: 0.82rem; font-weight: 600; }
+.add label kbd { font: 500 0.72rem var(--font-ui); color: var(--muted); margin-left: 4px; }
 .add { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 10px; }
 .unlinked { border-left: 3px solid var(--flag); padding-left: 10px; }
 dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 4px 12px; }
@@ -76,14 +77,14 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
   <header>
     <h1 id="heading">Fix review</h1>
     <p class="intro" id="pain"></p>
-    <p class="intro">Keys: <kbd>A</kbd> accept, <kbd>E</kbd> edit, <kbd>R</kbd> reject, <kbd>U</kbd> undo, <kbd>L</kbd> add a dream link, <kbd>N</kbd>/<kbd>P</kbd> next and previous.</p>
+    <p class="intro">Keys: <kbd>A</kbd> accept, <kbd>E</kbd> edit, <kbd>R</kbd> reject, <kbd>U</kbd> undo, <kbd>L</kbd> choose a dream to link, <kbd>N</kbd>/<kbd>P</kbd> next and previous.</p>
     <p class="intro">One fix at a time, in the judges’ ranking order, with unlinked fixes last. Each fix appears once, with every dream it’s linked to. Remove a link with its <strong>Remove</strong> button, or add one to any accepted dream. Your links may take a dream past the assembler’s limit of five. Choosing a decision saves it and stays on the same fix; move on with <strong>Next</strong>. An edit accepts the fix with your wording, and the drafted wording is kept beside it. Decisions and links are kept in this browser until you download them. Save the file as <code>reviews/fixes-decisions.json</code> in the run and give it to <code>fixes-ingest</code>.</p>
   </header>
   <div class="filters" role="search" aria-label="Filter fixes">
     <label><input type="checkbox" id="f-open"> Undecided only</label>
   </div>
   <div class="count" id="count" role="status" aria-live="polite"></div>
-  <article id="card" aria-labelledby="card-title card-labels card-state"></article>
+  <article id="card" aria-labelledby="card-title card-labels card-links card-state"></article>
   <div class="decide" role="group" aria-label="Decision" id="decide">
     <button data-d="accept">Accept<kbd>A</kbd></button>
     <button data-d="edit">Edit<kbd>E</kbd></button>
@@ -102,7 +103,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
     <button id="download">Download decisions</button>
     <button id="next" class="primary">Next<kbd>N</kbd></button>
   </div>
-  <div class="sr" id="announce" role="status" aria-live="assertive"></div>
+  <div class="sr" id="announce" aria-live="assertive" aria-atomic="true"></div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/lucide@0.469.0/dist/umd/lucide.min.js"></script>
 <script>
@@ -178,8 +179,8 @@ function chipsHtml(p) {
   return '<section aria-labelledby="links-heading"' + (ids.length ? '' : ' class="unlinked"') + '><h2 id="links-heading">Linked dreams</h2>' +
     (ids.length ? '<ul class="chips" aria-label="Linked dreams">' + chips + '</ul>' : '<p>' + icon('unlink') + ' Not linked to any dream.</p>') +
     (rejected ? '<p class="muted">Rejected: this fix keeps no links when ingested.</p>' : '') +
-    (options ? '<div class="add"><label for="add-dream">Add a link to</label><select id="add-dream">' + options + '</select>' +
-      '<button id="add-link">Add link<kbd>L</kbd></button></div>' : '<p class="muted">Linked to every accepted dream.</p>') + '</section>';
+    (options ? '<div class="add"><label for="add-dream">Add a link to<kbd>L</kbd></label><select id="add-dream">' + options + '</select>' +
+      '<button id="add-link">Add link</button></div>' : '<p class="muted">Linked to every accepted dream.</p>') + '</section>';
 }
 function methodHtml(p) {
   const rows = Object.entries(p.method || {}).map(([k, v]) => '<dt>' + esc(k) + '</dt><dd>' + esc(typeof v === 'boolean' ? (v ? 'yes' : 'no') : v) + '</dd>').join('');
@@ -205,9 +206,10 @@ function render() {
   const w = wording(p);
   const position = PROPOSED[p.id].length ? 'Ranked ' + (DATA.proposals.indexOf(p) + 1) : 'Unlinked by the assembler';
   card.innerHTML =
-    '<p class="labels" id="card-labels"><span class="label kind">' + icon(ICONS[p.kind] || 'circle') + '<span>Kind: ' + esc(p.kindLabel) + '</span></span>' +
-    '<span class="label">' + icon(STATUS_ICONS[p.status] || 'circle') + '<span>Status: ' + esc(p.statusLabel) + '</span></span>' +
+    '<p class="labels" id="card-labels"><span class="label kind">' + icon(ICONS[p.kind] || 'circle') + '<span>Kind: ' + esc(p.kindLabel) + '</span></span><span class="sr">. </span>' +
+    '<span class="label">' + icon(STATUS_ICONS[p.status] || 'circle') + '<span>Status: ' + esc(p.statusLabel) + '</span></span><span class="sr">. </span>' +
     '<span class="muted">' + esc(position) + ' · ' + esc(p.id) + '</span></p>' +
+    '<p class="sr" id="card-links">' + esc(linkedSummary(p)) + '</p>' +
     '<p class="state" id="card-state" data-d="' + esc(d ? d.decision : '') + '">' + esc(stateText(d)) + '</p>' +
     '<p class="title" id="card-title">' + esc(w.title) + '</p><p class="changes">' + esc(w.whatChanges) + '</p>' +
     '<p class="step"><strong>First step</strong> (' + esc(p.firstStepMinutes) + ' min): ' + esc(w.firstStep) + '</p>' +
@@ -282,8 +284,8 @@ $('edit-save').addEventListener('click', () => {
   const edit = { title: $('edit-title').value.trim(), whatChanges: $('edit-changes').value.trim(), firstStep: $('edit-step').value.trim() };
   if (!edit.title || !edit.whatChanges || !edit.firstStep) { $('announce').textContent = 'Give a title, what changes, and a first step.'; return; }
   const p = current();
-  if (p && edit.title === p.title && edit.whatChanges === p.whatChanges && edit.firstStep === p.firstStep) { decide('accept'); return; }
-  decide('edit', { edit: edit });
+  if (p && edit.title === p.title && edit.whatChanges === p.whatChanges && edit.firstStep === p.firstStep) decide('accept');
+  else decide('edit', { edit: edit });
   $('card').focus();
 });
 $('undo').addEventListener('click', undo);
