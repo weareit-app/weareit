@@ -13,9 +13,14 @@ def reviewed(doc):
         d['review'] = {'decision': 'reject' if key == 'burnout-d05' else 'accept'}
 
 
-def plan_doc(task=2):
-    return {'schemaVersion': 2, 'painId': 'burnout',
-            'ceilings': {key: {'task': {'max': task, 'reason': 'One-time changes fit this dream.'}} for key in DREAMS[:5]}}
+def plan_doc(task=2, **others):
+    """A ceiling for every kind with a brief: Task's is `task`, and any other kind's is 0 unless named."""
+    def row():
+        ceilings = {kind: {'max': others.get(kind.replace('-', '_'), 0), 'reason': 'This kind fits this dream or not.'}
+                    for kind in cards.KIND_BRIEFS}
+        ceilings['task'] = {'max': task, 'reason': 'One-time changes fit this dream.'}
+        return ceilings
+    return {'schemaVersion': 2, 'painId': 'burnout', 'ceilings': {key: row() for key in DREAMS[:5]}}
 
 
 def task_fix(dream, n):
@@ -280,7 +285,7 @@ class Gate(FixStages):
         planned = self.start('plan')
         self.assertEqual(planned.returncode, 0, planned.stderr)
         self.assertEqual(json.loads(planned.stdout), {'run': self.run_dir.name, 'stage': 'plan',
-                                                      'brief': 'tools/possibilities/briefs/planner.md', 'kinds': ['task']})
+                                                      'brief': 'tools/possibilities/briefs/planner.md', 'kinds': list(cards.KIND_BRIEFS)})
         self.write('plan.json', plan_doc())
         self.assertEqual(json.loads(self.start('shared-fixes').stdout)['brief'], 'tools/possibilities/briefs/shared-fixes.md')
         self.write('fixes.json', fixes_doc(), shared_pass_only)

@@ -69,16 +69,17 @@ A staged run mirrors the content graph (`packages/content/src/graph-schema.ts`):
 - `shared-fixes` is complete when `fixes.json` has a `shared` record with `draftedAt`, written by the shared pass even when it drafts no fix;
 - `kind-pools` is complete when `fixes.json` has a `pools` entry for every kind the plan gives a ceiling above zero. A kind with only zero ceilings doesn't run;
 - `screen` is complete when `screen.json` exists;
-- `assemble` is complete when `links.json` exists.
+- `assemble` is complete when `links.json` exists;
+- `judge` is complete when `ranking.json` exists. `select` writes it after `consensus`.
 
 `start <run> <stage>` refuses with a usage error (exit 2) while any earlier stage is incomplete, so no fix stage runs before the dream review is ingested. Otherwise it names the stage's brief:
 - for `plan`, `kinds` lists the kinds the planner sets ceilings for, which are the kinds that have a brief (`KIND_BRIEFS` in `cards.py`; only `task` so far);
 - for `shared-fixes`, `brief` is `briefs/shared-fixes.md`;
 - for `kind-pools`, `brief` is the shared kind brief, `kinds` maps each kind still to draft (a ceiling above zero and no pool yet) to its own brief, and `shared` lists the IDs of the shared pass's fixes, which kind briefs read so they don't repeat them.
 
-`judge` and `fix-review` aren't built yet. Once `fixes.json` exists, `status` also reports the fix pool: `fixes: {total, screenedOut: [fix-id…], unlinked: [fix-id…] | null}`. `unlinked` is `null` until `links.json` exists.
+`start <run> judge` names `briefs/judge.md`. `fix-review` isn't built yet. Once `fixes.json` exists, `status` also reports the fix pool: `fixes: {total, screenedOut: [fix-id…], unlinked: [fix-id…] | null}`. `unlinked` is `null` until `links.json` exists.
 
-`validate` checks each file below when it is present, and that each file's stage came after the one before: a plan needs an ingested dream review, `fixes.json` needs `plan.json`, kind pools need the `shared` record, `screen.json` needs `fixes.json`, and `links.json` needs `screen.json`. Each file has `schemaVersion: 2` and the `painId` of `run.json`. Only accepted dreams (`accept` or `edit`) can be planned, drafted for, or linked.
+`validate` checks each file below when it is present, and that each file's stage came after the one before: a plan needs an ingested dream review, `fixes.json` needs `plan.json`, kind pools need the `shared` record, `screen.json` needs `fixes.json`, `links.json` needs `screen.json`, and `judgments.json` needs `links.json`. Each file has `schemaVersion: 2` and the `painId` of `run.json`. Only accepted dreams (`accept` or `edit`) can be planned, drafted for, or linked.
 
 ### dreams.json (staged run)
 ```
@@ -146,8 +147,29 @@ Rules:
   | | `doneWhen` | what is true once it's done |
   | | `keepsWorking` | `true` or `false`: a one-time change that keeps working afterward |
   | | `lever` | `default`, `remove-hassle`, `simplify`, `timing`, or `other` |
+  | `feature` | `when`, `want`, `soThat` | a job story: the situation, what the person wants, and what that lets them do |
+  | | `pattern` | a row of `config/feature-patterns.md`, or `new` |
+  | | `dataOrTools` | the public data or tools that would make it work |
+  | `schedule` | `what` | what repeats |
+  | | `cadence` | how often |
+  | `habit` | `cue` | something the person already does, with a clear end point |
+  | | `behavior` | the small behavior that follows it |
+  | `practice` | `situation` | when the skill comes up |
+  | | `move` | one concrete thing to try next time |
+  | | `wentBetterWhen` | the sign that it went better |
+  | `learn` | `ableTo` | what the reader will be able to do, starting with a verb |
+  | | `useWhen` | the situation they'll use it in |
+  | `project` | `finishedThing` | what exists at the end |
+  | | `doneWhen` | when it's done |
+  | `group` | `whatMembersDo` | what members do together |
+  | | `howToFind` | how the reader finds theirs |
+  | `new-group` | `whoFor` | the people it's for |
+  | | `whatMembersDo` | what members would do together |
+  | | `firstTest` | the first thing the group does that shows it's working |
+  | | `existingFirst` | what to check exists before starting one |
 
-  Other kinds add their rows with their briefs (#93, #94).
+  Every value is nonempty text, except `keepsWorking` and `lever`. A kind brief may add optional fields, which aren't checked. Ask and Use a resource add their rows with their briefs (#94).
+- A `practice` fix also has `featureIdea`: one line, a coaching feature It could build. It sits on the fix, not in `method`, because the app shows it.
 
 ### screen.json (staged run)
 ```
@@ -174,6 +196,31 @@ Rules:
 - Within a dream, each link has its own `order`, a positive integer. Order 1 is shown first.
 - A fix may be linked to several dreams. A fix with no link stays in `fixes.json` and is listed in `status` as `fixes.unlinked`.
 - A path candidate lists two or more different screened fixes in order, with a one-line reason.
+
+### judgments.json (staged run)
+The panel's judgments, in the card-run shape above but keyed by accepted dream ID: each judge scores a dream together with its linked fixes. `judge-input <run>` gives each judge the run's accepted dreams, each with its linked fixes in link order:
+```
+dreams: { <dream-id>: { title, line, lens, ambition, exemplarRefs,
+                        fixes: [ { id, title, whatChanges, kind, status, exemplarRef, speculative, speculativeRationale?,
+                                   firstStep, firstStepMinutes, how } ] } }
+```
+Rules:
+- `judge-input` refuses until `links.json` exists and the run validates.
+- A fix linked to several dreams appears under each one. Its `method`, `origin`, `draftedFor`, `provenance`, and `writerNotes`, and the dream's `provenance`, `writerNotes`, and `review`, are left out.
+- `schemaVersion` is 2, and `painId` matches `run.json`. `scores` has exactly one key for each accepted dream. A score key that is a fix ID fails validation, and that judge is rerun. Pairwise entries name two dreams.
+- `judgments-<n>.json` from each judge have the same shape. `consensus` combines them into `judgments.json` with mean scores, a majority vote on honest status, and Borda points, as in a card run.
+
+### ranking.json (staged run)
+```
+{ schemaVersion: 2, painId, runId, rankedAt, judges,
+  ranking: [ { dreamId, wins, meanScore, honestStatus: { pass, reason }, fixIds: [<fix-id>…] } ],
+  fixOrder: [<fix-id>…] }
+```
+Rules:
+- `select <run>` writes it from `judgments.json`, with no finalists or audit samples (founder, 2026-10-20). `--seed` doesn't apply. A new `consensus` deletes the old `ranking.json`, so `status` returns to `judge` until `select` runs again.
+- `ranking` lists every accepted dream once. Dreams that pass honest status come first, by Borda points (or pairwise wins from a single judge), then mean score, then ID. Dreams that fail honest status follow in the same order and are marked by `honestStatus.pass: false`.
+- `fixIds` are the dream's linked fixes in link order.
+- `fixOrder` lists each linked fix once, under the best-ranked dream it serves, and this sets the order of the founder's fix review. Unlinked fixes aren't in it; the review lists them after the linked ones.
 
 ### Dream review files (`<run>/reviews/`)
 - **proposals.json**: `{ schemaVersion: 1, setId: "<painId>-<runId>", builtAt, proposals: [ { id, title, line, lens, ambition, examples: [{id, name, place, year, outcome}], overlaps: [{with, title, reason}] } ] }`. Each dream appears once. An overlap is listed under both of its dreams. No `writerNotes`.
