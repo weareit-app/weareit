@@ -8,6 +8,7 @@
     "start": "expo start",
     "web": "expo start --web",
     "ios": "expo run:ios",
+    "build": "expo export --platform web",
     "test:expo": "jest --config jest.config.cjs --runInBand",
     "typecheck": "tsc --noEmit",
     "lint": "prettier --check app src tests e2e jest.config.cjs jest.setup.cjs playwright.config.ts",

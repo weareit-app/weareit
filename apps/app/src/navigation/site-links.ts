@@ -1,6 +1,9 @@
 // The one list behind the footer and the menu (public-pages,
 // site-navigation). Other changes add their pages here; a link shows only
-// once its page is published in the release.
+// once its page is published in the release. Essay links follow their
+// essay's `published` front matter.
+
+import { essayPublished } from "@it/content/essays";
 
 export const CONTACT_EMAIL = "hello@weareit.app";
 
@@ -26,7 +29,7 @@ export const siteGroups: SiteGroup[] = [
   {
     title: "About It",
     links: [
-      page("Why", "/why"),
+      page("Why", "/why", essayPublished.why),
       page("Principles", "/principles"),
       page("Roadmap", "/roadmap"),
       page("Risks", "/risks"),

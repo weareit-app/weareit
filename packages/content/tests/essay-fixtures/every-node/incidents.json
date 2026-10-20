@@ -1,0 +1,14 @@
+{
+  "title": "Reported incidents",
+  "description": "Incidents rose from three to five.",
+  "spec": { "mark": "line" },
+  "data": [
+    { "year": 2020, "count": 3 },
+    { "year": 2021, "count": 5 }
+  ],
+  "source": "plan",
+  "unit": "incidents",
+  "timeframe": "2020–2021",
+  "population": "Incidents reported to the database",
+  "updated": "2026-10-01"
+}

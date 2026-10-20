@@ -21,6 +21,18 @@ NativeWind 5.0.0-rc.0 and react-native-css 3.1.0-rc.0 are an intentional prerele
 
 The Expo CLI's dependency resolver owns SDK-specific package versions. Re-run `expo install --check` after dependency changes. `pnpm outdated` is useful for finding candidates, but its `Latest` column is not an Expo compatibility guarantee. pnpm added exact-version entries to `minimumReleaseAgeExclude` for Expo packages selected by the CLI because those releases were newer than pnpm's release-age window at install time.
 
+## Essay build (build time only)
+
+The essay build script (`packages/content/scripts/build-essays.ts`, public-pages task 2.2) parses Markdown with the micromark/mdast packages from the unified collective. They are `devDependencies` of `@it/content`, imported only by `packages/content/essay-build/` and its script, never by the package's runtime exports or the app, so no Markdown parser ships. Chosen 2026-10-20 as the newest releases at least two weeks old; all MIT except `yaml` (ISC), with no install scripts:
+
+- `mdast-util-from-markdown` 2.1.0 (the parser) and `@types/mdast` 4.0.4
+- `micromark-extension-directive` 4.0.0 and `mdast-util-directive` 3.1.1 (`::block{…}`, `:::expandable`, `:status[…]`)
+- `micromark-extension-gfm-table` 2.1.2 and `mdast-util-gfm-table` 2.0.0 (Markdown tables)
+- `micromark-extension-gfm-footnote` 2.1.0 and `mdast-util-gfm-footnote` 2.1.0 (`[^source]` references)
+- `micromark-extension-math` 3.1.0 and `mdast-util-math` 3.0.0 (inline `$…$`)
+- `yaml` 2.9.1 (front matter and block data files; no dependencies)
+
+The script runs with `tsx` (the range the database package already uses) and formats its output with the workspace's Prettier. To update, pick newer releases at least two weeks old, read their changelogs, and run the essay fixture tests.
 
 ## Spec and agent tooling
 

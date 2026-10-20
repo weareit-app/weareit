@@ -13,15 +13,15 @@ Builds after `required-signup-gate` task 5.1 (menu button and Account). Essays p
 
 ## 2. Essay pipeline
 
-- [ ] 2.1 Define Zod schemas for essay front matter and each block type (chart, diagram, math, evidence, timeline, status-board, expandable, table) in `packages/content`; verify with schema tests, including a chart without `unit` or `source` failing
-- [ ] 2.2 Write the build-time script that turns `essays/<slug>/essay.md` plus block files into a validated generated module (choose and pin a Markdown and directive parser for the script only); verify with fixture tests covering every node and block type and a failing invalid block
-- [ ] 2.3 Wire the script into `turbo` so the app build and `typecheck` fail on an invalid essay; verify by breaking a fixture
-- [ ] 2.4 Document the essay format and block types in `packages/content/essays/README.md`, with one example of each block; verify the examples build
+- [x] 2.1 Define Zod schemas for essay front matter and each block type (chart, diagram, math, evidence, timeline, status-board, expandable, table) in `packages/content`; verify with schema tests, including a chart without `unit` or `source` failing
+- [x] 2.2 Write the build-time script that turns `essays/<slug>/essay.md` plus block files into a validated generated module (choose and pin a Markdown and directive parser for the script only); verify with fixture tests covering every node and block type and a failing invalid block
+- [x] 2.3 Wire the script into `turbo` so the app build and `typecheck` fail on an invalid essay; verify by breaking a fixture
+- [x] 2.4 Document the essay format and block types in `packages/content/essays/README.md`, with one example of each block; verify the examples build
 
 ## 3. Essay pages
 
-- [ ] 3.1 Build the shared essay layout (title, question, text, status labels, source links, source list, "last updated", change list) and the static renderer for the typed tree; verify the pre-rendered HTML from `expo export --platform web` contains the full text
-- [ ] 3.2 Add the routes `/why`, `/principles`, `/ai`, `/risks`, `/roadmap` (intro) and `/licensing`, showing not-found unless the essay is published and listed; verify with a test for each state
+- [x] 3.1 Build the shared essay layout (title, question, text, status labels, source links, source list, "last updated", change list) and the static renderer for the typed tree; verify the pre-rendered HTML from `expo export --platform web` contains the full text
+- [x] 3.2 Add the routes `/why`, `/principles`, `/ai`, `/risks`, `/roadmap` (intro) and `/licensing`, showing not-found unless the essay is published and listed; verify with a test for each state (#41 adds `/why` and the shared `EssayScreen`; each other route is a one-line file added with its essay)
 - [ ] 3.3 Add the Spanish note (shown when the app language is Spanish; placeholder copy for founder approval); verify by switching language in the web preview
 - [ ] 3.4 Show the one-line privacy note on each public page; verify it is on screen before any measurement call (test with the measurement client mocked)
 
