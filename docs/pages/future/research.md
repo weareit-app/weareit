@@ -14,7 +14,7 @@ Method: sources are original reports, papers, official pages, statutes and books
 
 **IPCC.** Two practices matter here.
 - The Shared Socioeconomic Pathways (O'Neill et al., 2017) are a set of five qualitative narratives of alternative societal futures (demographics, economy, policies and institutions, technology, environment), used side by side rather than ranked. I could not confirm a direct statement that no likelihoods were assigned, so do not quote one.
-- The AR5 uncertainty guidance note (Mastrandrea et al., 2010) separates **confidence** (qualitative: evidence and agreement, five levels from "very low" to "very high", "not interpreted probabilistically") from **likelihood** (quantified, e.g. "likely" = 66–100%, "about as likely as not" = 33–66%). It says "about as likely as not" must not be used to express lack of knowledge; that findings conditional on other findings should have their certainty evaluated separately; and that authors give a "traceable account" of evidence, assumptions and agreement. It also warns against groups converging on a view and becoming overconfident.
+- The AR5 uncertainty guidance note (Mastrandrea et al., 2010) separates **confidence** (qualitative: evidence and agreement, five levels from "very low" to "very high", "not interpreted probabilistically") from **likelihood** (quantified, e.g. "likely" = 66–100%, "about as likely as not" = 33–66%). The note says "about as likely as not" must not be used to express lack of knowledge; that findings conditional on other findings should have their certainty evaluated separately; and that authors give a "traceable account" of evidence, assumptions and agreement. The note also warns against groups converging on a view and becoming overconfident.
 
 **Futures cone.** Joseph Voros (2003, and his 2017 history of the cone) builds on Henchey (1978) and Hancock & Bezold (1994). Possible futures "might" happen (need knowledge we lack); plausible ones "could" happen given current understanding; probable ones are "likely", usually from trends; preferable ones "should" happen and are value judgments. Voros notes the classes are nested, judged from the present, and change over time, and that he mostly dropped "predicted" because it narrows openness.
 
@@ -22,7 +22,7 @@ Method: sources are original reports, papers, official pages, statutes and books
 
 **Backcasting.** John Robinson coined "energy backcasting" (1982) and set out the method in "Futures under glass" (1990). The question is not what is likely but how a desirable future could be reached, working backward to the steps and conditions that would have to hold.
 
-**UK Government Office for Science Futures Toolkit** (2017; edition 2, 2024). Its scenarios tool builds four scenarios from two independent critical uncertainties found through driver mapping, at least five and usually 10–20 years out. It states that "Scenarios are not predictions", that no single scenario will come true but parts of several may, that scenarios are possible futures and not a plan, and that names must not flatter the preferred one. Its Three Horizons tool links today's system (H1), an emerging pattern (H3) and the transition between them (H2).
+**UK Government Office for Science Futures Toolkit** (2017; edition 2, 2024). Its scenarios tool builds four scenarios from two independent critical uncertainties found through driver mapping, at least five and usually 10–20 years out. The toolkit states that "Scenarios are not predictions", that no single scenario will come true but parts of several may, that scenarios are possible futures and not a plan, and that names must not flatter the preferred one. Its Three Horizons tool links today's system (H1), an emerging pattern (H3) and the transition between them (H2).
 
 **Practical rules extracted**
 1. Claim plausibility, not probability, for scenarios. If a probability is given, it needs a stated method and evidence (IPCC; Ramírez & Selin).
@@ -85,7 +85,7 @@ Relevance: portability is implemented in law and in at least one deployed protoc
 
 - Call every horizon a scenario and say in the first lines that it is neither a prediction nor a commitment. Give no dates except for work already shipped or scheduled.
 - Write the three horizons as a set, each with its own drivers, assumptions and failure case. Include at least one outcome where It stays small or stops.
-- For each horizon, list "what would have to be true" as a backcast chain, and label each link implemented, prototype, unresolved research or speculative. Rate the chain link by link, never as a whole.
+- For each horizon, list "what would have to be true" as a backcast chain, and label each link by build stage (built, prototype, unresolved research, speculative) and give it an essay status label as well. Rate the chain link by link, never as a whole.
 - Use plausibility language ("could", "would require"). Use probability words only with a stated method and source, and never "about as likely as not" to mean "we don't know."
 - Give each horizon two or three signposts a reader could check, such as working account export or a governance rule changed by members.
 - Cite outside forecasts only with who, when, method and key assumption, and say how far they reach. Prefer trend data with stated intervals (Epoch) over opinion surveys, and note Tetlock's finding on long horizons.
