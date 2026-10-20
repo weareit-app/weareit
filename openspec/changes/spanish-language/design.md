@@ -22,24 +22,22 @@ That branch (2 commits on merge base `d9643a3`, before the onboarding redesign) 
 ## Goals / Non-Goals
 
 **Goals:**
-
 - One set of interface text catalogs shared by the app and the API server (emails) without either importing the other.
 - Translations ride the existing draft → preview → publish → rollback path, so both languages version together by construction.
 - Switching language is local and instant: no request, no state reset.
 
 **Non-Goals:**
-
 - A general translation-management system or machine-translation integration.
 - Translating the CMS's own screens.
 - Locale-specific routes (pending confirm.md Q8).
 
 ## Decisions
 
-1. **i18next + react-i18next for interface text; `expo-localization` for device languages.** One runtime works on web, iOS (Hermes) and Node (emails); catalogs stay plain data in `@it/messages`; typed keys make a missing Spanish string a type and test failure. _Alternatives:_ Lingui (needs a Babel macro alongside the pinned NativeWind pipeline), FormatJS (heavier on Hermes), hand-rolled catalog (re-implements plurals and re-render). This is a stack addition, so it needs a decision record in `docs/architecture/decisions.md` (founder sign-off).
+1. **i18next + react-i18next for interface text; `expo-localization` for device languages.** One runtime works on web, iOS (Hermes) and Node (emails); catalogs stay plain data in `@it/messages`; typed keys make a missing Spanish string a type and test failure. *Alternatives:* Lingui (needs a Babel macro alongside the pinned NativeWind pipeline), FormatJS (heavier on Hermes), hand-rolled catalog (re-implements plurals and re-render). This is a stack addition, so it needs a decision record in `docs/architecture/decisions.md` (founder sign-off).
 
 2. **Pure locale logic in `packages/domain/src/locale.ts`; catalogs and `Intl` formatting in `packages/messages`.** No React, Expo or provider imports, per AGENTS.md. Inputs at boundaries (device store, account operation, auth header) are validated with `localeSchema` (Zod).
 
-3. **Translations in the content graph, published into the same snapshot.** Add `translations: { entityType, entityId, locale, fields, method, reviewStatus, sourceHash, editedBy, editedAt }[]` to the draft graph and a normalized `content_translations` table, written by the existing draft save. Publish computes, once, which translations may be shown (excluding out-of-date ones, i.e. `sourceHash` ≠ hash of current English) and writes `localized: { es: { "<type>:<id>": { fields, status } } }` into the snapshot; draft-only metadata is stripped. Rollback restores `localized` with the rest. Entity types: `domain`, `pain`, `dream`, `fix` (014 had `first_action`; master now shows fixes). Whether fixes' hidden `evidenceNote`, legacy first actions, contributions, pain-page detail and the founder letter are included is confirm.md Q11, Q13, Q15, Q16. _Alternatives:_ separate snapshot per language (rollback and checksum coordination get harder); `title_es` columns (blocks more languages).
+3. **Translations in the content graph, published into the same snapshot.** Add `translations: { entityType, entityId, locale, fields, method, reviewStatus, sourceHash, editedBy, editedAt }[]` to the draft graph and a normalized `content_translations` table, written by the existing draft save. Publish computes, once, which translations may be shown (excluding out-of-date ones, i.e. `sourceHash` ≠ hash of current English) and writes `localized: { es: { "<type>:<id>": { fields, status } } }` into the snapshot; draft-only metadata is stripped. Rollback restores `localized` with the rest. Entity types: `domain`, `pain`, `dream`, `fix` (014 had `first_action`; master now shows fixes). Whether fixes' hidden `evidenceNote`, legacy first actions, contributions, pain-page detail and the founder letter are included is confirm.md Q11, Q13, Q15, Q16. *Alternatives:* separate snapshot per language (rollback and checksum coordination get harder); `title_es` columns (blocks more languages).
 
 4. **Fetch every language, resolve on the device.** `content.getPublished` keeps one snapshot with `localized` maps and takes no locale input; the app applies a pure `localizeContent(snapshot, locale)` (in `@it/content`) that keeps English IDs, order and links and marks each item `original | reviewed | machine | fallback`. Content requests then carry no language (Language privacy), switching needs no request, and there is one TanStack Query cache entry. The content set is small (tens of KB), so the extra payload is acceptable.
 

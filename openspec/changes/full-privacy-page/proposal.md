@@ -22,11 +22,9 @@ Must leave room for: self-serve deletion and export later; more languages (the p
 ## Capabilities
 
 ### New Capabilities
-
 - `faq-page`: a short static FAQ reachable without an account.
 
 ### Modified Capabilities
-
 - `privacy-page`: the full page replaces the placeholder (capability introduced by `required-signup-gate`; this change adds requirements and, once that change is archived, removes its placeholder requirement).
 
 ## Impact

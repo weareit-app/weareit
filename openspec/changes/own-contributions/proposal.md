@@ -24,12 +24,10 @@ Must leave room for (features.md Stages): personal story of chosen futures (own 
 ## Capabilities
 
 ### New Capabilities
-
 - `own-contributions`: adding your own pain, future or way on the personal and societal pages, using it straight away on the device, the visible states, and sending it for review after signup.
 - `contribution-review`: the founder's queue of sent contributions in the content editor (approve with edits, link to existing, decline) and the private provenance kept for each.
 
 ### Modified Capabilities
-
 - `content-catalog`: each pain–future link gets a position that the founder can change; approved contributions become ordinary published records with no contributor shown.
 - `pain-explorer`: futures follow each pain's position on the page and in every joined sentence.
 - `on-device-choices`: own contributions are kept on the device, removed by "clear choices", and not touched by the signup save.

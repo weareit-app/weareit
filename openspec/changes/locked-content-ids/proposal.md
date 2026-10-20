@@ -20,11 +20,9 @@ Must leave room for (features.md Stages): personal story and explicit paths (bot
 ## Capabilities
 
 ### New Capabilities
-
 None.
 
 ### Modified Capabilities
-
 - `content-catalog`: published IDs are locked in the editor and protected at publish and rollback; first-time IDs are confirmed and placeholders refused.
 
 ## Impact

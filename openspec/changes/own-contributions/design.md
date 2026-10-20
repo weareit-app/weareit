@@ -13,21 +13,19 @@ See proposal.md for why. Current state:
 ## Goals / Non-Goals
 
 **Goals:**
-
 - Own items render through the same code paths as published content, so they look and behave the same apart from their state mark.
 - Nothing about own items leaves the device without an explicit "Send for review" after signup.
 - One explicit, per-pain position on pain–dream links drives page order and sentence order for everyone.
 
 **Non-Goals:**
-
 - The admin area beyond the queue (spec 006), role-based editor access, notifications, and measurement of contributions.
 - Moderation tooling beyond approve/link/decline, and crisis guidance (planned for after v0.1).
 
 ## Decisions
 
-1. **Explicit link position.** Add `position: int` to `painDreamLinks` in the content schema (default from current array order when reading older versions, so published versions stay readable) and a `position` column on `pain_dream_links` via a new migration. The app sorts a pain's dreams by it; `joinFutureLines` callers pass lines in that order. _Alternative:_ keep relying on array order; rejected because the reviewer must change positions explicitly and reorders must survive normalisation into SQL.
+1. **Explicit link position.** Add `position: int` to `painDreamLinks` in the content schema (default from current array order when reading older versions, so published versions stay readable) and a `position` column on `pain_dream_links` via a new migration. The app sorts a pain's dreams by it; `joinFutureLines` callers pass lines in that order. *Alternative:* keep relying on array order; rejected because the reviewer must change positions explicitly and reorders must survive normalisation into SQL.
 
-2. **Own items live under their own device key.** A separate store, `it-own-items-v1`, holds `{localId, kind, name, line, wayType?, place: {scope, groupId | painRef | painRef+futureRefs}, afterFutureRef?, contentVersion, picked, state, serverId?}`. `localId` is random per item, never derived from the person, never sent before signup. Keeping it apart from `it-onboarding-draft-v1` means the signup gate's "clear the draft after save" cannot delete unsent items, and the gate's pick payload never contains them. "Clear choices" clears both keys. _Alternative:_ extend the onboarding draft; rejected because it couples own items to the gate's save-and-clear lifecycle.
+2. **Own items live under their own device key.** A separate store, `it-own-items-v1`, holds `{localId, kind, name, line, wayType?, place: {scope, groupId | painRef | painRef+futureRefs}, afterFutureRef?, contentVersion, picked, state, serverId?}`. `localId` is random per item, never derived from the person, never sent before signup. Keeping it apart from `it-onboarding-draft-v1` means the signup gate's "clear the draft after save" cannot delete unsent items, and the gate's pick payload never contains them. "Clear choices" clears both keys. *Alternative:* extend the onboarding draft; rejected because it couples own items to the gate's save-and-clear lifecycle.
 
 3. **Placement relative to published content.** A future stores "after future X (or first)" rather than an absolute number, so a later content version that inserts or removes futures still places it sensibly; if X disappears it goes last. Own parents are referenced by `localId`, published ones by ID.
 

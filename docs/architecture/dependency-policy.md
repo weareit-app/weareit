@@ -26,7 +26,7 @@ The Expo CLI's dependency resolver owns SDK-specific package versions. Re-run `e
 
 `.github/workflows/ci.yml` runs on every pull request and on pushes to `master`, so a commit made with `git commit --no-verify` is still checked. It has two jobs that run in parallel:
 
-- `check`: the repo-wide Prettier check (`pnpm format:check`; vendored, generated and source-material folders are listed in `.prettierignore`), typecheck, lint, the Vitest unit tests and the jest-expo tests (about 8 seconds of test time).
+- `check`: typecheck, lint, the Vitest unit tests and the jest-expo tests (about 8 seconds of test time).
 - `e2e`: the Playwright web tests. It downloads Chromium and starts the Expo web server, so it takes about two minutes and is the job most likely to fail for reasons unrelated to the code. It is a separate job so it does not hold up `check`. On failure it uploads `apps/app/test-results/` (kept 7 days).
 
 The shared install steps (pnpm, Node, `pnpm install`) live in `.github/actions/setup/action.yml`, so each pin and the Node version appear once. Node is pinned to the version in `mise.toml`; update both together.

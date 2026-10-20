@@ -24,11 +24,9 @@ Must leave room for (features.md Stages): matching people with goals to people o
 ## Capabilities
 
 ### New Capabilities
-
 - `help-build-it`: the post-signup page where people give their background and skills and offer to help with asks; managing that on the account screen; the founder's view of offers.
 
 ### Modified Capabilities
-
 - `content-catalog`: asks as founder-approved content with stable IDs, the skills each needs, and an open or closed state.
 
 ## Impact

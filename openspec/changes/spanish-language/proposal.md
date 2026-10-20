@@ -26,11 +26,9 @@ Must leave room for (features.md Stages): more languages, including right-to-lef
 ## Capabilities
 
 ### New Capabilities
-
 - `language`: which language a person sees, how it is chosen (device default, in-app switch), where the choice is kept (device before signup, account after), English fallback, locale formatting, document and spoken language, and what about the language is sent or stored.
 
 ### Modified Capabilities
-
 - `content-catalog`: Spanish versions of content records, how each was made and reviewed, staleness, a missing-translation list, Spanish preview, and both languages published and rolled back together.
 - `pain-explorer`: published content and every label on the personal and societal pages appear in the active language with English fallback, and switching keeps picks and open state.
 - `account-signup`: the code email uses the active language, and the account keeps the person's language.

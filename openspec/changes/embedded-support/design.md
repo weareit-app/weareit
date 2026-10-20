@@ -14,20 +14,18 @@ See proposal.md (Why). Current state, from `openspec/specs/support` and the code
 ## Goals / Non-Goals
 
 **Goals:**
-
 - One provider-neutral ledger that Stripe and App Store purchases both write to, with provider IDs only in reference records.
 - Semantic, account-scoped support operations that a later in-It management view can reuse unchanged.
 - Zero payment-provider code on any screen except Support step 2.
 
 **Non-Goals:**
-
 - Apple subscriptions and the iOS link-out (wait for App Review guideline 3.1.2 research and a founder answer, confirm.md Q4).
 - Building account deletion; this change supplies the Support-side function it will call.
 - Sending measurement.
 
 ## Decisions
 
-1. **Stripe Payment Element with deferred intent creation, not Embedded Checkout.** Step 1 is It's own UI; on Next the app loads `@stripe/stripe-js` with `loadStripe` (dynamic import in a `.web.tsx` component) and mounts the Payment Element in deferred mode (`mode`, `amount`, `currency: 'usd'`), then on confirm calls `support.start`, which creates the PaymentIntent (once) or Subscription with `payment_behavior: 'default_incomplete'` (monthly/annual) and returns its client secret; the app calls `stripe.confirmPayment({ redirect: 'if_required' })`. Methods are set server-side to `card` plus wallets and Link (Stripe's saved-details option); no `us_bank_account`. _Alternative:_ Stripe Embedded Checkout: less code, but it is Checkout UI in an iframe, owns the amount step and summary, and makes the two-step layout and locked-email rule harder. _Alternative:_ create the intent on Next: creates abandoned intents and pending records for every person who looks at step 2.
+1. **Stripe Payment Element with deferred intent creation, not Embedded Checkout.** Step 1 is It's own UI; on Next the app loads `@stripe/stripe-js` with `loadStripe` (dynamic import in a `.web.tsx` component) and mounts the Payment Element in deferred mode (`mode`, `amount`, `currency: 'usd'`), then on confirm calls `support.start`, which creates the PaymentIntent (once) or Subscription with `payment_behavior: 'default_incomplete'` (monthly/annual) and returns its client secret; the app calls `stripe.confirmPayment({ redirect: 'if_required' })`. Methods are set server-side to `card` plus wallets and Link (Stripe's saved-details option); no `us_bank_account`. *Alternative:* Stripe Embedded Checkout: less code, but it is Checkout UI in an iframe, owns the amount step and summary, and makes the two-step layout and locked-email rule harder. *Alternative:* create the intent on Next: creates abandoned intents and pending records for every person who looks at step 2.
 
 2. **Prices.** Recurring support uses `price_data` with the support product (`STRIPE_SUPPORT_PRODUCT_ID`) and `recurring.interval` `month` or `year`, so custom amounts need no pre-made prices. The portal is configured for cancel and payment-method update only (not plan switching, which needs fixed prices).
 
@@ -39,7 +37,7 @@ See proposal.md (Why). Current state, from `openspec/specs/support` and the code
    - `support_provider_refs (id, support_id null, payment_id null, provider in ('stripe','app_store','play_store'), kind in ('customer','subscription','payment_intent','invoice','store_transaction','store_original_transaction','store_product','app_user'), value, unique (provider, kind, value))`.
    - `support_provider_events` (renamed from `support_payment_events`, same columns).
    - A partial unique index on `supports (user_id) where cadence <> 'once' and state in ('pending','active','past_due')` enforces one active recurring support at the database level (`cancel_scheduled` excluded, per confirm.md Q9). New rows require `user_id` through the repository (the column stays nullable only so deletion can unlink).
-     "Contribution" leaves all table and function names. _Alternative:_ keep inline columns and add annual; rejected by the founder (009 Q8).
+   "Contribution" leaves all table and function names. *Alternative:* keep inline columns and add annual; rejected by the founder (009 Q8).
 
 5. **API operations (`packages/api`, Zod-validated).** `support.start({ cadence, amountMinor })` → `{ supportId, clientSecret, publishableKey }`, idempotent per (account, client-generated attempt key) so double taps reuse one intent; `support.getStatus({ supportId })` (owner only, NOT_FOUND otherwise); `support.getMine()` → active recurring support and latest states for the returning-supporter view; `support.createPortal()` → URL for the caller's own customer (no reference input); `support.getFundingTotal()` → `{ amountMinor, currency, definition, asOf }`, the only unauthenticated support operation. `support.createCheckout` is removed. `STRIPE_NOT_CONFIGURED` keeps mapping to the "temporarily unavailable" message.
 

@@ -13,17 +13,15 @@ See proposal.md for why. Current state:
 ## Goals / Non-Goals
 
 **Goals:**
-
 - Each stored level says which claim it is about, without a schema that has to change again when levels are shown.
 - The founder can maintain evidence in the editor.
 
 **Non-Goals:**
-
 - Showing evidence to people; sources linked to evidence; a general claims model (the Thing / Type / Relation layer is built after launch).
 
 ## Decisions
 
-1. **Claim fields where the claim lives** (confirm.md Q1). Keep `evidence` and `evidenceNote` on the way as its own claim, interpreted by `kind`: method for `once | habit | group`, It feature for `feature`. Add optional `methodEvidence` and `methodEvidenceNote` on features only (schema refuses them on other kinds). Add optional `evidence` and `evidenceNote` to `fixDreamLinks` for "this way helps this future". Both optional pairs are all-or-nothing. _Alternatives:_ a general evidence-claims list `{subject, claimType, level, note}`, rejected for v0.1 as more machinery than one editor needs and likely to be replaced by the post-launch claims layer; a single `claimType` field per way, rejected because a feature has two claims at once.
+1. **Claim fields where the claim lives** (confirm.md Q1). Keep `evidence` and `evidenceNote` on the way as its own claim, interpreted by `kind`: method for `once | habit | group`, It feature for `feature`. Add optional `methodEvidence` and `methodEvidenceNote` on features only (schema refuses them on other kinds). Add optional `evidence` and `evidenceNote` to `fixDreamLinks` for "this way helps this future". Both optional pairs are all-or-nothing. *Alternatives:* a general evidence-claims list `{subject, claimType, level, note}`, rejected for v0.1 as more machinery than one editor needs and likely to be replaced by the post-launch claims layer; a single `claimType` field per way, rejected because a feature has two claims at once.
 
 2. **No new level for "not assessed".** A link without a level is not assessed; "Not tested yet" means nobody has tested it (confirm.md Q2). Keeping absence distinct stops a default from looking like a judgement.
 

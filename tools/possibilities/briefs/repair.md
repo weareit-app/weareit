@@ -29,7 +29,6 @@ How to handle each kind of to-do item:
 - **Feature-pattern pass**: check each card's fixes against the patterns. Add a feature only where a pattern clearly fits and the card doesn't already have one like it. A card that needs nothing gets nothing.
 
 Rules:
-
 - A card has at most 5 fixes. If one would go over, drop its weakest non-feature fix and say which one you dropped.
 - Keep every card ID and every existing fix ID. Change only what the to-do list names.
 - Run `validate <run>` and `lint <run>` and repeat until both report zero issues.

@@ -25,12 +25,10 @@ Must leave room for (features.md Stages): personal story of chosen futures (pick
 ## Capabilities
 
 ### New Capabilities
-
 - `account-settings`: the signed-in account screen: name, email, password and passkey management, signing out.
 - `privacy-page`: the public page describing what It keeps on the device, what it sends and stores, and who else is involved.
 
 ### Modified Capabilities
-
 - `account-signup`: signup becomes required and email-first with code, optional password and web passkey sign-in, a required name step, an opt-in, a terms line, rate limits, and a reduced, combined save.
 - `on-device-choices`: the device copy is cleared after a confirmed save, the clear control shows only before signup, and signing out clears cached account data; help interests leave the draft.
 - `pain-explorer`: a "Sign in" link when signed out; the societal page continues to the gate; signed-in pages read and auto-save picks from the account.
@@ -55,7 +53,6 @@ Must leave room for (features.md Stages): personal story of chosen futures (pick
 The founder decided which parts ship in the Oct 26 web launch ([#10](https://github.com/weareit-app/weareit/issues/10)).
 
 **Ships at launch:**
-
 - The gate after the societal page, with no "Not now", the "Sign in" link, and the futures and ways-to-help screens retired.
 - Email code as the only sign-in, sent through `sendEmail` on Resend. The code screen has no "Use a password" link.
 - The required name step, without the "Want a faster way back?" line. The name can't be edited until the account screen ships.
@@ -66,7 +63,7 @@ The founder decided which parts ship in the Oct 26 web launch ([#10](https://git
 - Limits on code requests, one per IP address and one of 5 per email per hour, both showing "Try again in a few minutes."
 - The `gate-reached` and `signed-up` events.
 
-**Waits until after launch:** password sign-in (with the HaveIBeenPwned check), web passkeys, the account screen, and storing the person's language. When signed in, the menu shows the email and "Sign out" only. Tasks for these are marked _(after launch)_ in `tasks.md`.
+**Waits until after launch:** password sign-in (with the HaveIBeenPwned check), web passkeys, the account screen, and storing the person's language. When signed in, the menu shows the email and "Sign out" only. Tasks for these are marked *(after launch)* in `tasks.md`.
 
 ## Open questions
 

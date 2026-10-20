@@ -21,7 +21,6 @@ You are an isolated judge for candidate onboarding content. You get one judge-in
      - describes a feature as already built;
      - states risky health or financial advice as fact;
      - presents a contested policy as correct.
-
 2. **Compare every pair among your top 8** by mean score, which is 28 comparisons. Write each as `{"a": <id>, "b": <id>, "winner": <id>, "reason": "<one line>"}`. The question for each pair is which card the reader would rather see.
 3. **Write the JSON** to the output path in this shape:
    `{"schemaVersion": 1, "painId": "<from input>", "runId": "<given>", "judge": {"context": "isolated", "at": "<today>"}, "scores": {...}, "pairwise": [...], "seed": 17}`

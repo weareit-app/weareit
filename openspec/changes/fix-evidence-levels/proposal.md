@@ -21,11 +21,9 @@ Must leave room for (features.md Stages): evidence tags on ways (stored claims m
 ## Capabilities
 
 ### New Capabilities
-
 None.
 
 ### Modified Capabilities
-
 - `content-catalog`: every way records an evidence level and note for its own claim; feature ways may record method evidence; way–future links may record link evidence; the editor can edit ways and their evidence.
 - `pain-explorer`: evidence levels and notes are not shown in v0.1.
 

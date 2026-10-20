@@ -11,7 +11,6 @@ Classify every fix in the input files you're given. Each fix is something a pers
 - **new-group**: start a group that doesn't exist yet. Example: "Start a tenant association in your building".
 
 Also flag, without fixing anything:
-
 - `"combined": true` if the fix bundles two separate ideas that should be split;
 - `"learnOnly": true` if the fix only asks the reader to learn, read or know something rather than do something.
 
