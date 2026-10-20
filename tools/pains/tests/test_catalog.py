@@ -229,6 +229,10 @@ class DiscoverTest(Base):
         self.assertEqual(result['issues'], [])
         self.assertEqual(result['proposed'], [{'candidate': 'scams-and-fraud'}])
 
+    def test_candidate_list_without_the_serial_comma_is_an_issue(self):
+        result = self.check(small_catalog(), candidate('pests', name='Pests', line="I've got mice, rats or roaches in my home."))
+        self.assertTrue(any('serial comma' in i for i in result['issues']), result['issues'])
+
     def test_lead_only_candidate_stays_draft_unless_founders_own(self):
         lead = candidate('insurance-costs', sources=[], leads=['founder pool: insurance'])
         own = candidate('gig-pay', sources=[], ownPain=True)
@@ -336,6 +340,10 @@ class LintTest(unittest.TestCase):
         self.assertIn('not-first-person', self.rules('Sleep', 'Sleep is hard.'))
         self.assertIn('line-length', self.rules('Sleep', "I don't sleep. It's bad."))
         self.assertIn('line-length', self.rules('Sleep', 'Why am I awake?'))
+
+    def test_list_needs_the_serial_comma(self):
+        self.assertIn('serial-comma', self.rules('Pests', "I've got mice, rats or roaches in my home.", 'pests'))
+        self.assertNotIn('serial-comma', self.rules('Pests', "I've got mice, rats, or roaches in my home.", 'pests'))
 
     def test_vague_line(self):
         self.assertIn('vague-line', self.rules('Stress', "I'm overwhelmed.", 'overwhelmed'))

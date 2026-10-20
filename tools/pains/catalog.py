@@ -5,6 +5,14 @@ import datetime
 import json
 import re
 from pathlib import Path
+import importlib.util
+import sys
+
+# The serial-comma check is shared with tools/possibilities (copy style guide, founder 2026-10-20).
+sys.dont_write_bytecode = True
+_spec = importlib.util.spec_from_file_location('serial_comma', Path(__file__).resolve().parents[1] / 'style/serial_comma.py')
+serial_comma = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(serial_comma)
 
 ID = re.compile(r'^[a-z0-9]+(?:-[a-z0-9]+)*$')
 PAGES = ('personal', 'societal')
@@ -314,6 +322,9 @@ def check_candidates(catalog, doc):
             require(isinstance(c.get(field), str) and c[field].strip(), where + ': missing ' + field, issues)
         group = groups.get(c.get('group'))
         require(group and group['page'] == c.get('page'), where + ': group must be a heading on its page', issues)
+        for field in ('name', 'line'):
+            for hit in serial_comma.find(str(c.get(field, ''))):
+                issues.append('%s: no serial comma in %s "%s"; add the Oxford comma before the last "and" or "or"' % (where, field, hit['list']))
         sources = c.get('sources', [])
         validate_evidence(sources, where, issues)
         passages = ' '.join(str(s.get('passage', '')) for s in sources).replace(',', '')
@@ -470,6 +481,9 @@ def lint_wording(name, line, pain_id, sensitive, config):
                                   ('regional-word', 'regional', name + ' ' + line), ('clinical-term', 'clinical', line)):
         for m in config[key].finditer(field_text) if config[key] else ():
             add(rule, '"%s"' % m[0])
+    for text in (name, line):
+        for hit in serial_comma.find(text):
+            add('serial-comma', 'add the Oxford comma before the last "and" or "or" in "%s"' % hit['list'])
     for m in config['acronyms'].finditer(name + ' ' + line) if config['acronyms'] else ():
         add('regional-word', '"%s"' % m[0])
     if sensitive:

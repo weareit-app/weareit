@@ -42,7 +42,7 @@ Made by `refine-new`; never overwritten.
 
 **refine.json**: `{ schemaVersion, scope, runId, startedAt, notes }`
 
-**lint.json** (written by `refine-lint`): `{ issues: [ { painId, rule, detail, severity: fail|note, group? } ], failing: [painId] }`. Rules: `not-first-person`, `line-length`, `vague-line`, `name-length`, `loaded-term`, `generic-phrase`, `regional-word`, `clinical-term`, `mixed-labels` (fail); `id-mismatch`, `graphic-wording` (note; graphic only on sensitive pains). Word lists: `tools/pains/config/pain-lint.json` and `tools/possibilities/config/banned-phrases.json`.
+**lint.json** (written by `refine-lint`): `{ issues: [ { painId, rule, detail, severity: fail|note, group? } ], failing: [painId] }`. Rules: `not-first-person`, `line-length`, `vague-line`, `name-length`, `loaded-term`, `generic-phrase`, `regional-word`, `clinical-term`, `mixed-labels`, `serial-comma` (fail); `id-mismatch`, `graphic-wording` (note; graphic only on sensitive pains). Word lists: `tools/pains/config/pain-lint.json` and `tools/possibilities/config/banned-phrases.json`.
 
 **balance.json** (written by `refine-lint`): `{ sizes: {group: shown}, flags: [ {group, shown, median, flag: small|large} ] }`. Small is at most half the page's median; large is at least twice it.
 
