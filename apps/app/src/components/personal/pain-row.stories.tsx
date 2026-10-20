@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-native-web-vite";
 import { createRef } from "react";
-import { View } from "react-native";
+import { View, type ViewInstance } from "react-native";
 import { fn } from "storybook/test";
 import {
   contentFixes,
@@ -26,7 +26,7 @@ const meta = {
     fixOrder: contentFixes.map((fix) => fix.id),
     focusDreamId: undefined,
     openChip: null,
-    rowRef: createRef<View>(),
+    rowRef: createRef<ViewInstance>(),
     onCheck: fn(),
     onRowPress: fn(),
     onToggleDream: fn(),
