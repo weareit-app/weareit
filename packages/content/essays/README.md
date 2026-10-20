@@ -83,6 +83,8 @@ A block is a line of its own naming the block type and the data file beside the 
 
 Until the blocks are built (public-pages tasks 4.2–4.4), each one shows a plain "can't be shown yet" note.
 
+Each block type has its schema in `src/essays/blocks/<type>.ts` (registry: `blockSchemas` in `src/essays/blocks/index.ts`) and its component in `apps/app/src/essays/blocks/<type>.tsx` (registry: `blockComponents`). A component receives `{ block, sources }`: the parsed block (`type`, `id`, `data`; an expandable section has `title` and `children`) and the essay's sources.
+
 | Block              | Written as                                       | Data file fields                                                                                                                                                                                                                                                                          |
 | ------------------ | ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Chart              | `::chart{id="…"}`                                | `title`, `description` (read aloud and shown without scripts), `spec` (a Vega-Lite spec without data), `data` (rows), `source`, `unit`, `timeframe`, `population` (who or what the numbers count), `updated`; optional `uncertainty`. A chart missing any required field fails the build. |

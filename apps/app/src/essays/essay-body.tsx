@@ -5,22 +5,13 @@ import type {
   EssaySource,
 } from "@it/content/essay-schema";
 import { Link, type Href } from "expo-router";
+import type { ComponentType } from "react";
 import { View } from "react-native";
 import { Text } from "../components/text";
+import { blockComponents } from "./blocks";
 
 // Renders the typed tree the essay build writes (public-essays). Static: the
 // text, sources and labels are in the pre-rendered HTML, with scripts off.
-
-const blockNames: Record<EssayBlock["type"], string> = {
-  chart: "chart",
-  diagram: "diagram",
-  math: "formula",
-  evidence: "evidence card",
-  timeline: "timeline",
-  "status-board": "status board",
-  table: "table",
-  expandable: "section",
-};
 
 const capitalize = (text: string) => text[0]!.toUpperCase() + text.slice(1);
 
@@ -90,16 +81,18 @@ function Inline({
   });
 }
 
-function Block({ block }: { block: EssayBlock }) {
-  // Real blocks arrive with public-pages group 4; until then each shows a
-  // plain fallback.
-  return (
-    <View className="rounded-md border border-rule bg-paper-sunk px-4 py-3">
-      <Text className="text-base text-ink-soft">
-        This {blockNames[block.type]} can't be shown yet.
-      </Text>
-    </View>
-  );
+function Block({
+  block,
+  sources,
+}: {
+  block: EssayBlock;
+  sources: EssaySource[];
+}) {
+  const Component = blockComponents[block.type] as ComponentType<{
+    block: EssayBlock;
+    sources: EssaySource[];
+  }>;
+  return <Component block={block} sources={sources} />;
 }
 
 export function EssayBody({
@@ -189,7 +182,7 @@ export function EssayBody({
           </View>
         );
       case "block":
-        return <Block key={index} block={node.block} />;
+        return <Block key={index} block={node.block} sources={sources} />;
     }
   });
 }
