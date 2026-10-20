@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "scope": "people",
+  "runId": "20261019-224656",
+  "startedAt": "2026-10-20T02:46:56+00:00",
+  "finishedAt": "2026-10-20T02:56:45+00:00",
+  "notes": "Seventeen lists read. oecd.org returned 403 (also via web.archive.org, which the fetch tool can't reach), so the OECD dimension name comes from the OECD presentation mirrored on unstats.un.org and the 2025 Social Connections and Loneliness figures from Euronews coverage. WHOQOL-BREF PDFs loaded but could not be text-extracted here; item wording was confirmed from search snippets of the Singapore and University of Washington copies. Gallup MIP non-economic items were read from the Datawrapper dataset behind the trend page (Sep 2026). Ipsos What Worries the World was not reopened: its items are national issues and none is a personal People pain (moral decline is already the societal people-are-meaner). No 211 report found that counts domestic violence or caregiving calls; only the United Way catch-all family-support category bears on People. Wikidata QIDs via wbsearchentities (about 30 lookups, not counted as searches). Sensitivity for refine/review: harassed-online can mean someone is in danger (threats, stalking); breakup and estranged-family can overlap unsafe-at-home. Overlaps to decide: close-friends vs no-one-to-lean-on and loneliness; single-parent vs parenting-is-hard; breakup vs relationship-strain; estranged-family vs home-tension and drifted-apart; trying-for-a-baby may fit Body better than People. Leads checked in the founder pool but not proposed (no opened list names them separately): social anxiety (Mind), relationships at work (Work), conflict with my child (Parenting).",
+  "searches": 13,
+  "pagesOpened": 25
+}

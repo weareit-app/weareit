@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "scope": "people",
+  "issues": [
+    {
+      "painId": "loneliness",
+      "rule": "vague-line",
+      "detail": "nothing to picture in \"I feel alone.\"; say what it looks like in a day",
+      "severity": "fail"
+    },
+    {
+      "painId": "no-one-to-lean-on",
+      "rule": "id-mismatch",
+      "detail": "ID no-one-to-lean-on, name \"Support\" and line \"I have no one to call when I need help.\" share no word; propose a rewording only if the wording has drifted from what the ID names",
+      "severity": "note"
+    },
+    {
+      "painId": "new-here",
+      "rule": "id-mismatch",
+      "detail": "ID new-here, name \"Moving\" and line \"I just moved and know nobody.\" share no word; propose a rewording only if the wording has drifted from what the ID names",
+      "severity": "note"
+    },
+    {
+      "painId": "nobody-to-do-things-with",
+      "rule": "id-mismatch",
+      "detail": "ID nobody-to-do-things-with, name \"Invitations\" and line \"I'd go out if someone asked.\" share no word; propose a rewording only if the wording has drifted from what the ID names",
+      "severity": "note"
+    },
+    {
+      "painId": "nobody-into-my-thing",
+      "rule": "id-mismatch",
+      "detail": "ID nobody-into-my-thing, name \"Interests\" and line \"I can't find people who love what I love.\" share no word; propose a rewording only if the wording has drifted from what the ID names",
+      "severity": "note"
+    },
+    {
+      "painId": "drifted-apart",
+      "rule": "id-mismatch",
+      "detail": "ID drifted-apart, name \"Friends\" and line \"I've lost touch with people who matter.\" share no word; propose a rewording only if the wording has drifted from what the ID names",
+      "severity": "note"
+    },
+    {
+      "painId": "*",
+      "group": "people",
+      "rule": "mixed-labels",
+      "severity": "fail",
+      "detail": "People mixes problem labels and area labels; pick one style for the heading"
+    }
+  ],
+  "failing": [
+    "loneliness"
+  ],
+  "checkedAt": "2026-10-19"
+}

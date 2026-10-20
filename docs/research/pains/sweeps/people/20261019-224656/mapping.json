@@ -1,0 +1,271 @@
+{
+  "schemaVersion": 1,
+  "entries": {
+    "whoqol-bref/q20": {
+      "painId": "relationship-strain",
+      "why": "Close relationships; Relationship is the nearest pain, with Family and Friends beside it."
+    },
+    "whoqol-bref/q21": {
+      "painId": "intimacy",
+      "why": "Intimacy: \"I'm missing closeness with someone.\""
+    },
+    "whoqol-bref/q22": {
+      "painId": "no-one-to-lean-on",
+      "why": "Support: \"I have no one to call when I need help.\""
+    },
+    "oecd-wellbeing/social-connections": {
+      "painId": "loneliness",
+      "why": "The dimension as a whole; Loneliness is its headline measure."
+    },
+    "oecd-wellbeing/loneliness": {
+      "painId": "loneliness",
+      "why": "Loneliness: \"I feel alone.\""
+    },
+    "oecd-wellbeing/no-close-friends": {
+      "candidate": "close-friends"
+    },
+    "oecd-wellbeing/no-close-family": {
+      "broader": "no-one-to-lean-on",
+      "why": "Having no close family mostly means having no one to turn to; estrangement is the close-friends and estranged-family candidates."
+    },
+    "oecd-wellbeing/face-to-face": {
+      "painId": "nobody-to-do-things-with",
+      "why": "Invitations: seeing people in person less often."
+    },
+    "sdg-targets/5.2": {
+      "painId": "unsafe-at-home",
+      "why": "Safety at home: \"I don't feel safe with someone in my life.\""
+    },
+    "sdg-targets/5.3": {
+      "broader": "unsafe-at-home",
+      "why": "Forced or child marriage is one way someone is unsafe with a person in their life; rare in the U.S."
+    },
+    "sdg-targets/5.4": {
+      "painId": "caregiving",
+      "why": "Unpaid care: Caregiving; unpaid housework is Chores."
+    },
+    "sdg-targets/16.1": {
+      "painId": "crime-and-violence",
+      "why": "Violence in general is the societal Crime pain."
+    },
+    "sdg-targets/16.2": {
+      "broader": "unsafe-at-home",
+      "why": "Violence against children at home is covered loosely by Safety at home; harm in childhood that still hurts is Trauma."
+    },
+    "maxneef/affection": {
+      "painId": "intimacy",
+      "why": "Affection: closeness with friends, family and partners."
+    },
+    "maxneef/participation": {
+      "painId": "belonging",
+      "why": "Belonging: being part of groups and communities."
+    },
+    "maxneef/identity": {
+      "painId": "lost-myself",
+      "why": "Identity: \"I don't know who I am any more.\""
+    },
+    "gallup-elements/social": {
+      "painId": "loneliness",
+      "why": "Strong relationships and love; Loneliness is the broadest People pain."
+    },
+    "gallup-mip/family-decline": {
+      "painId": "people-are-meaner",
+      "why": "Moral decline: a societal worry, not a personal People pain."
+    },
+    "gallup-mip/lack-of-respect": {
+      "painId": "people-are-meaner",
+      "why": "Moral decline covers people treating each other worse."
+    },
+    "gallup-mip/childrens-needs": {
+      "outOfScope": "too broad for one pain; the societal Kids group covers children's needs"
+    },
+    "gallup-mip/elderly-care": {
+      "painId": "older-people-alone",
+      "why": "Aging: \"I see older people left on their own.\""
+    },
+    "211-impact-2025/family-support": {
+      "outOfScope": "a catch-all service category with no single pain"
+    },
+    "who-people/loneliness": {
+      "painId": "loneliness",
+      "why": "Loneliness."
+    },
+    "who-people/isolation-older-young": {
+      "painId": "loneliness",
+      "why": "Social isolation; for older people also the societal Aging pain."
+    },
+    "who-people/intimate-partner-violence": {
+      "painId": "unsafe-at-home",
+      "why": "Safety at home."
+    },
+    "who-people/elder-abuse": {
+      "painId": "unsafe-at-home",
+      "why": "Abuse by someone an older person trusts is Safety at home."
+    },
+    "who-people/infertility": {
+      "candidate": "trying-for-a-baby"
+    },
+    "cdc-nisvs/ipv-lifetime": {
+      "painId": "unsafe-at-home",
+      "why": "Safety at home."
+    },
+    "cdc-nisvs/stalking": {
+      "painId": "unsafe-at-home",
+      "why": "Being stalked by a partner or ex is not feeling safe with someone in my life."
+    },
+    "cdc-nisvs/before-18": {
+      "broader": "unsafe-at-home",
+      "why": "Violence first experienced as a teenager; what still hurts later is Trauma."
+    },
+    "aarp-caregiving-2025/caregivers": {
+      "painId": "caregiving",
+      "why": "Caregiving."
+    },
+    "aarp-caregiving-2025/financial-impact": {
+      "painId": "caregiving",
+      "why": "Caregiving \"takes everything\", including money; paying to support family is Supporting family."
+    },
+    "aarp-caregiving-2025/isolated": {
+      "painId": "caregiving",
+      "why": "Isolation from caregiving is part of what it takes; Loneliness also covers it."
+    },
+    "aarp-caregiving-2025/sandwich": {
+      "painId": "caregiving",
+      "why": "Caring for an adult while raising kids: Caregiving and Parenting together."
+    },
+    "aarp-caregiving-2025/working": {
+      "broader": "caregiving",
+      "why": "Juggling care with a job; Caregiving covers it loosely, Busy covers the time."
+    },
+    "survey-center-friendship-2021/no-close-friends": {
+      "candidate": "close-friends"
+    },
+    "survey-center-friendship-2021/lost-touch": {
+      "painId": "drifted-apart",
+      "why": "Friends: \"I've lost touch with people who matter.\""
+    },
+    "cornell-estrangement/any": {
+      "candidate": "estranged-family"
+    },
+    "cornell-estrangement/parent-child": {
+      "candidate": "estranged-family"
+    },
+    "cornell-estrangement/sibling": {
+      "candidate": "estranged-family"
+    },
+    "cornell-estrangement/extended": {
+      "candidate": "estranged-family"
+    },
+    "pew-online-harassment/any": {
+      "candidate": "harassed-online"
+    },
+    "pew-online-harassment/severe": {
+      "candidate": "harassed-online"
+    },
+    "pew-online-harassment/young-adults": {
+      "candidate": "harassed-online"
+    },
+    "gallup-loneliness-2024/daily-loneliness": {
+      "painId": "loneliness",
+      "why": "Loneliness."
+    },
+    "cdc-nchs-divorce/divorces": {
+      "candidate": "breakup"
+    },
+    "pew-single-parent/single-parent": {
+      "candidate": "single-parent"
+    },
+    "wikidata/Q223270": {
+      "painId": "loneliness",
+      "why": "Loneliness."
+    },
+    "wikidata/Q1778765": {
+      "painId": "loneliness",
+      "why": "Social isolation."
+    },
+    "wikidata/Q7551008": {
+      "painId": "loneliness",
+      "why": "Social connectedness, the opposite of loneliness."
+    },
+    "wikidata/Q2297111": {
+      "painId": "no-one-to-lean-on",
+      "why": "Support."
+    },
+    "wikidata/Q4884527": {
+      "painId": "belonging",
+      "why": "Belonging."
+    },
+    "wikidata/Q491": {
+      "candidate": "close-friends"
+    },
+    "wikidata/Q16358629": {
+      "painId": "intimacy",
+      "why": "Intimacy."
+    },
+    "wikidata/Q1137463": {
+      "broader": "intimacy",
+      "why": "Sexual difficulties are one reason for missing closeness; the medical side is a Body matter."
+    },
+    "wikidata/Q60972195": {
+      "painId": "want-a-partner",
+      "why": "Dating."
+    },
+    "wikidata/Q93190": {
+      "candidate": "breakup"
+    },
+    "wikidata/Q100926628": {
+      "candidate": "breakup"
+    },
+    "wikidata/Q55492423": {
+      "painId": "home-tension",
+      "why": "Family: \"I'm caught in fighting at home.\""
+    },
+    "wikidata/Q17013143": {
+      "candidate": "estranged-family"
+    },
+    "wikidata/Q156537": {
+      "painId": "unsafe-at-home",
+      "why": "Safety at home."
+    },
+    "wikidata/Q5153528": {
+      "painId": "unsafe-at-home",
+      "why": "Safety at home."
+    },
+    "wikidata/Q163942": {
+      "painId": "unsafe-at-home",
+      "why": "Being stalked is not feeling safe with someone in my life."
+    },
+    "wikidata/Q427883": {
+      "painId": "unsafe-at-home",
+      "why": "Safety at home."
+    },
+    "wikidata/Q167191": {
+      "broader": "unsafe-at-home",
+      "why": "For a child now, Safety at home; for an adult looking back, Trauma."
+    },
+    "wikidata/Q25053589": {
+      "painId": "caregiving",
+      "why": "Caregiving."
+    },
+    "wikidata/Q500180": {
+      "painId": "caregiving",
+      "why": "Caring for parents while raising kids."
+    },
+    "wikidata/Q1217379": {
+      "painId": "parenting-is-hard",
+      "why": "Parenting."
+    },
+    "wikidata/Q1204559": {
+      "candidate": "single-parent"
+    },
+    "wikidata/Q179399": {
+      "candidate": "trying-for-a-baby"
+    },
+    "wikidata/Q494348": {
+      "candidate": "harassed-online"
+    },
+    "wikidata/Q138012324": {
+      "candidate": "harassed-online"
+    }
+  }
+}

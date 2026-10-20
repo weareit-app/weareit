@@ -1,0 +1,25 @@
+{
+  "alternatives": {
+    "loneliness": [
+      {"name": "Loneliness", "line": "Most days I don't talk to anyone who really knows me.", "why": "Keeps the plain name and says what being alone looks like in a day, which also sets it apart from having no one to call or no one to go out with."},
+      {"name": "Company", "line": "I go whole days without a real conversation with anyone.", "why": "An area-style name like the rest of the People heading, with a line someone could picture and recognize as their own week."}
+    ],
+    "no-one-to-lean-on": [
+      {"name": "Someone to call", "line": "I have no one to call when I need help.", "why": "\"Support\" is the name of It's own Support It flow, so a different name avoids confusion; the line already says it well."},
+      {"name": "No backup", "line": "When something goes wrong, there's no one I can lean on.", "why": "Uses the ID's own words for the line and makes the moment of need concrete, with a short name that isn't It's Support flow."}
+    ],
+    "new-here": [
+      {"name": "New in town", "line": "I just moved here and don't know anyone yet.", "why": "Says the situation rather than the act of moving, which could also mean the stress of packing or paying for a move."}
+    ],
+    "nobody-to-do-things-with": [
+      {"name": "Plans", "line": "I'd go out more if I had someone to go with.", "why": "Keeps the original wish to go out, and says the missing piece is a companion rather than an invitation, which matches the ID."}
+    ],
+    "drifted-apart": [
+      {"name": "Old friends", "line": "I've drifted apart from friends who used to matter a lot to me.", "why": "\"Friends\" alone could sit over several pains on this heading; \"old friends\" and \"drifted apart\" name this one."}
+    ],
+    "lost-faith-community": [
+      {"name": "Faith community", "line": "I left my faith community and lost my people with it.", "why": "The ID names a faith community, and the current name \"Belonging\" is the same as another pain's name on this heading."},
+      {"name": "Lost community", "line": "I've lost the community I used to be part of.", "why": "Keeps the broader meaning (church, team, scene, hometown) but gives it a name that doesn't repeat the Belonging pain."}
+    ]
+  }
+}

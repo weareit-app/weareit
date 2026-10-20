@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "issues": [],
+  "moves": [
+    {
+      "painId": "home-tension",
+      "from": "people",
+      "to": "home",
+      "sorts": [
+        "home",
+        "home",
+        "home"
+      ]
+    },
+    {
+      "painId": "parenting-is-hard",
+      "from": "people",
+      "to": "home",
+      "sorts": [
+        "people",
+        "home",
+        "home"
+      ]
+    },
+    {
+      "painId": "unsafe-at-home",
+      "from": "people",
+      "to": "home",
+      "sorts": [
+        "home",
+        "home",
+        "home"
+      ]
+    }
+  ],
+  "disagreements": [
+    {
+      "painId": "caregiving",
+      "current": "people",
+      "sorts": [
+        "people",
+        "people",
+        "home"
+      ]
+    },
+    {
+      "painId": "home-tension",
+      "current": "people",
+      "sorts": [
+        "home",
+        "home",
+        "home"
+      ]
+    },
+    {
+      "painId": "parenting-is-hard",
+      "current": "people",
+      "sorts": [
+        "people",
+        "home",
+        "home"
+      ]
+    },
+    {
+      "painId": "unsafe-at-home",
+      "current": "people",
+      "sorts": [
+        "home",
+        "home",
+        "home"
+      ]
+    }
+  ],
+  "checkedAt": "2026-10-19"
+}

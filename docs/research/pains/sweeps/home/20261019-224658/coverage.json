@@ -1,0 +1,705 @@
+{
+  "schemaVersion": 1,
+  "target": 0.9,
+  "lists": {
+    "ahs-2019-quality": {
+      "name": "U.S. Census Bureau and HUD: Housing Quality, 2019 American Housing Survey",
+      "url": "https://www.census.gov/content/dam/Census/library/visualizations/2021/demo/AHS-Housing%20Quality-FINAL.pdf",
+      "accessed": "2026-10-19",
+      "entries": 11,
+      "covered": 6,
+      "share": 0.545,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "uncomfortably-cold",
+          "name": "Uncomfortably cold for at least 24 hours",
+          "painId": "cold-home",
+          "why": "Heating: \"I can't afford to heat my home.\""
+        },
+        {
+          "entry": "cracks-holes",
+          "name": "Open cracks or holes inside the home",
+          "painId": "home-is-hard",
+          "why": "Housing: \"I live somewhere cramped, broken or noisy.\""
+        },
+        {
+          "entry": "foundation",
+          "name": "Foundation crumbling or an open crack or hole",
+          "painId": "home-is-hard",
+          "why": "Housing: a broken home."
+        },
+        {
+          "entry": "broken-window",
+          "name": "Broken window",
+          "painId": "home-is-hard",
+          "why": "Housing: a broken home."
+        },
+        {
+          "entry": "no-toilet",
+          "name": "No working toilet at some point in the last 3 months",
+          "painId": "home-is-hard",
+          "why": "Housing: a broken home, here the plumbing."
+        },
+        {
+          "entry": "peeling-paint",
+          "name": "Broken plaster or peeling paint inside the home",
+          "painId": "home-is-hard",
+          "why": "Housing: a broken home."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "mold",
+          "name": "Mold in the last 12 months",
+          "url": "https://www.census.gov/content/dam/Census/library/visualizations/2021/demo/AHS-Housing%20Quality-FINAL.pdf",
+          "reason": "waiting for review: damp-and-mold"
+        },
+        {
+          "entry": "mice-rats",
+          "name": "Signs of mice or rats inside the home",
+          "url": "https://www.census.gov/content/dam/Census/library/visualizations/2021/demo/AHS-Housing%20Quality-FINAL.pdf",
+          "reason": "waiting for review: pests"
+        },
+        {
+          "entry": "cockroaches",
+          "name": "Signs of cockroaches inside the home",
+          "url": "https://www.census.gov/content/dam/Census/library/visualizations/2021/demo/AHS-Housing%20Quality-FINAL.pdf",
+          "reason": "waiting for review: pests"
+        },
+        {
+          "entry": "leak-outside",
+          "name": "Water leakage from outside the home",
+          "url": "https://www.census.gov/content/dam/Census/library/visualizations/2021/demo/AHS-Housing%20Quality-FINAL.pdf",
+          "reason": "waiting for review: damp-and-mold"
+        },
+        {
+          "entry": "leak-inside",
+          "name": "Water leakage from inside the home",
+          "url": "https://www.census.gov/content/dam/Census/library/visualizations/2021/demo/AHS-Housing%20Quality-FINAL.pdf",
+          "reason": "waiting for review: damp-and-mold"
+        }
+      ]
+    },
+    "eurostat-housing": {
+      "name": "Eurostat EU-SILC: housing conditions and living environment (2023-2024)",
+      "url": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Living_conditions_in_Europe_-_housing",
+      "accessed": "2026-10-19",
+      "entries": 6,
+      "covered": 5,
+      "share": 0.833,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "overcrowded",
+          "name": "Living in an overcrowded household",
+          "painId": "home-is-hard",
+          "why": "Housing: \"cramped\"."
+        },
+        {
+          "entry": "unable-keep-warm",
+          "name": "Unable to afford to keep the home adequately warm",
+          "painId": "cold-home",
+          "why": "Heating: can't afford to keep the home warm."
+        },
+        {
+          "entry": "cost-overburden",
+          "name": "Housing cost overburden (40% or more of disposable income)",
+          "painId": "rent-eats-everything",
+          "why": "High rent: \"I pay too much for housing.\""
+        },
+        {
+          "entry": "noise",
+          "name": "Noise from neighbours or from the street",
+          "painId": "home-is-hard",
+          "why": "Housing: \"noisy\"."
+        },
+        {
+          "entry": "pollution-grime",
+          "name": "Pollution, grime or other environmental problems",
+          "painId": "dirty-air",
+          "why": "Pollution: \"I see pollution harming where I live.\""
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "leaking-roof-damp",
+          "name": "Dwelling with a leaking roof, damp walls, floors or foundation, or rot in window frames or floor",
+          "url": "https://tradingeconomics.com/european-union/share-of-total-population-living-in-a-dwelling-with-a-leaking-roof-damp-walls-floors-or-foundation-or-rot-in-window-frames-of-floor-eurostat-data.html",
+          "reason": "waiting for review: damp-and-mold"
+        }
+      ]
+    },
+    "who-housing-health": {
+      "name": "WHO Housing and health guidelines (2018)",
+      "url": "https://www.who.int/publications/i/item/9789241550376",
+      "accessed": "2026-10-19",
+      "entries": 10,
+      "covered": 3,
+      "share": 0.3,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "crowding",
+          "name": "Inadequate living space (crowding)",
+          "painId": "home-is-hard",
+          "why": "Housing: \"cramped\"."
+        },
+        {
+          "entry": "low-indoor-temperature",
+          "name": "Low indoor temperatures",
+          "painId": "cold-home",
+          "why": "Heating: a cold home."
+        },
+        {
+          "entry": "neighbourhood-noise",
+          "name": "Neighbourhood noise",
+          "painId": "home-is-hard",
+          "why": "Housing: \"noisy\"."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "high-indoor-temperature",
+          "name": "High indoor temperatures",
+          "url": "https://www.who.int/publications/i/item/9789241550376",
+          "reason": "covered by a broader pain: cold-home"
+        },
+        {
+          "entry": "injury-hazards",
+          "name": "Injury hazards in the home",
+          "url": "https://www.who.int/publications/i/item/9789241550376",
+          "reason": "covered by a broader pain: home-is-hard"
+        },
+        {
+          "entry": "accessibility",
+          "name": "Accessibility of housing for people with functional impairments",
+          "url": "https://www.who.int/publications/i/item/9789241550376",
+          "reason": "waiting for review: accessible-home"
+        },
+        {
+          "entry": "water-quality",
+          "name": "Water quality",
+          "url": "https://www.who.int/publications/i/item/9789241550376",
+          "reason": "waiting for review: tap-water"
+        },
+        {
+          "entry": "air-quality",
+          "name": "Indoor air quality",
+          "url": "https://www.who.int/publications/i/item/9789241550376",
+          "reason": "covered by a broader pain: dirty-air"
+        },
+        {
+          "entry": "lead-asbestos-radon",
+          "name": "Asbestos, lead and radon",
+          "url": "https://www.who.int/publications/i/item/9789241550376",
+          "reason": "covered by a broader pain: home-is-hard"
+        },
+        {
+          "entry": "tobacco-smoke",
+          "name": "Tobacco smoke",
+          "url": "https://www.who.int/publications/i/item/9789241550376",
+          "reason": "out of scope: secondhand smoke is a health and addiction matter more than a housing one"
+        }
+      ]
+    },
+    "who-household-air-pollution": {
+      "name": "WHO fact sheet: Household air pollution and health",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/household-air-pollution-and-health",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "polluting-cooking",
+          "name": "Cooking with open fires or polluting fuels",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/household-air-pollution-and-health",
+          "reason": "out of scope: cooking over open fires is rare among the U.S. readers It writes for first; revisit when It serves countries where it is common"
+        }
+      ]
+    },
+    "211-impact-2025": {
+      "name": "United Way 211 Impact Snapshot 2025: top referral categories",
+      "url": "https://www.unitedway.org/the-facts-about-211-2025-impact-snapshot",
+      "accessed": "2026-10-19",
+      "entries": 2,
+      "covered": 2,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "housing",
+          "name": "Housing (affordable housing, short-term rental assistance, eviction legal aid, emergency shelter)",
+          "painId": "might-lose-my-home",
+          "why": "Eviction: rental assistance, eviction aid and shelter are about keeping a home."
+        },
+        {
+          "entry": "utilities",
+          "name": "Utilities assistance",
+          "painId": "utility-bills",
+          "why": "Utility bills: \"I'm behind on my power or water bill.\""
+        }
+      ],
+      "uncovered": []
+    },
+    "hud-ahar-2024": {
+      "name": "HUD 2024 Annual Homeless Assessment Report, Part 1",
+      "url": "https://archives.hud.gov/news/2024/pr24-327.cfm",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 1,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "homeless-one-night",
+          "name": "People experiencing homelessness on a single night",
+          "painId": "homeless",
+          "why": "Homeless: \"I don't have a reliable place to stay.\""
+        }
+      ],
+      "uncovered": []
+    },
+    "gallup-mip": {
+      "name": "Gallup: most important problem facing the country (September 2026)",
+      "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+      "accessed": "2026-10-19",
+      "entries": 2,
+      "covered": 2,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "poverty-hunger-homelessness",
+          "name": "Poverty/Hunger/Homelessness",
+          "painId": "homelessness",
+          "why": "Homelessness: \"I see more neighbors with no home.\""
+        },
+        {
+          "entry": "crime-violence",
+          "name": "Crime/Violence",
+          "painId": "crime-and-violence",
+          "why": "Crime: \"I don't feel safe from crime and violence.\""
+        }
+      ],
+      "uncovered": []
+    },
+    "ipsos-www": {
+      "name": "Ipsos What Worries the World (September 2026)",
+      "url": "https://www.ipsos.com/en/what-worries-world",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 1,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "crime-violence",
+          "name": "Crime & violence",
+          "painId": "crime-and-violence",
+          "why": "Crime: worry about crime and violence."
+        }
+      ],
+      "uncovered": []
+    },
+    "gallup-environment-2025": {
+      "name": "Gallup: how much do you personally worry about these environmental problems (March 2025)",
+      "url": "https://news.gallup.com/file/poll/659441/20250416GlobalWarming.pdf",
+      "accessed": "2026-10-19",
+      "entries": 2,
+      "covered": 1,
+      "share": 0.5,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "air-pollution",
+          "name": "Air pollution",
+          "painId": "dirty-air",
+          "why": "Pollution: air pollution where I live."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "drinking-water",
+          "name": "Pollution of drinking water",
+          "url": "https://news.gallup.com/file/poll/659441/20250416GlobalWarming.pdf",
+          "reason": "waiting for review: tap-water"
+        }
+      ]
+    },
+    "energy-insecurity-2024": {
+      "name": "Census Household Pulse Survey: household energy insecurity (charts by RMI and CEPC/NEADA)",
+      "url": "https://datawrapper.dwcdn.net/Bl2CW/3",
+      "accessed": "2026-10-19",
+      "entries": 2,
+      "covered": 2,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "cant-pay-energy-bill",
+          "name": "Could not pay an energy bill or the full amount",
+          "painId": "utility-bills",
+          "why": "Utility bills: behind on the power bill."
+        },
+        {
+          "entry": "unsafe-temperature",
+          "name": "Kept home at an unsafe temperature",
+          "painId": "cold-home",
+          "why": "Heating (alias \"Cold or hot home\"): a home kept too cold or too hot to save money."
+        }
+      ],
+      "uncovered": []
+    },
+    "jchs-accessibility-2022": {
+      "name": "Harvard JCHS: How Well Does the Housing Stock Meet Accessibility Needs? (2019 AHS)",
+      "url": "https://jchs.harvard.edu/sites/default/files/research/files/harvard_jchs_housing_stock_accessibility_scheckler_2022_0.pdf",
+      "accessed": "2026-10-19",
+      "entries": 2,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "difficulty-using-home",
+          "name": "Households with difficulty navigating or using their home",
+          "url": "https://jchs.harvard.edu/sites/default/files/research/files/harvard_jchs_housing_stock_accessibility_scheckler_2022_0.pdf",
+          "reason": "waiting for review: accessible-home"
+        },
+        {
+          "entry": "wheelchair-accessible-units",
+          "name": "Housing units fully wheelchair accessible",
+          "url": "https://jchs.harvard.edu/sites/default/files/research/files/harvard_jchs_housing_stock_accessibility_scheckler_2022_0.pdf",
+          "reason": "waiting for review: accessible-home"
+        }
+      ]
+    },
+    "pew-living-with-parents": {
+      "name": "Pew Research Center: young adults living in a parent's home (2023 data)",
+      "url": "https://www.pewresearch.org/short-reads/2025/04/17/the-shares-of-young-adults-living-with-parents-vary-widely-across-the-us/",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "adults-25-34-with-parents",
+          "name": "Adults ages 25 to 34 living in a parent's home",
+          "url": "https://www.pewresearch.org/short-reads/2025/04/17/the-shares-of-young-adults-living-with-parents-vary-widely-across-the-us/",
+          "reason": "waiting for review: living-with-parents"
+        }
+      ]
+    },
+    "oecd-wellbeing": {
+      "name": "OECD Well-being Framework: Housing, Safety and Environmental quality indicators",
+      "url": "https://www.oecd.org/en/topics/sub-issues/measuring-well-being-and-progress/oecd-well-being-framework.html",
+      "accessed": "2026-10-19",
+      "entries": 7,
+      "covered": 5,
+      "share": 0.714,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "overcrowding-rate",
+          "name": "Overcrowding rate",
+          "painId": "home-is-hard",
+          "why": "Housing: \"cramped\"."
+        },
+        {
+          "entry": "housing-affordability",
+          "name": "Housing affordability (housing cost overburden)",
+          "painId": "rent-eats-everything",
+          "why": "High rent: \"I pay too much for housing.\""
+        },
+        {
+          "entry": "feeling-safe-at-night",
+          "name": "Feeling safe walking alone at night",
+          "painId": "unsafe-near-me",
+          "why": "Safety: \"I don't feel safe where I live.\""
+        },
+        {
+          "entry": "green-space",
+          "name": "Access to green space",
+          "painId": "nature-disappearing",
+          "why": "Nature: \"I see fewer birds, trees and green spaces.\""
+        },
+        {
+          "entry": "air-pollution",
+          "name": "Exposure to outdoor air pollution",
+          "painId": "dirty-air",
+          "why": "Pollution where I live."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "housing",
+          "name": "Housing (dimension)",
+          "url": "https://www.oecd.org/en/topics/sub-issues/measuring-well-being-and-progress/oecd-well-being-framework.html",
+          "reason": "covered by a broader pain: home-is-hard"
+        },
+        {
+          "entry": "basic-sanitation",
+          "name": "Households without basic sanitation (indoor flushing toilet)",
+          "url": "https://www.oecd.org/en/topics/sub-issues/measuring-well-being-and-progress/oecd-well-being-framework.html",
+          "reason": "covered by a broader pain: home-is-hard"
+        }
+      ]
+    },
+    "whoqol-bref": {
+      "name": "WHOQOL-BREF (English, Australian version)",
+      "url": "https://cdn.who.int/media/docs/default-source/publishing-policies/whoqol-bref/english-australian-whoqol-bref.zip?sfvrsn=a7452ad6_2",
+      "accessed": "2026-10-19",
+      "entries": 4,
+      "covered": 4,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "q8",
+          "name": "Q8 How safe do you feel in your daily life?",
+          "painId": "unsafe-near-me",
+          "why": "Safety: not feeling safe where I live."
+        },
+        {
+          "entry": "q9",
+          "name": "Q9 How healthy is your physical environment?",
+          "painId": "dirty-air",
+          "why": "Pollution: an unhealthy physical environment."
+        },
+        {
+          "entry": "q23",
+          "name": "Q23 How satisfied are you with the conditions of your living place?",
+          "painId": "home-is-hard",
+          "why": "Housing: poor conditions where I live."
+        },
+        {
+          "entry": "q25",
+          "name": "Q25 How satisfied are you with your transport?",
+          "painId": "getting-around",
+          "why": "Transport: \"I struggle to get where I need to go.\""
+        }
+      ],
+      "uncovered": []
+    },
+    "sdg-targets": {
+      "name": "UN SDG targets bearing on home",
+      "url": "https://sdgs.un.org/goals",
+      "accessed": "2026-10-19",
+      "entries": 6,
+      "covered": 2,
+      "share": 0.333,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "11-2",
+          "name": "11.2 Safe, affordable, accessible transport",
+          "painId": "getting-around",
+          "why": "Transport: access to transport."
+        },
+        {
+          "entry": "11-7",
+          "name": "11.7 Safe, inclusive green and public spaces",
+          "painId": "nature-disappearing",
+          "why": "Nature: green spaces."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "11-1",
+          "name": "11.1 Adequate, safe and affordable housing and basic services",
+          "url": "https://sdgs.un.org/goals/goal11",
+          "reason": "covered by a broader pain: home-is-hard"
+        },
+        {
+          "entry": "6-1",
+          "name": "6.1 Safe and affordable drinking water",
+          "url": "https://sdgs.un.org/goals/goal6",
+          "reason": "waiting for review: tap-water"
+        },
+        {
+          "entry": "6-2",
+          "name": "6.2 Adequate sanitation and hygiene",
+          "url": "https://sdgs.un.org/goals/goal6",
+          "reason": "covered by a broader pain: home-is-hard"
+        },
+        {
+          "entry": "7-1",
+          "name": "7.1 Affordable, reliable, modern energy services",
+          "url": "https://sdgs.un.org/goals/goal7",
+          "reason": "covered by a broader pain: utility-bills"
+        }
+      ]
+    },
+    "maxneef": {
+      "name": "Max-Neef's fundamental human needs",
+      "url": "https://en.wikipedia.org/wiki/Manfred_Max-Neef%27s_Fundamental_human_needs",
+      "accessed": "2026-10-19",
+      "entries": 2,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "subsistence-having",
+          "name": "Subsistence (having): food, shelter, work",
+          "url": "https://en.wikipedia.org/wiki/Manfred_Max-Neef%27s_Fundamental_human_needs",
+          "reason": "covered by a broader pain: homeless"
+        },
+        {
+          "entry": "protection-interacting",
+          "name": "Protection (interacting): living space, social environment, dwelling",
+          "url": "https://en.wikipedia.org/wiki/Manfred_Max-Neef%27s_Fundamental_human_needs",
+          "reason": "covered by a broader pain: home-is-hard"
+        }
+      ]
+    },
+    "gallup-elements": {
+      "name": "Gallup's five elements of wellbeing",
+      "url": "https://www.gallup.com/workplace/237020/five-essential-elements.aspx",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "community",
+          "name": "Community Well-Being",
+          "url": "https://www.gallup.com/workplace/237020/five-essential-elements.aspx",
+          "reason": "covered by a broader pain: nobody-knows-anybody"
+        }
+      ]
+    },
+    "wikidata": {
+      "name": "Wikidata items for home pains",
+      "url": "https://www.wikidata.org/",
+      "accessed": "2026-10-19",
+      "entries": 18,
+      "covered": 9,
+      "share": 0.5,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "housing-insecurity",
+          "name": "housing insecurity",
+          "painId": "might-lose-my-home",
+          "why": "Eviction: \"I might lose my home.\""
+        },
+        {
+          "entry": "eviction",
+          "name": "eviction",
+          "painId": "might-lose-my-home",
+          "why": "Eviction."
+        },
+        {
+          "entry": "homelessness",
+          "name": "homelessness",
+          "painId": "homeless",
+          "why": "Homeless."
+        },
+        {
+          "entry": "household-crowding",
+          "name": "household crowding",
+          "painId": "home-is-hard",
+          "why": "Housing: \"cramped\"."
+        },
+        {
+          "entry": "energy-poverty",
+          "name": "energy poverty",
+          "painId": "cold-home",
+          "why": "Heating: can't afford to heat the home."
+        },
+        {
+          "entry": "noise-pollution",
+          "name": "noise pollution",
+          "painId": "home-is-hard",
+          "why": "Housing: \"noisy\"."
+        },
+        {
+          "entry": "digital-divide",
+          "name": "digital divide",
+          "painId": "offline",
+          "why": "Internet: \"I can't get decent internet.\""
+        },
+        {
+          "entry": "substandard-housing",
+          "name": "substandard housing",
+          "painId": "home-is-hard",
+          "why": "Housing: a broken home."
+        },
+        {
+          "entry": "affordable-housing",
+          "name": "affordable housing",
+          "painId": "rent-eats-everything",
+          "why": "High rent."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "mold-in-structures",
+          "name": "growth of mold in structures",
+          "url": "https://www.wikidata.org/wiki/Q6895739",
+          "reason": "waiting for review: damp-and-mold"
+        },
+        {
+          "entry": "pest-control",
+          "name": "pest control",
+          "url": "https://www.wikidata.org/wiki/Q2306047",
+          "reason": "waiting for review: pests"
+        },
+        {
+          "entry": "drinking-water",
+          "name": "drinking water",
+          "url": "https://www.wikidata.org/wiki/Q7892",
+          "reason": "waiting for review: tap-water"
+        },
+        {
+          "entry": "lead-poisoning",
+          "name": "lead poisoning",
+          "url": "https://www.wikidata.org/wiki/Q110315",
+          "reason": "waiting for review: tap-water"
+        },
+        {
+          "entry": "architectural-accessibility",
+          "name": "architectural accessibility",
+          "url": "https://www.wikidata.org/wiki/Q16001554",
+          "reason": "waiting for review: accessible-home"
+        },
+        {
+          "entry": "commuting",
+          "name": "commuting",
+          "url": "https://www.wikidata.org/wiki/Q48442",
+          "reason": "covered by a broader pain: getting-around"
+        },
+        {
+          "entry": "boomerang-generation",
+          "name": "Boomerang Generation",
+          "url": "https://www.wikidata.org/wiki/Q3382121",
+          "reason": "waiting for review: living-with-parents"
+        },
+        {
+          "entry": "household-air-pollution",
+          "name": "household air pollution",
+          "url": "https://www.wikidata.org/wiki/Q6026412",
+          "reason": "out of scope: cooking over open fires is rare among the U.S. readers It writes for first; indoor air otherwise sits under Pollution"
+        },
+        {
+          "entry": "indoor-air-quality",
+          "name": "indoor air quality",
+          "url": "https://www.wikidata.org/wiki/Q905504",
+          "reason": "covered by a broader pain: dirty-air"
+        }
+      ]
+    }
+  },
+  "issues": [],
+  "checkedAt": "2026-10-19"
+}

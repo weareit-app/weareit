@@ -1,0 +1,11 @@
+{
+  "labels": {
+    "homeless": "problem",
+    "home-is-hard": "area",
+    "cold-home": "area",
+    "offline": "area",
+    "might-lose-my-home": "problem",
+    "unsafe-near-me": "area",
+    "getting-around": "area"
+  }
+}

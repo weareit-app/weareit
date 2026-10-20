@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "issues": [],
+  "moves": [],
+  "disagreements": [
+    {
+      "painId": "getting-around",
+      "current": "home",
+      "sorts": [
+        "home",
+        "time",
+        "home"
+      ]
+    }
+  ],
+  "checkedAt": "2026-10-19"
+}

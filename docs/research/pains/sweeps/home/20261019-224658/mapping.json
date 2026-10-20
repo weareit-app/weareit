@@ -1,0 +1,285 @@
+{
+  "schemaVersion": 1,
+  "entries": {
+    "ahs-2019-quality/uncomfortably-cold": {
+      "painId": "cold-home",
+      "why": "Heating: \"I can't afford to heat my home.\""
+    },
+    "ahs-2019-quality/cracks-holes": {
+      "painId": "home-is-hard",
+      "why": "Housing: \"I live somewhere cramped, broken or noisy.\""
+    },
+    "ahs-2019-quality/foundation": {
+      "painId": "home-is-hard",
+      "why": "Housing: a broken home."
+    },
+    "ahs-2019-quality/broken-window": {
+      "painId": "home-is-hard",
+      "why": "Housing: a broken home."
+    },
+    "ahs-2019-quality/mold": {
+      "candidate": "damp-and-mold"
+    },
+    "ahs-2019-quality/mice-rats": {
+      "candidate": "pests"
+    },
+    "ahs-2019-quality/cockroaches": {
+      "candidate": "pests"
+    },
+    "ahs-2019-quality/leak-outside": {
+      "candidate": "damp-and-mold"
+    },
+    "ahs-2019-quality/leak-inside": {
+      "candidate": "damp-and-mold"
+    },
+    "ahs-2019-quality/no-toilet": {
+      "painId": "home-is-hard",
+      "why": "Housing: a broken home, here the plumbing."
+    },
+    "ahs-2019-quality/peeling-paint": {
+      "painId": "home-is-hard",
+      "why": "Housing: a broken home."
+    },
+    "eurostat-housing/overcrowded": {
+      "painId": "home-is-hard",
+      "why": "Housing: \"cramped\"."
+    },
+    "eurostat-housing/unable-keep-warm": {
+      "painId": "cold-home",
+      "why": "Heating: can't afford to keep the home warm."
+    },
+    "eurostat-housing/cost-overburden": {
+      "painId": "rent-eats-everything",
+      "why": "High rent: \"I pay too much for housing.\""
+    },
+    "eurostat-housing/leaking-roof-damp": {
+      "candidate": "damp-and-mold"
+    },
+    "eurostat-housing/noise": {
+      "painId": "home-is-hard",
+      "why": "Housing: \"noisy\"."
+    },
+    "eurostat-housing/pollution-grime": {
+      "painId": "dirty-air",
+      "why": "Pollution: \"I see pollution harming where I live.\""
+    },
+    "who-housing-health/crowding": {
+      "painId": "home-is-hard",
+      "why": "Housing: \"cramped\"."
+    },
+    "who-housing-health/low-indoor-temperature": {
+      "painId": "cold-home",
+      "why": "Heating: a cold home."
+    },
+    "who-housing-health/high-indoor-temperature": {
+      "broader": "cold-home"
+    },
+    "who-housing-health/injury-hazards": {
+      "broader": "home-is-hard"
+    },
+    "who-housing-health/accessibility": {
+      "candidate": "accessible-home"
+    },
+    "who-housing-health/water-quality": {
+      "candidate": "tap-water"
+    },
+    "who-housing-health/air-quality": {
+      "broader": "dirty-air"
+    },
+    "who-housing-health/neighbourhood-noise": {
+      "painId": "home-is-hard",
+      "why": "Housing: \"noisy\"."
+    },
+    "who-housing-health/lead-asbestos-radon": {
+      "broader": "home-is-hard"
+    },
+    "who-housing-health/tobacco-smoke": {
+      "outOfScope": "secondhand smoke is a health and addiction matter more than a housing one"
+    },
+    "who-household-air-pollution/polluting-cooking": {
+      "outOfScope": "cooking over open fires is rare among the U.S. readers It writes for first; revisit when It serves countries where it is common"
+    },
+    "211-impact-2025/housing": {
+      "painId": "might-lose-my-home",
+      "why": "Eviction: rental assistance, eviction aid and shelter are about keeping a home."
+    },
+    "211-impact-2025/utilities": {
+      "painId": "utility-bills",
+      "why": "Utility bills: \"I'm behind on my power or water bill.\""
+    },
+    "hud-ahar-2024/homeless-one-night": {
+      "painId": "homeless",
+      "why": "Homeless: \"I don't have a reliable place to stay.\""
+    },
+    "gallup-mip/poverty-hunger-homelessness": {
+      "painId": "homelessness",
+      "why": "Homelessness: \"I see more neighbors with no home.\""
+    },
+    "gallup-mip/crime-violence": {
+      "painId": "crime-and-violence",
+      "why": "Crime: \"I don't feel safe from crime and violence.\""
+    },
+    "ipsos-www/crime-violence": {
+      "painId": "crime-and-violence",
+      "why": "Crime: worry about crime and violence."
+    },
+    "gallup-environment-2025/drinking-water": {
+      "candidate": "tap-water"
+    },
+    "gallup-environment-2025/air-pollution": {
+      "painId": "dirty-air",
+      "why": "Pollution: air pollution where I live."
+    },
+    "energy-insecurity-2024/cant-pay-energy-bill": {
+      "painId": "utility-bills",
+      "why": "Utility bills: behind on the power bill."
+    },
+    "energy-insecurity-2024/unsafe-temperature": {
+      "painId": "cold-home",
+      "why": "Heating (alias \"Cold or hot home\"): a home kept too cold or too hot to save money."
+    },
+    "jchs-accessibility-2022/difficulty-using-home": {
+      "candidate": "accessible-home"
+    },
+    "jchs-accessibility-2022/wheelchair-accessible-units": {
+      "candidate": "accessible-home"
+    },
+    "pew-living-with-parents/adults-25-34-with-parents": {
+      "candidate": "living-with-parents"
+    },
+    "oecd-wellbeing/housing": {
+      "broader": "home-is-hard"
+    },
+    "oecd-wellbeing/overcrowding-rate": {
+      "painId": "home-is-hard",
+      "why": "Housing: \"cramped\"."
+    },
+    "oecd-wellbeing/housing-affordability": {
+      "painId": "rent-eats-everything",
+      "why": "High rent: \"I pay too much for housing.\""
+    },
+    "oecd-wellbeing/basic-sanitation": {
+      "broader": "home-is-hard"
+    },
+    "oecd-wellbeing/feeling-safe-at-night": {
+      "painId": "unsafe-near-me",
+      "why": "Safety: \"I don't feel safe where I live.\""
+    },
+    "oecd-wellbeing/green-space": {
+      "painId": "nature-disappearing",
+      "why": "Nature: \"I see fewer birds, trees and green spaces.\""
+    },
+    "oecd-wellbeing/air-pollution": {
+      "painId": "dirty-air",
+      "why": "Pollution where I live."
+    },
+    "whoqol-bref/q8": {
+      "painId": "unsafe-near-me",
+      "why": "Safety: not feeling safe where I live."
+    },
+    "whoqol-bref/q9": {
+      "painId": "dirty-air",
+      "why": "Pollution: an unhealthy physical environment."
+    },
+    "whoqol-bref/q23": {
+      "painId": "home-is-hard",
+      "why": "Housing: poor conditions where I live."
+    },
+    "whoqol-bref/q25": {
+      "painId": "getting-around",
+      "why": "Transport: \"I struggle to get where I need to go.\""
+    },
+    "sdg-targets/11-1": {
+      "broader": "home-is-hard"
+    },
+    "sdg-targets/11-2": {
+      "painId": "getting-around",
+      "why": "Transport: access to transport."
+    },
+    "sdg-targets/11-7": {
+      "painId": "nature-disappearing",
+      "why": "Nature: green spaces."
+    },
+    "sdg-targets/6-1": {
+      "candidate": "tap-water"
+    },
+    "sdg-targets/6-2": {
+      "broader": "home-is-hard"
+    },
+    "sdg-targets/7-1": {
+      "broader": "utility-bills"
+    },
+    "maxneef/subsistence-having": {
+      "broader": "homeless"
+    },
+    "maxneef/protection-interacting": {
+      "broader": "home-is-hard"
+    },
+    "gallup-elements/community": {
+      "broader": "nobody-knows-anybody"
+    },
+    "wikidata/housing-insecurity": {
+      "painId": "might-lose-my-home",
+      "why": "Eviction: \"I might lose my home.\""
+    },
+    "wikidata/eviction": {
+      "painId": "might-lose-my-home",
+      "why": "Eviction."
+    },
+    "wikidata/homelessness": {
+      "painId": "homeless",
+      "why": "Homeless."
+    },
+    "wikidata/household-crowding": {
+      "painId": "home-is-hard",
+      "why": "Housing: \"cramped\"."
+    },
+    "wikidata/energy-poverty": {
+      "painId": "cold-home",
+      "why": "Heating: can't afford to heat the home."
+    },
+    "wikidata/mold-in-structures": {
+      "candidate": "damp-and-mold"
+    },
+    "wikidata/pest-control": {
+      "candidate": "pests"
+    },
+    "wikidata/drinking-water": {
+      "candidate": "tap-water"
+    },
+    "wikidata/lead-poisoning": {
+      "candidate": "tap-water"
+    },
+    "wikidata/architectural-accessibility": {
+      "candidate": "accessible-home"
+    },
+    "wikidata/noise-pollution": {
+      "painId": "home-is-hard",
+      "why": "Housing: \"noisy\"."
+    },
+    "wikidata/digital-divide": {
+      "painId": "offline",
+      "why": "Internet: \"I can't get decent internet.\""
+    },
+    "wikidata/commuting": {
+      "broader": "getting-around"
+    },
+    "wikidata/substandard-housing": {
+      "painId": "home-is-hard",
+      "why": "Housing: a broken home."
+    },
+    "wikidata/boomerang-generation": {
+      "candidate": "living-with-parents"
+    },
+    "wikidata/household-air-pollution": {
+      "outOfScope": "cooking over open fires is rare among the U.S. readers It writes for first; indoor air otherwise sits under Pollution"
+    },
+    "wikidata/affordable-housing": {
+      "painId": "rent-eats-everything",
+      "why": "High rent."
+    },
+    "wikidata/indoor-air-quality": {
+      "broader": "dirty-air"
+    }
+  }
+}
