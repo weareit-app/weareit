@@ -17,23 +17,34 @@ NativeWind 5.0.0-rc.0 and react-native-css 3.1.0-rc.0 are an intentional prerele
 - Prettier 3.9.10 and Turborepo 2.11.8 are current releases within their existing major versions.
 - Zod 4.6.7 and Zustand 5.0.15 are current releases within their existing major versions.
 - TypeScript remains at 5.9.3, the latest 5.x release. Do not adopt TypeScript 7 as a major toolchain change until Expo and workspace tooling compatibility is established.
+- Lefthook 2.1.17 runs the git pre-commit hook (`lefthook.yml`; chosen 2026-10-20 as the newest release at least two weeks old). Its postinstall only runs `lefthook install` (skipped when `CI` is set), so it is allowed in `pnpm-workspace.yaml` `allowBuilds`. It is one Go binary with staged-file filtering and restaging built in, so no lint-staged is needed.
 - pnpm remains pinned to 11.25.0 for reproducible contributor installs. A pnpm major upgrade should include a lockfile review.
 
 The Expo CLI's dependency resolver owns SDK-specific package versions. Re-run `expo install --check` after dependency changes. `pnpm outdated` is useful for finding candidates, but its `Latest` column is not an Expo compatibility guarantee. pnpm added exact-version entries to `minimumReleaseAgeExclude` for Expo packages selected by the CLI because those releases were newer than pnpm's release-age window at install time.
 
 ## Continuous integration
 
-`.github/workflows/ci.yml` runs lint, typecheck, Vitest, the Expo Jest suite and the Playwright web tests on every pull request and on pushes to `master`.
+`.github/workflows/ci.yml` runs on every pull request and on pushes to `master`, so a commit made with `git commit --no-verify` is still checked. It has two jobs that run in parallel:
+
+- `check`: typecheck, lint, the Vitest unit tests and the jest-expo tests (about 8 seconds of test time).
+- `e2e`: the Playwright web tests. It downloads Chromium and starts the Expo web server, so it takes about two minutes and is the job most likely to fail for reasons unrelated to the code. It is a separate job so it does not hold up `check`. On failure it uploads `apps/app/test-results/` (kept 7 days).
+
+The shared install steps (pnpm, Node, `pnpm install`) live in `.github/actions/setup/action.yml`, so each pin and the Node version appear once. Node is pinned to the version in `mise.toml`; update both together.
 
 Cost (checked 2026-10-20 against GitHub's Actions billing docs): GitHub Actions is free for public repositories on standard GitHub-hosted runners, so this workflow costs nothing while `weareit-app/weareit` stays public. Larger runners are billed even on public repositories. If the repository becomes private, the organization's free plan includes 2,000 minutes and 500 MB of artifact storage a month. To keep CI free:
 
 - Use `ubuntu-latest` only. Do not add larger runners. The billing docs do not say whether standard macOS runners are free for public repositories, so check them before adding a macOS job (for example an iOS build). On a private repository a macOS minute uses 10 included minutes.
-- Keep `timeout-minutes` on every job and keep artifacts short-lived (failure traces are kept 7 days).
+- Keep `timeout-minutes` on every job and keep artifacts short-lived.
 - Keep the organization's Actions budget at $0, so usage that would be billed is blocked rather than charged.
 
-Actions are pinned to a full commit SHA, with the release tag in a comment. Pick releases at least two weeks old: `actions/checkout` v7.0.1, `actions/setup-node` v7.0.0, `pnpm/action-setup` v6.1.0, `actions/upload-artifact` v7.0.1 (2026-10-20). The shared install steps live in `.github/actions/setup/action.yml`, so each pin and the Node version appear once. Node is pinned to the version in `mise.toml`; update both together.
+Each third-party action is pinned to a full commit SHA, with the version in a comment. Each is the newest release at least two weeks old on 2026-10-20:
 
-`pnpm/action-setup` is the only action not published by GitHub. Its source was reviewed at commit `ea17c68df8912ef543352723c149a84f56e3d413` (2026-10-20): `action.yml` and `src/`. It runs `npm ci` against a committed lockfile that pins pnpm 11.25.0 by integrity hash, then self-updates to the `packageManager` version only when that differs. The only network hosts in its bundled `dist/index.js` are the npm registry and GitHub's own services (Actions cache and Azure storage). The 1.4 MB bundle was not read line by line. Review `src/` again before moving the pin.
+- `actions/checkout` v7.0.1, `3d3c42e5aac5ba805825da76410c181273ba90b1` (released 2026-07-20).
+- `actions/setup-node` v7.0.0, `820762786026740c76f36085b0efc47a31fe5020` (2026-07-14). v7.1.0 (2026-10-08) was too new.
+- `actions/upload-artifact` v7.0.1, `043fb46d1a93c77aae656e7c1c64a875d1fc6a0a` (2026-04-10). v7.0.2 (2026-10-07) was too new.
+- `pnpm/action-setup` v6.1.0, `ea17c68df8912ef543352723c149a84f56e3d413` (2026-09-05), the only action not published by GitHub. It reads pnpm 11.25.0 from `packageManager`. Its `action.yml` and TypeScript `src/` at this commit were read on 2026-10-20: it installs pnpm with `npm ci` from a lockfile committed in the action, which carries the package's integrity hash. Our pnpm version matches that lockfile, so the action runs no self-update. The only network hosts in its bundled `dist/index.js` are the npm registry and GitHub's own services (Actions cache and Azure storage); the 1.4 MB bundle was not otherwise compared with the source.
+
+To update a pin, pick a newer release at least two weeks old, read its changes, resolve the tag to its commit SHA (`gh api repos/<owner>/<repo>/commits/<tag> --jq .sha`), and update both the workflow (or `.github/actions/setup/action.yml`) and this list.
 
 ## Spec and agent tooling
 
