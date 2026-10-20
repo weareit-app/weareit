@@ -4,7 +4,8 @@ packages:
   - tools/*
 
 allowBuilds:
-  "@shopify/react-native-skia": true
+  # Skia 2.14 ships its libraries in the react-native-skia-* packages and has no install script to run.
+  "@shopify/react-native-skia": false
   "@tailwindcss/oxide": true
   "esbuild": true
   "lefthook": true
