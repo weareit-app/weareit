@@ -110,6 +110,18 @@ describe("block data", () => {
     );
   });
 
+  it.each([
+    ["a layer", { layer: [{ mark: "bar", data: { values: [{ count: 9 }] } }] }],
+    ["named datasets", { mark: "bar", datasets: { extra: [{ count: 9 }] } }],
+  ])(
+    "rejects chart data in %s, which the fallback table would not show",
+    (_, spec) => {
+      expect(blockSchemas.chart.safeParse({ ...chart, spec }).success).toBe(
+        false,
+      );
+    },
+  );
+
   it("rejects a URL anywhere in a chart spec", () => {
     const spec = {
       layer: [{ mark: { type: "image", url: "https://example.com/a.png" } }],

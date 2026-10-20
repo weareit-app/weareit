@@ -1,4 +1,4 @@
-import { SourceLink } from "./data-table";
+import { SourceLink } from "./source-link";
 import { formatEssayDate } from "./format";
 import type { BlockProps } from "./types";
 
@@ -13,17 +13,17 @@ export function EvidenceBlock({ block, sources }: BlockProps<"evidence">) {
     <aside className="my-6 rounded-lg border border-rule bg-paper-raised p-5">
       <p className="font-body text-lg text-ink">{evidence.claim}</p>
       <dl className="mt-4 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 font-ui text-sm text-ink-soft">
-        <dt className="font-semibold">Status</dt>
+        <dt className="font-ui-semibold">Status</dt>
         <dd>{capitalize(evidence.status)}</dd>
-        <dt className="font-semibold">Source</dt>
+        <dt className="font-ui-semibold">Source</dt>
         <dd>
           <SourceLink id={evidence.source} sources={sources} />
         </dd>
-        <dt className="font-semibold">Date</dt>
+        <dt className="font-ui-semibold">Date</dt>
         <dd>
           <time dateTime={evidence.date}>{formatEssayDate(evidence.date)}</time>
         </dd>
-        <dt className="font-semibold">Main limitation</dt>
+        <dt className="font-ui-semibold">Main limitation</dt>
         <dd>{evidence.limitation}</dd>
       </dl>
     </aside>

@@ -19,6 +19,7 @@ import {
 // parses Markdown.
 
 export { essayStatusLabels, essayStatusLabelSchema };
+export type { DataColumn, DataContext, DataRow } from "./essays/blocks/shared";
 export type EssayStatusLabel = z.infer<typeof essayStatusLabelSchema>;
 
 export const essaySourceSchema = z.strictObject({

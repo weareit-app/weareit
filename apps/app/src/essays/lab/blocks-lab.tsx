@@ -1,4 +1,5 @@
-import { Platform, ScrollView, Text, View } from "react-native";
+import { Platform, ScrollView, View } from "react-native";
+import { Text } from "../../components/text";
 import { ChartBlock } from "../blocks/chart";
 import { EvidenceBlock } from "../blocks/evidence";
 import { TableBlock } from "../blocks/table";
@@ -27,15 +28,15 @@ export function BlocksLab() {
         <p className="mt-2 font-ui text-sm text-ink-soft">
           Chart, evidence card and tables with sample data · development only
         </p>
-        <h2 className="mt-8 font-heading text-xl">Chart</h2>
+        <h2 className="mt-8 font-heading text-2xl">Chart</h2>
         <ChartBlock block={chartFixture} sources={sourcesFixture} />
-        <h2 className="mt-8 font-heading text-xl">Evidence card</h2>
+        <h2 className="mt-8 font-heading text-2xl">Evidence card</h2>
         <EvidenceBlock block={evidenceFixture} sources={sourcesFixture} />
-        <h2 className="mt-8 font-heading text-xl">
+        <h2 className="mt-8 font-heading text-2xl">
           Table of It&apos;s own facts
         </h2>
         <TableBlock block={tableFixture} sources={sourcesFixture} />
-        <h2 className="mt-8 font-heading text-xl">Table of outside data</h2>
+        <h2 className="mt-8 font-heading text-2xl">Table of outside data</h2>
         <TableBlock block={tableWithContextFixture} sources={sourcesFixture} />
       </main>
     </ScrollView>
