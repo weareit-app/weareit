@@ -1,0 +1,3 @@
+# Bundled single-file HTML previews: `-diff` makes `git diff` and `git grep -I` treat them
+# as binary, so a search or diff does not dump their minified scripts.
+docs/brand/*.html -diff
