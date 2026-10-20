@@ -42,7 +42,7 @@ Must leave room for (features.md "soon" and later):
 ## Impact
 
 - New `tools/pains/` (Python stdlib helpers and tests, the same style as `tools/possibilities/`) and four user-invoked skills: `/pains-discover`, `/pains-refine`, `/pains-review`, `/pains-ingest`.
-- New `docs/research/pains/`: `catalog.json` (seeded from `docs/spec/pains/pain-inventory.yaml`, which it replaces), source snapshots including the founder's two v2 CSVs, sweep runs, coverage reports, review sets and decisions.
+- New `docs/research/pains/`: `catalog.json` (seeded from `docs/spec/pains/pain-inventory.yaml`, which it replaces), source snapshots including the founder's two v2 CSVs, sweep runs, coverage reports, review sets and decisions (only inputs while open; closed batches are archived to one file each, and derived reports are rebuilt, not committed).
 - `tools/possibilities/cards.py` and its tests: read pains from the catalog, record wording in `run.json`, resolve merged IDs, report stale runs.
 - Ingest uses the existing content editor operations (`cms.getDraft`, `cms.saveDraft` with the admin token). There are no API, database or app changes. Retiring with a replacement depends on the `pain-pages` change landing.
 - `docs/spec/MIGRATION.md`: the spec 004 row points here.

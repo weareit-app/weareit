@@ -237,3 +237,25 @@ Every review action SHALL be reachable by keyboard. A screen reader SHALL hear e
 #### Scenario: Keyboard only
 - **WHEN** the founder reviews a set using only the keyboard
 - **THEN** they can decide, add a note, undo, filter and move to the next proposal
+
+### Requirement: Derived run files aren't kept
+Sweep checks, coverage reports, lint and balance results, refine checks and the review page SHALL be rebuilt from a run's inputs whenever they're needed, and SHALL NOT be committed. Building a review set SHALL rerun the sweep and refine checks itself, and SHALL refuse a run that has issues.
+
+#### Scenario: Fresh checkout
+- **WHEN** a sweep folder holds only `sweep.json`, `lists.json`, `mapping.json` and `candidates.json`
+- **THEN** `review-build` reruns `sweep-check`, builds the set and writes its page
+
+### Requirement: Closed runs are archived
+Once every review set that draws on a batch's runs is ingested, in both the wording and the structure step, the runs' inputs and those sets' proposals, decisions and ingest summaries SHALL be folded into one archive file per batch, one record per line. Their folders SHALL then be removed. The archive SHALL be enough to rerun coverage for its lists and to audit any decision. A run that still feeds an open set SHALL NOT be archived. `catalog.json` stays one field per line.
+
+#### Scenario: Archiving a finished batch
+- **WHEN** the people-home wording and structure sets are both ingested and the founder archives the batch
+- **THEN** `archive/people-home.jsonl` holds the people and home sweep and refine inputs and both sets, and their folders are gone
+
+#### Scenario: Open set
+- **WHEN** a refine run feeds a structure set that isn't ingested yet
+- **THEN** archiving refuses and names that set
+
+#### Scenario: Coverage from an archive
+- **WHEN** the founder asks for coverage of an archived sweep
+- **THEN** coverage is computed from the archive with the same result as from the folder

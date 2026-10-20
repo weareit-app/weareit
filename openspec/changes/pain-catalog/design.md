@@ -13,7 +13,7 @@
 
 **Goals:**
 - One catalog file that every pain tool reads, with history kept inside it.
-- Every step can be rerun and leaves a dated run folder behind, like the generator does.
+- Every step can be rerun. While its review is open it leaves a dated run folder behind, like the generator does; once ingested, the batch folds into one archive file.
 - Ingest is the only step that touches the CMS, and it only ever writes the draft.
 
 **Non-Goals:**
@@ -31,6 +31,7 @@
    - `sweeps/<scope>/<runId>/` with `candidates.json`, `coverage.json` and `coverage.md`.
    - `refine/<scope>/<runId>/` with `lint.json`, `alternatives.json`, `overlaps.json`, `labels.json`, `sorts/{1,2,3}.json` and `balance.json`.
    - `reviews/<setId>/` with `proposals.json`, `review.html` and `decisions.json`.
+   - `archive/<batch>.jsonl`: a closed batch's run and review inputs (decision 12). Derived files are git-ignored.
 
    *Why:* the same shape as `docs/research/possibilities/runs`. Runs are never overwritten.
 4. **Pipeline split between agents and helper.** Skills drive agents for the judgement work: searching, wording alternatives, overlap calls and blind sorts, each sort a separate agent that sees only the names and lines plus the page's group names. `tools/pains/catalog.py` does everything mechanical: validate, seed, dedupe (normalized name, line and aliases, plus rejected source entries), coverage counts, lint, sort agreement, balance, building the review page, ingest and the drift check. Lint reuses the copy-guide rules and the banned phrases from `tools/possibilities/config`, imported, not copied.
@@ -60,6 +61,14 @@
     - Body-mind's 16 new pains, already ingested as 12 shown and 4 not shown, are rewritten once to `not-shown` and `unranked`, with a history entry. None of them is in the editor draft yet, since all were waiting for futures.
 
     *Why:* choosing shown or not shown before ranking curates a heading twice, and "not shown" would become `hidden`, which ranking skips. Founder decision, 2026-10-20: every accepted new pain is ranked; there is no separate "catalog only" choice in review. *Alternative:* keep the choice and let ranking revisit shown pains only. Rejected, because rare but serious pains accepted as not shown would never be ranked.
+12. **Keep inputs, rebuild outputs, archive closed batches.** Only inputs are committed:
+    - sweeps: `sweep.json`, `lists.json`, `mapping.json`, `candidates.json`
+    - refine: `refine.json`, `alternatives.json`, `overlaps.json`, `labels.json`, `sorts/`
+    - reviews: `proposals.json`, `decisions.json`, `ingested.json`
+
+    `check.json`, `coverage.json`, `coverage.md`, `lint.json`, `balance.json`, `refine-check.json` and `review.html` are git-ignored and rebuilt. `archive <set…>` writes one JSON Lines file per batch (`{kind, path, data}` per file) and removes the folders.
+
+    *Why:* the full sweep committed about 74,000 lines of data, and most of it was derived or only needed while a set was open. The catalog already holds each pain's evidence, covered entries and decision history. Founder decision, 2026-10-20. *Alternative:* delete closed runs. Rejected, because it would end coverage reruns and auditing.
 
 ## Risks / Trade-offs
 
