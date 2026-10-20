@@ -2,7 +2,7 @@
 
 ## Context
 
-See proposal.md for why. Requirements are in `specs/`. Current state on master (d2df227):
+See proposal.md for why. Requirements are in `specs/`. Current state on master (ede578e):
 
 - All interface text is literal English in `apps/app/app/**` and `apps/app/src/components/**`. There is no `+html.tsx`; web output is `static` (`apps/app/app.json`), so the first paint is pre-rendered English.
 - Content is one English graph (`packages/content/src/graph-schema.ts`): domains (groups), pains, dreams, legacy `firstActions` (still in the schema and CMS; shown only on the futures screen that `required-signup-gate` retires), and `fixes` with `kind`, `featureStatus`, `evidence` and `evidenceNote`. Publish writes an immutable snapshot (`packages/database/src/content-repository.ts`, `publishDraftContent`, `rollbackToVersion`). The CMS is one 1,033-line file (`apps/app/app/cms/index.tsx`).
@@ -12,7 +12,7 @@ See proposal.md for why. Requirements are in `specs/`. Current state on master (
 
 ### Reusable work on branch `claude/it-i18n-support-plan-7006e5`
 
-That branch (2 commits on merge base `ac87344`, before the onboarding redesign) holds 014's spec and a partial implementation of its foundation and US1. Reuse, do not merge:
+That branch (2 commits on merge base `d9643a3`, before the onboarding redesign) holds 014's spec and a partial implementation of its foundation and US1. Reuse, do not merge:
 
 - `packages/messages` (`en.ts`, `es.ts`, `types.ts`, `format.ts`, tests for catalog completeness, banned terms and USD formatting). Keys follow the old screens (futures, ways-to-help, save-progress) and need re-extracting against today's screens.
 - `packages/domain/src/locale.ts` (+ tests): `SUPPORTED_LOCALES`, `localeSchema`, `negotiateLocale`, `resolvePreference`. Matches the specs as written.
