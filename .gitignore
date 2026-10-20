@@ -16,6 +16,10 @@ test-results/
 ios/
 android/
 
+# Python bytecode (tools/)
+__pycache__/
+*.pyc
+
 # Skia web runtime for the dev-only watercolor lab (copied by `pnpm --filter @it/app skia:web`)
 apps/app/public/canvaskit.wasm
 

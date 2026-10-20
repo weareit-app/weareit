@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "scope": "money",
+  "issues": [
+    {
+      "painId": "no-cushion",
+      "rule": "id-mismatch",
+      "detail": "ID no-cushion, name \"Savings\" and line \"I have nothing put aside.\" share no word; propose a rewording only if the wording has drifted from what the ID names",
+      "severity": "note"
+    },
+    {
+      "painId": "cant-stop-working",
+      "rule": "id-mismatch",
+      "detail": "ID cant-stop-working, name \"Retirement\" and line \"I won't have enough to retire.\" share no word; propose a rewording only if the wording has drifted from what the ID names",
+      "severity": "note"
+    },
+    {
+      "painId": "*",
+      "group": "money",
+      "rule": "mixed-labels",
+      "severity": "fail",
+      "detail": "Money mixes problem labels and area labels; pick one style for the heading"
+    }
+  ],
+  "failing": [],
+  "checkedAt": "2026-10-19"
+}

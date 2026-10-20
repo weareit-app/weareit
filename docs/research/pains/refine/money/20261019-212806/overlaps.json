@@ -1,0 +1,11 @@
+{
+  "pairs": [
+    {"a": "broke", "b": "debt", "action": "keep", "distinction": "Broke is not having enough money coming in for what this month costs; Debt is what you already owe and can't pay down.", "reason": "Plenty of people are short each month without big debts, and plenty carry debts on a decent income, so they'd pick one without hesitating."},
+    {"a": "broke", "b": "no-cushion", "action": "keep", "distinction": "Broke is about getting through this month; No savings is about having nothing if something goes wrong, even when the month itself is covered.", "reason": "Someone who pays every bill but has no savings would not call themselves broke, and the alternative line for No savings makes that sharper."},
+    {"a": "broke", "b": "running-out-of-food", "action": "keep", "distinction": "Broke is money running short in general; Not enough food is the specific, sensitive moment when the shortage reaches the kitchen.", "reason": "Food running out needs its own fixes and, later, its own crisis resources, and a person living it would look for it by name rather than under Broke."},
+    {"a": "broke", "b": "cant-stop-working", "action": "keep", "distinction": "Broke is short on money now; Can't retire is a worry about the future, which people with a steady income have too.", "reason": "One is today and one is decades away, so nobody would confuse which of the two they are living with."},
+    {"a": "running-out-of-food", "b": "hunger", "action": "other-page", "reason": "Worrying about my own food and seeing neighbors go hungry are the same pain seen from the personal and societal pages, so they stay two pains linked across pages."},
+    {"a": "no-cushion", "b": "one-illness-away", "action": "keep", "distinction": "No savings is having nothing put aside for any surprise; Medical bills is the cost of healthcare in particular, which can worry people who do have savings.", "reason": "A person choosing between them knows whether their worry is health costs or having no money set aside at all."},
+    {"a": "scammed", "b": "watched-by-companies", "action": "keep", "distinction": "Scams is money I actually lost to someone who tricked me; Privacy is feeling watched by companies that collect my data.", "reason": "Losing money to a scammer and being tracked by companies are different experiences, and people would not mix them up."}
+  ]
+}

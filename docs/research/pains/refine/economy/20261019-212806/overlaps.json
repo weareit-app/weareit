@@ -1,0 +1,132 @@
+{
+  "pairs": [
+    {
+      "a": "cost-of-living",
+      "b": "it-all-goes-up",
+      "action": "keep",
+      "distinction": "Rising prices squeeze my own budget; inequality is the gap between groups, which can grow even when prices are steady.",
+      "reason": "Someone hit by prices and someone angry about the rich pulling away are naming different things, and either could pick one without the other."
+    },
+    {
+      "a": "cost-of-living",
+      "b": "rent-eats-everything",
+      "action": "keep",
+      "distinction": "Rent is one bill; rising costs are everything at once, from groceries to gas.",
+      "reason": "Housing is the biggest cost for many people and deserves its own pain, while rising prices covers the rest of the budget."
+    },
+    {
+      "a": "cant-afford-kids",
+      "b": "childcare-costs",
+      "action": "keep",
+      "distinction": "One is not having children because of cost; the other is paying for care for children you already have.",
+      "reason": "A person choosing whether to have kids and a parent paying a daycare bill are in different places, so each would pick one easily."
+    },
+    {
+      "a": "cant-afford-kids",
+      "b": "rent-eats-everything",
+      "action": "keep",
+      "distinction": "Rent is about the cost of housing for anyone; starting a family is about putting off kids, often because of housing.",
+      "reason": "Housing costs are one reason people put off kids, but the pain someone names is either the rent or the family they can't start."
+    },
+    {
+      "a": "homelessness",
+      "b": "rent-eats-everything",
+      "action": "keep",
+      "distinction": "Rent is my own bill being too high; homelessness is seeing neighbors who have no home at all.",
+      "reason": "Paying too much and having nowhere to live are different situations, even though high rent drives homelessness."
+    },
+    {
+      "a": "no-floor",
+      "b": "homelessness",
+      "action": "keep",
+      "distinction": "The safety net is about having nothing to catch you; homelessness is one place people land without it.",
+      "reason": "A person worried about one bad month is naming something wider than people sleeping outside."
+    },
+    {
+      "a": "cost-of-living",
+      "b": "broke",
+      "action": "other-page",
+      "reason": "Being short on money is personal and rising prices is the shared cause, so the same squeeze shows up on both pages and the two should stay linked."
+    },
+    {
+      "a": "it-all-goes-up",
+      "b": "where-youre-born",
+      "action": "keep",
+      "distinction": "Inequality is the gap in money and wealth; opportunity is whether where you start decides where you end up.",
+      "reason": "They often travel together, but someone can be bothered by the wealth gap today without naming mobility, and the other way around."
+    },
+    {
+      "a": "childcare-costs",
+      "b": "parenting-is-hard",
+      "action": "keep",
+      "distinction": "Childcare is the bill; parenting is being worn out by the work of raising kids.",
+      "reason": "A parent who can't pay for daycare and a parent who is exhausted are naming different problems, even if both are true at once."
+    },
+    {
+      "a": "study-costs",
+      "b": "debt",
+      "action": "other-page",
+      "reason": "Student debt is a common kind of the debt people carry personally, so it belongs on both pages as two pains linked across them."
+    },
+    {
+      "a": "rent-eats-everything",
+      "b": "home-is-hard",
+      "action": "keep",
+      "distinction": "Rent is what housing costs; housing on the personal page is the state of the place, cramped, broken or noisy.",
+      "reason": "Paying too much and living somewhere in bad shape are different complaints, and many people have only one of them."
+    },
+    {
+      "a": "rent-eats-everything",
+      "b": "might-lose-my-home",
+      "action": "other-page",
+      "reason": "High rent is the shared cause and fear of eviction is how it lands for one household, so the two stay linked across pages."
+    },
+    {
+      "a": "homelessness",
+      "b": "might-lose-my-home",
+      "action": "other-page",
+      "reason": "Seeing neighbors without a home and fearing I'll lose mine are the same issue seen from the street and from inside, so they stay linked across pages."
+    },
+    {
+      "a": "ai-and-jobs",
+      "b": "job-could-go",
+      "action": "keep",
+      "distinction": "AI is one specific cause of job loss across society; layoffs is my own job being at risk for any reason.",
+      "reason": "Someone worried about their own layoff may not be thinking about AI at all, and someone worried about AI may feel secure in their own job."
+    },
+    {
+      "a": "ai-and-jobs",
+      "b": "unemployment",
+      "action": "keep",
+      "distinction": "AI is a worry about jobs disappearing in the future; unemployment is not finding work now.",
+      "reason": "One is a fear about where work is heading and the other is a present search, so a person can tell them apart at once."
+    },
+    {
+      "a": "no-floor",
+      "b": "one-illness-away",
+      "action": "keep",
+      "distinction": "The safety net covers any fall, from job loss to illness; medical bills are the cost of care itself.",
+      "reason": "Medical bills are one way people fall, but the worry about healthcare costs stands on its own under health."
+    },
+    {
+      "a": "hunger",
+      "b": "running-out-of-food",
+      "action": "other-page",
+      "reason": "Seeing people near me go hungry and worrying my own food won't last are the same issue at two scales, so they stay linked across pages."
+    },
+    {
+      "a": "town-dying",
+      "b": "nobody-knows-anybody",
+      "action": "keep",
+      "distinction": "Decline is the town losing jobs, shops and people; neighbors is not knowing the people who are still here.",
+      "reason": "A thriving city can be full of strangers and a shrinking town can be close-knit, so these are different losses."
+    },
+    {
+      "a": "town-dying",
+      "b": "far-away-decisions",
+      "action": "keep",
+      "distinction": "Decline is the town emptying out; local control is who makes the decisions about it.",
+      "reason": "Decisions made far away can be one cause of decline, but someone watching shops close is naming the loss, not the governance."
+    }
+  ]
+}

@@ -24,7 +24,7 @@ This file holds the rules they share.
 | `docs/research/possibilities/evaluations/` | Audit sets, ratings, `evaluation.md`, `metrics.json` |
 | `docs/style/copy-style-guide.md` | Copy rules for every piece of It copy, including the kinds of fixes |
 
-Pain IDs come from `docs/spec/pains/pain-inventory.yaml`, the pain catalog. The history up to 2026-10-19, including earlier runs, the Spec Kit extension and the case-led deep dive, is at tag `possibilities-pilot-final`. Paths starting with `.specify/` in older files refer to that tag.
+Pain IDs and wording come from the pain catalog, `docs/research/pains/catalog.json` (`tools/pains/`). A merged ID is resolved to the pain it was merged into. The history up to 2026-10-19, including earlier runs, the Spec Kit extension and the case-led deep dive, is at tag `possibilities-pilot-final`. Paths starting with `.specify/` in older files refer to that tag.
 
 ## Helper
 
@@ -42,6 +42,7 @@ Run it from the repository root: `python3 tools/possibilities/cards.py <subcomma
 | `calibrate-build`, `calibrate-ingest <export>` | Builds the blind calibration set, and ingests the founder's ratings |
 | `audit-build <run…>` | Builds the audit set and key from selections |
 | `report --audit <export>` | Prints the metrics and the gate result (`scale-up` or `iterate`) |
+| `stale` | Lists runs whose pain was merged or split, or whose name or line changed since the run, with the old and new wording. A report: exit 0 |
 
 ## Rules every writer and repairer follows
 

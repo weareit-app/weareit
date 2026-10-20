@@ -1,0 +1,19 @@
+{
+  "alternatives": {
+    "no-cushion": [
+      {"name": "No savings", "line": "I couldn't cover a surprise bill if one came.", "why": "Brings the wording back to the cushion the ID names, says what having nothing put aside looks like in a day, and makes the name a problem like Broke and Debt."},
+      {"name": "No savings", "line": "I have nothing put aside if something goes wrong.", "why": "Keeps the original line almost as it was and only adds when the missing savings would matter; the name becomes a problem like Broke and Debt."}
+    ],
+    "cant-stop-working": [
+      {"name": "Can't retire", "line": "I won't have enough to stop working when I'm older.", "why": "Says the worry the ID names, never being able to stop working, in plain words, and makes the name a problem like Broke and Debt instead of an area."},
+      {"name": "Can't retire", "line": "I'll have to keep working because I won't have enough to retire.", "why": "Keeps the original line's retirement wording and adds what it means for the person; the name becomes a problem like Broke and Debt."}
+    ],
+    "running-out-of-food": [
+      {"name": "Not enough food", "line": "I worry the food won't last until my next paycheck.", "why": "Says plainly what the pain is, matching the problem names Broke and Debt, and ties the line to a moment people know instead of the calendar month."},
+      {"name": "Not enough food", "line": "I worry the food won't last the month.", "why": "Keeps the original line, which is already plain, and only changes the area name Food into a problem name like Broke and Debt."}
+    ],
+    "broke": [
+      {"name": "Broke", "line": "I run out of money before my next paycheck.", "why": "Says what being always short looks like, so it reads less like Debt or No savings and more like the month-to-month squeeze."}
+    ]
+  }
+}

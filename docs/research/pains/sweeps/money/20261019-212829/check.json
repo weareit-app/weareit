@@ -1,0 +1,45 @@
+{
+  "issues": [],
+  "proposed": [
+    {
+      "candidate": "uneven-pay"
+    },
+    {
+      "candidate": "cant-get-credit"
+    },
+    {
+      "candidate": "no-bank-account"
+    },
+    {
+      "candidate": "credit-report-errors"
+    },
+    {
+      "candidate": "debt-collectors"
+    },
+    {
+      "candidate": "identity-theft"
+    },
+    {
+      "candidate": "supporting-family"
+    },
+    {
+      "candidate": "insurance-costs"
+    },
+    {
+      "candidate": "money-skills"
+    },
+    {
+      "candidate": "sending-money-home"
+    },
+    {
+      "candidate": "utility-bills"
+    },
+    {
+      "candidate": "investments"
+    }
+  ],
+  "drafts": [],
+  "skipped": [],
+  "covered": [],
+  "checkedAt": "2026-10-19"
+}

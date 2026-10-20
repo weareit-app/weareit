@@ -96,18 +96,70 @@ def config_root(root):
     return root / CONFIG_ROOT
 
 
+PAIN_CATALOG = 'docs/research/pains/catalog.json'  # every pain, shown or not (tools/pains)
+
+
+def pain_records(root):
+    return read(root / PAIN_CATALOG)['pains']
+
+
 def pains(root):
-    """Pain ID -> first-person line, scanned without a YAML parser."""
-    found, current = {}, None
-    for line in (root / 'docs/spec/pains/pain-inventory.yaml').read_text().splitlines():
-        match = re.match(r'\s*- id: (\S+)', line)
-        if match:
-            current = match[1]
-            found[current] = {'id': current}
-        elif current and re.match(r'\s+(name|line): ', line):
-            key, value = line.strip().split(': ', 1)
-            found[current].setdefault(key, value.strip('"'))
-    return found
+    """Pain ID -> {id, name, line} for every pain in the catalog."""
+    return {k: {'id': k, 'name': p['name'], 'line': p['line']} for k, p in pain_records(root).items()}
+
+
+def resolve_pain(root, pain_id):
+    """Follow merged-into to the surviving pain. Returns (id, notes); KeyError if unknown."""
+    records, notes, seen = pain_records(root), [], set()
+    if pain_id not in records:
+        raise KeyError(pain_id)
+    while records[pain_id]['status'] == 'merged' and pain_id not in seen:
+        seen.add(pain_id)
+        target = next(r['id'] for r in records[pain_id]['relations'] if r['kind'] == 'merged-into')
+        notes.append('%s was merged into %s' % (pain_id, target))
+        pain_id = target
+    return pain_id, notes
+
+
+def wording_at(record, started):
+    """The pain's name and line when a run started: the "from" of the first reword after it, else the current wording.
+
+    A history entry with a full timestamp ("at") is compared exactly; one with only a date counts as after a run
+    started that same day, so a same-day reword is never missed."""
+    def after(h):
+        return h['at'] > started if h.get('at') else h['date'] >= started[:10]
+    for h in sorted((h for h in record.get('history', []) if h.get('kind') == 'reword' and h.get('from')),
+                    key=lambda h: h.get('at') or h['date']):
+        if after(h):
+            return {'name': h['from'].get('name', record['name']), 'line': h['from'].get('line', record['line'])}
+    return {'name': record['name'], 'line': record['line']}
+
+
+def stale(root):
+    """Runs whose pain was merged or split, or whose wording has changed since the run."""
+    records, found, checked = pain_records(root), [], 0
+    for meta in sorted((data_root(root) / 'runs').glob('*/*/run.json')):
+        run, checked = read(meta), checked + 1
+        pain, started = run.get('painId') or meta.parent.parent.name, run.get('startedAt') or ''
+        entry = {'run': str(meta.parent.relative_to(root)), 'painId': pain}
+        record = records.get(pain)
+        if not record:
+            found.append({**entry, 'reason': 'pain not in the catalog'})
+            continue
+        if record['status'] == 'merged':
+            survivor, _ = resolve_pain(root, pain)
+            found.append({**entry, 'reason': 'merged into ' + survivor})
+            continue
+        if any(h.get('kind') == 'split' and (h['at'] > started if h.get('at') else h['date'] >= started[:10])
+               for h in record.get('history', [])):
+            found.append({**entry, 'reason': 'split since the run'})
+            continue
+        used = ({'name': run['painName'], 'line': run['painLine']} if run.get('painLine')
+                else wording_at(record, started))
+        now_wording = {'name': record['name'], 'line': record['line']}
+        if used != now_wording:
+            found.append({**entry, 'reason': 'wording changed', 'old': used, 'new': now_wording})
+    return {'checked': checked, 'stale': found}
 
 
 # ---------- validation ----------
@@ -666,7 +718,7 @@ def report(root, audit_path=None):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('command', choices=('new-run', 'validate', 'lint', 'judge-input', 'consensus', 'select', 'finish-run',
-                                            'calibrate-build', 'calibrate-ingest', 'audit-build', 'report'))
+                                            'calibrate-build', 'calibrate-ingest', 'audit-build', 'report', 'stale'))
     parser.add_argument('targets', nargs='*')
     parser.add_argument('--root', type=Path, default=Path.cwd())
     parser.add_argument('--seed', type=int)
@@ -689,14 +741,17 @@ def main():
     if args.command == 'new-run':
         inventory = pains(root)
         if len(args.targets) != 1 or args.targets[0] not in inventory:
-            parser.error('new-run needs one pain ID from docs/spec/pains/pain-inventory.yaml')
-        pain = args.targets[0]
+            parser.error('new-run needs one pain ID from ' + PAIN_CATALOG)
+        pain, notes = resolve_pain(root, args.targets[0])
         stamp = datetime.datetime.now().strftime('%Y%m%d-%H%M%S')
         folder = data_root(root) / 'runs' / pain / stamp
         folder.mkdir(parents=True, exist_ok=False)
         write(folder / 'run.json', {'schemaVersion': 1, 'painId': pain, 'runId': stamp, 'startedAt': now(),
+                                    'painName': inventory[pain]['name'], 'painLine': inventory[pain]['line'],
                                     'finishedAt': None, 'searches': None, 'pagesOpened': None, 'tokens': None, 'notes': ''})
-        out = {'run': str(folder.relative_to(root)), 'pain': inventory[pain]}
+        out = {'run': str(folder.relative_to(root)), 'pain': inventory[pain], 'notes': notes}
+    elif args.command == 'stale':
+        out = stale(root)
     elif args.command in ('validate', 'lint', 'judge-input', 'consensus', 'select', 'finish-run'):
         if not args.targets:
             parser.error(args.command + ' needs a run directory')

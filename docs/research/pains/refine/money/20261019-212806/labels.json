@@ -1,0 +1,10 @@
+{
+  "labels": {
+    "broke": "problem",
+    "debt": "problem",
+    "no-cushion": "area",
+    "running-out-of-food": "area",
+    "cant-stop-working": "area",
+    "scammed": "problem"
+  }
+}

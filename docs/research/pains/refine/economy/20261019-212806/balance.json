@@ -1,0 +1,40 @@
+{
+  "sizes": {
+    "government": 10,
+    "economy": 11,
+    "health": 4,
+    "community": 4,
+    "fairness": 4,
+    "information": 3,
+    "environment": 5,
+    "safety": 2,
+    "kids": 3,
+    "making-change": 8
+  },
+  "flags": [
+    {
+      "group": "government",
+      "shown": 10,
+      "median": 4.0,
+      "flag": "large"
+    },
+    {
+      "group": "economy",
+      "shown": 11,
+      "median": 4.0,
+      "flag": "large"
+    },
+    {
+      "group": "safety",
+      "shown": 2,
+      "median": 4.0,
+      "flag": "small"
+    },
+    {
+      "group": "making-change",
+      "shown": 8,
+      "median": 4.0,
+      "flag": "large"
+    }
+  ]
+}

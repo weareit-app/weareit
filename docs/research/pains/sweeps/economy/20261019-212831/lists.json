@@ -1,0 +1,684 @@
+{
+  "schemaVersion": 1,
+  "lists": {
+    "oecd": {
+      "name": "OECD Well-being Framework: current well-being dimensions and resources for future well-being",
+      "url": "https://unstats.un.org/unsd/demographic-social/meetings/2024/iaeggs-20241203/4.2_OECD.pdf",
+      "accessed": "2026-10-19",
+      "entries": {
+        "income-and-wealth": {
+          "name": "Income and Wealth",
+          "passage": "CURRENT WELL-BEING Work and Job Quality Housing Income and Wealth"
+        },
+        "work-and-job-quality": {
+          "name": "Work and Job Quality"
+        },
+        "housing": {
+          "name": "Housing"
+        },
+        "economic-capital": {
+          "name": "Economic Capital",
+          "passage": "RESOURCES FOR FUTURE WELL-BEING Economic Capital Human Capital Social Capital"
+        }
+      },
+      "note": "oecd.org returned 403; the framework diagram was read from an OECD WISE slide deck hosted by UN Statistics (Dec 2025)."
+    },
+    "whoqol": {
+      "name": "WHOQOL-BREF (WHO, 1996)",
+      "url": "https://depts.washington.edu/seaqol/docs/WHOQOL-BREF%20and%20Scoring%20Instructions.pdf",
+      "accessed": "2026-10-19",
+      "entries": {
+        "q12": {
+          "name": "Have you enough money to meet your needs?",
+          "passage": "12. Have you enough money to meet your needs?"
+        }
+      },
+      "note": "Only the item bearing on the economy group is listed."
+    },
+    "sdg": {
+      "name": "UN Sustainable Development Goals: targets bearing on the economy",
+      "url": "https://sdgs.un.org/goals",
+      "accessed": "2026-10-19",
+      "entries": {
+        "1.1": {
+          "name": "Eradicate extreme poverty",
+          "passage": "By 2030, eradicate extreme poverty for all people everywhere, currently measured as people living on less than $1.25 a day",
+          "url": "https://sdgs.un.org/goals/goal1"
+        },
+        "1.2": {
+          "name": "Halve poverty in all its dimensions",
+          "passage": "By 2030, reduce at least by half the proportion of men, women and children of all ages living in poverty",
+          "url": "https://sdgs.un.org/goals/goal1"
+        },
+        "1.3": {
+          "name": "Social protection systems and floors",
+          "passage": "Implement nationally appropriate social protection systems and measures for all, including floors,",
+          "url": "https://sdgs.un.org/goals/goal1"
+        },
+        "1.4": {
+          "name": "Equal rights to economic resources and financial services",
+          "passage": "have equal rights to economic resources, as well as access to basic services, ownership and control over land",
+          "url": "https://sdgs.un.org/goals/goal1"
+        },
+        "1.5": {
+          "name": "Resilience of the poor to shocks",
+          "passage": "By 2030, build the resilience of the poor and those in vulnerable situations and reduce their exposure",
+          "url": "https://sdgs.un.org/goals/goal1"
+        },
+        "1.a": {
+          "name": "Mobilize resources for developing countries",
+          "url": "https://sdgs.un.org/goals/goal1"
+        },
+        "1.b": {
+          "name": "Pro-poor policy frameworks",
+          "url": "https://sdgs.un.org/goals/goal1"
+        },
+        "2.1": {
+          "name": "End hunger",
+          "passage": "By 2030, end hunger and ensure access by all people, in particular the poor and people in vulnerable situations,",
+          "url": "https://sdgs.un.org/goals/goal2"
+        },
+        "2.c": {
+          "name": "Limit food price volatility",
+          "passage": "in order to help limit extreme food price volatility",
+          "url": "https://sdgs.un.org/goals/goal2"
+        },
+        "4.3": {
+          "name": "Affordable technical, vocational and tertiary education",
+          "passage": "By 2030, ensure equal access for all women and men to affordable and quality technical, vocational and tertiary education,",
+          "url": "https://sdgs.un.org/goals/goal4"
+        },
+        "5.4": {
+          "name": "Recognize and value unpaid care and domestic work",
+          "passage": "Recognize and value unpaid care and domestic work through the provision of public services,",
+          "url": "https://sdgs.un.org/goals/goal5"
+        },
+        "8.1": {
+          "name": "Sustain economic growth",
+          "passage": "Sustain per capita economic growth in accordance with national circumstances and, in particular,",
+          "url": "https://sdgs.un.org/goals/goal8"
+        },
+        "8.2": {
+          "name": "Economic productivity",
+          "url": "https://sdgs.un.org/goals/goal8"
+        },
+        "8.3": {
+          "name": "Decent job creation, entrepreneurship and small businesses",
+          "url": "https://sdgs.un.org/goals/goal8"
+        },
+        "8.4": {
+          "name": "Resource efficiency, decoupling growth from degradation",
+          "url": "https://sdgs.un.org/goals/goal8"
+        },
+        "8.5": {
+          "name": "Full employment, decent work and equal pay",
+          "passage": "By 2030, achieve full and productive employment and decent work for all women and men,",
+          "url": "https://sdgs.un.org/goals/goal8"
+        },
+        "8.6": {
+          "name": "Youth not in employment, education or training",
+          "passage": "By 2020, substantially reduce the proportion of youth not in employment, education or training",
+          "url": "https://sdgs.un.org/goals/goal8"
+        },
+        "8.7": {
+          "name": "End forced labour, modern slavery, trafficking and child labour",
+          "url": "https://sdgs.un.org/goals/goal8"
+        },
+        "8.8": {
+          "name": "Labour rights and safe working environments",
+          "passage": "Protect labour rights and promote safe and secure working environments for all workers,",
+          "url": "https://sdgs.un.org/goals/goal8"
+        },
+        "8.9": {
+          "name": "Sustainable tourism",
+          "url": "https://sdgs.un.org/goals/goal8"
+        },
+        "8.10": {
+          "name": "Access to banking, insurance and financial services",
+          "passage": "to banking, insurance and financial services for all",
+          "url": "https://sdgs.un.org/goals/goal8"
+        },
+        "8.a": {
+          "name": "Aid for Trade",
+          "url": "https://sdgs.un.org/goals/goal8"
+        },
+        "8.b": {
+          "name": "Global youth employment strategy",
+          "url": "https://sdgs.un.org/goals/goal8"
+        },
+        "10.1": {
+          "name": "Income growth of the bottom 40 percent",
+          "passage": "By 2030, progressively achieve and sustain income growth of the bottom 40 per cent of the population",
+          "url": "https://sdgs.un.org/goals/goal10"
+        },
+        "10.2": {
+          "name": "Social, economic and political inclusion",
+          "url": "https://sdgs.un.org/goals/goal10"
+        },
+        "10.3": {
+          "name": "Equal opportunity",
+          "passage": "Ensure equal opportunity and reduce inequalities of outcome, including by eliminating discriminatory laws,",
+          "url": "https://sdgs.un.org/goals/goal10"
+        },
+        "10.4": {
+          "name": "Fiscal, wage and social protection policies for equality",
+          "passage": "Adopt policies, especially fiscal, wage and social protection policies, and progressively achieve greater equality",
+          "url": "https://sdgs.un.org/goals/goal10"
+        },
+        "10.5": {
+          "name": "Regulate global financial markets",
+          "url": "https://sdgs.un.org/goals/goal10"
+        },
+        "10.6": {
+          "name": "Voice for developing countries in global institutions",
+          "url": "https://sdgs.un.org/goals/goal10"
+        },
+        "10.7": {
+          "name": "Orderly, safe migration",
+          "url": "https://sdgs.un.org/goals/goal10"
+        },
+        "10.a": {
+          "name": "Special treatment for developing countries in trade",
+          "url": "https://sdgs.un.org/goals/goal10"
+        },
+        "10.b": {
+          "name": "Development assistance to countries in need",
+          "url": "https://sdgs.un.org/goals/goal10"
+        },
+        "10.c": {
+          "name": "Cut remittance costs",
+          "url": "https://sdgs.un.org/goals/goal10"
+        },
+        "11.1": {
+          "name": "Adequate, safe and affordable housing",
+          "passage": "By 2030, ensure access for all to adequate, safe and affordable housing and basic services and upgrade slums",
+          "url": "https://sdgs.un.org/goals/goal11"
+        }
+      }
+    },
+    "maxneef": {
+      "name": "Max-Neef's fundamental human needs",
+      "url": "https://en.wikipedia.org/wiki/Manfred_Max-Neef%27s_Fundamental_human_needs",
+      "accessed": "2026-10-19",
+      "entries": {
+        "subsistence": {
+          "name": "Subsistence",
+          "passage": "food, shelter, work"
+        },
+        "protection": {
+          "name": "Protection",
+          "passage": "insurance systems, savings, social security, health systems, rights, family, work"
+        }
+      },
+      "note": "Wikipedia summary of Max-Neef (1991); the primary book was not opened."
+    },
+    "gallup-elements": {
+      "name": "Gallup's five elements of wellbeing",
+      "url": "https://www.gallup.com/workplace/237020/five-essential-elements.aspx",
+      "accessed": "2026-10-19",
+      "entries": {
+        "financial": {
+          "name": "Financial Well-Being",
+          "passage": "The third element is about effectively managing your economic life: your Financial Well-Being."
+        }
+      }
+    },
+    "wikidata": {
+      "name": "Wikidata items for economy concepts",
+      "url": "https://www.wikidata.org/",
+      "accessed": "2026-10-19",
+      "entries": {
+        "Q35865": {
+          "name": "inflation",
+          "passage": "rise in price level in an economy over time",
+          "url": "https://www.wikidata.org/wiki/Q35865"
+        },
+        "Q575619": {
+          "name": "cost of living",
+          "passage": "cost to maintain a standard of living",
+          "url": "https://www.wikidata.org/wiki/Q575619"
+        },
+        "Q122397142": {
+          "name": "Cost of living crisis",
+          "passage": "situation where prices of essentials rise faster than wages",
+          "url": "https://www.wikidata.org/wiki/Q122397142"
+        },
+        "Q41171": {
+          "name": "unemployment",
+          "passage": "state of being without work and actively seeking work",
+          "url": "https://www.wikidata.org/wiki/Q41171"
+        },
+        "Q10294": {
+          "name": "poverty",
+          "passage": "lack of a certain amount of material possessions or money",
+          "url": "https://www.wikidata.org/wiki/Q10294"
+        },
+        "Q649011": {
+          "name": "working poor",
+          "passage": "social class of working people whose incomes fall below a poverty line due to low-income jobs and low familial household income",
+          "url": "https://www.wikidata.org/wiki/Q649011"
+        },
+        "Q5055020": {
+          "name": "income inequality",
+          "passage": "distribution of income or wealth between different groups",
+          "url": "https://www.wikidata.org/wiki/Q5055020"
+        },
+        "Q176494": {
+          "name": "recession",
+          "passage": "business cycle contraction",
+          "url": "https://www.wikidata.org/wiki/Q176494"
+        },
+        "Q189833": {
+          "name": "economic growth",
+          "passage": "measure of increase in market value of goods",
+          "url": "https://www.wikidata.org/wiki/Q189833"
+        },
+        "Q3024789": {
+          "name": "government debt",
+          "passage": "total financial liabilities of a government sector, accumulated through borrowing to cover past deficits",
+          "url": "https://www.wikidata.org/wiki/Q3024789"
+        },
+        "Q1341244": {
+          "name": "energy poverty",
+          "passage": "lack of access to modern energy services",
+          "url": "https://www.wikidata.org/wiki/Q1341244"
+        },
+        "Q3061848": {
+          "name": "Unbanked",
+          "passage": "Adults who do not have their own bank accounts",
+          "url": "https://www.wikidata.org/wiki/Q3061848"
+        },
+        "Q98108964": {
+          "name": "owner-occupancy",
+          "passage": "status of a person who owns their home",
+          "url": "https://www.wikidata.org/wiki/Q98108964"
+        },
+        "Q4689034": {
+          "name": "affordable housing",
+          "passage": "housing affordable to those with a median household income",
+          "url": "https://www.wikidata.org/wiki/Q4689034"
+        },
+        "Q131327": {
+          "name": "homelessness",
+          "passage": "circumstance when people desire a permanent dwelling but do not have one",
+          "url": "https://www.wikidata.org/wiki/Q131327"
+        },
+        "Q1229911": {
+          "name": "food security",
+          "passage": "condition related to the supply and availability of food, and individuals' access to it",
+          "url": "https://www.wikidata.org/wiki/Q1229911"
+        },
+        "Q7551358": {
+          "name": "social safety net",
+          "passage": "anti-poverty services provided by the state",
+          "url": "https://www.wikidata.org/wiki/Q7551358"
+        },
+        "Q1455871": {
+          "name": "child care",
+          "url": "https://www.wikidata.org/wiki/Q1455871"
+        },
+        "Q7627822": {
+          "name": "student debt",
+          "passage": "debt used to finance post-secondary education or higher degrees",
+          "url": "https://www.wikidata.org/wiki/Q7627822"
+        },
+        "Q186228": {
+          "name": "minimum wage",
+          "url": "https://www.wikidata.org/wiki/Q186228"
+        },
+        "Q827081": {
+          "name": "decent work",
+          "passage": "employment that respects the fundamental rights of the human person",
+          "url": "https://www.wikidata.org/wiki/Q827081"
+        },
+        "Q7897274": {
+          "name": "unpaid work",
+          "url": "https://www.wikidata.org/wiki/Q7897274"
+        },
+        "Q39048742": {
+          "name": "Economic anxiety",
+          "passage": "concern about future economic prospects",
+          "url": "https://www.wikidata.org/wiki/Q39048742"
+        },
+        "Q56397488": {
+          "name": "energy price",
+          "passage": "cost of purchasing energy in different formats",
+          "url": "https://www.wikidata.org/wiki/Q56397488"
+        },
+        "Q1253693": {
+          "name": "price gouging",
+          "passage": "when a seller increases prices of goods, services, or commodities to a level much higher than is considered reasonable or fair",
+          "url": "https://www.wikidata.org/wiki/Q1253693"
+        }
+      },
+      "note": "Found with the wbsearchentities API, closest item picked by hand."
+    },
+    "gallup-mip": {
+      "name": "Gallup: Most Important Problem (U.S., open-ended)",
+      "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+      "accessed": "2026-10-19",
+      "entries": {
+        "economy-in-general": {
+          "name": "Economy in general",
+          "passage": "Economy in general\t14 (Aug 2022, % mentioning)"
+        },
+        "cost-of-living": {
+          "name": "High cost of living/Inflation",
+          "passage": "High cost of living/Inflation\t18 (Aug 2022, % mentioning)"
+        },
+        "fuel-oil-prices": {
+          "name": "Fuel/Oil prices",
+          "passage": "Fuel/Oil prices\t3 (Aug 2022, % mentioning)"
+        },
+        "unemployment": {
+          "name": "Unemployment/Jobs",
+          "passage": "Unemployment/Jobs\t2 (Aug 2022, % mentioning)"
+        },
+        "federal-deficit": {
+          "name": "Federal budget deficit/Federal debt",
+          "passage": "Federal budget deficit/Federal debt\t1 (Aug 2022, % mentioning)"
+        },
+        "lack-of-money": {
+          "name": "Lack of money",
+          "passage": "Lack of money\t1 (Aug 2022, % mentioning)"
+        },
+        "rich-poor-gap": {
+          "name": "Gap between rich and poor",
+          "passage": "Gap between rich and poor\t1 (Aug 2022, % mentioning)"
+        },
+        "recession": {
+          "name": "Recession",
+          "passage": "Recession\t1 (Aug 2022, % mentioning)"
+        },
+        "taxes": {
+          "name": "Taxes",
+          "passage": "Taxes\t1 (Aug 2022, % mentioning)"
+        },
+        "wage-issues": {
+          "name": "Wage issues",
+          "passage": "Wage issues\t* (Aug 2022, % mentioning)"
+        },
+        "corporate-corruption": {
+          "name": "Corporate corruption",
+          "passage": "Corporate corruption\t* (Aug 2022, % mentioning)"
+        },
+        "poverty-hunger-homelessness": {
+          "name": "Poverty/Hunger/Homelessness",
+          "passage": "Poverty/Hunger/Homelessness\t3 (Aug 2022, % mentioning)"
+        },
+        "welfare": {
+          "name": "Welfare",
+          "passage": "Welfare\t* (Aug 2022, % mentioning)"
+        },
+        "energy": {
+          "name": "Energy/Lack of energy sources",
+          "passage": "Energy/Lack of energy sources\t1 (Aug 2022, % mentioning)"
+        },
+        "elderly-medicare": {
+          "name": "Care for the elderly/Medicare",
+          "passage": "Care for the elderly/Medicare\t* (Aug 2022, % mentioning)"
+        },
+        "social-security": {
+          "name": "Social Security"
+        },
+        "technology": {
+          "name": "Advancement of computers/technology",
+          "passage": "Advancement of computers/technology\t-- (Aug 2022, % mentioning)"
+        }
+      },
+      "note": "The table embedded on the live trend page (Datawrapper vEKjO, dataset read directly) shows Apr–Aug 2022; figures quoted are Aug 2022. Recent toplines are PDFs that could not be parsed here."
+    },
+    "gallup-financial": {
+      "name": "Gallup: most important financial problem facing your family, and financial worries (U.S., April 2026)",
+      "url": "https://news.gallup.com/poll/708905/affordability-dominates-americans-financial-worries.aspx",
+      "accessed": "2026-10-19",
+      "entries": {
+        "inflation": {
+          "name": "Inflation and high prices",
+          "passage": "Inflation and high prices cited by 31% as top financial problem."
+        },
+        "energy-costs": {
+          "name": "Energy costs",
+          "passage": "Energy costs, which have risen notably this year, are mentioned by 13% of Americans."
+        },
+        "housing-costs": {
+          "name": "Housing costs"
+        },
+        "healthcare": {
+          "name": "Healthcare",
+          "passage": "Healthcare ranks fourth at 8%, consistent with readings since 2020."
+        },
+        "taxes": {
+          "name": "Taxes",
+          "passage": "taxes (6%)"
+        },
+        "economy": {
+          "name": "The state of the economy",
+          "passage": "the state of the economy (2%)"
+        },
+        "stock-market": {
+          "name": "The stock market",
+          "passage": "the stock market (2%)"
+        },
+        "interest-rates": {
+          "name": "Interest rates",
+          "passage": "interest rates (2%)"
+        },
+        "social-security": {
+          "name": "Social Security",
+          "passage": "Social Security (1%)"
+        },
+        "lack-of-money": {
+          "name": "Lack of money or low wages",
+          "passage": "lack of money or low wages (7%)"
+        },
+        "unemployment": {
+          "name": "Unemployment or job loss",
+          "passage": "unemployment or job loss (4%)"
+        },
+        "too-much-debt": {
+          "name": "Too much debt",
+          "passage": "too much debt generally (6%)"
+        },
+        "credit-cards": {
+          "name": "Credit card debt",
+          "passage": "on credit cards specifically (1%)"
+        },
+        "retirement-savings": {
+          "name": "Retirement savings",
+          "passage": "either retirement savings (3%) or savings generally (2%)"
+        },
+        "savings": {
+          "name": "Savings generally",
+          "passage": "either retirement savings (3%) or savings generally (2%)"
+        },
+        "worry-retirement": {
+          "name": "Not having enough money for retirement (worry)",
+          "passage": "Not having enough money for retirement: 62%"
+        },
+        "worry-medical-costs": {
+          "name": "Being unable to cover medical costs after a serious accident or illness (worry)",
+          "passage": "Being unable to cover medical costs after a serious accident or illness: 60%"
+        },
+        "worry-investments": {
+          "name": "Investment returns (worry)",
+          "passage": "Investment returns: 54%"
+        },
+        "worry-standard-of-living": {
+          "name": "Maintaining your standard of living (worry)",
+          "passage": "Maintaining your standard of living: 54%"
+        },
+        "worry-routine-healthcare": {
+          "name": "Routine healthcare costs (worry)",
+          "passage": "Routine healthcare costs: 48%"
+        },
+        "worry-monthly-bills": {
+          "name": "Paying normal monthly bills (worry)",
+          "passage": "Paying normal monthly bills: 41%"
+        },
+        "worry-college": {
+          "name": "Affording college (worry)",
+          "passage": "Affording college: 40%"
+        },
+        "worry-housing": {
+          "name": "Housing costs (worry)",
+          "passage": "Housing costs: 35%"
+        },
+        "worry-credit-card": {
+          "name": "Making minimum credit card payments (worry)",
+          "passage": "Making minimum credit card payments: 28%"
+        }
+      }
+    },
+    "ipsos": {
+      "name": "Ipsos: What Worries the World (30-country average, May 2026)",
+      "url": "https://resources.ipsos.com/rs/297-CXJ-795/images/What-Worries-the-World-May-2026.pdf",
+      "accessed": "2026-10-19",
+      "entries": {
+        "inflation": {
+          "name": "Inflation",
+          "passage": "Inflation 32% (global country average, May 2026)"
+        },
+        "unemployment": {
+          "name": "Unemployment",
+          "passage": "Concern about unemployment has increased, albeit marginally, to 29% across 30 nations."
+        },
+        "poverty-inequality": {
+          "name": "Poverty & social inequality",
+          "passage": "Poverty & social inequality 29% (global country average, May 2026)"
+        },
+        "taxes": {
+          "name": "Taxes",
+          "passage": "Taxes 18% (global country average, May 2026)"
+        },
+        "social-programmes": {
+          "name": "Maintaining social programmes",
+          "passage": "Maintaining social programmes 7% (global country average, May 2026)"
+        },
+        "access-to-credit": {
+          "name": "Access to credit",
+          "passage": "Access to credit 2% (global country average, May 2026)"
+        }
+      },
+      "note": "Only items bearing on the economy; the full list was read from the preview PDF (Wave 221)."
+    },
+    "pew-problems": {
+      "name": "Pew Research Center: very big problems facing the country (U.S., April 2026)",
+      "url": "https://www.pewresearch.org/politics/2026/05/11/americans-see-health-care-costs-deficit-inflation-as-big-problems-facing-the-nation/",
+      "accessed": "2026-10-19",
+      "entries": {
+        "health-care-affordability": {
+          "name": "Health care affordability",
+          "passage": "73% of adults now say the affordability of health care is a very big problem for the country"
+        },
+        "inflation": {
+          "name": "Inflation",
+          "passage": "66% say inflation is a very big problem, up modestly from 63% last year."
+        },
+        "federal-deficit": {
+          "name": "Federal budget deficit",
+          "passage": "64% view the federal budget deficit as a very big problem, up 7 points from last February."
+        },
+        "unemployment": {
+          "name": "Unemployment",
+          "passage": "a far smaller share sees unemployment as a very big problem in the country today (36%)"
+        }
+      },
+      "note": "Only items bearing on the economy."
+    },
+    "fed-shed": {
+      "name": "Federal Reserve: Economic Well-Being of U.S. Households in 2025 (key findings)",
+      "url": "https://www.federalreserve.gov/publications/2026-economic-well-being-of-us-households-in-2025-executive-summary.htm",
+      "accessed": "2026-10-19",
+      "entries": {
+        "doing-okay": {
+          "name": "Doing at least okay financially",
+          "passage": "At 73 percent, the share of adults \"doing okay financially\" or \"living comfortably\" held steady in 2025"
+        },
+        "price-increases": {
+          "name": "Price increases a concern",
+          "passage": "Just above 9 in 10 adults said \"price increases\" were a \"minor\" or \"major concern,\" unchanged from the prior year."
+        },
+        "emergency-400": {
+          "name": "Covering a $400 emergency expense",
+          "passage": "Sixty-three percent of adults said they would cover a hypothetical $400 emergency expense"
+        },
+        "unpaid-bills": {
+          "name": "Not paying all bills",
+          "passage": "Sixteen percent of adults did not pay all of their bills in the prior month,"
+        },
+        "behind-on-rent": {
+          "name": "Renters behind on rent",
+          "passage": "Twenty-three percent of renters reported that they had been behind on their rent at some point in the past year,"
+        },
+        "retirement-on-track": {
+          "name": "Retirement savings on track",
+          "passage": "Thirty-five percent of non-retirees thought their retirement savings plan was on track,"
+        },
+        "bank-account": {
+          "name": "Having a bank account",
+          "passage": "While 94 percent of adults had a bank account, differences by income remained large."
+        },
+        "bnpl": {
+          "name": "Buy Now, Pay Later use",
+          "passage": "Buy Now, Pay Later (BNPL) use edged up 1 percentage point to 16 percent of all adults."
+        },
+        "job-concern": {
+          "name": "Finding or keeping a job a concern",
+          "passage": "\"finding or keeping a job\" was either a \"minor\" or \"major concern,\""
+        },
+        "paid-childcare": {
+          "name": "Paid childcare use",
+          "passage": "One-in-four parents with children under age 13 used paid childcare."
+        },
+        "student-loan-difficulty": {
+          "name": "Student loan payment difficulty",
+          "passage": "Twenty-three percent of adults with student loans had recent payment difficulty."
+        },
+        "national-economy": {
+          "name": "Rating the national economy",
+          "passage": "About one-fourth of adults rated the national economy as \"good\" or \"excellent,\" down 3 percentage points from 2024"
+        }
+      }
+    },
+    "211-kc": {
+      "name": "211 Kansas City (United Way of Greater Kansas City): top five needs, 2025",
+      "url": "https://unitedwaygkc.org/2026/05/14/211-impact-report-shows-community-needs-increasing/",
+      "accessed": "2026-10-19",
+      "entries": {
+        "housing-shelter": {
+          "name": "Housing & Shelter"
+        },
+        "utility-assistance": {
+          "name": "Utility Assistance"
+        },
+        "tax-preparation": {
+          "name": "Tax Preparation"
+        },
+        "transportation": {
+          "name": "Transportation"
+        },
+        "legal-services": {
+          "name": "Legal Services"
+        }
+      },
+      "note": "347,839 contacts in 2025; the page lists the top five needs in order without counts."
+    },
+    "211-hawaii": {
+      "name": "Aloha United Way 211 (Hawaii): top needs, 2025",
+      "url": "https://mauinow.com/2026/02/13/aloha-united-ways-211-annual-report-reveals-rising-housing-and-food-needs-across-hawai%ca%bbi/",
+      "accessed": "2026-10-19",
+      "entries": {
+        "housing": {
+          "name": "Housing",
+          "passage": "Housing remained the most urgent need, accounting for 39% of all requests, followed by food assistance at 18%."
+        },
+        "food-assistance": {
+          "name": "Food assistance",
+          "passage": "Housing remained the most urgent need, accounting for 39% of all requests, followed by food assistance at 18%."
+        }
+      },
+      "note": "Read from a news report of the annual report; the report PDF was not opened."
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "scope": "money",
+  "runId": "20261019-212829",
+  "startedAt": "2026-10-20T01:28:29+00:00",
+  "finishedAt": "2026-10-20T01:43:51+00:00",
+  "notes": "Fifteen lists read. oecd.org returned 403 to every fetch, so OECD entries are the framework's Income and wealth indicators as named in docs/spec/pains/pain-inventory.md, with two passages from TUAC's summary of How's Life 2024. IHME/WHO cause-of-burden lists name diseases and injuries, not money pains, so the WHO financial-protection figures (UHC fact sheet) stand in for the WHO list. Wikidata QIDs were found with the wbsearchentities API (about 30 lookups, not counted as searches). Leads checked in the founder pool (hierarchy v2) but not proposed because no opened list names them: living with parents to afford it, gambling, financial control by a partner, medical debt as its own pain (mapped broader to Debt). utility-bills overlaps cold-home (Heating); refine should decide whether one covers both. investments and money-skills are weaker on prevalence than the rest.",
+  "searches": 7,
+  "pagesOpened": 24
+}
