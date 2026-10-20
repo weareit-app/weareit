@@ -110,7 +110,11 @@ async function renderExplorer(graph: ContentGraph) {
   });
   await render(
     <QueryClientProvider client={queryClient}>
-      <PainExplorer scope="personal" header={() => null} next="/onboarding/world" />
+      <PainExplorer
+        scope="personal"
+        header={() => null}
+        next="/onboarding/world"
+      />
     </QueryClientProvider>,
   );
   await fireEvent.press(screen.getByRole("button", { name: /Mind/ }));
