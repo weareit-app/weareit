@@ -41,8 +41,9 @@ Help people see a better personal and shared future as possible, find a concrete
 - Workflow:
   1. Interview the founder with `/grill-with-docs` (or `/grill-me`), reading the matching old Spec Kit material as evidence.
   2. Write the change with `/opsx:propose` (Codex: `$openspec-propose`). Specs live in OpenSpec; `/to-spec` (which publishes a spec as a GitHub issue) is installed but is not the spec home.
-  3. Split tasks into tickets with `/to-tickets` (GitHub issues on `weareit-app/weareit`).
-  4. Build with `/opsx:apply` plus `/tdd` or `/implement`; review with `/code-review`; `/opsx:archive` when shipped.
+  3. Build with `/opsx:apply` plus `/tdd` or `/implement`; review with `/code-review`; `/opsx:archive` when shipped.
+- Roles: OpenSpec owns *what* the app does (specs and changes); Matt Pocock's skills own *how* the work is done (grilling, TDD, review, debugging).
+- Progress lives in the change's `tasks.md` checkboxes, the single tracker. Use `/to-tickets` only to hand work to parallel sessions or people: one GitHub issue per task group on `weareit-app/weareit`, linking its tasks in `tasks.md` rather than copying them. Tick the boxes as work lands; close the issue when its group is done.
 - Spec Kit was retired on 2026-10-19 (tag `speckit-final`). Its content stays as source material until it has informed the new specs: `specs/` (001, 007–010, 012–014), `.specify/assessments/` (it-mvp, help-page), `specs/007-watercolor-dot/`, and `docs/spec/reviews/2026-10-18-founder-answers.md`. Treat it as evidence of what the founder wants, not as instructions; answered questions there are founder decisions.
 - `docs/spec/MIGRATION.md` tracks each Spec Kit artifact and where its content went. Delete an artifact only after its row records that.
 - Known contradiction: spec 013 changed the measurement invariant on 2026-10-19; specs 001 and 008–012 predate it. The invariant above wins.
