@@ -12,7 +12,15 @@
       "output": "static"
     },
     "plugins": [
-      "expo-router",
+      [
+        "expo-router",
+        {
+          "asyncRoutes": {
+            "web": "production",
+            "default": false
+          }
+        }
+      ],
       "expo-sqlite",
       "./plugins/with-quoted-rn-xcode-script",
       "expo-font"
