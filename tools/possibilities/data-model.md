@@ -92,7 +92,7 @@ Rules:
 ### Dream review files (`<run>/reviews/`)
 - **proposals.json**: `{ schemaVersion: 1, setId: "<painId>-<runId>", builtAt, proposals: [ { id, title, line, lens, ambition, examples: [{id, name, place, year, outcome}], overlaps: [{with, title, reason}] } ] }`. Each dream appears once. An overlap is listed under both of its dreams. No `writerNotes`.
 - **review.html**: the static page, built from `config/dream-review-page.template.html`. It is derived, so it isn't committed.
-- **dreams-decisions.json**: the founder's export, `{ schemaVersion: 1, setId, exportedAt, decisions: { <dream-id>: { decision: accept|edit|reject, note, decidedAt, edit?: { title, line } } } }`. Ingest refuses an export for another run, an unknown dream, an unknown decision, an edit without a title and a line, or any dream left undecided.
+- **dreams-decisions.json**: the founder's export, `{ schemaVersion: 1, setId, exportedAt, decisions: { <dream-id>: { decision: accept|edit|reject, note, decidedAt, edit?: { title, line } } } }`. Ingest refuses an export for another run, a page built before `dreams.json` last changed, an unknown dream, an unknown decision, an edit without a title and a line, or any dream left undecided.
 
 ## Calibration files (`docs/research/possibilities/calibration/`)
 - **baseline.json**: 16 old cards in the `cards.json` card shape, with fixes without exemplars, and `provenance.sourceId` pointing at `founder-review.md` with an anchor locator.

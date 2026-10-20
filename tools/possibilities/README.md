@@ -55,7 +55,7 @@ In a staged run, the founder reviews the drafted dreams before any fix is drafte
 
 1. Run `dreams-review-build <run>`.
 2. Start the `dream-review` launch config (`.claude/launch.json`). It serves `docs/research/possibilities/runs` on `127.0.0.1:4175` only. Open `http://127.0.0.1:4175/<pain>/<runId>/reviews/review.html`.
-3. The founder accepts, edits or rejects each dream from the keyboard. Overlap flags and their reasons are shown as text beside both dreams. Decisions stay in that browser until the founder downloads them.
+3. The founder accepts, edits, or rejects each dream from the keyboard. Overlap flags and their reasons are shown as text beside both dreams. Decisions stay in that browser until the founder downloads them.
 4. Save the download as `reviews/dreams-decisions.json` in the run, and run `dreams-ingest <run> <run>/reviews/dreams-decisions.json`. Ingest refuses an export that leaves a dream undecided.
 
 After ingest, `status` names `plan` as the next stage. Later stages read only accepted dreams, with the founder's edits applied. `review.html` is rebuilt from the run and isn't committed; the decisions are committed with the run.

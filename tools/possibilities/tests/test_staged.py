@@ -261,6 +261,17 @@ class DreamReview(StagedBase):
     def test_edit_needs_a_title_and_line(self):
         self.refused(lambda d: d['decisions']['burnout-d01']['edit'].update(line='  '), 'burnout-d01: an edit needs a title and a line')
 
+    def test_malformed_export_is_a_usage_error(self):
+        self.refused(lambda d: d.update(decisions=['burnout-d00']), 'decisions must be keyed by dream ID')
+        self.refused(lambda d: d['decisions'].update({'burnout-d00': 'accept'}), 'burnout-d00: unknown decision')
+
+    def test_decisions_on_a_stale_page_are_refused(self):
+        path = self.export()
+        self.write_dreams(self.run_dir, lambda d: d['dreams']['burnout-d01'].update(line='A redrafted line.'))
+        result = self.ingest(path)
+        self.assertEqual(result.returncode, 2)
+        self.assertIn('dreams.json changed since the review page was built (burnout-d01)', result.stderr)
+
     def test_review_is_ingested_once(self):
         path = self.export()
         self.assertEqual(self.ingest(path).returncode, 0)

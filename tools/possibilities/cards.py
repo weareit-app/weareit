@@ -275,6 +275,11 @@ def dreams_review_build(run, root):
 DREAM_DECISIONS = ('accept', 'edit', 'reject')  # an edit accepts the dream with the founder's wording
 
 
+def has_wording(value):
+    """A dream wording: a nonempty title and line."""
+    return isinstance(value, dict) and all(isinstance(value.get(f), str) and value[f].strip() for f in ('title', 'line'))
+
+
 def dreams_ingest(run, decisions_path):
     """Apply the founder's exported dream decisions: record each one, keep the drafted wording beside an edit."""
     require_staged(run)
@@ -284,20 +289,26 @@ def dreams_ingest(run, decisions_path):
         raise ValueError('no dream review was built for %s; run dreams-review-build first' % run.name)
     export, doc = read(decisions_path), read(run / 'dreams.json')
     set_id, dreams = review_set_id(run), doc['dreams']
-    if export.get('setId') != set_id:
-        raise ValueError('decisions are for %s, not %s' % (export.get('setId'), set_id))
-    decisions, issues = export.get('decisions') or {}, []
+    if not isinstance(export, dict) or export.get('setId') != set_id:
+        raise ValueError('decisions are for %s, not %s' % (export.get('setId') if isinstance(export, dict) else None, set_id))
+    shown = {p['id']: p for p in read(run / 'reviews/proposals.json')['proposals']}
+    changed = sorted(k for k in set(shown) | set(dreams)
+                     if k not in shown or k not in dreams or (shown[k]['title'], shown[k]['line']) != (dreams[k]['title'], dreams[k]['line']))
+    if changed:
+        raise ValueError('dreams.json changed since the review page was built (%s); rebuild it with dreams-review-build'
+                         % ', '.join(changed))
+    decisions, issues = export.get('decisions'), []
+    if not isinstance(decisions, dict):
+        raise ValueError('decisions must be keyed by dream ID')
     issues += ['unknown dream %s' % key for key in sorted(set(decisions) - set(dreams))]
     undecided = sorted(set(dreams) - set(decisions))
     if undecided:
         issues.append('undecided: ' + ', '.join(undecided))
     for key, d in sorted(decisions.items()):
-        if d.get('decision') not in DREAM_DECISIONS:
-            issues.append('%s: unknown decision %s' % (key, d.get('decision')))
-        elif d['decision'] == 'edit':
-            edit = d.get('edit') or {}
-            if not all(isinstance(edit.get(f), str) and edit[f].strip() for f in ('title', 'line')):
-                issues.append('%s: an edit needs a title and a line' % key)
+        if not isinstance(d, dict) or d.get('decision') not in DREAM_DECISIONS:
+            issues.append('%s: unknown decision %s' % (key, d.get('decision') if isinstance(d, dict) else d))
+        elif d['decision'] == 'edit' and not has_wording(d.get('edit')):
+            issues.append('%s: an edit needs a title and a line' % key)
     if issues:
         raise ValueError('; '.join(issues))
     ingested = now()
@@ -432,9 +443,7 @@ def validate_dreams(doc, exemplars, issues, pain=None):
         if review is not None:
             require(isinstance(review, dict) and review.get('decision') in DREAM_DECISIONS, where + ': unknown review decision', issues)
             if isinstance(review, dict) and review.get('decision') == 'edit':
-                original = review.get('original') or {}
-                require(all(isinstance(original.get(f), str) and original[f].strip() for f in ('title', 'line')),
-                        where + ': an edit keeps the original title and line', issues)
+                require(has_wording(review.get('original')), where + ': an edit keeps the original title and line', issues)
     pairs = set()
     for o in doc.get('overlaps', []):
         pair = frozenset((o.get('a'), o.get('b')))

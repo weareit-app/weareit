@@ -70,7 +70,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
     <label><input type="checkbox" id="f-open"> Undecided only</label>
   </div>
   <div class="count" id="count" role="status" aria-live="polite"></div>
-  <article id="card" aria-labelledby="card-title"></article>
+  <article id="card" aria-labelledby="card-title card-state pain"></article>
   <div class="decide" role="group" aria-label="Decision" id="decide">
     <button data-d="accept">Accept<kbd>A</kbd></button>
     <button data-d="edit">Edit<kbd>E</kbd></button>
@@ -95,15 +95,15 @@ const DATA = /*__DATA__*/;
 const KEY = 'dream-review:' + DATA.setId;
 const AMBITION = { tonight: 'Tonight', 'this-year': 'This year', together: 'Together' };
 const DECIDED = { accept: 'Accepted', edit: 'Accepted with your edit', reject: 'Rejected' };
-let decisions = {};
-try { decisions = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { decisions = {}; }
-const history = [];
-let index = 0;
+let decisions = {}, drafts = {};
+try { decisions = JSON.parse(localStorage.getItem(KEY) || '{}'); drafts = JSON.parse(localStorage.getItem(KEY + ':notes') || '{}'); } catch (e) { decisions = {}; drafts = {}; }
+const undoStack = [];
+let index = 0, pinned = null; // pinned: the dream on screen stays listed under "Undecided only" until you move on
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const cap = (s) => String(s || '').charAt(0).toUpperCase() + String(s || '').slice(1);
-function save() { try { localStorage.setItem(KEY, JSON.stringify(decisions)); } catch (e) { /* kept in memory */ } }
-function visible() { const open = $('f-open').checked; return DATA.proposals.filter((p) => !open || !decisions[p.id]); }
+function save() { try { localStorage.setItem(KEY, JSON.stringify(decisions)); localStorage.setItem(KEY + ':notes', JSON.stringify(drafts)); } catch (e) { /* kept in memory */ } }
+function visible() { const open = $('f-open').checked; return DATA.proposals.filter((p) => !open || !decisions[p.id] || p.id === pinned); }
 function stateText(d) { return d ? 'Decided: ' + DECIDED[d.decision] : 'Not decided yet'; }
 function wording(p) { const d = decisions[p.id]; return d && d.decision === 'edit' ? d.edit : { title: p.title, line: p.line }; }
 function render() {
@@ -113,6 +113,7 @@ function render() {
   const left = (DATA.proposals.length - decided) + ' of ' + DATA.proposals.length + ' left to decide';
   $('count').textContent = list.length ? 'Dream ' + (index + 1) + ' of ' + list.length + ' shown · ' + left : 'No undecided dreams · ' + left;
   const p = list[index];
+  pinned = p ? p.id : null;
   const card = $('card');
   document.querySelectorAll('#decide button[data-d]').forEach((b) => { b.disabled = !p; b.setAttribute('aria-pressed', 'false'); });
   $('edit').hidden = true;
@@ -122,7 +123,7 @@ function render() {
   const w = wording(p);
   card.innerHTML =
     '<p class="kind">' + esc(cap(p.lens)) + ' lens · ' + esc(AMBITION[p.ambition] || p.ambition) + ' · ' + esc(p.id) + '</p>' +
-    '<p class="state" data-d="' + esc(d ? d.decision : '') + '">' + esc(stateText(d)) + '</p>' +
+    '<p class="state" id="card-state" data-d="' + esc(d ? d.decision : '') + '">' + esc(stateText(d)) + '</p>' +
     '<p class="title" id="card-title">' + esc(w.title) + '</p><p class="line">' + esc(w.line) + '</p>' +
     (d && d.decision === 'edit' ? '<section class="original" aria-label="Drafted wording"><h2>Drafted wording</h2><p class="title">' + esc(p.title) + '</p><p class="line">' + esc(p.line) + '</p></section>' : '') +
     '<section class="examples" aria-label="Drafted from"><h2>Drafted from</h2><ul>' +
@@ -132,34 +133,34 @@ function render() {
         ' That dream: ' + esc(stateText(decisions[o.with]).toLowerCase()) + '. <button class="link" data-goto="' + esc(o.with) + '">Show ' + esc(o.title) + '</button></li>').join('') +
       '</ul></section>' : '<p class="muted">No overlap flagged.</p>');
   card.querySelectorAll('button[data-goto]').forEach((b) => b.addEventListener('click', () => goTo(b.dataset.goto)));
-  $('note').value = d && d.note ? d.note : '';
+  $('note').value = d && d.note ? d.note : (drafts[p.id] || '');
   $('edit-title').value = w.title; $('edit-line').value = w.line;
 }
 function current() { return visible()[index]; }
+function show(id) { pinned = id; index = Math.max(0, visible().findIndex((p) => p.id === id)); render(); $('card').focus(); }
 function goTo(id) {
-  let i = visible().findIndex((p) => p.id === id);
-  if (i < 0) { $('f-open').checked = false; i = visible().findIndex((p) => p.id === id); }
-  if (i < 0) return;
-  index = i; render(); $('card').focus();
+  if (!visible().some((p) => p.id === id)) $('f-open').checked = false;
+  show(id);
 }
 function decide(decision, extra) {
   const p = current();
   if (!p) return;
-  history.push({ id: p.id, before: decisions[p.id] || null });
+  undoStack.push({ id: p.id, before: decisions[p.id] || null });
   decisions[p.id] = Object.assign({ decision: decision, note: $('note').value.trim(), decidedAt: new Date().toISOString() }, extra || {});
+  delete drafts[p.id];
   save();
   render();
   $('announce').textContent = 'Saved: ' + DECIDED[decision].toLowerCase() + '. Still on this dream.';
 }
 function openEdit() { if (!current()) return; $('edit').hidden = false; $('edit-title').focus(); $('edit-title').select(); }
 function undo() {
-  const last = history.pop();
+  const last = undoStack.pop();
   if (!last) { $('announce').textContent = 'Nothing to undo.'; return; }
   if (last.before) decisions[last.id] = last.before; else delete decisions[last.id];
   save(); render();
   $('announce').textContent = 'Undone.';
 }
-function move(step) { const n = visible().length; if (!n) return; index = Math.min(n - 1, Math.max(0, index + step)); render(); $('card').focus(); }
+function move(step) { const list = visible(); if (!list.length) return; show(list[Math.min(list.length - 1, Math.max(0, index + step))].id); }
 document.querySelectorAll('#decide button[data-d]').forEach((b) => b.addEventListener('click', () => {
   if (b.disabled) return;
   if (b.dataset.d === 'edit') openEdit(); else decide(b.dataset.d);
@@ -175,8 +176,12 @@ $('edit-save').addEventListener('click', () => {
 $('undo').addEventListener('click', undo);
 $('next').addEventListener('click', () => move(1));
 $('prev').addEventListener('click', () => move(-1));
-$('note').addEventListener('change', () => { const p = current(); if (p && decisions[p.id]) { decisions[p.id].note = $('note').value.trim(); save(); } });
-$('f-open').addEventListener('change', () => { index = 0; render(); });
+$('note').addEventListener('input', () => {
+  const p = current(); if (!p) return;
+  if (decisions[p.id]) decisions[p.id].note = $('note').value.trim(); else drafts[p.id] = $('note').value;
+  save();
+});
+$('f-open').addEventListener('change', () => { index = 0; pinned = null; render(); });
 $('download').addEventListener('click', () => {
   const blob = new Blob([JSON.stringify({ schemaVersion: 1, setId: DATA.setId, exportedAt: new Date().toISOString(), decisions: decisions }, null, 2)], { type: 'application/json' });
   const a = document.createElement('a');
@@ -185,7 +190,7 @@ $('download').addEventListener('click', () => {
   $('announce').textContent = 'Downloaded dreams-decisions.json.' + (left ? ' ' + left + ' dreams are still undecided; ingest needs every dream decided.' : '');
 });
 document.addEventListener('keydown', (e) => {
-  if (e.target.closest('input, textarea, select') || e.metaKey || e.ctrlKey || e.altKey) return;
+  if (e.target.closest('input[type=text], textarea') || e.metaKey || e.ctrlKey || e.altKey) return;
   const k = e.key.toLowerCase();
   if (k === 'a' || k === 'r') { const d = k === 'a' ? 'accept' : 'reject'; if (!document.querySelector('#decide button[data-d="' + d + '"]').disabled) decide(d); }
   else if (k === 'e') openEdit();
