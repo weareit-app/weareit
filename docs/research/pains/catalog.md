@@ -15,12 +15,12 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `chronic-pain` | Pain | I hurt most days. | accepted | yes |  |
 | `eating-badly` | Diet | I don't eat the way I want to. | accepted | yes |  |
 | `health-runs-my-life` | Health condition | I'm living with a condition that limits me. | accepted | yes |  |
-| `not-built-for-me` | Access | Buildings, websites and services shut me out because of my disability. | accepted | yes |  |
+| `not-built-for-me` | Access | Buildings, websites, and services shut me out because of my disability. | accepted | yes |  |
 | `out-of-shape` | Fitness | I don't feel as fit or active as I'd like. | accepted | yes |  |
 | `poor-sleep` | Sleep | I don't sleep well. | accepted | yes | 2 |
 | `bladder` | Bladder control | I plan my day around getting to a bathroom in time. | rejected | no |  |
 | `body-image` | Body image | I don't like how my body looks. | accepted | no |  |
-| `daily-tasks` | Everyday tasks | I need help with everyday things like bathing, dressing or cooking. | accepted | no |  |
+| `daily-tasks` | Everyday tasks | I need help with everyday things like bathing, dressing, or cooking. | accepted | no |  |
 | `fertility` | Fertility | I've been trying to have a baby, and it isn't happening. | accepted | no |  |
 | `headaches` | Headaches | I lose days to migraines or bad headaches. | accepted | no |  |
 | `health-upkeep` | Managing my health | Keeping up with appointments, medicines and tests wears me out. | rejected | no |  |
@@ -45,7 +45,7 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `grief` | Grief | I'm missing someone I lost. | accepted · sensitive | yes |  |
 | `hard-on-myself` | Hard on myself | Whatever I do, I tell myself it isn't good enough. | accepted | yes |  |
 | `overwhelmed` | Stress | There's so much on my plate that I can't catch up. | accepted | yes |  |
-| `eating-and-body-image` | Eating and body image | I can't stop obsessing over food, my weight or how my body looks. | accepted | no |  |
+| `eating-and-body-image` | Eating and body image | I can't stop obsessing over food, my weight, or how my body looks. | accepted | no |  |
 | `memory` | Memory | I forget things more than I used to. | accepted | no |  |
 | `mental-health-care` | Therapy | I can't get or afford help for my mental health. | accepted | no |  |
 | `past-still-hurts` | Trauma | I'm still living with something that happened. | candidate · sensitive | no |  |
@@ -118,7 +118,7 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `landlord-wont-fix` | Repairs | My landlord won't fix what's broken. | accepted | no |  |
 | `living-with-parents` | Living with parents | I want a place of my own, but I still live with my parents. | accepted | no |  |
 | `offline` | Bad internet | I can't get internet that's fast enough and that I can afford. | candidate | no |  |
-| `pests` | Pests | I've got mice, rats or roaches in my home. | accepted | no |  |
+| `pests` | Pests | I've got mice, rats, or roaches in my home. | accepted | no |  |
 | `tap-water` | Tap water | I don't trust the water that comes out of my tap. | accepted | no |  |
 | `turned-down-for-housing` | Rental applications | I keep getting turned down for places to rent. | accepted | no |  |
 
@@ -135,7 +135,7 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `benefits-runaround` | Benefits | I have to fight to get or keep the benefits I qualify for. | accepted | no |  |
 | `finding-help` | Finding help | I don't know what help is out there or where to ask for it. | accepted | no |  |
 | `language-barriers` | Language barriers | I can't get important information or services in a language I understand well. | accepted | no |  |
-| `no-id` | No ID | I don't have the ID I need to work, vote or get help. | accepted | no |  |
+| `no-id` | No ID | I don't have the ID I need to work, vote, or get help. | accepted | no |  |
 | `no-time-off` | Time off | I never get a real break from work. | accepted | no |  |
 
 ### People (13 shown)
@@ -179,10 +179,10 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `dont-know-what-i-want` | What I want | I don't know what I want to do with my life. | accepted | no |  |
 | `english` | English | I don't speak English well enough to get by. | accepted | no |  |
 | `everyday-math` | Math | Everyday math, like working out a bill or a discount, is hard for me. | accepted | no |  |
-| `lost-myself` | Who I am | I can't say what I like, what I want or who I am any more. | candidate | no |  |
+| `lost-myself` | Who I am | I can't say what I like, what I want, or who I am any more. | candidate | no |  |
 | `meaning-in-life` | Meaning in life | I don't know what my life is for. | accepted | no |  |
 | `no-time-to-learn` | Classes | I want to take a class or training, but I can't fit it around work, family or money. | accepted | no |  |
-| `reading` | Reading | Reading forms, letters and instructions is hard for me. | accepted | no |  |
+| `reading` | Reading | Reading forms, letters, and instructions is hard for me. | accepted | no |  |
 
 ## Societal
 
@@ -196,7 +196,7 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `far-away-decisions` | Local control | Decisions about my town get made by people far away. | accepted | yes |  |
 | `freedoms` | Freedoms | I'm losing the freedom to make my own choices. | accepted | yes |  |
 | `immigration-broken` | Immigration | I see an immigration system that's broken, and nobody fixes it. | accepted | yes |  |
-| `infrastructure` | Infrastructure | I depend on roads, water and power that keep breaking down. | accepted | yes |  |
+| `infrastructure` | Infrastructure | I depend on roads, water, and power that keep breaking down. | accepted | yes |  |
 | `no-accountability` | Accountability | I see leaders break promises with no consequences. | accepted | yes |  |
 | `taxes-dont-buy-much` | Taxes | I pay more in taxes and get less back in services. | accepted | yes |  |
 | `they-dont-listen` | Being heard | The people in charge don't listen to people like me. | accepted | yes | 2 |
@@ -234,7 +234,7 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `older-people-alone` | Growing old alone | Older people around me are left to cope on their own. | accepted | yes |  |
 | `one-illness-away` | Medical bills | One bad illness could wipe out everything I have. | accepted | yes |  |
 | `care-quality` | Poor care | I don't trust the care I get to be good or safe. | accepted | no |  |
-| `chronic-disease` | Chronic disease | I see cancer, heart disease and diabetes taking more people I know. | accepted | no |  |
+| `chronic-disease` | Chronic disease | I see cancer, heart disease, and diabetes taking more people I know. | accepted | no |  |
 | `dementia` | Dementia | I'm watching dementia take away people I love. | accepted | no |  |
 | `drug-prices` | Prescription drug costs | I worry I won't be able to afford the medicine I need. | accepted | no |  |
 | `hospital-closing` | Hospital closures | The hospital near me closed or cut services, so care is farther away. | accepted | no |  |
@@ -256,7 +256,7 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `trust` | Distrust | I can't trust the people around me any more. | accepted | yes |  |
 | `we-cant-talk` | Polarization | I can't disagree with someone without losing them. | accepted | yes | 1 |
 | `building-cant-organize` | Can't organize | I can't get my neighbors to act together on anything. | candidate | no |  |
-| `dirty-streets` | Dirty streets | I see trash, rats and dumped junk on my street. | accepted | no |  |
+| `dirty-streets` | Dirty streets | I see trash, rats, and dumped junk on my street. | accepted | no |  |
 | `extremism` | Extremism | I see people around me pulled toward extreme groups that hate other people. | accepted | no |  |
 | `gentrification` | Gentrification | I see longtime neighbors priced out as my area gets more expensive. | accepted | no |  |
 | `nowhere-to-gather` | Nowhere to gather | I have nowhere nearby where I can just spend time around my neighbors. | accepted | no |  |
@@ -270,7 +270,7 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `it-all-goes-up` | Wealth gap | I see a few people get richer every year while most of us fall further behind. | accepted | yes | 2 |
 | `justice-unfair` | Unequal justice | I see police and courts treat some people far worse than others for the same thing. | accepted | yes |  |
 | `people-treated-badly` | Prejudice around me | I see people around me treated badly because of their race, religion, or who they love. | accepted | yes |  |
-| `treated-differently` | Discrimination against me | I get treated worse at work, in stores or by landlords because of who I am. | accepted | yes |  |
+| `treated-differently` | Discrimination against me | I get treated worse at work, in stores, or by landlords because of who I am. | accepted | yes |  |
 | `where-youre-born` | Unequal chances | I see kids born in some neighborhoods get far fewer chances than kids born a few miles away. | accepted | yes |  |
 | `criminal-record` | Criminal record | My old record still keeps me out of jobs and housing. | accepted | no |  |
 | `modern-slavery` | Modern slavery | I see people forced to work or marry with no way out. | accepted | no |  |
@@ -285,11 +285,11 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `nobody-covers-here` | No local news | Nobody reports on my town any more, so I don't know what's going on here. | accepted | yes | 1 |
 | `watched-by-companies` | Being tracked | I feel watched by companies that know everything about me. | accepted | yes |  |
 | `afraid-to-speak` | Free speech | I'm afraid to say what I really think. | accepted | no |  |
-| `ai-fakes` | AI fakes | I can't tell if a photo, video or voice is real or made by AI. | accepted | no |  |
+| `ai-fakes` | AI fakes | I can't tell if a photo, video, or voice is real or made by AI. | accepted | no |  |
 | `cant-trust-the-news` | Trust in news | I don't trust the news to tell me the whole story fairly. | accepted | no |  |
 | `data-leaks` | Data leaks | My personal information keeps leaking out through hacks and data breaches. | accepted | no |  |
 | `news-overload` | News overload | The news wears me down, so I've started tuning it out. | accepted | no |  |
-| `press-freedom` | Press freedom | I see reporters threatened, jailed or shut down for doing their jobs. | accepted | no |  |
+| `press-freedom` | Press freedom | I see reporters threatened, jailed, or shut down for doing their jobs. | accepted | no |  |
 
 ### Environment (5 shown)
 
@@ -298,10 +298,10 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `car-or-nothing` | Needing a car | I can't get anywhere without a car. | accepted | yes |  |
 | `climate` | Climate change | I'm worried about the planet heating up. | accepted | yes | 2 |
 | `dirty-air` | Dirty air | The air where I live isn't clean enough to breathe safely. | accepted | yes |  |
-| `disasters` | Disasters | I'm living with floods, fires, storms or extreme heat. | accepted | yes |  |
-| `nature-disappearing` | Losing nature | I see fewer birds, trees and green spaces around me. | accepted | yes |  |
+| `disasters` | Disasters | I'm living with floods, fires, storms, or extreme heat. | accepted | yes |  |
+| `nature-disappearing` | Losing nature | I see fewer birds, trees, and green spaces around me. | accepted | yes |  |
 | `noise` | Noise | I can't get away from traffic and other noise where I live. | accepted | no |  |
-| `toxic-chemicals` | Toxic chemicals | I worry about lead and toxic chemicals in our soil, water and homes. | accepted | no |  |
+| `toxic-chemicals` | Toxic chemicals | I worry about lead and toxic chemicals in our soil, water, and homes. | accepted | no |  |
 | `trash-and-plastic` | Trash and plastic | I see trash and plastic piling up with nowhere for it to go. | accepted | no |  |
 | `water-pollution` | Water pollution | I see our rivers, lakes, and drinking water getting polluted. | accepted | no |  |
 | `water-shortages` | Water shortages | I worry my area is running out of water. | accepted | no |  |
@@ -312,12 +312,12 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | --- | --- | --- | --- | --- | --- |
 | `crime-and-violence` | Crime | Crime and violence keep hurting people in my community. | accepted · sensitive | yes |  |
 | `world-on-fire` | War and conflict | I see war threatening people and places I care about. | accepted · sensitive | yes |  |
-| `elder-abuse` | Elder abuse | I worry about older people being hurt, neglected or cheated by people they trust. | accepted | no |  |
+| `elder-abuse` | Elder abuse | I worry about older people being hurt, neglected, or cheated by people they trust. | accepted | no |  |
 | `gun-violence` | Gun violence | I worry about people getting shot where I live. | accepted | no |  |
 | `road-deaths` | Traffic deaths | I worry about people getting killed or badly hurt on the roads around here. | accepted | no |  |
 | `school-shootings` | School shootings | I worry that a shooting could happen at my kids' school. | accepted | no |  |
 | `terrorism` | Terrorism | I worry about attacks meant to kill and frighten people. | accepted | no |  |
-| `trafficking` | Trafficking | I know people are still being trafficked, forced to work or forced to marry. | accepted | no |  |
+| `trafficking` | Trafficking | I know people are still being trafficked, forced to work, or forced to marry. | accepted | no |  |
 | `unsafe-food` | Unsafe food | I worry the food I buy could make my family sick. | accepted | no |  |
 | `violence-against-women` | Violence against women | I see women and girls hurt by men, often by someone they know. | accepted | no |  |
 

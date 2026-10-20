@@ -1053,7 +1053,7 @@
     "not-built-for-me": {
       "id": "not-built-for-me",
       "name": "Access",
-      "line": "Buildings, websites and services shut me out because of my disability.",
+      "line": "Buildings, websites, and services shut me out because of my disability.",
       "page": "personal",
       "group": "body",
       "secondaryGroups": [],
@@ -1093,7 +1093,8 @@
         "Not built for me",
         "Places and services shut me out.",
         "Disability",
-        "I can't access things I need."
+        "I can't access things I need.",
+        "Buildings, websites and services shut me out because of my disability."
       ],
       "relations": [
         {
@@ -1165,6 +1166,21 @@
           "note": "",
           "kind": "keep",
           "detail": "A missing ramp and being treated worse by a person are different problems, and one sits on each page. Disability is places and services not built for you; Discrimination is people treating you worse because of who you are."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:39:44+00:00",
+          "prompt": "lint serial-comma (fail) (serial-comma fix, review serial-comma-20261020-151751 p013)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Access",
+            "line": "Buildings, websites and services shut me out because of my disability."
+          },
+          "to": {
+            "name": "Access",
+            "line": "Buildings, websites, and services shut me out because of my disability."
+          }
         }
       ]
     },
@@ -6484,7 +6500,7 @@
     "lost-myself": {
       "id": "lost-myself",
       "name": "Who I am",
-      "line": "I can't say what I like, what I want or who I am any more.",
+      "line": "I can't say what I like, what I want, or who I am any more.",
       "page": "personal",
       "group": "purpose",
       "secondaryGroups": [],
@@ -6518,7 +6534,8 @@
       "aliases": [
         "Lost myself",
         "Identity",
-        "I don't know who I am any more."
+        "I don't know who I am any more.",
+        "I can't say what I like, what I want or who I am any more."
       ],
       "relations": [
         {
@@ -6571,6 +6588,21 @@
           "to": {
             "name": "Who I am",
             "line": "I can't say what I like, what I want or who I am any more."
+          }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:39:44+00:00",
+          "prompt": "lint serial-comma (fail) (serial-comma fix, review serial-comma-20261020-151751 p010)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Who I am",
+            "line": "I can't say what I like, what I want or who I am any more."
+          },
+          "to": {
+            "name": "Who I am",
+            "line": "I can't say what I like, what I want, or who I am any more."
           }
         }
       ]
@@ -6732,7 +6764,7 @@
     "infrastructure": {
       "id": "infrastructure",
       "name": "Infrastructure",
-      "line": "I depend on roads, water and power that keep breaking down.",
+      "line": "I depend on roads, water, and power that keep breaking down.",
       "page": "societal",
       "group": "government",
       "secondaryGroups": [],
@@ -6769,7 +6801,9 @@
           "label": "infrastructure"
         }
       },
-      "aliases": [],
+      "aliases": [
+        "I depend on roads, water and power that keep breaking down."
+      ],
       "relations": [
         {
           "kind": "overlaps",
@@ -6800,6 +6834,21 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:39:44+00:00",
+          "prompt": "lint serial-comma (fail) (serial-comma fix, review serial-comma-20261020-151751 p008)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Infrastructure",
+            "line": "I depend on roads, water and power that keep breaking down."
+          },
+          "to": {
+            "name": "Infrastructure",
+            "line": "I depend on roads, water, and power that keep breaking down."
+          }
         }
       ]
     },
@@ -9708,7 +9757,7 @@
     "treated-differently": {
       "id": "treated-differently",
       "name": "Discrimination against me",
-      "line": "I get treated worse at work, in stores or by landlords because of who I am.",
+      "line": "I get treated worse at work, in stores, or by landlords because of who I am.",
       "page": "societal",
       "group": "fairness",
       "secondaryGroups": [],
@@ -9748,7 +9797,8 @@
         "Treated differently",
         "Who I am counts against me.",
         "Discrimination",
-        "I'm treated worse because of who I am."
+        "I'm treated worse because of who I am.",
+        "I get treated worse at work, in stores or by landlords because of who I am."
       ],
       "relations": [
         {
@@ -9809,6 +9859,21 @@
           "to": {
             "name": "Discrimination against me",
             "line": "I get treated worse at work, in stores or by landlords because of who I am."
+          }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:39:44+00:00",
+          "prompt": "lint serial-comma (fail) (serial-comma fix, review serial-comma-20261020-151751 p019)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Discrimination against me",
+            "line": "I get treated worse at work, in stores or by landlords because of who I am."
+          },
+          "to": {
+            "name": "Discrimination against me",
+            "line": "I get treated worse at work, in stores, or by landlords because of who I am."
           }
         }
       ]
@@ -10479,7 +10544,7 @@
     "disasters": {
       "id": "disasters",
       "name": "Disasters",
-      "line": "I'm living with floods, fires, storms or extreme heat.",
+      "line": "I'm living with floods, fires, storms, or extreme heat.",
       "page": "societal",
       "group": "environment",
       "secondaryGroups": [],
@@ -10516,7 +10581,9 @@
           "label": "natural disaster"
         }
       },
-      "aliases": [],
+      "aliases": [
+        "I'm living with floods, fires, storms or extreme heat."
+      ],
       "relations": [
         {
           "kind": "overlaps",
@@ -10543,6 +10610,21 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:39:44+00:00",
+          "prompt": "lint serial-comma (fail) (serial-comma fix, review serial-comma-20261020-151751 p005)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Disasters",
+            "line": "I'm living with floods, fires, storms or extreme heat."
+          },
+          "to": {
+            "name": "Disasters",
+            "line": "I'm living with floods, fires, storms, or extreme heat."
+          }
         }
       ]
     },
@@ -10749,7 +10831,7 @@
     "nature-disappearing": {
       "id": "nature-disappearing",
       "name": "Losing nature",
-      "line": "I see fewer birds, trees and green spaces around me.",
+      "line": "I see fewer birds, trees, and green spaces around me.",
       "page": "societal",
       "group": "environment",
       "secondaryGroups": [],
@@ -10787,7 +10869,8 @@
         "Nature disappearing",
         "There are fewer birds, trees and green spaces.",
         "Nature",
-        "I see fewer birds, trees and green spaces."
+        "I see fewer birds, trees and green spaces.",
+        "I see fewer birds, trees and green spaces around me."
       ],
       "relations": [
         {
@@ -10842,6 +10925,21 @@
           "to": {
             "name": "Losing nature",
             "line": "I see fewer birds, trees and green spaces around me."
+          }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:39:44+00:00",
+          "prompt": "lint serial-comma (fail) (serial-comma fix, review serial-comma-20261020-151751 p011)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Losing nature",
+            "line": "I see fewer birds, trees and green spaces around me."
+          },
+          "to": {
+            "name": "Losing nature",
+            "line": "I see fewer birds, trees, and green spaces around me."
           }
         }
       ]
@@ -13743,7 +13841,7 @@
     "daily-tasks": {
       "id": "daily-tasks",
       "name": "Everyday tasks",
-      "line": "I need help with everyday things like bathing, dressing or cooking.",
+      "line": "I need help with everyday things like bathing, dressing, or cooking.",
       "page": "personal",
       "group": "body",
       "secondaryGroups": [],
@@ -13771,7 +13869,8 @@
       "maps": {},
       "aliases": [
         "Help at home",
-        "Independent living"
+        "Independent living",
+        "I need help with everyday things like bathing, dressing or cooking."
       ],
       "relations": [],
       "founderPool": null,
@@ -13820,6 +13919,21 @@
           },
           "prompt": "pain-catalog design decision 11: placement waits for ranking",
           "note": "Founder, 2026-10-20: all body-mind new pains wait for ranking."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:39:44+00:00",
+          "prompt": "lint serial-comma (fail) (serial-comma fix, review serial-comma-20261020-151751 p003)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Everyday tasks",
+            "line": "I need help with everyday things like bathing, dressing or cooking."
+          },
+          "to": {
+            "name": "Everyday tasks",
+            "line": "I need help with everyday things like bathing, dressing, or cooking."
+          }
         }
       ],
       "unranked": true
@@ -14183,7 +14297,7 @@
     "eating-and-body-image": {
       "id": "eating-and-body-image",
       "name": "Eating and body image",
-      "line": "I can't stop obsessing over food, my weight or how my body looks.",
+      "line": "I can't stop obsessing over food, my weight, or how my body looks.",
       "page": "personal",
       "group": "mind",
       "secondaryGroups": [],
@@ -14207,7 +14321,8 @@
       "aliases": [
         "Eating",
         "Body image",
-        "Eating disorder"
+        "Eating disorder",
+        "I can't stop obsessing over food, my weight or how my body looks."
       ],
       "relations": [],
       "founderPool": null,
@@ -14256,6 +14371,21 @@
           },
           "prompt": "pain-catalog design decision 11: placement waits for ranking",
           "note": "Founder, 2026-10-20: all body-mind new pains wait for ranking."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:39:44+00:00",
+          "prompt": "lint serial-comma (fail) (serial-comma fix, review serial-comma-20261020-151751 p006)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Eating and body image",
+            "line": "I can't stop obsessing over food, my weight or how my body looks."
+          },
+          "to": {
+            "name": "Eating and body image",
+            "line": "I can't stop obsessing over food, my weight, or how my body looks."
+          }
         }
       ],
       "unranked": true
@@ -14900,7 +15030,7 @@
     "pests": {
       "id": "pests",
       "name": "Pests",
-      "line": "I've got mice, rats or roaches in my home.",
+      "line": "I've got mice, rats, or roaches in my home.",
       "page": "personal",
       "group": "home",
       "secondaryGroups": [],
@@ -14920,7 +15050,8 @@
       "maps": {},
       "aliases": [
         "Mice or roaches",
-        "Bugs and rodents at home"
+        "Bugs and rodents at home",
+        "I've got mice, rats or roaches in my home."
       ],
       "relations": [],
       "founderPool": null,
@@ -14953,6 +15084,21 @@
           "unranked": true,
           "own": false,
           "noSource": false
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:39:44+00:00",
+          "prompt": "lint serial-comma (fail) (serial-comma fix, review serial-comma-20261020-151751 p014)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Pests",
+            "line": "I've got mice, rats or roaches in my home."
+          },
+          "to": {
+            "name": "Pests",
+            "line": "I've got mice, rats, or roaches in my home."
+          }
         }
       ],
       "unranked": true
@@ -16358,7 +16504,7 @@
     "reading": {
       "id": "reading",
       "name": "Reading",
-      "line": "Reading forms, letters and instructions is hard for me.",
+      "line": "Reading forms, letters, and instructions is hard for me.",
       "page": "personal",
       "group": "purpose",
       "secondaryGroups": [],
@@ -16381,7 +16527,8 @@
       "maps": {},
       "aliases": [
         "Low literacy",
-        "I can't read well"
+        "I can't read well",
+        "Reading forms, letters and instructions is hard for me."
       ],
       "relations": [],
       "founderPool": null,
@@ -16418,6 +16565,21 @@
           "unranked": true,
           "own": false,
           "noSource": false
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:39:44+00:00",
+          "prompt": "lint serial-comma (fail) (serial-comma fix, review serial-comma-20261020-151751 p016)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Reading",
+            "line": "Reading forms, letters and instructions is hard for me."
+          },
+          "to": {
+            "name": "Reading",
+            "line": "Reading forms, letters, and instructions is hard for me."
+          }
         }
       ],
       "unranked": true
@@ -17004,7 +17166,7 @@
     "chronic-disease": {
       "id": "chronic-disease",
       "name": "Chronic disease",
-      "line": "I see cancer, heart disease and diabetes taking more people I know.",
+      "line": "I see cancer, heart disease, and diabetes taking more people I know.",
       "page": "societal",
       "group": "health",
       "secondaryGroups": [],
@@ -17033,7 +17195,8 @@
       "aliases": [
         "Cancer",
         "Heart disease",
-        "Diabetes"
+        "Diabetes",
+        "I see cancer, heart disease and diabetes taking more people I know."
       ],
       "relations": [],
       "founderPool": null,
@@ -17122,6 +17285,21 @@
           "unranked": true,
           "own": false,
           "noSource": false
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:39:44+00:00",
+          "prompt": "lint serial-comma (fail) (serial-comma fix, review serial-comma-20261020-151751 p002)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Chronic disease",
+            "line": "I see cancer, heart disease and diabetes taking more people I know."
+          },
+          "to": {
+            "name": "Chronic disease",
+            "line": "I see cancer, heart disease, and diabetes taking more people I know."
+          }
         }
       ],
       "unranked": true
@@ -18669,7 +18847,7 @@
     "elder-abuse": {
       "id": "elder-abuse",
       "name": "Elder abuse",
-      "line": "I worry about older people being hurt, neglected or cheated by people they trust.",
+      "line": "I worry about older people being hurt, neglected, or cheated by people they trust.",
       "page": "societal",
       "group": "safety",
       "secondaryGroups": [],
@@ -18686,7 +18864,8 @@
       "leads": [],
       "maps": {},
       "aliases": [
-        "Abuse of older people"
+        "Abuse of older people",
+        "I worry about older people being hurt, neglected or cheated by people they trust."
       ],
       "relations": [],
       "founderPool": null,
@@ -18715,6 +18894,21 @@
           "unranked": true,
           "own": false,
           "noSource": false
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:39:44+00:00",
+          "prompt": "lint serial-comma (fail) (serial-comma fix, review serial-comma-20261020-151751 p007)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Elder abuse",
+            "line": "I worry about older people being hurt, neglected or cheated by people they trust."
+          },
+          "to": {
+            "name": "Elder abuse",
+            "line": "I worry about older people being hurt, neglected, or cheated by people they trust."
+          }
         }
       ],
       "unranked": true
@@ -18722,7 +18916,7 @@
     "trafficking": {
       "id": "trafficking",
       "name": "Trafficking",
-      "line": "I know people are still being trafficked, forced to work or forced to marry.",
+      "line": "I know people are still being trafficked, forced to work, or forced to marry.",
       "page": "societal",
       "group": "safety",
       "secondaryGroups": [],
@@ -18751,7 +18945,8 @@
       "aliases": [
         "Human trafficking",
         "Modern slavery",
-        "Forced labor"
+        "Forced labor",
+        "I know people are still being trafficked, forced to work or forced to marry."
       ],
       "relations": [],
       "founderPool": null,
@@ -18796,6 +18991,21 @@
           "unranked": true,
           "own": false,
           "noSource": false
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:39:44+00:00",
+          "prompt": "lint serial-comma (fail) (serial-comma fix, review serial-comma-20261020-151751 p018)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Trafficking",
+            "line": "I know people are still being trafficked, forced to work or forced to marry."
+          },
+          "to": {
+            "name": "Trafficking",
+            "line": "I know people are still being trafficked, forced to work, or forced to marry."
+          }
         }
       ],
       "unranked": true
@@ -19383,7 +19593,7 @@
     "ai-fakes": {
       "id": "ai-fakes",
       "name": "AI fakes",
-      "line": "I can't tell if a photo, video or voice is real or made by AI.",
+      "line": "I can't tell if a photo, video, or voice is real or made by AI.",
       "page": "societal",
       "group": "information",
       "secondaryGroups": [],
@@ -19401,7 +19611,8 @@
       "maps": {},
       "aliases": [
         "Deepfakes",
-        "AI-generated content"
+        "AI-generated content",
+        "I can't tell if a photo, video or voice is real or made by AI."
       ],
       "relations": [],
       "founderPool": null,
@@ -19430,6 +19641,21 @@
           "unranked": true,
           "own": false,
           "noSource": false
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:39:44+00:00",
+          "prompt": "lint serial-comma (fail) (serial-comma fix, review serial-comma-20261020-151751 p001)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "AI fakes",
+            "line": "I can't tell if a photo, video or voice is real or made by AI."
+          },
+          "to": {
+            "name": "AI fakes",
+            "line": "I can't tell if a photo, video, or voice is real or made by AI."
+          }
         }
       ],
       "unranked": true
@@ -19568,7 +19794,7 @@
     "press-freedom": {
       "id": "press-freedom",
       "name": "Press freedom",
-      "line": "I see reporters threatened, jailed or shut down for doing their jobs.",
+      "line": "I see reporters threatened, jailed, or shut down for doing their jobs.",
       "page": "societal",
       "group": "information",
       "secondaryGroups": [],
@@ -19596,7 +19822,8 @@
       "maps": {},
       "aliases": [
         "Free press",
-        "Journalists under attack"
+        "Journalists under attack",
+        "I see reporters threatened, jailed or shut down for doing their jobs."
       ],
       "relations": [],
       "founderPool": null,
@@ -19633,6 +19860,21 @@
           "unranked": true,
           "own": false,
           "noSource": false
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:39:44+00:00",
+          "prompt": "lint serial-comma (fail) (serial-comma fix, review serial-comma-20261020-151751 p015)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Press freedom",
+            "line": "I see reporters threatened, jailed or shut down for doing their jobs."
+          },
+          "to": {
+            "name": "Press freedom",
+            "line": "I see reporters threatened, jailed, or shut down for doing their jobs."
+          }
         }
       ],
       "unranked": true
@@ -20188,7 +20430,7 @@
     "dirty-streets": {
       "id": "dirty-streets",
       "name": "Dirty streets",
-      "line": "I see trash, rats and dumped junk on my street.",
+      "line": "I see trash, rats, and dumped junk on my street.",
       "page": "societal",
       "group": "community",
       "secondaryGroups": [],
@@ -20211,7 +20453,8 @@
       "maps": {},
       "aliases": [
         "Litter",
-        "Illegal dumping"
+        "Illegal dumping",
+        "I see trash, rats and dumped junk on my street."
       ],
       "relations": [],
       "founderPool": null,
@@ -20268,6 +20511,21 @@
           "unranked": true,
           "own": false,
           "noSource": false
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:39:44+00:00",
+          "prompt": "lint serial-comma (fail) (serial-comma fix, review serial-comma-20261020-151751 p004)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Dirty streets",
+            "line": "I see trash, rats and dumped junk on my street."
+          },
+          "to": {
+            "name": "Dirty streets",
+            "line": "I see trash, rats, and dumped junk on my street."
+          }
         }
       ],
       "unranked": true
@@ -20580,7 +20838,7 @@
     "toxic-chemicals": {
       "id": "toxic-chemicals",
       "name": "Toxic chemicals",
-      "line": "I worry about lead and toxic chemicals in our soil, water and homes.",
+      "line": "I worry about lead and toxic chemicals in our soil, water, and homes.",
       "page": "societal",
       "group": "environment",
       "secondaryGroups": [],
@@ -20609,7 +20867,8 @@
       "aliases": [
         "Lead",
         "Toxic waste",
-        "Chemical contamination"
+        "Chemical contamination",
+        "I worry about lead and toxic chemicals in our soil, water and homes."
       ],
       "relations": [],
       "founderPool": null,
@@ -20662,6 +20921,21 @@
           "unranked": true,
           "own": false,
           "noSource": false
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:39:44+00:00",
+          "prompt": "lint serial-comma (fail) (serial-comma fix, review serial-comma-20261020-151751 p017)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Toxic chemicals",
+            "line": "I worry about lead and toxic chemicals in our soil, water and homes."
+          },
+          "to": {
+            "name": "Toxic chemicals",
+            "line": "I worry about lead and toxic chemicals in our soil, water, and homes."
+          }
         }
       ],
       "unranked": true
@@ -21032,7 +21306,7 @@
     "no-id": {
       "id": "no-id",
       "name": "No ID",
-      "line": "I don't have the ID I need to work, vote or get help.",
+      "line": "I don't have the ID I need to work, vote, or get help.",
       "page": "personal",
       "group": "time",
       "secondaryGroups": [],
@@ -21057,7 +21331,8 @@
       "maps": {},
       "aliases": [
         "Missing ID",
-        "No birth certificate"
+        "No birth certificate",
+        "I don't have the ID I need to work, vote or get help."
       ],
       "relations": [],
       "founderPool": null,
@@ -21086,6 +21361,21 @@
           "unranked": true,
           "own": false,
           "noSource": false
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:39:44+00:00",
+          "prompt": "lint serial-comma (fail) (serial-comma fix, review serial-comma-20261020-151751 p012)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "No ID",
+            "line": "I don't have the ID I need to work, vote or get help."
+          },
+          "to": {
+            "name": "No ID",
+            "line": "I don't have the ID I need to work, vote, or get help."
+          }
         }
       ],
       "unranked": true

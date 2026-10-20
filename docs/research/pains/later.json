@@ -1,4 +1,30 @@
 {
   "schemaVersion": 1,
-  "proposals": []
+  "proposals": [
+    {
+      "kind": "reword",
+      "painIds": [
+        "life-admin"
+      ],
+      "group": "time",
+      "current": {
+        "name": "Too much paperwork",
+        "line": "Forms, bills and calls on hold eat up my week."
+      },
+      "proposed": {
+        "name": "Too much paperwork",
+        "line": "Forms, bills, and calls on hold eat up my week."
+      },
+      "alternatives": [],
+      "why": {
+        "prompt": "lint serial-comma (fail)",
+        "detail": "Adds the Oxford comma the copy style guide now asks for (founder, 2026-10-20). Nothing else changes."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "draft": false,
+      "side": [],
+      "origin": "serial-comma-20261020-151751"
+    }
+  ]
 }
