@@ -35,7 +35,8 @@ The job story is a thinking tool. "When…, I want…, so I can…" never appear
 - **Text** (`whatChanges`): a short feature pitch. Say what it does for the person, verb first, and name the data or tools behind it. Never "It could…", "It would…", or "We'd like It to…", and don't start a sentence with "It". Present tense describes the intended behavior of something It would build; the status marks it as not built.
 - **Title**: what you'd get or be able to do, without "with It" or "It". Name the capability, not a user action: "See employee-owned workplaces near you", not "Find a job at a co-op".
 - **First step**: something the person can do today without It, or "Tell us you'd use this".
-- Keep any fact, number, or name exactly as the cited exemplar gives it.
+- Keep any fact, number, or name exactly as the cited exemplar gives it, and add no detail or claim the exemplar doesn't support.
+- State at most one plain limit, and only when it changes what a person would do.
 
 ## Is it really a Feature?
 

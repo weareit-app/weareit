@@ -76,6 +76,7 @@ class MethodFields(FixStages):
         self.assertIn('fix burnout-d00-k1: practice needs featureIdea', self.issues())
 
 
+class KindPools(FixStages):
     def test_only_kinds_with_a_ceiling_above_zero_get_a_brief(self):
         plan = plan_doc(task=0, habit=1, learn=2)
         for row in list(plan['ceilings'].values())[1:]:

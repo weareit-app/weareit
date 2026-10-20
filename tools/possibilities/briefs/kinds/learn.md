@@ -22,7 +22,7 @@ Fill these in `method` before writing any copy:
 | `ableTo` | What the reader will be able to do afterward, starting with a verb they'd use in their own life ("Spot the renewal and rent-increase terms in your lease.") |
 | `useWhen` | The situation they'll use it in ("Before you sign a lease renewal.") |
 
-You may also add `inMinutes`, a rough time to learn it. It isn't required.
+You may also add `inMinutes`, a rough time to learn it. That field isn't required.
 
 If `ableTo` starts with "know about", "understand", or "learn how [someone else]…", it isn't a Learn. Turn it into what the reader does, or leave it out. Someone else's example ("how one city became a large landlord") can go in the text of another kind, such as an Ask, never in a Learn title.
 

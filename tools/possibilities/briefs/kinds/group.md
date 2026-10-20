@@ -2,13 +2,13 @@
 
 Read `briefs/kinds/_shared.md` first. This brief covers only Group fixes (`kind: group`, origin `kind:group`).
 
-A Group fix is joining a kind of group that already exists in most places: a building's tenant association, a union, a repair café, a parents' group at school. Its title names the group.
+A Group fix is joining a group that already exists where the reader is: a city's tenant union, a building's tenant association where there is one, a union at work, a repair café, or a parents' group at school. Its title names the group.
 
 ## Method
 
 Two methods shape a Group:
 
-- **Start from what's already there** (asset-based community development, from John Kretzmann and John McKnight). Communities already have associations: congregations, PTAs, tenant groups, unions, clubs. Look for one the reader can join before anyone suggests starting one.
+- **Start from what's already there** (asset-based community development, from John Kretzmann and John McKnight). Communities already have associations: congregations, parent-teacher associations, tenant groups, unions, and clubs. Look for one the reader can join before anyone suggests starting one.
 - **Say what members do** (Marshall Ganz's organizing practices: relationships, story, strategy, action, and structure). A group is worth joining for what its members actually do together. Name that, not just that the group exists.
 
 For each accepted dream with a Group ceiling above zero, list kinds of groups that exist in most places and would move a person toward it. Keep only the strongest, up to the ceiling.

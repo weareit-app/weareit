@@ -23,7 +23,7 @@ Fill these in `method` before writing any copy:
 | `cue` | Something the person already does, with a clear end point ("Putting the phone on the charger at night.") |
 | `behavior` | The small behavior that follows it, doable even on a bad day ("Set tomorrow's alarm and leave the phone there.") |
 
-You may also add `replaces`, the behavior the new one stands in for. It isn't required.
+You may also add `replaces`, the behavior the new one stands in for. That field isn't required.
 
 The cue and behavior are a thinking tool. "After I…, I will…" never appears in the copy. The title can still name both in a plain sentence.
 
@@ -49,4 +49,4 @@ Good:
 Bad:
 - **Title:** "Build a better bedtime routine"
 
-There's no cue and no single behavior. It's an outcome, or a Project at most.
+There's no cue and no single behavior. This is an outcome, or a Project at most.

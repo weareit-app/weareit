@@ -9,8 +9,8 @@ A Schedule is something that repeats at a set time: a weekly call with a friend,
 Three methods shape a Schedule:
 
 - **A plan tied to a time** (Peter Gollwitzer's implementation intentions). "Every Sunday at 4pm, I call…" is followed far more often than "I'll call more". A Schedule names the slot.
-- **Commit to someone** (the "Social" part of the Behavioural Insights Team's EAST framework). A standing time with another person is harder to skip than one you keep alone. Look for a Schedule that someone else is part of.
-- **Plan for the obstacle** (Gabriele Oettingen's WOOP: Wish, Outcome, Obstacle, Plan). Name the most likely reason it would lapse and the fallback. If the fallback changes what the reader would do, it can be the copy's one plain limit ("If one of you can't make it, move it to the next evening").
+- **Commit to someone** (the "Social" part of the Behavioural Insights Team's EAST framework: make it Easy, Attractive, Social, and Timely). A standing time with another person is harder to skip than one you keep alone. Look for a Schedule that someone else is part of.
+- **Plan for the obstacle** (Gabriele Oettingen's WOOP: Wish, Outcome, Obstacle, and Plan). Name the most likely reason it would lapse and the fallback. If the fallback changes what the reader would do, it can be the copy's one plain limit ("If one of you can't make it, move it to the next evening").
 
 For each accepted dream with a Schedule ceiling above zero, list what could repeat on the calendar to move a person toward it. Keep only the strongest, up to the ceiling.
 
@@ -49,4 +49,4 @@ Good:
 Bad:
 - **Title:** "Stay in touch more"
 
-There's no cadence, no slot, and no person. It's a wish, not a commitment.
+There's no cadence, no slot, and no person. This is a wish, not a commitment.

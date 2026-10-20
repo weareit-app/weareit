@@ -41,10 +41,10 @@ A Project's status is usually `real_now`.
 
 Good:
 - **Title:** "Organize a tool-lending shelf in your building's laundry room"
-- **Text:** "A shelf, a sign-out sheet, and a dozen donated tools is a weekend's work, and neighbors start talking to each other over it."
-- **Method:** `finishedThing` "A tool-lending shelf with a sign-out sheet in the laundry room.", `doneWhen` "Neighbors have borrowed from it.", `duration` "One weekend", `steps` ["Ask the building manager about the space.", "Collect donated tools.", "Put up the shelf and the sheet."].
+- **Text:** "Putting up a shelf, a sign-out sheet, and a dozen spare tools from neighbors is a weekend's work, and neighbors start talking to each other over it."
+- **Method:** `finishedThing` "A tool-lending shelf with a sign-out sheet in the laundry room.", `doneWhen` "Neighbors have borrowed from it.", `duration` "One weekend", `steps` ["Ask the building manager about the space.", "Collect spare tools from neighbors.", "Put up the shelf and the sheet."].
 
 Bad:
 - **Title:** "Build community in your building"
 
-There's no finished thing and no end. It's a dream, not a Project.
+There's no finished thing and no end. This is a dream, not a Project.
