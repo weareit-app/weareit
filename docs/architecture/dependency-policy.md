@@ -28,10 +28,11 @@ Storybook 10.6.1 (`storybook` and `@storybook/react-native-web-vite`, pinned exa
 
 ## Continuous integration
 
-`.github/workflows/ci.yml` runs on every pull request and on pushes to `master`, so a commit made with `git commit --no-verify` is still checked. It has two jobs that run in parallel:
+`.github/workflows/ci.yml` runs on every pull request and on pushes to `master`, so a commit made with `git commit --no-verify` is still checked. It has three jobs that run in parallel:
 
-- `check`: typecheck, lint, the Vitest unit tests and the jest-expo tests (about 8 seconds of test time).
+- `check`: typecheck, the typecheck coverage check, lint, the Vitest unit tests and the jest-expo tests (about 8 seconds of test time). The coverage check (`tools/typecheck-coverage/`) fails when a tracked TypeScript file is in no project a `typecheck` script runs, since `tsc` skips files outside a tsconfig's `include` without saying so. Root files and the repo tools without a package of their own are in the root `tsconfig.json`, checked by `pnpm run typecheck:root`.
 - `e2e`: the Playwright web tests. It downloads Chromium and starts the Expo web server, so it takes about two minutes and is the job most likely to fail for reasons unrelated to the code. It is a separate job so it does not hold up `check`. On failure it uploads `apps/app/test-results/` (kept 7 days).
+- `stories`: `pnpm storybook:review --no-base`, which builds Storybook and screenshots every story in light and dark with Playwright's Chromium, failing when a story doesn't render. On failure it uploads the report and screenshots (kept 7 days). See `docs/architecture/storybook.md`.
 
 The shared install steps (pnpm, Node, `pnpm install`) live in `.github/actions/setup/action.yml`, so each pin and the Node version appear once. Node is pinned to the version in `mise.toml`; update both together.
 
