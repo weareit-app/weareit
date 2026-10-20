@@ -54,6 +54,12 @@
     - Moves still use the card sorts made on the old wording. Sorts aren't rerun; the founder rejects a move that a reword has made wrong.
 
     *Why:* a "keep both" decision only makes sense against the final wording, and the catalog is already the one source of wording. *Alternative:* update cards on the page as the founder rewords. Rejected, because the page would have to work out the founder's own wording, duplicate flags and ingest order in the browser, and two separate sets give the same result with no new page logic. Founder decision, 2026-10-20.
+11. **Placement waits for ranking.** A new-pain card no longer offers shown or not shown. Accepting it, as proposed or in the founder's own wording, adds the pain with role `not-shown` and `unranked: true`, so it never reaches the editor draft before ranking. Validation allows `unranked` only on accepted, not-shown pains.
+    - Ranking (the `pain-tiers` change) ranks `unranked` pains with the rest of their heading and clears the mark. Its role migration maps `unranked` pains to `secondary`, not `hidden`, and every other `not-shown` pain to `hidden` as planned.
+    - An `alternative` decision on a new pain from a set built before this (Alternative 2, "shown") is read as accept.
+    - Body-mind's 16 new pains, already ingested as 12 shown and 4 not shown, are rewritten once to `not-shown` and `unranked`, with a history entry. None of them is in the editor draft yet, since all were waiting for futures.
+
+    *Why:* choosing shown or not shown before ranking curates a heading twice, and "not shown" would become `hidden`, which ranking skips. Founder decision, 2026-10-20: every accepted new pain is ranked; there is no separate "catalog only" choice in review. *Alternative:* keep the choice and let ranking revisit shown pains only. Rejected, because rare but serious pains accepted as not shown would never be ranked.
 
 ## Risks / Trade-offs
 

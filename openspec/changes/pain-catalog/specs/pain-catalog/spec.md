@@ -7,7 +7,7 @@ The founder's catalog of every known human pain, shown on It's pages or not, and
 ## ADDED Requirements
 
 ### Requirement: Catalog record
-Each pain in the catalog SHALL have a stable ID, a short name, a first-person line, a page (`personal` or `societal`), one primary group with optional secondary groups, a status (`candidate`, `accepted`, `merged`, `retired` or `rejected`), a role (`shown` or `not-shown`), sourced evidence of how common it is, outside framework references in one shape, aliases, relations, a sensitivity tag and a decision history.
+Each pain in the catalog SHALL have a stable ID, a short name, a first-person line, a page (`personal` or `societal`), one primary group with optional secondary groups, a status (`candidate`, `accepted`, `merged`, `retired` or `rejected`), a role (`shown` or `not-shown`), sourced evidence of how common it is, outside framework references in one shape, aliases, relations, a sensitivity tag, a decision history and, until ranking places it, a mark that a newly accepted pain is waiting for ranking.
 
 #### Scenario: Missing field
 - **WHEN** a pain in the catalog has no line or no page
@@ -41,6 +41,17 @@ Only accepted pains with the role `shown` SHALL be sent toward the pages. The ca
 #### Scenario: Accepted but not shown
 - **WHEN** an accepted pain has the role `not-shown`
 - **THEN** ingest never adds it to the content editor draft
+
+### Requirement: New pains wait for ranking
+Review SHALL NOT ask the founder whether a new pain is shown. A new pain the founder accepts, as proposed or in their own wording, SHALL be added with the role `not-shown` and marked as waiting for ranking, so it stays out of the editor draft until ranking proposes where it sits. Validation SHALL allow the mark only on accepted pains with the role `not-shown`.
+
+#### Scenario: Accepting a new pain
+- **WHEN** the founder accepts the new pain Pests and ingest runs
+- **THEN** the catalog holds Pests as accepted, not shown and waiting for ranking, and the editor draft is unchanged
+
+#### Scenario: The new-pain card
+- **WHEN** the founder opens a new pain in the review page
+- **THEN** it offers accept, their own wording, reject and later, and no choice between shown and not shown
 
 ### Requirement: Discovery runs on demand
 Discovery SHALL be runnable for one group, one page or the whole catalog, at any time. Each sweep SHALL be saved as its own run without overwriting earlier ones, and SHALL return only candidates.
@@ -179,10 +190,10 @@ Ingest SHALL write accepted wording and group changes for pains already in the c
 - **THEN** the editor draft has the new description for `poor-sleep`, and the change note lists the decision
 
 ### Requirement: New shown pains wait for futures
-Ingest SHALL add a new pain with the role `shown` to the editor draft only once it has futures the founder approved. Until then the catalog SHALL list it as "accepted, waiting for futures".
+Ingest SHALL add a pain newly given the role `shown`, and not yet in the editor draft, to the draft only once it has futures the founder approved. Until then the catalog SHALL list it as "accepted, waiting for futures".
 
 #### Scenario: No futures yet
-- **WHEN** a newly accepted shown pain has no approved futures
+- **WHEN** a pain newly given the role `shown` has no approved futures
 - **THEN** ingest leaves it out of the draft and lists it as waiting for futures
 
 ### Requirement: Ingest never publishes

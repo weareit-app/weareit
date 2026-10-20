@@ -50,7 +50,13 @@
 - [x] 8.2 Update `/pains-review`, `tools/pains/README.md` and `data-model.md` to describe the two steps, and verify the skill names the commands that exist
 - [ ] 8.3 Move the open review sets onto two steps. Build a people-home wording set that carries over the founder's wording decisions already made. Rebuild the five unstarted sets as wording sets. Build each structure set after its wording ingest. Verify each set builds and opens
 
-## Workflow follow-up
+## 9. Placement waits for ranking
+
+- [ ] 9.1 In ingest, add every accepted new pain (accepted or own wording, including an `alternative` from an older set) with role `not-shown` and `unranked: true`, and have `validate` allow `unranked` only on accepted, not-shown pains. Verify with tests for an accepted new pain, an older set's "Alternative 2" and a misplaced mark
+- [ ] 9.2 Make the new-pain card offer accept, own wording, reject and later only, with help text saying ranking decides where it sits, and update `README.md`, `data-model.md` and `/pains-review`. Verify by opening a rebuilt set in the browser
+- [ ] 9.3 Rewrite body-mind's 16 new pains to `not-shown` and `unranked` with a history entry, then rebuild the six open wording sets, carrying over the founder's decisions. Verify `validate` passes, the editor draft is unchanged, and each set opens with its decisions in place
+- [ ] 9.4 Ask the `pain-tiers` session to map `unranked` pains to `secondary` in its role migration, and to rank them. Verify its spec names the mark
+
 
 - Update the `docs/spec/MIGRATION.md` row for `specs/004-pain-catalog/` once this change is confirmed, then plan the full sweep.
 - Archive with `/opsx:archive` after the pilot, then sync `pain-catalog` and `possibility-generator` specs.
