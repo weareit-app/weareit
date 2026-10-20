@@ -28,6 +28,10 @@ const chart = {
   title: "Reported incidents per year",
   description: "Incidents rose each year from 2020 to 2024.",
   spec: { mark: "line" },
+  columns: [
+    { key: "year", label: "Year" },
+    { key: "count", label: "Incidents" },
+  ],
   data: [{ year: 2020, count: 3 }],
   source: "plan",
   unit: "incidents",
@@ -91,13 +95,36 @@ describe("block data", () => {
     expect(blockSchemas.chart.safeParse(chart).success).toBe(true);
   });
 
-  it.each(["unit", "source", "timeframe", "updated", "population"])(
+  it.each(["unit", "source", "timeframe", "updated", "population", "columns"])(
     "rejects a chart without %s",
     (field) => {
       const { [field as keyof typeof chart]: _, ...rest } = chart;
       expect(blockSchemas.chart.safeParse(rest).success).toBe(false);
     },
   );
+
+  it("rejects a chart spec that brings its own data, so nothing is fetched", () => {
+    const spec = { ...chart.spec, data: { url: "https://example.com/d.csv" } };
+    expect(blockSchemas.chart.safeParse({ ...chart, spec }).success).toBe(
+      false,
+    );
+  });
+
+  it("rejects a URL anywhere in a chart spec", () => {
+    const spec = {
+      layer: [{ mark: { type: "image", url: "https://example.com/a.png" } }],
+    };
+    expect(blockSchemas.chart.safeParse({ ...chart, spec }).success).toBe(
+      false,
+    );
+  });
+
+  it("rejects chart rows with columns it doesn't declare", () => {
+    const data = [...chart.data, { year: 2021, incidents: 5 }];
+    expect(blockSchemas.chart.safeParse({ ...chart, data }).success).toBe(
+      false,
+    );
+  });
 
   it("labels evidence with a status from the fixed list", () => {
     const evidence = {

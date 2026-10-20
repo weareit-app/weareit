@@ -38,3 +38,27 @@ export const dataContext = {
   uncertainty: text.optional(),
   updated: isoDate,
 };
+
+/** A table or chart column: the row key and its heading. */
+export const dataColumns = z
+  .array(z.strictObject({ key: text, label: text }))
+  .min(1);
+
+/** Reports each row value whose key isn't one of the declared columns. */
+export function checkRowKeys(
+  columns: readonly { key: string }[],
+  rows: readonly Record<string, unknown>[],
+  rowsPath: string,
+  ctx: z.RefinementCtx,
+) {
+  const keys = new Set(columns.map((column) => column.key));
+  rows.forEach((row, index) => {
+    for (const key of Object.keys(row))
+      if (!keys.has(key))
+        ctx.addIssue({
+          code: "custom",
+          path: [rowsPath, index, key],
+          message: `"${key}" is not one of the declared columns`,
+        });
+  });
+}
