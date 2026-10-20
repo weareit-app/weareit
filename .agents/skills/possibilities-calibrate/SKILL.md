@@ -9,7 +9,7 @@ Shared rules, layout and helper commands: `tools/possibilities/README.md`. Read 
 ## Build and publish a round
 
 1. **Build the set.**
-   - For calibration, check that `docs/research/possibilities/calibration/baseline.json` holds the old cards and every known pain has a selected run. Then run `calibrate-build`.
+   - For calibration, check that `docs/research/possibilities/calibration/baseline.json` holds the old cards and every known pain has a selected card run (`selection.json`) or a ranked staged run (`ranking.json`). Then run `calibrate-build`.
    - For an audit, run `audit-build <runs…>`.
 
    Done when the set and the key exist.
