@@ -110,7 +110,7 @@ async function renderExplorer(graph: ContentGraph) {
   });
   await render(
     <QueryClientProvider client={queryClient}>
-      <PainExplorer scope="personal" header={() => null} next="/world" />
+      <PainExplorer scope="personal" header={() => null} next="/onboarding/world" />
     </QueryClientProvider>,
   );
   await fireEvent.press(screen.getByRole("button", { name: /Mind/ }));
@@ -124,7 +124,7 @@ describe("PainExplorer with roadmap items", () => {
     await renderExplorer(content("in-progress"));
 
     expect(screen.getByText("Check-ins with someone who gets it")).toBeTruthy();
-    expect(screen.getByRole("button", { name: "In Progress" })).toBeTruthy();
+    expect(screen.getByRole("button", { name: "In progress" })).toBeTruthy();
     expect(screen.queryByRole("button", { name: "Planned" })).toBeNull();
   });
 

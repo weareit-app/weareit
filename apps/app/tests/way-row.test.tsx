@@ -1,6 +1,17 @@
+import {
+  CircleCheck,
+  Compass,
+  Hammer,
+  Lightbulb,
+  ListTodo,
+} from "lucide-react-native";
 import { fireEvent, render, screen } from "@testing-library/react-native";
 import { featureStatuses, type ContentFix } from "@it/content/graph-schema";
-import { WayRow, type WayChip } from "../src/components/personal/way-row";
+import {
+  statusCopy,
+  WayRow,
+  type WayChip,
+} from "../src/components/personal/way-row";
 
 const notYet =
   "Something It would offer. It isn't available yet; choosing it tells us to build it.";
@@ -33,8 +44,8 @@ async function renderRow(fix: ContentFix, openChip: WayChip | null = null) {
 }
 
 const labels = {
-  shipped: "Shipped",
-  "in-progress": "In Progress",
+  live: "Live",
+  "in-progress": "In progress",
   planned: "Planned",
   exploring: "Exploring",
   idea: "Idea",
@@ -50,11 +61,11 @@ describe("WayRow feature statuses", () => {
   });
 
   const details = {
-    shipped: /available in It now/,
-    "in-progress": /being built now/i,
-    planned: /not built yet/,
-    exploring: /looked into/,
-    idea: /Nothing is built or scheduled yet/,
+    live: "Available to use.",
+    "in-progress": "Being built right now.",
+    planned: "A decision has been made to build it.",
+    exploring: "Investigating what might work, without committing yet.",
+    idea: "A possibility someone has proposed.",
   } as const;
 
   it.each(featureStatuses)("explains the %s status", async (status) => {
@@ -63,7 +74,7 @@ describe("WayRow feature statuses", () => {
     expect(screen.getByText(details[status])).toBeTruthy();
   });
 
-  it.each(featureStatuses.filter((status) => status !== "shipped"))(
+  it.each(featureStatuses.filter((status) => status !== "live"))(
     "says a %s feature isn't available yet",
     async (status) => {
       await renderRow(feature(status), "type");
@@ -72,24 +83,23 @@ describe("WayRow feature statuses", () => {
     },
   );
 
-  it("says a Shipped feature is available in It now", async () => {
-    await renderRow(feature("shipped"), "type");
+  it("says a Live feature is available in It now", async () => {
+    await renderRow(feature("live"), "type");
 
     expect(screen.getByText(/available in It now/)).toBeTruthy();
     expect(screen.queryByText(/isn't available yet/)).toBeNull();
     expect(screen.queryByText(/tells us to build it/)).toBeNull();
   });
 
-  it("says a Shipped status is available in It now", async () => {
-    await renderRow(feature("shipped"), "status");
+  const icons = {
+    live: CircleCheck,
+    "in-progress": Hammer,
+    planned: ListTodo,
+    exploring: Compass,
+    idea: Lightbulb,
+  } as const;
 
-    expect(screen.getByText(/available in It now/)).toBeTruthy();
-  });
-
-  it("says an In Progress status is being built and not available yet", async () => {
-    await renderRow(feature("in-progress"), "status");
-
-    expect(screen.getByText(/being built/i)).toBeTruthy();
-    expect(screen.getByText(/not available yet/i)).toBeTruthy();
+  it.each(featureStatuses)("marks the %s status with its icon", (status) => {
+    expect(statusCopy[status].icon).toBe(icons[status]);
   });
 });

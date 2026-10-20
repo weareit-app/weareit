@@ -7,7 +7,7 @@ const calendarDateSchema = z.iso.date();
 export const fixKinds = ["once", "habit", "group", "feature"] as const;
 // Roadmap order: live, being built, decided, being looked into, undecided.
 export const featureStatuses = [
-  "shipped",
+  "live",
   "in-progress",
   "planned",
   "exploring",

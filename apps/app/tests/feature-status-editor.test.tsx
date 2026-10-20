@@ -76,7 +76,7 @@ describe("FeatureStatusEditor", () => {
       />,
     );
 
-    await fireEvent.press(screen.getByRole("button", { name: "In Progress" }));
+    await fireEvent.press(screen.getByRole("button", { name: "In progress" }));
     await fireEvent.changeText(
       screen.getByLabelText("Status date"),
       "2026-10-20",
@@ -134,7 +134,7 @@ describe("refuseStatusChangesWithoutNotes", () => {
     expect(
       refuseStatusChangesWithoutNotes(
         [feature],
-        [{ ...feature, featureStatus: "shipped" }],
+        [{ ...feature, featureStatus: "live" }],
       ),
     ).toBe(
       "Not saved. check-ins: Add a note saying what changed before changing the status.",
@@ -142,7 +142,7 @@ describe("refuseStatusChangesWithoutNotes", () => {
     expect(
       refuseStatusChangesWithoutNotes(
         [feature],
-        [{ ...feature, featureStatus: "shipped", statusNote: "Live." }],
+        [{ ...feature, featureStatus: "live", statusNote: "Live." }],
       ),
     ).toBeNull();
   });

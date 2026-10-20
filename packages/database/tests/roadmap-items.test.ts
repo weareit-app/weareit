@@ -106,6 +106,15 @@ describe.skipIf(!connectionString)("roadmap items in Postgres", () => {
     ).rejects.toThrow(/content_fixes_feature_status_check/);
   });
 
+  it("refuses an item status outside the five", async () => {
+    await expect(
+      db
+        .updateTable("roadmap_items")
+        .set({ status: "shipped" as never })
+        .execute(),
+    ).rejects.toThrow(/roadmap_items_status_check/);
+  });
+
   it("refuses an item status change without a new note", async () => {
     const draft = await readDraftContent(db);
     const content = {

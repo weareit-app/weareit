@@ -1,6 +1,6 @@
 import { sql, type Kysely } from "kysely";
 
-const statuses = sql`('shipped', 'in-progress', 'planned', 'exploring', 'idea')`;
+const statuses = sql`('live', 'in-progress', 'planned', 'exploring', 'idea')`;
 
 // Roadmap items, and each Feature fix's optional connection to one. A
 // connected fix has no status, date or note of its own: it takes its item's.

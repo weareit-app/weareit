@@ -79,15 +79,18 @@ describe.skipIf(!connectionString)("five feature statuses in Postgres", () => {
     expect((await readDraftContent(db)).content.fixes).toEqual(graph.fixes);
   });
 
-  it("refuses a status outside the five", async () => {
-    await expect(
-      db
-        .updateTable("content_fixes")
-        .set({ feature_status: "someday" as never })
-        .where("kind", "=", "feature")
-        .execute(),
-    ).rejects.toThrow(/content_fixes_feature_status_check/);
-  });
+  it.each(["someday", "shipped"])(
+    "refuses %s, which is not one of the five",
+    async (status) => {
+      await expect(
+        db
+          .updateTable("content_fixes")
+          .set({ feature_status: status as never })
+          .where("kind", "=", "feature")
+          .execute(),
+      ).rejects.toThrow(/content_fixes_feature_status_check/);
+    },
+  );
 
   it("saves a status change with its note and records the date", async () => {
     const draft = await readDraftContent(db);
@@ -131,7 +134,7 @@ describe.skipIf(!connectionString)("five feature statuses in Postgres", () => {
       ...draft.content,
       fixes: draft.content.fixes.map((fix) =>
         fix.id === feature.id
-          ? { ...fix, featureStatus: "shipped" as const }
+          ? { ...fix, featureStatus: "live" as const }
           : fix,
       ),
     };

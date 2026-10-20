@@ -116,7 +116,7 @@ describe("RoadmapEditor", () => {
     const latest = await renderEditor();
 
     await press("Use It in Spanish");
-    await press("In Progress");
+    await press("In progress");
     expect(
       screen.getByText(
         "Add a note saying what changed before changing the status.",
@@ -228,7 +228,7 @@ describe("refuseRoadmapStatusChangesWithoutNotes", () => {
     expect(
       refuseRoadmapStatusChangesWithoutNotes(
         [spanish],
-        [{ ...spanish, status: "shipped" }],
+        [{ ...spanish, status: "live" }],
       ),
     ).toBe(
       "Not saved. use-it-in-spanish: Add a note saying what changed before changing the status.",
@@ -236,7 +236,7 @@ describe("refuseRoadmapStatusChangesWithoutNotes", () => {
     expect(
       refuseRoadmapStatusChangesWithoutNotes(
         [spanish],
-        [{ ...spanish, status: "shipped", statusNote: "Live." }],
+        [{ ...spanish, status: "live", statusNote: "Live." }],
       ),
     ).toBeNull();
   });

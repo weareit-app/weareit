@@ -37,11 +37,11 @@ Builds after `required-signup-gate` task 5.1 (menu button and Account). Essays p
 
 - [x] 5.1 Widen `featureStatuses` to five values in `graph-schema.ts` and `fixes.ts` and add `statusChangedOn` and `statusNote`; verify schema tests and that existing content still validates (#46; `roadmapItemId` and the connected-fix rule moved to 5.2)
 - [x] 5.2 Add `roadmapItemId` to fixes in the graph schema, rejecting a connected fix that has its own status, and the migration (`roadmap_items` table, nullable `roadmap_item_id` on fixes) and the import/publish path; verify with migration and repository tests, including rollback of a content version (the widened status check and the status date and note on fixes landed in migration 006 with #46)
-- [x] 5.3 Update `statusCopy` and the Feature explanation in `way-row.tsx` and `pain-row.tsx` (Shipped says available); verify with component tests for all five statuses
+- [x] 5.3 Update `statusCopy` and the Feature explanation in `way-row.tsx` and `pain-row.tsx` (Live says available); verify with component tests for all five statuses
 - [ ] 5.4 Add `roadmap.getPublished` to the oRPC contract and router (items with connected fixes, then unconnected Feature fixes, grouped by status, with pain slugs; connected fixes take the item's status); verify with an API test against a seeded published version
 - [x] 5.5 Add a Roadmap section to the CMS: full editing of items, including connecting Feature fixes; a status change requires a note; verify with a CMS test that a connected fix shows the item's status in the explorer (Feature fix status, date and note, with a status change refused without a note, landed with #46 as the CMS "Feature statuses" panel)
 - [ ] 5.6 Build `/roadmap` (intro essay, status groups with explanations, items with date, note and pain links) via TanStack Query; verify in the web preview and with a screen-reader pass
-- [x] 5.7 Update `fix-evidence-levels`' "Feature honesty kept" scenario for the five statuses and the Shipped exception; verify with `openspec validate --all`
+- [x] 5.7 Update `fix-evidence-levels`' "Feature honesty kept" scenario for the five statuses and the Live exception; verify with `openspec validate --all`
 
 ## 6. Measurement, privacy and docs
 

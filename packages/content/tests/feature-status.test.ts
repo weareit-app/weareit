@@ -22,7 +22,7 @@ const feature: ContentFix = {
 describe("feature statuses", () => {
   it("lists the five roadmap statuses in roadmap order", () => {
     expect(featureStatuses).toEqual([
-      "shipped",
+      "live",
       "in-progress",
       "planned",
       "exploring",
@@ -124,7 +124,7 @@ describe("applyFeatureStatusChanges", () => {
       [
         {
           ...feature,
-          featureStatus: "shipped",
+          featureStatus: "live",
           statusChangedOn: "2026-10-18",
           statusNote: "Live in It.",
         },
