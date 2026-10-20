@@ -308,14 +308,19 @@ def last_rejection(record):
                  and (h.get('kind') == 'reject' or h.get('to') == 'cut')), None)
 
 
-def check_candidates(catalog, doc):
-    """Validate a sweep's candidates and sort them into proposed, drafts and skipped. Never changes the catalog."""
+def check_candidates(catalog, doc, origin=None):
+    """Validate a sweep's candidates and sort them into proposed, drafts and skipped. Never changes the catalog.
+    `origin` is the sweep's run path: a candidate this sweep already brought into the catalog is skipped, not an issue."""
     issues, proposed, drafts, skipped, covered = [], [], [], [], []
     words, entries = pain_index(catalog)
     groups = {g['id']: g for g in catalog['groups']}
     seen = {}
     for key, c in doc.get('candidates', {}).items():
         where = 'candidate ' + key
+        record = catalog['pains'].get(key)
+        if origin and record and any(origin in h.get('prompt', '') for h in record['history']):
+            skipped.append({'candidate': key, 'reason': 'already decided from this sweep'})
+            continue
         require(ID.fullmatch(key) and c.get('id', key) == key, where + ': bad ID', issues)
         require(key not in catalog['pains'], where + ': ID already used by a catalog record; IDs are never reused', issues)
         for field in ('name', 'line', 'page', 'group'):
@@ -360,20 +365,26 @@ def check_candidates(catalog, doc):
 
 def sweep_check(root, run):
     run = Path(run)
-    result = check_candidates(load(root), read(run / 'candidates.json'))
+    origin = str(run.resolve().relative_to(Path(root).resolve()))
+    result = check_candidates(load(root), read(run / 'candidates.json'), origin)
     result['checkedAt'] = today()
     write(run / 'check.json', result)
     return result
 
 
-def coverage(root, run):
-    """Per outside list: covered share and each uncovered entry with its reason. Counted per list, never summed."""
+def coverage(root, run, origin=None):
+    """Per outside list: covered share and each uncovered entry with its reason. Counted per list, never summed.
+    `origin` is the run's path in the repository, when `run` is a copy unpacked from an archive."""
     run = Path(run)
     catalog = load(root)
     lists = read(run / 'lists.json')['lists']
     mapping = read(run / 'mapping.json')['entries'] if (run / 'mapping.json').is_file() else {}
     candidates = read(run / 'candidates.json').get('candidates', {}) if (run / 'candidates.json').is_file() else {}
-    check = read(run / 'check.json') if (run / 'check.json').is_file() else {'proposed': [], 'drafts': [], 'covered': []}
+    if (run / 'check.json').is_file():
+        check = read(run / 'check.json')
+    else:  # derived, so rebuilt rather than read when it isn't there
+        origin = origin or str(run.resolve().relative_to(Path(root).resolve()))
+        check = check_candidates(catalog, {'candidates': candidates}, origin)
     waiting = {c['candidate'] for c in check['proposed'] + check['drafts']}
     by_entry = {}
     for p in catalog['pains'].values():
@@ -860,6 +871,73 @@ def review_build(root, runs, name=None, extra=(), stage=None):
             'byKind': {k: sum(p['kind'] == k for p in proposals) for k in sorted({p['kind'] for p in proposals})}}
 
 
+
+# ---------- archive ----------
+
+ARCHIVE = DATA_ROOT + '/archive'
+# Rebuilt from a run's inputs whenever needed, so never committed or archived (design decision 12).
+DERIVED = {'check.json', 'coverage.json', 'coverage.md', 'lint.json', 'balance.json', 'refine-check.json', 'review.html'}
+
+
+def batch_name(set_id):
+    return re.sub(r'-(wording|structure)$', '', re.sub(r'-\d{8}-\d{6}(-\d+)?$', '', set_id))
+
+
+def archive(root, set_dirs, name=None):
+    """Fold closed review sets, and every run and set that shares their runs, into one JSON Lines file, then remove them."""
+    root = Path(root)
+    every = {f.name: read(f / 'proposals.json')['runs'] for f in sorted((root / REVIEWS).glob('*'))
+             if (f / 'proposals.json').is_file()} if (root / REVIEWS).is_dir() else {}
+    sets = {Path(s).name for s in set_dirs}
+    runs = {r for s in sets for r in every.get(s, [])}
+    grew = True
+    while grew:  # a batch is every set drawing on these runs, and every run those sets draw on
+        more = {s for s, rs in every.items() if set(rs) & runs} - sets
+        grew = bool(more)
+        sets |= more
+        runs |= {r for s in more for r in every[s]}
+    open_sets = sorted(s for s in sets if not (root / REVIEWS / s / 'ingested.json').is_file())
+    if open_sets:
+        raise CheckError('not archived: %s still open; ingest it first' % ', '.join(open_sets))
+    out = root / ARCHIVE / ((name or batch_name(sorted(sets)[0])) + '.jsonl')
+    if out.exists():
+        raise CheckError('%s already exists; archives are never overwritten' % out.relative_to(root))
+    folders = [(('sweep' if (root / r / 'sweep.json').is_file() else 'refine'), root / r) for r in sorted(runs)]
+    folders += [('review', root / REVIEWS / s) for s in sorted(sets)]
+    lines = []
+    for kind, folder in folders:
+        for f in sorted(p for p in folder.rglob('*') if p.is_file() and p.name not in DERIVED):
+            text = f.read_text()
+            data = json.loads(text) if f.suffix == '.json' else text
+            lines.append(json.dumps({'kind': kind, 'path': str(f.relative_to(root)), 'data': data}, ensure_ascii=False))
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text('\n'.join(lines) + '\n')
+    import shutil
+    for _, folder in folders:
+        shutil.rmtree(folder)
+        if folder.parent != root / REVIEWS and not any(folder.parent.iterdir()):
+            folder.parent.rmdir()  # an empty scope folder, such as sweeps/home
+    return {'archive': str(out.relative_to(root)), 'sets': sorted(sets), 'runs': sorted(runs), 'files': len(lines)}
+
+
+def unpack(root, archive_path, prefix, dest):
+    """Write the archived files under `prefix` (a run or set path) into `dest`, keeping their paths. Returns dest/prefix."""
+    dest = Path(dest)
+    for line in (Path(root) / archive_path).read_text().splitlines():
+        record = json.loads(line)
+        if record['path'].startswith(prefix.rstrip('/') + '/'):
+            target = dest / record['path']
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(json.dumps(record['data'], indent=2, ensure_ascii=False) + '\n' if isinstance(record['data'], (dict, list)) else record['data'])
+    return dest / prefix
+
+
+def coverage_archived(root, archive_path, run):
+    """Coverage for a sweep folded into an archive: the same result as `coverage` on its folder, written nowhere."""
+    import tempfile
+    with tempfile.TemporaryDirectory() as tmp:
+        return coverage(root, unpack(root, archive_path, run, tmp), origin=run)
+
 # ---------- ingest ----------
 
 HEADING_MIN, HEADING_MAX = 4, 8
@@ -1247,12 +1325,12 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('command', choices=('validate', 'seed', 'render', 'resolve', 'sweep-new', 'sweep-check', 'coverage',
                                             'refine-new', 'refine-lint', 'sort-input', 'refine-check', 'review-build',
-                                            'ingest', 'drift'))
+                                            'ingest', 'drift', 'archive'))
     parser.add_argument('targets', nargs='*')
     parser.add_argument('--root', type=Path, default=Path.cwd())
     parser.add_argument('--force', action='store_true', help='seed: overwrite an existing catalog')
     parser.add_argument('--seed', type=int, default=0, help='sort-input: shuffle seed, one per sorter')
-    parser.add_argument('--name', help='review-build: a short name for the review set, such as money-economy')
+    parser.add_argument('--name', help='review-build: a short name for the review set, such as money-economy; archive: the archive file name')
     parser.add_argument('--stage', choices=tuple(STAGES), help='review-build: wording (new pains, rewordings) or structure (overlaps, moves), built after the wording set is ingested')
     parser.add_argument('--dry-run', action='store_true', help='ingest: print the catalog and editor changes, write nothing')
     parser.add_argument('--review', action='store_true', help='drift: also build a review set to bring editor wording back')
@@ -1271,6 +1349,14 @@ def main():
         if len(args.targets) != 1:
             parser.error('sweep-new needs one scope: a group ID, personal, societal or all')
         out = sweep_new(root, args.targets[0])
+    elif args.command == 'coverage' and len(args.targets) == 2 and args.targets[0].endswith('.jsonl'):
+        out = coverage_archived(root, inside(args.targets[0], ARCHIVE).relative_to(root), args.targets[1])
+        print(json.dumps(out, indent=2, ensure_ascii=False))
+        return 1 if out['issues'] else 0
+    elif args.command == 'archive':
+        if not args.targets:
+            parser.error('archive needs one or more ingested review set directories')
+        out = archive(root, [inside(t, REVIEWS) for t in args.targets], args.name)
     elif args.command in ('sweep-check', 'coverage'):
         if len(args.targets) != 1:
             parser.error(args.command + ' needs a sweep run directory')

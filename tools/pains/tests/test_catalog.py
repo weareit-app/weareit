@@ -856,5 +856,61 @@ class CmsClientTest(unittest.TestCase):
         self.assertEqual(seen[1][2], {'json': {'expectedRevision': 7, 'changeNote': 'note', 'content': {}}})
 
 
+class ArchiveTest(Base):
+    def setUp(self):
+        super().setUp()
+        self.sweep, self.refine = fixture_runs(self.tmp)
+        self.cms = FakeCms(draft_from(catalog.load(self.tmp)))
+
+    def build_and_ingest(self, stage):
+        out = catalog.review_build(self.tmp, [self.sweep, self.refine], 'batch', stage=stage)
+        set_dir = self.tmp / out['set']
+        doc = catalog.read(set_dir / 'proposals.json')
+        path = set_dir / 'decisions.json'
+        catalog.write(path, {'schemaVersion': 1, 'setId': doc['setId'], 'decisions': {
+            p['id']: {'decision': 'reject' if p['kind'] == 'add' else 'accept', 'note': ''} for p in doc['proposals']}})
+        catalog.ingest(self.tmp, set_dir, path, client=self.cms, date='2026-10-21')
+        return set_dir
+
+    def test_finished_batch_folds_into_one_file(self):
+        wording = self.build_and_ingest('wording')
+        structure = self.build_and_ingest('structure')
+        out = catalog.archive(self.tmp, [wording])  # finds the structure set that shares the runs
+        archive = self.tmp / out['archive']
+        self.assertEqual(archive.name, 'batch.jsonl')
+        records = [json.loads(line) for line in archive.read_text().splitlines()]
+        paths = {r['path'] for r in records}
+        self.assertIn(str((self.sweep / 'candidates.json').relative_to(self.tmp)), paths)
+        self.assertIn(str((self.refine / 'sorts/1.json').relative_to(self.tmp)), paths)
+        self.assertIn(str((structure / 'decisions.json').relative_to(self.tmp)), paths)
+        self.assertFalse(any(p.endswith(('check.json', 'lint.json', 'review.html')) for p in paths))
+        for folder in (self.sweep, self.refine, wording, structure):
+            self.assertFalse(folder.exists(), folder)
+
+    def test_open_set_is_named_and_nothing_moves(self):
+        wording = self.build_and_ingest('wording')
+        structure = self.tmp / catalog.review_build(self.tmp, [self.sweep, self.refine], 'batch', stage='structure')['set']
+        with self.assertRaises(catalog.CheckError) as caught:
+            catalog.archive(self.tmp, [wording])
+        self.assertIn(structure.name, str(caught.exception))
+        self.assertTrue(self.sweep.exists() and wording.exists())
+        self.assertFalse((self.tmp / catalog.ARCHIVE).exists())
+
+    def test_coverage_from_an_archive_matches_the_folder(self):
+        catalog.write(self.sweep / 'lists.json', {'lists': {'gallup-mip': {'name': 'Most Important Problem', 'url': 'https://example.org/mip',
+            'accessed': '2026-10-19', 'entries': {'scams-and-fraud': {'name': 'Fraud'}, 'insurance-costs': {'name': 'Insurance'},
+                                                  'debt': {'name': 'Debt'}}}}})
+        catalog.write(self.sweep / 'mapping.json', {'entries': {'gallup-mip/scams-and-fraud': {'candidate': 'scams-and-fraud'},
+            'gallup-mip/insurance-costs': {'candidate': 'insurance-costs'}, 'gallup-mip/debt': {'painId': 'debt', 'why': 'same'}}})
+        wording = self.build_and_ingest('wording')
+        self.build_and_ingest('structure')
+        before = catalog.coverage(self.tmp, self.sweep)['lists']
+        run = str(self.sweep.relative_to(self.tmp))
+        out = catalog.archive(self.tmp, [wording])
+        after = catalog.coverage_archived(self.tmp, out['archive'], run)['lists']
+        self.assertEqual(after, before)
+        self.assertEqual((after['gallup-mip']['covered'], after['gallup-mip']['entries']), (1, 3))
+
+
 if __name__ == '__main__':
     unittest.main()
