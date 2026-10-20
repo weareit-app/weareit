@@ -37,7 +37,7 @@ Ready for one grilling round: 11 questions, so three `AskUserQuestion` calls (4 
    - Only on `/principles`, not on `/future`.
    - As its own section with the steps it would take.
 
-7. **What goes in the "Demonstrated in a prototype" box of the chain?**
+7. **What goes in the "Shown in a prototype" box of the chain?**
    - "Nothing yet", stated plainly (Recommended): an honest empty box is better than a stretched claim.
    - The roadmap loop, where interest from real people informs what gets built (once it's running).
 
