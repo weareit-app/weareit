@@ -1,0 +1,30 @@
+{
+  "alternatives": {
+    "nobody-covers-here": [
+      {
+        "name": "No local news",
+        "line": "Nobody reports on my town any more, so I don't know what's going on here.",
+        "why": "Brings back what the ID names (no one covering here) and says why the person doesn't know, while the problem-style name matches Misinformation if the founder wants one style for the heading."
+      },
+      {
+        "name": "Local news",
+        "line": "Nobody reports on what's happening in my town any more.",
+        "why": "Keeps the current name and the plain everyday sentence, but points at the missing coverage rather than the person's own not knowing."
+      }
+    ],
+    "watched-by-companies": [
+      {
+        "name": "Being tracked",
+        "line": "I feel watched by companies that know everything about me.",
+        "why": "Same line; the problem-style name says what is wrong, so the heading no longer mixes Misinformation (a problem) with Privacy (an area)."
+      }
+    ],
+    "dont-know-whats-true": [
+      {
+        "name": "Knowing what's true",
+        "line": "I don't know what's true any more.",
+        "why": "Same line; an area-style name matching Local news and Privacy, the other way to give the heading one style."
+      }
+    ]
+  }
+}

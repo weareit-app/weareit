@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "candidates": {
+    "tired-of-politics": {
+      "id": "tired-of-politics",
+      "name": "Tired of politics",
+      "line": "Thinking about politics leaves me worn out and angry.",
+      "page": "societal",
+      "group": "making-change",
+      "aliases": [
+        "Political fatigue",
+        "Politics exhausts me"
+      ],
+      "sources": [
+        {
+          "url": "https://www.pewresearch.org/politics/2023/09/19/americans-dismal-views-of-the-nations-politics/",
+          "accessed": "2026-10-19",
+          "passage": "nearly two-thirds of Americans (65%) say they always or often feel exhausted when thinking about politics, while 55% feel angry. By contrast, just 10% say they always or often feel hopeful about politics"
+        }
+      ],
+      "prevalence": "65% of U.S. adults always or often feel exhausted thinking about politics, 55% feel angry, and just 10% feel hopeful (Pew Research Center survey).",
+      "covers": [
+        {
+          "list": "pew-politics-2023",
+          "entry": "exhausted"
+        },
+        {
+          "list": "pew-politics-2023",
+          "entry": "angry"
+        },
+        {
+          "list": "pew-politics-2023",
+          "entry": "hopeful"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q1038864"
+        }
+      ]
+    },
+    "no-time-to-help": {
+      "id": "no-time-to-help",
+      "name": "Time to volunteer",
+      "line": "I'd like to get involved, but work and family leave me no time.",
+      "page": "societal",
+      "group": "making-change",
+      "aliases": [
+        "No time to help",
+        "Too busy to volunteer"
+      ],
+      "sources": [
+        {
+          "url": "https://www.gov.uk/government/statistics/community-life-survey-202425-annual-publication/community-life-survey-202425-volunteering-and-charitable-giving",
+          "accessed": "2026-10-19",
+          "passage": "the most common barriers to participating in formal volunteering were:: ‘I have work commitments’ – 51% ‘I do other things in my spare time’ – 32% ‘I have to look after children’ – 22%"
+        }
+      ],
+      "prevalence": "In England, 51% of adults who did not volunteer monthly named work commitments as a barrier and 22% named looking after children (Community Life Survey).",
+      "covers": [
+        {
+          "list": "uk-community-life-volunteering-2024-25",
+          "entry": "work-commitments"
+        },
+        {
+          "list": "uk-community-life-volunteering-2024-25",
+          "entry": "look-after-children"
+        }
+      ]
+    },
+    "organizer-burnout": {
+      "id": "organizer-burnout",
+      "name": "Organizer burnout",
+      "line": "I've worked for change so long that I'm running on empty.",
+      "page": "societal",
+      "group": "making-change",
+      "aliases": [
+        "Activist burnout",
+        "Burned out from caring"
+      ],
+      "sources": [
+        {
+          "url": "https://repower.org/as-the-world-burns-organizers-are-burning-out/",
+          "accessed": "2026-10-19",
+          "passage": "The poll found that burnout, low pay, and institutional barriers to seizing power make up a trifecta of issues facing organizers at all time scales."
+        },
+        {
+          "url": "https://repower.org/as-the-world-burns-organizers-are-burning-out/",
+          "accessed": "2026-10-19",
+          "passage": "only 32 percent believed they’d still be organizing in five years"
+        },
+        {
+          "url": "https://repower.org/as-the-world-burns-organizers-are-burning-out/",
+          "accessed": "2026-10-19",
+          "passage": "surveyed 349 organizers from across the country"
+        }
+      ],
+      "prevalence": "In a re:power poll of 349 U.S. organizers, burnout was a top concern and only 32 percent expected to still be organizing in five years.",
+      "covers": [
+        {
+          "list": "repower-organizers-2022",
+          "entry": "burnout"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q5156139"
+        }
+      ]
+    },
+    "threats-for-serving": {
+      "id": "threats-for-serving",
+      "name": "Harassed for serving",
+      "line": "I see people who serve on local boards and councils get threatened and harassed.",
+      "page": "societal",
+      "group": "making-change",
+      "aliases": [
+        "Threats against local officials",
+        "Too risky to step up"
+      ],
+      "sources": [
+        {
+          "url": "https://www.brennancenter.org/our-work/research-reports/intimidation-state-and-local-officeholders",
+          "accessed": "2026-10-19",
+          "passage": "The numbers balloon to 89 percent of state legislators and 52 percent of local officeholders when less severe forms of abuse — insults or harassment such as stalking — are included."
+        },
+        {
+          "url": "https://www.brennancenter.org/our-work/research-reports/intimidation-state-and-local-officeholders",
+          "accessed": "2026-10-19",
+          "passage": "More than 40 percent of local officeholders said they were less willing to run for reelection or higher office at the time they were surveyed because of abuse."
+        }
+      ],
+      "prevalence": "52 percent of U.S. local officeholders faced threats, attacks, insults or harassment, and more than 40 percent were less willing to run again because of abuse (Brennan Center).",
+      "covers": [
+        {
+          "list": "brennan-officeholders-2024",
+          "entry": "abuse-local"
+        },
+        {
+          "list": "brennan-officeholders-2024",
+          "entry": "less-willing-to-run"
+        },
+        {
+          "list": "brennan-officeholders-2024",
+          "entry": "controversial-topics"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q3399774"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,706 @@
+{
+  "schemaVersion": 1,
+  "target": 0.9,
+  "lists": {
+    "gallup-mip": {
+      "name": "Gallup: Most Important Problem (U.S., open-ended), non-economic and government-related problems",
+      "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+      "accessed": "2026-10-19",
+      "entries": 18,
+      "covered": 11,
+      "share": 0.611,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "immigration",
+          "name": "Immigration",
+          "painId": "immigration-broken",
+          "why": "Immigration: \"I don't think the immigration system is working well.\""
+        },
+        {
+          "entry": "judicial-system",
+          "name": "Judicial system/Courts/Laws",
+          "painId": "justice-unfair",
+          "why": "Justice: \"I see police and courts treat people differently.\""
+        },
+        {
+          "entry": "unifying-the-country",
+          "name": "Unifying the country",
+          "painId": "we-cant-talk",
+          "why": "Polarization: a divided country where people can't disagree."
+        },
+        {
+          "entry": "lack-of-respect",
+          "name": "Lack of respect for each other",
+          "painId": "we-cant-talk",
+          "why": "Polarization covers losing respect across disagreement."
+        },
+        {
+          "entry": "ethics-moral-decline",
+          "name": "Ethics/moral/religious/family decline",
+          "painId": "people-are-meaner",
+          "why": "Moral decline: \"I think people care less about right and wrong.\""
+        },
+        {
+          "entry": "federal-deficit",
+          "name": "Federal budget deficit/Federal debt",
+          "painId": "national-debt",
+          "why": "National debt: \"I worry about how much debt the country keeps piling up.\""
+        },
+        {
+          "entry": "taxes",
+          "name": "Taxes",
+          "painId": "taxes-dont-buy-much",
+          "why": "Taxes: \"I pay more and get less back.\""
+        },
+        {
+          "entry": "corporate-corruption",
+          "name": "Corporate corruption",
+          "painId": "corruption",
+          "why": "Corruption: \"I see the rules bend for people with money.\""
+        },
+        {
+          "entry": "welfare",
+          "name": "Welfare",
+          "painId": "no-floor",
+          "why": "No safety net: \"If I lose my job or get sick, I know there's nothing to fall back on.\""
+        },
+        {
+          "entry": "social-security",
+          "name": "Social Security",
+          "painId": "no-floor",
+          "why": "No safety net covers worry about public programs like Social Security."
+        },
+        {
+          "entry": "infrastructure",
+          "name": "Infrastructure",
+          "painId": "infrastructure",
+          "why": "Infrastructure: \"I depend on roads, water and power that keep breaking down.\""
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "government-poor-leadership",
+          "name": "The government/Poor leadership",
+          "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+          "reason": "waiting for review: trust-in-government"
+        },
+        {
+          "entry": "elections",
+          "name": "Elections/Election reform/Democracy",
+          "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+          "reason": "waiting for review: fair-elections"
+        },
+        {
+          "entry": "foreign-policy",
+          "name": "Foreign policy/Foreign aid/Focus overseas",
+          "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+          "reason": "covered by a broader pain: world-on-fire"
+        },
+        {
+          "entry": "national-security",
+          "name": "National security",
+          "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+          "reason": "covered by a broader pain: world-on-fire"
+        },
+        {
+          "entry": "abortion",
+          "name": "Abortion",
+          "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+          "reason": "covered by a broader pain: freedoms"
+        },
+        {
+          "entry": "guns",
+          "name": "Guns/Gun control",
+          "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+          "reason": "covered by a broader pain: crime-and-violence"
+        },
+        {
+          "entry": "natural-disaster-response",
+          "name": "Natural disaster response",
+          "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+          "reason": "covered by a broader pain: disasters"
+        }
+      ]
+    },
+    "ipsos-www": {
+      "name": "Ipsos: What Worries the World (30-country average, May 2026), government-related worries",
+      "url": "https://resources.ipsos.com/rs/297-CXJ-795/images/What-Worries-the-World-May-2026.pdf",
+      "accessed": "2026-10-19",
+      "entries": 7,
+      "covered": 5,
+      "share": 0.714,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "corruption",
+          "name": "Financial/political corruption",
+          "painId": "corruption",
+          "why": "Corruption: \"I see the rules bend for people with money.\""
+        },
+        {
+          "entry": "taxes",
+          "name": "Taxes",
+          "painId": "taxes-dont-buy-much",
+          "why": "Taxes: \"I pay more and get less back.\""
+        },
+        {
+          "entry": "immigration-control",
+          "name": "Immigration control",
+          "painId": "immigration-broken",
+          "why": "Immigration: the system isn't working well."
+        },
+        {
+          "entry": "military-conflict",
+          "name": "Military conflict between nations",
+          "painId": "world-on-fire",
+          "why": "War: \"I see war threatening people and places I care about.\""
+        },
+        {
+          "entry": "social-programmes",
+          "name": "Maintaining social programmes",
+          "painId": "no-floor",
+          "why": "No safety net: worry about losing public programs to fall back on."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "rise-of-extremism",
+          "name": "Rise of extremism",
+          "url": "https://resources.ipsos.com/rs/297-CXJ-795/images/What-Worries-the-World-May-2026.pdf",
+          "reason": "waiting for review: political-violence"
+        },
+        {
+          "entry": "terrorism",
+          "name": "Terrorism",
+          "url": "https://resources.ipsos.com/rs/297-CXJ-795/images/What-Worries-the-World-May-2026.pdf",
+          "reason": "covered by a broader pain: crime-and-violence"
+        }
+      ]
+    },
+    "pew-problems-2026": {
+      "name": "Pew Research Center: very big problems facing the country (U.S., April 2026), government-related items",
+      "url": "https://www.pewresearch.org/politics/2026/05/11/americans-see-health-care-costs-deficit-inflation-as-big-problems-facing-the-nation/",
+      "accessed": "2026-10-19",
+      "entries": 6,
+      "covered": 4,
+      "share": 0.667,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "money-in-politics",
+          "name": "The role of money in politics",
+          "painId": "corruption",
+          "why": "Corruption: \"I see the rules bend for people with money.\""
+        },
+        {
+          "entry": "parties-work-together",
+          "name": "The ability of Democrats and Republicans to work together in Washington",
+          "painId": "nothing-ever-changes",
+          "why": "Gridlock: \"I see the same problems stay year after year.\""
+        },
+        {
+          "entry": "federal-deficit",
+          "name": "The federal budget deficit",
+          "painId": "national-debt",
+          "why": "National debt."
+        },
+        {
+          "entry": "illegal-immigration",
+          "name": "Illegal immigration",
+          "painId": "immigration-broken",
+          "why": "Immigration: the system isn't working well."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "domestic-terrorism",
+          "name": "Domestic terrorism",
+          "url": "https://www.pewresearch.org/politics/2026/05/11/americans-see-health-care-costs-deficit-inflation-as-big-problems-facing-the-nation/",
+          "reason": "waiting for review: political-violence"
+        },
+        {
+          "entry": "international-terrorism",
+          "name": "International terrorism",
+          "url": "https://www.pewresearch.org/politics/2026/05/11/americans-see-health-care-costs-deficit-inflation-as-big-problems-facing-the-nation/",
+          "reason": "covered by a broader pain: world-on-fire"
+        }
+      ]
+    },
+    "pew-trust-2025": {
+      "name": "Pew Research Center: Public Trust in Government, 1958-2025",
+      "url": "https://www.pewresearch.org/politics/2025/12/04/public-trust-in-government-1958-2025/",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "trust-federal-government",
+          "name": "Trust the government in Washington to do what is right",
+          "url": "https://www.pewresearch.org/politics/2025/12/04/public-trust-in-government-1958-2025/",
+          "reason": "waiting for review: trust-in-government"
+        }
+      ]
+    },
+    "oecd-trust-survey-2024": {
+      "name": "OECD Survey on Drivers of Trust in Public Institutions, 2024 results (press release, via The Living Library; oecd.org returned 403)",
+      "url": "https://thelivinglib.org/?p=58772",
+      "accessed": "2026-10-19",
+      "entries": 2,
+      "covered": 1,
+      "share": 0.5,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "have-a-say",
+          "name": "Having a say in what the government does",
+          "painId": "they-dont-listen",
+          "why": "Representation: \"I'm not heard by the people in charge.\""
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "trust-national-government",
+          "name": "Trust in national government",
+          "url": "https://thelivinglib.org/?p=58772",
+          "reason": "waiting for review: trust-in-government"
+        }
+      ]
+    },
+    "gallup-elections-2026": {
+      "name": "Gallup World Poll: confidence in the honesty of elections (U.S., 2026)",
+      "url": "https://news.gallup.com/poll/715205/trust-elections-breaks-global-pattern.aspx",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "confidence-in-elections",
+          "name": "Confidence in the honesty of elections",
+          "url": "https://news.gallup.com/poll/715205/trust-elections-breaks-global-pattern.aspx",
+          "reason": "waiting for review: fair-elections"
+        }
+      ]
+    },
+    "marist-political-violence-2025": {
+      "name": "NPR/PBS News/Marist poll on political violence (U.S., 2025), as reported by PBS News",
+      "url": "https://www.pbs.org/newshour/politics/theres-a-growing-number-of-americans-who-think-violence-might-be-necessary-to-get-the-country-back-on-track",
+      "accessed": "2026-10-19",
+      "entries": 2,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "political-violence-concern",
+          "name": "Political violence as a significant issue",
+          "url": "https://www.pbs.org/newshour/politics/theres-a-growing-number-of-americans-who-think-violence-might-be-necessary-to-get-the-country-back-on-track",
+          "reason": "waiting for review: political-violence"
+        },
+        {
+          "entry": "violence-may-be-necessary",
+          "name": "People may have to resort to violence",
+          "url": "https://www.pbs.org/newshour/politics/theres-a-growing-number-of-americans-who-think-violence-might-be-necessary-to-get-the-country-back-on-track",
+          "reason": "waiting for review: political-violence"
+        }
+      ]
+    },
+    "pew-privacy-2023": {
+      "name": "Pew Research Center: key findings about Americans and data privacy (2023), government data use",
+      "url": "https://www.pewresearch.org/short-reads/2023/10/18/key-findings-about-americans-and-data-privacy/markdown",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "government-data-use",
+          "name": "Concern about how the government uses data it collects about people",
+          "url": "https://www.pewresearch.org/short-reads/2023/10/18/key-findings-about-americans-and-data-privacy/markdown",
+          "reason": "waiting for review: government-surveillance"
+        }
+      ]
+    },
+    "kff-medicaid-unwinding": {
+      "name": "KFF: Medicaid Enrollment and Unwinding Tracker",
+      "url": "https://www.kff.org/medicaid/medicaid-enrollment-and-unwinding-tracker/",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "procedural-disenrollment",
+          "name": "Disenrolled for procedural reasons",
+          "url": "https://www.kff.org/medicaid/medicaid-enrollment-and-unwinding-tracker/",
+          "reason": "waiting for review: benefits-red-tape"
+        }
+      ]
+    },
+    "211-wv-shutdown": {
+      "name": "211 West Virginia during the 2025 shutdown SNAP delay (West Virginia Watch, via Yahoo News)",
+      "url": "https://www.yahoo.com/news/articles/west-virginia-211-helpline-sees-110004054.html",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "snap-delay-calls",
+          "name": "211 calls for food during the SNAP delay",
+          "url": "https://www.yahoo.com/news/articles/west-virginia-211-helpline-sees-110004054.html",
+          "reason": "waiting for review: shutdowns"
+        }
+      ]
+    },
+    "211-kc": {
+      "name": "211 Kansas City (United Way of Greater Kansas City): top five needs, 2025, government-related",
+      "url": "https://unitedwaygkc.org/2026/05/14/211-impact-report-shows-community-needs-increasing/",
+      "accessed": "2026-10-19",
+      "entries": 2,
+      "covered": 2,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "tax-preparation",
+          "name": "Tax Preparation",
+          "painId": "life-admin",
+          "why": "Paperwork: \"I lose my week to forms, bills and phone queues\"; tax filing is the commonest form."
+        },
+        {
+          "entry": "legal-services",
+          "name": "Legal Services",
+          "painId": "legal-mess",
+          "why": "Legal trouble: \"I'm stuck in a legal problem I can't afford.\""
+        }
+      ],
+      "uncovered": []
+    },
+    "oecd": {
+      "name": "OECD Well-being Framework: dimensions bearing on government",
+      "url": "https://unstats.un.org/unsd/demographic-social/meetings/2024/iaeggs-20241203/4.2_OECD.pdf",
+      "accessed": "2026-10-19",
+      "entries": 2,
+      "covered": 1,
+      "share": 0.5,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "civic-engagement",
+          "name": "Civic Engagement",
+          "painId": "they-dont-listen",
+          "why": "Representation: having a say in what government does."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "social-capital",
+          "name": "Social Capital",
+          "url": "https://unstats.un.org/unsd/demographic-social/meetings/2024/iaeggs-20241203/4.2_OECD.pdf",
+          "reason": "covered by a broader pain: trust"
+        }
+      ]
+    },
+    "sdg": {
+      "name": "UN Sustainable Development Goals: targets bearing on government",
+      "url": "https://sdgs.un.org/goals",
+      "accessed": "2026-10-19",
+      "entries": 13,
+      "covered": 12,
+      "share": 0.923,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "16.3",
+          "name": "Rule of law and equal access to justice",
+          "painId": "justice-unfair",
+          "why": "Justice: unequal treatment by police and courts."
+        },
+        {
+          "entry": "16.5",
+          "name": "Reduce corruption and bribery",
+          "painId": "corruption",
+          "why": "Corruption."
+        },
+        {
+          "entry": "16.6",
+          "name": "Effective, accountable and transparent institutions",
+          "painId": "no-accountability",
+          "why": "Accountability: \"I see leaders break promises with no consequences.\""
+        },
+        {
+          "entry": "16.7",
+          "name": "Responsive, inclusive, participatory and representative decision-making",
+          "painId": "they-dont-listen",
+          "why": "Representation: responsive, representative decision-making."
+        },
+        {
+          "entry": "16.10",
+          "name": "Public access to information and fundamental freedoms",
+          "painId": "freedoms",
+          "why": "Freedoms: protecting fundamental freedoms."
+        },
+        {
+          "entry": "16.b",
+          "name": "Non-discriminatory laws and policies",
+          "painId": "treated-differently",
+          "why": "Discrimination: \"I'm treated worse because of who I am.\""
+        },
+        {
+          "entry": "1.3",
+          "name": "Social protection systems and floors",
+          "painId": "no-floor",
+          "why": "No safety net."
+        },
+        {
+          "entry": "6.1",
+          "name": "Safe and affordable drinking water",
+          "painId": "infrastructure",
+          "why": "Infrastructure names water."
+        },
+        {
+          "entry": "7.1",
+          "name": "Affordable, reliable and modern energy services",
+          "painId": "infrastructure",
+          "why": "Infrastructure names power."
+        },
+        {
+          "entry": "9.1",
+          "name": "Quality, reliable, sustainable and resilient infrastructure",
+          "painId": "infrastructure",
+          "why": "Infrastructure: reliable roads, water and power."
+        },
+        {
+          "entry": "10.7",
+          "name": "Orderly, safe migration",
+          "painId": "immigration-broken",
+          "why": "Immigration: a migration system that works."
+        },
+        {
+          "entry": "11.3",
+          "name": "Participatory human settlement planning",
+          "painId": "far-away-decisions",
+          "why": "Local control: say over decisions about where you live."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "16.9",
+          "name": "Legal identity for all",
+          "url": "https://sdgs.un.org/goals/goal16",
+          "reason": "covered by a broader pain: life-admin"
+        }
+      ]
+    },
+    "whoqol": {
+      "name": "WHOQOL-BREF (WHO, 1996): items bearing on public services",
+      "url": "https://depts.washington.edu/seaqol/docs/WHOQOL-BREF%20and%20Scoring%20Instructions.pdf",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 1,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "q25",
+          "name": "How satisfied are you with your transport?",
+          "painId": "getting-around",
+          "why": "Getting around covers satisfaction with transport."
+        }
+      ],
+      "uncovered": []
+    },
+    "maxneef": {
+      "name": "Max-Neef's fundamental human needs",
+      "url": "https://en.wikipedia.org/wiki/Manfred_Max-Neef%27s_Fundamental_human_needs",
+      "accessed": "2026-10-19",
+      "entries": 3,
+      "covered": 2,
+      "share": 0.667,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "participation",
+          "name": "Participation",
+          "painId": "they-dont-listen",
+          "why": "Representation: being heard and able to express opinions."
+        },
+        {
+          "entry": "freedom",
+          "name": "Freedom",
+          "painId": "freedoms",
+          "why": "Freedoms: \"I'm losing the freedom to make my own choices.\""
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "protection",
+          "name": "Protection",
+          "url": "https://en.wikipedia.org/wiki/Manfred_Max-Neef%27s_Fundamental_human_needs",
+          "reason": "covered by a broader pain: no-floor"
+        }
+      ]
+    },
+    "gallup-elements": {
+      "name": "Gallup's five elements of wellbeing",
+      "url": "https://www.gallup.com/workplace/237020/five-essential-elements.aspx",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "community",
+          "name": "Community Well-Being",
+          "url": "https://www.gallup.com/workplace/237020/five-essential-elements.aspx",
+          "reason": "covered by a broader pain: far-away-decisions"
+        }
+      ]
+    },
+    "wikidata": {
+      "name": "Wikidata items for government concepts",
+      "url": "https://www.wikidata.org/",
+      "accessed": "2026-10-19",
+      "entries": 19,
+      "covered": 10,
+      "share": 0.526,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "Q10858400",
+          "name": "political corruption",
+          "painId": "corruption",
+          "why": "Corruption."
+        },
+        {
+          "entry": "Q1352232",
+          "name": "campaign finance",
+          "painId": "corruption",
+          "why": "Corruption: money bending the rules in politics."
+        },
+        {
+          "entry": "Q30676252",
+          "name": "democratic backsliding",
+          "painId": "democracy-slipping",
+          "why": "Institutions: \"I see the institutions we rely on falling apart.\""
+        },
+        {
+          "entry": "Q3082509",
+          "name": "political polarization",
+          "painId": "we-cant-talk",
+          "why": "Polarization."
+        },
+        {
+          "entry": "Q187117",
+          "name": "lobbying",
+          "painId": "corruption",
+          "why": "Corruption: money buying influence over officials."
+        },
+        {
+          "entry": "Q131288",
+          "name": "immigration",
+          "painId": "immigration-broken",
+          "why": "Immigration."
+        },
+        {
+          "entry": "Q121359",
+          "name": "infrastructure",
+          "painId": "infrastructure",
+          "why": "Infrastructure."
+        },
+        {
+          "entry": "Q8161",
+          "name": "tax",
+          "painId": "taxes-dont-buy-much",
+          "why": "Taxes."
+        },
+        {
+          "entry": "Q96742747",
+          "name": "political accountability",
+          "painId": "no-accountability",
+          "why": "Accountability."
+        },
+        {
+          "entry": "Q188759",
+          "name": "representative democracy",
+          "painId": "they-dont-listen",
+          "why": "Representation: being heard by the people elected to decide."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "Q44918",
+          "name": "rule of law",
+          "url": "https://www.wikidata.org/",
+          "reason": "covered by a broader pain: democracy-slipping"
+        },
+        {
+          "entry": "Q476310",
+          "name": "gerrymandering",
+          "url": "https://www.wikidata.org/",
+          "reason": "waiting for review: fair-elections"
+        },
+        {
+          "entry": "Q7942161",
+          "name": "voter suppression",
+          "url": "https://www.wikidata.org/",
+          "reason": "waiting for review: fair-elections"
+        },
+        {
+          "entry": "Q692209",
+          "name": "electoral fraud",
+          "url": "https://www.wikidata.org/",
+          "reason": "waiting for review: fair-elections"
+        },
+        {
+          "entry": "Q137791353",
+          "name": "political extremism",
+          "url": "https://www.wikidata.org/",
+          "reason": "waiting for review: political-violence"
+        },
+        {
+          "entry": "Q60708827",
+          "name": "government shutdown",
+          "url": "https://www.wikidata.org/",
+          "reason": "waiting for review: shutdowns"
+        },
+        {
+          "entry": "Q1425056",
+          "name": "mass surveillance",
+          "url": "https://www.wikidata.org/",
+          "reason": "waiting for review: government-surveillance"
+        },
+        {
+          "entry": "Q161837",
+          "name": "public service",
+          "url": "https://www.wikidata.org/",
+          "reason": "covered by a broader pain: taxes-dont-buy-much"
+        },
+        {
+          "entry": "Q72468",
+          "name": "bureaucracy",
+          "url": "https://www.wikidata.org/",
+          "reason": "waiting for review: benefits-red-tape"
+        }
+      ]
+    }
+  },
+  "issues": [],
+  "checkedAt": "2026-10-19"
+}

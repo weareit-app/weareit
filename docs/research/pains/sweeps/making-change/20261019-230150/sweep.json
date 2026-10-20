@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "scope": "making-change",
+  "runId": "20261019-230150",
+  "startedAt": "2026-10-20T03:01:50+00:00",
+  "finishedAt": "2026-10-20T03:13:11+00:00",
+  "notes": "Fourteen lists read. oecd.org returned 403 to every fetch (press release, How's Life chapters), so the OECD Civic engagement dimension comes from the UN Statistics copy of the framework and the Trust Survey 'having a say' passage from The Living Library's copy of the OECD press release; americorps.gov returned 404 for the CEV report, so the Census Bureau story on the same data is used. WHOQOL-BREF has no item on taking part in public life, and WHO/IHME cause-of-burden lists and 211 top-needs reports name nothing in this scope, so none of them gets entries here. Wikidata QIDs came from the wbsearchentities API (about 25 lookups, not counted as searches); activist burnout has no item, so compassion fatigue (Q5156139) stands in. Most outside lists measure taking part rather than pains, so several entries map to existing pains that only It's thesis named before; the list passages here (Pew, Community Life Survey, Census CEV, Give.org) are the first opened sources bearing on Representation, Unheard, Volunteers, Helping and Giving, which ingest could add as evidence. Overlaps for refine: tired-of-politics with overwhelmed and doomscrolling; no-time-to-help with no-free-time (Busy); organizer-burnout with burnout (work); threats-for-serving with the government sweep's political-violence candidate. Leads not proposed for lack of an opened source this run: fear of speaking up at public meetings, cost of running for local office, the 'civic core' concentration of volunteer hours (only 1997-2000 Canadian and older UK figures found).",
+  "searches": 10,
+  "pagesOpened": 18
+}

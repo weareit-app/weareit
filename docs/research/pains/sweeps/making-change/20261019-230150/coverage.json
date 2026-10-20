@@ -1,0 +1,513 @@
+{
+  "schemaVersion": 1,
+  "target": 0.9,
+  "lists": {
+    "pew-politics-2023": {
+      "name": "Pew Research Center: Americans' Dismal Views of the Nation's Politics (U.S., 2023)",
+      "url": "https://www.pewresearch.org/politics/2023/09/19/americans-dismal-views-of-the-nations-politics/",
+      "accessed": "2026-10-19",
+      "entries": 6,
+      "covered": 3,
+      "share": 0.5,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "district-influence",
+          "name": "People in members' own districts have too little influence on Congress",
+          "painId": "they-dont-listen",
+          "why": "Representation: \"I'm not heard by the people in charge.\""
+        },
+        {
+          "entry": "donor-influence",
+          "name": "Big campaign donors and lobbyists have too much influence",
+          "painId": "corruption",
+          "why": "Corruption: \"I see the rules bend for people with money.\""
+        },
+        {
+          "entry": "voting-matters",
+          "name": "Voting by people like me can affect the country’s future direction",
+          "painId": "shouting-into-void",
+          "why": "Unheard: \"I care and it goes nowhere\"; most doubt their vote changes much."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "exhausted",
+          "name": "Always or often feel exhausted when thinking about politics",
+          "url": "https://www.pewresearch.org/politics/2023/09/19/americans-dismal-views-of-the-nations-politics/",
+          "reason": "waiting for review: tired-of-politics"
+        },
+        {
+          "entry": "angry",
+          "name": "Always or often feel angry when thinking about politics",
+          "url": "https://www.pewresearch.org/politics/2023/09/19/americans-dismal-views-of-the-nations-politics/",
+          "reason": "waiting for review: tired-of-politics"
+        },
+        {
+          "entry": "hopeful",
+          "name": "Always or often feel hopeful about politics",
+          "url": "https://www.pewresearch.org/politics/2023/09/19/americans-dismal-views-of-the-nations-politics/",
+          "reason": "waiting for review: tired-of-politics"
+        }
+      ]
+    },
+    "uk-community-life-2024-25": {
+      "name": "UK Community Life Survey 2024/25: civic engagement and social action (England)",
+      "url": "https://www.gov.uk/government/statistics/community-life-survey-202425-annual-publication/community-life-survey-202425-civic-engagement-and-social-action",
+      "accessed": "2026-10-19",
+      "entries": 4,
+      "covered": 4,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "influence-local-decisions",
+          "name": "Can personally influence decisions affecting the local area",
+          "painId": "they-dont-listen",
+          "why": "Representation: feeling unable to influence local decisions is not being heard."
+        },
+        {
+          "entry": "want-more-involved",
+          "name": "Would like to be more involved in decisions made by the council",
+          "painId": "they-dont-listen",
+          "why": "Representation: wanting more say in council decisions that affect the area."
+        },
+        {
+          "entry": "civic-activism",
+          "name": "Civic activism: local roles such as councillor, school governor or magistrate",
+          "painId": "same-few-people",
+          "why": "Volunteers: only 8% take local roles, so the same few people do them."
+        },
+        {
+          "entry": "social-action",
+          "name": "Involved in wider social action",
+          "painId": "want-to-help",
+          "why": "Helping: \"I'd do something if I knew what\"; few take part in local social action."
+        }
+      ],
+      "uncovered": []
+    },
+    "uk-community-life-volunteering-2024-25": {
+      "name": "UK Community Life Survey 2024/25: barriers to formal volunteering (England)",
+      "url": "https://www.gov.uk/government/statistics/community-life-survey-202425-annual-publication/community-life-survey-202425-volunteering-and-charitable-giving",
+      "accessed": "2026-10-19",
+      "entries": 3,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "work-commitments",
+          "name": "I have work commitments",
+          "url": "https://www.gov.uk/government/statistics/community-life-survey-202425-annual-publication/community-life-survey-202425-volunteering-and-charitable-giving",
+          "reason": "waiting for review: no-time-to-help"
+        },
+        {
+          "entry": "other-things",
+          "name": "I do other things in my spare time",
+          "url": "https://www.gov.uk/government/statistics/community-life-survey-202425-annual-publication/community-life-survey-202425-volunteering-and-charitable-giving",
+          "reason": "out of scope: a preference for other activities, not a pain"
+        },
+        {
+          "entry": "look-after-children",
+          "name": "I have to look after children",
+          "url": "https://www.gov.uk/government/statistics/community-life-survey-202425-annual-publication/community-life-survey-202425-volunteering-and-charitable-giving",
+          "reason": "waiting for review: no-time-to-help"
+        }
+      ]
+    },
+    "census-cev-2023": {
+      "name": "U.S. Census Bureau and AmeriCorps: Civic Engagement and Volunteering Supplement, 2023",
+      "url": "https://www.census.gov/library/stories/2024/11/civic-engagement-and-volunteerism.html",
+      "accessed": "2026-10-19",
+      "entries": 3,
+      "covered": 2,
+      "share": 0.667,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "formal-volunteering",
+          "name": "Volunteered through an organization",
+          "painId": "want-to-help",
+          "why": "Helping: fewer than three in ten volunteer through an organization."
+        },
+        {
+          "entry": "hours-per-volunteer",
+          "name": "Hours served per volunteer",
+          "painId": "same-few-people",
+          "why": "Volunteers: hours per volunteer keep falling, leaving the work to fewer people."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "informal-helping",
+          "name": "Helped or exchanged favors with neighbors",
+          "url": "https://www.census.gov/library/stories/2024/11/civic-engagement-and-volunteerism.html",
+          "reason": "out of scope: helping neighbors is something people do, not a pain"
+        }
+      ]
+    },
+    "give-org-donor-trust-2026": {
+      "name": "BBB Give.org Donor Trust Report 2026 (U.S.)",
+      "url": "https://give.org/donor-trust-report/2026-trends-in-donor-trust-and-perspectives",
+      "accessed": "2026-10-19",
+      "entries": 2,
+      "covered": 2,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "trust-gap",
+          "name": "Trust in charities before giving",
+          "painId": "giving-feels-blind",
+          "why": "Giving: \"I'd give if I knew it worked.\""
+        },
+        {
+          "entry": "give-if-asked",
+          "name": "Might give more if asked",
+          "painId": "giving-feels-blind",
+          "why": "Giving: people who would give more if asked and trusted where it went."
+        }
+      ],
+      "uncovered": []
+    },
+    "repower-organizers-2022": {
+      "name": "re:power organizer survey (2022), as excerpted from The Nation",
+      "url": "https://repower.org/as-the-world-burns-organizers-are-burning-out/",
+      "accessed": "2026-10-19",
+      "entries": 3,
+      "covered": 1,
+      "share": 0.333,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "institutional-barriers",
+          "name": "Institutional barriers to seizing power",
+          "painId": "nothing-ever-changes",
+          "why": "Gridlock: \"I see the same problems stay year after year.\""
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "burnout",
+          "name": "Burnout among organizers",
+          "url": "https://repower.org/as-the-world-burns-organizers-are-burning-out/",
+          "reason": "waiting for review: organizer-burnout"
+        },
+        {
+          "entry": "low-pay",
+          "name": "Low pay for organizers",
+          "url": "https://repower.org/as-the-world-burns-organizers-are-burning-out/",
+          "reason": "covered by a broader pain: underpaid"
+        }
+      ]
+    },
+    "brennan-officeholders-2024": {
+      "name": "Brennan Center: Intimidation of State and Local Officeholders (2024)",
+      "url": "https://www.brennancenter.org/our-work/research-reports/intimidation-state-and-local-officeholders",
+      "accessed": "2026-10-19",
+      "entries": 3,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "abuse-local",
+          "name": "Local officeholders facing threats, attacks, insults or harassment",
+          "url": "https://www.brennancenter.org/our-work/research-reports/intimidation-state-and-local-officeholders",
+          "reason": "waiting for review: threats-for-serving"
+        },
+        {
+          "entry": "less-willing-to-run",
+          "name": "Less willing to run again because of abuse",
+          "url": "https://www.brennancenter.org/our-work/research-reports/intimidation-state-and-local-officeholders",
+          "reason": "waiting for review: threats-for-serving"
+        },
+        {
+          "entry": "controversial-topics",
+          "name": "Less willing to work on controversial topics because of abuse",
+          "url": "https://www.brennancenter.org/our-work/research-reports/intimidation-state-and-local-officeholders",
+          "reason": "waiting for review: threats-for-serving"
+        }
+      ]
+    },
+    "gallup-mip": {
+      "name": "Gallup: most important problem facing the country, items about leadership and acting together (September 2026)",
+      "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+      "accessed": "2026-10-19",
+      "entries": 3,
+      "covered": 2,
+      "share": 0.667,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "unifying",
+          "name": "Unifying the country",
+          "painId": "we-cant-talk",
+          "why": "Polarization: \"I can't disagree with someone without losing them.\""
+        },
+        {
+          "entry": "elections-democracy",
+          "name": "Elections/Election reform/Democracy",
+          "painId": "democracy-slipping",
+          "why": "Institutions: \"I see the institutions we rely on falling apart.\""
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "poor-leadership",
+          "name": "The government/Poor leadership",
+          "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+          "reason": "covered by a broader pain: no-accountability"
+        }
+      ]
+    },
+    "ipsos-www": {
+      "name": "Ipsos What Worries the World (January 2026), direction of the country and corruption",
+      "url": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-02/What-Worries-the-World-January-2026.pdf",
+      "accessed": "2026-10-19",
+      "entries": 2,
+      "covered": 1,
+      "share": 0.5,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "corruption",
+          "name": "Financial/political corruption",
+          "painId": "corruption",
+          "why": "Corruption names it directly."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "wrong-track",
+          "name": "Country heading off on the wrong track",
+          "url": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-02/What-Worries-the-World-January-2026.pdf",
+          "reason": "covered by a broader pain: nothing-ever-changes"
+        }
+      ]
+    },
+    "oecd-wellbeing": {
+      "name": "OECD Well-being Framework: Civic engagement, and the OECD Trust Survey 2024 (oecd.org returned 403; UN Statistics and Living Library copies)",
+      "url": "https://unstats.un.org/unsd/demographic-social/meetings/2024/iaeggs-20241203/4.2_OECD.pdf",
+      "accessed": "2026-10-19",
+      "entries": 2,
+      "covered": 2,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "civic-engagement",
+          "name": "Civic Engagement (dimension)",
+          "painId": "shouting-into-void",
+          "why": "Unheard maps to OECD Civic engagement, as do the other Making change pains."
+        },
+        {
+          "entry": "have-a-say",
+          "name": "Having a say in what the government does",
+          "painId": "they-dont-listen",
+          "why": "Representation: not having a say in what the government does."
+        }
+      ],
+      "uncovered": []
+    },
+    "sdg-targets": {
+      "name": "UN SDG targets bearing on taking part and acting together",
+      "url": "https://sdgs.un.org/goals",
+      "accessed": "2026-10-19",
+      "entries": 5,
+      "covered": 3,
+      "share": 0.6,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "16.7",
+          "name": "16.7",
+          "painId": "they-dont-listen",
+          "why": "Representation: responsive, participatory decision-making."
+        },
+        {
+          "entry": "17.17",
+          "name": "17.17",
+          "painId": "idea-no-team",
+          "why": "Collaborators: partnerships between public, private and civil society groups."
+        },
+        {
+          "entry": "11.3",
+          "name": "11.3",
+          "painId": "far-away-decisions",
+          "why": "Local control: participatory planning of the place where you live."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "16.10",
+          "name": "16.10",
+          "url": "https://sdgs.un.org/goals/goal16",
+          "reason": "covered by a broader pain: freedoms"
+        },
+        {
+          "entry": "5.5",
+          "name": "5.5",
+          "url": "https://sdgs.un.org/goals/goal5",
+          "reason": "covered by a broader pain: they-dont-listen"
+        }
+      ]
+    },
+    "maxneef": {
+      "name": "Max-Neef's fundamental human needs",
+      "url": "https://en.wikipedia.org/wiki/Manfred_Max-Neef%27s_Fundamental_human_needs",
+      "accessed": "2026-10-19",
+      "entries": 2,
+      "covered": 2,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "participation",
+          "name": "Participation",
+          "painId": "alone-in-caring",
+          "why": "Allies maps to Participation, as do all Making change pains."
+        },
+        {
+          "entry": "creation",
+          "name": "Creation",
+          "painId": "idea-no-team",
+          "why": "Collaborators maps to Creation."
+        }
+      ],
+      "uncovered": []
+    },
+    "gallup-elements": {
+      "name": "Gallup's five elements of wellbeing",
+      "url": "https://www.gallup.com/workplace/237020/five-essential-elements.aspx",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 1,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "community",
+          "name": "Community Well-Being",
+          "painId": "want-to-help",
+          "why": "Helping: engagement with the area where you live."
+        }
+      ],
+      "uncovered": []
+    },
+    "wikidata": {
+      "name": "Wikidata items for making change",
+      "url": "https://www.wikidata.org/",
+      "accessed": "2026-10-19",
+      "entries": 16,
+      "covered": 10,
+      "share": 0.625,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "Q7210296",
+          "name": "political efficacy",
+          "painId": "shouting-into-void",
+          "why": "Unheard maps to political efficacy."
+        },
+        {
+          "entry": "Q4116870",
+          "name": "civic engagement",
+          "painId": "alone-in-caring",
+          "why": "Allies maps to civic engagement."
+        },
+        {
+          "entry": "Q188844",
+          "name": "volunteering",
+          "painId": "want-to-help",
+          "why": "Helping maps to volunteering."
+        },
+        {
+          "entry": "Q185733",
+          "name": "philanthropy",
+          "painId": "giving-feels-blind",
+          "why": "Giving maps to philanthropy."
+        },
+        {
+          "entry": "Q55607920",
+          "name": "collective action problem",
+          "painId": "groups-go-nowhere",
+          "why": "Meetings maps to collective action problem."
+        },
+        {
+          "entry": "Q25866",
+          "name": "community organizing",
+          "painId": "dont-know-whats-happening",
+          "why": "Coordination maps to community organizing."
+        },
+        {
+          "entry": "Q1145523",
+          "name": "collaboration",
+          "painId": "idea-no-team",
+          "why": "Collaborators maps to collaboration."
+        },
+        {
+          "entry": "Q3739803",
+          "name": "political alienation",
+          "painId": "they-dont-listen",
+          "why": "Representation: feeling shut out of the political system."
+        },
+        {
+          "entry": "Q499215",
+          "name": "free rider problem",
+          "painId": "same-few-people",
+          "why": "Volunteers: others benefit while the same few do the work."
+        },
+        {
+          "entry": "Q310988",
+          "name": "participatory democracy",
+          "painId": "they-dont-listen",
+          "why": "Representation: people taking part in decisions that affect them."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "Q2101513",
+          "name": "political participation",
+          "url": "https://www.wikidata.org/wiki/Q2101513",
+          "reason": "covered by a broader pain: shouting-into-void"
+        },
+        {
+          "entry": "Q203764",
+          "name": "activism",
+          "url": "https://www.wikidata.org/wiki/Q203764",
+          "reason": "covered by a broader pain: shouting-into-void"
+        },
+        {
+          "entry": "Q1038864",
+          "name": "political apathy",
+          "url": "https://www.wikidata.org/wiki/Q1038864",
+          "reason": "waiting for review: tired-of-politics"
+        },
+        {
+          "entry": "Q3270605",
+          "name": "slacktivism",
+          "url": "https://www.wikidata.org/wiki/Q3270605",
+          "reason": "covered by a broader pain: shouting-into-void"
+        },
+        {
+          "entry": "Q5156139",
+          "name": "compassion fatigue",
+          "url": "https://www.wikidata.org/wiki/Q5156139",
+          "reason": "waiting for review: organizer-burnout"
+        },
+        {
+          "entry": "Q3399774",
+          "name": "political violence",
+          "url": "https://www.wikidata.org/wiki/Q3399774",
+          "reason": "waiting for review: threats-for-serving"
+        }
+      ]
+    }
+  },
+  "issues": [],
+  "checkedAt": "2026-10-19"
+}

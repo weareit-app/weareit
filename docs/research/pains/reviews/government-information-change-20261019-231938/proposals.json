@@ -1,0 +1,2952 @@
+{
+  "schemaVersion": 1,
+  "setId": "government-information-change-20261019-231938",
+  "builtAt": "2026-10-19",
+  "runs": [
+    "docs/research/pains/sweeps/government/20261019-224657",
+    "docs/research/pains/refine/government/20261019-224622",
+    "docs/research/pains/sweeps/information/20261019-225848",
+    "docs/research/pains/refine/information/20261019-224622",
+    "docs/research/pains/sweeps/making-change/20261019-230150",
+    "docs/research/pains/refine/making-change/20261019-224622"
+  ],
+  "flags": [
+    "Government has 10 shown pains (page median 5): large",
+    "Economy has 12 shown pains (page median 5): large",
+    "Safety has 2 shown pains (page median 5): small",
+    "Government has 10 shown pains (page median 5): large",
+    "Economy has 12 shown pains (page median 5): large",
+    "Safety has 2 shown pains (page median 5): small",
+    "Government has 10 shown pains (page median 5): large",
+    "Economy has 12 shown pains (page median 5): large",
+    "Safety has 2 shown pains (page median 5): small"
+  ],
+  "covered": [],
+  "proposals": [
+    {
+      "kind": "add",
+      "painIds": [
+        "trust-in-government"
+      ],
+      "group": "government",
+      "current": null,
+      "proposed": {
+        "name": "Trust in government",
+        "line": "I don't trust the government to do what's right.",
+        "group": "government",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Trust in government",
+          "line": "I don't trust the government to do what's right.",
+          "group": "government",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "Just 17% of Americans trust the government in Washington to do what is right just about always or most of the time (Pew). Across OECD countries, 44% have low or no trust in their national government. \"The government/Poor leadership\" is the most-named problem in Gallup's open-ended question, at 26%.",
+        "sources": [
+          {
+            "url": "https://www.pewresearch.org/politics/2025/12/04/public-trust-in-government-1958-2025/",
+            "accessed": "2026-10-19",
+            "passage": "Just 17% of Americans now say they trust the government in Washington to do what is right “just about always” (2%) or “most of the time” (15%)."
+          },
+          {
+            "url": "https://thelivinglib.org/?p=58772",
+            "accessed": "2026-10-19",
+            "passage": "44% of respondents now have low or no trust in their national government"
+          },
+          {
+            "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+            "accessed": "2026-10-19",
+            "passage": "The government/Poor leadership\t26\t28"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "trust-in-government",
+          "name": "Trust in government",
+          "line": "I don't trust the government to do what's right.",
+          "page": "societal",
+          "group": "government",
+          "aliases": [
+            "Poor leadership",
+            "Distrust of government"
+          ],
+          "sources": [
+            {
+              "url": "https://www.pewresearch.org/politics/2025/12/04/public-trust-in-government-1958-2025/",
+              "accessed": "2026-10-19",
+              "passage": "Just 17% of Americans now say they trust the government in Washington to do what is right “just about always” (2%) or “most of the time” (15%)."
+            },
+            {
+              "url": "https://thelivinglib.org/?p=58772",
+              "accessed": "2026-10-19",
+              "passage": "44% of respondents now have low or no trust in their national government"
+            },
+            {
+              "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+              "accessed": "2026-10-19",
+              "passage": "The government/Poor leadership\t26\t28"
+            }
+          ],
+          "prevalence": "Just 17% of Americans trust the government in Washington to do what is right just about always or most of the time (Pew). Across OECD countries, 44% have low or no trust in their national government. \"The government/Poor leadership\" is the most-named problem in Gallup's open-ended question, at 26%.",
+          "covers": [
+            {
+              "list": "pew-trust-2025",
+              "entry": "trust-federal-government"
+            },
+            {
+              "list": "oecd-trust-survey-2024",
+              "entry": "trust-national-government"
+            },
+            {
+              "list": "gallup-mip",
+              "entry": "government-poor-leadership"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/government/20261019-224657",
+      "side": [],
+      "id": "p001"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "fair-elections"
+      ],
+      "group": "government",
+      "current": null,
+      "proposed": {
+        "name": "Fair elections",
+        "line": "I'm not sure our elections are fair and honest.",
+        "group": "government",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Fair elections",
+          "line": "I'm not sure our elections are fair and honest.",
+          "group": "government",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "Forty-nine percent of Americans are confident in the honesty of elections and 51% are not (Gallup World Poll).",
+        "sources": [
+          {
+            "url": "https://news.gallup.com/poll/715205/trust-elections-breaks-global-pattern.aspx",
+            "accessed": "2026-10-19",
+            "passage": "Forty-nine percent are confident in electoral honesty, while 51% are not."
+          },
+          {
+            "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+            "accessed": "2026-10-19",
+            "passage": "Elections/Election reform/Democracy\t4\t4"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "fair-elections",
+          "name": "Fair elections",
+          "line": "I'm not sure our elections are fair and honest.",
+          "page": "societal",
+          "group": "government",
+          "aliases": [
+            "Election integrity",
+            "Gerrymandering",
+            "Voter suppression"
+          ],
+          "sources": [
+            {
+              "url": "https://news.gallup.com/poll/715205/trust-elections-breaks-global-pattern.aspx",
+              "accessed": "2026-10-19",
+              "passage": "Forty-nine percent are confident in electoral honesty, while 51% are not."
+            },
+            {
+              "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+              "accessed": "2026-10-19",
+              "passage": "Elections/Election reform/Democracy\t4\t4"
+            }
+          ],
+          "prevalence": "Forty-nine percent of Americans are confident in the honesty of elections and 51% are not (Gallup World Poll).",
+          "covers": [
+            {
+              "list": "gallup-elections-2026",
+              "entry": "confidence-in-elections"
+            },
+            {
+              "list": "gallup-mip",
+              "entry": "elections"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q476310"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q7942161"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q692209"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/government/20261019-224657",
+      "side": [],
+      "id": "p002"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "political-violence"
+      ],
+      "group": "government",
+      "current": null,
+      "proposed": {
+        "name": "Political violence",
+        "line": "I worry that anger over politics is turning into violence.",
+        "group": "government",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Political violence",
+          "line": "I worry that anger over politics is turning into violence.",
+          "group": "government",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "About three-quarters of Americans see political violence as a significant issue, and 30% say people may have to resort to violence to get the country back on track (NPR/PBS News/Marist). Rise of extremism is a top worry for 9% on average across Ipsos's countries.",
+        "sources": [
+          {
+            "url": "https://www.pbs.org/newshour/politics/theres-a-growing-number-of-americans-who-think-violence-might-be-necessary-to-get-the-country-back-on-track",
+            "accessed": "2026-10-19",
+            "passage": "About three-quarters of poll respondents see it as a significant issue, an increase of 4 points from July, before Kirk’s death."
+          },
+          {
+            "url": "https://www.pbs.org/newshour/politics/theres-a-growing-number-of-americans-who-think-violence-might-be-necessary-to-get-the-country-back-on-track",
+            "accessed": "2026-10-19",
+            "passage": "Nearly a third of Americans – 30% – say people may have to resort to violence in order to get the country back on track"
+          },
+          {
+            "url": "https://resources.ipsos.com/rs/297-CXJ-795/images/What-Worries-the-World-May-2026.pdf",
+            "accessed": "2026-10-19",
+            "passage": "Rise of extremism 9% (full list, % mentioned in May 2026, global country average)"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "political-violence",
+          "name": "Political violence",
+          "line": "I worry that anger over politics is turning into violence.",
+          "page": "societal",
+          "group": "government",
+          "aliases": [
+            "Extremism",
+            "Domestic terrorism"
+          ],
+          "sources": [
+            {
+              "url": "https://www.pbs.org/newshour/politics/theres-a-growing-number-of-americans-who-think-violence-might-be-necessary-to-get-the-country-back-on-track",
+              "accessed": "2026-10-19",
+              "passage": "About three-quarters of poll respondents see it as a significant issue, an increase of 4 points from July, before Kirk’s death."
+            },
+            {
+              "url": "https://www.pbs.org/newshour/politics/theres-a-growing-number-of-americans-who-think-violence-might-be-necessary-to-get-the-country-back-on-track",
+              "accessed": "2026-10-19",
+              "passage": "Nearly a third of Americans – 30% – say people may have to resort to violence in order to get the country back on track"
+            },
+            {
+              "url": "https://resources.ipsos.com/rs/297-CXJ-795/images/What-Worries-the-World-May-2026.pdf",
+              "accessed": "2026-10-19",
+              "passage": "Rise of extremism 9% (full list, % mentioned in May 2026, global country average)"
+            }
+          ],
+          "prevalence": "About three-quarters of Americans see political violence as a significant issue, and 30% say people may have to resort to violence to get the country back on track (NPR/PBS News/Marist). Rise of extremism is a top worry for 9% on average across Ipsos's countries.",
+          "covers": [
+            {
+              "list": "marist-political-violence-2025",
+              "entry": "political-violence-concern"
+            },
+            {
+              "list": "marist-political-violence-2025",
+              "entry": "violence-may-be-necessary"
+            },
+            {
+              "list": "ipsos-www",
+              "entry": "rise-of-extremism"
+            },
+            {
+              "list": "pew-problems-2026",
+              "entry": "domestic-terrorism"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q137791353"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/government/20261019-224657",
+      "side": [],
+      "id": "p003"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "government-surveillance"
+      ],
+      "group": "government",
+      "current": null,
+      "proposed": {
+        "name": "Government surveillance",
+        "line": "I worry the government is watching what I do and say.",
+        "group": "government",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Government surveillance",
+          "line": "I worry the government is watching what I do and say.",
+          "group": "government",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "About seven in ten U.S. adults (71%) are very or somewhat concerned about how the government uses the data it collects about them, up from 64% in 2019 (Pew).",
+        "sources": [
+          {
+            "url": "https://www.pewresearch.org/short-reads/2023/10/18/key-findings-about-americans-and-data-privacy/markdown",
+            "accessed": "2026-10-19",
+            "passage": "About seven-in-ten U.S. adults (71%) say they are very or somewhat concerned about this, up from 64% in 2019."
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "government-surveillance",
+          "name": "Government surveillance",
+          "line": "I worry the government is watching what I do and say.",
+          "page": "societal",
+          "group": "government",
+          "aliases": [
+            "Government data collection",
+            "Mass surveillance"
+          ],
+          "sources": [
+            {
+              "url": "https://www.pewresearch.org/short-reads/2023/10/18/key-findings-about-americans-and-data-privacy/markdown",
+              "accessed": "2026-10-19",
+              "passage": "About seven-in-ten U.S. adults (71%) say they are very or somewhat concerned about this, up from 64% in 2019."
+            }
+          ],
+          "prevalence": "About seven in ten U.S. adults (71%) are very or somewhat concerned about how the government uses the data it collects about them, up from 64% in 2019 (Pew).",
+          "covers": [
+            {
+              "list": "pew-privacy-2023",
+              "entry": "government-data-use"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q1425056"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/government/20261019-224657",
+      "side": [],
+      "id": "p004"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "benefits-red-tape"
+      ],
+      "group": "government",
+      "current": null,
+      "proposed": {
+        "name": "Red tape",
+        "line": "I see people lose help they qualify for because of paperwork.",
+        "group": "government",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Red tape",
+          "line": "I see people lose help they qualify for because of paperwork.",
+          "group": "government",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "At least 25,198,000 Medicaid enrollees were disenrolled during the unwinding, and 69% of them lost coverage for procedural reasons rather than being found ineligible (KFF).",
+        "sources": [
+          {
+            "url": "https://www.kff.org/medicaid/medicaid-enrollment-and-unwinding-tracker/",
+            "accessed": "2026-10-19",
+            "passage": "Across all states with available data, 69% of all people disenrolled had their coverage terminated for procedural reasons."
+          },
+          {
+            "url": "https://www.kff.org/medicaid/medicaid-enrollment-and-unwinding-tracker/",
+            "accessed": "2026-10-19",
+            "passage": "at least 25,198,000 Medicaid enrollees had been disenrolled during the unwinding"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "benefits-red-tape",
+          "name": "Red tape",
+          "line": "I see people lose help they qualify for because of paperwork.",
+          "page": "societal",
+          "group": "government",
+          "aliases": [
+            "Benefits paperwork",
+            "Administrative burden",
+            "Bureaucracy"
+          ],
+          "sources": [
+            {
+              "url": "https://www.kff.org/medicaid/medicaid-enrollment-and-unwinding-tracker/",
+              "accessed": "2026-10-19",
+              "passage": "Across all states with available data, 69% of all people disenrolled had their coverage terminated for procedural reasons."
+            },
+            {
+              "url": "https://www.kff.org/medicaid/medicaid-enrollment-and-unwinding-tracker/",
+              "accessed": "2026-10-19",
+              "passage": "at least 25,198,000 Medicaid enrollees had been disenrolled during the unwinding"
+            }
+          ],
+          "leads": [
+            "Founder pool (hierarchy v2), paperwork_bureaucracy: \"benefits i depend on have been denied reduced or terminated\", \"i can t figure out how to apply for or keep benefits i need\"."
+          ],
+          "prevalence": "At least 25,198,000 Medicaid enrollees were disenrolled during the unwinding, and 69% of them lost coverage for procedural reasons rather than being found ineligible (KFF).",
+          "covers": [
+            {
+              "list": "kff-medicaid-unwinding",
+              "entry": "procedural-disenrollment"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q72468"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/government/20261019-224657",
+      "side": [],
+      "id": "p005"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "shutdowns"
+      ],
+      "group": "government",
+      "current": null,
+      "proposed": {
+        "name": "Shutdowns",
+        "line": "I see paychecks and food aid stop when the government shuts down.",
+        "group": "government",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Shutdowns",
+          "line": "I see paychecks and food aid stop when the government shuts down.",
+          "group": "government",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "When food benefits weren't delivered to about 275,000 West Virginia residents during the shutdown, calls to 211 rose 1,680% over the year before.",
+        "sources": [
+          {
+            "url": "https://www.yahoo.com/news/articles/west-virginia-211-helpline-sees-110004054.html",
+            "accessed": "2026-10-19",
+            "passage": "It’s a 1,680% increase from the number of calls 211 received last year. ... benefits from the Supplemental Nutrition Assistance Program weren’t delivered to about 275,000 West Virginia residents."
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "shutdowns",
+          "name": "Shutdowns",
+          "line": "I see paychecks and food aid stop when the government shuts down.",
+          "page": "societal",
+          "group": "government",
+          "aliases": [
+            "Government shutdown"
+          ],
+          "sources": [
+            {
+              "url": "https://www.yahoo.com/news/articles/west-virginia-211-helpline-sees-110004054.html",
+              "accessed": "2026-10-19",
+              "passage": "It’s a 1,680% increase from the number of calls 211 received last year. ... benefits from the Supplemental Nutrition Assistance Program weren’t delivered to about 275,000 West Virginia residents."
+            }
+          ],
+          "prevalence": "When food benefits weren't delivered to about 275,000 West Virginia residents during the shutdown, calls to 211 rose 1,680% over the year before.",
+          "covers": [
+            {
+              "list": "211-wv-shutdown",
+              "entry": "snap-delay-calls"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q60708827"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/government/20261019-224657",
+      "side": [],
+      "id": "p006"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "they-dont-listen"
+      ],
+      "group": "government",
+      "current": {
+        "name": "Representation",
+        "line": "I'm not heard by the people in charge."
+      },
+      "proposed": {
+        "name": "Being heard",
+        "line": "The people in charge don't listen to people like me."
+      },
+      "alternatives": [],
+      "why": {
+        "prompt": "lint id-mismatch (note)",
+        "detail": "Keeps the same complaint but says it the way people do (\"they don't listen\"), and the name says what is missing instead of the civics word \"Representation\"."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/government/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p007"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "democracy-slipping"
+      ],
+      "group": "government",
+      "current": {
+        "name": "Institutions",
+        "line": "I see the institutions we rely on falling apart."
+      },
+      "proposed": {
+        "name": "Democracy",
+        "line": "I worry our democracy is slowly slipping away."
+      },
+      "alternatives": [
+        {
+          "name": "Institutions",
+          "line": "I see courts, elections and a free press being worn down."
+        }
+      ],
+      "why": {
+        "prompt": "lint id-mismatch (note)",
+        "detail": "The ID names democracy slipping, but the current line drifted to institutions in general; this brings it back to what the pain is about, calmly and without doom."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/government/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p008"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "corruption"
+      ],
+      "group": "government",
+      "current": {
+        "name": "Corruption",
+        "line": "I see the rules bend for people with money."
+      },
+      "proposed": {
+        "name": "Money in politics",
+        "line": "I see the rules bend for people with money."
+      },
+      "alternatives": [],
+      "why": {
+        "prompt": "refine",
+        "detail": "Every other name under Government is an area (Taxes, Voting, Local control); \"Corruption\" is the only problem label, and this area name keeps the same line."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/government/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p009"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "taxes-dont-buy-much"
+      ],
+      "group": "government",
+      "current": {
+        "name": "Taxes",
+        "line": "I pay more and get less back."
+      },
+      "proposed": {
+        "name": "Taxes",
+        "line": "I pay more in taxes and get less back in services."
+      },
+      "alternatives": [],
+      "why": {
+        "prompt": "refine",
+        "detail": "The current line never says what is paid or what comes back; naming taxes and services makes it clear on its own."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/government/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p010"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "far-away-decisions"
+      ],
+      "group": "government",
+      "current": {
+        "name": "Local control",
+        "line": "I watch decisions about here get made far away."
+      },
+      "proposed": {
+        "name": "Local control",
+        "line": "Decisions about my town get made by people far away."
+      },
+      "alternatives": [],
+      "why": {
+        "prompt": "refine",
+        "detail": "\"Decisions about here\" reads awkwardly; \"my town\" is how a person would say it out loud."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/government/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p011"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "immigration-broken"
+      ],
+      "group": "government",
+      "current": {
+        "name": "Immigration",
+        "line": "I don't think the immigration system is working well."
+      },
+      "proposed": {
+        "name": "Immigration",
+        "line": "I see an immigration system that's broken, and nobody fixes it."
+      },
+      "alternatives": [],
+      "why": {
+        "prompt": "refine",
+        "detail": "The current line is hedged (\"I don't think... working well\"); this says it plainly, matches the ID, and people on any side of the debate could say it."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/government/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p012"
+    },
+    {
+      "painIds": [
+        "they-dont-listen",
+        "far-away-decisions"
+      ],
+      "group": "government",
+      "side": [
+        {
+          "id": "they-dont-listen",
+          "name": "Representation",
+          "line": "I'm not heard by the people in charge."
+        },
+        {
+          "id": "far-away-decisions",
+          "name": "Local control",
+          "line": "I watch decisions about here get made far away."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Someone ignored by their own city council and someone whose town is run from the state capital name different problems and would each pick one easily. Not being heard is about my voice being ignored by any official; local control is about where decisions get made, even by people who might listen."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Representation",
+        "line": "I'm not heard by the people in charge."
+      },
+      "proposed": {
+        "name": "Local control",
+        "line": "I watch decisions about here get made far away."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/government/20261019-224622",
+      "draft": false,
+      "id": "p013"
+    },
+    {
+      "painIds": [
+        "freedoms",
+        "democracy-slipping"
+      ],
+      "group": "government",
+      "side": [
+        {
+          "id": "freedoms",
+          "name": "Freedoms",
+          "line": "I'm losing the freedom to make my own choices."
+        },
+        {
+          "id": "democracy-slipping",
+          "name": "Institutions",
+          "line": "I see the institutions we rely on falling apart."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "People who feel personally restricted and people worried about the system as a whole often aren't the same people, so both need a place to say it. Freedoms is my own choices being taken away; democracy slipping is the shared system of courts, elections and press weakening."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Freedoms",
+        "line": "I'm losing the freedom to make my own choices."
+      },
+      "proposed": {
+        "name": "Institutions",
+        "line": "I see the institutions we rely on falling apart."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/government/20261019-224622",
+      "draft": false,
+      "id": "p014"
+    },
+    {
+      "painIds": [
+        "no-accountability",
+        "corruption"
+      ],
+      "group": "government",
+      "side": [
+        {
+          "id": "no-accountability",
+          "name": "Accountability",
+          "line": "I see leaders break promises with no consequences."
+        },
+        {
+          "id": "corruption",
+          "name": "Corruption",
+          "line": "I see the rules bend for people with money."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "A broken campaign promise and a rich donor getting special treatment are different complaints, and the lines already say which is which. Accountability is leaders breaking promises and facing nothing; corruption is the rules bending for people with money."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Accountability",
+        "line": "I see leaders break promises with no consequences."
+      },
+      "proposed": {
+        "name": "Corruption",
+        "line": "I see the rules bend for people with money."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/government/20261019-224622",
+      "draft": false,
+      "id": "p015"
+    },
+    {
+      "painIds": [
+        "taxes-dont-buy-much",
+        "no-accountability"
+      ],
+      "group": "government",
+      "side": [
+        {
+          "id": "taxes-dont-buy-much",
+          "name": "Taxes",
+          "line": "I pay more and get less back."
+        },
+        {
+          "id": "no-accountability",
+          "name": "Accountability",
+          "line": "I see leaders break promises with no consequences."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Paying more for worse services is a money complaint that someone could have even with honest leaders, so the two don't blur. Taxes is about what I pay and what I get for it; accountability is about leaders getting away with broken promises."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Taxes",
+        "line": "I pay more and get less back."
+      },
+      "proposed": {
+        "name": "Accountability",
+        "line": "I see leaders break promises with no consequences."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/government/20261019-224622",
+      "draft": false,
+      "id": "p016"
+    },
+    {
+      "painIds": [
+        "democracy-slipping",
+        "no-accountability"
+      ],
+      "group": "government",
+      "side": [
+        {
+          "id": "democracy-slipping",
+          "name": "Institutions",
+          "line": "I see the institutions we rely on falling apart."
+        },
+        {
+          "id": "no-accountability",
+          "name": "Accountability",
+          "line": "I see leaders break promises with no consequences."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "One is about people in power and the other about the system that should hold them, and the reworded democracy line makes that clearer. Accountability is individual leaders facing no consequences; democracy slipping is the institutions themselves being worn down."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Institutions",
+        "line": "I see the institutions we rely on falling apart."
+      },
+      "proposed": {
+        "name": "Accountability",
+        "line": "I see leaders break promises with no consequences."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/government/20261019-224622",
+      "draft": false,
+      "id": "p017"
+    },
+    {
+      "painIds": [
+        "democracy-slipping",
+        "they-dont-listen"
+      ],
+      "group": "government",
+      "side": [
+        {
+          "id": "democracy-slipping",
+          "name": "Institutions",
+          "line": "I see the institutions we rely on falling apart."
+        },
+        {
+          "id": "they-dont-listen",
+          "name": "Representation",
+          "line": "I'm not heard by the people in charge."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Feeling ignored by officials is common even where democracy is stable, so a person can easily tell which of the two they mean. Not being heard is my own voice ignored today; democracy slipping is the system that guarantees that voice weakening over time."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Institutions",
+        "line": "I see the institutions we rely on falling apart."
+      },
+      "proposed": {
+        "name": "Representation",
+        "line": "I'm not heard by the people in charge."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/government/20261019-224622",
+      "draft": false,
+      "id": "p018"
+    },
+    {
+      "painIds": [
+        "infrastructure",
+        "taxes-dont-buy-much"
+      ],
+      "group": "government",
+      "side": [
+        {
+          "id": "infrastructure",
+          "name": "Infrastructure",
+          "line": "I depend on roads, water and power that keep breaking down."
+        },
+        {
+          "id": "taxes-dont-buy-much",
+          "name": "Taxes",
+          "line": "I pay more and get less back."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Crumbling roads are a concrete daily problem whether or not someone thinks about taxes, and a person can choose between them without thinking twice. Infrastructure is the roads, water and power I depend on breaking down; taxes is the sense of paying more for less across the board."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Infrastructure",
+        "line": "I depend on roads, water and power that keep breaking down."
+      },
+      "proposed": {
+        "name": "Taxes",
+        "line": "I pay more and get less back."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/government/20261019-224622",
+      "draft": false,
+      "id": "p019"
+    },
+    {
+      "painIds": [
+        "infrastructure",
+        "car-or-nothing"
+      ],
+      "group": "government",
+      "side": [
+        {
+          "id": "infrastructure",
+          "name": "Infrastructure",
+          "line": "I depend on roads, water and power that keep breaking down."
+        },
+        {
+          "id": "car-or-nothing",
+          "name": "Cars",
+          "line": "I can't get anywhere without a car."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Potholes and water main breaks are a different problem from having no bus or sidewalk at all, so they belong in separate pains and groups. Infrastructure is things that exist but keep breaking; car-or-nothing is having no way to get around except driving."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Infrastructure",
+        "line": "I depend on roads, water and power that keep breaking down."
+      },
+      "proposed": {
+        "name": "Cars",
+        "line": "I can't get anywhere without a car."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/government/20261019-224622",
+      "draft": false,
+      "id": "p020"
+    },
+    {
+      "painIds": [
+        "dont-know-who-to-vote-for",
+        "dont-know-whats-true"
+      ],
+      "group": "government",
+      "side": [
+        {
+          "id": "dont-know-who-to-vote-for",
+          "name": "Voting",
+          "line": "I don't know who to vote for."
+        },
+        {
+          "id": "dont-know-whats-true",
+          "name": "Misinformation",
+          "line": "I don't know what's true any more."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Someone can trust the news and still not know which candidate fits them, so the two pains name different moments. Voting is about the choice in front of me at election time; misinformation is not trusting what I read about anything."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Voting",
+        "line": "I don't know who to vote for."
+      },
+      "proposed": {
+        "name": "Misinformation",
+        "line": "I don't know what's true any more."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/government/20261019-224622",
+      "draft": false,
+      "id": "p021"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "cant-trust-the-news"
+      ],
+      "group": "information",
+      "current": null,
+      "proposed": {
+        "name": "Trust in news",
+        "line": "I don't trust the news to tell me the whole story fairly.",
+        "group": "information",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Trust in news",
+          "line": "I don't trust the news to tell me the whole story fairly.",
+          "group": "information",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "28% of Americans trusted newspapers, television and radio to report the news fully, accurately and fairly, down from 40% five years ago; seven in 10 had not very much (36%) or no (34%) confidence (Gallup). Across markets, trust in the news stands at 40% (Reuters Institute Digital News Report).",
+        "sources": [
+          {
+            "url": "https://news.gallup.com/poll/695762/trust-media-new-low.aspx",
+            "accessed": "2026-10-19",
+            "passage": "Americans’ confidence in the mass media has edged down to a new low, with just 28% expressing a “great deal” or “fair amount” of trust in newspapers, television and radio to report the news fully, accurately and fairly. This is down from 31% last year and 40% five years ago . Meanwhile, seven in 10 U.S. adults now say they have “not very much” confidence (36%) or “none at all” (34%)."
+          },
+          {
+            "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2025/dnr-executive-summary",
+            "accessed": "2026-10-19",
+            "passage": "overall trust in the news (40%) has remained stable for the third year in a row, even if it is still four points lower overall than it was at the height of the Coronavirus pandemic"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "cant-trust-the-news",
+          "name": "Trust in news",
+          "line": "I don't trust the news to tell me the whole story fairly.",
+          "page": "societal",
+          "group": "information",
+          "aliases": [
+            "Media bias",
+            "Biased news",
+            "I can't trust the media"
+          ],
+          "sources": [
+            {
+              "url": "https://news.gallup.com/poll/695762/trust-media-new-low.aspx",
+              "accessed": "2026-10-19",
+              "passage": "Americans’ confidence in the mass media has edged down to a new low, with just 28% expressing a “great deal” or “fair amount” of trust in newspapers, television and radio to report the news fully, accurately and fairly. This is down from 31% last year and 40% five years ago . Meanwhile, seven in 10 U.S. adults now say they have “not very much” confidence (36%) or “none at all” (34%)."
+            },
+            {
+              "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2025/dnr-executive-summary",
+              "accessed": "2026-10-19",
+              "passage": "overall trust in the news (40%) has remained stable for the third year in a row, even if it is still four points lower overall than it was at the height of the Coronavirus pandemic"
+            }
+          ],
+          "prevalence": "28% of Americans trusted newspapers, television and radio to report the news fully, accurately and fairly, down from 40% five years ago; seven in 10 had not very much (36%) or no (34%) confidence (Gallup). Across markets, trust in the news stands at 40% (Reuters Institute Digital News Report).",
+          "covers": [
+            {
+              "list": "reuters-dnr-2025",
+              "entry": "trust-in-news"
+            },
+            {
+              "list": "gallup-mip",
+              "entry": "the-media"
+            },
+            {
+              "list": "gallup-media-trust-2025",
+              "entry": "trust-mass-media"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q11118951"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/information/20261019-225848",
+      "side": [],
+      "id": "p022"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "news-overload"
+      ],
+      "group": "information",
+      "current": null,
+      "proposed": {
+        "name": "News overload",
+        "line": "The news wears me down, so I've started tuning it out.",
+        "group": "information",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "News overload",
+          "line": "The news wears me down, so I've started tuning it out.",
+          "group": "information",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "Across markets, 40% sometimes or often avoid the news, up from 29% in 2017 (Reuters Institute Digital News Report).",
+        "sources": [
+          {
+            "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2025/dnr-executive-summary",
+            "accessed": "2026-10-19",
+            "passage": "Across markets, four in ten (40%) say they sometimes or often avoid the news, up from 29% in 2017 and the joint highest figure we’ve ever recorded (along with 2024)."
+          },
+          {
+            "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2025/dnr-executive-summary",
+            "accessed": "2026-10-19",
+            "passage": "selective avoiders who struggle with news overload and look to protect themselves at certain times or for particular topics"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "news-overload",
+          "name": "News overload",
+          "line": "The news wears me down, so I've started tuning it out.",
+          "page": "societal",
+          "group": "information",
+          "aliases": [
+            "News avoidance",
+            "News fatigue",
+            "Information overload"
+          ],
+          "sources": [
+            {
+              "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2025/dnr-executive-summary",
+              "accessed": "2026-10-19",
+              "passage": "Across markets, four in ten (40%) say they sometimes or often avoid the news, up from 29% in 2017 and the joint highest figure we’ve ever recorded (along with 2024)."
+            },
+            {
+              "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2025/dnr-executive-summary",
+              "accessed": "2026-10-19",
+              "passage": "selective avoiders who struggle with news overload and look to protect themselves at certain times or for particular topics"
+            }
+          ],
+          "prevalence": "Across markets, 40% sometimes or often avoid the news, up from 29% in 2017 (Reuters Institute Digital News Report).",
+          "covers": [
+            {
+              "list": "reuters-dnr-2025",
+              "entry": "news-avoidance"
+            },
+            {
+              "list": "reuters-dnr-2025",
+              "entry": "news-overload"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q1130191"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/information/20261019-225848",
+      "side": [],
+      "id": "p023"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "ai-fakes"
+      ],
+      "group": "information",
+      "current": null,
+      "proposed": {
+        "name": "AI fakes",
+        "line": "I can't tell if a photo, video or voice is real or made by AI.",
+        "group": "information",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "AI fakes",
+          "line": "I can't tell if a photo, video or voice is real or made by AI.",
+          "group": "information",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "76% of Americans say being able to tell AI-made content from human-made content is extremely or very important, but 53% are not confident they can (Pew Research Center).",
+        "sources": [
+          {
+            "url": "https://www.pewresearch.org/science/2025/09/17/how-americans-view-ai-and-its-impact-on-people-and-society/",
+            "accessed": "2026-10-19",
+            "passage": "most Americans (76%) say it’s extremely or very important to be able to tell if pictures, videos and text were made by AI or people. But 53% of Americans are not too or not at all confident they can detect if something is made by AI versus a person."
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "ai-fakes",
+          "name": "AI fakes",
+          "line": "I can't tell if a photo, video or voice is real or made by AI.",
+          "page": "societal",
+          "group": "information",
+          "aliases": [
+            "Deepfakes",
+            "AI-generated content"
+          ],
+          "sources": [
+            {
+              "url": "https://www.pewresearch.org/science/2025/09/17/how-americans-view-ai-and-its-impact-on-people-and-society/",
+              "accessed": "2026-10-19",
+              "passage": "most Americans (76%) say it’s extremely or very important to be able to tell if pictures, videos and text were made by AI or people. But 53% of Americans are not too or not at all confident they can detect if something is made by AI versus a person."
+            }
+          ],
+          "prevalence": "76% of Americans say being able to tell AI-made content from human-made content is extremely or very important, but 53% are not confident they can (Pew Research Center).",
+          "covers": [
+            {
+              "list": "pew-ai-2025",
+              "entry": "cant-detect-ai"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q49473179"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/information/20261019-225848",
+      "side": [],
+      "id": "p024"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "data-leaks"
+      ],
+      "group": "information",
+      "current": null,
+      "proposed": {
+        "name": "Data leaks",
+        "line": "My personal information keeps leaking out through hacks and data breaches.",
+        "group": "information",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Data leaks",
+          "line": "My personal information keeps leaking out through hacks and data breaches.",
+          "group": "information",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "U.S. data compromises hit a record 3,322 in 2025 (Identity Theft Resource Center). 11% of Americans had an email or social media account taken over in the past year (Pew Research Center).",
+        "sources": [
+          {
+            "url": "https://www.govtech.com/security/2025-data-breach-report-more-compromises-less-transparency",
+            "accessed": "2026-10-19",
+            "passage": "Data compromise incidents hit a record of 3,322 in 2025, with 70 percent of related breach notices failing to explain how the breach happened, according to a new report from the Identity Theft Resource Center (ITRC)."
+          },
+          {
+            "url": "https://www.pewresearch.org/internet/2023/10/18/how-americans-view-data-privacy/",
+            "accessed": "2026-10-19",
+            "passage": "And 11% have had their email or social media accounts taken over without permission, while 7% have had someone attempt to open a line of credit or apply for a loan in their name. All told, 34% have experienced at least one of these things in the past year."
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "data-leaks",
+          "name": "Data leaks",
+          "line": "My personal information keeps leaking out through hacks and data breaches.",
+          "page": "societal",
+          "group": "information",
+          "aliases": [
+            "Data breaches",
+            "Hacked accounts"
+          ],
+          "sources": [
+            {
+              "url": "https://www.govtech.com/security/2025-data-breach-report-more-compromises-less-transparency",
+              "accessed": "2026-10-19",
+              "passage": "Data compromise incidents hit a record of 3,322 in 2025, with 70 percent of related breach notices failing to explain how the breach happened, according to a new report from the Identity Theft Resource Center (ITRC)."
+            },
+            {
+              "url": "https://www.pewresearch.org/internet/2023/10/18/how-americans-view-data-privacy/",
+              "accessed": "2026-10-19",
+              "passage": "And 11% have had their email or social media accounts taken over without permission, while 7% have had someone attempt to open a line of credit or apply for a loan in their name. All told, 34% have experienced at least one of these things in the past year."
+            }
+          ],
+          "prevalence": "U.S. data compromises hit a record 3,322 in 2025 (Identity Theft Resource Center). 11% of Americans had an email or social media account taken over in the past year (Pew Research Center).",
+          "covers": [
+            {
+              "list": "pew-data-privacy-2023",
+              "entry": "accounts-taken-over"
+            },
+            {
+              "list": "itrc-breaches-2025",
+              "entry": "data-compromises"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q1172486"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/information/20261019-225848",
+      "side": [],
+      "id": "p025"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "afraid-to-speak"
+      ],
+      "group": "information",
+      "current": null,
+      "proposed": {
+        "name": "Free speech",
+        "line": "I'm afraid to say what I really think.",
+        "group": "information",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Free speech",
+          "line": "I'm afraid to say what I really think.",
+          "group": "information",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "65% of Americans say they are fearful of consequences for speaking freely, most often a violent response or tension with friends and family (Freedom Forum).",
+        "sources": [
+          {
+            "url": "https://firstamendment.mtsu.edu/post/where-america-stands-on-the-first-amendment-key-takeaways/",
+            "accessed": "2026-10-19",
+            "passage": "Among the 65% who say in the survey they are fearful, they most often cited the threat of a violent response and fear of creating tension with friends and family."
+          },
+          {
+            "url": "https://en.wikipedia.org/wiki/Manfred_Max-Neef%27s_Fundamental_human_needs",
+            "accessed": "2026-10-19",
+            "passage": "But also censorship, for satisfying the need for protection, but for preventing satisfying the needs of understanding, participation and freedom."
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "afraid-to-speak",
+          "name": "Free speech",
+          "line": "I'm afraid to say what I really think.",
+          "page": "societal",
+          "group": "information",
+          "aliases": [
+            "Self-censorship",
+            "Censorship",
+            "Can't speak freely"
+          ],
+          "sources": [
+            {
+              "url": "https://firstamendment.mtsu.edu/post/where-america-stands-on-the-first-amendment-key-takeaways/",
+              "accessed": "2026-10-19",
+              "passage": "Among the 65% who say in the survey they are fearful, they most often cited the threat of a violent response and fear of creating tension with friends and family."
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Manfred_Max-Neef%27s_Fundamental_human_needs",
+              "accessed": "2026-10-19",
+              "passage": "But also censorship, for satisfying the need for protection, but for preventing satisfying the needs of understanding, participation and freedom."
+            }
+          ],
+          "prevalence": "65% of Americans say they are fearful of consequences for speaking freely, most often a violent response or tension with friends and family (Freedom Forum).",
+          "covers": [
+            {
+              "list": "freedom-forum-2025",
+              "entry": "afraid-to-speak"
+            },
+            {
+              "list": "maxneef",
+              "entry": "censorship"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q543"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q22692"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/information/20261019-225848",
+      "side": [],
+      "id": "p026"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "press-freedom"
+      ],
+      "group": "information",
+      "current": null,
+      "proposed": {
+        "name": "Press freedom",
+        "line": "I see reporters threatened, jailed or shut down for doing their jobs.",
+        "group": "information",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Press freedom",
+          "line": "I see reporters threatened, jailed or shut down for doing their jobs.",
+          "group": "information",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "In 2024 at least 502 killings of human rights defenders, journalists and trade unionists were reported across 44 countries (UN SDG 16.10 progress). RSF classed world press freedom as a \"difficult situation\" for the first time in the history of its index.",
+        "sources": [
+          {
+            "url": "https://rsf.org/en/rsf-world-press-freedom-index-2025-economic-fragility-leading-threat-press-freedom",
+            "accessed": "2026-10-19",
+            "passage": "the global state of press freedom is now classified as a “difficult situation” for the first time in the history of the Index"
+          },
+          {
+            "url": "https://sdgs.un.org/goals/goal16",
+            "accessed": "2026-10-19",
+            "passage": "Target 16.10 - In 2024, the number of killings of human rights defenders, journalists and trade unionists remained alarmingly high, with at least 502 cases reported across 44 countries"
+          },
+          {
+            "url": "https://firstamendment.mtsu.edu/post/where-america-stands-on-the-first-amendment-key-takeaways/",
+            "accessed": "2026-10-19",
+            "passage": "The survey also found Americans see a free press as the most threatened of the five freedoms under President Trump."
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "press-freedom",
+          "name": "Press freedom",
+          "line": "I see reporters threatened, jailed or shut down for doing their jobs.",
+          "page": "societal",
+          "group": "information",
+          "aliases": [
+            "Free press",
+            "Journalists under attack"
+          ],
+          "sources": [
+            {
+              "url": "https://rsf.org/en/rsf-world-press-freedom-index-2025-economic-fragility-leading-threat-press-freedom",
+              "accessed": "2026-10-19",
+              "passage": "the global state of press freedom is now classified as a “difficult situation” for the first time in the history of the Index"
+            },
+            {
+              "url": "https://sdgs.un.org/goals/goal16",
+              "accessed": "2026-10-19",
+              "passage": "Target 16.10 - In 2024, the number of killings of human rights defenders, journalists and trade unionists remained alarmingly high, with at least 502 cases reported across 44 countries"
+            },
+            {
+              "url": "https://firstamendment.mtsu.edu/post/where-america-stands-on-the-first-amendment-key-takeaways/",
+              "accessed": "2026-10-19",
+              "passage": "The survey also found Americans see a free press as the most threatened of the five freedoms under President Trump."
+            }
+          ],
+          "prevalence": "In 2024 at least 502 killings of human rights defenders, journalists and trade unionists were reported across 44 countries (UN SDG 16.10 progress). RSF classed world press freedom as a \"difficult situation\" for the first time in the history of its index.",
+          "covers": [
+            {
+              "list": "freedom-forum-2025",
+              "entry": "free-press-threatened"
+            },
+            {
+              "list": "rsf-index-2025",
+              "entry": "press-freedom-difficult"
+            },
+            {
+              "list": "sdg-targets",
+              "entry": "16.10.1"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q22688"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/information/20261019-225848",
+      "side": [],
+      "id": "p027"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "finding-help"
+      ],
+      "group": "time",
+      "current": null,
+      "proposed": {
+        "name": "Finding help",
+        "line": "I don't know what help is out there or where to ask for it.",
+        "group": "time",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Finding help",
+          "line": "I don't know what help is out there or where to ask for it.",
+          "group": "time",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "211 made 19 million referrals for locally available help in 2025, 1 million more than in 2024 (United Way).",
+        "sources": [
+          {
+            "url": "https://www.unitedway.org/the-facts-about-211-2025-impact-snapshot",
+            "accessed": "2026-10-19",
+            "passage": "In 2025, 211 community resource specialists made 19 million referrals for locally available help, 1 million more than in 2024"
+          },
+          {
+            "url": "https://cdn.who.int/media/docs/default-source/publishing-policies/whoqol-bref/english-australian-whoqol-bref.zip?sfvrsn=a7452ad6_2",
+            "accessed": "2026-10-19",
+            "passage": "13 How available to you is the information you need in your daily life?"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "finding-help",
+          "name": "Finding help",
+          "line": "I don't know what help is out there or where to ask for it.",
+          "page": "personal",
+          "group": "time",
+          "aliases": [
+            "Where to turn",
+            "Information I need"
+          ],
+          "sources": [
+            {
+              "url": "https://www.unitedway.org/the-facts-about-211-2025-impact-snapshot",
+              "accessed": "2026-10-19",
+              "passage": "In 2025, 211 community resource specialists made 19 million referrals for locally available help, 1 million more than in 2024"
+            },
+            {
+              "url": "https://cdn.who.int/media/docs/default-source/publishing-policies/whoqol-bref/english-australian-whoqol-bref.zip?sfvrsn=a7452ad6_2",
+              "accessed": "2026-10-19",
+              "passage": "13 How available to you is the information you need in your daily life?"
+            }
+          ],
+          "prevalence": "211 made 19 million referrals for locally available help in 2025, 1 million more than in 2024 (United Way).",
+          "covers": [
+            {
+              "list": "whoqol-bref",
+              "entry": "Q13"
+            },
+            {
+              "list": "211-impact-2025",
+              "entry": "information-referral"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/information/20261019-225848",
+      "similar": [
+        {
+          "id": "might-lose-my-home",
+          "name": "Eviction",
+          "line": "I might lose my home."
+        }
+      ],
+      "side": [],
+      "id": "p028"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "language-barriers"
+      ],
+      "group": "time",
+      "current": null,
+      "proposed": {
+        "name": "Language barriers",
+        "line": "I can't get important information or services in a language I understand well.",
+        "group": "time",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Language barriers",
+          "line": "I can't get important information or services in a language I understand well.",
+          "group": "time",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "In 2019, 67.8 million people in the U.S. spoke a language other than English at home; 39% of Spanish speakers, 52% of Chinese speakers and 57% of Vietnamese speakers spoke English less than very well (U.S. Census Bureau).",
+        "sources": [
+          {
+            "url": "https://www.census.gov/library/stories/2022/12/languages-we-speak-in-united-states.html",
+            "accessed": "2026-10-19",
+            "passage": "Based on the 2019 data, 52% of people who spoke Chinese and 57% of those who spoke Vietnamese at home in the United States spoke English “less than very well,” compared to the other three common languages: Spanish 39%, Tagalog 30%, and Arabic 35%"
+          },
+          {
+            "url": "https://www.census.gov/library/stories/2022/12/languages-we-speak-in-united-states.html",
+            "accessed": "2026-10-19",
+            "passage": "The number of people in the United States who spoke a language other than English at home nearly tripled from 23.1 million (about 1 in 10) in 1980 to 67.8 million (almost 1 in 5) in 2019"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "language-barriers",
+          "name": "Language barriers",
+          "line": "I can't get important information or services in a language I understand well.",
+          "page": "personal",
+          "group": "time",
+          "aliases": [
+            "Language access",
+            "Limited English"
+          ],
+          "sources": [
+            {
+              "url": "https://www.census.gov/library/stories/2022/12/languages-we-speak-in-united-states.html",
+              "accessed": "2026-10-19",
+              "passage": "Based on the 2019 data, 52% of people who spoke Chinese and 57% of those who spoke Vietnamese at home in the United States spoke English “less than very well,” compared to the other three common languages: Spanish 39%, Tagalog 30%, and Arabic 35%"
+            },
+            {
+              "url": "https://www.census.gov/library/stories/2022/12/languages-we-speak-in-united-states.html",
+              "accessed": "2026-10-19",
+              "passage": "The number of people in the United States who spoke a language other than English at home nearly tripled from 23.1 million (about 1 in 10) in 1980 to 67.8 million (almost 1 in 5) in 2019"
+            }
+          ],
+          "prevalence": "In 2019, 67.8 million people in the U.S. spoke a language other than English at home; 39% of Spanish speakers, 52% of Chinese speakers and 57% of Vietnamese speakers spoke English less than very well (U.S. Census Bureau).",
+          "covers": [
+            {
+              "list": "census-language-2019",
+              "entry": "limited-english"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/information/20261019-225848",
+      "side": [],
+      "id": "p029"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "nobody-covers-here"
+      ],
+      "group": "information",
+      "current": {
+        "name": "Local news",
+        "line": "I don't know what's happening in my own town."
+      },
+      "proposed": {
+        "name": "No local news",
+        "line": "Nobody reports on my town any more, so I don't know what's going on here."
+      },
+      "alternatives": [
+        {
+          "name": "Local news",
+          "line": "Nobody reports on what's happening in my town any more."
+        }
+      ],
+      "why": {
+        "prompt": "lint id-mismatch (note)",
+        "detail": "Brings back what the ID names (no one covering here) and says why the person doesn't know, while the problem-style name matches Misinformation if the founder wants one style for the heading."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/information/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p030"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "watched-by-companies"
+      ],
+      "group": "information",
+      "current": {
+        "name": "Privacy",
+        "line": "I feel watched by companies that know everything about me."
+      },
+      "proposed": {
+        "name": "Being tracked",
+        "line": "I feel watched by companies that know everything about me."
+      },
+      "alternatives": [],
+      "why": {
+        "prompt": "refine",
+        "detail": "Same line; the problem-style name says what is wrong, so the heading no longer mixes Misinformation (a problem) with Privacy (an area)."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/information/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p031"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "dont-know-whats-true"
+      ],
+      "group": "information",
+      "current": {
+        "name": "Misinformation",
+        "line": "I don't know what's true any more."
+      },
+      "proposed": {
+        "name": "Knowing what's true",
+        "line": "I don't know what's true any more."
+      },
+      "alternatives": [],
+      "why": {
+        "prompt": "refine",
+        "detail": "Same line; an area-style name matching Local news and Privacy, the other way to give the heading one style."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/information/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p032"
+    },
+    {
+      "painIds": [
+        "nobody-covers-here",
+        "dont-know-whats-happening"
+      ],
+      "group": "information",
+      "side": [
+        {
+          "id": "nobody-covers-here",
+          "name": "Local news",
+          "line": "I don't know what's happening in my own town."
+        },
+        {
+          "id": "dont-know-whats-happening",
+          "name": "Coordination",
+          "line": "I can't find who's already working on this."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "One is missing news about the town and the other is missing allies for a cause, and the line wording already keeps them apart. Local news is about no one reporting what goes on in town; Coordination is about not finding the people already working on a cause you care about."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Local news",
+        "line": "I don't know what's happening in my own town."
+      },
+      "proposed": {
+        "name": "Coordination",
+        "line": "I can't find who's already working on this."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/information/20261019-224622",
+      "draft": false,
+      "id": "p033"
+    },
+    {
+      "painIds": [
+        "watched-by-companies",
+        "scammed"
+      ],
+      "group": "information",
+      "side": [
+        {
+          "id": "watched-by-companies",
+          "name": "Privacy",
+          "line": "I feel watched by companies that know everything about me."
+        },
+        {
+          "id": "scammed",
+          "name": "Scams",
+          "line": "I lost money to a scam."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Losing money to a scammer and feeling tracked by companies are different experiences on different pages, and neither is a version of the other. Privacy is the societal worry about companies collecting data on everyone; Scams is a personal loss of money to a fraud."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Privacy",
+        "line": "I feel watched by companies that know everything about me."
+      },
+      "proposed": {
+        "name": "Scams",
+        "line": "I lost money to a scam."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/information/20261019-224622",
+      "draft": false,
+      "id": "p034"
+    },
+    {
+      "kind": "move",
+      "painIds": [
+        "watched-by-companies"
+      ],
+      "group": "information",
+      "current": {
+        "name": "Privacy",
+        "line": "I feel watched by companies that know everything about me.",
+        "group": "Information"
+      },
+      "proposed": {
+        "name": "Privacy",
+        "line": "I feel watched by companies that know everything about me.",
+        "group": "Safety"
+      },
+      "alternatives": [],
+      "why": {
+        "prompt": "card sort",
+        "detail": "the sorts placed it under Information, Safety, Safety"
+      },
+      "allowOwn": false,
+      "payload": {
+        "groups": [
+          "safety"
+        ]
+      },
+      "origin": "docs/research/pains/refine/information/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p035"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "tired-of-politics"
+      ],
+      "group": "making-change",
+      "current": null,
+      "proposed": {
+        "name": "Tired of politics",
+        "line": "Thinking about politics leaves me worn out and angry.",
+        "group": "making-change",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Tired of politics",
+          "line": "Thinking about politics leaves me worn out and angry.",
+          "group": "making-change",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "65% of U.S. adults always or often feel exhausted thinking about politics, 55% feel angry, and just 10% feel hopeful (Pew Research Center survey).",
+        "sources": [
+          {
+            "url": "https://www.pewresearch.org/politics/2023/09/19/americans-dismal-views-of-the-nations-politics/",
+            "accessed": "2026-10-19",
+            "passage": "nearly two-thirds of Americans (65%) say they always or often feel exhausted when thinking about politics, while 55% feel angry. By contrast, just 10% say they always or often feel hopeful about politics"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "tired-of-politics",
+          "name": "Tired of politics",
+          "line": "Thinking about politics leaves me worn out and angry.",
+          "page": "societal",
+          "group": "making-change",
+          "aliases": [
+            "Political fatigue",
+            "Politics exhausts me"
+          ],
+          "sources": [
+            {
+              "url": "https://www.pewresearch.org/politics/2023/09/19/americans-dismal-views-of-the-nations-politics/",
+              "accessed": "2026-10-19",
+              "passage": "nearly two-thirds of Americans (65%) say they always or often feel exhausted when thinking about politics, while 55% feel angry. By contrast, just 10% say they always or often feel hopeful about politics"
+            }
+          ],
+          "prevalence": "65% of U.S. adults always or often feel exhausted thinking about politics, 55% feel angry, and just 10% feel hopeful (Pew Research Center survey).",
+          "covers": [
+            {
+              "list": "pew-politics-2023",
+              "entry": "exhausted"
+            },
+            {
+              "list": "pew-politics-2023",
+              "entry": "angry"
+            },
+            {
+              "list": "pew-politics-2023",
+              "entry": "hopeful"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q1038864"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/making-change/20261019-230150",
+      "similar": [
+        {
+          "id": "people-are-meaner",
+          "name": "Moral decline",
+          "line": "I think people care less about right and wrong."
+        }
+      ],
+      "side": [],
+      "id": "p036"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "no-time-to-help"
+      ],
+      "group": "making-change",
+      "current": null,
+      "proposed": {
+        "name": "Time to volunteer",
+        "line": "I'd like to get involved, but work and family leave me no time.",
+        "group": "making-change",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Time to volunteer",
+          "line": "I'd like to get involved, but work and family leave me no time.",
+          "group": "making-change",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "In England, 51% of adults who did not volunteer monthly named work commitments as a barrier and 22% named looking after children (Community Life Survey).",
+        "sources": [
+          {
+            "url": "https://www.gov.uk/government/statistics/community-life-survey-202425-annual-publication/community-life-survey-202425-volunteering-and-charitable-giving",
+            "accessed": "2026-10-19",
+            "passage": "the most common barriers to participating in formal volunteering were:: ‘I have work commitments’ – 51% ‘I do other things in my spare time’ – 32% ‘I have to look after children’ – 22%"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "no-time-to-help",
+          "name": "Time to volunteer",
+          "line": "I'd like to get involved, but work and family leave me no time.",
+          "page": "societal",
+          "group": "making-change",
+          "aliases": [
+            "No time to help",
+            "Too busy to volunteer"
+          ],
+          "sources": [
+            {
+              "url": "https://www.gov.uk/government/statistics/community-life-survey-202425-annual-publication/community-life-survey-202425-volunteering-and-charitable-giving",
+              "accessed": "2026-10-19",
+              "passage": "the most common barriers to participating in formal volunteering were:: ‘I have work commitments’ – 51% ‘I do other things in my spare time’ – 32% ‘I have to look after children’ – 22%"
+            }
+          ],
+          "prevalence": "In England, 51% of adults who did not volunteer monthly named work commitments as a barrier and 22% named looking after children (Community Life Survey).",
+          "covers": [
+            {
+              "list": "uk-community-life-volunteering-2024-25",
+              "entry": "work-commitments"
+            },
+            {
+              "list": "uk-community-life-volunteering-2024-25",
+              "entry": "look-after-children"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/making-change/20261019-230150",
+      "side": [],
+      "id": "p037"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "organizer-burnout"
+      ],
+      "group": "making-change",
+      "current": null,
+      "proposed": {
+        "name": "Organizer burnout",
+        "line": "I've worked for change so long that I'm running on empty.",
+        "group": "making-change",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Organizer burnout",
+          "line": "I've worked for change so long that I'm running on empty.",
+          "group": "making-change",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "In a re:power poll of 349 U.S. organizers, burnout was a top concern and only 32 percent expected to still be organizing in five years.",
+        "sources": [
+          {
+            "url": "https://repower.org/as-the-world-burns-organizers-are-burning-out/",
+            "accessed": "2026-10-19",
+            "passage": "The poll found that burnout, low pay, and institutional barriers to seizing power make up a trifecta of issues facing organizers at all time scales."
+          },
+          {
+            "url": "https://repower.org/as-the-world-burns-organizers-are-burning-out/",
+            "accessed": "2026-10-19",
+            "passage": "only 32 percent believed they’d still be organizing in five years"
+          },
+          {
+            "url": "https://repower.org/as-the-world-burns-organizers-are-burning-out/",
+            "accessed": "2026-10-19",
+            "passage": "surveyed 349 organizers from across the country"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "organizer-burnout",
+          "name": "Organizer burnout",
+          "line": "I've worked for change so long that I'm running on empty.",
+          "page": "societal",
+          "group": "making-change",
+          "aliases": [
+            "Activist burnout",
+            "Burned out from caring"
+          ],
+          "sources": [
+            {
+              "url": "https://repower.org/as-the-world-burns-organizers-are-burning-out/",
+              "accessed": "2026-10-19",
+              "passage": "The poll found that burnout, low pay, and institutional barriers to seizing power make up a trifecta of issues facing organizers at all time scales."
+            },
+            {
+              "url": "https://repower.org/as-the-world-burns-organizers-are-burning-out/",
+              "accessed": "2026-10-19",
+              "passage": "only 32 percent believed they’d still be organizing in five years"
+            },
+            {
+              "url": "https://repower.org/as-the-world-burns-organizers-are-burning-out/",
+              "accessed": "2026-10-19",
+              "passage": "surveyed 349 organizers from across the country"
+            }
+          ],
+          "prevalence": "In a re:power poll of 349 U.S. organizers, burnout was a top concern and only 32 percent expected to still be organizing in five years.",
+          "covers": [
+            {
+              "list": "repower-organizers-2022",
+              "entry": "burnout"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q5156139"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/making-change/20261019-230150",
+      "side": [],
+      "id": "p038"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "threats-for-serving"
+      ],
+      "group": "making-change",
+      "current": null,
+      "proposed": {
+        "name": "Harassed for serving",
+        "line": "I see people who serve on local boards and councils get threatened and harassed.",
+        "group": "making-change",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Harassed for serving",
+          "line": "I see people who serve on local boards and councils get threatened and harassed.",
+          "group": "making-change",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "52 percent of U.S. local officeholders faced threats, attacks, insults or harassment, and more than 40 percent were less willing to run again because of abuse (Brennan Center).",
+        "sources": [
+          {
+            "url": "https://www.brennancenter.org/our-work/research-reports/intimidation-state-and-local-officeholders",
+            "accessed": "2026-10-19",
+            "passage": "The numbers balloon to 89 percent of state legislators and 52 percent of local officeholders when less severe forms of abuse — insults or harassment such as stalking — are included."
+          },
+          {
+            "url": "https://www.brennancenter.org/our-work/research-reports/intimidation-state-and-local-officeholders",
+            "accessed": "2026-10-19",
+            "passage": "More than 40 percent of local officeholders said they were less willing to run for reelection or higher office at the time they were surveyed because of abuse."
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "threats-for-serving",
+          "name": "Harassed for serving",
+          "line": "I see people who serve on local boards and councils get threatened and harassed.",
+          "page": "societal",
+          "group": "making-change",
+          "aliases": [
+            "Threats against local officials",
+            "Too risky to step up"
+          ],
+          "sources": [
+            {
+              "url": "https://www.brennancenter.org/our-work/research-reports/intimidation-state-and-local-officeholders",
+              "accessed": "2026-10-19",
+              "passage": "The numbers balloon to 89 percent of state legislators and 52 percent of local officeholders when less severe forms of abuse — insults or harassment such as stalking — are included."
+            },
+            {
+              "url": "https://www.brennancenter.org/our-work/research-reports/intimidation-state-and-local-officeholders",
+              "accessed": "2026-10-19",
+              "passage": "More than 40 percent of local officeholders said they were less willing to run for reelection or higher office at the time they were surveyed because of abuse."
+            }
+          ],
+          "prevalence": "52 percent of U.S. local officeholders faced threats, attacks, insults or harassment, and more than 40 percent were less willing to run again because of abuse (Brennan Center).",
+          "covers": [
+            {
+              "list": "brennan-officeholders-2024",
+              "entry": "abuse-local"
+            },
+            {
+              "list": "brennan-officeholders-2024",
+              "entry": "less-willing-to-run"
+            },
+            {
+              "list": "brennan-officeholders-2024",
+              "entry": "controversial-topics"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q3399774"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/making-change/20261019-230150",
+      "side": [],
+      "id": "p039"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "nothing-ever-changes"
+      ],
+      "group": "making-change",
+      "current": {
+        "name": "Gridlock",
+        "line": "I see the same problems stay year after year."
+      },
+      "proposed": {
+        "name": "Progress",
+        "line": "I keep seeing the same problems year after year, and nothing changes."
+      },
+      "alternatives": [
+        {
+          "name": "Change",
+          "line": "Nothing ever seems to change where I live, no matter how bad things get."
+        }
+      ],
+      "why": {
+        "prompt": "lint id-mismatch (note)",
+        "detail": "Keeps the year-after-year feeling, says the 'nothing changes' the ID names, and swaps the problem label Gridlock for an area label like the rest of the heading."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/making-change/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p040"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "groups-go-nowhere"
+      ],
+      "group": "making-change",
+      "current": {
+        "name": "Meetings",
+        "line": "I go to meetings where nothing happens."
+      },
+      "proposed": {
+        "name": "Groups",
+        "line": "The groups I'm part of talk a lot and never get anything done."
+      },
+      "alternatives": [],
+      "why": {
+        "prompt": "lint id-mismatch (note)",
+        "detail": "Covers boards, clubs and committees, not only meetings, and says what goes wrong: talk without action."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/making-change/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p041"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "shouting-into-void"
+      ],
+      "group": "making-change",
+      "current": {
+        "name": "Unheard",
+        "line": "I care and it goes nowhere."
+      },
+      "proposed": {
+        "name": "Speaking up",
+        "line": "I speak up about what I care about, and it feels like shouting into the void."
+      },
+      "alternatives": [
+        {
+          "name": "Being heard",
+          "line": "I call, write and post about what matters to me, and nothing comes back."
+        }
+      ],
+      "why": {
+        "prompt": "lint id-mismatch (note)",
+        "detail": "Says what the person did and what came back, using the everyday phrase the ID names, and makes the name an area label like the rest of the heading."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/making-change/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p042"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "alone-in-caring"
+      ],
+      "group": "making-change",
+      "current": {
+        "name": "Allies",
+        "line": "I don't know who else cares."
+      },
+      "proposed": {
+        "name": "Allies",
+        "line": "I feel alone in caring about this where I live."
+      },
+      "alternatives": [],
+      "why": {
+        "prompt": "lint id-mismatch (note)",
+        "detail": "Names the loneliness the ID describes, which separates it from Coordination (finding existing efforts)."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/making-change/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p043"
+    },
+    {
+      "painIds": [
+        "nothing-ever-changes",
+        "shouting-into-void"
+      ],
+      "group": "making-change",
+      "side": [
+        {
+          "id": "nothing-ever-changes",
+          "name": "Gridlock",
+          "line": "I see the same problems stay year after year."
+        },
+        {
+          "id": "shouting-into-void",
+          "name": "Unheard",
+          "line": "I care and it goes nowhere."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Someone who has never spoken up can feel stuck problems, and someone who speaks up can feel unheard even on things that are moving. Gridlock is about problems in the world staying put; Unheard is about my own effort getting no response."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Gridlock",
+        "line": "I see the same problems stay year after year."
+      },
+      "proposed": {
+        "name": "Unheard",
+        "line": "I care and it goes nowhere."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/making-change/20261019-224622",
+      "draft": false,
+      "id": "p044"
+    },
+    {
+      "painIds": [
+        "groups-go-nowhere",
+        "nothing-ever-changes"
+      ],
+      "group": "making-change",
+      "side": [
+        {
+          "id": "groups-go-nowhere",
+          "name": "Meetings",
+          "line": "I go to meetings where nothing happens."
+        },
+        {
+          "id": "nothing-ever-changes",
+          "name": "Gridlock",
+          "line": "I see the same problems stay year after year."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "A person stuck in a talk-only committee picks a different card than a person watching the same potholes for ten years. Meetings is about the groups I'm in; Gridlock is about the place I live."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Meetings",
+        "line": "I go to meetings where nothing happens."
+      },
+      "proposed": {
+        "name": "Gridlock",
+        "line": "I see the same problems stay year after year."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/making-change/20261019-224622",
+      "draft": false,
+      "id": "p045"
+    },
+    {
+      "painIds": [
+        "giving-feels-blind",
+        "shouting-into-void"
+      ],
+      "group": "making-change",
+      "side": [
+        {
+          "id": "giving-feels-blind",
+          "name": "Giving",
+          "line": "I'd give if I knew it worked."
+        },
+        {
+          "id": "shouting-into-void",
+          "name": "Unheard",
+          "line": "I care and it goes nowhere."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Doubting where a donation of money goes and feeling ignored after speaking up are different experiences with different fixes. Giving is about money and not knowing if it works; Unheard is about voice and getting no response."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Giving",
+        "line": "I'd give if I knew it worked."
+      },
+      "proposed": {
+        "name": "Unheard",
+        "line": "I care and it goes nowhere."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/making-change/20261019-224622",
+      "draft": false,
+      "id": "p046"
+    },
+    {
+      "painIds": [
+        "alone-in-caring",
+        "shouting-into-void"
+      ],
+      "group": "making-change",
+      "side": [
+        {
+          "id": "alone-in-caring",
+          "name": "Allies",
+          "line": "I don't know who else cares."
+        },
+        {
+          "id": "shouting-into-void",
+          "name": "Unheard",
+          "line": "I care and it goes nowhere."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "One is about company and the other about results, so a person can tell at a glance which one is theirs. Allies is about not finding others who care; Unheard is about my effort going nowhere."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Allies",
+        "line": "I don't know who else cares."
+      },
+      "proposed": {
+        "name": "Unheard",
+        "line": "I care and it goes nowhere."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/making-change/20261019-224622",
+      "draft": false,
+      "id": "p047"
+    },
+    {
+      "painIds": [
+        "alone-in-caring",
+        "nobody-knows-anybody"
+      ],
+      "group": "making-change",
+      "side": [
+        {
+          "id": "alone-in-caring",
+          "name": "Allies",
+          "line": "I don't know who else cares."
+        },
+        {
+          "id": "nobody-knows-anybody",
+          "name": "Neighbors",
+          "line": "I don't know the people on my street."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Someone can know every neighbor and still feel alone in caring about an issue, and the other way round. Allies is about finding people who share a cause; Neighbors is about not knowing the people on my street at all."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Allies",
+        "line": "I don't know who else cares."
+      },
+      "proposed": {
+        "name": "Neighbors",
+        "line": "I don't know the people on my street."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/making-change/20261019-224622",
+      "draft": false,
+      "id": "p048"
+    },
+    {
+      "painIds": [
+        "dont-know-whats-happening",
+        "alone-in-caring"
+      ],
+      "group": "making-change",
+      "side": [
+        {
+          "id": "dont-know-whats-happening",
+          "name": "Coordination",
+          "line": "I can't find who's already working on this."
+        },
+        {
+          "id": "alone-in-caring",
+          "name": "Allies",
+          "line": "I don't know who else cares."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "They sit close, but the sharper Allies line (feeling alone) makes the choice easy against Coordination (can't find who's already working on it). Coordination is the practical search for existing efforts and groups; Allies is the feeling of being the only one who cares."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Coordination",
+        "line": "I can't find who's already working on this."
+      },
+      "proposed": {
+        "name": "Allies",
+        "line": "I don't know who else cares."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/making-change/20261019-224622",
+      "draft": false,
+      "id": "p049"
+    },
+    {
+      "painIds": [
+        "want-to-help",
+        "alone-in-caring"
+      ],
+      "group": "making-change",
+      "side": [
+        {
+          "id": "want-to-help",
+          "name": "Helping",
+          "line": "I'd do something if I knew what."
+        },
+        {
+          "id": "alone-in-caring",
+          "name": "Allies",
+          "line": "I don't know who else cares."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "What to do and who to do it with are different gaps, and people usually know which one they have. Helping is not knowing what to do; Allies is not knowing who else cares."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Helping",
+        "line": "I'd do something if I knew what."
+      },
+      "proposed": {
+        "name": "Allies",
+        "line": "I don't know who else cares."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/making-change/20261019-224622",
+      "draft": false,
+      "id": "p050"
+    },
+    {
+      "painIds": [
+        "want-to-help",
+        "shouting-into-void"
+      ],
+      "group": "making-change",
+      "side": [
+        {
+          "id": "want-to-help",
+          "name": "Helping",
+          "line": "I'd do something if I knew what."
+        },
+        {
+          "id": "shouting-into-void",
+          "name": "Unheard",
+          "line": "I care and it goes nowhere."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "A person who hasn't started and a person who tried and got nothing would not mistake one card for the other. Helping is before acting; Unheard is after acting with nothing to show for it."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Helping",
+        "line": "I'd do something if I knew what."
+      },
+      "proposed": {
+        "name": "Unheard",
+        "line": "I care and it goes nowhere."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/making-change/20261019-224622",
+      "draft": false,
+      "id": "p051"
+    },
+    {
+      "painIds": [
+        "want-to-help",
+        "giving-feels-blind"
+      ],
+      "group": "making-change",
+      "side": [
+        {
+          "id": "want-to-help",
+          "name": "Helping",
+          "line": "I'd do something if I knew what."
+        },
+        {
+          "id": "giving-feels-blind",
+          "name": "Giving",
+          "line": "I'd give if I knew it worked."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Both start with 'I'd', but one is about doing and the other about paying, so they lead to different fixes. Helping is about time and action; Giving is about money and whether it works."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Helping",
+        "line": "I'd do something if I knew what."
+      },
+      "proposed": {
+        "name": "Giving",
+        "line": "I'd give if I knew it worked."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/making-change/20261019-224622",
+      "draft": false,
+      "id": "p052"
+    },
+    {
+      "painIds": [
+        "same-few-people",
+        "want-to-help"
+      ],
+      "group": "making-change",
+      "side": [
+        {
+          "id": "same-few-people",
+          "name": "Volunteers",
+          "line": "I see the same few people doing everything."
+        },
+        {
+          "id": "want-to-help",
+          "name": "Helping",
+          "line": "I'd do something if I knew what."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "They are two sides of the same gap, and each side would pick its own card. Volunteers is the organizer's view of a thin bench; Helping is the would-be helper's view."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Volunteers",
+        "line": "I see the same few people doing everything."
+      },
+      "proposed": {
+        "name": "Helping",
+        "line": "I'd do something if I knew what."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/making-change/20261019-224622",
+      "draft": false,
+      "id": "p053"
+    },
+    {
+      "painIds": [
+        "same-few-people",
+        "groups-go-nowhere"
+      ],
+      "group": "making-change",
+      "side": [
+        {
+          "id": "same-few-people",
+          "name": "Volunteers",
+          "line": "I see the same few people doing everything."
+        },
+        {
+          "id": "groups-go-nowhere",
+          "name": "Meetings",
+          "line": "I go to meetings where nothing happens."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "A group can get plenty done on the backs of three people, or have many members and still do nothing. Volunteers is about too few people carrying the work; Meetings is about groups that don't act."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Volunteers",
+        "line": "I see the same few people doing everything."
+      },
+      "proposed": {
+        "name": "Meetings",
+        "line": "I go to meetings where nothing happens."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/making-change/20261019-224622",
+      "draft": false,
+      "id": "p054"
+    },
+    {
+      "painIds": [
+        "idea-no-team",
+        "alone-in-caring"
+      ],
+      "group": "making-change",
+      "side": [
+        {
+          "id": "idea-no-team",
+          "name": "Collaborators",
+          "line": "I have an idea and nobody to build it with."
+        },
+        {
+          "id": "alone-in-caring",
+          "name": "Allies",
+          "line": "I don't know who else cares."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Someone with a project in hand is looking for builders, not just company. Collaborators is about having a specific idea and no one to build it with; Allies is about not finding others who care."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Collaborators",
+        "line": "I have an idea and nobody to build it with."
+      },
+      "proposed": {
+        "name": "Allies",
+        "line": "I don't know who else cares."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/making-change/20261019-224622",
+      "draft": false,
+      "id": "p055"
+    },
+    {
+      "painIds": [
+        "idea-no-team",
+        "nothing-i-make"
+      ],
+      "group": "making-change",
+      "side": [
+        {
+          "id": "idea-no-team",
+          "name": "Collaborators",
+          "line": "I have an idea and nobody to build it with."
+        },
+        {
+          "id": "nothing-i-make",
+          "name": "Creativity",
+          "line": "I don't get to make things any more."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "One is about people to build with and the other about room in my own life to make things, so they are different pains, not one pain on two pages. Collaborators is about a shared idea needing a team; Creativity on the personal page is about losing time to make things at all."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Collaborators",
+        "line": "I have an idea and nobody to build it with."
+      },
+      "proposed": {
+        "name": "Creativity",
+        "line": "I don't get to make things any more."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/making-change/20261019-224622",
+      "draft": false,
+      "id": "p056"
+    },
+    {
+      "kind": "move",
+      "painIds": [
+        "alone-in-caring"
+      ],
+      "group": "making-change",
+      "current": {
+        "name": "Allies",
+        "line": "I don't know who else cares.",
+        "group": "Making change"
+      },
+      "proposed": {
+        "name": "Allies",
+        "line": "I don't know who else cares.",
+        "group": "Community"
+      },
+      "alternatives": [],
+      "why": {
+        "prompt": "card sort",
+        "detail": "the sorts placed it under Community, Making change, Community"
+      },
+      "allowOwn": false,
+      "payload": {
+        "groups": [
+          "community"
+        ]
+      },
+      "origin": "docs/research/pains/refine/making-change/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p057"
+    },
+    {
+      "kind": "move",
+      "painIds": [
+        "same-few-people"
+      ],
+      "group": "making-change",
+      "current": {
+        "name": "Volunteers",
+        "line": "I see the same few people doing everything.",
+        "group": "Making change"
+      },
+      "proposed": {
+        "name": "Volunteers",
+        "line": "I see the same few people doing everything.",
+        "group": "Community"
+      },
+      "alternatives": [],
+      "why": {
+        "prompt": "card sort",
+        "detail": "the sorts placed it under Community, Community, Community"
+      },
+      "allowOwn": false,
+      "payload": {
+        "groups": [
+          "community"
+        ]
+      },
+      "origin": "docs/research/pains/refine/making-change/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p058"
+    }
+  ]
+}

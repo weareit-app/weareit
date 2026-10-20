@@ -1,0 +1,329 @@
+{
+  "schemaVersion": 1,
+  "lists": {
+    "pew-politics-2023": {
+      "name": "Pew Research Center: Americans' Dismal Views of the Nation's Politics (U.S., 2023)",
+      "url": "https://www.pewresearch.org/politics/2023/09/19/americans-dismal-views-of-the-nations-politics/",
+      "accessed": "2026-10-19",
+      "entries": {
+        "exhausted": {
+          "name": "Always or often feel exhausted when thinking about politics",
+          "passage": "nearly two-thirds of Americans (65%) say they always or often feel exhausted when thinking about politics, while 55% feel angry"
+        },
+        "angry": {
+          "name": "Always or often feel angry when thinking about politics",
+          "passage": "while 55% feel angry"
+        },
+        "hopeful": {
+          "name": "Always or often feel hopeful about politics",
+          "passage": "just 10% say they always or often feel hopeful about politics, and even fewer (4%) are excited"
+        },
+        "district-influence": {
+          "name": "People in members' own districts have too little influence on Congress",
+          "passage": "People in members’ own districts, by contrast, are widely viewed as having too little influence (70% say this)."
+        },
+        "donor-influence": {
+          "name": "Big campaign donors and lobbyists have too much influence",
+          "passage": "Large majorities say big campaign donors (80%) and lobbyists and special interests (73%) have too much influence on decisions made by members of Congress."
+        },
+        "voting-matters": {
+          "name": "Voting by people like me can affect the country’s future direction",
+          "passage": "Nearly six-in-ten (57%) say voting by people like them can affect the country’s future direction, though just 20% say it can affect this a lot."
+        }
+      }
+    },
+    "uk-community-life-2024-25": {
+      "name": "UK Community Life Survey 2024/25: civic engagement and social action (England)",
+      "url": "https://www.gov.uk/government/statistics/community-life-survey-202425-annual-publication/community-life-survey-202425-civic-engagement-and-social-action",
+      "accessed": "2026-10-19",
+      "entries": {
+        "influence-local-decisions": {
+          "name": "Can personally influence decisions affecting the local area",
+          "passage": "24% of adults agreed (either “definitely” or “tended” to agree) that they can personally influence decisions affecting their local area."
+        },
+        "want-more-involved": {
+          "name": "Would like to be more involved in decisions made by the council",
+          "passage": "28% of adults said that they would like to be more involved in decisions made by their council that affect the local area"
+        },
+        "civic-activism": {
+          "name": "Civic activism: local roles such as councillor, school governor or magistrate",
+          "passage": "8% of adults had engaged in civic activism at least once in the last 12 months in 2024/25."
+        },
+        "social-action": {
+          "name": "Involved in wider social action",
+          "passage": "13% of adults in 2024/25 reported being involved in wider social action activities at least once in the last 12 months"
+        }
+      }
+    },
+    "uk-community-life-volunteering-2024-25": {
+      "name": "UK Community Life Survey 2024/25: barriers to formal volunteering (England)",
+      "url": "https://www.gov.uk/government/statistics/community-life-survey-202425-annual-publication/community-life-survey-202425-volunteering-and-charitable-giving",
+      "accessed": "2026-10-19",
+      "entries": {
+        "work-commitments": {
+          "name": "I have work commitments",
+          "passage": "‘I have work commitments’ – 51%"
+        },
+        "other-things": {
+          "name": "I do other things in my spare time",
+          "passage": "‘I do other things in my spare time’ – 32%"
+        },
+        "look-after-children": {
+          "name": "I have to look after children",
+          "passage": "‘I have to look after children’ – 22%"
+        }
+      }
+    },
+    "census-cev-2023": {
+      "name": "U.S. Census Bureau and AmeriCorps: Civic Engagement and Volunteering Supplement, 2023",
+      "url": "https://www.census.gov/library/stories/2024/11/civic-engagement-and-volunteerism.html",
+      "accessed": "2026-10-19",
+      "entries": {
+        "formal-volunteering": {
+          "name": "Volunteered through an organization",
+          "passage": "The estimated 28.3% of Americans who reported volunteering through an organization in the previous year in the latest survey is up from 23.2% in 2021."
+        },
+        "hours-per-volunteer": {
+          "name": "Hours served per volunteer",
+          "passage": "Nationally, average hours served per volunteer in the previous year dropped from 96.5 hours when the CEV began in 2017 to 70 hours in 2023."
+        },
+        "informal-helping": {
+          "name": "Helped or exchanged favors with neighbors",
+          "passage": "An estimated 54.2% of Americans helped or exchanged favors with neighbors such as house sitting, running errands, or lending tools"
+        }
+      }
+    },
+    "give-org-donor-trust-2026": {
+      "name": "BBB Give.org Donor Trust Report 2026 (U.S.)",
+      "url": "https://give.org/donor-trust-report/2026-trends-in-donor-trust-and-perspectives",
+      "accessed": "2026-10-19",
+      "entries": {
+        "trust-gap": {
+          "name": "Trust in charities before giving",
+          "passage": "While 67.7% of respondents say it is essential to trust a charity before donating, only 18.3% report having high trust in charities."
+        },
+        "give-if-asked": {
+          "name": "Might give more if asked",
+          "passage": "This includes 27.9% who say they might be willing to give more if asked and 14.1% who would like charities to approach them more."
+        }
+      }
+    },
+    "repower-organizers-2022": {
+      "name": "re:power organizer survey (2022), as excerpted from The Nation",
+      "url": "https://repower.org/as-the-world-burns-organizers-are-burning-out/",
+      "accessed": "2026-10-19",
+      "entries": {
+        "burnout": {
+          "name": "Burnout among organizers",
+          "passage": "The poll found that burnout, low pay, and institutional barriers to seizing power make up a trifecta of issues facing organizers at all time scales."
+        },
+        "low-pay": {
+          "name": "Low pay for organizers",
+          "passage": "burnout, low pay, and institutional barriers to seizing power"
+        },
+        "institutional-barriers": {
+          "name": "Institutional barriers to seizing power",
+          "passage": "burnout, low pay, and institutional barriers to seizing power"
+        }
+      }
+    },
+    "brennan-officeholders-2024": {
+      "name": "Brennan Center: Intimidation of State and Local Officeholders (2024)",
+      "url": "https://www.brennancenter.org/our-work/research-reports/intimidation-state-and-local-officeholders",
+      "accessed": "2026-10-19",
+      "entries": {
+        "abuse-local": {
+          "name": "Local officeholders facing threats, attacks, insults or harassment",
+          "passage": "The numbers balloon to 89 percent of state legislators and 52 percent of local officeholders when less severe forms of abuse — insults or harassment such as stalking — are included."
+        },
+        "less-willing-to-run": {
+          "name": "Less willing to run again because of abuse",
+          "passage": "More than 40 percent of local officeholders said they were less willing to run for reelection or higher office at the time they were surveyed because of abuse."
+        },
+        "controversial-topics": {
+          "name": "Less willing to work on controversial topics because of abuse",
+          "passage": "Approximately 20 percent of state officeholders and 40 percent of local officeholders acknowledged they were less willing to work on controversial topics due to abuse."
+        }
+      }
+    },
+    "gallup-mip": {
+      "name": "Gallup: most important problem facing the country, items about leadership and acting together (September 2026)",
+      "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+      "accessed": "2026-10-19",
+      "entries": {
+        "poor-leadership": {
+          "name": "The government/Poor leadership",
+          "passage": "The government/Poor leadership|30"
+        },
+        "unifying": {
+          "name": "Unifying the country",
+          "passage": "Unifying the country|2"
+        },
+        "elections-democracy": {
+          "name": "Elections/Election reform/Democracy",
+          "passage": "Elections/Election reform/Democracy|3"
+        }
+      }
+    },
+    "ipsos-www": {
+      "name": "Ipsos What Worries the World (January 2026), direction of the country and corruption",
+      "url": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-02/What-Worries-the-World-January-2026.pdf",
+      "accessed": "2026-10-19",
+      "entries": {
+        "wrong-track": {
+          "name": "Country heading off on the wrong track",
+          "passage": "RIGHT DIRECTION 41% ... WRONG TRACK 59%"
+        },
+        "corruption": {
+          "name": "Financial/political corruption",
+          "passage": "Financial/political corruption = +1 32% 29% 28% 27% 27%"
+        }
+      }
+    },
+    "oecd-wellbeing": {
+      "name": "OECD Well-being Framework: Civic engagement, and the OECD Trust Survey 2024 (oecd.org returned 403; UN Statistics and Living Library copies)",
+      "url": "https://unstats.un.org/unsd/demographic-social/meetings/2024/iaeggs-20241203/4.2_OECD.pdf",
+      "accessed": "2026-10-19",
+      "entries": {
+        "civic-engagement": {
+          "name": "Civic Engagement (dimension)",
+          "passage": "Social Connections | Civic Engagement"
+        },
+        "have-a-say": {
+          "name": "Having a say in what the government does",
+          "passage": "The trust gap is largest between those who feel they have a say and those who feel they do not have a say in what the government does.",
+          "url": "https://thelivinglib.org/?p=58772"
+        }
+      }
+    },
+    "sdg-targets": {
+      "name": "UN SDG targets bearing on taking part and acting together",
+      "url": "https://sdgs.un.org/goals",
+      "accessed": "2026-10-19",
+      "entries": {
+        "16.7": {
+          "name": "16.7",
+          "passage": "Ensure responsive, inclusive, participatory and representative decision-making at all levels",
+          "url": "https://sdgs.un.org/goals/goal16"
+        },
+        "16.10": {
+          "name": "16.10",
+          "passage": "Ensure public access to information and protect fundamental freedoms, in accordance with national legislation and international agreements",
+          "url": "https://sdgs.un.org/goals/goal16"
+        },
+        "17.17": {
+          "name": "17.17",
+          "passage": "Encourage and promote effective public, public-private and civil society partnerships",
+          "url": "https://sdgs.un.org/goals/goal17"
+        },
+        "11.3": {
+          "name": "11.3",
+          "passage": "enhance inclusive and sustainable urbanization and capacity for participatory, integrated and sustainable human settlement planning and management in all countries",
+          "url": "https://sdgs.un.org/goals/goal11"
+        },
+        "5.5": {
+          "name": "5.5",
+          "passage": "Ensure women’s full and effective participation and equal opportunities for leadership at all levels of decision-making in political, economic and public life",
+          "url": "https://sdgs.un.org/goals/goal5"
+        }
+      }
+    },
+    "maxneef": {
+      "name": "Max-Neef's fundamental human needs",
+      "url": "https://en.wikipedia.org/wiki/Manfred_Max-Neef%27s_Fundamental_human_needs",
+      "accessed": "2026-10-19",
+      "entries": {
+        "participation": {
+          "name": "Participation",
+          "passage": "become affiliated, cooperate, propose, share, dissent, obey, interact, agree on, express opinions"
+        },
+        "creation": {
+          "name": "Creation",
+          "passage": "passion, determination, intuition, imagination, boldness, rationality, autonomy, inventiveness, curiosity"
+        }
+      }
+    },
+    "gallup-elements": {
+      "name": "Gallup's five elements of wellbeing",
+      "url": "https://www.gallup.com/workplace/237020/five-essential-elements.aspx",
+      "accessed": "2026-10-19",
+      "entries": {
+        "community": {
+          "name": "Community Well-Being",
+          "passage": "The fifth element is about the sense of engagement you have with the area where you live: your Community Well-Being"
+        }
+      }
+    },
+    "wikidata": {
+      "name": "Wikidata items for making change",
+      "url": "https://www.wikidata.org/",
+      "accessed": "2026-10-19",
+      "entries": {
+        "Q7210296": {
+          "name": "political efficacy",
+          "url": "https://www.wikidata.org/wiki/Q7210296"
+        },
+        "Q4116870": {
+          "name": "civic engagement",
+          "url": "https://www.wikidata.org/wiki/Q4116870"
+        },
+        "Q2101513": {
+          "name": "political participation",
+          "url": "https://www.wikidata.org/wiki/Q2101513"
+        },
+        "Q188844": {
+          "name": "volunteering",
+          "url": "https://www.wikidata.org/wiki/Q188844"
+        },
+        "Q185733": {
+          "name": "philanthropy",
+          "url": "https://www.wikidata.org/wiki/Q185733"
+        },
+        "Q55607920": {
+          "name": "collective action problem",
+          "url": "https://www.wikidata.org/wiki/Q55607920"
+        },
+        "Q25866": {
+          "name": "community organizing",
+          "url": "https://www.wikidata.org/wiki/Q25866"
+        },
+        "Q1145523": {
+          "name": "collaboration",
+          "url": "https://www.wikidata.org/wiki/Q1145523"
+        },
+        "Q203764": {
+          "name": "activism",
+          "url": "https://www.wikidata.org/wiki/Q203764"
+        },
+        "Q1038864": {
+          "name": "political apathy",
+          "url": "https://www.wikidata.org/wiki/Q1038864"
+        },
+        "Q3739803": {
+          "name": "political alienation",
+          "url": "https://www.wikidata.org/wiki/Q3739803"
+        },
+        "Q3270605": {
+          "name": "slacktivism",
+          "url": "https://www.wikidata.org/wiki/Q3270605"
+        },
+        "Q499215": {
+          "name": "free rider problem",
+          "url": "https://www.wikidata.org/wiki/Q499215"
+        },
+        "Q5156139": {
+          "name": "compassion fatigue",
+          "url": "https://www.wikidata.org/wiki/Q5156139"
+        },
+        "Q310988": {
+          "name": "participatory democracy",
+          "url": "https://www.wikidata.org/wiki/Q310988"
+        },
+        "Q3399774": {
+          "name": "political violence",
+          "url": "https://www.wikidata.org/wiki/Q3399774"
+        }
+      }
+    }
+  }
+}

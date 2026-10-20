@@ -1,0 +1,51 @@
+{
+  "alternatives": {
+    "they-dont-listen": [
+      {
+        "name": "Being heard",
+        "line": "The people in charge don't listen to people like me.",
+        "why": "Keeps the same complaint but says it the way people do (\"they don't listen\"), and the name says what is missing instead of the civics word \"Representation\"."
+      }
+    ],
+    "democracy-slipping": [
+      {
+        "name": "Democracy",
+        "line": "I worry our democracy is slowly slipping away.",
+        "why": "The ID names democracy slipping, but the current line drifted to institutions in general; this brings it back to what the pain is about, calmly and without doom."
+      },
+      {
+        "name": "Institutions",
+        "line": "I see courts, elections and a free press being worn down.",
+        "why": "Keeps the broader institutions framing but names which ones, so the line is something a person can picture rather than an abstraction."
+      }
+    ],
+    "corruption": [
+      {
+        "name": "Money in politics",
+        "line": "I see the rules bend for people with money.",
+        "why": "Every other name under Government is an area (Taxes, Voting, Local control); \"Corruption\" is the only problem label, and this area name keeps the same line."
+      }
+    ],
+    "taxes-dont-buy-much": [
+      {
+        "name": "Taxes",
+        "line": "I pay more in taxes and get less back in services.",
+        "why": "The current line never says what is paid or what comes back; naming taxes and services makes it clear on its own."
+      }
+    ],
+    "far-away-decisions": [
+      {
+        "name": "Local control",
+        "line": "Decisions about my town get made by people far away.",
+        "why": "\"Decisions about here\" reads awkwardly; \"my town\" is how a person would say it out loud."
+      }
+    ],
+    "immigration-broken": [
+      {
+        "name": "Immigration",
+        "line": "I see an immigration system that's broken, and nobody fixes it.",
+        "why": "The current line is hedged (\"I don't think... working well\"); this says it plainly, matches the ID, and people on any side of the debate could say it."
+      }
+    ]
+  }
+}

@@ -1,0 +1,308 @@
+{
+  "schemaVersion": 1,
+  "candidates": {
+    "cant-trust-the-news": {
+      "id": "cant-trust-the-news",
+      "name": "Trust in news",
+      "line": "I don't trust the news to tell me the whole story fairly.",
+      "page": "societal",
+      "group": "information",
+      "aliases": [
+        "Media bias",
+        "Biased news",
+        "I can't trust the media"
+      ],
+      "sources": [
+        {
+          "url": "https://news.gallup.com/poll/695762/trust-media-new-low.aspx",
+          "accessed": "2026-10-19",
+          "passage": "Americans’ confidence in the mass media has edged down to a new low, with just 28% expressing a “great deal” or “fair amount” of trust in newspapers, television and radio to report the news fully, accurately and fairly. This is down from 31% last year and 40% five years ago . Meanwhile, seven in 10 U.S. adults now say they have “not very much” confidence (36%) or “none at all” (34%)."
+        },
+        {
+          "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2025/dnr-executive-summary",
+          "accessed": "2026-10-19",
+          "passage": "overall trust in the news (40%) has remained stable for the third year in a row, even if it is still four points lower overall than it was at the height of the Coronavirus pandemic"
+        }
+      ],
+      "prevalence": "28% of Americans trusted newspapers, television and radio to report the news fully, accurately and fairly, down from 40% five years ago; seven in 10 had not very much (36%) or no (34%) confidence (Gallup). Across markets, trust in the news stands at 40% (Reuters Institute Digital News Report).",
+      "covers": [
+        {
+          "list": "reuters-dnr-2025",
+          "entry": "trust-in-news"
+        },
+        {
+          "list": "gallup-mip",
+          "entry": "the-media"
+        },
+        {
+          "list": "gallup-media-trust-2025",
+          "entry": "trust-mass-media"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q11118951"
+        }
+      ]
+    },
+    "news-overload": {
+      "id": "news-overload",
+      "name": "News overload",
+      "line": "The news wears me down, so I've started tuning it out.",
+      "page": "societal",
+      "group": "information",
+      "aliases": [
+        "News avoidance",
+        "News fatigue",
+        "Information overload"
+      ],
+      "sources": [
+        {
+          "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2025/dnr-executive-summary",
+          "accessed": "2026-10-19",
+          "passage": "Across markets, four in ten (40%) say they sometimes or often avoid the news, up from 29% in 2017 and the joint highest figure we’ve ever recorded (along with 2024)."
+        },
+        {
+          "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2025/dnr-executive-summary",
+          "accessed": "2026-10-19",
+          "passage": "selective avoiders who struggle with news overload and look to protect themselves at certain times or for particular topics"
+        }
+      ],
+      "prevalence": "Across markets, 40% sometimes or often avoid the news, up from 29% in 2017 (Reuters Institute Digital News Report).",
+      "covers": [
+        {
+          "list": "reuters-dnr-2025",
+          "entry": "news-avoidance"
+        },
+        {
+          "list": "reuters-dnr-2025",
+          "entry": "news-overload"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q1130191"
+        }
+      ]
+    },
+    "ai-fakes": {
+      "id": "ai-fakes",
+      "name": "AI fakes",
+      "line": "I can't tell if a photo, video or voice is real or made by AI.",
+      "page": "societal",
+      "group": "information",
+      "aliases": [
+        "Deepfakes",
+        "AI-generated content"
+      ],
+      "sources": [
+        {
+          "url": "https://www.pewresearch.org/science/2025/09/17/how-americans-view-ai-and-its-impact-on-people-and-society/",
+          "accessed": "2026-10-19",
+          "passage": "most Americans (76%) say it’s extremely or very important to be able to tell if pictures, videos and text were made by AI or people. But 53% of Americans are not too or not at all confident they can detect if something is made by AI versus a person."
+        }
+      ],
+      "prevalence": "76% of Americans say being able to tell AI-made content from human-made content is extremely or very important, but 53% are not confident they can (Pew Research Center).",
+      "covers": [
+        {
+          "list": "pew-ai-2025",
+          "entry": "cant-detect-ai"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q49473179"
+        }
+      ]
+    },
+    "data-leaks": {
+      "id": "data-leaks",
+      "name": "Data leaks",
+      "line": "My personal information keeps leaking out through hacks and data breaches.",
+      "page": "societal",
+      "group": "information",
+      "aliases": [
+        "Data breaches",
+        "Hacked accounts"
+      ],
+      "sources": [
+        {
+          "url": "https://www.govtech.com/security/2025-data-breach-report-more-compromises-less-transparency",
+          "accessed": "2026-10-19",
+          "passage": "Data compromise incidents hit a record of 3,322 in 2025, with 70 percent of related breach notices failing to explain how the breach happened, according to a new report from the Identity Theft Resource Center (ITRC)."
+        },
+        {
+          "url": "https://www.pewresearch.org/internet/2023/10/18/how-americans-view-data-privacy/",
+          "accessed": "2026-10-19",
+          "passage": "And 11% have had their email or social media accounts taken over without permission, while 7% have had someone attempt to open a line of credit or apply for a loan in their name. All told, 34% have experienced at least one of these things in the past year."
+        }
+      ],
+      "prevalence": "U.S. data compromises hit a record 3,322 in 2025 (Identity Theft Resource Center). 11% of Americans had an email or social media account taken over in the past year (Pew Research Center).",
+      "covers": [
+        {
+          "list": "pew-data-privacy-2023",
+          "entry": "accounts-taken-over"
+        },
+        {
+          "list": "itrc-breaches-2025",
+          "entry": "data-compromises"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q1172486"
+        }
+      ]
+    },
+    "afraid-to-speak": {
+      "id": "afraid-to-speak",
+      "name": "Free speech",
+      "line": "I'm afraid to say what I really think.",
+      "page": "societal",
+      "group": "information",
+      "aliases": [
+        "Self-censorship",
+        "Censorship",
+        "Can't speak freely"
+      ],
+      "sources": [
+        {
+          "url": "https://firstamendment.mtsu.edu/post/where-america-stands-on-the-first-amendment-key-takeaways/",
+          "accessed": "2026-10-19",
+          "passage": "Among the 65% who say in the survey they are fearful, they most often cited the threat of a violent response and fear of creating tension with friends and family."
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Manfred_Max-Neef%27s_Fundamental_human_needs",
+          "accessed": "2026-10-19",
+          "passage": "But also censorship, for satisfying the need for protection, but for preventing satisfying the needs of understanding, participation and freedom."
+        }
+      ],
+      "prevalence": "65% of Americans say they are fearful of consequences for speaking freely, most often a violent response or tension with friends and family (Freedom Forum).",
+      "covers": [
+        {
+          "list": "freedom-forum-2025",
+          "entry": "afraid-to-speak"
+        },
+        {
+          "list": "maxneef",
+          "entry": "censorship"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q543"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q22692"
+        }
+      ]
+    },
+    "press-freedom": {
+      "id": "press-freedom",
+      "name": "Press freedom",
+      "line": "I see reporters threatened, jailed or shut down for doing their jobs.",
+      "page": "societal",
+      "group": "information",
+      "aliases": [
+        "Free press",
+        "Journalists under attack"
+      ],
+      "sources": [
+        {
+          "url": "https://rsf.org/en/rsf-world-press-freedom-index-2025-economic-fragility-leading-threat-press-freedom",
+          "accessed": "2026-10-19",
+          "passage": "the global state of press freedom is now classified as a “difficult situation” for the first time in the history of the Index"
+        },
+        {
+          "url": "https://sdgs.un.org/goals/goal16",
+          "accessed": "2026-10-19",
+          "passage": "Target 16.10 - In 2024, the number of killings of human rights defenders, journalists and trade unionists remained alarmingly high, with at least 502 cases reported across 44 countries"
+        },
+        {
+          "url": "https://firstamendment.mtsu.edu/post/where-america-stands-on-the-first-amendment-key-takeaways/",
+          "accessed": "2026-10-19",
+          "passage": "The survey also found Americans see a free press as the most threatened of the five freedoms under President Trump."
+        }
+      ],
+      "prevalence": "In 2024 at least 502 killings of human rights defenders, journalists and trade unionists were reported across 44 countries (UN SDG 16.10 progress). RSF classed world press freedom as a \"difficult situation\" for the first time in the history of its index.",
+      "covers": [
+        {
+          "list": "freedom-forum-2025",
+          "entry": "free-press-threatened"
+        },
+        {
+          "list": "rsf-index-2025",
+          "entry": "press-freedom-difficult"
+        },
+        {
+          "list": "sdg-targets",
+          "entry": "16.10.1"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q22688"
+        }
+      ]
+    },
+    "finding-help": {
+      "id": "finding-help",
+      "name": "Finding help",
+      "line": "I don't know what help is out there or where to ask for it.",
+      "page": "personal",
+      "group": "time",
+      "aliases": [
+        "Where to turn",
+        "Information I need"
+      ],
+      "sources": [
+        {
+          "url": "https://www.unitedway.org/the-facts-about-211-2025-impact-snapshot",
+          "accessed": "2026-10-19",
+          "passage": "In 2025, 211 community resource specialists made 19 million referrals for locally available help, 1 million more than in 2024"
+        },
+        {
+          "url": "https://cdn.who.int/media/docs/default-source/publishing-policies/whoqol-bref/english-australian-whoqol-bref.zip?sfvrsn=a7452ad6_2",
+          "accessed": "2026-10-19",
+          "passage": "13 How available to you is the information you need in your daily life?"
+        }
+      ],
+      "prevalence": "211 made 19 million referrals for locally available help in 2025, 1 million more than in 2024 (United Way).",
+      "covers": [
+        {
+          "list": "whoqol-bref",
+          "entry": "Q13"
+        },
+        {
+          "list": "211-impact-2025",
+          "entry": "information-referral"
+        }
+      ]
+    },
+    "language-barriers": {
+      "id": "language-barriers",
+      "name": "Language barriers",
+      "line": "I can't get important information or services in a language I understand well.",
+      "page": "personal",
+      "group": "time",
+      "aliases": [
+        "Language access",
+        "Limited English"
+      ],
+      "sources": [
+        {
+          "url": "https://www.census.gov/library/stories/2022/12/languages-we-speak-in-united-states.html",
+          "accessed": "2026-10-19",
+          "passage": "Based on the 2019 data, 52% of people who spoke Chinese and 57% of those who spoke Vietnamese at home in the United States spoke English “less than very well,” compared to the other three common languages: Spanish 39%, Tagalog 30%, and Arabic 35%"
+        },
+        {
+          "url": "https://www.census.gov/library/stories/2022/12/languages-we-speak-in-united-states.html",
+          "accessed": "2026-10-19",
+          "passage": "The number of people in the United States who spoke a language other than English at home nearly tripled from 23.1 million (about 1 in 10) in 1980 to 67.8 million (almost 1 in 5) in 2019"
+        }
+      ],
+      "prevalence": "In 2019, 67.8 million people in the U.S. spoke a language other than English at home; 39% of Spanish speakers, 52% of Chinese speakers and 57% of Vietnamese speakers spoke English less than very well (U.S. Census Bureau).",
+      "covers": [
+        {
+          "list": "census-language-2019",
+          "entry": "limited-english"
+        }
+      ]
+    }
+  }
+}

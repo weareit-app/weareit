@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "labels": {
+    "nothing-ever-changes": "problem",
+    "groups-go-nowhere": "area",
+    "shouting-into-void": "problem",
+    "giving-feels-blind": "area",
+    "alone-in-caring": "area",
+    "dont-know-whats-happening": "area",
+    "want-to-help": "area",
+    "idea-no-team": "area",
+    "same-few-people": "area"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "issues": [],
+  "moves": [],
+  "disagreements": [
+    {
+      "painId": "corruption",
+      "current": "government",
+      "sorts": [
+        "government",
+        "government",
+        "fairness"
+      ]
+    }
+  ],
+  "checkedAt": "2026-10-19"
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "scope": "making-change",
+  "issues": [
+    {
+      "painId": "nothing-ever-changes",
+      "rule": "id-mismatch",
+      "detail": "ID nothing-ever-changes, name \"Gridlock\" and line \"I see the same problems stay year after year.\" share no word; propose a rewording only if the wording has drifted from what the ID names",
+      "severity": "note"
+    },
+    {
+      "painId": "groups-go-nowhere",
+      "rule": "id-mismatch",
+      "detail": "ID groups-go-nowhere, name \"Meetings\" and line \"I go to meetings where nothing happens.\" share no word; propose a rewording only if the wording has drifted from what the ID names",
+      "severity": "note"
+    },
+    {
+      "painId": "shouting-into-void",
+      "rule": "id-mismatch",
+      "detail": "ID shouting-into-void, name \"Unheard\" and line \"I care and it goes nowhere.\" share no word; propose a rewording only if the wording has drifted from what the ID names",
+      "severity": "note"
+    },
+    {
+      "painId": "alone-in-caring",
+      "rule": "id-mismatch",
+      "detail": "ID alone-in-caring, name \"Allies\" and line \"I don't know who else cares.\" share no word; propose a rewording only if the wording has drifted from what the ID names",
+      "severity": "note"
+    },
+    {
+      "painId": "dont-know-whats-happening",
+      "rule": "id-mismatch",
+      "detail": "ID dont-know-whats-happening, name \"Coordination\" and line \"I can't find who's already working on this.\" share no word; propose a rewording only if the wording has drifted from what the ID names",
+      "severity": "note"
+    },
+    {
+      "painId": "*",
+      "group": "making-change",
+      "rule": "mixed-labels",
+      "severity": "fail",
+      "detail": "Making change mixes problem labels and area labels; pick one style for the heading"
+    }
+  ],
+  "failing": [],
+  "checkedAt": "2026-10-19"
+}

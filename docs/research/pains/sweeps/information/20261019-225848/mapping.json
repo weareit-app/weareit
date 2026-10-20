@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "entries": {
+    "reuters-dnr-2025/real-fake-online": {
+      "painId": "dont-know-whats-true",
+      "why": "Misinformation: \"I don't know what's true any more.\""
+    },
+    "reuters-dnr-2025/misinfo-sources": {
+      "painId": "dont-know-whats-true",
+      "why": "Misinformation: where the false information comes from."
+    },
+    "reuters-dnr-2025/trust-in-news": {
+      "candidate": "cant-trust-the-news"
+    },
+    "reuters-dnr-2025/news-avoidance": {
+      "candidate": "news-overload"
+    },
+    "reuters-dnr-2025/news-overload": {
+      "candidate": "news-overload"
+    },
+    "reuters-dnr-2025/local-news-future": {
+      "painId": "nobody-covers-here",
+      "why": "Local news: \"I don't know what's happening in my own town.\""
+    },
+    "reuters-dnr-2025/content-moderation": {
+      "broader": "dont-know-whats-true"
+    },
+    "reuters-dnr-2025/ai-less-trustworthy": {
+      "broader": "dont-know-whats-true"
+    },
+    "gallup-mip/the-media": {
+      "candidate": "cant-trust-the-news"
+    },
+    "gallup-mip/technology": {
+      "broader": "ai-and-jobs"
+    },
+    "gallup-media-trust-2025/trust-mass-media": {
+      "candidate": "cant-trust-the-news"
+    },
+    "pew-data-privacy-2023/government-data-use": {
+      "outOfScope": "Proposed as `government-surveillance` by the government sweep 20261019-224657"
+    },
+    "pew-data-privacy-2023/little-control": {
+      "painId": "watched-by-companies",
+      "why": "Privacy: 73% feel they have little control over company data; the government half (79%) also feeds the government-watching candidate."
+    },
+    "pew-data-privacy-2023/dont-understand-company-use": {
+      "painId": "watched-by-companies",
+      "why": "Privacy: companies know everything about me and I don't know what they do with it."
+    },
+    "pew-data-privacy-2023/ai-data-use": {
+      "painId": "watched-by-companies",
+      "why": "Privacy: companies using personal data in ways people aren't comfortable with."
+    },
+    "pew-data-privacy-2023/kids-online-privacy": {
+      "broader": "screens-and-kids"
+    },
+    "pew-data-privacy-2023/fraudulent-charges": {
+      "painId": "identity-theft",
+      "why": "Identity theft: someone used my name or card to take my money."
+    },
+    "pew-data-privacy-2023/accounts-taken-over": {
+      "candidate": "data-leaks"
+    },
+    "pew-online-harassment-2021/online-harassment": {
+      "outOfScope": "Proposed as `harassed-online` by the people sweep 20261019-224656"
+    },
+    "pew-online-harassment-2021/harassment-a-problem": {
+      "outOfScope": "Proposed as `harassed-online` by the people sweep 20261019-224656"
+    },
+    "pew-ai-2025/cant-detect-ai": {
+      "candidate": "ai-fakes"
+    },
+    "pew-social-media-2020/social-media-negative": {
+      "broader": "dont-know-whats-true"
+    },
+    "itrc-breaches-2025/data-compromises": {
+      "candidate": "data-leaks"
+    },
+    "freedom-forum-2025/afraid-to-speak": {
+      "candidate": "afraid-to-speak"
+    },
+    "freedom-forum-2025/free-press-threatened": {
+      "candidate": "press-freedom"
+    },
+    "rsf-index-2025/press-freedom-difficult": {
+      "candidate": "press-freedom"
+    },
+    "oecd-truth-quest/identify-false-content": {
+      "painId": "dont-know-whats-true",
+      "why": "Misinformation: people get true-or-false right in only 60% of cases."
+    },
+    "sdg-targets/16.10": {
+      "broader": "freedoms"
+    },
+    "sdg-targets/16.10.1": {
+      "candidate": "press-freedom"
+    },
+    "sdg-targets/9.c": {
+      "painId": "offline",
+      "why": "Internet: \"I can't get decent internet.\""
+    },
+    "sdg-targets/4.4.1": {
+      "broader": "need-skills"
+    },
+    "sdg-targets/5.b": {
+      "broader": "offline"
+    },
+    "sdg-targets/17.8": {
+      "outOfScope": "a capacity-building mechanism between countries, not a pain a person names"
+    },
+    "whoqol-bref/Q13": {
+      "candidate": "finding-help"
+    },
+    "maxneef/understanding": {
+      "broader": "dont-know-whats-true"
+    },
+    "maxneef/censorship": {
+      "candidate": "afraid-to-speak"
+    },
+    "maxneef/propaganda": {
+      "painId": "dont-know-whats-true",
+      "why": "Misinformation: propaganda leaves people unsure what's true."
+    },
+    "211-impact-2025/information-referral": {
+      "candidate": "finding-help"
+    },
+    "census-language-2019/limited-english": {
+      "candidate": "language-barriers"
+    },
+    "wikidata/Q13579947": {
+      "painId": "dont-know-whats-true",
+      "why": "misinformation"
+    },
+    "wikidata/Q28549308": {
+      "painId": "dont-know-whats-true",
+      "why": "fake news"
+    },
+    "wikidata/Q65061916": {
+      "painId": "nobody-covers-here",
+      "why": "news desert"
+    },
+    "wikidata/Q456632": {
+      "painId": "watched-by-companies",
+      "why": "information privacy"
+    },
+    "wikidata/Q1425056": {
+      "outOfScope": "Proposed as `government-surveillance` by the government sweep 20261019-224657"
+    },
+    "wikidata/Q1172486": {
+      "candidate": "data-leaks"
+    },
+    "wikidata/Q49473179": {
+      "candidate": "ai-fakes"
+    },
+    "wikidata/Q494348": {
+      "outOfScope": "Proposed as `harassed-online` by the people sweep 20261019-224656"
+    },
+    "wikidata/Q543": {
+      "candidate": "afraid-to-speak"
+    },
+    "wikidata/Q22692": {
+      "candidate": "afraid-to-speak"
+    },
+    "wikidata/Q22688": {
+      "candidate": "press-freedom"
+    },
+    "wikidata/Q1130191": {
+      "candidate": "news-overload"
+    },
+    "wikidata/Q11118951": {
+      "candidate": "cant-trust-the-news"
+    },
+    "wikidata/Q244752": {
+      "painId": "offline",
+      "why": "digital divide: \"I can't get decent internet.\""
+    }
+  }
+}

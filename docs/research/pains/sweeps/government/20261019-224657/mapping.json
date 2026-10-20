@@ -1,0 +1,297 @@
+{
+  "schemaVersion": 1,
+  "entries": {
+    "gallup-mip/government-poor-leadership": {
+      "candidate": "trust-in-government"
+    },
+    "gallup-mip/immigration": {
+      "painId": "immigration-broken",
+      "why": "Immigration: \"I don't think the immigration system is working well.\""
+    },
+    "gallup-mip/judicial-system": {
+      "painId": "justice-unfair",
+      "why": "Justice: \"I see police and courts treat people differently.\""
+    },
+    "gallup-mip/elections": {
+      "candidate": "fair-elections"
+    },
+    "gallup-mip/unifying-the-country": {
+      "painId": "we-cant-talk",
+      "why": "Polarization: a divided country where people can't disagree."
+    },
+    "gallup-mip/lack-of-respect": {
+      "painId": "we-cant-talk",
+      "why": "Polarization covers losing respect across disagreement."
+    },
+    "gallup-mip/ethics-moral-decline": {
+      "painId": "people-are-meaner",
+      "why": "Moral decline: \"I think people care less about right and wrong.\""
+    },
+    "gallup-mip/federal-deficit": {
+      "painId": "national-debt",
+      "why": "National debt: \"I worry about how much debt the country keeps piling up.\""
+    },
+    "gallup-mip/taxes": {
+      "painId": "taxes-dont-buy-much",
+      "why": "Taxes: \"I pay more and get less back.\""
+    },
+    "gallup-mip/corporate-corruption": {
+      "painId": "corruption",
+      "why": "Corruption: \"I see the rules bend for people with money.\""
+    },
+    "gallup-mip/foreign-policy": {
+      "broader": "world-on-fire"
+    },
+    "gallup-mip/national-security": {
+      "broader": "world-on-fire"
+    },
+    "gallup-mip/welfare": {
+      "painId": "no-floor",
+      "why": "No safety net: \"If I lose my job or get sick, I know there's nothing to fall back on.\""
+    },
+    "gallup-mip/social-security": {
+      "painId": "no-floor",
+      "why": "No safety net covers worry about public programs like Social Security."
+    },
+    "gallup-mip/abortion": {
+      "broader": "freedoms"
+    },
+    "gallup-mip/guns": {
+      "broader": "crime-and-violence"
+    },
+    "gallup-mip/infrastructure": {
+      "painId": "infrastructure",
+      "why": "Infrastructure: \"I depend on roads, water and power that keep breaking down.\""
+    },
+    "gallup-mip/natural-disaster-response": {
+      "broader": "disasters"
+    },
+    "ipsos-www/corruption": {
+      "painId": "corruption",
+      "why": "Corruption: \"I see the rules bend for people with money.\""
+    },
+    "ipsos-www/taxes": {
+      "painId": "taxes-dont-buy-much",
+      "why": "Taxes: \"I pay more and get less back.\""
+    },
+    "ipsos-www/immigration-control": {
+      "painId": "immigration-broken",
+      "why": "Immigration: the system isn't working well."
+    },
+    "ipsos-www/military-conflict": {
+      "painId": "world-on-fire",
+      "why": "War: \"I see war threatening people and places I care about.\""
+    },
+    "ipsos-www/rise-of-extremism": {
+      "candidate": "political-violence"
+    },
+    "ipsos-www/terrorism": {
+      "broader": "crime-and-violence"
+    },
+    "ipsos-www/social-programmes": {
+      "painId": "no-floor",
+      "why": "No safety net: worry about losing public programs to fall back on."
+    },
+    "pew-problems-2026/money-in-politics": {
+      "painId": "corruption",
+      "why": "Corruption: \"I see the rules bend for people with money.\""
+    },
+    "pew-problems-2026/parties-work-together": {
+      "painId": "nothing-ever-changes",
+      "why": "Gridlock: \"I see the same problems stay year after year.\""
+    },
+    "pew-problems-2026/federal-deficit": {
+      "painId": "national-debt",
+      "why": "National debt."
+    },
+    "pew-problems-2026/illegal-immigration": {
+      "painId": "immigration-broken",
+      "why": "Immigration: the system isn't working well."
+    },
+    "pew-problems-2026/domestic-terrorism": {
+      "candidate": "political-violence"
+    },
+    "pew-problems-2026/international-terrorism": {
+      "broader": "world-on-fire"
+    },
+    "pew-trust-2025/trust-federal-government": {
+      "candidate": "trust-in-government"
+    },
+    "oecd-trust-survey-2024/trust-national-government": {
+      "candidate": "trust-in-government"
+    },
+    "oecd-trust-survey-2024/have-a-say": {
+      "painId": "they-dont-listen",
+      "why": "Representation: \"I'm not heard by the people in charge.\""
+    },
+    "gallup-elections-2026/confidence-in-elections": {
+      "candidate": "fair-elections"
+    },
+    "marist-political-violence-2025/political-violence-concern": {
+      "candidate": "political-violence"
+    },
+    "marist-political-violence-2025/violence-may-be-necessary": {
+      "candidate": "political-violence"
+    },
+    "pew-privacy-2023/government-data-use": {
+      "candidate": "government-surveillance"
+    },
+    "kff-medicaid-unwinding/procedural-disenrollment": {
+      "candidate": "benefits-red-tape"
+    },
+    "211-wv-shutdown/snap-delay-calls": {
+      "candidate": "shutdowns"
+    },
+    "211-kc/tax-preparation": {
+      "painId": "life-admin",
+      "why": "Paperwork: \"I lose my week to forms, bills and phone queues\"; tax filing is the commonest form."
+    },
+    "211-kc/legal-services": {
+      "painId": "legal-mess",
+      "why": "Legal trouble: \"I'm stuck in a legal problem I can't afford.\""
+    },
+    "oecd/civic-engagement": {
+      "painId": "they-dont-listen",
+      "why": "Representation: having a say in what government does."
+    },
+    "oecd/social-capital": {
+      "broader": "trust"
+    },
+    "sdg/16.3": {
+      "painId": "justice-unfair",
+      "why": "Justice: unequal treatment by police and courts."
+    },
+    "sdg/16.5": {
+      "painId": "corruption",
+      "why": "Corruption."
+    },
+    "sdg/16.6": {
+      "painId": "no-accountability",
+      "why": "Accountability: \"I see leaders break promises with no consequences.\""
+    },
+    "sdg/16.7": {
+      "painId": "they-dont-listen",
+      "why": "Representation: responsive, representative decision-making."
+    },
+    "sdg/16.9": {
+      "broader": "life-admin"
+    },
+    "sdg/16.10": {
+      "painId": "freedoms",
+      "why": "Freedoms: protecting fundamental freedoms."
+    },
+    "sdg/16.b": {
+      "painId": "treated-differently",
+      "why": "Discrimination: \"I'm treated worse because of who I am.\""
+    },
+    "sdg/1.3": {
+      "painId": "no-floor",
+      "why": "No safety net."
+    },
+    "sdg/6.1": {
+      "painId": "infrastructure",
+      "why": "Infrastructure names water."
+    },
+    "sdg/7.1": {
+      "painId": "infrastructure",
+      "why": "Infrastructure names power."
+    },
+    "sdg/9.1": {
+      "painId": "infrastructure",
+      "why": "Infrastructure: reliable roads, water and power."
+    },
+    "sdg/10.7": {
+      "painId": "immigration-broken",
+      "why": "Immigration: a migration system that works."
+    },
+    "sdg/11.3": {
+      "painId": "far-away-decisions",
+      "why": "Local control: say over decisions about where you live."
+    },
+    "whoqol/q25": {
+      "painId": "getting-around",
+      "why": "Getting around covers satisfaction with transport."
+    },
+    "maxneef/participation": {
+      "painId": "they-dont-listen",
+      "why": "Representation: being heard and able to express opinions."
+    },
+    "maxneef/freedom": {
+      "painId": "freedoms",
+      "why": "Freedoms: \"I'm losing the freedom to make my own choices.\""
+    },
+    "maxneef/protection": {
+      "broader": "no-floor"
+    },
+    "gallup-elements/community": {
+      "broader": "far-away-decisions"
+    },
+    "wikidata/Q10858400": {
+      "painId": "corruption",
+      "why": "Corruption."
+    },
+    "wikidata/Q1352232": {
+      "painId": "corruption",
+      "why": "Corruption: money bending the rules in politics."
+    },
+    "wikidata/Q30676252": {
+      "painId": "democracy-slipping",
+      "why": "Institutions: \"I see the institutions we rely on falling apart.\""
+    },
+    "wikidata/Q44918": {
+      "broader": "democracy-slipping"
+    },
+    "wikidata/Q476310": {
+      "candidate": "fair-elections"
+    },
+    "wikidata/Q7942161": {
+      "candidate": "fair-elections"
+    },
+    "wikidata/Q692209": {
+      "candidate": "fair-elections"
+    },
+    "wikidata/Q3082509": {
+      "painId": "we-cant-talk",
+      "why": "Polarization."
+    },
+    "wikidata/Q137791353": {
+      "candidate": "political-violence"
+    },
+    "wikidata/Q60708827": {
+      "candidate": "shutdowns"
+    },
+    "wikidata/Q1425056": {
+      "candidate": "government-surveillance"
+    },
+    "wikidata/Q161837": {
+      "broader": "taxes-dont-buy-much"
+    },
+    "wikidata/Q187117": {
+      "painId": "corruption",
+      "why": "Corruption: money buying influence over officials."
+    },
+    "wikidata/Q72468": {
+      "candidate": "benefits-red-tape"
+    },
+    "wikidata/Q131288": {
+      "painId": "immigration-broken",
+      "why": "Immigration."
+    },
+    "wikidata/Q121359": {
+      "painId": "infrastructure",
+      "why": "Infrastructure."
+    },
+    "wikidata/Q8161": {
+      "painId": "taxes-dont-buy-much",
+      "why": "Taxes."
+    },
+    "wikidata/Q96742747": {
+      "painId": "no-accountability",
+      "why": "Accountability."
+    },
+    "wikidata/Q188759": {
+      "painId": "they-dont-listen",
+      "why": "Representation: being heard by the people elected to decide."
+    }
+  }
+}

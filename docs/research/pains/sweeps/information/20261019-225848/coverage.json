@@ -1,0 +1,535 @@
+{
+  "schemaVersion": 1,
+  "target": 0.9,
+  "lists": {
+    "reuters-dnr-2025": {
+      "name": "Reuters Institute Digital News Report 2025: executive summary",
+      "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2025/dnr-executive-summary",
+      "accessed": "2026-10-19",
+      "entries": 8,
+      "covered": 3,
+      "share": 0.375,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "real-fake-online",
+          "name": "Worried about what is real and fake online",
+          "painId": "dont-know-whats-true",
+          "why": "Misinformation: \"I don't know what's true any more.\""
+        },
+        {
+          "entry": "misinfo-sources",
+          "name": "Influencers and national politicians seen as the biggest sources of false or misleading information",
+          "painId": "dont-know-whats-true",
+          "why": "Misinformation: where the false information comes from."
+        },
+        {
+          "entry": "local-news-future",
+          "name": "Deepening concerns about the future of local news",
+          "painId": "nobody-covers-here",
+          "why": "Local news: \"I don't know what's happening in my own town.\""
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "trust-in-news",
+          "name": "Overall trust in the news",
+          "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2025/dnr-executive-summary",
+          "reason": "waiting for review: cant-trust-the-news"
+        },
+        {
+          "entry": "news-avoidance",
+          "name": "Sometimes or often avoid the news",
+          "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2025/dnr-executive-summary",
+          "reason": "waiting for review: news-overload"
+        },
+        {
+          "entry": "news-overload",
+          "name": "Selective avoiders who struggle with news overload",
+          "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2025/dnr-executive-summary",
+          "reason": "waiting for review: news-overload"
+        },
+        {
+          "entry": "content-moderation",
+          "name": "Platforms removing too little (or too much) harmful content",
+          "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2025/dnr-executive-summary",
+          "reason": "covered by a broader pain: dont-know-whats-true"
+        },
+        {
+          "entry": "ai-less-trustworthy",
+          "name": "AI expected to make news less accurate and less trustworthy",
+          "url": "https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2025/dnr-executive-summary",
+          "reason": "covered by a broader pain: dont-know-whats-true"
+        }
+      ]
+    },
+    "gallup-mip": {
+      "name": "Gallup: most important problem facing the country (September 2026), information-related answers",
+      "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+      "accessed": "2026-10-19",
+      "entries": 2,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "the-media",
+          "name": "The media",
+          "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+          "reason": "waiting for review: cant-trust-the-news"
+        },
+        {
+          "entry": "technology",
+          "name": "Advancement of computers/technology",
+          "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+          "reason": "covered by a broader pain: ai-and-jobs"
+        }
+      ]
+    },
+    "gallup-media-trust-2025": {
+      "name": "Gallup: trust in mass media (September 2025 poll)",
+      "url": "https://news.gallup.com/poll/695762/trust-media-new-low.aspx",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "trust-mass-media",
+          "name": "Trust in newspapers, television and radio to report the news fully, accurately and fairly",
+          "url": "https://news.gallup.com/poll/695762/trust-media-new-low.aspx",
+          "reason": "waiting for review: cant-trust-the-news"
+        }
+      ]
+    },
+    "pew-data-privacy-2023": {
+      "name": "Pew Research Center: How Americans View Data Privacy (2023)",
+      "url": "https://www.pewresearch.org/internet/2023/10/18/how-americans-view-data-privacy/",
+      "accessed": "2026-10-19",
+      "entries": 7,
+      "covered": 4,
+      "share": 0.571,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "little-control",
+          "name": "Little to no control over what companies or the government do with their data",
+          "painId": "watched-by-companies",
+          "why": "Privacy: 73% feel they have little control over company data; the government half (79%) also feeds the government-watching candidate."
+        },
+        {
+          "entry": "dont-understand-company-use",
+          "name": "Understand little to nothing about what companies do with their data",
+          "painId": "watched-by-companies",
+          "why": "Privacy: companies know everything about me and I don't know what they do with it."
+        },
+        {
+          "entry": "ai-data-use",
+          "name": "Company use of AI will lead to personal information used in uncomfortable ways",
+          "painId": "watched-by-companies",
+          "why": "Privacy: companies using personal data in ways people aren't comfortable with."
+        },
+        {
+          "entry": "fraudulent-charges",
+          "name": "Fraudulent charges on a debit or credit card",
+          "painId": "identity-theft",
+          "why": "Identity theft: someone used my name or card to take my money."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "government-data-use",
+          "name": "Worried about how the government uses people’s data",
+          "url": "https://www.pewresearch.org/internet/2023/10/18/how-americans-view-data-privacy/",
+          "reason": "out of scope: Proposed as `government-surveillance` by the government sweep 20261019-224657"
+        },
+        {
+          "entry": "kids-online-privacy",
+          "name": "Concerned about social media platforms knowing personal information about kids",
+          "url": "https://www.pewresearch.org/internet/2023/10/18/how-americans-view-data-privacy/",
+          "reason": "covered by a broader pain: screens-and-kids"
+        },
+        {
+          "entry": "accounts-taken-over",
+          "name": "Email or social media accounts taken over without permission",
+          "url": "https://www.pewresearch.org/internet/2023/10/18/how-americans-view-data-privacy/",
+          "reason": "waiting for review: data-leaks"
+        }
+      ]
+    },
+    "pew-online-harassment-2021": {
+      "name": "Pew Research Center: The State of Online Harassment (2021)",
+      "url": "https://www.pewresearch.org/internet/2021/01/13/the-state-of-online-harassment/",
+      "accessed": "2026-10-19",
+      "entries": 2,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "online-harassment",
+          "name": "Personally experienced online harassment",
+          "url": "https://www.pewresearch.org/internet/2021/01/13/the-state-of-online-harassment/",
+          "reason": "out of scope: Proposed as `harassed-online` by the people sweep 20261019-224656"
+        },
+        {
+          "entry": "harassment-a-problem",
+          "name": "People being harassed or bullied online is a problem",
+          "url": "https://www.pewresearch.org/internet/2021/01/13/the-state-of-online-harassment/",
+          "reason": "out of scope: Proposed as `harassed-online` by the people sweep 20261019-224656"
+        }
+      ]
+    },
+    "pew-ai-2025": {
+      "name": "Pew Research Center: How Americans View AI and Its Impact on People and Society (2025)",
+      "url": "https://www.pewresearch.org/science/2025/09/17/how-americans-view-ai-and-its-impact-on-people-and-society/",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "cant-detect-ai",
+          "name": "Not confident they can tell if something was made by AI or a person",
+          "url": "https://www.pewresearch.org/science/2025/09/17/how-americans-view-ai-and-its-impact-on-people-and-society/",
+          "reason": "waiting for review: ai-fakes"
+        }
+      ]
+    },
+    "pew-social-media-2020": {
+      "name": "Pew Research Center: social media’s effect on the country (2020)",
+      "url": "https://www.pewresearch.org/short-reads/2020/10/15/64-of-americans-say-social-media-have-a-mostly-negative-effect-on-the-way-things-are-going-in-the-u-s-today/",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "social-media-negative",
+          "name": "Social media have a mostly negative effect on the way things are going in the country",
+          "url": "https://www.pewresearch.org/short-reads/2020/10/15/64-of-americans-say-social-media-have-a-mostly-negative-effect-on-the-way-things-are-going-in-the-u-s-today/",
+          "reason": "covered by a broader pain: dont-know-whats-true"
+        }
+      ]
+    },
+    "itrc-breaches-2025": {
+      "name": "Identity Theft Resource Center 2025 Data Breach Report (as reported by GovTech; idtheftcenter.org blocked the fetch)",
+      "url": "https://www.govtech.com/security/2025-data-breach-report-more-compromises-less-transparency",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "data-compromises",
+          "name": "Data compromises in the U.S.",
+          "url": "https://www.govtech.com/security/2025-data-breach-report-more-compromises-less-transparency",
+          "reason": "waiting for review: data-leaks"
+        }
+      ]
+    },
+    "freedom-forum-2025": {
+      "name": "Freedom Forum: Where America Stands on the First Amendment, 2025 key takeaways (copy at MTSU First Amendment Encyclopedia; freedomforum.org returned 403)",
+      "url": "https://firstamendment.mtsu.edu/post/where-america-stands-on-the-first-amendment-key-takeaways/",
+      "accessed": "2026-10-19",
+      "entries": 2,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "afraid-to-speak",
+          "name": "Fearful of consequences for speaking freely",
+          "url": "https://firstamendment.mtsu.edu/post/where-america-stands-on-the-first-amendment-key-takeaways/",
+          "reason": "waiting for review: afraid-to-speak"
+        },
+        {
+          "entry": "free-press-threatened",
+          "name": "Free press seen as the most threatened of the five freedoms",
+          "url": "https://firstamendment.mtsu.edu/post/where-america-stands-on-the-first-amendment-key-takeaways/",
+          "reason": "waiting for review: press-freedom"
+        }
+      ]
+    },
+    "rsf-index-2025": {
+      "name": "RSF World Press Freedom Index 2025",
+      "url": "https://rsf.org/en/rsf-world-press-freedom-index-2025-economic-fragility-leading-threat-press-freedom",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "press-freedom-difficult",
+          "name": "Global state of press freedom classified as a difficult situation",
+          "url": "https://rsf.org/en/rsf-world-press-freedom-index-2025-economic-fragility-leading-threat-press-freedom",
+          "reason": "waiting for review: press-freedom"
+        }
+      ]
+    },
+    "oecd-truth-quest": {
+      "name": "OECD Truth Quest Survey (2024), as reported by Swissinfo; oecd.org returned 403",
+      "url": "https://www.swissinfo.ch/eng/information-wars/swiss-found-to-be-gullible-regarding-fake-news/87475624",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 1,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "identify-false-content",
+          "name": "Ability to tell true from false content online",
+          "painId": "dont-know-whats-true",
+          "why": "Misinformation: people get true-or-false right in only 60% of cases."
+        }
+      ],
+      "uncovered": []
+    },
+    "sdg-targets": {
+      "name": "UN SDG targets bearing on information",
+      "url": "https://sdgs.un.org/goals",
+      "accessed": "2026-10-19",
+      "entries": 6,
+      "covered": 1,
+      "share": 0.167,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "9.c",
+          "name": "Universal and affordable access to the Internet",
+          "painId": "offline",
+          "why": "Internet: \"I can't get decent internet.\""
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "16.10",
+          "name": "Ensure public access to information and protect fundamental freedoms",
+          "url": "https://sdgs.un.org/goals/goal16",
+          "reason": "covered by a broader pain: freedoms"
+        },
+        {
+          "entry": "16.10.1",
+          "name": "Killing, kidnapping, disappearance, detention and torture of journalists and human rights advocates",
+          "url": "https://sdgs.un.org/goals/goal16",
+          "reason": "waiting for review: press-freedom"
+        },
+        {
+          "entry": "4.4.1",
+          "name": "Youth and adults with information and communications technology (ICT) skills",
+          "url": "https://sdgs.un.org/goals/goal4",
+          "reason": "covered by a broader pain: need-skills"
+        },
+        {
+          "entry": "5.b",
+          "name": "Use of information and communications technology to empower women",
+          "url": "https://sdgs.un.org/goals/goal5",
+          "reason": "covered by a broader pain: offline"
+        },
+        {
+          "entry": "17.8",
+          "name": "Technology bank and ICT capacity for least developed countries",
+          "url": "https://sdgs.un.org/goals/goal17",
+          "reason": "out of scope: a capacity-building mechanism between countries, not a pain a person names"
+        }
+      ]
+    },
+    "whoqol-bref": {
+      "name": "WHOQOL-BREF (English, Australian version)",
+      "url": "https://cdn.who.int/media/docs/default-source/publishing-policies/whoqol-bref/english-australian-whoqol-bref.zip?sfvrsn=a7452ad6_2",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "Q13",
+          "name": "Information needed in daily life",
+          "url": "https://cdn.who.int/media/docs/default-source/publishing-policies/whoqol-bref/english-australian-whoqol-bref.zip?sfvrsn=a7452ad6_2",
+          "reason": "waiting for review: finding-help"
+        }
+      ]
+    },
+    "maxneef": {
+      "name": "Max-Neef’s fundamental human needs",
+      "url": "https://en.wikipedia.org/wiki/Manfred_Max-Neef%27s_Fundamental_human_needs",
+      "accessed": "2026-10-19",
+      "entries": 3,
+      "covered": 1,
+      "share": 0.333,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "propaganda",
+          "name": "Advertising and propaganda as pseudo-satisfiers",
+          "painId": "dont-know-whats-true",
+          "why": "Misinformation: propaganda leaves people unsure what's true."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "understanding",
+          "name": "Understanding (satisfiers include communication policies)",
+          "url": "https://en.wikipedia.org/wiki/Manfred_Max-Neef%27s_Fundamental_human_needs",
+          "reason": "covered by a broader pain: dont-know-whats-true"
+        },
+        {
+          "entry": "censorship",
+          "name": "Censorship as a violator of understanding, participation and freedom",
+          "url": "https://en.wikipedia.org/wiki/Manfred_Max-Neef%27s_Fundamental_human_needs",
+          "reason": "waiting for review: afraid-to-speak"
+        }
+      ]
+    },
+    "211-impact-2025": {
+      "name": "United Way 211 Impact Snapshot 2025: information and referral",
+      "url": "https://www.unitedway.org/the-facts-about-211-2025-impact-snapshot",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "information-referral",
+          "name": "Information and referrals to social services programs and resources",
+          "url": "https://www.unitedway.org/the-facts-about-211-2025-impact-snapshot",
+          "reason": "waiting for review: finding-help"
+        }
+      ]
+    },
+    "census-language-2019": {
+      "name": "U.S. Census Bureau: languages spoken at home and English-speaking ability (2019 ACS)",
+      "url": "https://www.census.gov/library/stories/2022/12/languages-we-speak-in-united-states.html",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "limited-english",
+          "name": "Speak English less than very well",
+          "url": "https://www.census.gov/library/stories/2022/12/languages-we-speak-in-united-states.html",
+          "reason": "waiting for review: language-barriers"
+        }
+      ]
+    },
+    "wikidata": {
+      "name": "Wikidata items for information pains",
+      "url": "https://www.wikidata.org/",
+      "accessed": "2026-10-19",
+      "entries": 14,
+      "covered": 5,
+      "share": 0.357,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "Q13579947",
+          "name": "misinformation",
+          "painId": "dont-know-whats-true",
+          "why": "misinformation"
+        },
+        {
+          "entry": "Q28549308",
+          "name": "fake news",
+          "painId": "dont-know-whats-true",
+          "why": "fake news"
+        },
+        {
+          "entry": "Q65061916",
+          "name": "news desert",
+          "painId": "nobody-covers-here",
+          "why": "news desert"
+        },
+        {
+          "entry": "Q456632",
+          "name": "information privacy",
+          "painId": "watched-by-companies",
+          "why": "information privacy"
+        },
+        {
+          "entry": "Q244752",
+          "name": "digital divide",
+          "painId": "offline",
+          "why": "digital divide: \"I can't get decent internet.\""
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "Q1425056",
+          "name": "mass surveillance",
+          "url": "https://www.wikidata.org/wiki/Q1425056",
+          "reason": "out of scope: Proposed as `government-surveillance` by the government sweep 20261019-224657"
+        },
+        {
+          "entry": "Q1172486",
+          "name": "data breach",
+          "url": "https://www.wikidata.org/wiki/Q1172486",
+          "reason": "waiting for review: data-leaks"
+        },
+        {
+          "entry": "Q49473179",
+          "name": "deepfake",
+          "url": "https://www.wikidata.org/wiki/Q49473179",
+          "reason": "waiting for review: ai-fakes"
+        },
+        {
+          "entry": "Q494348",
+          "name": "cyberbullying",
+          "url": "https://www.wikidata.org/wiki/Q494348",
+          "reason": "out of scope: Proposed as `harassed-online` by the people sweep 20261019-224656"
+        },
+        {
+          "entry": "Q543",
+          "name": "censorship",
+          "url": "https://www.wikidata.org/wiki/Q543",
+          "reason": "waiting for review: afraid-to-speak"
+        },
+        {
+          "entry": "Q22692",
+          "name": "freedom of speech",
+          "url": "https://www.wikidata.org/wiki/Q22692",
+          "reason": "waiting for review: afraid-to-speak"
+        },
+        {
+          "entry": "Q22688",
+          "name": "freedom of the press",
+          "url": "https://www.wikidata.org/wiki/Q22688",
+          "reason": "waiting for review: press-freedom"
+        },
+        {
+          "entry": "Q1130191",
+          "name": "information overload",
+          "url": "https://www.wikidata.org/wiki/Q1130191",
+          "reason": "waiting for review: news-overload"
+        },
+        {
+          "entry": "Q11118951",
+          "name": "media bias",
+          "url": "https://www.wikidata.org/wiki/Q11118951",
+          "reason": "waiting for review: cant-trust-the-news"
+        }
+      ]
+    }
+  },
+  "issues": [],
+  "checkedAt": "2026-10-19"
+}
