@@ -13,9 +13,11 @@ def reviewed(doc):
         d['review'] = {'decision': 'reject' if key == 'burnout-d05' else 'accept'}
 
 
-def plan_doc(task=2):
-    return {'schemaVersion': 2, 'painId': 'burnout',
-            'ceilings': {key: {'task': {'max': task, 'reason': 'One-time changes fit this dream.'}} for key in DREAMS[:5]}}
+def plan_doc(task=2, kinds=None):
+    """A Task ceiling for each accepted dream, and a ceiling of 0 for every other kind with a brief."""
+    kinds = kinds if kinds is not None else cards.KIND_BRIEFS
+    row = {kind: {'max': task if kind == 'task' else 0, 'reason': 'One-time changes fit this dream.'} for kind in kinds}
+    return {'schemaVersion': 2, 'painId': 'burnout', 'ceilings': {key: json.loads(json.dumps(row)) for key in DREAMS[:5]}}
 
 
 def task_fix(dream, n):
@@ -274,7 +276,7 @@ class Gate(FixStages):
         planned = self.start('plan')
         self.assertEqual(planned.returncode, 0, planned.stderr)
         self.assertEqual(json.loads(planned.stdout), {'run': self.run_dir.name, 'stage': 'plan',
-                                                      'brief': 'tools/possibilities/briefs/planner.md', 'kinds': ['task']})
+                                                      'brief': 'tools/possibilities/briefs/planner.md', 'kinds': list(cards.KIND_BRIEFS)})
         self.write('plan.json', plan_doc())
         pools = json.loads(self.start('kind-pools').stdout)
         self.assertEqual(pools['brief'], 'tools/possibilities/briefs/kinds/_shared.md')

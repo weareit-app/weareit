@@ -53,7 +53,9 @@ Rules:
 `{ finalists: [card-id…3–5], auditSample: [card-id…≥2], ranking: [ {cardId, wins, meanScore} ], excluded: [ {cardId, reason} ] }`
 
 ## run.json (per run)
-`{ painId, runId, startedAt, painName, painLine, finishedAt, searches, pagesOpened, tokens?, notes }`
+`{ painId, runId, startedAt, painName, painLine, finishedAt, searches, pagesOpened, tokens?, notes, pilot? }`
+
+`pilot: true` marks a staged run as a pilot run, which also plans and drafts the trial kinds `leave` and `switch` (see *plan.json*). It is set by hand in `run.json`; any other run refuses them.
 
 `painName` and `painLine` are the catalog wording the run was written for (added 2026-10-19; older runs lack them, and `stale` falls back to the catalog history at `startedAt`). `painId` is always the surviving ID: a run started for a merged pain is created for the pain it was merged into.
 
@@ -72,7 +74,7 @@ A staged run mirrors the content graph (`packages/content/src/graph-schema.ts`):
 - `assemble` is complete when `links.json` exists.
 
 `start <run> <stage>` refuses with a usage error (exit 2) while any earlier stage is incomplete, so no fix stage runs before the dream review is ingested. Otherwise it names the stage's brief:
-- for `plan`, `kinds` lists the kinds the planner sets ceilings for, which are the kinds that have a brief (`KIND_BRIEFS` in `cards.py`; only `task` so far);
+- for `plan`, `kinds` lists the kinds the planner sets ceilings for, which are the kinds that have a brief (`KIND_BRIEFS` in `cards.py`: `task`, `ask`, and `resource` so far), plus the trial kinds `leave` and `switch` (`TRIAL_KIND_BRIEFS`) in a pilot run;
 - for `kind-pools`, `brief` is the shared kind brief, and `kinds` maps each kind still to draft (a ceiling above zero and no pool yet) to its own brief.
 
 `judge` and `fix-review` aren't built yet. Once `fixes.json` exists, `status` also reports the fix pool: `fixes: {total, screenedOut: [fix-id…], unlinked: [fix-id…] | null}`. `unlinked` is `null` until `links.json` exists.
@@ -107,7 +109,7 @@ Rules:
 ```
 Rules:
 - One row for each accepted dream, and none for a rejected or unknown dream.
-- Each row sets a ceiling for every kind that has a brief, and only for those.
+- Each row sets a ceiling for every kind that has a brief, and only for those. In a pilot run, that includes the trial kinds `leave` and `switch`. Any other run fails a trial-kind ceiling.
 - `max` is an integer from 0 to 5. Zero means the kind isn't drafted for that dream.
 - Every ceiling, including a zero, has a one-line `reason`.
 - A ceiling is a limit, not a quota: a kind brief may return fewer (see `pools` below).
@@ -131,7 +133,8 @@ Rules:
 - `kind` is a kind that has a brief, and `origin` is `kind:<kind>`. Every kind with fixes has a `pools` entry. A kind brief adds its entry even when it drafted every ceiling in full, because the entry records that the kind ran.
 - `draftedFor` is an accepted dream.
 - For each kind with a pool and each accepted dream, the number of fixes with that `kind` and `draftedFor` is at most the plan's `max`. If it is lower, `shortfalls` gives a one-line reason for that dream.
-- Status rules: `status` is a known status, and kind `feature` goes with status `proposed_it_feature`, and only with it.
+- Status rules: `status` is a known status, and kind `feature` goes with status `proposed_it_feature`, and only with it. A `resource` fix has status `existing_resource` or `real_now`.
+- Trial kinds: a `leave` or `switch` fix, or its pool, fails validation unless `run.json` has `"pilot": true`.
 - Sourcing rules: either `exemplarRef` resolves to an exemplar in the run, or `speculative: true` with a rationale. `firstStepMinutes` is 1–20.
 - `method` holds every field its kind requires:
 
@@ -141,8 +144,19 @@ Rules:
   | | `doneWhen` | what is true once it's done |
   | | `keepsWorking` | `true` or `false`: a one-time change that keeps working afterward |
   | | `lever` | `default`, `remove-hassle`, `simplify`, `timing`, or `other` |
+  | `ask` | `decisionMaker` | who can say yes, as a role a reader can find |
+  | | `request` | the one specific request they can answer yes or no |
+  | `resource` | `provider` | who runs it |
+  | | `eligibility` | who qualifies |
+  | | `access` | how to reach it: phone, text, web, or a place |
+  | | `bring` | what to have ready |
+  | `leave` (trial) | `leaving` | what the person stops being part of |
+  | | `tradeOff` | what they give up |
+  | `switch` (trial) | `switchFrom` | what the person replaces |
+  | | `switchTo` | the better version of the same thing |
+  | | `tradeOff` | what the move costs or loses |
 
-  Other kinds add their rows with their briefs (#93, #94).
+  Other kinds add their rows with their briefs (#93).
 
 ### screen.json (staged run)
 ```
