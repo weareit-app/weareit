@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
-  blockDataSchemas,
+  blockSchemas,
   essayFrontMatterSchema,
   essayStatusLabels,
 } from "../src/essay-schema";
@@ -88,14 +88,14 @@ describe("essay front matter", () => {
 
 describe("block data", () => {
   it("accepts a chart with its context", () => {
-    expect(blockDataSchemas.chart.safeParse(chart).success).toBe(true);
+    expect(blockSchemas.chart.safeParse(chart).success).toBe(true);
   });
 
   it.each(["unit", "source", "timeframe", "updated", "population"])(
     "rejects a chart without %s",
     (field) => {
       const { [field as keyof typeof chart]: _, ...rest } = chart;
-      expect(blockDataSchemas.chart.safeParse(rest).success).toBe(false);
+      expect(blockSchemas.chart.safeParse(rest).success).toBe(false);
     },
   );
 
@@ -107,10 +107,9 @@ describe("block data", () => {
       status: "replicated finding",
       limitation: "Mostly studied in the United States.",
     };
-    expect(blockDataSchemas.evidence.safeParse(evidence).success).toBe(true);
+    expect(blockSchemas.evidence.safeParse(evidence).success).toBe(true);
     expect(
-      blockDataSchemas.evidence.safeParse({ ...evidence, status: "true" })
-        .success,
+      blockSchemas.evidence.safeParse({ ...evidence, status: "true" }).success,
     ).toBe(false);
   });
 
@@ -120,15 +119,15 @@ describe("block data", () => {
       columns: [{ key: "city", label: "City" }],
       rows: [{ city: "Seattle" }],
     };
-    expect(blockDataSchemas.table.safeParse(table).success).toBe(true);
+    expect(blockSchemas.table.safeParse(table).success).toBe(true);
     expect(
-      blockDataSchemas.table.safeParse({ ...table, source: "plan" }).success,
+      blockSchemas.table.safeParse({ ...table, source: "plan" }).success,
     ).toBe(false);
   });
 
   it("rejects table rows with columns it doesn't declare", () => {
     expect(
-      blockDataSchemas.table.safeParse({
+      blockSchemas.table.safeParse({
         caption: "Start times",
         columns: [{ key: "city", label: "City" }],
         rows: [{ town: "Seattle" }],

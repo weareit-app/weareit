@@ -293,6 +293,9 @@ describe("invalid essays", () => {
       /line 15: "::video" is not a block type/,
     );
     expect(errorsOf(":::aside\nText\n:::\n")).toMatch(/":::aside"/);
+    expect(errorsOf(":::expandable\nText\n:::\n")).toMatch(
+      /:::expandable\{title=/,
+    );
   });
 
   it("fails on a block without its data file", () => {

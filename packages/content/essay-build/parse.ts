@@ -20,7 +20,7 @@ import { math } from "micromark-extension-math";
 import { parse as parseYaml } from "yaml";
 import type { z } from "zod";
 import {
-  blockDataSchemas,
+  blockSchemas,
   dataBlockTypes,
   essayFrontMatterSchema,
   essaySchema,
@@ -220,7 +220,7 @@ export function parseEssay({ slug, markdown, files }: EssayInput): Essay {
       problems.push(`${where}: can't be read: ${(error as Error).message}`);
       return undefined;
     }
-    const parsed = blockDataSchemas[type].safeParse(raw);
+    const parsed = blockSchemas[type].safeParse(raw);
     if (!parsed.success) {
       problems.push(...zodProblems(where, parsed.error));
       return undefined;
@@ -287,7 +287,6 @@ export function parseEssay({ slug, markdown, files }: EssayInput): Essay {
           break;
         }
         case "containerDirective": {
-          const { title, ...extra } = node.attributes ?? {};
           if (node.name !== "expandable") {
             fail(
               node,
@@ -295,7 +294,10 @@ export function parseEssay({ slug, markdown, files }: EssayInput): Essay {
             );
             break;
           }
-          if (!title || Object.keys(extra).length) {
+          const attributes = blockSchemas.expandable.safeParse(
+            node.attributes ?? {},
+          );
+          if (!attributes.success) {
             fail(node, `write the block as :::expandable{title="…"}`);
             break;
           }
@@ -304,7 +306,7 @@ export function parseEssay({ slug, markdown, files }: EssayInput): Essay {
             type: "block",
             block: {
               type: "expandable",
-              title,
+              title: attributes.data.title,
               children: blocks(node.children),
             },
           });

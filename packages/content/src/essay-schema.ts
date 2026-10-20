@@ -1,29 +1,25 @@
 import { z } from "zod";
+import {
+  blockSchemas,
+  dataBlockTypes,
+  type BlockType,
+  type DataBlockType,
+} from "./essays/blocks";
+import {
+  essayStatusLabels,
+  essayStatusLabelSchema,
+  isoDate,
+  slugId,
+  text,
+} from "./essays/blocks/shared";
 
 // Essays (public-pages, public-essays). An essay is a Markdown file with front
 // matter; the build script in `essay-build/` turns it into the typed tree
 // below, checked with these schemas. The app renders the tree and never
 // parses Markdown.
 
-/** The fixed status labels an essay may give a result, view or plan. */
-export const essayStatusLabels = [
-  "established result",
-  "replicated finding",
-  "machine-checked under stated assumptions",
-  "working hypothesis",
-  "speculative direction",
-  "open question",
-  "planned engineering",
-] as const;
-
-export const essayStatusLabelSchema = z.enum(essayStatusLabels);
+export { essayStatusLabels, essayStatusLabelSchema };
 export type EssayStatusLabel = z.infer<typeof essayStatusLabelSchema>;
-
-const isoDate = z.iso.date();
-const text = z.string().trim().min(1);
-const slugId = z
-  .string()
-  .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "use lowercase words joined by hyphens");
 
 export const essaySourceSchema = z.strictObject({
   id: slugId,
@@ -81,133 +77,9 @@ export const essayFrontMatterSchema = z
   });
 export type EssayFrontMatter = z.infer<typeof essayFrontMatterSchema>;
 
-// Block data files (`<block-id>.json` or `.yaml` beside the essay). Fields
-// that name a source hold a source ID from the front matter.
+export { blockSchemas, dataBlockTypes, type BlockType, type DataBlockType };
 
-const cell = z.union([z.string(), z.number(), z.boolean(), z.null()]);
-const record = z.record(z.string(), cell);
-
-/** The context every chart or table of outside data shows. */
-const dataContext = {
-  source: slugId,
-  unit: text,
-  timeframe: text,
-  /** The population or denominator the numbers describe. */
-  population: text,
-  /** Uncertainty, where it is known. */
-  uncertainty: text.optional(),
-  updated: isoDate,
-};
-
-const chartData = z.strictObject({
-  title: text,
-  /** Written description, read by screen readers and shown without scripts. */
-  description: text,
-  /** A Vega-Lite spec without its data; the data comes from `data`. */
-  spec: z.record(z.string(), z.unknown()),
-  data: z.array(record).min(1),
-  ...dataContext,
-});
-
-const diagramData = z.strictObject({
-  title: text.optional(),
-  /** Mermaid source. */
-  mermaid: text,
-  description: text,
-});
-
-const mathData = z.strictObject({
-  /** TeX source, shown as text until it is drawn. */
-  tex: text,
-  description: text.optional(),
-});
-
-const evidenceData = z.strictObject({
-  claim: text,
-  source: slugId,
-  date: isoDate,
-  status: essayStatusLabelSchema,
-  limitation: text,
-});
-
-const timelineData = z.strictObject({
-  title: text.optional(),
-  entries: z
-    .array(
-      z.strictObject({
-        date: z.string().regex(/^\d{4}(-\d{2}(-\d{2})?)?$/),
-        title: text,
-        note: text.optional(),
-      }),
-    )
-    .min(1),
-});
-
-const statusBoardData = z.strictObject({
-  title: text.optional(),
-  items: z
-    .array(
-      z.strictObject({
-        label: text,
-        status: essayStatusLabelSchema,
-        note: text.optional(),
-      }),
-    )
-    .min(1),
-});
-
-const tableData = z
-  .strictObject({
-    caption: text,
-    columns: z.array(z.strictObject({ key: text, label: text })).min(1),
-    rows: z.array(record).min(1),
-    // A table of outside data names its source and then needs the rest of
-    // its context too.
-    source: dataContext.source.optional(),
-    unit: dataContext.unit.optional(),
-    timeframe: dataContext.timeframe.optional(),
-    population: dataContext.population.optional(),
-    uncertainty: dataContext.uncertainty,
-    updated: dataContext.updated.optional(),
-  })
-  .superRefine((table, ctx) => {
-    if (table.source)
-      for (const field of [
-        "unit",
-        "timeframe",
-        "population",
-        "updated",
-      ] as const)
-        if (!table[field])
-          ctx.addIssue({
-            code: "custom",
-            path: [field],
-            message: `a table with a source needs ${field}`,
-          });
-    const keys = new Set(table.columns.map((column) => column.key));
-    table.rows.forEach((row, index) => {
-      for (const key of Object.keys(row))
-        if (!keys.has(key))
-          ctx.addIssue({
-            code: "custom",
-            path: ["rows", index, key],
-            message: `"${key}" is not one of the table's columns`,
-          });
-    });
-  });
-
-/** Block types whose data lives in a file beside the essay. */
-export const blockDataSchemas = {
-  chart: chartData,
-  diagram: diagramData,
-  math: mathData,
-  evidence: evidenceData,
-  timeline: timelineData,
-  "status-board": statusBoardData,
-  table: tableData,
-};
-export type DataBlockType = keyof typeof blockDataSchemas;
-export const dataBlockTypes = Object.keys(blockDataSchemas) as DataBlockType[];
+type Data<T extends DataBlockType> = z.infer<(typeof blockSchemas)[T]>;
 
 // The typed tree.
 
@@ -222,18 +94,16 @@ export type EssayInline =
   | { type: "math"; tex: string };
 
 export type EssayBlock =
-  | { type: "chart"; id: string; data: z.infer<typeof chartData> }
-  | { type: "diagram"; id: string; data: z.infer<typeof diagramData> }
-  | { type: "math"; id: string; data: z.infer<typeof mathData> }
-  | { type: "evidence"; id: string; data: z.infer<typeof evidenceData> }
-  | { type: "timeline"; id: string; data: z.infer<typeof timelineData> }
   | {
-      type: "status-board";
-      id: string;
-      data: z.infer<typeof statusBoardData>;
-    }
-  | { type: "table"; id: string; data: z.infer<typeof tableData> }
+      [T in DataBlockType]: { type: T; id: string; data: Data<T> };
+    }[DataBlockType]
   | { type: "expandable"; title: string; children: EssayNode[] };
+
+/** The parsed block of one type, as its component receives it. */
+export type EssayBlockOf<T extends BlockType> = Extract<
+  EssayBlock,
+  { type: T }
+>;
 
 export type EssayNode =
   | { type: "heading"; level: 2 | 3 | 4; children: EssayInline[] }
@@ -281,7 +151,7 @@ const dataBlock = <T extends DataBlockType>(type: T) =>
   z.strictObject({
     type: z.literal(type),
     id: slugId,
-    data: blockDataSchemas[type],
+    data: blockSchemas[type],
   });
 
 const blockSchema: z.ZodType<EssayBlock> = z.lazy(() =>
