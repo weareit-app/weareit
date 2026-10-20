@@ -47,7 +47,7 @@ export const kindCopy: Record<
 };
 
 // A Live feature is in It now, so its explanation can't say it isn't.
-const liveFeatureDetail = "Something It offers. Available to use.";
+const liveFeatureDetail = "Available to use.";
 
 export function typeDetail(fix: ContentFix) {
   return fix.kind === "feature" && fix.featureStatus === "live"
