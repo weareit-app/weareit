@@ -28,6 +28,7 @@ Help people see a better personal and shared future as possible, find a concrete
 ## Engineering conventions
 
 - Keep domain and content packages free of Expo, React Native, UI, and provider imports.
+- Before starting a branch, scan open PRs (`gh pr list`) for work that already covers it.
 - Validate untrusted boundaries with Zod.
 - Prefer semantic API operations over generic database-shaped endpoints.
 - Keep vendors (payments, auth, email, storage, hosting) behind It-owned boundaries, so a provider can be swapped without touching product code.
