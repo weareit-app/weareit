@@ -41,6 +41,11 @@ article { background: var(--surface); border: 1px solid var(--line); border-radi
 .name { font-weight: 600; margin: 0; }
 .line { font-family: var(--font-display); font-style: italic; margin: 0; }
 .why { margin: 0; }
+.dup { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; display: grid; gap: 6px; }
+.dup[hidden] { display: none; }
+.dup legend { font-size: 0.85rem; color: var(--muted); padding: 0 4px; }
+.dup label { display: flex; gap: 6px; align-items: baseline; font-size: 0.9rem; }
+.flagged { border-left: 3px solid var(--later); padding-left: 10px; }
 .help { margin: 0; font-size: 0.9rem; background: var(--bg); border-radius: 6px; padding: 8px 10px; }
 .why ul { margin: 4px 0 0; padding-left: 20px; }
 .side { font-size: 0.9rem; }
@@ -83,6 +88,11 @@ button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-
     <button data-d="later">Later<kbd>L</kbd></button>
     <button id="undo">Undo<kbd>U</kbd></button>
   </div>
+  <fieldset class="dup" id="dup" hidden>
+    <legend>If you reject it because it duplicates another pain, tick which (optional)</legend>
+    <div id="dup-options"></div>
+    <label>Other pain IDs, comma-separated <input type="text" id="dup-other"></label>
+  </fieldset>
   <div class="own" id="own" hidden>
     <label>Name <input type="text" id="own-name"></label>
     <label>Line <input type="text" id="own-line"></label>
@@ -101,7 +111,7 @@ button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-
 const DATA = /*__DATA__*/;
 const KEY = 'pain-review:' + DATA.setId;
 const HELP = {
-  add: 'Accept adds it to the catalog, not shown on the page. Alternative 2 adds it and shows it. Reject keeps it out; say in the note if it duplicates a pain.',
+  add: 'Accept adds it to the catalog, not shown on the page. Alternative 2 adds it and shows it. Reject keeps it out; if it duplicates another pain, tick which below, and its sources count for that pain.',
   reword: 'Accept uses the proposed wording. The old wording is kept as another way people say it.',
   merge: 'Accept retires the first pain into the second; old links keep working. Reject keeps both.',
   split: 'Accept splits the pain in two. Reject keeps it as one.',
@@ -148,7 +158,7 @@ function render() {
   const why = p.why || {};
   card.innerHTML =
     '<p class="kind" id="card-title">' + esc(KIND[p.kind] || p.kind) + (p.newEvidence ? ' · new evidence' : '') + (p.draft ? ' · draft: no opened source' : '') + ' · ' + esc(p.painIds.join(', ')) + '</p>' +
-    '<p class="state" data-d="' + esc(d ? d.decision : '') + '">' + (d ? 'Decided: ' + esc(d.decision) + (d.decision === 'alternative' ? ' ' + (d.choice + 2) : '') : 'Not decided yet') + '</p>' +
+    '<p class="state" data-d="' + esc(d ? d.decision : '') + '">' + (d ? 'Decided: ' + esc(d.decision) + (d.decision === 'alternative' ? ' ' + (d.choice + 2) : '') + (d.duplicateOf ? ', duplicate of ' + esc(d.duplicateOf.join(', ')) : '') : 'Not decided yet') + '</p>' +
     '<p class="help">' + esc(HELP[p.kind] || '') + '</p>' +
     '<div class="compare"><section aria-label="' + label(p, 0) + '"><h2>' + label(p, 0) + '</h2>' + wording(p.current) + '</section>' +
     '<section aria-label="' + label(p, 1) + '"><h2>' + label(p, 1) + '</h2>' + wording(p.proposed) + '</section>' +
@@ -156,8 +166,15 @@ function render() {
     '<div class="why"><strong>Why:</strong> ' + esc(why.prompt) + (why.detail ? ': ' + esc(why.detail) : '') +
     (why.sources && why.sources.length ? '<ul>' + why.sources.map((s) => '<li><a href="' + esc(s.url) + '" rel="noopener noreferrer">' + esc(s.url) + '</a> (' + esc(s.accessed) + '): “' + esc(s.passage) + '”</li>').join('') + '</ul>' : '') +
     (p.rejection ? '<p class="muted">Rejected earlier on ' + esc(p.rejection.date) + ': ' + esc(p.rejection.note) + '</p>' : '') + '</div>' +
+    (p.twins && p.twins.length ? '<div class="side flagged"><strong>May duplicate a new pain from another sweep:</strong><ul>' + p.twins.map((s) => '<li><code>' + esc(s.id) + '</code> ' + esc(s.name) + ': ' + esc(s.line) + '</li>').join('') + '</ul></div>' : '') +
+    (p.similar && p.similar.length ? '<div class="side"><strong>Similar pains already in the catalog:</strong><ul>' + p.similar.map((s) => '<li><code>' + esc(s.id) + '</code> ' + esc(s.name) + ': ' + esc(s.line) + '</li>').join('') + '</ul></div>' : '') +
     (p.side && p.side.length ? '<div class="side"><strong>Overlapping pains:</strong><ul>' + p.side.map((s) => '<li><code>' + esc(s.id) + '</code> ' + esc(s.name) + ': ' + esc(s.line) + '</li>').join('') + '</ul></div>' : '');
   $('note').value = d && d.note ? d.note : '';
+  const twins = (p.twins || []).concat(p.similar || []);
+  $('dup').hidden = p.kind !== 'add';
+  const chosen = new Set((d && d.duplicateOf) || []);
+  $('dup-options').innerHTML = twins.map((t) => '<label><input type="checkbox" value="' + esc(t.id) + '"' + (chosen.has(t.id) ? ' checked' : '') + '> <span><code>' + esc(t.id) + '</code> ' + esc(t.name) + '</span></label>').join('') || '<p class="muted">No likely duplicates were found.</p>';
+  $('dup-other').value = [...chosen].filter((id) => !twins.some((t) => t.id === id)).join(', ');
   $('own').hidden = !(d && d.decision === 'own');
   $('own-shown-label').hidden = p.kind !== 'add';
   $('own-shown').checked = !!(d && d.own && d.own.role === 'shown');
@@ -165,7 +182,17 @@ function render() {
   else { $('own-name').value = (p.proposed || p.current || {}).name || ''; $('own-line').value = (p.proposed || p.current || {}).line || ''; }
 }
 function current() { return visible()[index]; }
+function duplicateOf() {
+  const ids = [...document.querySelectorAll('#dup-options input:checked')].map((i) => i.value)
+    .concat($('dup-other').value.split(',').map((x) => x.trim()).filter(Boolean));
+  return [...new Set(ids)];
+}
 function decide(decision, extra) {
+  const p0 = current();
+  if (decision === 'reject' && p0 && p0.kind === 'add') {
+    const ids = duplicateOf();
+    if (ids.length) extra = Object.assign({}, extra, { duplicateOf: ids });
+  }
   const p = current();
   if (!p) return;
   history.push({ id: p.id, before: decisions[p.id] || null });
@@ -197,6 +224,15 @@ $('undo').addEventListener('click', undo);
 $('next').addEventListener('click', () => move(1));
 $('prev').addEventListener('click', () => move(-1));
 $('note').addEventListener('change', () => { const p = current(); if (p && decisions[p.id]) { decisions[p.id].note = $('note').value.trim(); save(); } });
+function syncDuplicates() {
+  const p = current();
+  if (!p || !decisions[p.id] || decisions[p.id].decision !== 'reject') return;
+  const ids = duplicateOf();
+  if (ids.length) decisions[p.id].duplicateOf = ids; else delete decisions[p.id].duplicateOf;
+  save();
+  $('announce').textContent = ids.length ? 'Saved: rejected as a duplicate of ' + ids.join(', ') + '.' : 'Saved: rejected, not as a duplicate.';
+}
+$('dup').addEventListener('change', syncDuplicates);
 ['f-group', 'f-kind', 'f-open'].forEach((id) => $(id).addEventListener('change', () => { index = 0; render(); }));
 $('download').addEventListener('click', () => {
   const blob = new Blob([JSON.stringify({ schemaVersion: 1, setId: DATA.setId, decisions: decisions }, null, 2)], { type: 'application/json' });

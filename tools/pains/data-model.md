@@ -60,10 +60,11 @@ Made by `refine-new`; never overwritten.
 
 **proposals.json** (written by `review-build`): `{ schemaVersion, setId, builtAt, runs, flags, covered: [{list, entry, painId}], proposals: [ {
   id, kind: add|reword|merge|split|keep|other-page|move|drift, painIds, group, current, proposed, alternatives,
-  why: { prompt, detail, sources? }, side, draft, allowOwn, newEvidence?, rejection?, origin, payload } ] }`.
+  why: { prompt, detail, sources? }, side, draft, allowOwn, newEvidence?, rejection?, twins?, similar?, origin, payload } ] }`.
+`twins` lists new pains from another sweep in the same set that may be the same pain; `similar` lists catalog pains that look alike. Both are found by shared word stems (`similarityStopwords` in `tools/pains/config/pain-lint.json`) or a shared covered list entry, and only inform the founder.
 `payload` holds what ingest applies (the candidate record, the survivor, the split, the move's groups) and is left out of the page. For `add`, `proposed` has role `not-shown` and the first alternative is the same wording, `shown`.
 
-**decisions.json** (downloaded from the page): `{ schemaVersion, setId, decisions: { <proposal-id>: { decision: accept|alternative|own|reject|later, choice?, own?: { name, line, role? }, note, decidedAt } } }`. `choice` 0 is the first alternative. A draft can only be decided `own`, `reject` or `later`.
+**decisions.json** (downloaded from the page): `{ schemaVersion, setId, decisions: { <proposal-id>: { decision: accept|alternative|own|reject|later, choice?, own?: { name, line, role? }, duplicateOf?: [painId], note, decidedAt } } }`. `duplicateOf` goes with rejecting a new pain: its covered list entries move to those pains, so coverage counts them. Ingest applies these last, so a twin accepted in the same set exists by then. `choice` 0 is the first alternative. A draft can only be decided `own`, `reject` or `later`.
 
 **ingested.json** (written by `ingest`): `{ set, decided, later, held, catalogChanged, editor: { changes, waiting, conflicts, refused, warnings, schemaChecked?, revision? }, log, ingestedAt }`. A set is ingested once.
 

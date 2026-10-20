@@ -437,7 +437,7 @@ def lint_config():
     return {'loaded': words(pains['loaded']), 'graphic': words(pains['graphic']), 'clinical': words(pains['clinical']),
             'generic': words(banned['generic'] + banned.get('hype', [])),
             'regional': words([w for w in regional if w not in acronyms]), 'acronyms': words(acronyms, 0),
-            'stopwords': set(pains['stopwords'])}
+            'stopwords': set(pains['stopwords']), 'similarity': set(pains['stopwords']) | set(pains.get('similarityStopwords', []))}
 
 
 def tokens(text, stopwords):
@@ -693,6 +693,37 @@ def refine_proposals(catalog, run):
     return out, flags
 
 
+SIMILAR_SHARED, SIMILAR_SHARE = 2, 0.4
+
+
+def stems(text, config):
+    return {w[:4] for w in tokens(text, config['similarity']) if len(w) >= 3}
+
+
+def similar(a, b):
+    shared = a & b
+    return len(shared) >= SIMILAR_SHARED and len(shared) / max(1, min(len(a), len(b))) >= SIMILAR_SHARE
+
+
+def flag_duplicates(catalog, proposals):
+    """Mark new pains that may duplicate one from another sweep, or a pain already in the catalog."""
+    config = lint_config()
+    adds = [p for p in proposals if p['kind'] == 'add']
+    keys = {id(p): stems(p['proposed']['name'] + ' ' + p['proposed']['line'], config) for p in adds}
+    entries = {id(p): {entry_key(e) for e in p['payload']['candidate'].get('covers', [])} for p in adds}
+    live = [q for q in catalog['pains'].values() if q['status'] in ('accepted', 'candidate')]
+    known = {q['id']: stems(' '.join([q['name'], q['line']] + q.get('aliases', [])), config) for q in live}
+    for p in adds:
+        twins = [{'id': q['painIds'][0], 'name': q['proposed']['name'], 'line': q['proposed']['line'], 'origin': q.get('origin', '')}
+                 for q in adds if q is not p and q.get('origin') != p.get('origin')
+                 and (similar(keys[id(p)], keys[id(q)]) or entries[id(p)] & entries[id(q)])]
+        alike = [{'id': q['id'], 'name': q['name'], 'line': q['line']} for q in live if similar(keys[id(p)], known[q['id']])]
+        if twins:
+            p['twins'] = twins
+        if alike:
+            p['similar'] = alike
+
+
 def review_build(root, runs, name=None, extra=()):
     root, catalog = Path(root), load(root)
     proposals, covered, flags, sources = list(extra), [], [], []
@@ -717,6 +748,7 @@ def review_build(root, runs, name=None, extra=()):
             continue
         seen.add(key)
         proposals.append(p)
+    flag_duplicates(catalog, proposals)
     for n, p in enumerate(proposals, 1):
         p.setdefault('draft', False)
         p.setdefault('side', [])
@@ -732,6 +764,7 @@ def review_build(root, runs, name=None, extra=()):
     template = (TOOL_ROOT / 'tools/pains/config/review-page.template.html').read_text()
     (folder / 'review.html').write_text(template.replace('/*__DATA__*/', data))
     return {'set': str(folder.relative_to(root)), 'proposals': len(proposals), 'later': len(later),
+            'possibleDuplicates': sum(bool(p.get('twins')) for p in proposals),
             'byKind': {k: sum(p['kind'] == k for p in proposals) for k in sorted({p['kind'] for p in proposals})}}
 
 
@@ -761,7 +794,9 @@ def apply_decisions(catalog, proposals_doc, decisions_doc, date=None):
     decisions = decisions_doc['decisions']
     touched, log, later, issues = {}, [], [], []
     set_id = proposals_doc['setId']
-    for p in proposals_doc['proposals']:
+    # Duplicate rejects go last, so a twin accepted in the same set is already in the catalog.
+    ordered = sorted(proposals_doc['proposals'], key=lambda p: bool((decisions.get(p['id']) or {}).get('duplicateOf')))
+    for p in ordered:
         d = decisions.get(p['id'])
         if not d or d['decision'] == 'later':
             later.append({k: v for k, v in p.items() if k not in ('id', 'origin')} | {'origin': set_id})

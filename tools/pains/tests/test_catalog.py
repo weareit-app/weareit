@@ -478,6 +478,30 @@ class ReviewTest(Base):
         self.assertEqual(out['later'], 1)
         self.assertEqual(catalog.read(self.tmp / out['set'] / 'proposals.json')['proposals'][0]['painIds'], ['debt'])
 
+    def test_duplicates_across_sweeps_and_similar_catalog_pains_are_flagged(self):
+        sweep, refine = fixture_runs(self.tmp)
+        other = self.tmp / catalog.sweep_new(self.tmp, 'personal')['run']
+        catalog.write(other / 'candidates.json', {'candidates': {
+            'fraud-losses': candidate('fraud-losses', name='Scam losses', line='I lost my savings to a scam.', covers=[{'list': 'ftc', 'entry': 'fraud'}]),
+            'gig-pay': candidate('gig-pay', name='Gig pay', line='My gig pay swings from week to week.', covers=[{'list': 'ftc', 'entry': 'gig'}])}})
+        catalog.sweep_check(self.tmp, other)
+        out = catalog.review_build(self.tmp, [sweep, other])
+        self.assertEqual(out['possibleDuplicates'], 2)
+        doc = catalog.read(self.tmp / out['set'] / 'proposals.json')
+        by = {p['painIds'][0]: p for p in doc['proposals'] if p['kind'] == 'add'}
+        self.assertEqual([t['id'] for t in by['fraud-losses']['twins']], ['scams-and-fraud'])
+        self.assertNotIn('twins', by['gig-pay'])
+        self.assertNotIn('twins', by['insurance-costs'])
+
+    def test_similar_pain_in_catalog_is_listed(self):
+        sweep, refine = fixture_runs(self.tmp)
+        doc = catalog.load(self.tmp)
+        doc['pains']['scam-worry'] = pain('scam-worry', name='Scams', line='I lost money to a scam once.')
+        catalog.write(self.tmp / catalog.CATALOG, doc)
+        out = catalog.review_build(self.tmp, [sweep])
+        add = next(p for p in catalog.read(self.tmp / out['set'] / 'proposals.json')['proposals'] if p['painIds'] == ['scams-and-fraud'])
+        self.assertEqual([q['id'] for q in add['similar']], ['scam-worry'])
+
     def test_same_overlap_from_two_runs_is_shown_once(self):
         sweep, refine = fixture_runs(self.tmp)
         out = catalog.review_build(self.tmp, [refine, refine])
@@ -573,6 +597,16 @@ class IngestTest(Base):
         self.assertEqual(doc['pains']['scams-and-fraud']['history'][0]['duplicateOf'], ['debt'])
         with self.assertRaises(catalog.CheckError):
             catalog.ingest(self.tmp, self.set_dir, self.tmp / 'decisions.json', client=self.cms)
+
+    def test_duplicate_of_a_twin_accepted_in_the_same_set(self):
+        doc = catalog.read(self.set_dir / 'proposals.json')
+        twin = next(p for p in doc['proposals'] if p['painIds'] == ['insurance-costs'])
+        first = next(p for p in doc['proposals'] if p['painIds'] == ['scams-and-fraud'])
+        decisions = {twin['id']: {'decision': 'own', 'own': {'name': 'Insurance', 'line': "I can't afford insurance."}},
+                     first['id']: {'decision': 'reject', 'duplicateOf': ['insurance-costs']}}
+        after, touched, log, later, issues = catalog.apply_decisions(catalog.load(self.tmp), doc, {'decisions': decisions})
+        self.assertEqual(issues, [])
+        self.assertIn({'list': 'gallup-mip', 'entry': 'scams-and-fraud'}, after['pains']['insurance-costs']['covers'])
 
     def test_new_shown_pain_waits_for_futures(self):
         out = self.ingest({self.pid('add', 'scams-and-fraud'): {'decision': 'alternative', 'choice': 0}})
