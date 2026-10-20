@@ -91,6 +91,7 @@ Obvious, practical fixes (blackout curtains, a white noise machine, earplugs) ar
 
 - American English, with contractions ("don't", "it's"). Spell out numbers one to nine except times, money and statistics.
 - "Support", never "donate" or "donation". It is not a charity.
+- "We Are It" is the full name of both the organization and the app; "It" is the short name (see `GLOSSARY.md`). Use the full name where it reads as a formal party, as in the signup line "By continuing, you acknowledge We Are It's Privacy Policy".
 - "It" (capital I) is the product, so avoid starting a sentence with the pronoun "it". Readers can't tell "It's common" or "It isn't right for everyone" from the product. Name the thing instead ("Sleeping apart is common", "This therapy isn't right for everyone").
 - In running text, "we" means the people involved in It, which is not yet a crowd. Don't imply scale It doesn't have.
 - Plain but specific: short common words, and real names and numbers where they help. There is no reading-level formula, but if a 12-year-old would stumble on a word, find another.

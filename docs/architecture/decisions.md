@@ -118,10 +118,19 @@ Decided 2026-10-18; details in `docs/architecture/typography.md`.
 
 Expo Router now documents static and request-time server rendering. Start with static output for public content and app routes; evaluate server output for dynamic share previews before adding a separate web framework or custom metadata server. Dynamic server rendering requires a production server runtime, so this decision also depends on the hosting path.
 
+## Hosting, email and deploys
+
+Decided 2026-10-19 by the founder (ticket "Pick hosting, email provider and deploy flow for launch", weareit-app/weareit#6), replacing the earlier SST on AWS lean on cost and setup time. Revisit at the re-assessment about a month after launch.
+
+- **Hosting:** Render. The web build is a static site at `weareit.app`; the API is an always-on paid web service in Virginia at `api.weareit.app`.
+- **Staying portable:** no Render-only features or host-local disks; config only from environment variables; DNS stays on Cloudflare; Render setup lives in one small `render.yaml`; the API has a real build step rather than starting through `tsx`.
+- **Database:** Neon in `aws-us-east-1`, starting on the Free plan.
+- **Email:** Resend over SMTP behind the `sendEmail` boundary, starting on the Free plan; Postmark is the upgrade if volume or deliverability needs it. Resend keeps email data, including sign-in codes, for 30 days, and the privacy page says so.
+- **Deploys:** master deploys to production only after CI passes; pull requests get previews of the static web build only; no staging; database migrations run before each API deploy; rollback is a redeploy of an earlier deploy.
+
 ## Open implementation decisions
 
-- Production SMTP provider and sender identity.
-- Hosting/runtime and deployment setup. Lean: SST on AWS if it is the cheapest and easiest to change later; keep app code host-neutral (2026-10-16).
+- Sender identity (from-address and reply-to) for service email.
 - Role-based CMS authorization before inviting additional or outside editors; the initial single-admin token is a bootstrap gate.
 - Stripe product identifiers and sandbox/live account setup.
 - App Store Connect and RevenueCat product/webhook configuration before the first native purchase.
@@ -140,4 +149,5 @@ Expo Router now documents static and request-time server rendering. Start with s
 - 2026-10-19: measurement privacy invariant changed (spec 013, founder answers Q1–Q12). Changed: the signup/sign-in visit is linked to the account (reverses 008 FR-028 "never linked"); per-page views including each pain page (reverses the per-pain part of 012 FR-020); each opened pain recorded by ID (reverses 008's "opened pains not sent"); deleted accounts' visits unlinked and kept; exact receive times; records kept indefinitely; no opt-out. Kept: no picks or selected fixes sent before signup; visit ID in memory only; no cross-visit link before signup; how a visit arrived is not recorded; never public. Open: when account linking switches on (010 Q37).
 - 2026-10-19: recorded the v0.1 launch decision and its conditions (from the it-mvp assessment; founder confirmed which still hold); moved assessment research to `docs/research/`.
 - 2026-10-19: added the generated possibility content decisions (honesty in fields, plain but specific copy, verified and traced examples, fix kinds); the generator moved from a Spec Kit extension to `tools/possibilities/` and skills.
+- 2026-10-19: founder chose hosting, email and deploys for launch (Render, Neon Free, Resend Free, master deploys after CI); replaces the SST on AWS lean.
 - 2026-10-19: chose Cloudflare R2 for image storage, behind the asset boundary (over S3 with CloudFront: DNS already on Cloudflare, no download fees).

@@ -29,6 +29,15 @@ Out of scope: the flow position and "You're all set" screen (`required-signup-ga
 
 Must leave room for (features.md §4, §6 and Stages): managing or cancelling recurring support inside It (status stays account-scoped and semantic); the comparison sidebar (space beside the funding total, no build); native iOS once/monthly/annual (annual cadence and provider-reference records accept Apple purchases without changing the core record); admin support totals (the funding-total query works from It's records alone); Help build It replacing "You're all set" as the next screen.
 
+## Launch scope (founder, 2026-10-19)
+
+For the v0.1 web launch on Oct 26 (map issue #2, ticket #7), this change ships on web with everything above except:
+
+- **Deferred until after launch:** the public funding total and the comparison with other companies; the CMS place for the founder letter; everything on iOS.
+- **Founder letter:** ships as fixed text in the app. The founder is finishing the copy; no placeholder ships.
+
+The payment form is the Payment Element design below, and the provider-reference ledger is built before launch. Payments go through the We Are It LLC Stripe account, which Stripe has verified; the statement descriptor is "WEAREIT.APP".
+
 ## Capabilities
 
 ### New Capabilities
