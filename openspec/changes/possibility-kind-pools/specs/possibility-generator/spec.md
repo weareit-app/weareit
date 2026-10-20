@@ -179,9 +179,13 @@ An isolated assembler, which drafts and judges nothing, SHALL propose links from
 ### Requirement: Coverage per pain
 Across a pain's accepted dreams and linked fixes, lint SHALL check that there are at least 4 lenses, all three ambitions, at least 3 basics tonight (`real_now` or `existing_resource`), and at least one dream with a Feature linked. Lint SHALL set no minimum for any kind.
 
-#### Scenario: No features
-- **WHEN** a pain's linked fixes include no Feature but meet every other coverage check
-- **THEN** lint reports no coverage issue
+#### Scenario: One Feature is enough
+- **WHEN** a pain's linked fixes include exactly one Feature and meet every other coverage check
+- **THEN** lint reports no coverage issue, because no kind has a minimum
+
+#### Scenario: No Feature
+- **WHEN** no dream in a pain has a Feature linked
+- **THEN** lint reports `it-led-coverage`
 
 ### Requirement: Founder fix review
 The founder SHALL review each fix once, in a list ordered by the judges' ranking, with its kind, status, cited example and linked dreams beside it. The founder SHALL be able to accept, edit or reject it, and to add or remove links to accepted dreams. Unlinked fixes SHALL appear after linked ones. The assembler's limit of 5 fixes per dream SHALL not apply to links the founder adds. Ingesting SHALL record each decision and the final links.

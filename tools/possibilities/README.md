@@ -101,8 +101,8 @@ The founder's fix review isn't built yet for staged runs.
 - at least 4 lenses;
 - all three ambition levels;
 - at least 3 basics tonight (`real_now` or `existing_resource`);
-- at least 3 features;
-- at least one card led by It.
+- in a card run, at least 3 features and at least one card led by It;
+- in a staged run, at least one dream led by It, meaning a Feature linked anywhere among its fixes, and no minimum for any kind. Coverage there counts accepted dreams and their linked fixes.
 
 Run the feature-pattern check in `config/feature-patterns.md` on every card.
 

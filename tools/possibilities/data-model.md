@@ -96,7 +96,7 @@ Rules:
 - `schemaVersion` is 2, and `painId` matches `run.json`.
 - Each overlap names two different dreams in the run, with a reason, and each pair is flagged once.
 - `title` and `line` map to the graph dream's `title` and `description`.
-- Lint applies the dream copy rules (`title-vague`, `title-length`, `dream-not-outcome`, `line-length`, `generic-phrase`, `serial-comma`, `exclamation`, `boilerplate-caveat`, `regional-word`, `acronym-in-title`, and `stacked-hedges`), plus lens and ambition coverage across the drafted dreams. Its issues carry `dreamId` in place of `cardId`. Basics and It-led coverage need linked fixes, so they wait for the fix stages.
+- Lint applies the dream copy rules (`title-vague`, `title-length`, `dream-not-outcome`, `line-length`, `generic-phrase`, `serial-comma`, `exclamation`, `boilerplate-caveat`, `regional-word`, `acronym-in-title`, and `stacked-hedges`). Its issues carry `dreamId` in place of `cardId`. Coverage is in "lint.json (staged run)".
 - `writerNotes` is never shown to judges or on review pages.
 - A `review` has a known `decision`. An `edit` keeps the drafted `title` and `line` in `original`, and `title` and `line` hold the founder's wording. Ingest sets `provenance.reviewStatus` to `reviewed`.
 - Later stages read only accepted dreams (`accept` or `edit`), through `accepted_dreams(run)`, and the validators check against the same set.
@@ -216,6 +216,18 @@ Rules:
 - `ranking` lists every accepted dream once. Dreams that pass honest status come first, by Borda points (or pairwise wins from a single judge), then mean score, then ID. Dreams that fail honest status follow in the same order and are marked by `honestStatus.pass: false`.
 - `fixIds` are the dream's linked fixes in link order.
 - `fixOrder` lists each linked fix once, under the best-ranked dream it serves, and this sets the order of the founder's fix review. Unlinked fixes aren't in it; the review lists them after the linked ones.
+
+### lint.json (staged run)
+`{ passed: bool, issues: [ { dreamId | fixId, rule, detail } ], coverage: { lenses, ambitions, basicsTonight?, itLed? }, dreams, checkedAt }`
+
+Rules:
+- Fix copy rules: `template-copy` flags a method written into a title, `whatChanges`, or `firstStep`, such as "When I…, I want…, so I can…", "After I…, I will…", or "If…, then I will…". `near-duplicate-fix` flags two fixes in the pool whose titles share at least 80% of their words, ignoring small words like "the" and "in". The issue names the first fix by ID and the second in `detail`, so the screen can drop one.
+- Coverage counts the accepted dreams once the dream review is in, and the drafted dreams before it. Links to screened-out fixes don't count. A coverage issue has `dreamId: "*"`.
+  - `lens-coverage`: at least 4 lenses.
+  - `ambition-coverage`: all three ambitions.
+  - `basics-coverage`, once `links.json` exists: at least 3 distinct fixes with status `real_now` or `existing_resource` linked to a tonight dream.
+  - `it-led-coverage`, once `links.json` exists: at least one dream led by It, which means a Feature linked to it anywhere among its fixes (founder, 2026-10-20).
+- No kind has a minimum.
 
 ### Dream review files (`<run>/reviews/`)
 - **proposals.json**: `{ schemaVersion: 1, setId: "<painId>-<runId>", builtAt, proposals: [ { id, title, line, lens, ambition, examples: [{id, name, place, year, outcome}], overlaps: [{with, title, reason}] } ] }`. Each dream appears once. An overlap is listed under both of its dreams. No `writerNotes`.
