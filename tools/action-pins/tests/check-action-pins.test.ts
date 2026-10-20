@@ -4,12 +4,14 @@ import { checkActionPins, checkRepo } from "../check-action-pins.mjs";
 
 const SHA = "3d3c42e5aac5ba805825da76410c181273ba90b1";
 const OTHER_SHA = "820762786026740c76f36085b0efc47a31fe5020";
+const EMBEDDED_SHA = "0123456789abcdef0123456789abcdef01234567";
 
 const policy = `# Dependency versions
 
 ## GitHub Actions
 
 - \`actions/checkout\` v7.0.1, \`${SHA}\`.
+- A sha256 that only contains a SHA: \`${EMBEDDED_SHA}0000\`.
 
 ## Spec and agent tooling
 
@@ -48,7 +50,7 @@ describe("checkActionPins", () => {
     const problems = check("      - uses: actions/checkout@v7\n");
     expect(problems).toHaveLength(1);
     expect(problems[0]).toMatch(
-      /^\.github\/workflows\/ci\.yml:4: "actions\/checkout@v7" is not pinned/,
+      /^\.github\/workflows\/ci\.yml:4: "actions\/checkout@v7" isn't pinned/,
     );
   });
 
@@ -62,13 +64,13 @@ describe("checkActionPins", () => {
     ).toHaveLength(1);
   });
 
-  it("fails a SHA that is not recorded under GitHub Actions", () => {
+  it("fails a SHA that isn't recorded under GitHub Actions", () => {
     const unrecorded = "0123456789abcdef0123456789abcdef01234567";
     const problems = check(
       `      - uses: actions/setup-node@${unrecorded} # v7.0.0\n`,
     );
     expect(problems).toHaveLength(1);
-    expect(problems[0]).toContain(`${unrecorded} is not recorded`);
+    expect(problems[0]).toContain(`${unrecorded} isn't recorded`);
   });
 
   it("fails a SHA recorded only in another section", () => {
@@ -86,5 +88,56 @@ describe("checkActionPins", () => {
         `      - name: x\n        uses: "actions/checkout@${SHA}" # v7.0.1\n`,
       ),
     ).toEqual([]);
+  });
+
+  it("fails a SHA that appears only inside a longer hex string", () => {
+    const problems = check(
+      `      - uses: actions/setup-node@${EMBEDDED_SHA} # v7.0.0\n`,
+    );
+    expect(problems).toHaveLength(1);
+    expect(problems[0]).toContain("isn't recorded");
+  });
+
+  it("reads a quoted uses key", () => {
+    expect(check(`      - "uses": actions/checkout@v7\n`)).toHaveLength(1);
+    expect(check(`      - "uses": actions/checkout@${SHA} # v7.0.1\n`)).toEqual(
+      [],
+    );
+  });
+
+  it("fails flow-style uses it can't read", () => {
+    for (const steps of [
+      "      - { name: x, uses: actions/checkout@v7 }\n",
+      `    steps: [{ uses: "actions/checkout@${SHA}" }]\n`,
+    ]) {
+      const problems = check(steps);
+      expect(problems).toHaveLength(1);
+      expect(problems[0]).toContain("on its own block-style line");
+    }
+  });
+
+  it("ignores uses: inside run blocks", () => {
+    const steps = [
+      "      - run: |",
+      "          echo start",
+      "",
+      "          uses: not-an-action",
+      "      - name: folded",
+      "        run: >-",
+      "          uses: also-not-an-action",
+      `      - uses: actions/checkout@${SHA} # v7.0.1`,
+      "",
+    ].join("\n");
+    expect(check(steps)).toEqual([]);
+  });
+
+  it("still checks a uses after a run block ends", () => {
+    const steps =
+      "      - run: |\n          echo hi\n      - uses: actions/checkout@v7\n";
+    expect(check(steps)).toHaveLength(1);
+  });
+
+  it("ignores commented-out uses", () => {
+    expect(check("      # - uses: actions/checkout@v7\n")).toEqual([]);
   });
 });
