@@ -41,12 +41,21 @@ describe("diagram configuration", () => {
   });
 
   it("rejects the ELK layout, which the app does not ship", () => {
-    for (const mermaid of ["flowchart-elk LR\n  a --> b"]) {
-      expect(
-        diagramBlockSchema.safeParse({ mermaid, description: "a to b" })
-          .success,
-      ).toBe(false);
-    }
+    expect(
+      diagramBlockSchema.safeParse({
+        mermaid: "flowchart-elk LR\n  a --> b",
+        description: "a to b",
+      }).success,
+    ).toBe(false);
+  });
+
+  it("rejects math inside a diagram, which the app does not style", () => {
+    expect(
+      diagramBlockSchema.safeParse({
+        mermaid: 'flowchart LR\n  a["$$x^2$$"] --> b',
+        description: "x squared leads to b",
+      }).success,
+    ).toBe(false);
   });
 
   it("allows ordinary Mermaid comments", () => {

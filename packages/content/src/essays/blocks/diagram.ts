@@ -18,6 +18,12 @@ export const diagramBlockSchema = z.strictObject({
     .refine(
       (source) => !/^\s*flowchart-elk\b/.test(source),
       "Use flowchart instead of flowchart-elk; the ELK layout is not shipped",
+    )
+    // Mermaid typesets $$…$$ with its own bundled KaTeX, whose stylesheet
+    // the app doesn't load. Put formulas in a math block instead.
+    .refine(
+      (source) => !source.includes("$$"),
+      "Remove the $$ math; use a math block for formulas",
     ),
   description: text,
 });

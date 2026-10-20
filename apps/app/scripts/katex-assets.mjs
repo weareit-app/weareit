@@ -1,4 +1,4 @@
-// Copies KaTeX's stylesheet and woff2 fonts into public/katex, so the maths
+// Copies KaTeX's stylesheet and woff2 fonts into public/katex, so the math
 // block loads them from this site. Run after changing the katex version:
 // pnpm --filter @it/app katex:web
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
@@ -27,8 +27,8 @@ export function katexAssets() {
       assets.set(`fonts/${font}`, readFileSync(join(dist, "fonts", font)));
     }
   }
-  const licence = join(dist, "..", "LICENSE");
-  assets.set("LICENSE", readFileSync(licence));
+  const license = join(dist, "..", "LICENSE");
+  assets.set("LICENSE", readFileSync(license));
   return assets;
 }
 

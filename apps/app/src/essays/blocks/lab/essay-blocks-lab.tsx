@@ -2,7 +2,7 @@ import { blockSchemas, type EssayNode } from "@it/content/essay-schema";
 import { ScrollView, View } from "react-native";
 import { EssayBody } from "../../essay-body";
 
-// Fixtures for the diagram and maths blocks, rendered by the essay body and
+// Fixtures for the diagram and math blocks, rendered by the essay body and
 // shown by app/lab/essay-blocks.
 const nodes: EssayNode[] = [
   {
@@ -47,7 +47,7 @@ const nodes: EssayNode[] = [
   {
     type: "heading",
     level: 2,
-    children: [{ type: "text", value: "Maths" }],
+    children: [{ type: "text", value: "Math" }],
   },
   {
     type: "block",

@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { katexAssets, publicKatexDir } from "../../../scripts/katex-assets.mjs";
 
-// The maths block serves KaTeX's stylesheet and fonts from this site. The
+// The math block serves KaTeX's stylesheet and fonts from this site. The
 // copies in public/katex must match the pinned katex package; refresh them
 // with `pnpm --filter @it/app katex:web`.
 describe("self-hosted KaTeX assets", () => {

@@ -1,4 +1,4 @@
-// Loaded on demand by the maths block, so KaTeX and its stylesheet and fonts
+// Loaded on demand by the math block, so KaTeX and its stylesheet and fonts
 // stay out of every other page's bundle. The stylesheet and fonts are copies
 // served from this site (public/katex, refreshed by `pnpm katex:web`).
 const stylesheet = "/katex/katex.min.css";

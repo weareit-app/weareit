@@ -3,7 +3,7 @@ import { EssayBody } from "../src/essays/essay-body";
 
 // Before (or without) the drawing libraries, each block shows the fallback
 // the pre-rendered page carries.
-describe("diagram and maths in an essay", () => {
+describe("diagram and math in an essay", () => {
   it("shows the diagram's title and written description", async () => {
     await render(
       <EssayBody

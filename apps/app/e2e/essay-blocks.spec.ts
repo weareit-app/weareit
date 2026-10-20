@@ -1,15 +1,15 @@
 import { expect, test } from "@playwright/test";
 
-// The diagram and maths blocks on the development lab page, until essays
+// The diagram and math blocks on the development lab page, until essays
 // render them (public-essays: Named blocks, Text without scripts).
 const LAB = "/lab/essay-blocks";
 const FLOW_DESCRIPTION = /^A flow from left to right: a pain you name/;
-// It's own API (EXPO_PUBLIC_API_URL in playwright.config.ts), which the site
-// menu asks whether someone is signed in.
+// The app's own API (EXPO_PUBLIC_API_URL in playwright.config.ts), which
+// the site menu asks whether someone is signed in.
 const API_HOST = "localhost:3001";
 const QUADRATIC_TEX = "x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}";
 
-test("draws diagrams and typesets maths from this site only", async ({
+test("draws diagrams and typesets math from this site only", async ({
   page,
 }) => {
   const hosts = new Set<string>();
