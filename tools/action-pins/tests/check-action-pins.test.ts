@@ -8,17 +8,29 @@ import { checkActionPins, checkRepo } from "../check-action-pins.mjs";
 const SHA = "3d3c42e5aac5ba805825da76410c181273ba90b1";
 const OTHER_SHA = "820762786026740c76f36085b0efc47a31fe5020";
 const EMBEDDED_SHA = "0123456789abcdef0123456789abcdef01234567";
+const UNREVIEWED_SHA = "1111111111111111111111111111111111111111";
+const NO_DIST_SHA = "2222222222222222222222222222222222222222";
+const WRAPPED_SHA = "3333333333333333333333333333333333333333";
+const CODE_BLOCK_SHA = "4444444444444444444444444444444444444444";
 
-const policy = `# Dependency versions
+const PINS_PATH = "docs/architecture/ci-actions.md";
 
-## Continuous integration
+const pins = `# CI actions
 
-- \`actions/checkout\` v7.0.1, \`${SHA}\`.
+Prose that mentions \`${OTHER_SHA}\` without pinning it.
+
+## Pins
+
+- \`actions/checkout\` v7.0.1, \`${SHA}\`. Reviewed 2026-10-20: read the source; \`dist/\` was not compared.
 - A sha256 that only contains a SHA: \`${EMBEDDED_SHA}0000\`.
+- \`actions/setup-node\` v7.0.0, \`${UNREVIEWED_SHA}\`, not yet looked at.
+- \`actions/upload-artifact\` v7.0.1, \`${NO_DIST_SHA}\`. Reviewed 2026-10-20: read the source.
+- \`pnpm/action-setup\` v6.1.0, \`${WRAPPED_SHA}\`.
+  Reviewed 2026-10-20: read the source; \`dist/\` was not compared.
 
-## Spec and agent tooling
+An indented example after prose:
 
-- Something pinned at \`${OTHER_SHA}\`.
+    ${CODE_BLOCK_SHA} Reviewed 2026-10-20: \`dist/\`
 `;
 
 function check(steps: string) {
@@ -29,12 +41,12 @@ function check(steps: string) {
         text: `jobs:\n  check:\n    steps:\n${steps}`,
       },
     ],
-    policy,
+    pins,
   });
 }
 
 describe("checkActionPins", () => {
-  it("passes on the repo's own workflows and policy", () => {
+  it("passes on the repo's own workflows and pins", () => {
     const root = fileURLToPath(new URL("../../..", import.meta.url));
     expect(checkRepo(root)).toEqual([]);
   });
@@ -67,7 +79,7 @@ describe("checkActionPins", () => {
     ).toHaveLength(1);
   });
 
-  it("fails a SHA that isn't recorded in the policy section", () => {
+  it("fails a SHA that isn't recorded", () => {
     const unrecorded = "0123456789abcdef0123456789abcdef01234567";
     const problems = check(
       `      - uses: actions/setup-node@${unrecorded} # v7.0.0\n`,
@@ -76,7 +88,7 @@ describe("checkActionPins", () => {
     expect(problems[0]).toContain(`${unrecorded} isn't recorded`);
   });
 
-  it("fails a SHA recorded only in another section", () => {
+  it("fails a SHA mentioned only in prose, not in a list item", () => {
     expect(
       check(`      - uses: actions/setup-node@${OTHER_SHA} # v7.0.0\n`),
     ).toHaveLength(1);
@@ -144,19 +156,33 @@ describe("checkActionPins", () => {
     expect(check("      # - uses: actions/checkout@v7\n")).toEqual([]);
   });
 
-  it("fails clearly when the policy section is missing", () => {
-    const problems = checkActionPins({
-      files: [
-        {
-          path: ".github/workflows/ci.yml",
-          text: `      - uses: actions/checkout@${SHA} # v7.0.1\n`,
-        },
-      ],
-      policy: `# Dependency versions\n\n## GitHub Actions\n\n${SHA}\n`,
-    });
+  it("fails a recorded SHA whose entry has no dated review note", () => {
+    const problems = check(
+      `      - uses: actions/setup-node@${UNREVIEWED_SHA} # v7.0.0\n`,
+    );
     expect(problems).toEqual([
-      'docs/architecture/dependency-policy.md has no "Continuous integration" section to record action pins in',
+      `.github/workflows/ci.yml:4: the entry for ${UNREVIEWED_SHA} in ${PINS_PATH} has no "Reviewed YYYY-MM-DD:" note saying whether dist/ was compared with the source`,
     ]);
+  });
+
+  it("fails a review note that doesn't mention dist/", () => {
+    expect(
+      check(`      - uses: actions/upload-artifact@${NO_DIST_SHA} # v7.0.1\n`),
+    ).toHaveLength(1);
+  });
+
+  it("reads a review note on the entry's continuation line", () => {
+    expect(
+      check(`      - uses: pnpm/action-setup@${WRAPPED_SHA} # v6.1.0\n`),
+    ).toEqual([]);
+  });
+
+  it("doesn't count a SHA in an indented block after prose", () => {
+    const problems = check(
+      `      - uses: actions/checkout@${CODE_BLOCK_SHA} # v7.0.1\n`,
+    );
+    expect(problems).toHaveLength(1);
+    expect(problems[0]).toContain("isn't recorded");
   });
 });
 
@@ -177,7 +203,7 @@ describe("checkRepo", () => {
 
   it("checks composite actions under .github/actions", () => {
     const dir = repo({
-      "docs/architecture/dependency-policy.md": policy,
+      [PINS_PATH]: pins,
       ".github/workflows/ci.yml": `    steps:\n      - uses: actions/checkout@${SHA} # v7.0.1\n      - uses: ./.github/actions/setup\n`,
       ".github/actions/setup/action.yml":
         "runs:\n  using: composite\n  steps:\n    - uses: pnpm/action-setup@v6\n",
@@ -188,8 +214,17 @@ describe("checkRepo", () => {
     ]);
   });
 
+  it("fails when the pins file is missing", () => {
+    const dir = repo({
+      ".github/workflows/ci.yml": `      - uses: actions/checkout@${SHA} # v7.0.1\n`,
+    });
+    expect(checkRepo(dir)).toEqual([
+      `${PINS_PATH} is missing; it records each action's pin and review`,
+    ]);
+  });
+
   it("fails when there are no workflows to check", () => {
-    const dir = repo({ "docs/architecture/dependency-policy.md": policy });
+    const dir = repo({ [PINS_PATH]: pins });
     expect(checkRepo(dir)).toEqual([
       "found no workflows in .github/workflows to check",
     ]);
