@@ -38,6 +38,9 @@ jobs:
       # Every tracked TypeScript file must be in a project the typecheck above ran.
       - run: node tools/typecheck-coverage/check-typecheck-coverage.mjs
 
+      # Every UI component must have stories or an allowlist entry with a reason.
+      - run: node tools/story-coverage/check-story-coverage.mjs
+
       - run: pnpm run lint
 
       - run: pnpm run test:unit

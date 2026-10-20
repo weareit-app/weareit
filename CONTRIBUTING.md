@@ -55,3 +55,5 @@ Working license decisions are recorded in `docs/architecture/licensing.md`. The 
 ## Pull requests
 
 Explain the user problem, the change, and any privacy or content implications. Include screenshots for UI changes, and add or update stories for components you change. Run checks relevant to the changed package and report what you ran. Do not add tests for unrelated code.
+
+When work starts without an issue, record the founder's decisions in the PR body, so `/code-review` has a spec to read.
