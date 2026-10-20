@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "setId": "community-environment-fairness-structure-20261020-151133",
+  "setId": "community-environment-fairness-structure-20261020-154043",
   "builtAt": "2026-10-20",
   "runs": [
     "docs/research/pains/sweeps/community/20261019-225712",
@@ -489,7 +489,7 @@
         {
           "id": "disasters",
           "name": "Disasters",
-          "line": "I'm living with floods, fires, storms or extreme heat."
+          "line": "I'm living with floods, fires, storms, or extreme heat."
         },
         {
           "id": "climate",
@@ -505,7 +505,7 @@
       "kind": "keep",
       "current": {
         "name": "Disasters",
-        "line": "I'm living with floods, fires, storms or extreme heat."
+        "line": "I'm living with floods, fires, storms, or extreme heat."
       },
       "proposed": {
         "name": "Climate change",
@@ -527,7 +527,7 @@
         {
           "id": "nature-disappearing",
           "name": "Losing nature",
-          "line": "I see fewer birds, trees and green spaces around me."
+          "line": "I see fewer birds, trees, and green spaces around me."
         },
         {
           "id": "climate",
@@ -543,7 +543,7 @@
       "kind": "keep",
       "current": {
         "name": "Losing nature",
-        "line": "I see fewer birds, trees and green spaces around me."
+        "line": "I see fewer birds, trees, and green spaces around me."
       },
       "proposed": {
         "name": "Climate change",
@@ -608,7 +608,7 @@
         {
           "id": "infrastructure",
           "name": "Infrastructure",
-          "line": "I depend on roads, water and power that keep breaking down."
+          "line": "I depend on roads, water, and power that keep breaking down."
         }
       ],
       "allowOwn": false,
@@ -623,7 +623,7 @@
       },
       "proposed": {
         "name": "Infrastructure",
-        "line": "I depend on roads, water and power that keep breaking down."
+        "line": "I depend on roads, water, and power that keep breaking down."
       },
       "alternatives": [],
       "payload": {},
@@ -679,7 +679,7 @@
         {
           "id": "treated-differently",
           "name": "Discrimination against me",
-          "line": "I get treated worse at work, in stores or by landlords because of who I am."
+          "line": "I get treated worse at work, in stores, or by landlords because of who I am."
         },
         {
           "id": "people-treated-badly",
@@ -695,7 +695,7 @@
       "kind": "keep",
       "current": {
         "name": "Discrimination against me",
-        "line": "I get treated worse at work, in stores or by landlords because of who I am."
+        "line": "I get treated worse at work, in stores, or by landlords because of who I am."
       },
       "proposed": {
         "name": "Prejudice around me",
@@ -831,12 +831,12 @@
         {
           "id": "treated-differently",
           "name": "Discrimination against me",
-          "line": "I get treated worse at work, in stores or by landlords because of who I am."
+          "line": "I get treated worse at work, in stores, or by landlords because of who I am."
         },
         {
           "id": "not-built-for-me",
           "name": "Access",
-          "line": "Buildings, websites and services shut me out because of my disability."
+          "line": "Buildings, websites, and services shut me out because of my disability."
         }
       ],
       "allowOwn": false,
@@ -847,11 +847,11 @@
       "kind": "other-page",
       "current": {
         "name": "Discrimination against me",
-        "line": "I get treated worse at work, in stores or by landlords because of who I am."
+        "line": "I get treated worse at work, in stores, or by landlords because of who I am."
       },
       "proposed": {
         "name": "Access",
-        "line": "Buildings, websites and services shut me out because of my disability."
+        "line": "Buildings, websites, and services shut me out because of my disability."
       },
       "alternatives": [],
       "payload": {},

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "setId": "people-home-structure-20261020-144400",
+  "setId": "people-home-structure-20261020-154043",
   "builtAt": "2026-10-20",
   "runs": [
     "docs/research/pains/sweeps/people/20261019-224656",
@@ -1148,7 +1148,7 @@
         {
           "id": "crime-and-violence",
           "name": "Crime",
-          "line": "I don't feel safe from crime and violence."
+          "line": "Crime and violence keep hurting people in my community."
         }
       ],
       "allowOwn": false,
@@ -1163,7 +1163,7 @@
       },
       "proposed": {
         "name": "Crime",
-        "line": "I don't feel safe from crime and violence."
+        "line": "Crime and violence keep hurting people in my community."
       },
       "alternatives": [],
       "payload": {},
@@ -1223,7 +1223,7 @@
         },
         {
           "id": "car-or-nothing",
-          "name": "Cars",
+          "name": "Needing a car",
           "line": "I can't get anywhere without a car."
         }
       ],
@@ -1238,7 +1238,7 @@
         "line": "I can't easily get to where I need to go."
       },
       "proposed": {
-        "name": "Cars",
+        "name": "Needing a car",
         "line": "I can't get anywhere without a car."
       },
       "alternatives": [],

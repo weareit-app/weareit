@@ -129,7 +129,7 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `chores` | Too many chores | I spend my days cooking and cleaning. | accepted | yes | 1 |
 | `doomscrolling` | Doomscrolling | I lose my nights to my phone. | accepted | yes | 1 |
 | `legal-mess` | Legal trouble | I'm stuck in a legal problem I can't afford. | accepted | yes |  |
-| `life-admin` | Too much paperwork | Forms, bills and calls on hold eat up my week. | accepted | yes |  |
+| `life-admin` | Too much paperwork | Forms, bills, and calls on hold eat up my week. | accepted | yes |  |
 | `no-free-time` | Busy | I have no time that's mine. | accepted | yes |  |
 | `no-fun` | No fun | I can't remember the last time I did something just for fun. | accepted | yes |  |
 | `benefits-runaround` | Benefits | I have to fight to get or keep the benefits I qualify for. | accepted | no |  |

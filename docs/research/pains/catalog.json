@@ -4351,7 +4351,7 @@
     "life-admin": {
       "id": "life-admin",
       "name": "Too much paperwork",
-      "line": "Forms, bills and calls on hold eat up my week.",
+      "line": "Forms, bills, and calls on hold eat up my week.",
       "page": "personal",
       "group": "time",
       "secondaryGroups": [],
@@ -4388,7 +4388,8 @@
         "Life admin",
         "Forms, bills and phone queues eat my week.",
         "Paperwork",
-        "I lose my week to forms, bills and phone queues."
+        "I lose my week to forms, bills and phone queues.",
+        "Forms, bills and calls on hold eat up my week."
       ],
       "relations": [
         {
@@ -4451,6 +4452,21 @@
           "to": {
             "name": "Too much paperwork",
             "line": "Forms, bills and calls on hold eat up my week."
+          }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:40:42+00:00",
+          "prompt": "lint serial-comma (fail) (serial-comma-20261020-151751, review serial-comma-later-20261020-154026 p001)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Too much paperwork",
+            "line": "Forms, bills and calls on hold eat up my week."
+          },
+          "to": {
+            "name": "Too much paperwork",
+            "line": "Forms, bills, and calls on hold eat up my week."
           }
         }
       ]

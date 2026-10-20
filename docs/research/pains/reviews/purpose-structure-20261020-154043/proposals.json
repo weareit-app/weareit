@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "setId": "purpose-structure-20261020-151133",
+  "setId": "purpose-structure-20261020-154043",
   "builtAt": "2026-10-20",
   "runs": [
     "docs/research/pains/sweeps/purpose/20261019-224657",
@@ -171,7 +171,7 @@
         {
           "id": "lost-myself",
           "name": "Who I am",
-          "line": "I can't say what I like, what I want or who I am any more."
+          "line": "I can't say what I like, what I want, or who I am any more."
         },
         {
           "id": "stuck",
@@ -187,7 +187,7 @@
       "kind": "keep",
       "current": {
         "name": "Who I am",
-        "line": "I can't say what I like, what I want or who I am any more."
+        "line": "I can't say what I like, what I want, or who I am any more."
       },
       "proposed": {
         "name": "Stuck",
@@ -209,7 +209,7 @@
         {
           "id": "lost-myself",
           "name": "Who I am",
-          "line": "I can't say what I like, what I want or who I am any more."
+          "line": "I can't say what I like, what I want, or who I am any more."
         },
         {
           "id": "hard-on-myself",
@@ -225,7 +225,7 @@
       "kind": "keep",
       "current": {
         "name": "Who I am",
-        "line": "I can't say what I like, what I want or who I am any more."
+        "line": "I can't say what I like, what I want, or who I am any more."
       },
       "proposed": {
         "name": "Hard on myself",
@@ -467,12 +467,12 @@
       "group": "purpose",
       "current": {
         "name": "Who I am",
-        "line": "I can't say what I like, what I want or who I am any more.",
+        "line": "I can't say what I like, what I want, or who I am any more.",
         "group": "Purpose"
       },
       "proposed": {
         "name": "Who I am",
-        "line": "I can't say what I like, what I want or who I am any more.",
+        "line": "I can't say what I like, what I want, or who I am any more.",
         "group": "Mind"
       },
       "alternatives": [],

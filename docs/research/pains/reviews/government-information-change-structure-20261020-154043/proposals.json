@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "setId": "government-information-change-structure-20261020-151133",
+  "setId": "government-information-change-structure-20261020-154043",
   "builtAt": "2026-10-20",
   "runs": [
     "docs/research/pains/sweeps/government/20261019-224657",
@@ -261,7 +261,7 @@
         {
           "id": "infrastructure",
           "name": "Infrastructure",
-          "line": "I depend on roads, water and power that keep breaking down."
+          "line": "I depend on roads, water, and power that keep breaking down."
         },
         {
           "id": "taxes-dont-buy-much",
@@ -277,7 +277,7 @@
       "kind": "keep",
       "current": {
         "name": "Infrastructure",
-        "line": "I depend on roads, water and power that keep breaking down."
+        "line": "I depend on roads, water, and power that keep breaking down."
       },
       "proposed": {
         "name": "Taxes",
@@ -299,7 +299,7 @@
         {
           "id": "infrastructure",
           "name": "Infrastructure",
-          "line": "I depend on roads, water and power that keep breaking down."
+          "line": "I depend on roads, water, and power that keep breaking down."
         },
         {
           "id": "car-or-nothing",
@@ -315,7 +315,7 @@
       "kind": "keep",
       "current": {
         "name": "Infrastructure",
-        "line": "I depend on roads, water and power that keep breaking down."
+        "line": "I depend on roads, water, and power that keep breaking down."
       },
       "proposed": {
         "name": "Needing a car",

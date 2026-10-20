@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "setId": "work-time-structure-20261020-144400",
+  "setId": "work-time-structure-20261020-154043",
   "builtAt": "2026-10-20",
   "runs": [
     "docs/research/pains/sweeps/work/20261019-224658",
@@ -585,7 +585,7 @@
         {
           "id": "life-admin",
           "name": "Too much paperwork",
-          "line": "Forms, bills and calls on hold eat up my week."
+          "line": "Forms, bills, and calls on hold eat up my week."
         },
         {
           "id": "overwhelmed",
@@ -601,7 +601,7 @@
       "kind": "keep",
       "current": {
         "name": "Too much paperwork",
-        "line": "Forms, bills and calls on hold eat up my week."
+        "line": "Forms, bills, and calls on hold eat up my week."
       },
       "proposed": {
         "name": "Stress",
@@ -628,7 +628,7 @@
         {
           "id": "life-admin",
           "name": "Too much paperwork",
-          "line": "Forms, bills and calls on hold eat up my week."
+          "line": "Forms, bills, and calls on hold eat up my week."
         }
       ],
       "allowOwn": false,
@@ -643,7 +643,7 @@
       },
       "proposed": {
         "name": "Too much paperwork",
-        "line": "Forms, bills and calls on hold eat up my week."
+        "line": "Forms, bills, and calls on hold eat up my week."
       },
       "alternatives": [],
       "payload": {},
@@ -665,8 +665,8 @@
         },
         {
           "id": "justice-unfair",
-          "name": "Justice",
-          "line": "I see police and courts treat people differently."
+          "name": "Unequal justice",
+          "line": "I see police and courts treat some people far worse than others for the same thing."
         }
       ],
       "allowOwn": false,
@@ -680,8 +680,8 @@
         "line": "I'm stuck in a legal problem I can't afford."
       },
       "proposed": {
-        "name": "Justice",
-        "line": "I see police and courts treat people differently."
+        "name": "Unequal justice",
+        "line": "I see police and courts treat some people far worse than others for the same thing."
       },
       "alternatives": [],
       "payload": {},

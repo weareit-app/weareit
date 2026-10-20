@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pain Review</title>
+<style>
+/* Layout: one reading column. Filters and progress above, one proposal (current next to proposed), decision bar, note, then navigation. */
+:root {
+  --bg: #f3f5f4; --surface: #ffffff; --fg: #1d2523; --muted: #5d6a66; --line: #d6dddb;
+  --accent: #087e9f; --accept: #1f6b5c; --reject: #8a2f3c; --later: #7a5b12; --focus: #087e9f;
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-ui: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #121716; --surface: #1a2120; --fg: #e4ebe8; --muted: #9aa8a3; --line: #2e3836;
+  --accent: #5cc3df; --accept: #5fbfa9; --reject: #e58a98; --later: #e0b660; --focus: #5cc3df; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #121716; --surface: #1a2120; --fg: #e4ebe8; --muted: #9aa8a3; --line: #2e3836;
+  --accent: #5cc3df; --accept: #5fbfa9; --reject: #e58a98; --later: #e0b660; --focus: #5cc3df; color-scheme: dark }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-ui); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; display: grid; gap: 16px; }
+h1 { font-family: var(--font-display); font-size: 1.5rem; margin: 0; }
+.intro, .muted { color: var(--muted); margin: 0; }
+.filters { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; }
+.filters label { display: grid; gap: 2px; font-size: 0.85rem; color: var(--muted); }
+.filters label.check { display: flex; gap: 6px; align-items: center; }
+select, input[type=text], textarea { font: inherit; color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; }
+textarea { width: 100%; box-sizing: border-box; min-height: 52px; resize: vertical; }
+.count { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 0.9rem; }
+.flags { font-size: 0.85rem; color: var(--muted); }
+article { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 20px; display: grid; gap: 14px; min-width: 0; }
+.kind { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; font-weight: 600; color: var(--accent); margin: 0; }
+.state { font-size: 0.85rem; font-weight: 600; }
+.state[data-d="accept"], .state[data-d="alternative"], .state[data-d="own"] { color: var(--accept); }
+.state[data-d="reject"] { color: var(--reject); }
+.state[data-d="later"] { color: var(--later); }
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.compare section { border: 1px solid var(--line); border-radius: 8px; padding: 12px; min-width: 0; }
+.compare h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 0 0 6px; }
+.name { font-weight: 600; margin: 0; }
+.line { font-family: var(--font-display); font-style: italic; margin: 0; }
+.why { margin: 0; }
+.dup { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; display: grid; gap: 6px; }
+.dup[hidden] { display: none; }
+.dup legend { font-size: 0.85rem; color: var(--muted); padding: 0 4px; }
+.dup label { display: flex; gap: 6px; align-items: baseline; font-size: 0.9rem; }
+.flagged { border-left: 3px solid var(--later); padding-left: 10px; }
+.help { margin: 0; font-size: 0.9rem; background: var(--bg); border-radius: 6px; padding: 8px 10px; }
+.why ul { margin: 4px 0 0; padding-left: 20px; }
+.side { font-size: 0.9rem; }
+.decide { display: flex; flex-wrap: wrap; gap: 8px; }
+button { font: 500 0.92rem var(--font-ui); border: 1.5px solid var(--line); background: var(--surface); color: var(--fg); border-radius: 8px; padding: 8px 12px; cursor: pointer; }
+button kbd { font: 500 0.72rem var(--font-ui); color: var(--muted); margin-left: 4px; }
+button[aria-pressed="true"] { border-color: var(--accept); }
+button[aria-pressed="true"]::before { content: "✓ "; }
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.own { display: grid; gap: 8px; }
+.own[hidden] { display: none; }
+.nav { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.primary { background: var(--accent); border-color: var(--accent); color: var(--surface); font-weight: 600; }
+.primary kbd { color: inherit; opacity: 0.8; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Pain review</h1>
+    <p class="intro">Keys: <kbd>A</kbd> accept, <kbd>2</kbd>/<kbd>3</kbd> an alternative, <kbd>O</kbd> your own wording, <kbd>R</kbd> reject, <kbd>L</kbd> later, <kbd>U</kbd> undo, <kbd>N</kbd>/<kbd>P</kbd> next and previous.</p>
+    <p class="intro">One proposal at a time. Choosing a decision saves it and stays on the same proposal; move on with <strong>Next</strong>. Decisions are kept in this browser as you go. When you're done, download them and give the file to <code>/pains-ingest</code>.</p>
+    <p class="flags" id="flags"></p>
+  </header>
+  <div class="filters" role="search" aria-label="Filter proposals">
+    <label>Group <select id="f-group"></select></label>
+    <label>Kind of change <select id="f-kind"></select></label>
+    <label class="check"><input type="checkbox" id="f-open"> Undecided only</label>
+  </div>
+  <div class="count" id="count" role="status" aria-live="polite"></div>
+  <article id="card" aria-labelledby="card-title"></article>
+  <div class="decide" role="group" aria-label="Decision" id="decide">
+    <button data-d="accept">Accept<kbd>A</kbd></button>
+    <button data-d="alternative" data-choice="0">Alternative 2<kbd>2</kbd></button>
+    <button data-d="alternative" data-choice="1">Alternative 3<kbd>3</kbd></button>
+    <button data-d="own">My own wording<kbd>O</kbd></button>
+    <button data-d="reject">Reject<kbd>R</kbd></button>
+    <button data-d="later">Later<kbd>L</kbd></button>
+    <button id="undo">Undo<kbd>U</kbd></button>
+  </div>
+  <fieldset class="dup" id="dup" hidden>
+    <legend>If you reject it because it duplicates another pain, tick which (optional)</legend>
+    <div id="dup-options"></div>
+    <label>Other pain IDs, comma-separated <input type="text" id="dup-other"></label>
+  </fieldset>
+  <div class="own" id="own" hidden>
+    <label>Name <input type="text" id="own-name"></label>
+    <label>Line <input type="text" id="own-line"></label>
+    <button id="own-save">Save my wording</button>
+  </div>
+  <label>Note (optional) <textarea id="note"></textarea></label>
+  <div class="nav">
+    <button id="prev">Previous<kbd>P</kbd></button>
+    <button id="download">Download decisions</button>
+    <button id="next" class="primary">Next<kbd>N</kbd></button>
+  </div>
+  <div class="sr" id="announce" role="status" aria-live="assertive"></div>
+</div>
+<script>
+const DATA = {"setId": "people-home-structure-20261020-154043", "flags": [], "proposals": [{"painIds": ["unsafe-at-home", "home-tension"], "group": "people", "side": [{"id": "unsafe-at-home", "name": "Safety at home", "line": "I don't feel safe with someone in my life."}, {"id": "home-tension", "name": "Family", "line": "I'm caught in fighting at home."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "Someone afraid for their safety needs to find that pain without wondering whether ordinary family fights are the same thing. Fighting at home is conflict; not feeling safe with someone is fear of being hurt, and may need crisis resources first."}, "kind": "keep", "current": {"name": "Safety at home", "line": "I don't feel safe with someone in my life."}, "proposed": {"name": "Family", "line": "I'm caught in fighting at home."}, "alternatives": [], "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "id": "p001"}, {"painIds": ["unsafe-at-home", "relationship-strain"], "group": "people", "side": [{"id": "unsafe-at-home", "name": "Safety at home", "line": "I don't feel safe with someone in my life."}, {"id": "relationship-strain", "name": "Relationship", "line": "I'm struggling with my partner."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "Folding danger into relationship trouble would hide a sensitive pain inside an everyday one. Struggling with a partner is a hard relationship; not feeling safe is about danger, and the person may not be a partner."}, "kind": "keep", "current": {"name": "Safety at home", "line": "I don't feel safe with someone in my life."}, "proposed": {"name": "Relationship", "line": "I'm struggling with my partner."}, "alternatives": [], "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "id": "p002"}, {"painIds": ["loneliness", "nobody-to-do-things-with"], "group": "people", "side": [{"id": "loneliness", "name": "Loneliness", "line": "Most days I don't talk to anyone who really knows me."}, {"id": "nobody-to-do-things-with", "name": "Plans", "line": "I'd go out more if I had someone to go with."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "Someone can have close people and still have no one to go out with, so a person can choose between them, more easily if the loneliness line is made concrete. Loneliness is the overall feeling of being alone; the other is wanting company for going out."}, "kind": "keep", "current": {"name": "Loneliness", "line": "Most days I don't talk to anyone who really knows me."}, "proposed": {"name": "Plans", "line": "I'd go out more if I had someone to go with."}, "alternatives": [], "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "id": "p003"}, {"painIds": ["loneliness", "no-one-to-lean-on"], "group": "people", "side": [{"id": "loneliness", "name": "Loneliness", "line": "Most days I don't talk to anyone who really knows me."}, {"id": "no-one-to-lean-on", "name": "No support", "line": "I have no one to call when I need help."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "Plenty of people with a busy social life have no one they'd call at 2am, and the fixes differ. Loneliness is day-to-day isolation; no one to lean on is having nobody to call in a crisis."}, "kind": "keep", "current": {"name": "Loneliness", "line": "Most days I don't talk to anyone who really knows me."}, "proposed": {"name": "No support", "line": "I have no one to call when I need help."}, "alternatives": [], "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "id": "p004"}, {"painIds": ["belonging", "loneliness"], "group": "people", "side": [{"id": "belonging", "name": "Belonging", "line": "I don't feel like I belong anywhere."}, {"id": "loneliness", "name": "Loneliness", "line": "Most days I don't talk to anyone who really knows me."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "People often feel they don't fit in anywhere while still having a few friends, so the two read differently. Belonging is about fitting into a group or place; loneliness is about missing people day to day."}, "kind": "keep", "current": {"name": "Belonging", "line": "I don't feel like I belong anywhere."}, "proposed": {"name": "Loneliness", "line": "Most days I don't talk to anyone who really knows me."}, "alternatives": [], "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "id": "p005"}, {"painIds": ["belonging", "lost-faith-community"], "group": "people", "side": [{"id": "belonging", "name": "Belonging", "line": "I don't feel like I belong anywhere."}, {"id": "lost-faith-community", "name": "Lost community", "line": "I've lost the community I used to be part of."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "Losing a community you had is a grief of its own, but the two currently share the name Belonging, which the alternatives fix. Belonging is never having found a place; the other is losing one you had."}, "kind": "keep", "current": {"name": "Belonging", "line": "I don't feel like I belong anywhere."}, "proposed": {"name": "Lost community", "line": "I've lost the community I used to be part of."}, "alternatives": [], "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "id": "p006"}, {"painIds": ["intimacy", "want-a-partner"], "group": "people", "side": [{"id": "intimacy", "name": "Intimacy", "line": "I'm missing closeness with someone."}, {"id": "want-a-partner", "name": "Dating", "line": "I want a partner and it isn't happening."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "Someone married can miss closeness without wanting to date, so the two are easy to tell apart. Dating is about finding a partner; intimacy is missing closeness, which people in relationships feel too."}, "kind": "keep", "current": {"name": "Intimacy", "line": "I'm missing closeness with someone."}, "proposed": {"name": "Dating", "line": "I want a partner and it isn't happening."}, "alternatives": [], "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "id": "p007"}, {"painIds": ["intimacy", "relationship-strain"], "group": "people", "side": [{"id": "intimacy", "name": "Intimacy", "line": "I'm missing closeness with someone."}, {"id": "relationship-strain", "name": "Relationship", "line": "I'm struggling with my partner."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "A calm relationship can lack closeness and a close one can be full of fights, so neither covers the other. Relationship strain is conflict or difficulty with a partner; intimacy is missing closeness, with or without one."}, "kind": "keep", "current": {"name": "Intimacy", "line": "I'm missing closeness with someone."}, "proposed": {"name": "Relationship", "line": "I'm struggling with my partner."}, "alternatives": [], "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "id": "p008"}, {"painIds": ["want-a-partner", "loneliness"], "group": "people", "side": [{"id": "want-a-partner", "name": "Dating", "line": "I want a partner and it isn't happening."}, {"id": "loneliness", "name": "Loneliness", "line": "Most days I don't talk to anyone who really knows me."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "Many people want a partner without feeling alone, and many feel alone without wanting to date. Dating is wanting a romantic partner; loneliness is missing people in general."}, "kind": "keep", "current": {"name": "Dating", "line": "I want a partner and it isn't happening."}, "proposed": {"name": "Loneliness", "line": "Most days I don't talk to anyone who really knows me."}, "alternatives": [], "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "id": "p009"}, {"painIds": ["new-here", "loneliness"], "group": "people", "side": [{"id": "new-here", "name": "New in town", "line": "I just moved here and don't know anyone yet."}, {"id": "loneliness", "name": "Loneliness", "line": "Most days I don't talk to anyone who really knows me."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "Someone who just moved will recognize their situation right away, and the fixes for it are specific. New in town has a clear cause and its own fixes (meeting neighbors, local groups); loneliness can last for years with no move."}, "kind": "keep", "current": {"name": "New in town", "line": "I just moved here and don't know anyone yet."}, "proposed": {"name": "Loneliness", "line": "Most days I don't talk to anyone who really knows me."}, "alternatives": [], "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "id": "p010"}, {"painIds": ["new-here", "nobody-to-do-things-with"], "group": "people", "side": [{"id": "new-here", "name": "New in town", "line": "I just moved here and don't know anyone yet."}, {"id": "nobody-to-do-things-with", "name": "Plans", "line": "I'd go out more if I had someone to go with."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "Knowing nobody at all and knowing people who don't invite you are different situations. New in town is knowing nobody where you live; the other is lacking company for going out, even among people you know."}, "kind": "keep", "current": {"name": "New in town", "line": "I just moved here and don't know anyone yet."}, "proposed": {"name": "Plans", "line": "I'd go out more if I had someone to go with."}, "alternatives": [], "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "id": "p011"}, {"painIds": ["lost-faith-community", "loneliness"], "group": "people", "side": [{"id": "lost-faith-community", "name": "Lost community", "line": "I've lost the community I used to be part of."}, {"id": "loneliness", "name": "Loneliness", "line": "Most days I don't talk to anyone who really knows me."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "Leaving a church or other close community is a loss people name on its own. This is losing a specific community you belonged to; loneliness is missing people in general."}, "kind": "keep", "current": {"name": "Lost community", "line": "I've lost the community I used to be part of."}, "proposed": {"name": "Loneliness", "line": "Most days I don't talk to anyone who really knows me."}, "alternatives": [], "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "id": "p012"}, {"painIds": ["nobody-into-my-thing", "nobody-to-do-things-with"], "group": "people", "side": [{"id": "nobody-into-my-thing", "name": "Interests", "line": "I can't find people who love what I love."}, {"id": "nobody-to-do-things-with", "name": "Plans", "line": "I'd go out more if I had someone to go with."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "Someone with plenty of friends can still have no one who loves what they love. Interests is about finding people who share a passion; the other is about having company at all."}, "kind": "keep", "current": {"name": "Interests", "line": "I can't find people who love what I love."}, "proposed": {"name": "Plans", "line": "I'd go out more if I had someone to go with."}, "alternatives": [], "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "id": "p013"}, {"painIds": ["drifted-apart", "loneliness"], "group": "people", "side": [{"id": "drifted-apart", "name": "Old friends", "line": "I've drifted apart from friends who used to matter a lot to me."}, {"id": "loneliness", "name": "Loneliness", "line": "Most days I don't talk to anyone who really knows me."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "Missing old friends is specific enough to choose without thinking twice, and the fix is reaching back out. Drifted apart is losing touch with particular friends; loneliness is the overall feeling of being alone."}, "kind": "keep", "current": {"name": "Old friends", "line": "I've drifted apart from friends who used to matter a lot to me."}, "proposed": {"name": "Loneliness", "line": "Most days I don't talk to anyone who really knows me."}, "alternatives": [], "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "id": "p014"}, {"painIds": ["relationship-strain", "home-tension"], "group": "people", "side": [{"id": "relationship-strain", "name": "Relationship", "line": "I'm struggling with my partner."}, {"id": "home-tension", "name": "Family", "line": "I'm caught in fighting at home."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "The conflict involves different people, so someone can tell which one is theirs. Relationship is trouble with a partner; family is fighting among the people you live with, often parents, kids or siblings."}, "kind": "keep", "current": {"name": "Relationship", "line": "I'm struggling with my partner."}, "proposed": {"name": "Family", "line": "I'm caught in fighting at home."}, "alternatives": [], "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "id": "p015"}, {"painIds": ["caregiving", "parenting-is-hard"], "group": "people", "side": [{"id": "caregiving", "name": "Caregiving", "line": "I'm looking after someone and it takes everything."}, {"id": "parenting-is-hard", "name": "Parenting", "line": "I'm worn out raising my kids."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "Most people would not call raising their kids caregiving, and the help available is different. Caregiving is looking after a sick, disabled or aging person; parenting is raising your own kids."}, "kind": "keep", "current": {"name": "Caregiving", "line": "I'm looking after someone and it takes everything."}, "proposed": {"name": "Parenting", "line": "I'm worn out raising my kids."}, "alternatives": [], "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "id": "p016"}, {"painIds": ["caregiving", "no-free-time"], "group": "people", "side": [{"id": "caregiving", "name": "Caregiving", "line": "I'm looking after someone and it takes everything."}, {"id": "no-free-time", "name": "Busy", "line": "I have no time that's mine."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "Caregiving takes far more than time, so it stands as its own pain on People. Caregiving names the cause; no time of my own can come from work, kids or anything else."}, "kind": "keep", "current": {"name": "Caregiving", "line": "I'm looking after someone and it takes everything."}, "proposed": {"name": "Busy", "line": "I have no time that's mine."}, "alternatives": [], "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "id": "p017"}, {"painIds": ["parenting-is-hard", "childcare-costs"], "group": "people", "side": [{"id": "parenting-is-hard", "name": "Parenting", "line": "I'm worn out raising my kids."}, {"id": "childcare-costs", "name": "Childcare costs", "line": "I can't afford childcare, even though I need it to work."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "Being worn out raising kids is personal, while the cost of childcare is a shared problem, so each belongs on its own page with a link between them."}, "kind": "other-page", "current": {"name": "Parenting", "line": "I'm worn out raising my kids."}, "proposed": {"name": "Childcare costs", "line": "I can't afford childcare, even though I need it to work."}, "alternatives": [], "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "id": "p018"}, {"kind": "move", "painIds": ["home-tension"], "group": "people", "current": {"name": "Family", "line": "I'm caught in fighting at home.", "group": "People"}, "proposed": {"name": "Family", "line": "I'm caught in fighting at home.", "group": "Home"}, "alternatives": [], "why": {"prompt": "card sort", "detail": "the sorts placed it under Home, Home, Home"}, "allowOwn": false, "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "side": [], "id": "p019"}, {"kind": "move", "painIds": ["parenting-is-hard"], "group": "people", "current": {"name": "Parenting", "line": "I'm worn out raising my kids.", "group": "People"}, "proposed": {"name": "Parenting", "line": "I'm worn out raising my kids.", "group": "Home"}, "alternatives": [], "why": {"prompt": "card sort", "detail": "the sorts placed it under People, Home, Home"}, "allowOwn": false, "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "side": [], "id": "p020"}, {"kind": "move", "painIds": ["unsafe-at-home"], "group": "people", "current": {"name": "Safety at home", "line": "I don't feel safe with someone in my life.", "group": "People"}, "proposed": {"name": "Safety at home", "line": "I don't feel safe with someone in my life.", "group": "Home"}, "alternatives": [], "why": {"prompt": "card sort", "detail": "the sorts placed it under Home, Home, Home"}, "allowOwn": false, "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "side": [], "id": "p021"}, {"painIds": ["homeless", "might-lose-my-home"], "group": "home", "side": [{"id": "homeless", "name": "Homeless", "line": "I don't have a reliable place to stay."}, {"id": "might-lose-my-home", "name": "Eviction", "line": "I might lose my home."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "Someone sleeping on a friend's couch and someone behind on rent know at once which one they are living with. Homeless is having no reliable place to stay now; Eviction is still having a home and fearing losing it."}, "kind": "keep", "current": {"name": "Homeless", "line": "I don't have a reliable place to stay."}, "proposed": {"name": "Eviction", "line": "I might lose my home."}, "alternatives": [], "origin": "docs/research/pains/refine/home/20261019-224622", "draft": false, "id": "p022"}, {"painIds": ["homeless", "homelessness"], "group": "home", "side": [{"id": "homeless", "name": "Homeless", "line": "I don't have a reliable place to stay."}, {"id": "homelessness", "name": "Homelessness", "line": "I see more neighbors with no home."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "Having no place to stay myself and seeing more neighbors without homes are the same pain seen from the personal and societal pages, so they stay two pains linked across pages."}, "kind": "other-page", "current": {"name": "Homeless", "line": "I don't have a reliable place to stay."}, "proposed": {"name": "Homelessness", "line": "I see more neighbors with no home."}, "alternatives": [], "origin": "docs/research/pains/refine/home/20261019-224622", "draft": false, "id": "p023"}, {"painIds": ["might-lose-my-home", "rent-eats-everything"], "group": "home", "side": [{"id": "might-lose-my-home", "name": "Eviction", "line": "I might lose my home."}, {"id": "rent-eats-everything", "name": "High rent", "line": "I pay too much for housing."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "High rent can lead to eviction, but people paying too much and people about to lose their home would each look for their own pain. Eviction is the fear of losing my home; High rent is paying too much for it, which many people manage without any risk of losing it."}, "kind": "keep", "current": {"name": "Eviction", "line": "I might lose my home."}, "proposed": {"name": "High rent", "line": "I pay too much for housing."}, "alternatives": [], "origin": "docs/research/pains/refine/home/20261019-224622", "draft": false, "id": "p024"}, {"painIds": ["might-lose-my-home", "homelessness"], "group": "home", "side": [{"id": "might-lose-my-home", "name": "Eviction", "line": "I might lose my home."}, {"id": "homelessness", "name": "Homelessness", "line": "I see more neighbors with no home."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "One is a personal fear and the other is something seen in the community, and the personal match for Homelessness is Homeless, not Eviction. Eviction is my own home at risk; Homelessness is seeing neighbors who already have none."}, "kind": "keep", "current": {"name": "Eviction", "line": "I might lose my home."}, "proposed": {"name": "Homelessness", "line": "I see more neighbors with no home."}, "alternatives": [], "origin": "docs/research/pains/refine/home/20261019-224622", "draft": false, "id": "p025"}, {"painIds": ["home-is-hard", "rent-eats-everything"], "group": "home", "side": [{"id": "home-is-hard", "name": "Bad housing", "line": "The place I live is in bad shape, and I can't fix it or move."}, {"id": "rent-eats-everything", "name": "High rent", "line": "I pay too much for housing."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "Plenty of people pay too much for a decent place, and plenty live somewhere run-down that is cheap, so the choice is easy. Housing is the place being cramped, broken or noisy; High rent is what it costs."}, "kind": "keep", "current": {"name": "Bad housing", "line": "The place I live is in bad shape, and I can't fix it or move."}, "proposed": {"name": "High rent", "line": "I pay too much for housing."}, "alternatives": [], "origin": "docs/research/pains/refine/home/20261019-224622", "draft": false, "id": "p026"}, {"painIds": ["cold-home", "home-is-hard"], "group": "home", "side": [{"id": "cold-home", "name": "Cold home", "line": "I can't afford to keep my home warm."}, {"id": "home-is-hard", "name": "Bad housing", "line": "The place I live is in bad shape, and I can't fix it or move."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "A drafty, broken home can be cold too, but someone who can't afford the heating bill would look for that pain by name. Heating is not being able to pay to keep warm, even in a sound home; Housing is the place itself being cramped, broken or noisy."}, "kind": "keep", "current": {"name": "Cold home", "line": "I can't afford to keep my home warm."}, "proposed": {"name": "Bad housing", "line": "The place I live is in bad shape, and I can't fix it or move."}, "alternatives": [], "origin": "docs/research/pains/refine/home/20261019-224622", "draft": false, "id": "p027"}, {"painIds": ["cold-home", "cost-of-living"], "group": "home", "side": [{"id": "cold-home", "name": "Cold home", "line": "I can't afford to keep my home warm."}, {"id": "cost-of-living", "name": "Rising costs", "line": "Everything costs more each year, and my pay hasn't kept up."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "Going cold at home needs its own fixes, like heating help and insulation, and people living it would look for it rather than a general cost complaint. Heating is one specific cost going without; Rising costs is everything getting more expensive than pay."}, "kind": "keep", "current": {"name": "Cold home", "line": "I can't afford to keep my home warm."}, "proposed": {"name": "Rising costs", "line": "Everything costs more each year, and my pay hasn't kept up."}, "alternatives": [], "origin": "docs/research/pains/refine/home/20261019-224622", "draft": false, "id": "p028"}, {"painIds": ["cold-home", "utility-bills"], "group": "home", "side": [{"id": "cold-home", "name": "Cold home", "line": "I can't afford to keep my home warm."}, {"id": "utility-bills", "name": "Utility bills", "line": "I'm behind on my power or water bill."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "Many people keep the heat off so they never fall behind, so the alternative line 'I can't afford to keep my home warm' makes the difference clear. Heating is going without warmth to avoid the bill; Utility bills is being behind on the bills already, which can include water."}, "kind": "keep", "current": {"name": "Cold home", "line": "I can't afford to keep my home warm."}, "proposed": {"name": "Utility bills", "line": "I'm behind on my power or water bill."}, "alternatives": [], "origin": "docs/research/pains/refine/home/20261019-224622", "draft": false, "id": "p029"}, {"painIds": ["offline", "getting-around"], "group": "home", "side": [{"id": "offline", "name": "Bad internet", "line": "I can't get internet that's fast enough and that I can afford."}, {"id": "getting-around", "name": "Can't get around", "line": "I can't easily get to where I need to go."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "Both can cut people off from work and services, but nobody would confuse a slow connection with having no ride. Internet is not being able to get online at a decent speed or price; Transport is not being able to get to places."}, "kind": "keep", "current": {"name": "Bad internet", "line": "I can't get internet that's fast enough and that I can afford."}, "proposed": {"name": "Can't get around", "line": "I can't easily get to where I need to go."}, "alternatives": [], "origin": "docs/research/pains/refine/home/20261019-224622", "draft": false, "id": "p030"}, {"painIds": ["unsafe-near-me", "crime-and-violence"], "group": "home", "side": [{"id": "unsafe-near-me", "name": "Unsafe area", "line": "I don't feel safe in my neighborhood."}, {"id": "crime-and-violence", "name": "Crime", "line": "Crime and violence keep hurting people in my community."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "Not feeling safe where I live and not feeling safe from crime are the same pain seen from the personal and societal pages, so they stay two pains linked across pages."}, "kind": "other-page", "current": {"name": "Unsafe area", "line": "I don't feel safe in my neighborhood."}, "proposed": {"name": "Crime", "line": "Crime and violence keep hurting people in my community."}, "alternatives": [], "origin": "docs/research/pains/refine/home/20261019-224622", "draft": false, "id": "p031"}, {"painIds": ["unsafe-near-me", "unsafe-at-home"], "group": "home", "side": [{"id": "unsafe-near-me", "name": "Unsafe area", "line": "I don't feel safe in my neighborhood."}, {"id": "unsafe-at-home", "name": "Safety at home", "line": "I don't feel safe with someone in my life."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "The two need very different help, and the alternative name Unsafe area keeps them from both reading as Safety. Safety is danger in the neighborhood; Safety at home is danger from someone in my own life."}, "kind": "keep", "current": {"name": "Unsafe area", "line": "I don't feel safe in my neighborhood."}, "proposed": {"name": "Safety at home", "line": "I don't feel safe with someone in my life."}, "alternatives": [], "origin": "docs/research/pains/refine/home/20261019-224622", "draft": false, "id": "p032"}, {"painIds": ["getting-around", "car-or-nothing"], "group": "home", "side": [{"id": "getting-around", "name": "Can't get around", "line": "I can't easily get to where I need to go."}, {"id": "car-or-nothing", "name": "Needing a car", "line": "I can't get anywhere without a car."}], "allowOwn": false, "why": {"prompt": "overlap", "detail": "Struggling to get where I need to go and living in a place built only for cars are the same pain seen from the personal and societal pages, so they stay two pains linked across pages."}, "kind": "other-page", "current": {"name": "Can't get around", "line": "I can't easily get to where I need to go."}, "proposed": {"name": "Needing a car", "line": "I can't get anywhere without a car."}, "alternatives": [], "origin": "docs/research/pains/refine/home/20261019-224622", "draft": false, "id": "p033"}]};
+const KEY = 'pain-review:' + DATA.setId;
+const HELP = {
+  add: 'Accept adds it to the catalog. Ranking decides later where it sits on the page, so you only decide whether it is a real pain and worded well. Reject keeps it out; if it duplicates another pain, tick which below, and its sources count for that pain.',
+  reword: 'Accept uses the proposed wording. The old wording is kept as another way people say it.',
+  merge: 'Accept retires the first pain into the second; old links keep working. Reject keeps both.',
+  split: 'Accept splits the pain in two. Reject keeps it as one.',
+  keep: 'Accept keeps these as two separate pains. Reject means they overlap too much, and the next round proposes a merge.',
+  'other-page': 'Accept links these two pains across the personal and societal pages. Both stay.',
+  move: 'Accept moves the pain to the proposed group. Reject leaves it where it is.',
+  drift: 'Accept takes the editor\'s wording into the catalog. Reject leaves the catalog as it is.'
+};
+const LABELS = {
+  keep: ['Pain 1', 'Pain 2', 'Alternative'], 'other-page': ['Pain 1', 'Pain 2', 'Alternative'],
+  merge: ['Retired', 'Kept', 'Or keep this one instead'], split: ['Now', 'Becomes', 'Alternative'],
+  add: ['Now', 'Proposed', 'Alternative'], move: ['Now', 'Proposed', 'Or this group'], reword: ['Now', 'Proposed', 'Alternative'],
+  drift: ['Catalog', 'Editor', 'Alternative']
+};
+const label = (p, i, n) => { const l = LABELS[p.kind] || ['Now', 'Proposed', 'Alternative']; return i < 2 ? l[i] : l[2] + (l[2] === 'Alternative' ? ' ' + n : ''); };
+const KIND = { add: 'New pain', reword: 'Reword', merge: 'Merge', split: 'Split', keep: 'Keep both', 'other-page': 'Link across pages', move: 'Move group', drift: 'Editor wording' };
+let decisions = {};
+try { decisions = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { decisions = {}; }
+const history = [];
+let index = 0;
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+function save() { try { localStorage.setItem(KEY, JSON.stringify(decisions)); } catch (e) { /* kept in memory */ } }
+function visible() {
+  const g = $('f-group').value, k = $('f-kind').value, open = $('f-open').checked;
+  return DATA.proposals.filter((p) => (!g || p.group === g) && (!k || p.kind === k) && (!open || !decisions[p.id]));
+}
+function wording(w) { return w ? '<p class="name">' + esc(w.name) + '</p><p class="line">' + esc(w.line) + '</p>' + (w.group ? '<p class="muted">Group: ' + esc(w.group) + '</p>' : '') + (w.role ? '<p class="muted">' + (w.role === 'shown' ? 'Shown on the page' : 'Not shown') + '</p>' : '') : '<p class="muted">Nothing yet</p>'; }
+function render() {
+  const list = visible();
+  if (index >= list.length) index = Math.max(0, list.length - 1);
+  const decided = DATA.proposals.filter((p) => decisions[p.id]).length;
+  $('count').textContent = list.length ? 'Proposal ' + (index + 1) + ' of ' + list.length + ' shown · ' + (DATA.proposals.length - decided) + ' of ' + DATA.proposals.length + ' left to decide' : 'No proposals match these filters · ' + (DATA.proposals.length - decided) + ' left to decide';
+  const p = list[index];
+  const card = $('card');
+  document.querySelectorAll('#decide button[data-d]').forEach((b) => { b.disabled = !p; b.setAttribute('aria-pressed', 'false'); });
+  if (!p) { card.innerHTML = '<p id="card-title">Nothing to show.</p>'; return; }
+  const d = decisions[p.id];
+  const alts = p.alternatives || [];
+  document.querySelectorAll('#decide button[data-d="alternative"]').forEach((b) => { b.hidden = alts.length <= Number(b.dataset.choice); b.disabled = b.hidden || !!p.draft; });
+  document.querySelector('#decide button[data-d="own"]').disabled = !p.allowOwn;
+  document.querySelectorAll('#decide button[data-d]').forEach((b) => b.setAttribute('aria-pressed', String(!!d && d.decision === b.dataset.d && (b.dataset.d !== 'alternative' || d.choice === Number(b.dataset.choice)))));
+  const why = p.why || {};
+  card.innerHTML =
+    '<p class="kind" id="card-title">' + esc(KIND[p.kind] || p.kind) + (p.newEvidence ? ' · new evidence' : '') + (p.draft ? ' · draft: no opened source' : '') + ' · ' + esc(p.painIds.join(', ')) + '</p>' +
+    '<p class="state" data-d="' + esc(d ? d.decision : '') + '">' + (d ? 'Decided: ' + esc(d.decision) + (d.decision === 'alternative' ? ' ' + (d.choice + 2) : '') + (d.duplicateOf ? ', duplicate of ' + esc(d.duplicateOf.join(', ')) : '') : 'Not decided yet') + '</p>' +
+    '<p class="help">' + (p.draft ? 'No opened source: accepting adds it on your word, with no evidence. ' : '') + esc(HELP[p.kind] || '') + '</p>' +
+    '<div class="compare"><section aria-label="' + label(p, 0) + '"><h2>' + label(p, 0) + '</h2>' + wording(p.current) + '</section>' +
+    '<section aria-label="' + label(p, 1) + '"><h2>' + label(p, 1) + '</h2>' + wording(p.proposed) + '</section>' +
+    alts.map((a, i) => { const t = label(p, 2, i + 2) + (label(p, 2, i + 2).endsWith(String(i + 2)) ? '' : ' (key ' + (i + 2) + ')'); return '<section aria-label="' + t + '"><h2>' + t + '</h2>' + wording(a) + '</section>'; }).join('') + '</div>' +
+    '<div class="why"><strong>Why:</strong> ' + esc(why.prompt) + (why.detail ? ': ' + esc(why.detail) : '') +
+    (why.sources && why.sources.length ? '<ul>' + why.sources.map((s) => '<li><a href="' + esc(s.url) + '" rel="noopener noreferrer">' + esc(s.url) + '</a> (' + esc(s.accessed) + '): “' + esc(s.passage) + '”</li>').join('') + '</ul>' : '') +
+    (p.rejection ? '<p class="muted">Rejected earlier on ' + esc(p.rejection.date) + ': ' + esc(p.rejection.note) + '</p>' : '') + '</div>' +
+    (p.twins && p.twins.length ? '<div class="side flagged"><strong>May duplicate a new pain from another sweep:</strong><ul>' + p.twins.map((s) => '<li><code>' + esc(s.id) + '</code> ' + esc(s.name) + ': ' + esc(s.line) + '</li>').join('') + '</ul></div>' : '') +
+    (p.similar && p.similar.length ? '<div class="side"><strong>Similar pains already in the catalog:</strong><ul>' + p.similar.map((s) => '<li><code>' + esc(s.id) + '</code> ' + esc(s.name) + ': ' + esc(s.line) + '</li>').join('') + '</ul></div>' : '') +
+    (p.side && p.side.length ? '<div class="side"><strong>Overlapping pains:</strong><ul>' + p.side.map((s) => '<li><code>' + esc(s.id) + '</code> ' + esc(s.name) + ': ' + esc(s.line) + '</li>').join('') + '</ul></div>' : '');
+  $('note').value = d && d.note ? d.note : '';
+  const twins = (p.twins || []).concat(p.similar || []);
+  $('dup').hidden = p.kind !== 'add';
+  const chosen = new Set((d && d.duplicateOf) || []);
+  $('dup-options').innerHTML = twins.map((t) => '<label><input type="checkbox" value="' + esc(t.id) + '"' + (chosen.has(t.id) ? ' checked' : '') + '> <span><code>' + esc(t.id) + '</code> ' + esc(t.name) + '</span></label>').join('') || '<p class="muted">No likely duplicates were found.</p>';
+  $('dup-other').value = [...chosen].filter((id) => !twins.some((t) => t.id === id)).join(', ');
+  $('own').hidden = !(d && d.decision === 'own');
+  if (d && d.own) { $('own-name').value = d.own.name || ''; $('own-line').value = d.own.line || ''; }
+  else { $('own-name').value = (p.proposed || p.current || {}).name || ''; $('own-line').value = (p.proposed || p.current || {}).line || ''; }
+}
+function current() { return visible()[index]; }
+function duplicateOf() {
+  const ids = [...document.querySelectorAll('#dup-options input:checked')].map((i) => i.value)
+    .concat($('dup-other').value.split(',').map((x) => x.trim()).filter(Boolean));
+  return [...new Set(ids)];
+}
+function decide(decision, extra) {
+  const p0 = current();
+  if (decision === 'reject' && p0 && p0.kind === 'add') {
+    const ids = duplicateOf();
+    if (ids.length) extra = Object.assign({}, extra, { duplicateOf: ids });
+  }
+  const p = current();
+  if (!p) return;
+  history.push({ id: p.id, before: decisions[p.id] || null });
+  decisions[p.id] = Object.assign({ decision: decision, note: $('note').value.trim(), decidedAt: new Date().toISOString() }, extra || {});
+  save();
+  render();
+  $('announce').textContent = 'Saved: ' + decision + '. Still on this proposal.';
+}
+function undo() {
+  const last = history.pop();
+  if (!last) { $('announce').textContent = 'Nothing to undo.'; return; }
+  if (last.before) decisions[last.id] = last.before; else delete decisions[last.id];
+  save(); render();
+  $('announce').textContent = 'Undone.';
+}
+function move(step) { const n = visible().length; if (!n) return; index = Math.min(n - 1, Math.max(0, index + step)); render(); $('card').focus(); }
+document.querySelectorAll('#decide button[data-d]').forEach((b) => b.addEventListener('click', () => {
+  if (b.disabled) return;
+  if (b.dataset.d === 'own') { $('own').hidden = false; $('own-name').focus(); return; }
+  decide(b.dataset.d, b.dataset.d === 'alternative' ? { choice: Number(b.dataset.choice) } : {});
+}));
+$('own-save').addEventListener('click', () => {
+  const own = { name: $('own-name').value.trim(), line: $('own-line').value.trim() };
+  if (!own.name || !own.line) { $('announce').textContent = 'Give both a name and a line.'; return; }
+  decide('own', { own: own });
+});
+$('undo').addEventListener('click', undo);
+$('next').addEventListener('click', () => move(1));
+$('prev').addEventListener('click', () => move(-1));
+$('note').addEventListener('change', () => { const p = current(); if (p && decisions[p.id]) { decisions[p.id].note = $('note').value.trim(); save(); } });
+function syncDuplicates() {
+  const p = current();
+  if (!p || !decisions[p.id] || decisions[p.id].decision !== 'reject') return;
+  const ids = duplicateOf();
+  if (ids.length) decisions[p.id].duplicateOf = ids; else delete decisions[p.id].duplicateOf;
+  save();
+  $('announce').textContent = ids.length ? 'Saved: rejected as a duplicate of ' + ids.join(', ') + '.' : 'Saved: rejected, not as a duplicate.';
+}
+$('dup').addEventListener('change', syncDuplicates);
+['f-group', 'f-kind', 'f-open'].forEach((id) => $(id).addEventListener('change', () => { index = 0; render(); }));
+$('download').addEventListener('click', () => {
+  const blob = new Blob([JSON.stringify({ schemaVersion: 1, setId: DATA.setId, decisions: decisions }, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = 'decisions-' + DATA.setId + '.json'; a.click();
+  $('announce').textContent = 'Downloaded decisions.json.';
+});
+document.addEventListener('keydown', (e) => {
+  if (e.target.closest('input, textarea, select') || e.metaKey || e.ctrlKey || e.altKey) return;
+  const map = { a: 'accept', r: 'reject', l: 'later' };
+  const k = e.key.toLowerCase();
+  if (map[k]) { const b = document.querySelector('#decide button[data-d="' + map[k] + '"]'); if (!b.disabled) decide(map[k]); }
+  else if (k === '2' || k === '3') { const b = document.querySelector('#decide button[data-choice="' + (Number(k) - 2) + '"]'); if (!b.disabled) decide('alternative', { choice: Number(k) - 2 }); }
+  else if (k === 'o') { const b = document.querySelector('#decide button[data-d="own"]'); if (!b.disabled) { e.preventDefault(); $('own').hidden = false; $('own-name').focus(); } }
+  else if (k === 'u') undo();
+  else if (k === 'n') move(1);
+  else if (k === 'p') move(-1);
+  else return;
+  e.preventDefault();
+});
+const groups = [...new Set(DATA.proposals.map((p) => p.group).filter(Boolean))].sort();
+$('f-group').innerHTML = '<option value="">All groups</option>' + groups.map((g) => '<option>' + esc(g) + '</option>').join('');
+const kinds = [...new Set(DATA.proposals.map((p) => p.kind))];
+$('f-kind').innerHTML = '<option value="">All kinds</option>' + kinds.map((k) => '<option value="' + esc(k) + '">' + esc(KIND[k] || k) + '</option>').join('');
+$('card').tabIndex = -1;
+$('flags').textContent = (DATA.flags || []).join(' · ');
+render();
+</script>
+</body>
+</html>
