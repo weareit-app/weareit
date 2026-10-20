@@ -8,19 +8,11 @@ allowBuilds:
   "@tailwindcss/oxide": true
   "esbuild": true
   "lefthook": true
+  # Jest 30 dependencies with prebuilt platform binaries; their source builds are not needed.
+  "@parcel/watcher": false
+  "unrs-resolver": false
 
 minimumReleaseAgeExclude:
-  - "@expo/cli@57.0.30"
-  - "@expo/prebuild-config@57.0.19"
-  - expo-asset@57.0.20
-  - expo-constants@57.0.22
-  - expo-modules-autolinking@57.0.16
-  - expo-modules-core@57.0.23
-  - expo@57.0.29
-  - "@expo/metro-runtime@57.0.17"
-  - "@expo/ui@57.0.24"
-  - expo-linking@57.0.13
-  - expo-router@57.0.27
   - '@better-auth/core@1.7.8'
   - '@better-auth/drizzle-adapter@1.7.8'
   - '@better-auth/expo@1.7.8'

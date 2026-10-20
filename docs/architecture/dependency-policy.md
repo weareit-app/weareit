@@ -4,9 +4,18 @@ Dependencies are pinned so contributors install the same workspace. Refresh them
 
 ## Expo and native packages
 
-The app is on Expo SDK 57.0.30 (expo-router 57.0.28; updated with `expo install --fix` on 2026-10-17). SDK 57 is the current stable line; SDK 58 is in beta. `expo install --fix` selected the SDK-compatible Expo Router and native package versions, and `expo install --check` reports the app dependencies are up to date. Keep React 19.2.3 and React Native 0.86.3 aligned with SDK 57. Do not independently upgrade them to newer registry releases; move them with an Expo SDK update.
+The app is on Expo SDK 58.0.16 (expo-router 58.0.24; upgraded from SDK 57.0.30 with `expo install --fix` on 2026-10-20). SDK 58.0.0 was released on 2026-09-29. `expo install --fix` selected the SDK-compatible Expo Router and native package versions, and `expo install --check` reports the app dependencies are up to date. Keep React 19.3.0 and React Native 0.88.0 aligned with SDK 58. Do not independently upgrade them to newer registry releases; move them with an Expo SDK update.
 
-`@shopify/react-native-skia` 2.6.2 was selected by `expo install` for SDK 57 (2026-10-17) for the watercolor dot (spec 007; approved in `decisions.md`). Its postinstall only copies the prebuilt Skia libraries from the `react-native-skia-*` packages, so it is allowed in `pnpm-workspace.yaml` `allowBuilds`. It is used on iOS only in v0.1; web loads it solely inside the development lab route.
+SDK 58 changes that matter here:
+
+- Expo Router async routes are on by default for web, so each route gets its own chunk (see public-pages design, Open Questions).
+- React Native 0.88's types make `View` and `ScrollView` components, not classes. Type refs with `ViewInstance` and `ScrollViewInstance`.
+- `expo`'s package exports no longer list its `tsconfig.base`. `apps/app/tsconfig.json` extends it by file path so Vitest's resolver finds it.
+- The prebuild template now quotes the path to React Native's Xcode bundle script, so the app's own quoting config plugin (`with-quoted-rn-xcode-script`) was removed.
+- Hermes can't parse a rest parameter destructured with a default (`async (...[input, options = {}]) =>`), which `@orpc/client` ships, and SDK 58's Babel preset no longer rewrites it. `apps/app/babel.config.js` applies `@babel/plugin-transform-parameters` 7.29.7 (already in the tree, now pinned directly) to `@orpc` only, and `babel-preset-expo` is a direct dependency, as Expo asks when a project has its own Babel config.
+- Jest 30 (with `jest-expo` 58) brings `@parcel/watcher` and `unrs-resolver`. Both ship prebuilt platform binaries, so their source-build install scripts are denied in `pnpm-workspace.yaml` `allowBuilds`.
+
+`@shopify/react-native-skia` 2.14.0 was selected by `expo install` for SDK 58 (2026-10-20; 2.6.2 for SDK 57 on 2026-10-17) for the watercolor dot (spec 007; approved in `decisions.md`). Its postinstall only copies the prebuilt Skia libraries from the `react-native-skia-*` packages, so it is allowed in `pnpm-workspace.yaml` `allowBuilds`. It is used on iOS only in v0.1; web loads it solely inside the development lab route. In 2.14 an `SkPath` has no `setFillType`: set an even-odd fill with `Skia.PathBuilder.MakeFromPath(path).setFillType(…).detach()`.
 
 NativeWind 5.0.0-rc.0 and react-native-css 3.1.0-rc.0 are an intentional prerelease pair. Keep their exact versions together. Tailwind and its PostCSS plugin are kept on the same current 4.x version. `lightningcss` remains pinned at 1.30.1 as a compatibility override for this NativeWind/react-native-css setup; change that pin only after validating the styling pipeline on web and iOS.
 

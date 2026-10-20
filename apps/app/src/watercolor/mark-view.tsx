@@ -20,8 +20,10 @@ const useNativeVariable = useNativeVariableTyped as unknown as (
 function toSkia(mark: Mark): SkPath[] {
   return mark.paths.map(({ d, evenOdd }) => {
     const path = Skia.Path.MakeFromSVGString(d)!;
-    if (evenOdd) path.setFillType(FillType.EvenOdd);
-    return path;
+    if (!evenOdd) return path;
+    return Skia.PathBuilder.MakeFromPath(path)
+      .setFillType(FillType.EvenOdd)
+      .detach();
   });
 }
 

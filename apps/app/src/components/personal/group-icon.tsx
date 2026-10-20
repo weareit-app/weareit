@@ -59,8 +59,12 @@ export function GroupIcon({
   const parts = useMemo(
     () =>
       (groupIcons[id] ?? []).map((part) => {
-        const path = Skia.Path.MakeFromSVGString(part.d)!;
-        if (part.evenOdd) path.setFillType(FillType.EvenOdd);
+        const parsed = Skia.Path.MakeFromSVGString(part.d)!;
+        const path = part.evenOdd
+          ? Skia.PathBuilder.MakeFromPath(parsed)
+              .setFillType(FillType.EvenOdd)
+              .detach()
+          : parsed;
         return { ...part, path };
       }),
     [id],
