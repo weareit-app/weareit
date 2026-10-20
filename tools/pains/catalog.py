@@ -6,7 +6,9 @@ import json
 import re
 from pathlib import Path
 import importlib.util
+import shutil
 import sys
+import tempfile
 
 # The serial-comma check is shared with tools/possibilities (copy style guide, founder 2026-10-20).
 sys.dont_write_bytecode = True
@@ -318,7 +320,7 @@ def check_candidates(catalog, doc, origin=None):
     for key, c in doc.get('candidates', {}).items():
         where = 'candidate ' + key
         record = catalog['pains'].get(key)
-        if origin and record and any(origin in h.get('prompt', '') for h in record['history']):
+        if origin and record and any('(%s, review ' % origin in h.get('prompt', '') for h in record['history']):
             skipped.append({'candidate': key, 'reason': 'already decided from this sweep'})
             continue
         require(ID.fullmatch(key) and c.get('id', key) == key, where + ': bad ID', issues)
@@ -363,9 +365,14 @@ def check_candidates(catalog, doc, origin=None):
     return {'issues': issues, 'proposed': proposed, 'drafts': drafts, 'skipped': skipped, 'covered': covered}
 
 
+def run_path(root, run):
+    """A run folder's path in the repository, as review sets and history entries record it."""
+    return str(Path(run).resolve().relative_to(Path(root).resolve()))
+
+
 def sweep_check(root, run):
     run = Path(run)
-    origin = str(run.resolve().relative_to(Path(root).resolve()))
+    origin = run_path(root, run)
     result = check_candidates(load(root), read(run / 'candidates.json'), origin)
     result['checkedAt'] = today()
     write(run / 'check.json', result)
@@ -383,7 +390,7 @@ def coverage(root, run, origin=None):
     if (run / 'check.json').is_file():
         check = read(run / 'check.json')
     else:  # derived, so rebuilt rather than read when it isn't there
-        origin = origin or str(run.resolve().relative_to(Path(root).resolve()))
+        origin = origin or run_path(root, run)
         check = check_candidates(catalog, {'candidates': candidates}, origin)
     waiting = {c['candidate'] for c in check['proposed'] + check['drafts']}
     by_entry = {}
@@ -871,7 +878,6 @@ def review_build(root, runs, name=None, extra=(), stage=None):
             'byKind': {k: sum(p['kind'] == k for p in proposals) for k in sorted({p['kind'] for p in proposals})}}
 
 
-
 # ---------- archive ----------
 
 ARCHIVE = DATA_ROOT + '/archive'
@@ -899,6 +905,10 @@ def archive(root, set_dirs, name=None):
     open_sets = sorted(s for s in sets if not (root / REVIEWS / s / 'ingested.json').is_file())
     if open_sets:
         raise CheckError('not archived: %s still open; ingest it first' % ', '.join(open_sets))
+    refine_runs = [r for r in runs if not (root / r / 'sweep.json').is_file()]
+    kinds = {p['kind'] for s in sets for p in read(root / REVIEWS / s / 'proposals.json')['proposals']}
+    if refine_runs and not kinds & set(STAGES['structure']):
+        raise CheckError('not archived: no structure set was built for %s; build and ingest it first (--stage structure)' % ', '.join(sorted(refine_runs)))
     out = root / ARCHIVE / ((name or batch_name(sorted(sets)[0])) + '.jsonl')
     if out.exists():
         raise CheckError('%s already exists; archives are never overwritten' % out.relative_to(root))
@@ -906,14 +916,19 @@ def archive(root, set_dirs, name=None):
     folders += [('review', root / REVIEWS / s) for s in sorted(sets)]
     lines = []
     for kind, folder in folders:
-        for f in sorted(p for p in folder.rglob('*') if p.is_file() and p.name not in DERIVED):
+        # Derived files sit at a run's top level; anything deeper (such as sorts/) is an input.
+        for f in sorted(p for p in folder.rglob('*') if p.is_file() and not (p.parent == folder and p.name in DERIVED)):
             text = f.read_text()
             data = json.loads(text) if f.suffix == '.json' else text
             lines.append(json.dumps({'kind': kind, 'path': str(f.relative_to(root)), 'data': data}, ensure_ascii=False))
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text('\n'.join(lines) + '\n')
-    import shutil
+    if [json.loads(line)['path'] for line in out.read_text().splitlines()] != [json.loads(line)['path'] for line in lines]:
+        out.unlink()
+        raise CheckError('the archive did not read back; nothing was removed')
     for _, folder in folders:
+        if not folder.is_dir():
+            continue
         shutil.rmtree(folder)
         if folder.parent != root / REVIEWS and not any(folder.parent.iterdir()):
             folder.parent.rmdir()  # an empty scope folder, such as sweeps/home
@@ -934,9 +949,9 @@ def unpack(root, archive_path, prefix, dest):
 
 def coverage_archived(root, archive_path, run):
     """Coverage for a sweep folded into an archive: the same result as `coverage` on its folder, written nowhere."""
-    import tempfile
     with tempfile.TemporaryDirectory() as tmp:
         return coverage(root, unpack(root, archive_path, run, tmp), origin=run)
+
 
 # ---------- ingest ----------
 

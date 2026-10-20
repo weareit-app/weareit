@@ -17,11 +17,11 @@ Spec: `openspec/changes/pain-catalog/` (capability `pain-catalog`).
 | `docs/research/pains/refine/<scope>/<runId>/` | One refine run |
 | `docs/research/pains/reviews/<set>/` | One review set: `proposals.json`, `review.html`, then the founder's `decisions.json` |
 | `docs/research/pains/archive/<batch>.jsonl` | A closed batch: its sweep, refine and review inputs, one file per line as `{kind, path, data}`. Written by `archive` |
-
-Only inputs are committed. Derived files (`check.json`, `coverage.json`, `coverage.md`, `lint.json`, `balance.json`, `refine-check.json`, `review.html`) are git-ignored and rebuilt by the command that writes them; `review-build` reruns the checks itself. Once a batch's wording and structure sets are ingested, `archive` folds it into one file and removes its folders.
 | `tools/pains/config/review-page.template.html` | The review page; `review-build` injects the proposals |
 | `tools/pains/config/pain-lint.json` | Word lists for pain-wording lint (loaded, graphic, clinical, stopwords) |
 | `tools/pains/briefs/` | What each isolated agent receives: `discover.md`, `refine.md`, `sort.md` |
+
+Only inputs are committed. Derived files (`check.json`, `coverage.json`, `coverage.md`, `lint.json`, `balance.json`, `refine-check.json`, `review.html`) are git-ignored and rebuilt by the command that writes them; `review-build` reruns the checks itself. Once a batch's wording and structure sets are ingested, `archive` folds it into one file and removes its folders. An archive is enough to rerun coverage (`coverage <archive.jsonl> <run>`) and to audit any decision; review sets are only built from open runs.
 
 ## Helper
 

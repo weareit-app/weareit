@@ -896,6 +896,13 @@ class ArchiveTest(Base):
         self.assertTrue(self.sweep.exists() and wording.exists())
         self.assertFalse((self.tmp / catalog.ARCHIVE).exists())
 
+    def test_batch_without_its_structure_step_is_not_archived(self):
+        wording = self.build_and_ingest('wording')
+        with self.assertRaises(catalog.CheckError) as caught:
+            catalog.archive(self.tmp, [wording])
+        self.assertIn('structure', str(caught.exception))
+        self.assertTrue(self.refine.exists())
+
     def test_coverage_from_an_archive_matches_the_folder(self):
         catalog.write(self.sweep / 'lists.json', {'lists': {'gallup-mip': {'name': 'Most Important Problem', 'url': 'https://example.org/mip',
             'accessed': '2026-10-19', 'entries': {'scams-and-fraud': {'name': 'Fraud'}, 'insurance-costs': {'name': 'Insurance'},
