@@ -32,7 +32,7 @@ Start only after the pain-catalog change (PR #27) and the full pain sweep are me
 
 - [x] 5.1 Write `briefs/screen.md` (actionable, right kind, honest status) and add `screen.json` handling, so fixes that fail are kept but can't be linked. Verify with a test: linking a screened-out fix fails validation.
 - [x] 5.2 Write `briefs/assembler.md` (links, order, how each fix helps, 2–5 fixes per dream, path candidates) and add `links.json` validation. Verify with tests: six links on one dream fail, and an unlinked fix stays in `fixes.json`.
-- [ ] 5.3 Change `judge-input` to list each accepted dream with its linked fixes, repeating shared fixes and leaving out method fields, writer notes and provenance. Change `consensus` to key by dream ID, and make `select` write `ranking.json` without finalists. Update `briefs/judge.md` and `config/rubric.md` to match. Verify with tests: a shared fix appears under three dreams, and fix-ID score keys fail validation.
+- [x] 5.3 Change `judge-input` to list each accepted dream with its linked fixes, repeating shared fixes and leaving out method fields, writer notes and provenance. Change `consensus` to key by dream ID, and make `select` write `ranking.json` without finalists. Update `briefs/judge.md` and `config/rubric.md` to match. Verify with tests: a shared fix appears under three dreams, and fix-ID score keys fail validation.
 
 ## 6. Founder fix review
 

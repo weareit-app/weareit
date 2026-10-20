@@ -19,7 +19,7 @@ This file holds the rules they share.
 | `tools/possibilities/data-model.md` | File shapes for runs, judgments, selection and calibration |
 | `tools/possibilities/config/` | `rubric.md`, `banned-phrases.json`, `feature-patterns.md`, `style-guide.md` (the founder's calibration findings), `calibration-page.template.html`, `dream-review-page.template.html` |
 | `tools/possibilities/briefs/` | What each isolated agent receives: `writer.md`, `judge.md`, `repair.md`, `classify-kinds.md`, `feature-pitch.md`, and for staged runs `dreams.md`, `planner.md`, `kinds/_shared.md` with one brief per kind in `kinds/` (only `task.md` so far), `screen.md`, and `assembler.md` |
-| `docs/research/possibilities/runs/<pain>/<runId>/` | One run: `run.json`, `exemplars.json`, `cards.json` (or, in a staged run, `dreams.json`, `reviews/`, `plan.json`, `fixes.json`, `screen.json`, and `links.json`), `lint.json`, `judgments-<n>.json`, `judgments.json`, `selection.json`, `repair-todo.md` |
+| `docs/research/possibilities/runs/<pain>/<runId>/` | One run: `run.json`, `exemplars.json`, `cards.json` (or, in a staged run, `dreams.json`, `reviews/`, `plan.json`, `fixes.json`, `screen.json`, and `links.json`), `lint.json`, `judgments-<n>.json`, `judgments.json`, `selection.json` (`ranking.json` in a staged run), `repair-todo.md` |
 | `docs/research/possibilities/calibration/` | Blind calibration set, key, ratings, anchors and the published rating page |
 | `docs/research/possibilities/evaluations/` | Audit sets, ratings, `evaluation.md`, `metrics.json` |
 | `docs/style/copy-style-guide.md` | Copy rules for every piece of It copy, including the kinds of fixes |
@@ -40,9 +40,9 @@ Run it from the repository root: `python3 tools/possibilities/cards.py <subcomma
 | `dreams-ingest <run> <decisions.json>` | Records the founder's decision on every dream, keeps the drafted wording beside each edit, and copies the export to `reviews/dreams-decisions.json` |
 | `validate <run…>` | Checks the shape of exemplars, cards, dreams, the plan, fixes, screen, links, judgments, and selection |
 | `lint <run…>` | Applies the copy, sourcing, kind and coverage rules, including the Oxford comma (`serial-comma`, from `tools/style/serial_comma.py`), and writes `lint.json` |
-| `judge-input <run>` | Prints a judge's whole input, with writer notes and provenance removed |
+| `judge-input <run>` | Prints a judge's whole input, with writer notes and provenance removed. In a staged run, it lists each accepted dream with its linked fixes in order, repeating a shared fix under each dream, and leaves out method fields |
 | `consensus <run>` | Combines `judgments-<n>.json` into `judgments.json` (mean scores, majority honest status, Borda points) |
-| `select <run>` | Picks 3–5 finalists (at least 2 lenses and one It-led card) plus 2 audit samples, and writes `selection.json` |
+| `select <run>` | Picks 3–5 finalists (at least 2 lenses and one It-led card) plus 2 audit samples, and writes `selection.json`. In a staged run, it writes `ranking.json` instead: every dream in order, with dreams that fail honest status marked and last. That order sets the founder's fix review |
 | `finish-run <run> --searches N --pages N [--tokens N]` | Records the counts in `run.json` |
 | `calibrate-build`, `calibrate-ingest <export>` | Builds the blind calibration set, and ingests the founder's ratings |
 | `audit-build <run…>` | Builds the audit set and key from selections |
@@ -66,11 +66,12 @@ After the dream review, each stage is a fresh agent with its own brief. `start <
 
 1. **Plan** (`briefs/planner.md`): one planner sets, for each accepted dream, the most fixes to draft of each kind (from 0 to 5), with a reason for every ceiling. It writes `plan.json`.
 2. **Shared fixes**: fixes that serve several dreams. This pass isn't built yet, so the stage passes once the plan exists.
-3. **Kind pools** (`briefs/kinds/_shared.md`, then `briefs/kinds/<kind>.md`): one brief for each kind with a ceiling above zero. It fills the kind's method fields first, then writes the copy, and adds its fixes to `fixes.json`. It may return fewer than the ceiling, with a `shortfallReason`. Only Task has a brief so far.
+3. **Kind pools** (`briefs/kinds/_shared.md`, then `briefs/kinds/<kind>.md`): one brief for each kind with a ceiling above zero. It fills the kind's method fields first, then writes the copy, and adds its fixes to `fixes.json`. It may return fewer than the ceiling, with a `shortfallReason`. Every kind in the copy guide's table has a brief except Path, which isn't used yet.
 4. **Screen** (`briefs/screen.md`): one isolated judge checks every fix on its own: actionable, the right kind, and honest status. It writes `screen.json`. It reads the copy, not the method fields. A fix that fails stays in the pool but can't be linked.
 5. **Assemble** (`briefs/assembler.md`): an isolated assembler links 2–5 screened fixes to each accepted dream, in order, and says how each one helps. It records chains as path candidates and writes `links.json`. Unlinked fixes stay in the pool.
+6. **Judge** (`briefs/judge.md`): three isolated judges each score every accepted dream together with its linked fixes, never a fix alone, and write `judgments-<n>.json` keyed by dream ID. `consensus` combines them, and `select` writes `ranking.json`, which orders the founder's fix review. There are no finalists or audit samples (founder, 2026-10-20).
 
-Judging and the founder's fix review aren't built yet for staged runs.
+The founder's fix review isn't built yet for staged runs.
 
 ## Rules every writer and repairer follows
 
