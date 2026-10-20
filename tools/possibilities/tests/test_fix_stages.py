@@ -13,11 +13,11 @@ def reviewed(doc):
         d['review'] = {'decision': 'reject' if key == 'burnout-d05' else 'accept'}
 
 
-def plan_doc(task=2, **others):
-    """A ceiling for every kind with a brief: Task's is `task`, and any other kind's is 0 unless named."""
+def plan_doc(task=2, kinds=None, **others):
+    """A ceiling for every kind with a brief (or for `kinds`): Task's is `task`, and any other kind's is 0 unless named."""
     def row():
         ceilings = {kind: {'max': others.get(kind.replace('-', '_'), 0), 'reason': 'This kind fits this dream or not.'}
-                    for kind in cards.KIND_BRIEFS}
+                    for kind in (kinds if kinds is not None else cards.KIND_BRIEFS)}
         ceilings['task'] = {'max': task, 'reason': 'One-time changes fit this dream.'}
         return ceilings
     return {'schemaVersion': 2, 'painId': 'burnout', 'ceilings': {key: row() for key in DREAMS[:5]}}

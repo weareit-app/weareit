@@ -66,7 +66,7 @@ Every fix is one of these kinds. The app shows each kind with an icon and a word
 | Kind | Icon (Lucide) | What it is | How to write it |
 | --- | --- | --- | --- |
 | **Feature** | `hammer` | Something It would build (status: Something It could build) | A short feature pitch, verb first: "Shows employee-owned workplaces near you, from the public worker co-op directory and federal employee-stock-plan data, so you have somewhere to apply or a model to point to." The title names the capability ("Shared signup for covering town meetings"), not a user action. Never "It could" or "with It". |
-| **Task** | `circle-dot-dashed` | Something you do once, including one-time changes that keep working afterward (grayscale, blackout curtains, one charging spot) | Name the action and its object. "Ask your school board for a later start time." |
+| **Task** | `circle-dot-dashed` | Something you do once, including one-time changes that keep working afterward (grayscale, blackout curtains, one charging spot) | Name the action and its object. "Move your phone charger out of the bedroom." |
 | **Schedule** | `calendar-sync` | A recurring commitment on the calendar | Say what repeats and how often. "Set up a weekly call or walk with one friend." |
 | **Habit** | `repeat` | A behavior triggered by a cue, repeated without planning (use sparingly) | Name the cue and the behavior. "When you meet someone new on the street, note their name." |
 | **Practice** | `sprout` | A skill you get better at over time, usually in conversation | Name the skill. Every Practice carries a `featureIdea`: a one-line, verb-first coaching feature It could build ("Helps you prepare for a hard conversation and checks in afterward"). The app shows it on hover. |
@@ -74,6 +74,10 @@ Every fix is one of these kinds. The app shows each kind with an icon and a word
 | **Project** | `folder-kanban` | A bounded effort over days or weeks, with several steps and an end | Name the finished thing. "Organize a block party with your neighbors." |
 | **Group** | `users` | Join an existing group | Name the group. "Join your building's tenant association." |
 | **New group** | `user-round-plus` | Start a group that doesn't exist yet | Name what you'd start. "Start a tenant association in your building." |
+| **Ask** | `message-circle-question` | A request that needs someone else's yes: a landlord, a manager, a school board, or someone you know | Name who you ask and what for. "Ask your school board for a later start time." Never imply they've said yes. |
+| **Use a resource** | `life-buoy` | A service that already exists for people like you: a hotline, a clinic, a benefits program, or 211 | Name the service and what you do with it. "Call 211 for help with rent this month." Its status is always Existing resource or Real now. |
+| **Leave** (trial) | `door-open` | Stop being part of something, with nothing lined up to replace it | Name what you leave, and say plainly what you give up. "Leave the work chat on your phone." On trial: only pilot runs use it. |
+| **Switch** (trial) | `arrow-left-right` | Replace something with a better version of the same thing | Name what you switch to, and from what when it helps. "Move your checking account to a credit union." On trial: only pilot runs use it. |
 | **Path** | `footprints` | A sequence of the above toward a bigger change (later) | Not used yet. |
 
 Rules for every kind:

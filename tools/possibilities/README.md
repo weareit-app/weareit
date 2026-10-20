@@ -18,7 +18,7 @@ This file holds the rules they share.
 | `tools/possibilities/tests/` | `python3 -m unittest discover -s tools/possibilities/tests` |
 | `tools/possibilities/data-model.md` | File shapes for runs, judgments, selection and calibration |
 | `tools/possibilities/config/` | `rubric.md`, `banned-phrases.json`, `feature-patterns.md`, `style-guide.md` (the founder's calibration findings), `calibration-page.template.html`, `dream-review-page.template.html` |
-| `tools/possibilities/briefs/` | What each isolated agent receives: `writer.md`, `judge.md`, `repair.md`, `classify-kinds.md`, `feature-pitch.md`, and for staged runs `dreams.md`, `planner.md`, `shared-fixes.md`, `kinds/_shared.md` with one brief per kind in `kinds/` (only `task.md` so far), `screen.md`, and `assembler.md` |
+| `tools/possibilities/briefs/` | What each isolated agent receives: `writer.md`, `judge.md`, `repair.md`, `classify-kinds.md`, `feature-pitch.md`, and for staged runs `dreams.md`, `planner.md`, `shared-fixes.md`, `kinds/_shared.md` with one brief per kind in `kinds/` (every kind except Path, plus the trial kinds `leave.md` and `switch.md`), `screen.md`, and `assembler.md` |
 | `docs/research/possibilities/runs/<pain>/<runId>/` | One run: `run.json`, `exemplars.json`, `cards.json` (or, in a staged run, `dreams.json`, `reviews/`, `plan.json`, `fixes.json`, `screen.json`, and `links.json`), `lint.json`, `judgments-<n>.json`, `judgments.json`, `selection.json` (`ranking.json` in a staged run), `repair-todo.md` |
 | `docs/research/possibilities/calibration/` | Blind calibration set, key, ratings, anchors and the published rating page |
 | `docs/research/possibilities/evaluations/` | Audit sets, ratings, `evaluation.md`, `metrics.json` |
@@ -66,7 +66,7 @@ After the dream review, each stage is a fresh agent with its own brief. `start <
 
 1. **Plan** (`briefs/planner.md`): one planner sets, for each accepted dream, the most fixes to draft of each kind (from 0 to 5), with a reason for every ceiling. It writes `plan.json`.
 2. **Shared fixes** (`briefs/shared-fixes.md`): one pass over the whole pain drafts the fixes that help more than one accepted dream. It stores each fix once, with `origin: shared` and a proposed link to every dream it helps, and starts `fixes.json`. These fixes don't count against the plan's ceilings.
-3. **Kind pools** (`briefs/kinds/_shared.md`, then `briefs/kinds/<kind>.md`): one brief for each kind with a ceiling above zero. It sees the shared fixes, which `start <run> kind-pools` lists under `shared`, so it doesn't repeat them. It fills the kind's method fields first, then writes the copy, and adds its fixes to `fixes.json`. It may return fewer than the ceiling, with a `shortfallReason`. Every kind in the copy guide's table has a brief except Path, which isn't used yet.
+3. **Kind pools** (`briefs/kinds/_shared.md`, then `briefs/kinds/<kind>.md`): one brief for each kind with a ceiling above zero. It sees the shared fixes, which `start <run> kind-pools` lists under `shared`, so it doesn't repeat them. It fills the kind's method fields first, then writes the copy, and adds its fixes to `fixes.json`. It may return fewer than the ceiling, with a `shortfallReason`. Every kind in the copy guide's table has a brief except Path, which isn't used yet. The trial kinds Leave and Switch run only in a pilot run (`"pilot": true` in `run.json`).
 4. **Screen** (`briefs/screen.md`): one isolated judge checks every fix on its own: actionable, the right kind, and honest status. It writes `screen.json`. It reads the copy, not the method fields. A fix that fails stays in the pool but can't be linked.
 5. **Assemble** (`briefs/assembler.md`): an isolated assembler links 2–5 screened fixes to each accepted dream, in order, and says how each one helps. It records chains as path candidates and writes `links.json`. Unlinked fixes stay in the pool.
 6. **Judge** (`briefs/judge.md`): three isolated judges each score every accepted dream together with its linked fixes, never a fix alone, and write `judgments-<n>.json` keyed by dream ID. `consensus` combines them, and `select` writes `ranking.json`, which orders the founder's fix review. There are no finalists or audit samples (founder, 2026-10-20).
@@ -89,6 +89,9 @@ The founder's fix review isn't built yet for staged runs.
 - `practice` needs a `featureIdea`.
 - `learn` is for a skill or knowledge the reader can use. Someone else's precedent becomes something the reader does, with the example in the text.
 - `group` is for joining a group. `new-group` is for starting one.
+- `ask` needs someone else's yes. It names a decision-maker and one specific request, and never implies they've agreed.
+- `resource` is an existing service. Its status is `existing_resource` or `real_now`.
+- `leave` and `switch` are trial kinds, accepted only in a pilot run.
 
 **Sourcing.**
 - An exemplar is `verified: true` only when its page was opened in this run, with `url`, `accessed` and a `locator` (a section, or a quote of 15 words or fewer). Prefer the primary source. When the fact comes from a secondary page (an encyclopedia, a news story, or an organization reporting its own impact), say so in `limits`.

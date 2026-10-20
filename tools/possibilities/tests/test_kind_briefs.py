@@ -17,6 +17,8 @@ REQUIRED = {
     'project': ('finishedThing', 'doneWhen'),
     'group': ('whatMembersDo', 'howToFind'),
     'new-group': ('whoFor', 'whatMembersDo', 'firstTest', 'existingFirst'),
+    'ask': ('decisionMaker', 'request'),
+    'resource': ('provider', 'eligibility', 'access', 'bring'),
 }
 
 
@@ -46,8 +48,8 @@ class EveryKindHasABrief(unittest.TestCase):
     def test_brief_files_match_the_validators_kinds(self):
         files = {p.stem for p in (ROOT / 'tools/possibilities/briefs/kinds').glob('*.md') if p.stem != '_shared'}
         self.assertEqual(set(cards.KINDS) - RESERVED, set(cards.KIND_BRIEFS))
-        self.assertEqual(files, set(cards.KIND_BRIEFS))
-        for kind, brief in cards.KIND_BRIEFS.items():
+        self.assertEqual(files, set(cards.KIND_BRIEFS) | set(cards.TRIAL_KIND_BRIEFS))
+        for kind, brief in {**cards.KIND_BRIEFS, **cards.TRIAL_KIND_BRIEFS}.items():
             self.assertEqual(brief, 'tools/possibilities/briefs/kinds/%s.md' % kind)
 
 

@@ -25,7 +25,7 @@ RATINGS = ('love', 'keep', 'kill', 'skip')
 # feature (hammer), task (circle-dot-dashed), schedule (calendar-sync), habit (repeat),
 # practice (sprout; carries a coaching-feature idea), learn (graduation-cap; a usable skill or knowledge), project (folder-kanban),
 # group (users), new-group (user-round-plus), path (footprints, later).
-KINDS = ('feature', 'task', 'schedule', 'habit', 'practice', 'learn', 'project', 'group', 'new-group', 'path')
+KINDS = ('feature', 'task', 'schedule', 'habit', 'practice', 'learn', 'project', 'group', 'new-group', 'ask', 'resource', 'path')
 # Learning about someone else's precedent, as opposed to learning something you will use yourself.
 ABOUT_OTHERS = re.compile(r'\b(how|what|why|where)\s+(one|other|another|a|an|the|some)\s+(\w+\s+)?(city|cities|country|countries|company|companies|town|towns|state|states|group|groups|workplace|workplaces|place|places|program|programs|nation)\b'
                           r'|\bhow\s+[A-Z]\w+\s+(did|does|became|got|built|made|let|runs|shortened|changed)\b', re.I)
@@ -183,11 +183,21 @@ def dream_review_ingested(run):
     return bool(dreams) and all(isinstance(d.get('review'), dict) and d['review'].get('decision') for d in dreams.values())
 
 
+def is_pilot(run):
+    meta = run / 'run.json'
+    return meta.is_file() and read(meta).get('pilot') is True
+
+
+def run_kinds(run):
+    """The kinds with a brief in this run: the trial kinds join only a pilot run."""
+    return {**KIND_BRIEFS, **TRIAL_KIND_BRIEFS} if is_pilot(run) else dict(KIND_BRIEFS)
+
+
 def planned_kinds(run):
     """Kinds the plan gives a ceiling above zero for some dream: only their briefs run."""
     ceilings = read(run / 'plan.json').get('ceilings', {}) if (run / 'plan.json').is_file() else {}
     rows = [row for row in ceilings.values() if isinstance(row, dict)]
-    return [kind for kind in KIND_BRIEFS
+    return [kind for kind in run_kinds(run)
             if any(isinstance(row.get(kind), dict) and (row[kind].get('max') or 0) > 0 for row in rows)]
 
 
@@ -248,7 +258,12 @@ KIND_BRIEFS = {
     'project': BRIEFS + 'kinds/project.md',
     'group': BRIEFS + 'kinds/group.md',
     'new-group': BRIEFS + 'kinds/new-group.md',
+    'ask': BRIEFS + 'kinds/ask.md',
+    'resource': BRIEFS + 'kinds/resource.md',
 }
+# Trial kinds (spec, "Fix kinds"): only a run whose run.json has "pilot": true plans and drafts them. The pilot decides
+# whether each one stays.
+TRIAL_KIND_BRIEFS = {'leave': BRIEFS + 'kinds/leave.md', 'switch': BRIEFS + 'kinds/switch.md'}
 SCREEN_CHECKS = ('actionable', 'rightKind', 'honestStatus')  # design, "Screen, then panel"
 MAX_CEILING = 5  # the most fixes of one kind the plan asks for, for one dream
 MAX_LINKS = 5  # the assembler links 2-5 fixes to each dream; founder links may go past it
@@ -272,7 +287,20 @@ METHOD_FIELDS = {
     'new-group': {'whoFor': str, 'whatMembersDo': str,
                   'firstTest': str,       # the first thing the group does that shows it's real (McAlevey)
                   'existingFirst': str},  # what to check exists before starting one
+    'ask': {'decisionMaker': str,  # who can say yes, as a role a reader can find (Midwest Academy: a target, never a vague institution)
+            'request': str},       # the one specific request they can say yes or no to
+    'resource': {'provider': str,     # who runs it
+                 'eligibility': str,  # who qualifies
+                 'access': str,       # how to reach it: phone, text, web, or a place
+                 'bring': str},       # what to have ready
+    'leave': {'leaving': str,   # what the person stops being part of, with nothing lined up to replace it
+              'tradeOff': str},  # what they give up, said plainly
+    'switch': {'switchFrom': str,  # what the person replaces
+               'switchTo': str,    # the better version of the same thing
+               'tradeOff': str},   # what the move costs or loses
 }
+# Statuses a kind is limited to (spec, "Honest status"). Other kinds take any status: kind and status stay separate.
+KIND_STATUSES = {'resource': ('existing_resource', 'real_now')}
 
 
 def is_staged(run):
@@ -319,10 +347,11 @@ def start(run, stage):
         raise ValueError('%s is not built yet' % stage)
     result = {'run': run.name, 'stage': stage, 'brief': STAGE_BRIEFS[stage]}
     if stage == 'plan':
-        result['kinds'] = list(KIND_BRIEFS)  # the kinds the planner sets ceilings for
+        result['kinds'] = list(run_kinds(run))  # the kinds the planner sets ceilings for
     elif stage == 'kind-pools':
         # One brief per kind with a ceiling above zero that has no pool yet, each run after the shared kind brief.
-        result['kinds'] = {kind: KIND_BRIEFS[kind] for kind in planned_kinds(run) if kind not in drafted_pools(run)}
+        kinds = run_kinds(run)
+        result['kinds'] = {kind: kinds[kind] for kind in planned_kinds(run) if kind not in drafted_pools(run)}
         result['shared'] = shared_fixes(run)
     return result
 
@@ -569,8 +598,11 @@ def is_count(value):
     return isinstance(value, int) and not isinstance(value, bool) and value >= 0
 
 
-def briefed_kinds():
-    return 'kinds with a brief are ' + ', '.join(KIND_BRIEFS)
+def refused_kind(kind, kinds):
+    """Why a kind is refused in this run: a trial kind outside a pilot run, or a kind with no brief."""
+    if kind in TRIAL_KIND_BRIEFS and kind not in kinds:
+        return '%s is a trial kind, accepted only in a pilot run ("pilot": true in run.json)' % kind
+    return 'kinds with a brief are ' + ', '.join(kinds)
 
 
 def one_line(value):
@@ -582,7 +614,7 @@ def staged_header(doc, name, pain, issues):
     require(doc.get('painId') == pain, name + ' painId must match run.json', issues)
 
 
-def validate_plan(doc, accepted, issues, pain=None):
+def validate_plan(doc, accepted, issues, pain=None, kinds=KIND_BRIEFS):
     """plan.json: for each accepted dream, the most fixes to draft of each kind that has a brief, with a reason."""
     staged_header(doc, 'plan.json', pain, issues)
     ceilings = doc.get('ceilings')
@@ -597,11 +629,11 @@ def validate_plan(doc, accepted, issues, pain=None):
         if not isinstance(row, dict):
             issues.append('plan %s: ceilings must be keyed by kind' % key)
             continue
-        issues += ['plan %s: no ceiling for %s' % (key, kind) for kind in KIND_BRIEFS if kind not in row]
+        issues += ['plan %s: no ceiling for %s' % (key, kind) for kind in kinds if kind not in row]
         for kind, ceiling in sorted(row.items()):
             where = 'plan %s %s' % (key, kind)
-            if kind not in KIND_BRIEFS:
-                issues.append(where + ': ' + briefed_kinds())
+            if kind not in kinds:
+                issues.append(where + ': ' + refused_kind(kind, kinds))
                 continue
             ceiling = ceiling if isinstance(ceiling, dict) else {}
             limit = ceiling.get('max')
@@ -641,7 +673,7 @@ def check_proposed_links(fix, accepted, where, issues):
     require(len(seen & accepted) >= 2, where + ': a shared fix proposes links to two or more accepted dreams', issues)
 
 
-def validate_fixes(doc, exemplars, ceilings, accepted, issues, pain=None):
+def validate_fixes(doc, exemplars, ceilings, accepted, issues, pain=None, kinds=KIND_BRIEFS):
     """fixes.json: the run's whole fix pool, kept whole through screen and assembly, and each kind's pool against the plan."""
     staged_header(doc, 'fixes.json', pain, issues)
     fixes, pools = doc.get('fixes'), doc.get('pools')
@@ -668,7 +700,7 @@ def validate_fixes(doc, exemplars, ceilings, accepted, issues, pain=None):
         for field in ('title', 'whatChanges', 'firstStep'):
             require(isinstance(f.get(field), str) and f[field].strip(), where + ': missing ' + field, issues)
         kind = f.get('kind')
-        require(kind in KIND_BRIEFS, where + ': ' + briefed_kinds(), issues)
+        require(kind in kinds, where + ': ' + refused_kind(kind, kinds), issues)
         if f.get('origin') == 'shared':
             check_proposed_links(f, accepted, where, issues)
         else:
@@ -679,6 +711,8 @@ def validate_fixes(doc, exemplars, ceilings, accepted, issues, pain=None):
         require(f.get('status') in STATUSES, where + ': unknown status', issues)
         require((kind == 'feature') == (f.get('status') == 'proposed_it_feature'),
                 where + ': kind feature goes with status proposed_it_feature, and only with it', issues)
+        if kind in KIND_STATUSES:
+            require(f.get('status') in KIND_STATUSES[kind], '%s: a %s fix has status %s' % (where, kind, ' or '.join(KIND_STATUSES[kind])), issues)
         check_method(kind, f.get('method'), where, issues)
         if kind == 'practice':  # shown on hover, so it sits on the fix, not in method
             require(isinstance(f.get('featureIdea'), str) and f['featureIdea'].strip(),
@@ -693,8 +727,8 @@ def validate_fixes(doc, exemplars, ceilings, accepted, issues, pain=None):
         for field in ('sourceId', 'locator', 'evidenceType', 'rights', 'reviewStatus'):
             require(prov.get(field), where + ': provenance lacks ' + field, issues)
     for kind, pool in sorted(pools.items()):
-        if kind not in KIND_BRIEFS:
-            issues.append('pool %s: %s' % (kind, briefed_kinds()))
+        if kind not in kinds:
+            issues.append('pool %s: %s' % (kind, refused_kind(kind, kinds)))
             continue
         shortfalls = pool.get('shortfalls', {}) if isinstance(pool, dict) else None
         if not isinstance(shortfalls, dict):
@@ -832,11 +866,12 @@ def validate_staged_run(run, judgments=True):
     if (run / 'dreams.json').is_file():
         validate_dreams(read(run / 'dreams.json'), exemplars, issues, pain)
     accepted = reviewed_dreams(run)
-    ceilings = validate_plan(read(run / 'plan.json'), accepted, issues, pain) if (run / 'plan.json').is_file() else {}
+    kinds = run_kinds(run)
+    ceilings = validate_plan(read(run / 'plan.json'), accepted, issues, pain, kinds) if (run / 'plan.json').is_file() else {}
     fixes = {}
     if (run / 'fixes.json').is_file():
         require((run / 'plan.json').is_file(), 'fixes.json needs plan.json', issues)
-        fixes = validate_fixes(read(run / 'fixes.json'), exemplars, ceilings, accepted, issues, pain)
+        fixes = validate_fixes(read(run / 'fixes.json'), exemplars, ceilings, accepted, issues, pain, kinds)
     passed = None  # unknown until the screen exists
     if (run / 'screen.json').is_file():
         missing = [k for k in planned_kinds(run) if k not in drafted_pools(run)]
