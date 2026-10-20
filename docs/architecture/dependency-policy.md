@@ -13,6 +13,7 @@ SDK 58 changes that matter here:
 - `expo`'s package exports no longer list its `tsconfig.base`. `apps/app/tsconfig.json` extends it by file path so Vitest's resolver finds it.
 - The prebuild template now quotes the path to React Native's Xcode bundle script, so the app's own quoting config plugin (`with-quoted-rn-xcode-script`) was removed.
 - Hermes can't parse a rest parameter destructured with a default (`async (...[input, options = {}]) =>`), which `@orpc/client` ships, and SDK 58's Babel preset no longer rewrites it. `apps/app/babel.config.js` applies `@babel/plugin-transform-parameters` 7.29.7 (already in the tree, now pinned directly) to `@orpc` only, and `babel-preset-expo` is a direct dependency, as Expo asks when a project has its own Babel config.
+- React Native 0.88 no longer installs `@react-native/assets-registry`, which react-native-svg's web code still imports. Metro maps it for the app; Storybook's Vite config (`apps/app/.storybook/main.ts`) aliases it to react-native-web's asset registry.
 - Jest 30 (with `jest-expo` 58) brings `@parcel/watcher` and `unrs-resolver`. Both ship prebuilt platform binaries, so their source-build install scripts are denied in `pnpm-workspace.yaml` `allowBuilds`.
 
 `@shopify/react-native-skia` 2.14.0 was selected by `expo install` for SDK 58 (2026-10-20; 2.6.2 for SDK 57 on 2026-10-17) for the watercolor dot (spec 007; approved in `decisions.md`). Its prebuilt libraries come in the `react-native-skia-*` packages. 2.14 has no install script, but pnpm still asks about it, so it is denied in `pnpm-workspace.yaml` `allowBuilds` (2.6.2's postinstall, which copied those libraries, was allowed). It is used on iOS only in v0.1; web loads it solely inside the development lab route. In 2.14 an `SkPath` has no `setFillType`: set an even-odd fill with `Skia.PathBuilder.MakeFromPath(path).setFillType(…).detach()`.
@@ -31,16 +32,26 @@ NativeWind 5.0.0-rc.0 and react-native-css 3.1.0-rc.0 are an intentional prerele
 
 The Expo CLI's dependency resolver owns SDK-specific package versions. Re-run `expo install --check` after dependency changes. `pnpm outdated` is useful for finding candidates, but its `Latest` column is not an Expo compatibility guarantee. pnpm added exact-version entries to `minimumReleaseAgeExclude` for Expo packages selected by the CLI because those releases were newer than pnpm's release-age window at install time.
 
+## Storybook
 
-## GitHub Actions
+Storybook 10.6.1 (`storybook` and `@storybook/react-native-web-vite`, pinned exactly) with Vite 7.3.6: each the newest release at least two weeks old on 2026-10-20, from the npm registry's release dates (`npm view <package> time`, checked 2026-10-20). Storybook 10.6.1 came out 2026-09-29 (10.6.2, 2026-10-12, was too new); Vite 7.3.6 came out 2026-06-25 (7.3.7, 2026-10-06, was too new). Vite 7 is within the framework's supported Vite range (`^5 || ^6 || ^7 || ^8`, its peer dependencies, checked the same day). Both are dev dependencies of `@it/app` only. Telemetry is off in `apps/app/.storybook/main.ts`. Keep `storybook` and its framework package on the same version. After an upgrade, or a NativeWind, react-native-css, Tailwind or Expo update, run `pnpm storybook:review --no-base` and look at the report: styling, fonts and dark mode must still match the app. See `docs/architecture/storybook.md`.
 
-CI (`.github/workflows/ci.yml`) pins each third-party action to a full commit SHA, with the version in a comment. Each is the newest release at least two weeks old on 2026-10-20:
+## Continuous integration
 
-- `actions/checkout` v7.0.1, `3d3c42e5aac5ba805825da76410c181273ba90b1` (released 2026-07-20).
-- `actions/setup-node` v7.0.0, `820762786026740c76f36085b0efc47a31fe5020` (2026-07-14). v7.1.0 (2026-10-08) was too new.
-- `pnpm/action-setup` v6.1.0, `ea17c68df8912ef543352723c149a84f56e3d413` (2026-09-05). It reads pnpm 11.25.0 from `packageManager`. Its TypeScript source at this commit was read on 2026-10-20: it installs pnpm with `npm ci` from a lockfile committed in the action, which carries the package's integrity hash. Our pnpm version matches that lockfile, so the action runs no self-update. The bundled `dist/index.js` that actually runs was not compared with the source.
+`.github/workflows/ci.yml` runs on every pull request and on pushes to `master`, so a commit made with `git commit --no-verify` is still checked. It has two jobs that run in parallel:
 
-CI runs typecheck, lint, the Vitest unit tests and the jest-expo tests (about 8 seconds). It leaves out the Playwright end-to-end tests: they download a browser and start the Expo web server (up to two minutes) on every run, which is slow and the step most likely to fail for reasons unrelated to the code. To update a pin, pick a newer release at least two weeks old, read its changes, resolve the tag to its commit SHA (`gh api repos/<owner>/<repo>/commits/<tag> --jq .sha`), and update both the workflow and this list.
+- `check`: typecheck, lint, the Vitest unit tests and the jest-expo tests (about 8 seconds of test time).
+- `e2e`: the Playwright web tests. It downloads Chromium and starts the Expo web server, so it takes about two minutes and is the job most likely to fail for reasons unrelated to the code. It is a separate job so it does not hold up `check`. On failure it uploads `apps/app/test-results/` (kept 7 days).
+
+The shared install steps (pnpm, Node, `pnpm install`) live in `.github/actions/setup/action.yml`, so each pin and the Node version appear once. Node is pinned to the version in `mise.toml`; update both together.
+
+Cost (checked 2026-10-20 against GitHub's Actions billing docs): GitHub Actions is free for public repositories on standard GitHub-hosted runners, so this workflow costs nothing while `weareit-app/weareit` stays public. Larger runners are billed even on public repositories. If the repository becomes private, the organization's free plan includes 2,000 minutes and 500 MB of artifact storage a month. To keep CI free:
+
+- Use `ubuntu-latest` only. Do not add larger runners. The billing docs do not say whether standard macOS runners are free for public repositories, so check them before adding a macOS job (for example an iOS build).
+- Keep `timeout-minutes` on every job and keep artifacts short-lived.
+- Keep the organization's Actions budget at $0, so usage that would be billed is blocked rather than charged.
+
+Action pins and their review notes: `docs/architecture/ci-actions.md`.
 
 ## Spec and agent tooling
 

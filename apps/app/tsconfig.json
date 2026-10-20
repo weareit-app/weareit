@@ -18,6 +18,9 @@
   "include": [
     "**/*.ts",
     "**/*.tsx",
+    ".storybook/*.ts",
+    ".storybook/*.tsx",
+    "scripts/*.mts",
     ".expo/types/**/*.ts",
     "nativewind-env.d.ts",
     "expo-env.d.ts"

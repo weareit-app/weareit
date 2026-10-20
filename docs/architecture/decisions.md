@@ -53,6 +53,7 @@ Decided 2026-10-16 (founder override of the assessment's weak-evidence gate); co
 - General offline sync is deferred. Pre-signup onboarding still needs local draft persistence and restart recovery on each platform.
 - Product content (domains, pains, dreams, first actions, and their provenance) is database-backed from the start, not maintained as Git-authored runtime content. Build a first-party CMS for editing and publishing this structured content. PostgreSQL is the source of truth; Kysely owns migrations and SQL access, and the app receives validated content through semantic oRPC operations. Git may hold schema, migrations, seed/import tools, and snapshots for review, but must not become a competing source of truth.
 - The CMS starts with a small structured workflow: edit drafts, validate references and required provenance, preview the onboarding experience, and publish a versioned content snapshot. Keep content revisions and publication history so changes can be reviewed and rolled back. Do not build a general page builder or workflow engine for MVP.
+- Prettier formats code only (JavaScript and TypeScript). Docs, research data and vendored skills stay as written. `.prettierignore` is the one definition of what gets formatted, used by `pnpm run format`, CI's `pnpm run lint` and the pre-commit hook (weareit-app/weareit#62, #77).
 
 ## Identity and privacy
 
@@ -127,6 +128,12 @@ Decided 2026-10-19 by the founder (ticket "Pick hosting, email provider and depl
 - **Database:** Neon in `aws-us-east-1`, starting on the Free plan.
 - **Email:** Resend over SMTP behind the `sendEmail` boundary, starting on the Free plan; Postmark is the upgrade if volume or deliverability needs it. Resend keeps email data, including sign-in codes, for 30 days, and the privacy page says so.
 - **Deploys:** master deploys to production only after CI passes; pull requests get previews of the static web build only; no staging; database migrations run before each API deploy; rollback is a redeploy of an earlier deploy.
+- **CI:** GitHub Actions on standard `ubuntu-latest` runners, which are free for public repositories. Two jobs must pass before master deploys: `check` (typecheck, lint, Vitest, jest-expo) and `e2e` (Playwright web tests). Runner costs and action pins: `docs/architecture/dependency-policy.md`.
+
+## Component review
+
+- Storybook (`@storybook/react-native-web-vite`, web only) shows components one at a time for pull-request review, and `pnpm storybook:review` screenshots every story for a branch and its merge base and reports what changed (founder, 2026-10-20). The founder chose Storybook over an in-app gallery route, on condition that it render the app faithfully. Storybook builds with Vite, not Metro; NativeWind 5's Babel preset and Tailwind's PostCSS plugin both run there, and the stories render the app's tokens, fonts and dark mode. If a NativeWind or Expo update breaks that, fix the Storybook config, or move the stories to an in-app gallery route; don't change the app to suit Storybook. Details: `docs/architecture/storybook.md`.
+- Review is local for now: screenshots and a report on the reviewer's machine. Publishing Storybook on pull-request previews waits on the Render preview deploys above (weareit-app/weareit#72).
 
 ## Open implementation decisions
 
@@ -151,3 +158,6 @@ Decided 2026-10-19 by the founder (ticket "Pick hosting, email provider and depl
 - 2026-10-19: added the generated possibility content decisions (honesty in fields, plain but specific copy, verified and traced examples, fix kinds); the generator moved from a Spec Kit extension to `tools/possibilities/` and skills.
 - 2026-10-19: founder chose hosting, email and deploys for launch (Render, Neon Free, Resend Free, master deploys after CI); replaces the SST on AWS lean.
 - 2026-10-19: chose Cloudflare R2 for image storage, behind the asset boundary (over S3 with CloudFront: DNS already on Cloudflare, no download fees).
+- 2026-10-20: founder chose Storybook for component review, with a local screenshot comparison per branch; Storybook links on pull-request previews come later.
+- 2026-10-20: founder chose to run the Playwright web tests in CI as their own job (weareit-app/weareit#63), reversing the choice in #66 to leave them out as slow and prone to failing for reasons unrelated to the code. Deploys from master now also wait for them; if they prove flaky, remove the `e2e` job.
+- 2026-10-20: recorded the code-only Prettier decision (from #62 and #77), which until then lived only in tool config comments.
