@@ -46,6 +46,26 @@ describe("FeatureStatusEditor", () => {
     ).toBeTruthy();
   });
 
+  it("leaves out fixes connected to a roadmap item", async () => {
+    const connected: ContentFix = {
+      ...habit,
+      id: "translated-pages",
+      title: "Pages in your language",
+      kind: "feature",
+      roadmapItemId: "use-it-in-spanish",
+    };
+    await render(
+      <FeatureStatusEditor
+        fixes={[feature, connected]}
+        savedFixes={[feature, connected]}
+        onChange={() => {}}
+      />,
+    );
+
+    expect(screen.getByText(feature.title)).toBeTruthy();
+    expect(screen.queryByText(connected.title)).toBeNull();
+  });
+
   it("edits the status, date and note", async () => {
     const onChange = jest.fn();
     await render(

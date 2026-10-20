@@ -38,13 +38,18 @@ export function FeatureStatusEditor({
   savedFixes: readonly ContentFix[];
   onChange: (fixId: string, patch: StatusFields) => void;
 }) {
-  const features = fixes.filter(({ kind }) => kind === "feature");
+  // A fix connected to a roadmap item takes its status from the Roadmap section.
+  const features = fixes.filter(
+    ({ kind, roadmapItemId }) => kind === "feature" && !roadmapItemId,
+  );
   const { issues } = applyFeatureStatusChanges(savedFixes, features, today());
   return (
     <View className="gap-3 rounded-2xl bg-paper-raised p-5">
       <Text className="font-ui-semibold text-ink">Feature statuses</Text>
       {features.length ? null : (
-        <Text className="text-ink-soft">This draft has no Feature fixes.</Text>
+        <Text className="text-ink-soft">
+          This draft has no Feature fixes outside roadmap items.
+        </Text>
       )}
       {features.map((fix) => {
         const issue = issues.find(

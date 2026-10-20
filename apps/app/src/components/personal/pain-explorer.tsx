@@ -3,6 +3,7 @@ import { CornerLeftDown } from "lucide-react-native";
 import { useMemo, useRef, useState, type ReactNode } from "react";
 import { Pressable, ScrollView, View } from "react-native";
 import { useReducedMotion } from "react-native-reanimated";
+import { resolveFeatureStatuses } from "@it/content/graph-schema";
 import { Text } from "../text";
 import { ClearDraftControl } from "../clear-draft-control";
 import { ContentQueryState } from "../content-query-state";
@@ -96,10 +97,12 @@ export function PainExplorer({
               .filter((dream) => dream !== undefined),
           })),
       }));
+    // A fix connected to a roadmap item shows the item's status.
+    const fixes = resolveFeatureStatuses(content);
     return {
       groups,
-      fixes: new Map(content.fixes.map((fix) => [fix.id, fix])),
-      fixOrder: [...content.fixes]
+      fixes: new Map(fixes.map((fix) => [fix.id, fix])),
+      fixOrder: [...fixes]
         .sort((a, b) => a.sortOrder - b.sortOrder)
         .map(({ id }) => id),
       fixDreamLinks: content.fixDreamLinks,

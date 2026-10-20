@@ -1,17 +1,15 @@
-import { promises as fs } from "node:fs";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import { FileMigrationProvider, Migrator, sql } from "kysely";
+import { sql, type Migrator } from "kysely";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { createDatabase, type ItDatabase } from "../src/database";
+import type { ItDatabase } from "../src/database";
 import {
   initializeContent,
   readDraftContent,
   saveDraftContent,
 } from "../src/content-repository";
+import { createTestDatabase } from "./test-database";
 import { buildTier1ContentGraph } from "../src/tier1-import";
 
-// Runs against a disposable Postgres database, for example:
+// Runs against a disposable Postgres server, for example:
 // docker run --rm -e POSTGRES_PASSWORD=it -p 54346:5432 postgres:17-alpine
 // TEST_DATABASE_URL=postgres://postgres:it@localhost:54346/postgres pnpm test:unit
 const connectionString = process.env.TEST_DATABASE_URL;
@@ -21,18 +19,10 @@ describe.skipIf(!connectionString)("five feature statuses in Postgres", () => {
   let migrator: Migrator;
 
   beforeAll(async () => {
-    db = createDatabase(connectionString!);
-    await sql`drop schema public cascade; create schema public`.execute(db);
-    migrator = new Migrator({
-      db,
-      provider: new FileMigrationProvider({
-        fs,
-        path,
-        migrationFolder: fileURLToPath(
-          new URL("../src/migrations", import.meta.url),
-        ),
-      }),
-    });
+    ({ db, migrator } = await createTestDatabase(
+      connectionString!,
+      "it_test_feature_statuses",
+    ));
     const { error } = await migrator.migrateTo("005_content_fixes");
     if (error) throw error;
   });

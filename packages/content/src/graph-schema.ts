@@ -75,8 +75,25 @@ export const contentFixSchema = z
     // from before five statuses has neither.
     statusChangedOn: calendarDateSchema.optional(),
     statusNote: copySchema.max(500).optional(),
+    // A Feature fix connected to a roadmap item takes the item's status and
+    // has none of its own.
+    roadmapItemId: idSchema.optional(),
     evidence: z.enum(evidenceLevels),
     evidenceNote: copySchema,
+    sortOrder: z.number().int().nonnegative(),
+  })
+  .strict();
+
+// A piece of It's work on the roadmap, for example "Use It in Spanish". The
+// ID stays the same when the title changes.
+export const contentRoadmapItemSchema = z
+  .object({
+    id: idSchema,
+    title: copySchema.max(200),
+    line: copySchema.max(300),
+    status: z.enum(featureStatuses),
+    statusChangedOn: calendarDateSchema.optional(),
+    statusNote: copySchema.max(500).optional(),
     sortOrder: z.number().int().nonnegative(),
   })
   .strict();
@@ -120,6 +137,7 @@ export const contentGraphSchema = z
     fixDreamLinks: z
       .array(z.object({ fixId: idSchema, dreamId: idSchema }).strict())
       .default([]),
+    roadmapItems: z.array(contentRoadmapItemSchema).default([]),
     sources: z.array(contentSourceSchema),
     provenance: z.array(contentProvenanceSchema),
   })
@@ -160,6 +178,10 @@ export const contentGraphSchema = z
       graph.fixDreamLinks.map(({ fixId, dreamId }) => `${fixId}:${dreamId}`),
     );
     uniqueIds(
+      "roadmapItems",
+      graph.roadmapItems.map(({ id }) => id),
+    );
+    uniqueIds(
       "sources",
       graph.sources.map(({ id }) => id),
     );
@@ -187,6 +209,7 @@ export const contentGraphSchema = z
     const actionIds = new Set(graph.firstActions.map(({ id }) => id));
     const fixIds = new Set(graph.fixes.map(({ id }) => id));
     const sourceIds = new Set(graph.sources.map(({ id }) => id));
+    const roadmapItemIds = new Set(graph.roadmapItems.map(({ id }) => id));
 
     graph.pains.forEach((pain, index) => {
       if (!domainIds.has(pain.domainId)) {
@@ -240,6 +263,31 @@ export const contentGraphSchema = z
         });
     });
     graph.fixes.forEach((fix, index) => {
+      if (fix.roadmapItemId !== undefined) {
+        if (fix.kind !== "feature")
+          context.addIssue({
+            code: "custom",
+            path: ["fixes", index, "roadmapItemId"],
+            message: "Only Feature fixes connect to a roadmap item.",
+          });
+        else if (!roadmapItemIds.has(fix.roadmapItemId))
+          context.addIssue({
+            code: "custom",
+            path: ["fixes", index, "roadmapItemId"],
+            message: `Unknown roadmap item ${fix.roadmapItemId}.`,
+          });
+        if (
+          fix.featureStatus !== undefined ||
+          fix.statusChangedOn !== undefined ||
+          fix.statusNote !== undefined
+        )
+          context.addIssue({
+            code: "custom",
+            path: ["fixes", index, "featureStatus"],
+            message: "A connected fix takes its roadmap item's status.",
+          });
+        return;
+      }
       if ((fix.kind === "feature") !== Boolean(fix.featureStatus))
         context.addIssue({
           code: "custom",
@@ -281,30 +329,92 @@ export const contentGraphSchema = z
 
 export type ContentGraph = z.infer<typeof contentGraphSchema>;
 export type ContentFix = z.infer<typeof contentFixSchema>;
+export type ContentRoadmapItem = z.infer<typeof contentRoadmapItemSchema>;
+
+// The fixes as people see them: a connected fix shows its item's status, date
+// and note, so the roadmap and the explorer can't disagree.
+export function resolveFeatureStatuses(
+  graph: Pick<ContentGraph, "fixes" | "roadmapItems">,
+): ContentFix[] {
+  const items = new Map(graph.roadmapItems.map((item) => [item.id, item]));
+  return graph.fixes.map((fix) => {
+    const item = fix.roadmapItemId ? items.get(fix.roadmapItemId) : undefined;
+    if (!item) return fix;
+    return {
+      ...fix,
+      featureStatus: item.status,
+      ...(item.statusChangedOn
+        ? { statusChangedOn: item.statusChangedOn }
+        : {}),
+      ...(item.statusNote ? { statusNote: item.statusNote } : {}),
+    };
+  });
+}
+
+type StatusChangeIssue = { path: string; message: string };
 
 // A saved status change needs a new note saying what changed, and records the
 // date: today, unless the founder set a different date with the change.
+function applyStatusChanges<
+  T extends {
+    id: string;
+    statusChangedOn?: string | undefined;
+    statusNote?: string | undefined;
+  },
+>(
+  previous: readonly T[],
+  next: readonly T[],
+  today: string,
+  statusOf: (record: T) => FeatureStatus | undefined,
+  pathPrefix: string,
+): { records: T[]; issues: StatusChangeIssue[] } {
+  const before = new Map(previous.map((record) => [record.id, record]));
+  const issues: StatusChangeIssue[] = [];
+  const records = next.map((record) => {
+    const old = before.get(record.id);
+    const status = statusOf(record);
+    if (!status || (old && statusOf(old) === status)) return record;
+    if (!record.statusNote?.trim() || record.statusNote === old?.statusNote) {
+      issues.push({
+        path: `${pathPrefix}.${record.id}.statusNote`,
+        message: "Add a note saying what changed before changing the status.",
+      });
+      return record;
+    }
+    return record.statusChangedOn &&
+      record.statusChangedOn !== old?.statusChangedOn
+      ? record
+      : { ...record, statusChangedOn: today };
+  });
+  return { records, issues };
+}
+
 export function applyFeatureStatusChanges(
   previous: readonly ContentFix[],
   next: readonly ContentFix[],
   today: string,
-): { fixes: ContentFix[]; issues: { path: string; message: string }[] } {
-  const before = new Map(previous.map((fix) => [fix.id, fix]));
-  const issues: { path: string; message: string }[] = [];
-  const fixes = next.map((fix) => {
-    const old = before.get(fix.id);
-    if (!fix.featureStatus || old?.featureStatus === fix.featureStatus)
-      return fix;
-    if (!fix.statusNote?.trim() || fix.statusNote === old?.statusNote) {
-      issues.push({
-        path: `fix.${fix.id}.statusNote`,
-        message: "Add a note saying what changed before changing the status.",
-      });
-      return fix;
-    }
-    return fix.statusChangedOn && fix.statusChangedOn !== old?.statusChangedOn
-      ? fix
-      : { ...fix, statusChangedOn: today };
-  });
-  return { fixes, issues };
+): { fixes: ContentFix[]; issues: StatusChangeIssue[] } {
+  const { records, issues } = applyStatusChanges(
+    previous,
+    next,
+    today,
+    (fix) => fix.featureStatus,
+    "fix",
+  );
+  return { fixes: records, issues };
+}
+
+export function applyRoadmapItemStatusChanges(
+  previous: readonly ContentRoadmapItem[],
+  next: readonly ContentRoadmapItem[],
+  today: string,
+): { items: ContentRoadmapItem[]; issues: StatusChangeIssue[] } {
+  const { records, issues } = applyStatusChanges(
+    previous,
+    next,
+    today,
+    (item) => item.status,
+    "roadmap_item",
+  );
+  return { items: records, issues };
 }

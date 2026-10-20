@@ -15,6 +15,10 @@ import {
   FeatureStatusEditor,
   refuseStatusChangesWithoutNotes,
 } from "../../src/components/cms/feature-status-editor";
+import {
+  RoadmapEditor,
+  refuseRoadmapStatusChangesWithoutNotes,
+} from "../../src/components/cms/roadmap-editor";
 import { publishedContentQueryKey } from "../../src/content/use-published-content";
 
 type Kind = "domains" | "pains" | "dreams" | "firstActions";
@@ -79,7 +83,12 @@ export default function CmsScreen() {
         draftQuery.data.content.fixes,
         graph.fixes,
       );
-      if (refusal) throw new Error(refusal);
+      const itemRefusal = refuseRoadmapStatusChangesWithoutNotes(
+        draftQuery.data.content.roadmapItems,
+        graph.roadmapItems,
+      );
+      if (refusal || itemRefusal)
+        throw new Error([refusal, itemRefusal].filter(Boolean).join(" "));
       return apiClient.cms.saveDraft({
         expectedRevision: draftQuery.data.revision,
         changeNote,
@@ -718,6 +727,13 @@ export default function CmsScreen() {
           </>
         ) : null}
       </View>
+      <RoadmapEditor
+        content={graph}
+        savedItems={draftQuery.data.content.roadmapItems}
+        onChange={({ roadmapItems, fixes }) =>
+          setGraph({ ...graph, roadmapItems, fixes })
+        }
+      />
       <FeatureStatusEditor
         fixes={graph.fixes}
         savedFixes={draftQuery.data.content.fixes}
