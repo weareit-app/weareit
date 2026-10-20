@@ -1,7 +1,7 @@
 import type { Essay } from "@it/content/essay-schema";
 import { essays } from "@it/content/essays";
 import { Unmatched, useLocalSearchParams } from "expo-router";
-import { siteGroups } from "../navigation/site-links";
+import { siteBottomLine, siteGroups } from "../navigation/site-links";
 import { EssayPage } from "./essay-page";
 
 const published: Partial<Record<string, Essay>> = essays;
@@ -14,8 +14,12 @@ const drafts: Partial<Record<string, Essay>> = __DEV__
 
 /** An essay is reachable only when it is published and in the link list. */
 export function isEssayLive(slug: string) {
-  const listed = siteGroups.some((group) =>
-    group.links.some((link) => link.href === `/${slug}` && link.published),
+  const links = [
+    ...siteGroups.flatMap((group) => group.links),
+    ...siteBottomLine,
+  ];
+  const listed = links.some(
+    (link) => link.href === `/${slug}` && link.published,
   );
   return Boolean(published[slug] && listed);
 }

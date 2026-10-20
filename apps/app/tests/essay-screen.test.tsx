@@ -33,6 +33,14 @@ jest.mock("../src/navigation/site-links", () => ({
       ],
     },
   ],
+  siteBottomLine: [
+    {
+      label: "Licensing",
+      href: "/licensing",
+      when: "always",
+      published: true,
+    },
+  ],
 }));
 jest.mock("../src/watercolor/brand-mark", () => ({ BrandMark: () => null }));
 jest.mock("react-native-reanimated", () => ({ useReducedMotion: () => false }));
@@ -174,6 +182,20 @@ describe("essay screen", () => {
   it("shows not-found for a published essay that isn't listed", async () => {
     mockEssays.ai = { ...essay, slug: "ai" };
     await render(<EssayScreen slug="ai" />);
+
+    expect(screen.getByText("This screen doesn't exist.")).toBeTruthy();
+  });
+
+  it("shows a published essay listed in the footer's bottom line", async () => {
+    mockEssays.licensing = { ...essay, slug: "licensing", title: "Licensing" };
+    await render(<EssayScreen slug="licensing" />);
+
+    expect(screen.getByRole("header", { name: "Licensing" })).toBeTruthy();
+  });
+
+  it("shows not-found for an unpublished bottom-line essay", async () => {
+    mockDrafts.licensing = { ...essay, slug: "licensing", published: false };
+    await render(<EssayScreen slug="licensing" />);
 
     expect(screen.getByText("This screen doesn't exist.")).toBeTruthy();
   });

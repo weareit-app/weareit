@@ -66,7 +66,7 @@ export const siteGroups: SiteGroup[] = [
 export const siteBottomLine: SiteLink[] = [
   page("Privacy", "/privacy"),
   page("FAQ", "/faq"),
-  page("Licensing", "/licensing"),
+  page("Licensing", "/licensing", essayPublished.licensing),
   page(CONTACT_EMAIL, `mailto:${CONTACT_EMAIL}`, true),
 ];
 
