@@ -135,6 +135,17 @@ The review page SHALL show one proposal at a time: its kind, the current value n
 - **WHEN** the founder filters by group Money and kind "reword"
 - **THEN** only those proposals are shown, with how many are left
 
+### Requirement: Wording before structure
+A review SHALL come in two steps for the same runs. The wording set SHALL hold new pains, rewordings and drift proposals. The structure set SHALL hold overlap actions (merge, split, keep, other-page) and group moves. It SHALL be built only after the wording set's decisions are ingested, and it SHALL show each pain's wording as the catalog holds it then, including the founder's own wording. A proposal marked "later", or left undecided, SHALL return in the next set of the same step.
+
+#### Scenario: Keep both after a reword
+- **WHEN** the founder rewrites Support as "No support" in the wording set and it is ingested
+- **THEN** the structure set's "keep both" card for `no-one-to-lean-on` shows "No support"
+
+#### Scenario: Structure built too early
+- **WHEN** a structure set is asked for runs whose wording set isn't ingested yet
+- **THEN** the build refuses and names the wording set to ingest first
+
 ### Requirement: Ingesting decisions
 Ingest SHALL apply only accepted decisions (an accepted proposal, an alternative or the founder's own wording). Each change SHALL be added to the pain's history with the date, the founder's note, what prompted it (source, lint rule or card sort) and the previous value. Rejected proposals SHALL be remembered. "Later" SHALL change nothing and return in the next review.
 
