@@ -15,14 +15,19 @@ const fullDate = new Intl.DateTimeFormat("en-US", {
   timeZone: "UTC",
 });
 
-/** "2026" → "2026", "2026-10" → "October 2026", "2026-10-26" → "October 26, 2026". */
+/**
+ * "2026" → "2026", "2026-10" → "October 2026", "2026-10-26" → "October 26,
+ * 2026". A month or day that doesn't exist is shown as written: the essay
+ * build rejects it, and the page mustn't fail or shift it to another date.
+ */
 function formatTimelineDate(date: string) {
-  const parts = date.split("-");
-  if (parts.length === 1) return date;
-  const format = parts.length === 2 ? monthYear : fullDate;
-  return format.format(
-    new Date(`${parts.length === 2 ? `${date}-01` : date}T00:00:00Z`),
-  );
+  const [year, month, day] = date.split("-").map(Number);
+  if (month === undefined) return date;
+  const value = new Date(Date.UTC(year!, month - 1, day ?? 1));
+  const exists =
+    value.getUTCMonth() === month - 1 && value.getUTCDate() === (day ?? 1);
+  if (!exists) return date;
+  return (day === undefined ? monthYear : fullDate).format(value);
 }
 
 export function TimelineBlock({ block }: BlockProps<"timeline">) {

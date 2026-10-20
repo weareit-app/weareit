@@ -84,6 +84,14 @@ const essay: Essay = {
       head: [[{ type: "text", value: "City" }]],
       rows: [[[{ type: "text", value: "Seattle" }]]],
     },
+    {
+      type: "block",
+      block: {
+        type: "timeline",
+        id: "milestones",
+        data: { entries: [{ date: "2026-10", title: "First spec" }] },
+      },
+    },
   ],
 };
 
@@ -126,6 +134,12 @@ describe("essay page", () => {
     expect(
       screen.getByText("We Are It, on GitHub, 2026-10", { exact: false }),
     ).toBeTruthy();
+  });
+
+  it("shows each block's plain fallback outside the web, where blocks render HTML", async () => {
+    await render(<EssayPage essay={essay} />);
+
+    expect(screen.getByText("This timeline can't be shown yet.")).toBeTruthy();
   });
 
   it("lists the changes newest first, with dates", async () => {

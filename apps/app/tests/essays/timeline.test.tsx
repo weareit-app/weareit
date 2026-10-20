@@ -43,3 +43,27 @@ describe("TimelineBlock", () => {
     expect(html).toContain('<time dateTime="2026-10"');
   });
 });
+
+describe("TimelineBlock with a date that doesn't exist", () => {
+  // The essay build rejects these; the page still mustn't fail if one slips
+  // through.
+  it("shows the date as written instead of failing or shifting it", () => {
+    const html = renderToStaticMarkup(
+      <TimelineBlock
+        block={{
+          type: "timeline",
+          id: "odd",
+          data: {
+            entries: [
+              { date: "2026-13", title: "No such month" },
+              { date: "2026-02-30", title: "No such day" },
+            ],
+          },
+        }}
+        sources={[]}
+      />,
+    );
+    expect(html).toMatch(/<time dateTime="2026-13"[^>]*>2026-13<\/time>/);
+    expect(html).toMatch(/<time dateTime="2026-02-30"[^>]*>2026-02-30<\/time>/);
+  });
+});
