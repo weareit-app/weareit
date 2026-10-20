@@ -6,7 +6,7 @@ Use a resource means contacting a service that already exists for people like th
 
 ## Method
 
-Many people never use help they qualify for, mostly because they don't know it exists or it looks hard to claim. In an IRS field experiment, a mailing, a simpler form, and showing the size of the benefit all raised claims (Bhargava and Manoli). So a good Use a resource fix makes the service easy to find and easy to start: who runs it, whether the reader qualifies, how to reach it, and what to have ready. These are the fields.
+Many people never claim help they qualify for. In a field experiment with the Internal Revenue Service, a mailing, a simpler form, and showing the size of the benefit all raised claims (Bhargava and Manoli), which suggests that not knowing and complexity are part of the reason. So a good Use a resource fix makes the service easy to find and easy to start: who runs it, whether the reader qualifies, how to reach it, and what to have ready. These are the fields.
 
 For each accepted dream with a Use a resource ceiling above zero, list the services in the run's examples that move a person toward it. Prefer services that are free, widely available, or that most people don't know they qualify for. Keep only the strongest, up to the ceiling. For sensitive pains, include real crisis and care resources, as the README requires.
 
@@ -17,7 +17,7 @@ Fill these in `method` before writing any copy:
 | Field | What it holds |
 | --- | --- |
 | `provider` | Who runs it ("your county's housing authority", "a local nonprofit through 211") |
-| `eligibility` | Who qualifies ("renters with a court date", "anyone, free") |
+| `eligibility` | Who qualifies ("renters with a court date", "anyone") |
 | `access` | How to reach it: a phone number, a text line, a website, or a place, as the cited example gives it |
 | `bring` | What to have ready (a lease, a pay stub, an ID), or "nothing" |
 
@@ -32,7 +32,7 @@ Every name, number, and place in these fields and in the copy must appear in the
 | it's joining an ongoing group of peers rather than using a service | a Group |
 | it's something It would build | a Feature |
 
-Kind and status stay separate. A Use a resource fix has status `existing_resource`, or `real_now` when the service is something anyone can use today without qualifying. Validation fails any other status.
+Kind and status stay separate. A Use a resource fix usually has status `existing_resource`, because the service already exists. `real_now` is also allowed, for a step the reader can take today without contacting anyone, such as using a library's free online courses. Validation fails any other status.
 
 ## Examples
 

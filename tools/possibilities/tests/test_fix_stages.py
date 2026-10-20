@@ -1,4 +1,5 @@
 """Staged runs after dream review: the kind plan, the Task pool, the screen, and the assembler's links (tracer, #90)."""
+import copy
 import json
 import unittest
 
@@ -17,7 +18,7 @@ def plan_doc(task=2, kinds=None):
     """A Task ceiling for each accepted dream, and a ceiling of 0 for every other kind with a brief."""
     kinds = kinds if kinds is not None else cards.KIND_BRIEFS
     row = {kind: {'max': task if kind == 'task' else 0, 'reason': 'One-time changes fit this dream.'} for kind in kinds}
-    return {'schemaVersion': 2, 'painId': 'burnout', 'ceilings': {key: json.loads(json.dumps(row)) for key in DREAMS[:5]}}
+    return {'schemaVersion': 2, 'painId': 'burnout', 'ceilings': {key: copy.deepcopy(row) for key in DREAMS[:5]}}
 
 
 def task_fix(dream, n):

@@ -8,7 +8,7 @@ A Switch fix replaces something with a better version of the same thing: a bank 
 
 ## Method
 
-Hirschman's exit, with somewhere to go. A good Switch says what to switch to, why it's better for this dream, and what the move costs, such as fees, time, or features lost. Switching usually takes a few steps, so the `firstStep` is the first one that takes 20 minutes or less, such as comparing two options or opening the new account.
+A Switch is Hirschman's exit with somewhere to go. A good Switch says what to switch to, why it's better for this dream, and what the move costs, such as fees, time, or features lost. Switching usually takes a few steps, so the `firstStep` is the first one that takes 20 minutes or less, such as comparing two options or opening the new account.
 
 For each accepted dream with a Switch ceiling above zero, list what a person uses that has a better version, by the examples in the run. Keep only the strongest, up to the ceiling.
 

@@ -184,7 +184,8 @@ def dream_review_ingested(run):
 
 
 def is_pilot(run):
-    return (run / 'run.json').is_file() and read(run / 'run.json').get('pilot') is True
+    meta = run / 'run.json'
+    return meta.is_file() and read(meta).get('pilot') is True
 
 
 def run_kinds(run):
@@ -244,7 +245,7 @@ METHOD_FIELDS = {
              'doneWhen': str,     # what is true once it's done
              'keepsWorking': bool,  # a one-time change that keeps working afterward
              'lever': ('default', 'remove-hassle', 'simplify', 'timing', 'other')},  # EAST: how it makes the change easy
-    'ask': {'decisionMaker': str,  # a role with the power to say yes (Midwest Academy: a person, not an institution)
+    'ask': {'decisionMaker': str,  # who can say yes, as a role a reader can find (Midwest Academy: a target, never a vague institution)
             'request': str},       # the one specific request they can say yes or no to
     'resource': {'provider': str,     # who runs it
                  'eligibility': str,  # who qualifies
@@ -307,7 +308,8 @@ def start(run, stage):
         result['kinds'] = list(run_kinds(run))  # the kinds the planner sets ceilings for
     elif stage == 'kind-pools':
         # One brief per kind with a ceiling above zero that has no pool yet, each run after the shared kind brief.
-        result['kinds'] = {kind: run_kinds(run)[kind] for kind in planned_kinds(run) if kind not in drafted_pools(run)}
+        kinds = run_kinds(run)
+        result['kinds'] = {kind: kinds[kind] for kind in planned_kinds(run) if kind not in drafted_pools(run)}
     return result
 
 
@@ -553,7 +555,8 @@ def is_count(value):
     return isinstance(value, int) and not isinstance(value, bool) and value >= 0
 
 
-def briefed_kinds(kind, kinds):
+def refused_kind(kind, kinds):
+    """Why a kind is refused in this run: a trial kind outside a pilot run, or a kind with no brief."""
     if kind in TRIAL_KIND_BRIEFS and kind not in kinds:
         return '%s is a trial kind, accepted only in a pilot run ("pilot": true in run.json)' % kind
     return 'kinds with a brief are ' + ', '.join(kinds)
@@ -587,7 +590,7 @@ def validate_plan(doc, accepted, issues, pain=None, kinds=KIND_BRIEFS):
         for kind, ceiling in sorted(row.items()):
             where = 'plan %s %s' % (key, kind)
             if kind not in kinds:
-                issues.append(where + ': ' + briefed_kinds(kind, kinds))
+                issues.append(where + ': ' + refused_kind(kind, kinds))
                 continue
             ceiling = ceiling if isinstance(ceiling, dict) else {}
             limit = ceiling.get('max')
@@ -627,7 +630,7 @@ def validate_fixes(doc, exemplars, ceilings, accepted, issues, pain=None, kinds=
         for field in ('title', 'whatChanges', 'firstStep'):
             require(isinstance(f.get(field), str) and f[field].strip(), where + ': missing ' + field, issues)
         kind = f.get('kind')
-        require(kind in kinds, where + ': ' + briefed_kinds(kind, kinds), issues)
+        require(kind in kinds, where + ': ' + refused_kind(kind, kinds), issues)
         require(f.get('origin') == 'kind:%s' % kind, where + ': origin must be kind:<its kind>', issues)
         require(kind in pools, where + ': no %s pool records this fix' % kind, issues)
         require(f.get('draftedFor') in accepted, where + ': draftedFor must be an accepted dream', issues)
@@ -648,7 +651,7 @@ def validate_fixes(doc, exemplars, ceilings, accepted, issues, pain=None, kinds=
             require(prov.get(field), where + ': provenance lacks ' + field, issues)
     for kind, pool in sorted(pools.items()):
         if kind not in kinds:
-            issues.append('pool %s: %s' % (kind, briefed_kinds(kind, kinds)))
+            issues.append('pool %s: %s' % (kind, refused_kind(kind, kinds)))
             continue
         shortfalls = pool.get('shortfalls', {}) if isinstance(pool, dict) else None
         if not isinstance(shortfalls, dict):

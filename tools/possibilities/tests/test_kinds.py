@@ -49,9 +49,9 @@ def with_kinds(*kinds):
     return change
 
 
-def ceilings(*kinds, pilot=False):
-    """plan_doc, with a ceiling of 1 on burnout-d00 for each kind named."""
-    plan = plan_doc(kinds=list(cards.KIND_BRIEFS) + (list(TRIALS) if pilot else []))
+def ceilings(*kinds, trials=False):
+    """plan_doc, with a ceiling of 1 on burnout-d00 for each kind named; trials adds rows for the trial kinds."""
+    plan = plan_doc(kinds=list(cards.KIND_BRIEFS) + (list(TRIALS) if trials else []))
     for kind in kinds:
         plan['ceilings']['burnout-d00'][kind] = {'max': 1, 'reason': 'One clear fix fits.'}
     return plan
@@ -64,7 +64,7 @@ class Kinds(FixStages):
         cards.write(self.run_dir / 'run.json', meta)
 
     def pool(self, *kinds, change=None, pilot=False):
-        self.write('plan.json', ceilings(*kinds, pilot=pilot))
+        self.write('plan.json', ceilings(*kinds, trials=pilot))
         doc = fixes_doc()
         with_kinds(*kinds)(doc)
         self.write('fixes.json', doc, change)
@@ -112,7 +112,7 @@ class TrialKinds(Kinds):
         self.assertIn('pool switch: switch is a trial kind, accepted only in a pilot run', found)
 
     def test_plan_outside_a_pilot_run_cannot_set_a_trial_ceiling(self):
-        self.write('plan.json', ceilings('leave', pilot=True))
+        self.write('plan.json', ceilings('leave', trials=True))
         self.assertIn('plan burnout-d00 leave: leave is a trial kind, accepted only in a pilot run', self.issues())
 
     def test_pilot_run_accepts_leave_and_switch(self):
@@ -141,7 +141,7 @@ class TrialKinds(Kinds):
         self.assertEqual(start('plan')['kinds'], list(cards.KIND_BRIEFS))
         self.pilot()
         self.assertEqual(start('plan')['kinds'], list(cards.KIND_BRIEFS) + list(TRIALS))
-        self.write('plan.json', ceilings('switch', pilot=True))
+        self.write('plan.json', ceilings('switch', trials=True))
         self.assertEqual(start('kind-pools')['kinds'], {'task': cards.KIND_BRIEFS['task'], 'switch': cards.TRIAL_KIND_BRIEFS['switch']})
 
 
