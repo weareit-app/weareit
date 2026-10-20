@@ -9,7 +9,7 @@ Signup is optional today, so most of what people pick never reaches It, and the 
 What people see and do, in order:
 
 - **Personal and societal pages**: unchanged for browsing. When signed out, a small "Sign in" link sits at the top. "Continue" on the societal page now goes to the signup gate instead of the futures screen.
-- **Signup gate** (new, replaces the optional save screen): one email field and "Continue". It lists exactly what will be saved (picked dreams with their pain, selected fixes, the opt-in choice, the language; plus this visit's pages, pains opened and steps once measurement is switched on), shows an unticked opt-in "Send me occasional updates about what It is building." (placeholder copy), and the line "By signing up you agree to…" linking to the privacy page. There is no "Not now". On web, the browser may offer a saved passkey on the email field.
+- **Signup gate** (new, replaces the optional save screen): one email field and "Continue". It lists exactly what will be saved (picked dreams with their pain, selected fixes, the opt-in choice, the language; plus this visit's pages, pains opened and steps once measurement is switched on), shows an unticked opt-in "Send me occasional updates about what It is building." (placeholder copy), and the line "By continuing, you acknowledge We Are It's Privacy Policy" linking to the privacy page. There is no "Not now". On web, the browser may offer a saved passkey on the email field.
 - **Code screen**: says a code was sent (same wording whether or not an account exists), takes the eight-digit code, and has a small "Use a password" link for people who set one. Too many requests show "Try again in a few minutes".
 - **Name step** (new, required): asks for a name; skipped by returning accounts that already have one. One line offers "Want a faster way back? Add a passkey or password", linking to the account screen.
 - **Support**: reached next, as today's Support page. Then a simple "You're all set" screen. (Help build It will slot in here in a later change.)
@@ -47,6 +47,23 @@ Must leave room for (features.md Stages): personal story of chosen futures (pick
 
 - Reconciled with the measurement rule: picks and selected fixes never leave the device before signup; disclosed measurement is the only exception; sending and linking belong to `visit-measurement`.
 - Spanish is core for v0.1: signup also saves the person's language, and the opt-in wording is versioned per language.
+
+## Launch scope (2026-10-19)
+
+The founder decided which parts ship in the Oct 26 web launch ([#10](https://github.com/weareit-app/weareit/issues/10)).
+
+**Ships at launch:**
+- The gate after the societal page, with no "Not now", the "Sign in" link, and the futures and ways-to-help screens retired.
+- Email code as the only sign-in, sent through `sendEmail` on Resend. The code screen has no "Use a password" link.
+- The required name step, without the "Want a faster way back?" line. The name can't be edited until the account screen ships.
+- Picks saved per item and combined at signup. The device copy is cleared after a confirmed save, "clear choices" shows only before signup, and signing out clears cached account data.
+- Signed-in pages read picks from the account and save each change automatically.
+- The unticked opt-in, recorded with its wording version and time. No language is stored, since Spanish is cut from launch.
+- The terms line, worded exactly: "By continuing, you acknowledge We Are It's Privacy Policy", with "Privacy Policy" linking to `/privacy`.
+- Limits on code requests, one per IP address and one of 5 per email per hour, both showing "Try again in a few minutes."
+- The `gate-reached` and `signed-up` events.
+
+**Waits until after launch:** password sign-in (with the HaveIBeenPwned check), web passkeys, the account screen, and storing the person's language. When signed in, the menu shows the email and "Sign out" only. Tasks for these are marked *(after launch)* in `tasks.md`.
 
 ## Open questions
 
