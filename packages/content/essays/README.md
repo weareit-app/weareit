@@ -126,10 +126,16 @@ and a [page link](/roadmap), across two lines.
 
 A sourced claim[^plan] and a label :status[working hypothesis]. Maths: $E = mc^2$.
 
+A line that ends with a hard break\
+and carries on.
+
 ### Lists
 
 - One
 - Two, with _emphasis_
+  - Nested under two
+
+#### Numbered
 
 1. First
 2. Second
@@ -159,7 +165,9 @@ Nested text.
 :::
 ```
 
-A chart's data file, `incidents.json`:
+The block data files beside it, one for each block type (the expandable section has none):
+
+`incidents.json` (chart):
 
 ```json
 {
@@ -178,7 +186,22 @@ A chart's data file, `incidents.json`:
 }
 ```
 
-An evidence card's data file, `claim.yaml`:
+`flow.yaml` (diagram):
+
+```yaml
+mermaid: |
+  graph LR
+    Pain --> Future
+description: A pain leads to a future.
+```
+
+`formula.yaml` (maths):
+
+```yaml
+tex: E = mc^2
+```
+
+`claim.yaml` (evidence card):
 
 ```yaml
 claim: The plan is public.
@@ -188,4 +211,29 @@ status: established result
 limitation: It is a plan, not a result.
 ```
 
-The other data files are in the fixture folder.
+`milestones.yaml` (timeline):
+
+```yaml
+entries:
+  - date: "2026-10"
+    title: First spec
+```
+
+`board.yaml` (status board):
+
+```yaml
+items:
+  - label: Essays
+    status: planned engineering
+```
+
+`cities.yaml` (table):
+
+```yaml
+caption: Start times
+columns:
+  - key: city
+    label: City
+rows:
+  - city: Seattle
+```

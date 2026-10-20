@@ -23,10 +23,16 @@ and a [page link](/roadmap), across two lines.
 
 A sourced claim[^plan] and a label :status[working hypothesis]. Maths: $E = mc^2$.
 
+A line that ends with a hard break\
+and carries on.
+
 ### Lists
 
 - One
 - Two, with _emphasis_
+  - Nested under two
+
+#### Numbered
 
 1. First
 2. Second

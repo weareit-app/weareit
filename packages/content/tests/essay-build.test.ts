@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { parse as parseYaml } from "yaml";
 import { describe, expect, it } from "vitest";
@@ -123,6 +123,10 @@ describe("essay parser", () => {
           t("."),
         ],
       },
+      {
+        type: "paragraph",
+        children: [t("A line that ends with a hard break and carries on.")],
+      },
       { type: "heading", level: 3, children: [t("Lists")] },
       {
         type: "list",
@@ -137,9 +141,17 @@ describe("essay parser", () => {
                 { type: "emphasis", children: [t("emphasis")] },
               ],
             },
+            {
+              type: "list",
+              ordered: false,
+              items: [
+                [{ type: "paragraph", children: [t("Nested under two")] }],
+              ],
+            },
           ],
         ],
       },
+      { type: "heading", level: 4, children: [t("Numbered")] },
       {
         type: "list",
         ordered: true,
@@ -265,13 +277,18 @@ describe("essay format README", () => {
     expect(fenced("markdown")).toContain(fixtureFile("essay.md"));
   });
 
-  it("shows data files that match the example's", () => {
-    expect(JSON.parse(fenced("json")[0]!)).toEqual(
-      JSON.parse(fixtureFile("incidents.json")),
+  it("shows every data file of the example, matching the fixture", () => {
+    const shown = [
+      ...readme.matchAll(
+        /`([\w-]+\.(?:json|yaml))` \([^)]*\):\n\n```(?:json|yaml)\n([\s\S]*?)```/g,
+      ),
+    ];
+    const dataFiles = readdirSync(fixture("every-node")).filter(
+      (name) => name !== "essay.md",
     );
-    expect(parseYaml(fenced("yaml").at(-1)!)).toEqual(
-      parseYaml(fixtureFile("claim.yaml")),
-    );
+    expect(shown.map((match) => match[1]).sort()).toEqual(dataFiles.sort());
+    for (const [, name, body] of shown)
+      expect(parseYaml(body!)).toEqual(parseYaml(fixtureFile(name!)));
   });
 });
 

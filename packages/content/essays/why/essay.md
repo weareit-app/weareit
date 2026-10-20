@@ -19,7 +19,7 @@ This page is a placeholder. The founder is writing the essay that goes here, abo
 
 ## What this page will cover
 
-The plan for this page is public, along with the other essays and the roadmap[^public-pages-plan]. It will cover:
+The plan for this page is public, along with the other essays and the roadmap[^public-pages-plan]. The essay will cover:
 
 - the question: why build It at all, when there are already apps for habits, causes and self-help
 - what the founder noticed: people can usually name what hurts, but rarely see the different futures that could follow

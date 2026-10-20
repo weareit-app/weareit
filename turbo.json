@@ -6,7 +6,8 @@
         "essays/**",
         "essay-build/**",
         "scripts/build-essays.ts",
-        "src/essay-schema.ts"
+        "src/essay-schema.ts",
+        "src/essays/**"
       ],
       "outputs": ["src/essays.generated.ts", "src/essay-drafts.generated.ts"]
     },

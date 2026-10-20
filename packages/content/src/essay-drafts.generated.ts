@@ -49,7 +49,7 @@ export const draftEssays: Partial<Record<string, Essay>> = {
               "The plan for this page is public, along with the other essays and the roadmap",
           },
           { type: "sourceRef", id: "public-pages-plan" },
-          { type: "text", value: ". It will cover:" },
+          { type: "text", value: ". The essay will cover:" },
         ],
       },
       {
