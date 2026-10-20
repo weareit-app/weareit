@@ -26,7 +26,8 @@ If the compared ref has no Storybook yet, every story is listed as new.
 ## Writing stories
 
 - A story file sits next to its component: `choice-card.tsx` → `choice-card.stories.tsx`.
-- A component that renders UI gets stories covering its visible states. Add or update them in the same change as the component. Not covered yet: `PainExplorer`, which fetches published content itself, and `StatusBarBackdrop`, which only matters on iOS.
+- A component that renders UI gets stories covering its visible states. Add or update them in the same change as the component. A platform variant (`foo.web.tsx`) shares the story of its base name.
+- CI's `check` job runs `node tools/story-coverage/check-story-coverage.mjs`, which fails when a `.tsx` file in `apps/app/src/components/` (any depth) or directly in `apps/app/src/watercolor/` has no story beside it. Components without stories yet, such as `PainExplorer` (fetches published content itself) and `StatusBarBackdrop` (draws only on iOS), are in the script's `ALLOWLIST`, each with a reason. The check also fails when an entry gets a story or its component is removed, so the list stays current.
 - Use real copy from `@it/content` through `apps/app/src/stories/content.ts`, so stories show what people will read.
 - Pass data as props. Stories don't call the API; the decorator's TanStack Query client never fetches.
 - Light and dark come from the toolbar's Theme control, applied as the app's theme switch applies it on web. Stories get 24px padding unless they set `parameters: { padded: false }` (whole pages bring their own).

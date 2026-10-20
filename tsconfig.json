@@ -9,5 +9,10 @@
     "allowJs": true,
     "types": ["node"]
   },
-  "include": ["*.mts", "tools/action-pins/**/*", "tools/typecheck-coverage/**/*"]
+  "include": [
+    "*.mts",
+    "tools/action-pins/**/*",
+    "tools/typecheck-coverage/**/*",
+    "tools/story-coverage/**/*"
+  ]
 }

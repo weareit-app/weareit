@@ -16,16 +16,16 @@ test-results/
 ios/
 android/
 
+# Python bytecode (tools/)
+__pycache__/
+*.pyc
+
 # Skia web runtime for the dev-only watercolor lab (copied by `pnpm --filter @it/app skia:web`)
 apps/app/public/canvaskit.wasm
 
 # Storybook builds and the component review report (pnpm storybook:review)
 apps/app/storybook-static/
 apps/app/storybook-review/
-
-# Python bytecode (tools/)
-__pycache__/
-*.pyc
 
 # Pain catalog: derived run files are rebuilt from inputs, never committed (pain-catalog design decision 12)
 docs/research/pains/sweeps/**/check.json
