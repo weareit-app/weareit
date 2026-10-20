@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "issues": [],
+  "moves": [
+    {
+      "painId": "learning",
+      "from": "purpose",
+      "to": "mind",
+      "sorts": [
+        "purpose",
+        "mind",
+        "mind"
+      ]
+    },
+    {
+      "painId": "lost-myself",
+      "from": "purpose",
+      "to": "mind",
+      "sorts": [
+        "purpose",
+        "mind",
+        "mind"
+      ]
+    },
+    {
+      "painId": "need-skills",
+      "from": "purpose",
+      "to": "work",
+      "sorts": [
+        "work",
+        "work",
+        "work"
+      ]
+    },
+    {
+      "painId": "procrastination",
+      "from": "purpose",
+      "to": "time",
+      "sorts": [
+        "time",
+        "time",
+        "time"
+      ]
+    }
+  ],
+  "disagreements": [
+    {
+      "painId": "learning",
+      "current": "purpose",
+      "sorts": [
+        "purpose",
+        "mind",
+        "mind"
+      ]
+    },
+    {
+      "painId": "lost-myself",
+      "current": "purpose",
+      "sorts": [
+        "purpose",
+        "mind",
+        "mind"
+      ]
+    },
+    {
+      "painId": "need-skills",
+      "current": "purpose",
+      "sorts": [
+        "work",
+        "work",
+        "work"
+      ]
+    },
+    {
+      "painId": "procrastination",
+      "current": "purpose",
+      "sorts": [
+        "time",
+        "time",
+        "time"
+      ]
+    }
+  ],
+  "checkedAt": "2026-10-19"
+}

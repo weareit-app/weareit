@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "entries": {
+    "harvard-on-edge/lacked-meaning": {
+      "candidate": "meaning-in-life"
+    },
+    "harvard-on-edge/not-knowing-what-to-do": {
+      "candidate": "dont-know-what-i-want"
+    },
+    "harvard-on-edge/not-mattering": {
+      "broader": "belonging",
+      "why": "Not mattering to others sits close to Belonging: \"I don't feel like I belong anywhere.\""
+    },
+    "ons-wellbeing/low-worthwhile": {
+      "candidate": "meaning-in-life"
+    },
+    "nces-piaac-2023/low-literacy": {
+      "candidate": "reading"
+    },
+    "nces-piaac-2023/low-numeracy": {
+      "candidate": "everyday-math"
+    },
+    "nces-piaac-2023/low-problem-solving": {
+      "broader": "need-skills",
+      "why": "Problem solving in unfamiliar tasks is a skill gap; Skills covers it loosely."
+    },
+    "air-digital-literacy/not-digitally-literate": {
+      "candidate": "computers"
+    },
+    "census-language/english-less-than-very-well": {
+      "candidate": "english"
+    },
+    "census-education/no-high-school-diploma": {
+      "candidate": "diploma"
+    },
+    "esde-2024-adult-learning/schedules": {
+      "candidate": "no-time-to-learn"
+    },
+    "esde-2024-adult-learning/family-reasons": {
+      "candidate": "no-time-to-learn"
+    },
+    "esde-2024-adult-learning/costs": {
+      "candidate": "no-time-to-learn"
+    },
+    "ferrari-procrastination/chronic-procrastination": {
+      "painId": "procrastination",
+      "why": "Procrastination: \"I put things off.\""
+    },
+    "oecd-wellbeing/knowledge-and-skills": {
+      "painId": "need-skills",
+      "why": "Skills: \"I don't have the skills I need now.\""
+    },
+    "oecd-wellbeing/adult-literacy": {
+      "candidate": "reading"
+    },
+    "oecd-wellbeing/adult-numeracy": {
+      "candidate": "everyday-math"
+    },
+    "oecd-wellbeing/educational-attainment": {
+      "candidate": "diploma"
+    },
+    "oecd-wellbeing/youth-neet": {
+      "broader": "unemployment",
+      "why": "Young people outside work and school; Unemployment and Stuck cover it loosely."
+    },
+    "oecd-wellbeing/subjective-well-being": {
+      "broader": "feeling-down",
+      "why": "Life satisfaction and feelings are the Mind group; Depression covers low well-being loosely, and Meaning in life (this sweep) the meaning part."
+    },
+    "whoqol-bref/q5": {
+      "broader": "feeling-down",
+      "why": "Not enjoying life is close to Depression: \"I feel low most days.\""
+    },
+    "whoqol-bref/q6": {
+      "candidate": "meaning-in-life"
+    },
+    "whoqol-bref/q7": {
+      "painId": "cant-focus",
+      "why": "Focus: \"I can't keep my mind on one thing.\""
+    },
+    "whoqol-bref/q19": {
+      "painId": "hard-on-myself",
+      "why": "Self-esteem: \"I'm never good enough for myself.\""
+    },
+    "sdg-targets/4.3": {
+      "broader": "study-costs",
+      "why": "Affordable tertiary education; Student debt covers the cost side loosely."
+    },
+    "sdg-targets/4.4": {
+      "painId": "need-skills",
+      "why": "Skills: \"I don't have the skills I need now.\""
+    },
+    "sdg-targets/4.6": {
+      "candidate": "reading"
+    },
+    "sdg-targets/8.6": {
+      "broader": "unemployment",
+      "why": "Young people outside work and school; Unemployment covers it loosely."
+    },
+    "maxneef/understanding": {
+      "painId": "learning",
+      "why": "Learning: \"I want to learn something, but I don't know how to start.\""
+    },
+    "maxneef/creation": {
+      "painId": "nothing-i-make",
+      "why": "Creativity: \"I don't get to make things any more.\""
+    },
+    "maxneef/identity": {
+      "painId": "lost-myself",
+      "why": "Identity: \"I don't know who I am any more.\""
+    },
+    "maxneef/freedom": {
+      "painId": "freedoms",
+      "why": "Freedoms: \"I'm losing the freedom to make my own choices.\""
+    },
+    "gallup-elements/career": {
+      "painId": "meaningless-work",
+      "why": "Meaning: \"I don't think my work matters.\" Gallup's element is liking what you do each day."
+    },
+    "gallup-elements/purpose-thriving-uk": {
+      "painId": "meaningless-work",
+      "why": "Purpose well-being is liking what you do each day; Meaning covers it."
+    },
+    "gallup-mip/education": {
+      "painId": "schools-fail-kids",
+      "why": "Education: \"I see kids not getting what they need at school.\""
+    },
+    "gallup-mip/moral-decline": {
+      "painId": "people-are-meaner",
+      "why": "Moral decline: \"I think people care less about right and wrong.\""
+    },
+    "ipsos-www/education": {
+      "painId": "schools-fail-kids",
+      "why": "Education: \"I see kids not getting what they need at school.\""
+    },
+    "ipsos-www/moral-decline": {
+      "painId": "people-are-meaner",
+      "why": "Moral decline: \"I think people care less about right and wrong.\""
+    },
+    "wikidata/Q223675": {
+      "candidate": "meaning-in-life"
+    },
+    "wikidata/Q2603358": {
+      "candidate": "meaning-in-life"
+    },
+    "wikidata/Q330104": {
+      "painId": "procrastination",
+      "why": "Procrastination: \"I put things off.\""
+    },
+    "wikidata/Q368475": {
+      "painId": "learning",
+      "why": "Learning: \"I want to learn something, but I don't know how to start.\""
+    },
+    "wikidata/Q170658": {
+      "painId": "nothing-i-make",
+      "why": "Creativity: \"I don't get to make things any more.\""
+    },
+    "wikidata/Q152545": {
+      "candidate": "reading"
+    },
+    "wikidata/Q100479361": {
+      "candidate": "everyday-math"
+    },
+    "wikidata/Q242069": {
+      "candidate": "computers"
+    }
+  }
+}
