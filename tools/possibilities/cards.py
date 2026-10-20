@@ -822,11 +822,43 @@ def phrase_rules(field, text, patterns):
         yield 'boilerplate-caveat', '%s: "%s" (status labels carry this)' % (field, m[0])
 
 
+# A kind's method written out as copy: a job story, or an if-then plan (spec, "Copy"). Method fields hold these.
+TEMPLATE_COPY = re.compile(r'\bWhen I\b[^.!?]*,\s*I want\b'
+                           r'|\b(When|After|Before|If)\b[^.!?]*,\s*(then\s+)?I(\s+will|’ll|\'ll)\b', re.I)
+
+
+TITLE_FILLER = {'a', 'an', 'the', 'and', 'or', 'at', 'on', 'in', 'of', 'to', 'for', 'with', 'my', 'your', 'our'}
+NEAR_DUPLICATE = 0.8  # share of title words two fixes have in common (Jaccard) before lint flags them for the screen
+
+
+def title_words(title):
+    return {w for w in re.findall(r"[a-z0-9’']+", (title or '').lower())} - TITLE_FILLER
+
+
+def lint_staged_fixes(fixes, add_fix):
+    for key, f in sorted(fixes.items()):
+        for field in ('title', 'whatChanges', 'firstStep'):
+            m = TEMPLATE_COPY.search(f.get(field) or '')
+            if m:
+                add_fix(key, 'template-copy', '%s: "%s…" is a method template; keep the method in its fields and say what changes'
+                        % (field, m[0][:40]))
+    # Agents on the same model converge (design, "Isolation and homogenization"), so compare titles across the pain's pool.
+    words = sorted((key, title_words(f.get('title'))) for key, f in fixes.items())
+    for i, (key, mine) in enumerate(words):
+        for other, theirs in words[i + 1:]:
+            if mine and theirs and len(mine & theirs) / len(mine | theirs) >= NEAR_DUPLICATE:
+                add_fix(key, 'near-duplicate-fix', 'title nearly matches %s ("%s"); keep one, or make each say what is different'
+                        % (other, fixes[other].get('title', '')[:60]))
+
+
 def lint_staged_run(run, root):
     issues, dreams = [], read(run / 'dreams.json')['dreams'] if (run / 'dreams.json').is_file() else {}
 
     def add(dream, rule, detail):
         issues.append({'dreamId': dream, 'rule': rule, 'detail': detail})
+
+    def add_fix(fix, rule, detail):
+        issues.append({'fixId': fix, 'rule': rule, 'detail': detail})
 
     patterns = copy_patterns(root)
     modals, regional, acronym_titles = patterns['modals'], patterns['regional'], patterns['acronymTitles']
@@ -844,15 +876,29 @@ def lint_staged_run(run, root):
         modal_hits = [m[0] for text in copy.values() for m in (modals.finditer(text) if modals else ())]
         if len(modal_hits) > 1:
             add(key, 'stacked-hedges', 'soft modals used %d times (%s); keep at most one plain limit' % (len(modal_hits), ', '.join(modal_hits)))
-    lenses = sorted({d.get('lens') for d in dreams.values()})
-    ambitions = sorted({d.get('ambition') for d in dreams.values()})
-    # Basics and It-led coverage need linked fixes, so they wait for the fix stages.
+    fixes = read(run / 'fixes.json').get('fixes', {}) if (run / 'fixes.json').is_file() else {}
+    lint_staged_fixes(fixes, add_fix)
+    # Coverage is across accepted dreams once the review is in (spec, "Coverage per pain"); before it, the drafted ones.
+    accepted = reviewed_dreams(run)
+    covered = {key: d for key, d in dreams.items() if accepted is None or key in accepted}
+    lenses = sorted({str(d.get('lens')) for d in covered.values()})
+    ambitions = sorted({str(d.get('ambition')) for d in covered.values()})
+    coverage = {'lenses': lenses, 'ambitions': ambitions}
     if len(lenses) < 4:
         add('*', 'lens-coverage', 'only %d lenses: %s' % (len(lenses), ', '.join(lenses)))
     missing = [a for a in AMBITIONS if a not in ambitions]
     if missing:
         add('*', 'ambition-coverage', 'missing ambition levels: ' + ', '.join(missing))
-    result = {'passed': not issues, 'issues': issues, 'coverage': {'lenses': lenses, 'ambitions': ambitions},
+    # Basics and It-led coverage need linked fixes, so they wait for the assembler. No kind has a minimum.
+    if (run / 'links.json').is_file():
+        links = [e for e in read(run / 'links.json').get('links', []) if isinstance(e, dict)
+                 and e.get('dreamId') in covered and isinstance(fixes.get(e.get('fixId')), dict)]
+        basics = sorted({e['fixId'] for e in links if covered[e['dreamId']].get('ambition') == 'tonight'
+                         and fixes[e['fixId']].get('status') in ('real_now', 'existing_resource')})
+        coverage['basicsTonight'] = len(basics)
+        if len(basics) < 3:
+            add('*', 'basics-coverage', 'only %d basic tonight fixes linked; link at least 3 common practical fixes to tonight dreams' % len(basics))
+    result = {'passed': not issues, 'issues': issues, 'coverage': coverage,
               'dreams': len(dreams), 'checkedAt': now()}
     write(run / 'lint.json', result)
     return result
