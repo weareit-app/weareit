@@ -53,23 +53,18 @@ class StagedCalibration(Judging):
         self.assertEqual([f['whatChanges'] for f in item['fixes']],
                          ['The laptop stays by the door for %s, so work ends there.' % k for k in ('burnout-d02-t1', 'burnout-d02-t2', SHARED)])
         self.assertEqual(item['fixes'][0]['kind'], 'task')
+        self.assertEqual(item['fixes'][0]['status'], 'real_now')
         self.assertEqual(item['fixes'][0]['example'], 'Example 1 Cooperative · Preston · 2012 · 10 homes')
         self.assertEqual(item['fixes'][0]['firstStep'], 'Clear a spot on the hall shelf tonight.')
-
-    def test_a_staged_audit_takes_the_top_of_the_ranking(self):
-        with mock.patch.object(cards, 'AUDIT_STAGED_DREAMS', 2):
-            cards.audit_build(self.tmp, [str(self.run_dir)])
-        key = cards.read(self.tmp / 'docs/research/possibilities/evaluations/generator-2026-10/audit-key.json')
-        self.assertEqual(sorted(v['sourceDreamId'] for v in key.values()), ['burnout-d01', 'burnout-d02'])
 
     def test_an_audit_set_takes_ranked_dreams_that_passed_honest_status(self):
         self.assertEqual(cards.audit_build(self.tmp, [str(self.run_dir), str(self.run)]), {'items': 11})  # 5 card finalists and 2 samples, 4 dreams
         out = self.tmp / 'docs/research/possibilities/evaluations/generator-2026-10'
         key = cards.read(out / 'audit-key.json')
         staged = [v for v in key.values() if v['painId'] == 'burnout']
-        # No audit sample in a staged run (founder, 2026-10-20); burnout-d00 failed honest status.
+        # No finalists or audit sample in a staged run (founder, 2026-10-20): every ranked dream but burnout-d00, which failed honest status.
         self.assertEqual(sorted(v['sourceDreamId'] for v in staged), ['burnout-d01', 'burnout-d02', 'burnout-d03', 'burnout-d04'])
-        self.assertTrue(all(v['origin'] == 'finalist' and v['runId'] == self.run_dir.name for v in staged))
+        self.assertTrue(all(v['origin'] == 'ranked' and v['runId'] == self.run_dir.name for v in staged))
         items = {i['id']: i for i in cards.read(out / 'audit-set.json')['items']}
         self.assertEqual(len(items), 11)
         d02 = next(k for k, v in key.items() if v.get('sourceDreamId') == 'burnout-d02')

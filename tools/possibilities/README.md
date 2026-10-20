@@ -45,7 +45,7 @@ Run it from the repository root: `python3 tools/possibilities/cards.py <subcomma
 | `select <run>` | Picks 3–5 finalists (at least 2 lenses and one It-led card) plus 2 audit samples, and writes `selection.json`. In a staged run, it writes `ranking.json` instead: every dream in order, with dreams that fail honest status marked and last. That order sets the founder's fix review |
 | `finish-run <run> --searches N --pages N [--tokens N]` | Records the counts in `run.json` |
 | `calibrate-build`, `calibrate-ingest <export>` | Builds the blind calibration set, and ingests the founder's ratings. Each item is a dream with its fixes: a card's finalists from a card run, or a staged run's top-ranked dreams that passed honest status, each with its linked fixes in order |
-| `audit-build <run…>` | Builds the audit set and key: a card run's finalists and audit sample, or a staged run's top 5 ranked dreams that passed honest status |
+| `audit-build <run…>` | Builds the audit set and key: a card run's finalists and audit sample, or every ranked dream in a staged run that passed honest status |
 | `report --audit <export>` | Prints the metrics and the gate result (`scale-up` or `iterate`) |
 | `stale` | Lists runs whose pain was merged or split, or whose name or line changed since the run, with the old and new wording. A report: exit 0 |
 

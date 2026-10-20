@@ -255,8 +255,8 @@ Rules:
 
 ## Calibration files (`docs/research/possibilities/calibration/`)
 - **baseline.json**: 16 old cards in the `cards.json` card shape, with fixes without exemplars, and `provenance.sourceId` pointing at `founder-review.md` with an anchor locator.
-- **set.json**: `{ seed, items: [ { id: "c01", painName, painLine, title, line, fixes:[{title, whatChanges, example?, firstStep?, kind?, featureIdea?}] } ] }`. Each item is a dream with its fixes in order: a card's title, line, and fixes, or a staged dream with its linked fixes in link order. Holds no origin or flow information, so card and staged items can share one blind set.
-- **key.json**: `{ <item-id>: { origin: "old"|"new", painId, sourceCardId | sourceDreamId, runId?, heldOut: bool } }`. `sourceDreamId` marks an item from a staged run, `sourceCardId` one from a card run or the baseline. Local only. The audit's `audit-key.json` has the same shape, with origin `finalist` or `sample`; a staged run gives only `finalist`.
+- **set.json**: `{ seed, items: [ { id: "c01", painName, painLine, title, line, fixes:[{title, whatChanges, example?, firstStep?, kind?, featureIdea?, status?}] } ] }`. Each item is a dream with its fixes in order: a card's title, line, and fixes, or a staged dream with its linked fixes in link order. Holds no origin or flow information, so card and staged items can share one blind set.
+- **key.json**: `{ <item-id>: { origin: "old"|"new", painId, sourceCardId | sourceDreamId, runId?, heldOut: bool } }`. `sourceDreamId` marks an item from a staged run, `sourceCardId` one from a card run or the baseline. Local only. The audit's `audit-key.json` has the same shape, with origin `finalist` or `sample` for a card run, and `ranked` for every dream in a staged run that passed honest status.
 - **ratings.json**: `{ rater: "founder", context: "calibration"|"audit", ratings: { <item-id>: { rating, reason?, rewriteAs?, ratedAt } } }`
 - **anchors.json** / **heldout.json**: lists of item IDs with rating and reason, each keyed to the `dreamId` (staged) or `cardId` it rates. Only anchors are passed to the judge.
 
