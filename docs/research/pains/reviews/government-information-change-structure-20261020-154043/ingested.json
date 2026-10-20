@@ -1,0 +1,293 @@
+{
+  "set": "government-information-change-structure-20261020-154043",
+  "decided": 27,
+  "later": 0,
+  "held": [],
+  "catalogChanged": [
+    "alone-in-caring",
+    "car-or-nothing",
+    "corruption",
+    "democracy-slipping",
+    "dont-know-whats-happening",
+    "dont-know-whats-true",
+    "dont-know-who-to-vote-for",
+    "far-away-decisions",
+    "freedoms",
+    "giving-feels-blind",
+    "groups-go-nowhere",
+    "idea-no-team",
+    "infrastructure",
+    "no-accountability",
+    "nobody-covers-here",
+    "nobody-knows-anybody",
+    "nothing-ever-changes",
+    "nothing-i-make",
+    "same-few-people",
+    "scammed",
+    "shouting-into-void",
+    "taxes-dont-buy-much",
+    "they-dont-listen",
+    "want-to-help",
+    "watched-by-companies"
+  ],
+  "editor": {
+    "changes": [
+      {
+        "painId": "watched-by-companies",
+        "change": "update",
+        "domainId": "safety",
+        "sortOrder": 2
+      }
+    ],
+    "waiting": [],
+    "conflicts": [],
+    "refused": [],
+    "warnings": [
+      "People would have 13 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "Government would have 10 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "Information would have 2 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "Safety would have 3 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "Kids would have 3 shown pains (aim for 4-8); nothing was cut or added because of it"
+    ],
+    "schemaChecked": true,
+    "revision": 12
+  },
+  "dryRun": false,
+  "log": [
+    {
+      "proposal": "p001",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "they-dont-listen",
+        "far-away-decisions"
+      ]
+    },
+    {
+      "proposal": "p002",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "freedoms",
+        "democracy-slipping"
+      ]
+    },
+    {
+      "proposal": "p003",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "no-accountability",
+        "corruption"
+      ]
+    },
+    {
+      "proposal": "p004",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "taxes-dont-buy-much",
+        "no-accountability"
+      ]
+    },
+    {
+      "proposal": "p005",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "democracy-slipping",
+        "no-accountability"
+      ]
+    },
+    {
+      "proposal": "p006",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "democracy-slipping",
+        "they-dont-listen"
+      ]
+    },
+    {
+      "proposal": "p007",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "infrastructure",
+        "taxes-dont-buy-much"
+      ]
+    },
+    {
+      "proposal": "p008",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "infrastructure",
+        "car-or-nothing"
+      ]
+    },
+    {
+      "proposal": "p009",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "dont-know-who-to-vote-for",
+        "dont-know-whats-true"
+      ]
+    },
+    {
+      "proposal": "p010",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "nobody-covers-here",
+        "dont-know-whats-happening"
+      ]
+    },
+    {
+      "proposal": "p011",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "watched-by-companies",
+        "scammed"
+      ]
+    },
+    {
+      "proposal": "p012",
+      "kind": "move",
+      "decision": "accept",
+      "painIds": [
+        "watched-by-companies"
+      ]
+    },
+    {
+      "proposal": "p013",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "nothing-ever-changes",
+        "shouting-into-void"
+      ]
+    },
+    {
+      "proposal": "p014",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "groups-go-nowhere",
+        "nothing-ever-changes"
+      ]
+    },
+    {
+      "proposal": "p015",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "giving-feels-blind",
+        "shouting-into-void"
+      ]
+    },
+    {
+      "proposal": "p016",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "alone-in-caring",
+        "shouting-into-void"
+      ]
+    },
+    {
+      "proposal": "p017",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "alone-in-caring",
+        "nobody-knows-anybody"
+      ]
+    },
+    {
+      "proposal": "p018",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "dont-know-whats-happening",
+        "alone-in-caring"
+      ]
+    },
+    {
+      "proposal": "p019",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "want-to-help",
+        "alone-in-caring"
+      ]
+    },
+    {
+      "proposal": "p020",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "want-to-help",
+        "shouting-into-void"
+      ]
+    },
+    {
+      "proposal": "p021",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "want-to-help",
+        "giving-feels-blind"
+      ]
+    },
+    {
+      "proposal": "p022",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "same-few-people",
+        "want-to-help"
+      ]
+    },
+    {
+      "proposal": "p023",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "same-few-people",
+        "groups-go-nowhere"
+      ]
+    },
+    {
+      "proposal": "p024",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "idea-no-team",
+        "alone-in-caring"
+      ]
+    },
+    {
+      "proposal": "p025",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "idea-no-team",
+        "nothing-i-make"
+      ]
+    },
+    {
+      "proposal": "p026",
+      "kind": "move",
+      "decision": "reject"
+    },
+    {
+      "proposal": "p027",
+      "kind": "move",
+      "decision": "reject"
+    }
+  ],
+  "ingestedAt": "2026-10-20"
+}

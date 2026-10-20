@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "setId": "work-time-structure-20261020-154043",
+  "decisions": {
+    "p001": {
+      "decision": "accept",
+      "note": ""
+    },
+    "p002": {
+      "decision": "accept",
+      "note": ""
+    },
+    "p003": {
+      "decision": "accept",
+      "note": ""
+    },
+    "p004": {
+      "decision": "accept",
+      "note": ""
+    },
+    "p005": {
+      "decision": "accept",
+      "note": ""
+    },
+    "p006": {
+      "decision": "accept",
+      "note": ""
+    },
+    "p007": {
+      "decision": "accept",
+      "note": ""
+    },
+    "p008": {
+      "decision": "accept",
+      "note": ""
+    },
+    "p009": {
+      "decision": "accept",
+      "note": ""
+    },
+    "p010": {
+      "decision": "accept",
+      "note": ""
+    },
+    "p011": {
+      "decision": "reject",
+      "note": ""
+    },
+    "p012": {
+      "decision": "accept",
+      "note": ""
+    },
+    "p013": {
+      "decision": "accept",
+      "note": ""
+    },
+    "p014": {
+      "decision": "accept",
+      "note": ""
+    },
+    "p015": {
+      "decision": "accept",
+      "note": ""
+    },
+    "p016": {
+      "decision": "accept",
+      "note": ""
+    },
+    "p017": {
+      "decision": "accept",
+      "note": ""
+    },
+    "p018": {
+      "decision": "accept",
+      "note": ""
+    },
+    "p019": {
+      "decision": "accept",
+      "note": ""
+    },
+    "p020": {
+      "decision": "accept",
+      "note": ""
+    },
+    "p021": {
+      "decision": "reject",
+      "note": "This doesn't fit super well in either, not sure if it means we're missing a group."
+    },
+    "p022": {
+      "decision": "accept",
+      "note": "This doesn't fit super well in either, not sure if it means we're missing a group."
+    },
+    "p023": {
+      "decision": "accept",
+      "note": ""
+    }
+  }
+}

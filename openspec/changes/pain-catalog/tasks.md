@@ -48,7 +48,7 @@
 
 - [x] 8.1 Add `--stage wording|structure` to `review-build`, with the refusal when the wording set isn't ingested yet. Verify with tests that a structure set built after a wording ingest shows the founder's own wording, and that an early build refuses
 - [x] 8.2 Update `/pains-review`, `tools/pains/README.md` and `data-model.md` to describe the two steps, and verify the skill names the commands that exist
-- [ ] 8.3 Move the open review sets onto two steps. Build a people-home wording set that carries over the founder's wording decisions already made. Rebuild the five unstarted sets as wording sets. Build each structure set after its wording ingest. Verify each set builds and opens
+- [x] 8.3 Move the open review sets onto two steps. Build a people-home wording set that carries over the founder's wording decisions already made. Rebuild the five unstarted sets as wording sets. Build each structure set after its wording ingest. Verify each set builds and opens
 
 ## 9. Placement waits for ranking
 

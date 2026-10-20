@@ -1,0 +1,262 @@
+{
+  "set": "community-environment-fairness-structure-20261020-154043",
+  "decided": 23,
+  "later": 0,
+  "held": [],
+  "catalogChanged": [
+    "building-cant-organize",
+    "cant-pool",
+    "car-or-nothing",
+    "climate",
+    "cost-of-living",
+    "democracy-slipping",
+    "dirty-air",
+    "disasters",
+    "far-away-decisions",
+    "getting-around",
+    "groups-go-nowhere",
+    "home-is-hard",
+    "homelessness",
+    "infrastructure",
+    "it-all-goes-up",
+    "justice-unfair",
+    "kids-future",
+    "loneliness",
+    "might-lose-my-home",
+    "nature-disappearing",
+    "nobody-knows-anybody",
+    "not-built-for-me",
+    "people-are-meaner",
+    "people-treated-badly",
+    "rent-eats-everything",
+    "town-dying",
+    "treated-differently",
+    "trust",
+    "we-cant-talk",
+    "where-youre-born"
+  ],
+  "editor": {
+    "changes": [],
+    "waiting": [],
+    "conflicts": [],
+    "refused": [],
+    "warnings": [
+      "People would have 13 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "Government would have 10 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "Information would have 3 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "Safety would have 2 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "Kids would have 3 shown pains (aim for 4-8); nothing was cut or added because of it"
+    ]
+  },
+  "dryRun": false,
+  "log": [
+    {
+      "proposal": "p001",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "homelessness",
+        "rent-eats-everything"
+      ]
+    },
+    {
+      "proposal": "p002",
+      "kind": "other-page",
+      "decision": "accept",
+      "painIds": [
+        "homelessness",
+        "might-lose-my-home"
+      ]
+    },
+    {
+      "proposal": "p003",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "town-dying",
+        "nobody-knows-anybody"
+      ]
+    },
+    {
+      "proposal": "p004",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "town-dying",
+        "far-away-decisions"
+      ]
+    },
+    {
+      "proposal": "p005",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "nobody-knows-anybody",
+        "loneliness"
+      ]
+    },
+    {
+      "proposal": "p006",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "trust",
+        "people-are-meaner"
+      ]
+    },
+    {
+      "proposal": "p007",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "trust",
+        "democracy-slipping"
+      ]
+    },
+    {
+      "proposal": "p008",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "we-cant-talk",
+        "people-are-meaner"
+      ]
+    },
+    {
+      "proposal": "p009",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "cant-pool",
+        "it-all-goes-up"
+      ]
+    },
+    {
+      "proposal": "p010",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "building-cant-organize",
+        "groups-go-nowhere"
+      ]
+    },
+    {
+      "proposal": "p011",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "building-cant-organize",
+        "home-is-hard"
+      ]
+    },
+    {
+      "proposal": "p012",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "climate",
+        "dirty-air"
+      ]
+    },
+    {
+      "proposal": "p013",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "disasters",
+        "climate"
+      ]
+    },
+    {
+      "proposal": "p014",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "nature-disappearing",
+        "climate"
+      ]
+    },
+    {
+      "proposal": "p015",
+      "kind": "other-page",
+      "decision": "accept",
+      "painIds": [
+        "car-or-nothing",
+        "getting-around"
+      ]
+    },
+    {
+      "proposal": "p016",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "car-or-nothing",
+        "infrastructure"
+      ]
+    },
+    {
+      "proposal": "p017",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "climate",
+        "kids-future"
+      ]
+    },
+    {
+      "proposal": "p018",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "treated-differently",
+        "people-treated-badly"
+      ]
+    },
+    {
+      "proposal": "p019",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "justice-unfair",
+        "people-treated-badly"
+      ]
+    },
+    {
+      "proposal": "p020",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "it-all-goes-up",
+        "where-youre-born"
+      ]
+    },
+    {
+      "proposal": "p021",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "it-all-goes-up",
+        "cost-of-living"
+      ]
+    },
+    {
+      "proposal": "p022",
+      "kind": "other-page",
+      "decision": "accept",
+      "painIds": [
+        "treated-differently",
+        "not-built-for-me"
+      ]
+    },
+    {
+      "proposal": "p023",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "where-youre-born",
+        "kids-future"
+      ]
+    }
+  ],
+  "ingestedAt": "2026-10-20"
+}

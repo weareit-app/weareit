@@ -1,0 +1,189 @@
+{
+  "set": "health-kids-safety-structure-20261020-154043",
+  "decided": 15,
+  "later": 0,
+  "held": [],
+  "catalogChanged": [
+    "addiction-here",
+    "anxiety",
+    "cant-get-care",
+    "caregiving",
+    "climate",
+    "crime-and-violence",
+    "doomscrolling",
+    "drinking-too-much",
+    "feeling-down",
+    "kids-future",
+    "loneliness",
+    "mental-health-crisis",
+    "no-cushion",
+    "older-people-alone",
+    "one-illness-away",
+    "schools-fail-kids",
+    "screens-and-kids",
+    "unsafe-near-me",
+    "where-youre-born",
+    "world-on-fire"
+  ],
+  "editor": {
+    "changes": [
+      {
+        "painId": "older-people-alone",
+        "change": "update",
+        "domainId": "community",
+        "sortOrder": 6
+      }
+    ],
+    "waiting": [],
+    "conflicts": [],
+    "refused": [],
+    "warnings": [
+      "People would have 13 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "Government would have 10 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "Health would have 3 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "Information would have 2 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "Safety would have 3 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "Kids would have 3 shown pains (aim for 4-8); nothing was cut or added because of it"
+    ],
+    "schemaChecked": true,
+    "revision": 13
+  },
+  "dryRun": false,
+  "log": [
+    {
+      "proposal": "p001",
+      "kind": "other-page",
+      "decision": "accept",
+      "painIds": [
+        "one-illness-away",
+        "cant-get-care"
+      ]
+    },
+    {
+      "proposal": "p002",
+      "kind": "other-page",
+      "decision": "accept",
+      "painIds": [
+        "one-illness-away",
+        "no-cushion"
+      ]
+    },
+    {
+      "proposal": "p003",
+      "kind": "other-page",
+      "decision": "accept",
+      "painIds": [
+        "mental-health-crisis",
+        "feeling-down"
+      ]
+    },
+    {
+      "proposal": "p004",
+      "kind": "other-page",
+      "decision": "accept",
+      "painIds": [
+        "mental-health-crisis",
+        "anxiety"
+      ]
+    },
+    {
+      "proposal": "p005",
+      "kind": "other-page",
+      "decision": "accept",
+      "painIds": [
+        "addiction-here",
+        "drinking-too-much"
+      ]
+    },
+    {
+      "proposal": "p006",
+      "kind": "other-page",
+      "decision": "accept",
+      "painIds": [
+        "older-people-alone",
+        "loneliness"
+      ]
+    },
+    {
+      "proposal": "p007",
+      "kind": "other-page",
+      "decision": "accept",
+      "painIds": [
+        "older-people-alone",
+        "caregiving"
+      ]
+    },
+    {
+      "proposal": "p008",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "mental-health-crisis",
+        "addiction-here"
+      ]
+    },
+    {
+      "proposal": "p009",
+      "kind": "move",
+      "decision": "accept",
+      "painIds": [
+        "older-people-alone"
+      ]
+    },
+    {
+      "proposal": "p010",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "schools-fail-kids",
+        "kids-future"
+      ]
+    },
+    {
+      "proposal": "p011",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "kids-future",
+        "where-youre-born"
+      ]
+    },
+    {
+      "proposal": "p012",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "kids-future",
+        "climate"
+      ]
+    },
+    {
+      "proposal": "p013",
+      "kind": "other-page",
+      "decision": "accept",
+      "painIds": [
+        "screens-and-kids",
+        "doomscrolling"
+      ]
+    },
+    {
+      "proposal": "p014",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "crime-and-violence",
+        "world-on-fire"
+      ]
+    },
+    {
+      "proposal": "p015",
+      "kind": "other-page",
+      "decision": "accept",
+      "painIds": [
+        "crime-and-violence",
+        "unsafe-near-me"
+      ]
+    }
+  ],
+  "ingestedAt": "2026-10-20"
+}

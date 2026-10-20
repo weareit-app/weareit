@@ -34,7 +34,7 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `weight` | Weight | My weight gets in the way of how I want to live. | accepted | no |  |
 | `womens-health` | Hormones | I lose days every month to my cycle or menopause. | candidate | no |  |
 
-### Mind (7 shown)
+### Mind (8 shown)
 
 | ID | Name | Line | Status | Shown | Runs |
 | --- | --- | --- | --- | --- | --- |
@@ -44,6 +44,7 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `feeling-down` | Feeling down | I feel low most days, and nothing seems worth the effort. | accepted · sensitive | yes |  |
 | `grief` | Grief | I'm missing someone I lost. | accepted · sensitive | yes |  |
 | `hard-on-myself` | Hard on myself | Whatever I do, I tell myself it isn't good enough. | accepted | yes |  |
+| `learning` | Learning | I want to learn something, but I don't know how to start. | accepted | yes |  |
 | `overwhelmed` | Stress | There's so much on my plate that I can't catch up. | accepted | yes |  |
 | `eating-and-body-image` | Eating and body image | I can't stop obsessing over food, my weight, or how my body looks. | accepted | no |  |
 | `memory` | Memory | I forget things more than I used to. | accepted | no |  |
@@ -54,7 +55,7 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `short-fuse` | Anger | I feel frequently upset and can lash out. | candidate | no |  |
 | `suicidal-thoughts` | Suicidal thoughts | I think about ending my life. | accepted | no |  |
 
-### Money (9 shown)
+### Money (10 shown)
 
 | ID | Name | Line | Status | Shown | Runs |
 | --- | --- | --- | --- | --- | --- |
@@ -62,6 +63,7 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `cant-get-credit` | Credit | I get turned down when I need a loan or a credit card. | accepted | yes |  |
 | `cant-stop-working` | Can't retire | I won't have enough to stop working when I'm older. | accepted | yes |  |
 | `debt` | Debt | I owe more than I can pay down. | accepted | yes |  |
+| `legal-mess` | Legal trouble | I'm stuck in a legal problem I can't afford. | accepted | yes |  |
 | `money-skills` | Money skills | I never learned how to budget or manage money. | accepted | yes |  |
 | `no-cushion` | No savings | I couldn't cover a surprise bill if one came. | accepted | yes |  |
 | `running-out-of-food` | Not enough food | I worry the food won't last until my next paycheck. | accepted · sensitive | yes |  |
@@ -78,7 +80,7 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `sending-money-home` | Sending money home | I lose too much to fees when I send money to family in another country. | accepted | no |  |
 | `supporting-family` | Supporting family | I'm paying to support my parents or grown kids, and there isn't enough left for me. | accepted | no |  |
 
-### Work (7 shown)
+### Work (8 shown)
 
 | ID | Name | Line | Status | Shown | Runs |
 | --- | --- | --- | --- | --- | --- |
@@ -86,6 +88,7 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `burnout` | Burnout | Work has worn me down so much that I dread every morning. | accepted | yes | 1 |
 | `job-could-go` | Layoffs | I could lose my job any day. | accepted | yes |  |
 | `meaningless-work` | Pointless work | I spend my days on work that doesn't help anyone. | accepted | yes | 1 |
+| `need-skills` | Skills | I don't have the skills I need now. | accepted | yes |  |
 | `underpaid` | Underpaid | I'm paid less than my work is worth. | accepted | yes |  |
 | `unemployment` | Unemployment | I can't find work. | accepted | yes |  |
 | `wrong-career` | Wrong career | I'm in the wrong line of work, and I don't know how to switch. | accepted | yes |  |
@@ -103,15 +106,19 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `unsafe-work` | Unsafe work | I could get badly hurt doing my job. | accepted | no |  |
 | `wage-theft` | Wage theft | My boss doesn't pay me everything I've earned. | accepted | no |  |
 
-### Home (6 shown)
+### Home (10 shown)
 
 | ID | Name | Line | Status | Shown | Runs |
 | --- | --- | --- | --- | --- | --- |
+| `chores` | Too many chores | I spend my days cooking and cleaning. | accepted | yes | 1 |
 | `cold-home` | Cold home | I can't afford to keep my home warm. | accepted | yes |  |
 | `getting-around` | Can't get around | I can't easily get to where I need to go. | accepted | yes |  |
 | `home-is-hard` | Bad housing | The place I live is in bad shape, and I can't fix it or move. | accepted | yes |  |
+| `home-tension` | Family | I'm caught in fighting at home. | accepted | yes |  |
 | `homeless` | Homeless | I don't have a reliable place to stay. | accepted · sensitive | yes |  |
 | `might-lose-my-home` | Eviction | I might lose my home. | accepted · sensitive | yes |  |
+| `parenting-is-hard` | Parenting | I'm worn out raising my kids. | accepted | yes |  |
+| `unsafe-at-home` | Safety at home | I don't feel safe with someone in my life. | accepted · sensitive | yes |  |
 | `unsafe-near-me` | Unsafe area | I don't feel safe in my neighborhood. | accepted · sensitive | yes |  |
 | `accessible-home` | Accessible home | I have trouble getting into or around my own home. | accepted | no |  |
 | `damp-and-mold` | Damp and mold | My home is damp, and the mold keeps coming back. | accepted | no |  |
@@ -122,38 +129,33 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `tap-water` | Tap water | I don't trust the water that comes out of my tap. | accepted | no |  |
 | `turned-down-for-housing` | Rental applications | I keep getting turned down for places to rent. | accepted | no |  |
 
-### Time (6 shown)
+### Time (4 shown)
 
 | ID | Name | Line | Status | Shown | Runs |
 | --- | --- | --- | --- | --- | --- |
-| `chores` | Too many chores | I spend my days cooking and cleaning. | accepted | yes | 1 |
 | `doomscrolling` | Doomscrolling | I lose my nights to my phone. | accepted | yes | 1 |
-| `legal-mess` | Legal trouble | I'm stuck in a legal problem I can't afford. | accepted | yes |  |
 | `life-admin` | Too much paperwork | Forms, bills, and calls on hold eat up my week. | accepted | yes |  |
 | `no-free-time` | Busy | I have no time that's mine. | accepted | yes |  |
-| `no-fun` | No fun | I can't remember the last time I did something just for fun. | accepted | yes |  |
+| `procrastination` | Procrastination | I keep putting off the things that matter to me until it's too late. | accepted | yes | 2 |
 | `benefits-runaround` | Benefits | I have to fight to get or keep the benefits I qualify for. | accepted | no |  |
 | `finding-help` | Finding help | I don't know what help is out there or where to ask for it. | accepted | no |  |
 | `language-barriers` | Language barriers | I can't get important information or services in a language I understand well. | accepted | no |  |
 | `no-id` | No ID | I don't have the ID I need to work, vote, or get help. | accepted | no |  |
 | `no-time-off` | Time off | I never get a real break from work. | accepted | no |  |
 
-### People (13 shown)
+### People (10 shown)
 
 | ID | Name | Line | Status | Shown | Runs |
 | --- | --- | --- | --- | --- | --- |
 | `belonging` | Belonging | I don't feel like I belong anywhere. | accepted | yes |  |
 | `caregiving` | Caregiving | I'm looking after someone and it takes everything. | accepted | yes |  |
 | `drifted-apart` | Old friends | I've drifted apart from friends who used to matter a lot to me. | accepted | yes |  |
-| `home-tension` | Family | I'm caught in fighting at home. | accepted | yes |  |
 | `intimacy` | Intimacy | I'm missing closeness with someone. | accepted | yes |  |
 | `loneliness` | Loneliness | Most days I don't talk to anyone who really knows me. | accepted | yes | 1 |
 | `no-one-to-lean-on` | No support | I have no one to call when I need help. | accepted | yes |  |
 | `nobody-into-my-thing` | Interests | I can't find people who love what I love. | accepted | yes |  |
 | `nobody-to-do-things-with` | Plans | I'd go out more if I had someone to go with. | accepted | yes |  |
-| `parenting-is-hard` | Parenting | I'm worn out raising my kids. | accepted | yes |  |
 | `relationship-strain` | Relationship | I'm struggling with my partner. | accepted | yes |  |
-| `unsafe-at-home` | Safety at home | I don't feel safe with someone in my life. | accepted · sensitive | yes |  |
 | `want-a-partner` | Dating | I want a partner and it isn't happening. | accepted | yes |  |
 | `breakup` | Breakup | I'm going through a breakup or divorce. | accepted | no |  |
 | `close-friends` | Close friends | I don't have a close friend I can really talk to. | accepted | no |  |
@@ -164,15 +166,13 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `single-parent` | Single parent | I'm raising my kids on my own. | accepted | no |  |
 | `trying-for-a-baby` | Trying for a baby | I've been trying to have a baby and it isn't happening. | accepted | no |  |
 
-### Purpose (6 shown)
+### Purpose (4 shown)
 
 | ID | Name | Line | Status | Shown | Runs |
 | --- | --- | --- | --- | --- | --- |
-| `learning` | Learning | I want to learn something, but I don't know how to start. | accepted | yes |  |
-| `need-skills` | Skills | I don't have the skills I need now. | accepted | yes |  |
+| `no-fun` | No fun | I can't remember the last time I did something just for fun. | accepted | yes |  |
 | `no-path` | Direction | I know what I want but not how to get there. | accepted | yes |  |
 | `nothing-i-make` | Creativity | I don't get to make things any more. | accepted | yes |  |
-| `procrastination` | Procrastination | I keep putting off the things that matter to me until it's too late. | accepted | yes | 2 |
 | `stuck` | Stuck | I feel like my life isn't going anywhere. | accepted | yes |  |
 | `computers` | Computers | I struggle to do things on a computer or phone that everyone now expects. | accepted | no |  |
 | `diploma` | Diploma | I never finished high school, and it holds me back. | accepted | no |  |
@@ -225,13 +225,12 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `study-costs` | Student debt | I'll be paying for my education for years. | accepted | yes |  |
 | `energy-costs` | Energy costs | I can barely keep up with my power, gas and fuel bills. | rejected | no |  |
 
-### Health (4 shown)
+### Health (3 shown)
 
 | ID | Name | Line | Status | Shown | Runs |
 | --- | --- | --- | --- | --- | --- |
 | `addiction-here` | Drugs | I'm losing people I know to drugs. | accepted · sensitive | yes |  |
 | `mental-health-crisis` | Mental health crisis | I see people I care about struggling with their mental health. | accepted · sensitive | yes |  |
-| `older-people-alone` | Growing old alone | Older people around me are left to cope on their own. | accepted | yes |  |
 | `one-illness-away` | Medical bills | One bad illness could wipe out everything I have. | accepted | yes |  |
 | `care-quality` | Poor care | I don't trust the care I get to be good or safe. | accepted | no |  |
 | `chronic-disease` | Chronic disease | I see cancer, heart disease, and diabetes taking more people I know. | accepted | no |  |
@@ -245,13 +244,14 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `pregnancy-care` | Pregnancy care | I worry about getting safe care through pregnancy and birth. | accepted | no |  |
 | `short-staffed-care` | Not enough doctors | I see clinics and hospitals without enough doctors and nurses. | accepted | no |  |
 
-### Community (6 shown)
+### Community (7 shown)
 
 | ID | Name | Line | Status | Shown | Runs |
 | --- | --- | --- | --- | --- | --- |
 | `cant-pool` | Can't share costs | I know we could afford it together, but there's no way to pool our money. | accepted | yes |  |
 | `homelessness` | Homelessness | I see more neighbors with no home. | accepted | yes |  |
 | `nobody-knows-anybody` | Don’t know my neighbors | I don't know the people who live near me. | accepted | yes | 1 |
+| `older-people-alone` | Growing old alone | Older people around me are left to cope on their own. | accepted | yes |  |
 | `town-dying` | Dying town | I'm watching my town empty out. | accepted | yes |  |
 | `trust` | Distrust | I can't trust the people around me any more. | accepted | yes |  |
 | `we-cant-talk` | Polarization | I can't disagree with someone without losing them. | accepted | yes | 1 |
@@ -277,13 +277,12 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `pay-gap` | Pay gap | I see women still paid less than men. | accepted | no |  |
 | `tax-fairness` | Tax fairness | I see wealthy people and big companies pay too little in taxes. | accepted | no |  |
 
-### Information (3 shown)
+### Information (2 shown)
 
 | ID | Name | Line | Status | Shown | Runs |
 | --- | --- | --- | --- | --- | --- |
 | `dont-know-whats-true` | Knowing what's true | I don't know what's true any more. | accepted | yes |  |
 | `nobody-covers-here` | No local news | Nobody reports on my town any more, so I don't know what's going on here. | accepted | yes | 1 |
-| `watched-by-companies` | Being tracked | I feel watched by companies that know everything about me. | accepted | yes |  |
 | `afraid-to-speak` | Free speech | I'm afraid to say what I really think. | accepted | no |  |
 | `ai-fakes` | AI fakes | I can't tell if a photo, video, or voice is real or made by AI. | accepted | no |  |
 | `cant-trust-the-news` | Trust in news | I don't trust the news to tell me the whole story fairly. | accepted | no |  |
@@ -306,11 +305,12 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `water-pollution` | Water pollution | I see our rivers, lakes, and drinking water getting polluted. | accepted | no |  |
 | `water-shortages` | Water shortages | I worry my area is running out of water. | accepted | no |  |
 
-### Safety (2 shown)
+### Safety (3 shown)
 
 | ID | Name | Line | Status | Shown | Runs |
 | --- | --- | --- | --- | --- | --- |
 | `crime-and-violence` | Crime | Crime and violence keep hurting people in my community. | accepted · sensitive | yes |  |
+| `watched-by-companies` | Being tracked | I feel watched by companies that know everything about me. | accepted | yes |  |
 | `world-on-fire` | War and conflict | I see war threatening people and places I care about. | accepted · sensitive | yes |  |
 | `elder-abuse` | Elder abuse | I worry about older people being hurt, neglected, or cheated by people they trust. | accepted | no |  |
 | `gun-violence` | Gun violence | I worry about people getting shot where I live. | accepted | no |  |

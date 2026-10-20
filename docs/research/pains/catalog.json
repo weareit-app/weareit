@@ -385,6 +385,14 @@
           "note": "",
           "kind": "keep",
           "detail": "Burnout sits under Work and names the cause, while Tired is for anyone worn out whatever the reason. Tired is physical tiredness from any cause; Burnout is being used up by work."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/work/20261019-224622, review work-time-structure-20261020-154043 p009)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Tiredness has many causes besides work, and burnout is about the job as much as the body. Burnout is being worn down by work; Tired is being tired all the time, often from sleep or health."
         }
       ]
     },
@@ -819,6 +827,10 @@
         {
           "kind": "overlaps",
           "id": "one-illness-away"
+        },
+        {
+          "kind": "other-page",
+          "id": "one-illness-away"
         }
       ],
       "founderPool": "healthcare/care_access",
@@ -878,6 +890,14 @@
           "note": "",
           "kind": "keep",
           "detail": "Getting seen and paying for it are different worries, and the societal page already frames cost as a shared problem. Healthcare is not being able to see a doctor; Medical bills is worrying about what care will cost."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/health/20261019-224622, review health-kids-safety-structure-20261020-154043 p001)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "one-illness-away"
         }
       ]
     },
@@ -1100,6 +1120,10 @@
         {
           "kind": "overlaps",
           "id": "treated-differently"
+        },
+        {
+          "kind": "other-page",
+          "id": "treated-differently"
         }
       ],
       "founderPool": "accessibility/accommodations",
@@ -1181,6 +1205,14 @@
             "name": "Access",
             "line": "Buildings, websites, and services shut me out because of my disability."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/fairness/20261019-224622, review community-environment-fairness-structure-20261020-154043 p022)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "treated-differently"
         }
       ]
     },
@@ -1227,6 +1259,10 @@
         {
           "kind": "overlaps",
           "id": "overwhelmed"
+        },
+        {
+          "kind": "other-page",
+          "id": "mental-health-crisis"
         }
       ],
       "founderPool": "mental_emotional/anxiety_worry",
@@ -1282,6 +1318,14 @@
           "note": "",
           "kind": "keep",
           "detail": "The past event is the center of one and absent from the other, so the person living it can tell them apart. Trauma is about something that already happened; Anxiety is worry about what might happen."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/health/20261019-224622, review health-kids-safety-structure-20261020-154043 p004)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "mental-health-crisis"
         }
       ]
     },
@@ -1400,6 +1444,14 @@
           "note": "",
           "kind": "keep",
           "detail": "Plenty of stressed people don't snap at anyone, and the fixes for a quick temper are different from the fixes for too much on my plate. Short fuse is how I treat people when I'm on edge; Stress is the load that may put me there."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/time/20261019-224622, review work-time-structure-20261020-154043 p016)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Paperwork is a concrete chore people can point to, while Stress covers being overwhelmed by anything. Paperwork names the forms, bills and hold time; Stress is the general feeling of too much."
         }
       ]
     },
@@ -1567,6 +1619,10 @@
         {
           "kind": "overlaps",
           "id": "burnout"
+        },
+        {
+          "kind": "other-page",
+          "id": "mental-health-crisis"
         }
       ],
       "founderPool": "mental_emotional/mood_emotion",
@@ -1655,6 +1711,14 @@
           "note": "",
           "kind": "keep",
           "detail": "Someone shaped by a past event knows it is about that event, and it needs its own care and, later, its own crisis resources. Trauma is living with one thing that happened; Feeling down is a general low mood with or without a cause."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/health/20261019-224622, review health-kids-safety-structure-20261020-154043 p003)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "mental-health-crisis"
         }
       ]
     },
@@ -1760,6 +1824,14 @@
           "note": "",
           "kind": "keep",
           "detail": "Many people who judge themselves harshly don't feel low most days, so they would choose without hesitating. Hard on myself is the voice that says I'm never good enough; Feeling down is a low mood that may have no such voice."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/purpose/20261019-224622, review purpose-structure-20261020-154043 p006)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone who has lost track of what they want isn't necessarily hard on themselves, and the reverse is true too. Lost myself is not knowing myself any more; Self-esteem is judging myself harshly."
         }
       ]
     },
@@ -1980,6 +2052,22 @@
           "note": "",
           "kind": "keep",
           "detail": "The phone is one cause of scattered attention, but plenty of people can't focus with the phone put away. Can't focus is attention that won't stay on any one thing; Doomscrolling is evenings lost to the phone."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/purpose/20261019-224622, review purpose-structure-20261020-154043 p007)",
+          "note": "",
+          "kind": "keep",
+          "detail": "People can tell putting something off from drifting away from it partway through. Procrastination is not starting the things I mean to do; Focus is my mind wandering once I've started."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/time/20261019-224622, review work-time-structure-20261020-154043 p019)",
+          "note": "",
+          "kind": "keep",
+          "detail": "The phone can cause poor focus, but someone who can't concentrate at work and someone who scrolls until 2am each know which they are. Doomscrolling is losing nights to the phone; Focus is not being able to keep your mind on one thing."
         }
       ]
     },
@@ -2100,7 +2188,12 @@
         "I drink more than I want to.",
         "I can't stop something that's hurting me."
       ],
-      "relations": [],
+      "relations": [
+        {
+          "kind": "other-page",
+          "id": "addiction-here"
+        }
+      ],
       "founderPool": "self_regulation",
       "covers": [],
       "history": [
@@ -2155,6 +2248,14 @@
             "name": "Addiction",
             "line": "I can't stop something even though it hurts me."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/health/20261019-224622, review health-kids-safety-structure-20261020-154043 p005)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "addiction-here"
         }
       ]
     },
@@ -2292,6 +2393,14 @@
           "note": "",
           "kind": "link-other-page",
           "to": "cost-of-living"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/work/20261019-224622, review work-time-structure-20261020-154043 p004)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Plenty of people are underpaid without running out of money, and plenty run short for reasons other than pay. Underpaid is about pay that doesn't match the work; Broke is running out of money, which can happen for many reasons."
         }
       ]
     },
@@ -2343,6 +2452,10 @@
         },
         {
           "kind": "overlaps",
+          "id": "one-illness-away"
+        },
+        {
+          "kind": "other-page",
           "id": "one-illness-away"
         }
       ],
@@ -2407,6 +2520,14 @@
           "note": "",
           "kind": "keep",
           "detail": "A person choosing between them knows whether their worry is health costs or having no money set aside at all. No savings is having nothing put aside for any surprise; Medical bills is the cost of healthcare in particular, which can worry people who do have savings."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/health/20261019-224622, review health-kids-safety-structure-20261020-154043 p002)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "one-illness-away"
         }
       ]
     },
@@ -2623,6 +2744,14 @@
           "note": "",
           "kind": "keep",
           "detail": "Losing money to a scammer and being tracked by companies are different experiences, and people would not mix them up. Scams is money I actually lost to someone who tricked me; Privacy is feeling watched by companies that collect my data."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/information/20261019-224622, review government-information-change-structure-20261020-154043 p011)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Losing money to a scammer and feeling tracked by companies are different experiences on different pages, and neither is a version of the other. Privacy is the societal worry about companies collecting data on everyone; Scams is a personal loss of money to a fraud."
         }
       ]
     },
@@ -2887,6 +3016,22 @@
           "note": "",
           "kind": "keep",
           "detail": "One is a fear about where work is heading and the other is a present search, so a person can tell them apart at once. AI is a worry about jobs disappearing in the future; unemployment is not finding work now."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/work/20261019-224622, review work-time-structure-20261020-154043 p001)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone out of work and someone afraid of losing work are in different places and need different help. Unemployment is having no job now; Layoffs is having one and fearing you'll lose it."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/work/20261019-224622, review work-time-structure-20261020-154043 p002)",
+          "note": "",
+          "kind": "keep",
+          "detail": "One is a personal situation today and the other is a societal worry, so people won't confuse them. Unemployment is my own search for work; AI job losses is a worry about what happens to everyone's jobs."
         }
       ]
     },
@@ -2965,6 +3110,35 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/work/20261019-224622, review work-time-structure-20261020-154043 p004)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Plenty of people are underpaid without running out of money, and plenty run short for reasons other than pay. Underpaid is about pay that doesn't match the work; Broke is running out of money, which can happen for many reasons."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/work/20261019-224622, review work-time-structure-20261020-154043 p006)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Low pay and bad treatment often come together, but a person can easily say which one they mean. Mistreatment is about how I'm treated; Underpaid is about what I'm paid."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "card sort (docs/research/pains/refine/work/20261019-224622, review work-time-structure-20261020-154043 p011)",
+          "note": "",
+          "kind": "rejected-proposal",
+          "proposalKind": "move",
+          "proposed": {
+            "name": "Underpaid",
+            "line": "I'm paid less than my work is worth.",
+            "group": "Money"
+          }
         }
       ]
     },
@@ -3069,6 +3243,22 @@
             "name": "Mistreated at work",
             "line": "My boss or coworkers treat me badly, and I dread going in."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/work/20261019-224622, review work-time-structure-20261020-154043 p005)",
+          "note": "",
+          "kind": "keep",
+          "detail": "You can burn out under a kind boss and be mistreated without being exhausted, so the two are easy to tell apart. Mistreatment is how people at work treat me; Burnout is being worn down by the work itself."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/work/20261019-224622, review work-time-structure-20261020-154043 p006)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Low pay and bad treatment often come together, but a person can easily say which one they mean. Mistreatment is about how I'm treated; Underpaid is about what I'm paid."
         }
       ]
     },
@@ -3121,6 +3311,10 @@
         {
           "kind": "overlaps",
           "id": "ai-and-jobs"
+        },
+        {
+          "kind": "other-page",
+          "id": "ai-and-jobs"
         }
       ],
       "founderPool": "work/job_quality",
@@ -3163,6 +3357,22 @@
           "note": "",
           "kind": "keep",
           "detail": "Someone worried about their own layoff may not be thinking about AI at all, and someone worried about AI may feel secure in their own job. AI is one specific cause of job loss across society; layoffs is my own job being at risk for any reason."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/work/20261019-224622, review work-time-structure-20261020-154043 p001)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone out of work and someone afraid of losing work are in different places and need different help. Unemployment is having no job now; Layoffs is having one and fearing you'll lose it."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/work/20261019-224622, review work-time-structure-20261020-154043 p003)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "ai-and-jobs"
         }
       ]
     },
@@ -3256,6 +3466,22 @@
             "name": "Pointless work",
             "line": "I spend my days on work that doesn't help anyone."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/purpose/20261019-224622, review purpose-structure-20261020-154043 p011)",
+          "note": "",
+          "kind": "keep",
+          "detail": "One is about time to create and the other is about whether a job is worth doing, and people know which they mean. Creativity is no longer making things of my own; Meaning is feeling my paid work doesn't matter."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/work/20261019-224622, review work-time-structure-20261020-154043 p007)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone can be in the right field doing pointless tasks, or in the wrong field doing useful work, and the sharper lines in the alternatives make that choice easy. Meaning is feeling the job doesn't help anyone; Career is being in a field that doesn't fit me and wanting to switch."
         }
       ]
     },
@@ -3358,6 +3584,38 @@
             "name": "Wrong career",
             "line": "I'm in the wrong line of work, and I don't know how to switch."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/purpose/20261019-224622, review purpose-structure-20261020-154043 p008)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone in the wrong job may not yet know what they want instead, while Direction starts from a goal already in mind. Career is being in the wrong line of work; Direction is knowing what I want, in work or anywhere else, and not how to get there."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/purpose/20261019-224622, review purpose-structure-20261020-154043 p009)",
+          "note": "",
+          "kind": "keep",
+          "detail": "A person who likes their work can still feel their life is going nowhere, so the two don't collapse into one. Career is about the job; Stuck is about life as a whole not moving."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/work/20261019-224622, review work-time-structure-20261020-154043 p007)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone can be in the right field doing pointless tasks, or in the wrong field doing useful work, and the sharper lines in the alternatives make that choice easy. Meaning is feeling the job doesn't help anyone; Career is being in a field that doesn't fit me and wanting to switch."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/work/20261019-224622, review work-time-structure-20261020-154043 p008)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Direction covers goals well beyond work, while Career is specifically about being in the wrong job. Career is about the work I do now; Direction is not knowing how to reach a goal I already have, in any part of life."
         }
       ]
     },
@@ -3458,6 +3716,30 @@
             "name": "Burnout",
             "line": "Work has worn me down so much that I dread every morning."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/work/20261019-224622, review work-time-structure-20261020-154043 p005)",
+          "note": "",
+          "kind": "keep",
+          "detail": "You can burn out under a kind boss and be mistreated without being exhausted, so the two are easy to tell apart. Mistreatment is how people at work treat me; Burnout is being worn down by the work itself."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/work/20261019-224622, review work-time-structure-20261020-154043 p009)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Tiredness has many causes besides work, and burnout is about the job as much as the body. Burnout is being worn down by work; Tired is being tired all the time, often from sleep or health."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/work/20261019-224622, review work-time-structure-20261020-154043 p010)",
+          "note": "",
+          "kind": "keep",
+          "detail": "A person can have free hours and still be burned out, or be rested but have no time of their own. Burnout is having no energy left; Busy is having no hours left."
         }
       ]
     },
@@ -3508,6 +3790,10 @@
         {
           "kind": "overlaps",
           "id": "homelessness"
+        },
+        {
+          "kind": "other-page",
+          "id": "homelessness"
         }
       ],
       "founderPool": "housing/housing_stability",
@@ -3536,6 +3822,22 @@
           "kind": "tag-sensitive",
           "prompt": "agent seed list",
           "note": "founder to review"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/home/20261019-224622, review people-home-structure-20261020-154043 p022)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone sleeping on a friend's couch and someone behind on rent know at once which one they are living with. Homeless is having no reliable place to stay now; Eviction is still having a home and fearing losing it."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/home/20261019-224622, review people-home-structure-20261020-154043 p023)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "homelessness"
         }
       ]
     },
@@ -3645,6 +3947,30 @@
             "name": "Bad housing",
             "line": "The place I live is in bad shape, and I can't fix it or move."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/community/20261019-224622, review community-environment-fairness-structure-20261020-154043 p011)",
+          "note": "",
+          "kind": "keep",
+          "detail": "A bad apartment can be one reason to organize, but the pains are different and someone would not confuse them. Housing is living somewhere cramped, broken or noisy; Organizing is not getting neighbors to act together."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/home/20261019-224622, review people-home-structure-20261020-154043 p026)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Plenty of people pay too much for a decent place, and plenty live somewhere run-down that is cheap, so the choice is easy. Housing is the place being cramped, broken or noisy; High rent is what it costs."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/home/20261019-224622, review people-home-structure-20261020-154043 p027)",
+          "note": "",
+          "kind": "keep",
+          "detail": "A drafty, broken home can be cold too, but someone who can't afford the heating bill would look for that pain by name. Heating is not being able to pay to keep warm, even in a sound home; Housing is the place itself being cramped, broken or noisy."
         }
       ]
     },
@@ -3749,6 +4075,30 @@
             "name": "Cold home",
             "line": "I can't afford to keep my home warm."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/home/20261019-224622, review people-home-structure-20261020-154043 p027)",
+          "note": "",
+          "kind": "keep",
+          "detail": "A drafty, broken home can be cold too, but someone who can't afford the heating bill would look for that pain by name. Heating is not being able to pay to keep warm, even in a sound home; Housing is the place itself being cramped, broken or noisy."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/home/20261019-224622, review people-home-structure-20261020-154043 p028)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Going cold at home needs its own fixes, like heating help and insulation, and people living it would look for it rather than a general cost complaint. Heating is one specific cost going without; Rising costs is everything getting more expensive than pay."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/home/20261019-224622, review people-home-structure-20261020-154043 p029)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Many people keep the heat off so they never fall behind, so the alternative line 'I can't afford to keep my home warm' makes the difference clear. Heating is going without warmth to avoid the bill; Utility bills is being behind on the bills already, which can include water."
         }
       ]
     },
@@ -3843,6 +4193,14 @@
             "name": "Bad internet",
             "line": "I can't get internet that's fast enough and that I can afford."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/home/20261019-224622, review people-home-structure-20261020-154043 p030)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Both can cut people off from work and services, but nobody would confuse a slow connection with having no ride. Internet is not being able to get online at a decent speed or price; Transport is not being able to get to places."
         }
       ]
     },
@@ -3959,6 +4317,38 @@
           "note": "",
           "kind": "link-other-page",
           "to": "homelessness"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/community/20261019-224622, review community-environment-fairness-structure-20261020-154043 p002)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "homelessness"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/home/20261019-224622, review people-home-structure-20261020-154043 p022)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone sleeping on a friend's couch and someone behind on rent know at once which one they are living with. Homeless is having no reliable place to stay now; Eviction is still having a home and fearing losing it."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/home/20261019-224622, review people-home-structure-20261020-154043 p024)",
+          "note": "",
+          "kind": "keep",
+          "detail": "High rent can lead to eviction, but people paying too much and people about to lose their home would each look for their own pain. Eviction is the fear of losing my home; High rent is paying too much for it, which many people manage without any risk of losing it."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/home/20261019-224622, review people-home-structure-20261020-154043 p025)",
+          "note": "",
+          "kind": "keep",
+          "detail": "One is a personal fear and the other is something seen in the community, and the personal match for Homelessness is Homeless, not Eviction. Eviction is my own home at risk; Homelessness is seeing neighbors who already have none."
         }
       ]
     },
@@ -4006,6 +4396,10 @@
       "relations": [
         {
           "kind": "overlaps",
+          "id": "crime-and-violence"
+        },
+        {
+          "kind": "other-page",
           "id": "crime-and-violence"
         }
       ],
@@ -4063,6 +4457,30 @@
             "name": "Unsafe area",
             "line": "I don't feel safe in my neighborhood."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/safety/20261019-224622, review health-kids-safety-structure-20261020-154043 p015)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "crime-and-violence"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/home/20261019-224622, review people-home-structure-20261020-154043 p031)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "crime-and-violence"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/home/20261019-224622, review people-home-structure-20261020-154043 p032)",
+          "note": "",
+          "kind": "keep",
+          "detail": "The two need very different help, and the alternative name Unsafe area keeps them from both reading as Safety. Safety is danger in the neighborhood; Safety at home is danger from someone in my own life."
         }
       ]
     },
@@ -4114,6 +4532,10 @@
         {
           "kind": "overlaps",
           "id": "car-or-nothing"
+        },
+        {
+          "kind": "other-page",
+          "id": "car-or-nothing"
         }
       ],
       "founderPool": "transport/transport_access",
@@ -4164,6 +4586,30 @@
             "name": "Can't get around",
             "line": "I can't easily get to where I need to go."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/environment/20261019-224622, review community-environment-fairness-structure-20261020-154043 p015)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "car-or-nothing"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/home/20261019-224622, review people-home-structure-20261020-154043 p030)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Both can cut people off from work and services, but nobody would confuse a slow connection with having no ride. Internet is not being able to get online at a decent speed or price; Transport is not being able to get to places."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/home/20261019-224622, review people-home-structure-20261020-154043 p033)",
+          "note": "Agreed, also I may be able to get around and don't like that you need to live this way.",
+          "kind": "link-other-page",
+          "to": "car-or-nothing"
         }
       ]
     },
@@ -4248,6 +4694,46 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p017)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Caregiving takes far more than time, so it stands as its own pain on People. Caregiving names the cause; no time of my own can come from work, kids or anything else."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/work/20261019-224622, review work-time-structure-20261020-154043 p010)",
+          "note": "",
+          "kind": "keep",
+          "detail": "A person can have free hours and still be burned out, or be rested but have no time of their own. Burnout is having no energy left; Busy is having no hours left."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/time/20261019-224622, review work-time-structure-20261020-154043 p012)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone whose time goes to cooking and cleaning will pick Chores, while someone stretched by work, commutes or everything at once picks Busy. Busy is having no time of your own for any reason; Chores names one specific thing that eats the day."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/time/20261019-224622, review work-time-structure-20261020-154043 p013)",
+          "note": "",
+          "kind": "keep",
+          "detail": "A caregiver recognizes their own pain in Caregiving at once, and Busy stays for everyone whose time goes elsewhere. Caregiving names looking after someone, which takes more than time; Busy is general."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/time/20261019-224622, review work-time-structure-20261020-154043 p014)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone can have free hours and still never do anything just for fun, which the first No fun alternative makes explicit. No fun is about play and enjoyment being gone; Busy is about having no time at all."
         }
       ]
     },
@@ -4256,7 +4742,7 @@
       "name": "Too many chores",
       "line": "I spend my days cooking and cleaning.",
       "page": "personal",
-      "group": "time",
+      "group": "home",
       "secondaryGroups": [],
       "status": "accepted",
       "role": "shown",
@@ -4345,6 +4831,23 @@
             "name": "Too many chores",
             "line": "I spend my days cooking and cleaning."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/time/20261019-224622, review work-time-structure-20261020-154043 p012)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone whose time goes to cooking and cleaning will pick Chores, while someone stretched by work, commutes or everything at once picks Busy. Busy is having no time of your own for any reason; Chores names one specific thing that eats the day."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "card sort (docs/research/pains/refine/time/20261019-224622, review work-time-structure-20261020-154043 p020)",
+          "note": "",
+          "kind": "move",
+          "from": "time",
+          "to": "home"
         }
       ]
     },
@@ -4468,6 +4971,22 @@
             "name": "Too much paperwork",
             "line": "Forms, bills, and calls on hold eat up my week."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/time/20261019-224622, review work-time-structure-20261020-154043 p016)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Paperwork is a concrete chore people can point to, while Stress covers being overwhelmed by anything. Paperwork names the forms, bills and hold time; Stress is the general feeling of too much."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/time/20261019-224622, review work-time-structure-20261020-154043 p017)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Being stuck in a lawsuit or legal case feels nothing like a week of forms and hold music, so no one would mix them up. Legal trouble is one serious problem you can't afford to fix; Paperwork is the steady pile of everyday forms and bills."
         }
       ]
     },
@@ -4476,7 +4995,7 @@
       "name": "Legal trouble",
       "line": "I'm stuck in a legal problem I can't afford.",
       "page": "personal",
-      "group": "time",
+      "group": "money",
       "secondaryGroups": [],
       "status": "accepted",
       "role": "shown",
@@ -4554,6 +5073,31 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/time/20261019-224622, review work-time-structure-20261020-154043 p017)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Being stuck in a lawsuit or legal case feels nothing like a week of forms and hold music, so no one would mix them up. Legal trouble is one serious problem you can't afford to fix; Paperwork is the steady pile of everyday forms and bills."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/time/20261019-224622, review work-time-structure-20261020-154043 p018)",
+          "note": "",
+          "kind": "keep",
+          "detail": "One is a personal problem and the other a view about society, so they belong on different pages without a link. Legal trouble is my own legal problem; Justice is seeing courts and police treat people differently."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "card sort (docs/research/pains/refine/time/20261019-224622, review work-time-structure-20261020-154043 p022)",
+          "note": "This doesn't fit super well in either, not sure if it means we're missing a group.",
+          "kind": "move",
+          "from": "time",
+          "to": "money"
         }
       ]
     },
@@ -4597,6 +5141,10 @@
         {
           "kind": "overlaps",
           "id": "cant-focus"
+        },
+        {
+          "kind": "other-page",
+          "id": "screens-and-kids"
         }
       ],
       "founderPool": "digital_info/digital_overload",
@@ -4621,6 +5169,35 @@
           "note": "",
           "kind": "keep",
           "detail": "The phone is one cause of scattered attention, but plenty of people can't focus with the phone put away. Can't focus is attention that won't stay on any one thing; Doomscrolling is evenings lost to the phone."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/kids/20261019-224622, review health-kids-safety-structure-20261020-154043 p013)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "screens-and-kids"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/time/20261019-224622, review work-time-structure-20261020-154043 p019)",
+          "note": "",
+          "kind": "keep",
+          "detail": "The phone can cause poor focus, but someone who can't concentrate at work and someone who scrolls until 2am each know which they are. Doomscrolling is losing nights to the phone; Focus is not being able to keep your mind on one thing."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "card sort (docs/research/pains/refine/time/20261019-224622, review work-time-structure-20261020-154043 p021)",
+          "note": "This doesn't fit super well in either, not sure if it means we're missing a group.",
+          "kind": "rejected-proposal",
+          "proposalKind": "move",
+          "proposed": {
+            "name": "Doomscrolling",
+            "line": "I lose my nights to my phone.",
+            "group": "Mind"
+          }
         }
       ]
     },
@@ -4629,7 +5206,7 @@
       "name": "No fun",
       "line": "I can't remember the last time I did something just for fun.",
       "page": "personal",
-      "group": "time",
+      "group": "purpose",
       "secondaryGroups": [],
       "status": "accepted",
       "role": "shown",
@@ -4723,6 +5300,39 @@
             "name": "No fun",
             "line": "I can't remember the last time I did something just for fun."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/purpose/20261019-224622, review purpose-structure-20261020-154043 p010)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone who misses painting and someone who never gets to relax and play would each recognize only their own line. Creativity is missing making things; Fun is missing play and lightness of any kind."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/time/20261019-224622, review work-time-structure-20261020-154043 p014)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone can have free hours and still never do anything just for fun, which the first No fun alternative makes explicit. No fun is about play and enjoyment being gone; Busy is about having no time at all."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/time/20261019-224622, review work-time-structure-20261020-154043 p015)",
+          "note": "",
+          "kind": "keep",
+          "detail": "One is missing enjoyment and the other is missing people to share it with, and a person knows which one is theirs. No fun is about not playing at all; Invitations is about wanting company to go out with."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "card sort (docs/research/pains/refine/time/20261019-224622, review work-time-structure-20261020-154043 p023)",
+          "note": "",
+          "kind": "move",
+          "from": "time",
+          "to": "purpose"
         }
       ]
     },
@@ -4731,7 +5341,7 @@
       "name": "Safety at home",
       "line": "I don't feel safe with someone in my life.",
       "page": "personal",
-      "group": "people",
+      "group": "home",
       "secondaryGroups": [],
       "status": "accepted",
       "role": "shown",
@@ -4802,6 +5412,39 @@
           "kind": "tag-sensitive",
           "prompt": "agent seed list",
           "note": "founder to review"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p001)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone afraid for their safety needs to find that pain without wondering whether ordinary family fights are the same thing. Fighting at home is conflict; not feeling safe with someone is fear of being hurt, and may need crisis resources first."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p002)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Folding danger into relationship trouble would hide a sensitive pain inside an everyday one. Struggling with a partner is a hard relationship; not feeling safe is about danger, and the person may not be a partner."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "card sort (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p021)",
+          "note": "",
+          "kind": "move",
+          "from": "people",
+          "to": "home"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/home/20261019-224622, review people-home-structure-20261020-154043 p032)",
+          "note": "",
+          "kind": "keep",
+          "detail": "The two need very different help, and the alternative name Unsafe area keeps them from both reading as Safety. Safety is danger in the neighborhood; Safety at home is danger from someone in my own life."
         }
       ]
     },
@@ -4851,6 +5494,10 @@
         {
           "kind": "overlaps",
           "id": "no-one-to-lean-on"
+        },
+        {
+          "kind": "other-page",
+          "id": "older-people-alone"
         }
       ],
       "founderPool": "social_connection/loneliness_belonging",
@@ -4890,6 +5537,78 @@
             "name": "Loneliness",
             "line": "Most days I don't talk to anyone who really knows me."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/community/20261019-224622, review community-environment-fairness-structure-20261020-154043 p005)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Not knowing neighbors is about the street and the community, while loneliness is a personal feeling that can happen anywhere. Loneliness is feeling alone; Neighbors is not knowing the people on my street, which many people with close friends also feel."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/health/20261019-224622, review health-kids-safety-structure-20261020-154043 p006)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "older-people-alone"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p003)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone can have close people and still have no one to go out with, so a person can choose between them, more easily if the loneliness line is made concrete. Loneliness is the overall feeling of being alone; the other is wanting company for going out."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p004)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Plenty of people with a busy social life have no one they'd call at 2am, and the fixes differ. Loneliness is day-to-day isolation; no one to lean on is having nobody to call in a crisis."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p005)",
+          "note": "",
+          "kind": "keep",
+          "detail": "People often feel they don't fit in anywhere while still having a few friends, so the two read differently. Belonging is about fitting into a group or place; loneliness is about missing people day to day."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p009)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Many people want a partner without feeling alone, and many feel alone without wanting to date. Dating is wanting a romantic partner; loneliness is missing people in general."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p010)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone who just moved will recognize their situation right away, and the fixes for it are specific. New in town has a clear cause and its own fixes (meeting neighbors, local groups); loneliness can last for years with no move."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p012)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Leaving a church or other close community is a loss people name on its own. This is losing a specific community you belonged to; loneliness is missing people in general."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p014)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Missing old friends is specific enough to choose without thinking twice, and the fix is reaching back out. Drifted apart is losing touch with particular friends; loneliness is the overall feeling of being alone."
         }
       ]
     },
@@ -4964,6 +5683,22 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p005)",
+          "note": "",
+          "kind": "keep",
+          "detail": "People often feel they don't fit in anywhere while still having a few friends, so the two read differently. Belonging is about fitting into a group or place; loneliness is about missing people day to day."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p006)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Losing a community you had is a grief of its own, but the two currently share the name Belonging, which the alternatives fix. Belonging is never having found a place; the other is losing one you had."
         }
       ]
     },
@@ -5032,6 +5767,22 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p007)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone married can miss closeness without wanting to date, so the two are easy to tell apart. Dating is about finding a partner; intimacy is missing closeness, which people in relationships feel too."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p008)",
+          "note": "",
+          "kind": "keep",
+          "detail": "A calm relationship can lack closeness and a close one can be full of fights, so neither covers the other. Relationship strain is conflict or difficulty with a partner; intimacy is missing closeness, with or without one."
         }
       ]
     },
@@ -5113,6 +5864,22 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p007)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone married can miss closeness without wanting to date, so the two are easy to tell apart. Dating is about finding a partner; intimacy is missing closeness, which people in relationships feel too."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p009)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Many people want a partner without feeling alone, and many feel alone without wanting to date. Dating is wanting a romantic partner; loneliness is missing people in general."
         }
       ]
     },
@@ -5209,6 +5976,14 @@
             "name": "No support",
             "line": "I have no one to call when I need help."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p004)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Plenty of people with a busy social life have no one they'd call at 2am, and the fixes differ. Loneliness is day-to-day isolation; no one to lean on is having nobody to call in a crisis."
         }
       ]
     },
@@ -5305,6 +6080,22 @@
             "name": "New in town",
             "line": "I just moved here and don't know anyone yet."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p010)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone who just moved will recognize their situation right away, and the fixes for it are specific. New in town has a clear cause and its own fixes (meeting neighbors, local groups); loneliness can last for years with no move."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p011)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Knowing nobody at all and knowing people who don't invite you are different situations. New in town is knowing nobody where you live; the other is lacking company for going out, even among people you know."
         }
       ]
     },
@@ -5397,6 +6188,22 @@
             "name": "Lost community",
             "line": "I've lost the community I used to be part of."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p006)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Losing a community you had is a grief of its own, but the two currently share the name Belonging, which the alternatives fix. Belonging is never having found a place; the other is losing one you had."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p012)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Leaving a church or other close community is a loss people name on its own. This is losing a specific community you belonged to; loneliness is missing people in general."
         }
       ]
     },
@@ -5489,6 +6296,38 @@
             "name": "Plans",
             "line": "I'd go out more if I had someone to go with."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p003)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone can have close people and still have no one to go out with, so a person can choose between them, more easily if the loneliness line is made concrete. Loneliness is the overall feeling of being alone; the other is wanting company for going out."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p011)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Knowing nobody at all and knowing people who don't invite you are different situations. New in town is knowing nobody where you live; the other is lacking company for going out, even among people you know."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p013)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone with plenty of friends can still have no one who loves what they love. Interests is about finding people who share a passion; the other is about having company at all."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/time/20261019-224622, review work-time-structure-20261020-154043 p015)",
+          "note": "",
+          "kind": "keep",
+          "detail": "One is missing enjoyment and the other is missing people to share it with, and a person knows which one is theirs. No fun is about not playing at all; Invitations is about wanting company to go out with."
         }
       ]
     },
@@ -5570,6 +6409,14 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p013)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone with plenty of friends can still have no one who loves what they love. Interests is about finding people who share a passion; the other is about having company at all."
         }
       ]
     },
@@ -5659,6 +6506,14 @@
             "name": "Old friends",
             "line": "I've drifted apart from friends who used to matter a lot to me."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p014)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Missing old friends is specific enough to choose without thinking twice, and the fix is reaching back out. Drifted apart is losing touch with particular friends; loneliness is the overall feeling of being alone."
         }
       ]
     },
@@ -5741,6 +6596,30 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p002)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Folding danger into relationship trouble would hide a sensitive pain inside an everyday one. Struggling with a partner is a hard relationship; not feeling safe is about danger, and the person may not be a partner."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p008)",
+          "note": "",
+          "kind": "keep",
+          "detail": "A calm relationship can lack closeness and a close one can be full of fights, so neither covers the other. Relationship strain is conflict or difficulty with a partner; intimacy is missing closeness, with or without one."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p015)",
+          "note": "",
+          "kind": "keep",
+          "detail": "The conflict involves different people, so someone can tell which one is theirs. Relationship is trouble with a partner; family is fighting among the people you live with, often parents, kids or siblings."
         }
       ]
     },
@@ -5749,7 +6628,7 @@
       "name": "Family",
       "line": "I'm caught in fighting at home.",
       "page": "personal",
-      "group": "people",
+      "group": "home",
       "secondaryGroups": [],
       "status": "accepted",
       "role": "shown",
@@ -5832,6 +6711,31 @@
           "note": "",
           "kind": "keep",
           "detail": "One is about how I react and the other is about the home I live in, and a person knows whether the problem is mostly them or the household. Short fuse is my own temper with people I love; Family is being caught in fighting at home that others start too."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p001)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone afraid for their safety needs to find that pain without wondering whether ordinary family fights are the same thing. Fighting at home is conflict; not feeling safe with someone is fear of being hurt, and may need crisis resources first."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p015)",
+          "note": "",
+          "kind": "keep",
+          "detail": "The conflict involves different people, so someone can tell which one is theirs. Relationship is trouble with a partner; family is fighting among the people you live with, often parents, kids or siblings."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "card sort (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p019)",
+          "note": "",
+          "kind": "move",
+          "from": "people",
+          "to": "home"
         }
       ]
     },
@@ -5885,6 +6789,10 @@
         {
           "kind": "overlaps",
           "id": "parenting-is-hard"
+        },
+        {
+          "kind": "other-page",
+          "id": "older-people-alone"
         }
       ],
       "founderPool": "caregiving/caregiver_burden",
@@ -5920,6 +6828,38 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/health/20261019-224622, review health-kids-safety-structure-20261020-154043 p007)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "older-people-alone"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p016)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Most people would not call raising their kids caregiving, and the help available is different. Caregiving is looking after a sick, disabled or aging person; parenting is raising your own kids."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p017)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Caregiving takes far more than time, so it stands as its own pain on People. Caregiving names the cause; no time of my own can come from work, kids or anything else."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/time/20261019-224622, review work-time-structure-20261020-154043 p013)",
+          "note": "",
+          "kind": "keep",
+          "detail": "A caregiver recognizes their own pain in Caregiving at once, and Busy stays for everyone whose time goes elsewhere. Caregiving names looking after someone, which takes more than time; Busy is general."
         }
       ]
     },
@@ -5928,7 +6868,7 @@
       "name": "Parenting",
       "line": "I'm worn out raising my kids.",
       "page": "personal",
-      "group": "people",
+      "group": "home",
       "secondaryGroups": [],
       "status": "accepted",
       "role": "shown",
@@ -5969,6 +6909,10 @@
         },
         {
           "kind": "overlaps",
+          "id": "childcare-costs"
+        },
+        {
+          "kind": "other-page",
           "id": "childcare-costs"
         }
       ],
@@ -6012,6 +6956,31 @@
           "note": "",
           "kind": "keep",
           "detail": "A parent who can't pay for daycare and a parent who is exhausted are naming different problems, even if both are true at once. Childcare is the bill; parenting is being worn out by the work of raising kids."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p016)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Most people would not call raising their kids caregiving, and the help available is different. Caregiving is looking after a sick, disabled or aging person; parenting is raising your own kids."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p018)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "childcare-costs"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "card sort (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p020)",
+          "note": "",
+          "kind": "move",
+          "from": "people",
+          "to": "home"
         }
       ]
     },
@@ -6020,7 +6989,7 @@
       "name": "Learning",
       "line": "I want to learn something, but I don't know how to start.",
       "page": "personal",
-      "group": "purpose",
+      "group": "mind",
       "secondaryGroups": [],
       "status": "accepted",
       "role": "shown",
@@ -6083,6 +7052,31 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/purpose/20261019-224622, review purpose-structure-20261020-154043 p001)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Wanting to pick up guitar and falling behind at work feel nothing alike, so a person knows which one is theirs. Learning is wanting to learn something for myself and not knowing how to begin; Skills is the world or my job now asking for skills I don't have."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/purpose/20261019-224622, review purpose-structure-20261020-154043 p002)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone who wants to learn Spanish and someone who wants a different life would each pick their own line without hesitating. Learning is about starting on a subject or skill; Direction is about a bigger goal in life and the steps to reach it."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "card sort (docs/research/pains/refine/purpose/20261019-224622, review purpose-structure-20261020-154043 p012)",
+          "note": "",
+          "kind": "move",
+          "from": "purpose",
+          "to": "mind"
         }
       ]
     },
@@ -6091,7 +7085,7 @@
       "name": "Procrastination",
       "line": "I keep putting off the things that matter to me until it's too late.",
       "page": "personal",
-      "group": "purpose",
+      "group": "time",
       "secondaryGroups": [],
       "status": "accepted",
       "role": "shown",
@@ -6164,6 +7158,23 @@
             "name": "Procrastination",
             "line": "I keep putting off the things that matter to me until it's too late."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/purpose/20261019-224622, review purpose-structure-20261020-154043 p007)",
+          "note": "",
+          "kind": "keep",
+          "detail": "People can tell putting something off from drifting away from it partway through. Procrastination is not starting the things I mean to do; Focus is my mind wandering once I've started."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "card sort (docs/research/pains/refine/purpose/20261019-224622, review purpose-structure-20261020-154043 p015)",
+          "note": "",
+          "kind": "move",
+          "from": "purpose",
+          "to": "time"
         }
       ]
     },
@@ -6245,6 +7256,46 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/purpose/20261019-224622, review purpose-structure-20261020-154043 p002)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone who wants to learn Spanish and someone who wants a different life would each pick their own line without hesitating. Learning is about starting on a subject or skill; Direction is about a bigger goal in life and the steps to reach it."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/purpose/20261019-224622, review purpose-structure-20261020-154043 p003)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Missing a map and missing the ability are different gaps, and the fixes for each are different. Direction is not knowing the steps toward a goal; Skills is knowing what's needed and not being able to do it yet."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/purpose/20261019-224622, review purpose-structure-20261020-154043 p004)",
+          "note": "",
+          "kind": "keep",
+          "detail": "The line for Direction starts with knowing what I want, which someone who feels stuck usually can't say, so the choice is easy. Stuck is feeling that life isn't moving at all, often without a clear goal; Direction is having a goal and no route to it."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/purpose/20261019-224622, review purpose-structure-20261020-154043 p008)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone in the wrong job may not yet know what they want instead, while Direction starts from a goal already in mind. Career is being in the wrong line of work; Direction is knowing what I want, in work or anywhere else, and not how to get there."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/work/20261019-224622, review work-time-structure-20261020-154043 p008)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Direction covers goals well beyond work, while Career is specifically about being in the wrong job. Career is about the work I do now; Direction is not knowing how to reach a goal I already have, in any part of life."
         }
       ]
     },
@@ -6253,7 +7304,7 @@
       "name": "Skills",
       "line": "I don't have the skills I need now.",
       "page": "personal",
-      "group": "purpose",
+      "group": "work",
       "secondaryGroups": [],
       "status": "accepted",
       "role": "shown",
@@ -6327,6 +7378,31 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/purpose/20261019-224622, review purpose-structure-20261020-154043 p001)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Wanting to pick up guitar and falling behind at work feel nothing alike, so a person knows which one is theirs. Learning is wanting to learn something for myself and not knowing how to begin; Skills is the world or my job now asking for skills I don't have."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/purpose/20261019-224622, review purpose-structure-20261020-154043 p003)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Missing a map and missing the ability are different gaps, and the fixes for each are different. Direction is not knowing the steps toward a goal; Skills is knowing what's needed and not being able to do it yet."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "card sort (docs/research/pains/refine/purpose/20261019-224622, review purpose-structure-20261020-154043 p014)",
+          "note": "",
+          "kind": "move",
+          "from": "purpose",
+          "to": "work"
         }
       ]
     },
@@ -6425,6 +7501,30 @@
             "name": "Progress",
             "line": "I feel like my life isn't going anywhere, and each year looks like the last."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/purpose/20261019-224622, review purpose-structure-20261020-154043 p004)",
+          "note": "",
+          "kind": "keep",
+          "detail": "The line for Direction starts with knowing what I want, which someone who feels stuck usually can't say, so the choice is easy. Stuck is feeling that life isn't moving at all, often without a clear goal; Direction is having a goal and no route to it."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/purpose/20261019-224622, review purpose-structure-20261020-154043 p005)",
+          "note": "",
+          "kind": "keep",
+          "detail": "One is about who I am and the other is about where my life is going, and the alternative line for Lost myself makes that plain. Lost myself is not knowing what I like or want any more; Stuck is knowing my life isn't moving forward."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/purpose/20261019-224622, review purpose-structure-20261020-154043 p009)",
+          "note": "",
+          "kind": "keep",
+          "detail": "A person who likes their work can still feel their life is going nowhere, so the two don't collapse into one. Career is about the job; Stuck is about life as a whole not moving."
         }
       ]
     },
@@ -6510,6 +7610,30 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p025)",
+          "note": "",
+          "kind": "keep",
+          "detail": "One is about people to build with and the other about room in my own life to make things, so they are different pains, not one pain on two pages. Collaborators is about a shared idea needing a team; Creativity on the personal page is about losing time to make things at all."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/purpose/20261019-224622, review purpose-structure-20261020-154043 p010)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone who misses painting and someone who never gets to relax and play would each recognize only their own line. Creativity is missing making things; Fun is missing play and lightness of any kind."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/purpose/20261019-224622, review purpose-structure-20261020-154043 p011)",
+          "note": "",
+          "kind": "keep",
+          "detail": "One is about time to create and the other is about whether a job is worth doing, and people know which they mean. Creativity is no longer making things of my own; Meaning is feeling my paid work doesn't matter."
         }
       ]
     },
@@ -6620,6 +7744,35 @@
             "name": "Who I am",
             "line": "I can't say what I like, what I want, or who I am any more."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/purpose/20261019-224622, review purpose-structure-20261020-154043 p005)",
+          "note": "",
+          "kind": "keep",
+          "detail": "One is about who I am and the other is about where my life is going, and the alternative line for Lost myself makes that plain. Lost myself is not knowing what I like or want any more; Stuck is knowing my life isn't moving forward."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/purpose/20261019-224622, review purpose-structure-20261020-154043 p006)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone who has lost track of what they want isn't necessarily hard on themselves, and the reverse is true too. Lost myself is not knowing myself any more; Self-esteem is judging myself harshly."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "card sort (docs/research/pains/refine/purpose/20261019-224622, review purpose-structure-20261020-154043 p013)",
+          "note": "",
+          "kind": "rejected-proposal",
+          "proposalKind": "move",
+          "proposed": {
+            "name": "Who I am",
+            "line": "I can't say what I like, what I want, or who I am any more.",
+            "group": "Mind"
+          }
         }
       ]
     },
@@ -6710,6 +7863,22 @@
             "name": "Being heard",
             "line": "The people in charge don't listen to people like me."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/government/20261019-224622, review government-information-change-structure-20261020-154043 p001)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone ignored by their own city council and someone whose town is run from the state capital name different problems and would each pick one easily. Not being heard is about my voice being ignored by any official; local control is about where decisions get made, even by people who might listen."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/government/20261019-224622, review government-information-change-structure-20261020-154043 p006)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Feeling ignored by officials is common even where democracy is stable, so a person can easily tell which of the two they mean. Not being heard is my own voice ignored today; democracy slipping is the system that guarantees that voice weakening over time."
         }
       ]
     },
@@ -6774,6 +7943,14 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/government/20261019-224622, review government-information-change-structure-20261020-154043 p002)",
+          "note": "",
+          "kind": "keep",
+          "detail": "People who feel personally restricted and people worried about the system as a whole often aren't the same people, so both need a place to say it. Freedoms is my own choices being taken away; democracy slipping is the shared system of courts, elections and press weakening."
         }
       ]
     },
@@ -6865,6 +8042,30 @@
             "name": "Infrastructure",
             "line": "I depend on roads, water, and power that keep breaking down."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/environment/20261019-224622, review community-environment-fairness-structure-20261020-154043 p016)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Potholes and a missing bus line are different complaints, and a person would know which one they mean. Infrastructure is roads, water and power breaking down; needing a car is having no other way to travel even when the roads work."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/government/20261019-224622, review government-information-change-structure-20261020-154043 p007)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Crumbling roads are a concrete daily problem whether or not someone thinks about taxes, and a person can choose between them without thinking twice. Infrastructure is the roads, water and power I depend on breaking down; taxes is the sense of paying more for less across the board."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/government/20261019-224622, review government-information-change-structure-20261020-154043 p008)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Potholes and water main breaks are a different problem from having no bus or sidewalk at all, so they belong in separate pains and groups. Infrastructure is things that exist but keep breaking; car-or-nothing is having no way to get around except driving."
         }
       ]
     },
@@ -6969,6 +8170,22 @@
             "name": "Local control",
             "line": "Decisions about my town get made by people far away."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/community/20261019-224622, review community-environment-fairness-structure-20261020-154043 p004)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone watching their town empty out and someone angry that decisions are made elsewhere would each pick their own without hesitation. Dying town is the place emptying out; Local control is who makes the decisions about it."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/government/20261019-224622, review government-information-change-structure-20261020-154043 p001)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone ignored by their own city council and someone whose town is run from the state capital name different problems and would each pick one easily. Not being heard is about my voice being ignored by any official; local control is about where decisions get made, even by people who might listen."
         }
       ]
     },
@@ -7046,6 +8263,14 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/government/20261019-224622, review government-information-change-structure-20261020-154043 p009)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone can trust the news and still not know which candidate fits them, so the two pains name different moments. Voting is about the choice in front of me at election time; misinformation is not trusting what I read about anything."
         }
       ]
     },
@@ -7121,6 +8346,30 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/government/20261019-224622, review government-information-change-structure-20261020-154043 p003)",
+          "note": "",
+          "kind": "keep",
+          "detail": "A broken campaign promise and a rich donor getting special treatment are different complaints, and the lines already say which is which. Accountability is leaders breaking promises and facing nothing; corruption is the rules bending for people with money."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/government/20261019-224622, review government-information-change-structure-20261020-154043 p004)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Paying more for worse services is a money complaint that someone could have even with honest leaders, so the two don't blur. Taxes is about what I pay and what I get for it; accountability is about leaders getting away with broken promises."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/government/20261019-224622, review government-information-change-structure-20261020-154043 p005)",
+          "note": "",
+          "kind": "keep",
+          "detail": "One is about people in power and the other about the system that should hold them, and the reworded democracy line makes that clearer. Accountability is individual leaders facing no consequences; democracy slipping is the institutions themselves being worn down."
         }
       ]
     },
@@ -7216,6 +8465,14 @@
             "name": "Money in politics",
             "line": "I see the rules bend for people with money."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/government/20261019-224622, review government-information-change-structure-20261020-154043 p003)",
+          "note": "",
+          "kind": "keep",
+          "detail": "A broken campaign promise and a rich donor getting special treatment are different complaints, and the lines already say which is which. Accountability is leaders breaking promises and facing nothing; corruption is the rules bending for people with money."
         }
       ]
     },
@@ -7313,6 +8570,22 @@
             "name": "Taxes",
             "line": "I pay more in taxes and get less back in services."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/government/20261019-224622, review government-information-change-structure-20261020-154043 p004)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Paying more for worse services is a money complaint that someone could have even with honest leaders, so the two don't blur. Taxes is about what I pay and what I get for it; accountability is about leaders getting away with broken promises."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/government/20261019-224622, review government-information-change-structure-20261020-154043 p007)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Crumbling roads are a concrete daily problem whether or not someone thinks about taxes, and a person can choose between them without thinking twice. Infrastructure is the roads, water and power I depend on breaking down; taxes is the sense of paying more for less across the board."
         }
       ]
     },
@@ -7410,6 +8683,38 @@
             "name": "Democracy",
             "line": "I worry our democracy is slowly slipping away."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/community/20261019-224622, review community-environment-fairness-structure-20261020-154043 p007)",
+          "note": "",
+          "kind": "keep",
+          "detail": "The current Trust line says 'people and groups', which blurs into institutions, so the alternative drops 'groups' and keeps the two distinct. Trust is about the people around me; Institutions is about courts, elections and agencies falling apart."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/government/20261019-224622, review government-information-change-structure-20261020-154043 p002)",
+          "note": "",
+          "kind": "keep",
+          "detail": "People who feel personally restricted and people worried about the system as a whole often aren't the same people, so both need a place to say it. Freedoms is my own choices being taken away; democracy slipping is the shared system of courts, elections and press weakening."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/government/20261019-224622, review government-information-change-structure-20261020-154043 p005)",
+          "note": "",
+          "kind": "keep",
+          "detail": "One is about people in power and the other about the system that should hold them, and the reworded democracy line makes that clearer. Accountability is individual leaders facing no consequences; democracy slipping is the institutions themselves being worn down."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/government/20261019-224622, review government-information-change-structure-20261020-154043 p006)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Feeling ignored by officials is common even where democracy is stable, so a person can easily tell which of the two they mean. Not being heard is my own voice ignored today; democracy slipping is the system that guarantees that voice weakening over time."
         }
       ]
     },
@@ -7627,6 +8932,22 @@
           "note": "",
           "kind": "link-other-page",
           "to": "broke"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/fairness/20261019-224622, review community-environment-fairness-structure-20261020-154043 p021)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone hit by prices and someone angry about the rich pulling away are naming different things, and either could pick one without the other. Rising prices squeeze my own budget; inequality is the gap between groups, which can grow even when prices are steady."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/home/20261019-224622, review people-home-structure-20261020-154043 p028)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Going cold at home needs its own fixes, like heating help and insulation, and people living it would look for it rather than a general cost complaint. Heating is one specific cost going without; Rising costs is everything getting more expensive than pay."
         }
       ]
     },
@@ -7674,6 +8995,10 @@
       "relations": [
         {
           "kind": "overlaps",
+          "id": "parenting-is-hard"
+        },
+        {
+          "kind": "other-page",
           "id": "parenting-is-hard"
         }
       ],
@@ -7750,6 +9075,14 @@
             "line": "I can't afford childcare.",
             "group": "Kids"
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/people/20261019-224622, review people-home-structure-20261020-154043 p018)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "parenting-is-hard"
         }
       ]
     },
@@ -8106,6 +9439,30 @@
           "note": "",
           "kind": "link-other-page",
           "to": "might-lose-my-home"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/community/20261019-224622, review community-environment-fairness-structure-20261020-154043 p001)",
+          "note": "",
+          "kind": "keep",
+          "detail": "One is about what I see happening to others and the other is about my own bills, so people can tell them apart at a glance. Homelessness is seeing neighbors with no home; High rent is my own housing costing too much."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/home/20261019-224622, review people-home-structure-20261020-154043 p024)",
+          "note": "",
+          "kind": "keep",
+          "detail": "High rent can lead to eviction, but people paying too much and people about to lose their home would each look for their own pain. Eviction is the fear of losing my home; High rent is paying too much for it, which many people manage without any risk of losing it."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/home/20261019-224622, review people-home-structure-20261020-154043 p026)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Plenty of people pay too much for a decent place, and plenty live somewhere run-down that is cheap, so the choice is easy. Housing is the place being cramped, broken or noisy; High rent is what it costs."
         }
       ]
     },
@@ -8160,6 +9517,10 @@
         {
           "kind": "other-page",
           "id": "might-lose-my-home"
+        },
+        {
+          "kind": "other-page",
+          "id": "homeless"
         }
       ],
       "founderPool": "housing/housing_stability",
@@ -8224,6 +9585,38 @@
           "kind": "move",
           "from": "economy",
           "to": "community"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/community/20261019-224622, review community-environment-fairness-structure-20261020-154043 p001)",
+          "note": "",
+          "kind": "keep",
+          "detail": "One is about what I see happening to others and the other is about my own bills, so people can tell them apart at a glance. Homelessness is seeing neighbors with no home; High rent is my own housing costing too much."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/community/20261019-224622, review community-environment-fairness-structure-20261020-154043 p002)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "might-lose-my-home"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/home/20261019-224622, review people-home-structure-20261020-154043 p023)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "homeless"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/home/20261019-224622, review people-home-structure-20261020-154043 p025)",
+          "note": "",
+          "kind": "keep",
+          "detail": "One is a personal fear and the other is something seen in the community, and the personal match for Homelessness is Homeless, not Eviction. Eviction is my own home at risk; Homelessness is seeing neighbors who already have none."
         }
       ]
     },
@@ -8357,6 +9750,30 @@
             "name": "Wealth gap",
             "line": "I see a few people get richer every year while most of us fall further behind."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/community/20261019-224622, review community-environment-fairness-structure-20261020-154043 p009)",
+          "note": "",
+          "kind": "keep",
+          "detail": "One is a missing tool for people to buy things together and the other is a society-wide gap, so they don't compete for the same pick. Sharing is wanting a way to pool money with others; Inequality is the gap between rich and poor growing."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/fairness/20261019-224622, review community-environment-fairness-structure-20261020-154043 p020)",
+          "note": "",
+          "kind": "keep",
+          "detail": "They often travel together, but someone can be bothered by the wealth gap today without naming mobility, and the other way around. Inequality is the gap in money and wealth now; opportunity is whether where you start decides where you end up."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/fairness/20261019-224622, review community-environment-fairness-structure-20261020-154043 p021)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone hit by prices and someone angry about the rich pulling away are naming different things, and either could pick one without the other. Rising prices squeeze my own budget; inequality is the gap between groups, which can grow even when prices are steady."
         }
       ]
     },
@@ -8409,6 +9826,10 @@
         {
           "kind": "overlaps",
           "id": "unemployment"
+        },
+        {
+          "kind": "other-page",
+          "id": "job-could-go"
         }
       ],
       "founderPool": null,
@@ -8472,6 +9893,22 @@
           "note": "",
           "kind": "keep",
           "detail": "One is a fear about where work is heading and the other is a present search, so a person can tell them apart at once. AI is a worry about jobs disappearing in the future; unemployment is not finding work now."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/work/20261019-224622, review work-time-structure-20261020-154043 p002)",
+          "note": "",
+          "kind": "keep",
+          "detail": "One is a personal situation today and the other is a societal worry, so people won't confuse them. Unemployment is my own search for work; AI job losses is a worry about what happens to everyone's jobs."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/work/20261019-224622, review work-time-structure-20261020-154043 p003)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "job-could-go"
         }
       ]
     },
@@ -8813,6 +10250,22 @@
             "name": "Dying town",
             "line": "I'm watching my town empty out."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/community/20261019-224622, review community-environment-fairness-structure-20261020-154043 p003)",
+          "note": "",
+          "kind": "keep",
+          "detail": "A town can be thriving and still full of strangers, so these are different complaints. Dying town is people and businesses leaving; Neighbors is not knowing the people who are still here."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/community/20261019-224622, review community-environment-fairness-structure-20261020-154043 p004)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone watching their town empty out and someone angry that decisions are made elsewhere would each pick their own without hesitation. Dying town is the place emptying out; Local control is who makes the decisions about it."
         }
       ]
     },
@@ -8865,6 +10318,14 @@
         },
         {
           "kind": "overlaps",
+          "id": "no-cushion"
+        },
+        {
+          "kind": "other-page",
+          "id": "cant-get-care"
+        },
+        {
+          "kind": "other-page",
           "id": "no-cushion"
         }
       ],
@@ -8932,6 +10393,22 @@
             "name": "Medical bills",
             "line": "One bad illness could wipe out everything I have."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/health/20261019-224622, review health-kids-safety-structure-20261020-154043 p001)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "cant-get-care"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/health/20261019-224622, review health-kids-safety-structure-20261020-154043 p002)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "no-cushion"
         }
       ]
     },
@@ -8982,6 +10459,14 @@
         },
         {
           "kind": "overlaps",
+          "id": "anxiety"
+        },
+        {
+          "kind": "other-page",
+          "id": "feeling-down"
+        },
+        {
+          "kind": "other-page",
           "id": "anxiety"
         }
       ],
@@ -9039,6 +10524,30 @@
             "name": "Mental health crisis",
             "line": "I see people I care about struggling with their mental health."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/health/20261019-224622, review health-kids-safety-structure-20261020-154043 p003)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "feeling-down"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/health/20261019-224622, review health-kids-safety-structure-20261020-154043 p004)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "anxiety"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/health/20261019-224622, review health-kids-safety-structure-20261020-154043 p008)",
+          "note": "",
+          "kind": "keep",
+          "detail": "They often go together, but someone watching friends struggle and someone losing friends to drugs would each know which one is theirs. One is about people struggling with their mental health, the other about losing people to drugs; someone can tell them apart at a glance."
         }
       ]
     },
@@ -9083,6 +10592,10 @@
         {
           "kind": "overlaps",
           "id": "drinking-too-much"
+        },
+        {
+          "kind": "other-page",
+          "id": "drinking-too-much"
         }
       ],
       "founderPool": null,
@@ -9124,6 +10637,22 @@
           "kind": "tag-sensitive",
           "prompt": "agent seed list",
           "note": "founder to review"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/health/20261019-224622, review health-kids-safety-structure-20261020-154043 p005)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "drinking-too-much"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/health/20261019-224622, review health-kids-safety-structure-20261020-154043 p008)",
+          "note": "",
+          "kind": "keep",
+          "detail": "They often go together, but someone watching friends struggle and someone losing friends to drugs would each know which one is theirs. One is about people struggling with their mental health, the other about losing people to drugs; someone can tell them apart at a glance."
         }
       ]
     },
@@ -9132,7 +10661,7 @@
       "name": "Growing old alone",
       "line": "Older people around me are left to cope on their own.",
       "page": "societal",
-      "group": "health",
+      "group": "community",
       "secondaryGroups": [],
       "status": "accepted",
       "role": "shown",
@@ -9177,6 +10706,14 @@
         },
         {
           "kind": "overlaps",
+          "id": "caregiving"
+        },
+        {
+          "kind": "other-page",
+          "id": "loneliness"
+        },
+        {
+          "kind": "other-page",
           "id": "caregiving"
         }
       ],
@@ -9228,6 +10765,31 @@
             "name": "Growing old alone",
             "line": "Older people around me are left to cope on their own."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/health/20261019-224622, review health-kids-safety-structure-20261020-154043 p006)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "loneliness"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/health/20261019-224622, review health-kids-safety-structure-20261020-154043 p007)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "caregiving"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "card sort (docs/research/pains/refine/health/20261019-224622, review health-kids-safety-structure-20261020-154043 p009)",
+          "note": "",
+          "kind": "move",
+          "from": "health",
+          "to": "community"
         }
       ]
     },
@@ -9328,6 +10890,30 @@
             "name": "Don’t know my neighbors",
             "line": "I don't know the people who live near me."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/community/20261019-224622, review community-environment-fairness-structure-20261020-154043 p003)",
+          "note": "",
+          "kind": "keep",
+          "detail": "A town can be thriving and still full of strangers, so these are different complaints. Dying town is people and businesses leaving; Neighbors is not knowing the people who are still here."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/community/20261019-224622, review community-environment-fairness-structure-20261020-154043 p005)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Not knowing neighbors is about the street and the community, while loneliness is a personal feeling that can happen anywhere. Loneliness is feeling alone; Neighbors is not knowing the people on my street, which many people with close friends also feel."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p017)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone can know every neighbor and still feel alone in caring about an issue, and the other way round. Allies is about finding people who share a cause; Neighbors is about not knowing the people on my street at all."
         }
       ]
     },
@@ -9415,6 +11001,22 @@
             "name": "Distrust",
             "line": "I can't trust the people around me any more."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/community/20261019-224622, review community-environment-fairness-structure-20261020-154043 p006)",
+          "note": "",
+          "kind": "keep",
+          "detail": "These are close, so the alternative wordings sharpen Trust toward relying on people and Moral decline toward how people treat each other. Trust is whether I can rely on people around me; Moral decline is a sense that people treat each other worse."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/community/20261019-224622, review community-environment-fairness-structure-20261020-154043 p007)",
+          "note": "",
+          "kind": "keep",
+          "detail": "The current Trust line says 'people and groups', which blurs into institutions, so the alternative drops 'groups' and keeps the two distinct. Trust is about the people around me; Institutions is about courts, elections and agencies falling apart."
         }
       ]
     },
@@ -9485,6 +11087,14 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/community/20261019-224622, review community-environment-fairness-structure-20261020-154043 p008)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Losing a friend over a disagreement is a specific experience that someone would pick out from a general sense that people are worse. Polarization is losing people when we disagree; Moral decline is people treating each other worse in general."
         }
       ]
     },
@@ -9574,6 +11184,22 @@
             "name": "Meanness",
             "line": "I see people be meaner than they used to."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/community/20261019-224622, review community-environment-fairness-structure-20261020-154043 p006)",
+          "note": "",
+          "kind": "keep",
+          "detail": "These are close, so the alternative wordings sharpen Trust toward relying on people and Moral decline toward how people treat each other. Trust is whether I can rely on people around me; Moral decline is a sense that people treat each other worse."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/community/20261019-224622, review community-environment-fairness-structure-20261020-154043 p008)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Losing a friend over a disagreement is a specific experience that someone would pick out from a general sense that people are worse. Polarization is losing people when we disagree; Moral decline is people treating each other worse in general."
         }
       ]
     },
@@ -9671,6 +11297,14 @@
             "name": "Can't share costs",
             "line": "I know we could afford it together, but there's no way to pool our money."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/community/20261019-224622, review community-environment-fairness-structure-20261020-154043 p009)",
+          "note": "",
+          "kind": "keep",
+          "detail": "One is a missing tool for people to buy things together and the other is a society-wide gap, so they don't compete for the same pick. Sharing is wanting a way to pool money with others; Inequality is the gap between rich and poor growing."
         }
       ]
     },
@@ -9767,6 +11401,22 @@
             "name": "Can't organize",
             "line": "I can't get my neighbors to act together on anything."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/community/20261019-224622, review community-environment-fairness-structure-20261020-154043 p010)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Not being able to get anyone together and being stuck in meetings that go nowhere are different stages of the same effort, and people know which one they're in. Organizing is not getting neighbors to act at all; Meetings is groups that meet but get nothing done."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/community/20261019-224622, review community-environment-fairness-structure-20261020-154043 p011)",
+          "note": "",
+          "kind": "keep",
+          "detail": "A bad apartment can be one reason to organize, but the pains are different and someone would not confuse them. Housing is living somewhere cramped, broken or noisy; Organizing is not getting neighbors to act together."
         }
       ]
     },
@@ -9823,6 +11473,10 @@
         },
         {
           "kind": "overlaps",
+          "id": "not-built-for-me"
+        },
+        {
+          "kind": "other-page",
           "id": "not-built-for-me"
         }
       ],
@@ -9891,6 +11545,22 @@
             "name": "Discrimination against me",
             "line": "I get treated worse at work, in stores, or by landlords because of who I am."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/fairness/20261019-224622, review community-environment-fairness-structure-20261020-154043 p018)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Being on the receiving end and being a witness are different places to stand, but with the names \"Discrimination\" and \"Prejudice\" people can't tell them apart, so the alternatives sharpen both names. Discrimination is being treated worse myself; prejudice is seeing it happen to other people."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/fairness/20261019-224622, review community-environment-fairness-structure-20261020-154043 p022)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "not-built-for-me"
         }
       ]
     },
@@ -9985,6 +11655,22 @@
             "name": "Prejudice around me",
             "line": "I see people around me treated badly because of their race, religion, or who they love."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/fairness/20261019-224622, review community-environment-fairness-structure-20261020-154043 p018)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Being on the receiving end and being a witness are different places to stand, but with the names \"Discrimination\" and \"Prejudice\" people can't tell them apart, so the alternatives sharpen both names. Discrimination is being treated worse myself; prejudice is seeing it happen to other people."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/fairness/20261019-224622, review community-environment-fairness-structure-20261020-154043 p019)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone angry about sentencing or policing names an institution, while someone bothered by how neighbors or coworkers treat people names something else, so each picks one easily. Justice is unequal treatment by police and courts; prejudice is unequal treatment by people in everyday life."
         }
       ]
     },
@@ -10085,6 +11771,22 @@
             "name": "Unequal justice",
             "line": "I see police and courts treat some people far worse than others for the same thing."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/fairness/20261019-224622, review community-environment-fairness-structure-20261020-154043 p019)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone angry about sentencing or policing names an institution, while someone bothered by how neighbors or coworkers treat people names something else, so each picks one easily. Justice is unequal treatment by police and courts; prejudice is unequal treatment by people in everyday life."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/time/20261019-224622, review work-time-structure-20261020-154043 p018)",
+          "note": "",
+          "kind": "keep",
+          "detail": "One is a personal problem and the other a view about society, so they belong on different pages without a link. Legal trouble is my own legal problem; Justice is seeing courts and police treat people differently."
         }
       ]
     },
@@ -10195,6 +11897,30 @@
             "name": "Unequal chances",
             "line": "I see kids born in some neighborhoods get far fewer chances than kids born a few miles away."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/fairness/20261019-224622, review community-environment-fairness-structure-20261020-154043 p020)",
+          "note": "",
+          "kind": "keep",
+          "detail": "They often travel together, but someone can be bothered by the wealth gap today without naming mobility, and the other way around. Inequality is the gap in money and wealth now; opportunity is whether where you start decides where you end up."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/fairness/20261019-224622, review community-environment-fairness-structure-20261020-154043 p023)",
+          "note": "",
+          "kind": "keep",
+          "detail": "One is a gap between kids and the other is a fall between generations, so a person can tell at once which one they mean. Opportunity is some kids starting far behind others now; kids' future is a worry that this whole generation will have it worse than the last."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/kids/20261019-224622, review health-kids-safety-structure-20261020-154043 p011)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Worrying that every kid will have it worse is not the same complaint as seeing some kids held back by where they started. Kids' future compares one generation with the last; Opportunity compares people born in different places or families at the same time."
         }
       ]
     },
@@ -10286,6 +12012,14 @@
             "name": "Knowing what's true",
             "line": "I don't know what's true any more."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/government/20261019-224622, review government-information-change-structure-20261020-154043 p009)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone can trust the news and still not know which candidate fits them, so the two pains name different moments. Voting is about the choice in front of me at election time; misinformation is not trusting what I read about anything."
         }
       ]
     },
@@ -10373,6 +12107,14 @@
             "name": "No local news",
             "line": "Nobody reports on my town any more, so I don't know what's going on here."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/information/20261019-224622, review government-information-change-structure-20261020-154043 p010)",
+          "note": "",
+          "kind": "keep",
+          "detail": "One is missing news about the town and the other is missing allies for a cause, and the line wording already keeps them apart. Local news is about no one reporting what goes on in town; Coordination is about not finding the people already working on a cause you care about."
         }
       ]
     },
@@ -10381,7 +12123,7 @@
       "name": "Being tracked",
       "line": "I feel watched by companies that know everything about me.",
       "page": "societal",
-      "group": "information",
+      "group": "safety",
       "secondaryGroups": [],
       "status": "accepted",
       "role": "shown",
@@ -10471,6 +12213,23 @@
             "name": "Being tracked",
             "line": "I feel watched by companies that know everything about me."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/information/20261019-224622, review government-information-change-structure-20261020-154043 p011)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Losing money to a scammer and feeling tracked by companies are different experiences on different pages, and neither is a version of the other. Privacy is the societal worry about companies collecting data on everyone; Scams is a personal loss of money to a fraud."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "card sort (docs/research/pains/refine/information/20261019-224622, review government-information-change-structure-20261020-154043 p012)",
+          "note": "",
+          "kind": "move",
+          "from": "information",
+          "to": "safety"
         }
       ]
     },
@@ -10554,6 +12313,46 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/environment/20261019-224622, review community-environment-fairness-structure-20261020-154043 p012)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone near a highway or a refinery and someone worried about global heating are naming different things, even when the same fuel causes both. Climate change is the planet heating up over decades; dirty air is what I breathe in my own neighborhood today."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/environment/20261019-224622, review community-environment-fairness-structure-20261020-154043 p013)",
+          "note": "",
+          "kind": "keep",
+          "detail": "A person rebuilding after a flood and a person anxious about the future would each pick one without thinking twice. Disasters are floods, fires, storms and heat I'm living through now; climate change is the worry about where the planet is heading."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/environment/20261019-224622, review community-environment-fairness-structure-20261020-154043 p014)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Most nature loss people notice comes from development rather than heat, so the two point to different fixes. Losing nature is fewer birds, trees and green spaces near me, often from building and paving; climate change is global heating."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/environment/20261019-224622, review community-environment-fairness-structure-20261020-154043 p017)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Climate is one of several worries behind a fear for kids' future, so folding them together would lose both. Kids' future is the fear that the next generation will have it worse for many reasons; climate change is one specific reason."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/kids/20261019-224622, review health-kids-safety-structure-20261020-154043 p012)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Many people who fear kids will have it worse are thinking about money and housing rather than the planet, so folding this into climate would lose them. Climate change is one specific cause; Kids' future also covers costs, jobs, housing and the general sense that things are going backward."
         }
       ]
     },
@@ -10641,6 +12440,14 @@
             "name": "Disasters",
             "line": "I'm living with floods, fires, storms, or extreme heat."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/environment/20261019-224622, review community-environment-fairness-structure-20261020-154043 p013)",
+          "note": "",
+          "kind": "keep",
+          "detail": "A person rebuilding after a flood and a person anxious about the future would each pick one without thinking twice. Disasters are floods, fires, storms and heat I'm living through now; climate change is the worry about where the planet is heading."
         }
       ]
     },
@@ -10742,6 +12549,14 @@
             "name": "Dirty air",
             "line": "The air where I live isn't clean enough to breathe safely."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/environment/20261019-224622, review community-environment-fairness-structure-20261020-154043 p012)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone near a highway or a refinery and someone worried about global heating are naming different things, even when the same fuel causes both. Climate change is the planet heating up over decades; dirty air is what I breathe in my own neighborhood today."
         }
       ]
     },
@@ -10790,6 +12605,10 @@
       "relations": [
         {
           "kind": "overlaps",
+          "id": "getting-around"
+        },
+        {
+          "kind": "other-page",
           "id": "getting-around"
         }
       ],
@@ -10841,6 +12660,38 @@
             "name": "Needing a car",
             "line": "I can't get anywhere without a car."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/environment/20261019-224622, review community-environment-fairness-structure-20261020-154043 p015)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "getting-around"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/environment/20261019-224622, review community-environment-fairness-structure-20261020-154043 p016)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Potholes and a missing bus line are different complaints, and a person would know which one they mean. Infrastructure is roads, water and power breaking down; needing a car is having no other way to travel even when the roads work."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/government/20261019-224622, review government-information-change-structure-20261020-154043 p008)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Potholes and water main breaks are a different problem from having no bus or sidewalk at all, so they belong in separate pains and groups. Infrastructure is things that exist but keep breaking; car-or-nothing is having no way to get around except driving."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/home/20261019-224622, review people-home-structure-20261020-154043 p033)",
+          "note": "Agreed, also I may be able to get around and don't like that you need to live this way.",
+          "kind": "link-other-page",
+          "to": "getting-around"
         }
       ]
     },
@@ -10957,6 +12808,14 @@
             "name": "Losing nature",
             "line": "I see fewer birds, trees, and green spaces around me."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/environment/20261019-224622, review community-environment-fairness-structure-20261020-154043 p014)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Most nature loss people notice comes from development rather than heat, so the two point to different fixes. Losing nature is fewer birds, trees and green spaces near me, often from building and paving; climate change is global heating."
         }
       ]
     },
@@ -11003,6 +12862,10 @@
       "relations": [
         {
           "kind": "overlaps",
+          "id": "unsafe-near-me"
+        },
+        {
+          "kind": "other-page",
           "id": "unsafe-near-me"
         }
       ],
@@ -11060,6 +12923,30 @@
             "name": "Crime",
             "line": "Crime and violence keep hurting people in my community."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/safety/20261019-224622, review health-kids-safety-structure-20261020-154043 p014)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone worried about break-ins and shootings on their street and someone worried about wars abroad are telling different stories, and nobody would hesitate between the two. Crime is violence between people where I live and in my country; War is armed conflict between countries or groups, often far away but reaching people I care about."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/safety/20261019-224622, review health-kids-safety-structure-20261020-154043 p015)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "unsafe-near-me"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/home/20261019-224622, review people-home-structure-20261020-154043 p031)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "unsafe-near-me"
         }
       ]
     },
@@ -11161,6 +13048,14 @@
             "name": "War and conflict",
             "line": "I see war threatening people and places I care about."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/safety/20261019-224622, review health-kids-safety-structure-20261020-154043 p014)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone worried about break-ins and shootings on their street and someone worried about wars abroad are telling different stories, and nobody would hesitate between the two. Crime is violence between people where I live and in my country; War is armed conflict between countries or groups, often far away but reaching people I care about."
         }
       ]
     },
@@ -11242,6 +13137,46 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/environment/20261019-224622, review community-environment-fairness-structure-20261020-154043 p017)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Climate is one of several worries behind a fear for kids' future, so folding them together would lose both. Kids' future is the fear that the next generation will have it worse for many reasons; climate change is one specific reason."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/fairness/20261019-224622, review community-environment-fairness-structure-20261020-154043 p023)",
+          "note": "",
+          "kind": "keep",
+          "detail": "One is a gap between kids and the other is a fall between generations, so a person can tell at once which one they mean. Opportunity is some kids starting far behind others now; kids' future is a worry that this whole generation will have it worse than the last."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/kids/20261019-224622, review health-kids-safety-structure-20261020-154043 p010)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone upset about their local school and someone dreading the world kids will inherit are naming different things, and a person can pick between them without thinking twice. Education is about what kids get at school today; Kids' future is the broader worry that their whole lives will be harder than ours."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/kids/20261019-224622, review health-kids-safety-structure-20261020-154043 p011)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Worrying that every kid will have it worse is not the same complaint as seeing some kids held back by where they started. Kids' future compares one generation with the last; Opportunity compares people born in different places or families at the same time."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/kids/20261019-224622, review health-kids-safety-structure-20261020-154043 p012)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Many people who fear kids will have it worse are thinking about money and housing rather than the planet, so folding this into climate would lose them. Climate change is one specific cause; Kids' future also covers costs, jobs, housing and the general sense that things are going backward."
         }
       ]
     },
@@ -11323,6 +13258,14 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/kids/20261019-224622, review health-kids-safety-structure-20261020-154043 p010)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone upset about their local school and someone dreading the world kids will inherit are naming different things, and a person can pick between them without thinking twice. Education is about what kids get at school today; Kids' future is the broader worry that their whole lives will be harder than ours."
         }
       ]
     },
@@ -11369,6 +13312,10 @@
         {
           "kind": "overlaps",
           "id": "doomscrolling"
+        },
+        {
+          "kind": "other-page",
+          "id": "doomscrolling"
         }
       ],
       "founderPool": null,
@@ -11404,6 +13351,14 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/kids/20261019-224622, review health-kids-safety-structure-20261020-154043 p013)",
+          "note": "",
+          "kind": "link-other-page",
+          "to": "doomscrolling"
         }
       ]
     },
@@ -11495,6 +13450,22 @@
             "name": "Nothing changes",
             "line": "I keep seeing the same problems year after year, and nothing changes."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p013)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone who has never spoken up can feel stuck problems, and someone who speaks up can feel unheard even on things that are moving. Gridlock is about problems in the world staying put; Unheard is about my own effort getting no response."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p014)",
+          "note": "",
+          "kind": "keep",
+          "detail": "A person stuck in a talk-only committee picks a different card than a person watching the same potholes for ten years. Meetings is about the groups I'm in; Gridlock is about the place I live."
         }
       ]
     },
@@ -11590,6 +13561,30 @@
             "name": "All talk, no action",
             "line": "The groups I'm part of talk a lot and never get anything done."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/community/20261019-224622, review community-environment-fairness-structure-20261020-154043 p010)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Not being able to get anyone together and being stuck in meetings that go nowhere are different stages of the same effort, and people know which one they're in. Organizing is not getting neighbors to act at all; Meetings is groups that meet but get nothing done."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p014)",
+          "note": "",
+          "kind": "keep",
+          "detail": "A person stuck in a talk-only committee picks a different card than a person watching the same potholes for ten years. Meetings is about the groups I'm in; Gridlock is about the place I live."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p023)",
+          "note": "",
+          "kind": "keep",
+          "detail": "A group can get plenty done on the backs of three people, or have many members and still do nothing. Volunteers is about too few people carrying the work; Meetings is about groups that don't act."
         }
       ]
     },
@@ -11680,6 +13675,38 @@
             "name": "No one listens",
             "line": "I speak up about what I care about, and it feels like shouting into the void."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p013)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone who has never spoken up can feel stuck problems, and someone who speaks up can feel unheard even on things that are moving. Gridlock is about problems in the world staying put; Unheard is about my own effort getting no response."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p015)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Doubting where a donation of money goes and feeling ignored after speaking up are different experiences with different fixes. Giving is about money and not knowing if it works; Unheard is about voice and getting no response."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p016)",
+          "note": "",
+          "kind": "keep",
+          "detail": "One is about company and the other about results, so a person can tell at a glance which one is theirs. Allies is about not finding others who care; Unheard is about my effort going nowhere."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p020)",
+          "note": "",
+          "kind": "keep",
+          "detail": "A person who hasn't started and a person who tried and got nothing would not mistake one card for the other. Helping is before acting; Unheard is after acting with nothing to show for it."
         }
       ]
     },
@@ -11760,6 +13787,22 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p015)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Doubting where a donation of money goes and feeling ignored after speaking up are different experiences with different fixes. Giving is about money and not knowing if it works; Unheard is about voice and getting no response."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p021)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Both start with 'I'd', but one is about doing and the other about paying, so they lead to different fixes. Helping is about time and action; Giving is about money and whether it works."
         }
       ]
     },
@@ -11854,6 +13897,59 @@
             "name": "No allies",
             "line": "I don't know who else cares about the same things."
           }
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p016)",
+          "note": "",
+          "kind": "keep",
+          "detail": "One is about company and the other about results, so a person can tell at a glance which one is theirs. Allies is about not finding others who care; Unheard is about my effort going nowhere."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p017)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone can know every neighbor and still feel alone in caring about an issue, and the other way round. Allies is about finding people who share a cause; Neighbors is about not knowing the people on my street at all."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p018)",
+          "note": "",
+          "kind": "keep",
+          "detail": "They sit close, but the sharper Allies line (feeling alone) makes the choice easy against Coordination (can't find who's already working on it). Coordination is the practical search for existing efforts and groups; Allies is the feeling of being the only one who cares."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p019)",
+          "note": "",
+          "kind": "keep",
+          "detail": "What to do and who to do it with are different gaps, and people usually know which one they have. Helping is not knowing what to do; Allies is not knowing who else cares."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p024)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone with a project in hand is looking for builders, not just company. Collaborators is about having a specific idea and no one to build it with; Allies is about not finding others who care."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "card sort (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p026)",
+          "note": "",
+          "kind": "rejected-proposal",
+          "proposalKind": "move",
+          "proposed": {
+            "name": "No allies",
+            "line": "I don't know who else cares about the same things.",
+            "group": "Community"
+          }
         }
       ]
     },
@@ -11940,6 +14036,22 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/information/20261019-224622, review government-information-change-structure-20261020-154043 p010)",
+          "note": "",
+          "kind": "keep",
+          "detail": "One is missing news about the town and the other is missing allies for a cause, and the line wording already keeps them apart. Local news is about no one reporting what goes on in town; Coordination is about not finding the people already working on a cause you care about."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p018)",
+          "note": "",
+          "kind": "keep",
+          "detail": "They sit close, but the sharper Allies line (feeling alone) makes the choice easy against Coordination (can't find who's already working on it). Coordination is the practical search for existing efforts and groups; Allies is the feeling of being the only one who cares."
         }
       ]
     },
@@ -12022,6 +14134,38 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p019)",
+          "note": "",
+          "kind": "keep",
+          "detail": "What to do and who to do it with are different gaps, and people usually know which one they have. Helping is not knowing what to do; Allies is not knowing who else cares."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p020)",
+          "note": "",
+          "kind": "keep",
+          "detail": "A person who hasn't started and a person who tried and got nothing would not mistake one card for the other. Helping is before acting; Unheard is after acting with nothing to show for it."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p021)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Both start with 'I'd', but one is about doing and the other about paying, so they lead to different fixes. Helping is about time and action; Giving is about money and whether it works."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p022)",
+          "note": "",
+          "kind": "keep",
+          "detail": "They are two sides of the same gap, and each side would pick its own card. Volunteers is the organizer's view of a thin bench; Helping is the would-be helper's view."
         }
       ]
     },
@@ -12098,6 +14242,35 @@
           "kind": "founder-choice",
           "to": "later",
           "note": "batch 5, 2026-10-16"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p022)",
+          "note": "",
+          "kind": "keep",
+          "detail": "They are two sides of the same gap, and each side would pick its own card. Volunteers is the organizer's view of a thin bench; Helping is the would-be helper's view."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p023)",
+          "note": "",
+          "kind": "keep",
+          "detail": "A group can get plenty done on the backs of three people, or have many members and still do nothing. Volunteers is about too few people carrying the work; Meetings is about groups that don't act."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "card sort (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p027)",
+          "note": "",
+          "kind": "rejected-proposal",
+          "proposalKind": "move",
+          "proposed": {
+            "name": "Volunteers",
+            "line": "I see the same few people doing everything.",
+            "group": "Community"
+          }
         }
       ]
     },
@@ -12183,6 +14356,22 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p024)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Someone with a project in hand is looking for builders, not just company. Collaborators is about having a specific idea and no one to build it with; Allies is about not finding others who care."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:39+00:00",
+          "prompt": "overlap (docs/research/pains/refine/making-change/20261019-224622, review government-information-change-structure-20261020-154043 p025)",
+          "note": "",
+          "kind": "keep",
+          "detail": "One is about people to build with and the other about room in my own life to make things, so they are different pains, not one pain on two pages. Collaborators is about a shared idea needing a team; Creativity on the personal page is about losing time to make things at all."
         }
       ]
     },
@@ -12871,6 +15060,14 @@
           "note": "Founder follow-up 2026-10-19: keep Utility bills only; Energy costs duplicates it.",
           "kind": "duplicate-covered",
           "from": "energy-costs"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T19:57:40+00:00",
+          "prompt": "overlap (docs/research/pains/refine/home/20261019-224622, review people-home-structure-20261020-154043 p029)",
+          "note": "",
+          "kind": "keep",
+          "detail": "Many people keep the heat off so they never fall behind, so the alternative line 'I can't afford to keep my home warm' makes the difference clear. Heating is going without warmth to avoid the bill; Utility bills is being behind on the bills already, which can include water."
         }
       ]
     },

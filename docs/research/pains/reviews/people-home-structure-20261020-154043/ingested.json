@@ -1,0 +1,374 @@
+{
+  "set": "people-home-structure-20261020-154043",
+  "decided": 33,
+  "later": 0,
+  "held": [],
+  "catalogChanged": [
+    "belonging",
+    "car-or-nothing",
+    "caregiving",
+    "childcare-costs",
+    "cold-home",
+    "cost-of-living",
+    "crime-and-violence",
+    "drifted-apart",
+    "getting-around",
+    "home-is-hard",
+    "home-tension",
+    "homeless",
+    "homelessness",
+    "intimacy",
+    "loneliness",
+    "lost-faith-community",
+    "might-lose-my-home",
+    "new-here",
+    "no-free-time",
+    "no-one-to-lean-on",
+    "nobody-into-my-thing",
+    "nobody-to-do-things-with",
+    "offline",
+    "parenting-is-hard",
+    "relationship-strain",
+    "rent-eats-everything",
+    "unsafe-at-home",
+    "unsafe-near-me",
+    "utility-bills",
+    "want-a-partner"
+  ],
+  "editor": {
+    "changes": [
+      {
+        "painId": "home-tension",
+        "change": "update",
+        "domainId": "home",
+        "sortOrder": 6
+      },
+      {
+        "painId": "parenting-is-hard",
+        "change": "update",
+        "domainId": "home",
+        "sortOrder": 7
+      },
+      {
+        "painId": "unsafe-at-home",
+        "change": "update",
+        "domainId": "home",
+        "sortOrder": 8
+      }
+    ],
+    "waiting": [
+      "utility-bills"
+    ],
+    "conflicts": [],
+    "refused": [],
+    "warnings": [
+      "Home would have 9 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "People would have 10 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "Government would have 10 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "Health would have 3 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "Information would have 2 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "Safety would have 3 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "Kids would have 3 shown pains (aim for 4-8); nothing was cut or added because of it"
+    ],
+    "schemaChecked": true,
+    "revision": 14
+  },
+  "dryRun": false,
+  "log": [
+    {
+      "proposal": "p001",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "unsafe-at-home",
+        "home-tension"
+      ]
+    },
+    {
+      "proposal": "p002",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "unsafe-at-home",
+        "relationship-strain"
+      ]
+    },
+    {
+      "proposal": "p003",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "loneliness",
+        "nobody-to-do-things-with"
+      ]
+    },
+    {
+      "proposal": "p004",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "loneliness",
+        "no-one-to-lean-on"
+      ]
+    },
+    {
+      "proposal": "p005",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "belonging",
+        "loneliness"
+      ]
+    },
+    {
+      "proposal": "p006",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "belonging",
+        "lost-faith-community"
+      ]
+    },
+    {
+      "proposal": "p007",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "intimacy",
+        "want-a-partner"
+      ]
+    },
+    {
+      "proposal": "p008",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "intimacy",
+        "relationship-strain"
+      ]
+    },
+    {
+      "proposal": "p009",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "want-a-partner",
+        "loneliness"
+      ]
+    },
+    {
+      "proposal": "p010",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "new-here",
+        "loneliness"
+      ]
+    },
+    {
+      "proposal": "p011",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "new-here",
+        "nobody-to-do-things-with"
+      ]
+    },
+    {
+      "proposal": "p012",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "lost-faith-community",
+        "loneliness"
+      ]
+    },
+    {
+      "proposal": "p013",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "nobody-into-my-thing",
+        "nobody-to-do-things-with"
+      ]
+    },
+    {
+      "proposal": "p014",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "drifted-apart",
+        "loneliness"
+      ]
+    },
+    {
+      "proposal": "p015",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "relationship-strain",
+        "home-tension"
+      ]
+    },
+    {
+      "proposal": "p016",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "caregiving",
+        "parenting-is-hard"
+      ]
+    },
+    {
+      "proposal": "p017",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "caregiving",
+        "no-free-time"
+      ]
+    },
+    {
+      "proposal": "p018",
+      "kind": "other-page",
+      "decision": "accept",
+      "painIds": [
+        "parenting-is-hard",
+        "childcare-costs"
+      ]
+    },
+    {
+      "proposal": "p019",
+      "kind": "move",
+      "decision": "accept",
+      "painIds": [
+        "home-tension"
+      ]
+    },
+    {
+      "proposal": "p020",
+      "kind": "move",
+      "decision": "accept",
+      "painIds": [
+        "parenting-is-hard"
+      ]
+    },
+    {
+      "proposal": "p021",
+      "kind": "move",
+      "decision": "accept",
+      "painIds": [
+        "unsafe-at-home"
+      ]
+    },
+    {
+      "proposal": "p022",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "homeless",
+        "might-lose-my-home"
+      ]
+    },
+    {
+      "proposal": "p023",
+      "kind": "other-page",
+      "decision": "accept",
+      "painIds": [
+        "homeless",
+        "homelessness"
+      ]
+    },
+    {
+      "proposal": "p024",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "might-lose-my-home",
+        "rent-eats-everything"
+      ]
+    },
+    {
+      "proposal": "p025",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "might-lose-my-home",
+        "homelessness"
+      ]
+    },
+    {
+      "proposal": "p026",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "home-is-hard",
+        "rent-eats-everything"
+      ]
+    },
+    {
+      "proposal": "p027",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "cold-home",
+        "home-is-hard"
+      ]
+    },
+    {
+      "proposal": "p028",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "cold-home",
+        "cost-of-living"
+      ]
+    },
+    {
+      "proposal": "p029",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "cold-home",
+        "utility-bills"
+      ]
+    },
+    {
+      "proposal": "p030",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "offline",
+        "getting-around"
+      ]
+    },
+    {
+      "proposal": "p031",
+      "kind": "other-page",
+      "decision": "accept",
+      "painIds": [
+        "unsafe-near-me",
+        "crime-and-violence"
+      ]
+    },
+    {
+      "proposal": "p032",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "unsafe-near-me",
+        "unsafe-at-home"
+      ]
+    },
+    {
+      "proposal": "p033",
+      "kind": "other-page",
+      "decision": "accept",
+      "painIds": [
+        "getting-around",
+        "car-or-nothing"
+      ]
+    }
+  ],
+  "ingestedAt": "2026-10-20"
+}
