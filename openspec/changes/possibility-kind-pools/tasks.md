@@ -12,8 +12,8 @@ Start only after the pain-catalog change (PR #27) and the full pain sweep are me
 ## 2. Dreams and founder dream review
 
 - [ ] 2.1 Write `briefs/dreams.md` (dreams from the opened examples, with lens, ambition and overlap flags with reasons). Verify that a dry run on a fixture pain produces a `dreams.json` that passes `validate` and `lint`.
-- [ ] 2.2 Add `dreams-review-build` (writing `reviews/proposals.json` and `review.html` from a template adapted from `tools/pains/config/review-page.template.html`) and a local launch config to serve it. Verify that the page loads, shows each dream once with its overlap flags as text, and exports decisions from the keyboard alone.
-- [ ] 2.3 Add `dreams-ingest <run> <decisions.json>`, which records accept, edit and reject and keeps the original text beside each edit. Verify with tests: an edited line reaches the plan input, and rejected dreams don't.
+- [x] 2.2 Add `dreams-review-build` (writing `reviews/proposals.json` and `review.html` from a template adapted from `tools/pains/config/review-page.template.html`) and a local launch config to serve it. Verify that the page loads, shows each dream once with its overlap flags as text, and exports decisions from the keyboard alone.
+- [x] 2.3 Add `dreams-ingest <run> <decisions.json>`, which records accept, edit and reject and keeps the original text beside each edit. Verify with tests: an edited line reaches the plan input, and rejected dreams don't.
 
 ## 3. Plan, shared fixes and kind briefs
 

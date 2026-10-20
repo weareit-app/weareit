@@ -30,6 +30,20 @@
       "port": 4174
     },
     {
+      "name": "dream-review",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4175",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "docs/research/possibilities/runs"
+      ],
+      "port": 4175
+    },
+    {
       "name": "app-web",
       "runtimeExecutable": "pnpm",
       "runtimeArgs": [

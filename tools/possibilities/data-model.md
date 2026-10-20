@@ -64,7 +64,7 @@ A staged run mirrors the content graph (`packages/content/src/graph-schema.ts`):
 `examples → dreams → dream-review → plan → shared-fixes → kind-pools → screen → assemble → judge → fix-review`. `dream-review` and `fix-review` are founder stops. `status <run>` names the next stage from the files present:
 - `examples` is complete when `exemplars.json` exists;
 - `dreams` is complete when `dreams.json` exists;
-- `dream-review` is complete when every dream in `dreams.json` has a `review` with a `decision`. `dreams-ingest` (#89) writes it from `reviews/dreams-decisions.json`.
+- `dream-review` is complete when every dream in `dreams.json` has a `review` with a `decision`. `dreams-ingest` writes it from the founder's export (see *Dream review files*).
 
 `start <run> <stage>` refuses with a usage error (exit 2) while any earlier stage is incomplete, so no fix stage runs before the dream review is ingested. Otherwise it names the stage's brief. Stages after `dream-review` aren't built yet.
 
@@ -75,6 +75,8 @@ A staged run mirrors the content graph (`packages/content/src/graph-schema.ts`):
     exemplarRefs: [<exemplar-id>…],       # at least one: the examples that show the outcome is reachable
     provenance: { sourceId, locator, evidenceType, rights, reviewStatus: "unreviewed" },
     writerNotes?, review? } },            # review: the founder's decision, written by dreams-ingest
+                                          #   { decision: accept|edit|reject, note, decidedAt, ingestedAt,
+                                          #     original?: { title, line } }   # original: the drafted wording, on an edit
   overlaps: [ { a: <dream-id>, b: <dream-id>, reason } ] }
 ```
 Rules:
@@ -84,6 +86,13 @@ Rules:
 - `title` and `line` map to the graph dream's `title` and `description`.
 - Lint applies the dream copy rules (`title-vague`, `title-length`, `dream-not-outcome`, `line-length`, `generic-phrase`, `serial-comma`, `exclamation`, `boilerplate-caveat`, `regional-word`, `acronym-in-title`, and `stacked-hedges`), plus lens and ambition coverage across the drafted dreams. Its issues carry `dreamId` in place of `cardId`. Basics and It-led coverage need linked fixes, so they wait for the fix stages.
 - `writerNotes` is never shown to judges or on review pages.
+- A `review` has a known `decision`. An `edit` keeps the drafted `title` and `line` in `original`, and `title` and `line` hold the founder's wording. Ingest sets `provenance.reviewStatus` to `reviewed`.
+- Later stages read only accepted dreams (`accept` or `edit`), through `accepted_dreams(run)`.
+
+### Dream review files (`<run>/reviews/`)
+- **proposals.json**: `{ schemaVersion: 1, setId: "<painId>-<runId>", builtAt, proposals: [ { id, title, line, lens, ambition, examples: [{id, name, place, year, outcome}], overlaps: [{with, title, reason}] } ] }`. Each dream appears once. An overlap is listed under both of its dreams. No `writerNotes`.
+- **review.html**: the static page, built from `config/dream-review-page.template.html`. It is derived, so it isn't committed.
+- **dreams-decisions.json**: the founder's export, `{ schemaVersion: 1, setId, exportedAt, decisions: { <dream-id>: { decision: accept|edit|reject, note, decidedAt, edit?: { title, line } } } }`. Ingest refuses an export for another run, a page built before `dreams.json` last changed, an unknown dream, an unknown decision, an edit without a title and a line, or any dream left undecided.
 
 ## Calibration files (`docs/research/possibilities/calibration/`)
 - **baseline.json**: 16 old cards in the `cards.json` card shape, with fixes without exemplars, and `provenance.sourceId` pointing at `founder-review.md` with an anchor locator.

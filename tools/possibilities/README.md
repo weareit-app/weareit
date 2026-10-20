@@ -17,9 +17,9 @@ This file holds the rules they share.
 | `tools/possibilities/cards.py` | Python helper with no dependencies (run with `python3`) |
 | `tools/possibilities/tests/` | `python3 -m unittest discover -s tools/possibilities/tests` |
 | `tools/possibilities/data-model.md` | File shapes for runs, judgments, selection and calibration |
-| `tools/possibilities/config/` | `rubric.md`, `banned-phrases.json`, `feature-patterns.md`, `style-guide.md` (the founder's calibration findings), `calibration-page.template.html` |
+| `tools/possibilities/config/` | `rubric.md`, `banned-phrases.json`, `feature-patterns.md`, `style-guide.md` (the founder's calibration findings), `calibration-page.template.html`, `dream-review-page.template.html` |
 | `tools/possibilities/briefs/` | What each isolated agent receives: `writer.md`, `dreams.md` (staged runs), `judge.md`, `repair.md`, `classify-kinds.md`, `feature-pitch.md` |
-| `docs/research/possibilities/runs/<pain>/<runId>/` | One run: `run.json`, `exemplars.json`, `cards.json` (or `dreams.json` in a staged run), `lint.json`, `judgments-<n>.json`, `judgments.json`, `selection.json`, `repair-todo.md` |
+| `docs/research/possibilities/runs/<pain>/<runId>/` | One run: `run.json`, `exemplars.json`, `cards.json` (or `dreams.json` and `reviews/` in a staged run), `lint.json`, `judgments-<n>.json`, `judgments.json`, `selection.json`, `repair-todo.md` |
 | `docs/research/possibilities/calibration/` | Blind calibration set, key, ratings, anchors and the published rating page |
 | `docs/research/possibilities/evaluations/` | Audit sets, ratings, `evaluation.md`, `metrics.json` |
 | `docs/style/copy-style-guide.md` | Copy rules for every piece of It copy, including the kinds of fixes |
@@ -36,6 +36,8 @@ Run it from the repository root: `python3 tools/possibilities/cards.py <subcomma
 | `new-run <pain-id> --staged` | Creates a staged run (schemaVersion 2), whose files mirror the content graph |
 | `status <run>` | Names a staged run's next stage from the files present |
 | `start <run> <stage>` | Names the stage's brief, or exits 2 while an earlier stage is incomplete |
+| `dreams-review-build <run>` | Writes `reviews/proposals.json` and the dream review page, `reviews/review.html`, while the dream review is pending |
+| `dreams-ingest <run> <decisions.json>` | Records the founder's decision on every dream, keeps the drafted wording beside each edit, and copies the export to `reviews/dreams-decisions.json` |
 | `validate <run…>` | Checks the shape of exemplars, cards, dreams, judgments, and selection |
 | `lint <run…>` | Applies the copy, sourcing, kind and coverage rules, including the Oxford comma (`serial-comma`, from `tools/style/serial_comma.py`), and writes `lint.json` |
 | `judge-input <run>` | Prints a judge's whole input, with writer notes and provenance removed |
@@ -46,6 +48,17 @@ Run it from the repository root: `python3 tools/possibilities/cards.py <subcomma
 | `audit-build <run…>` | Builds the audit set and key from selections |
 | `report --audit <export>` | Prints the metrics and the gate result (`scale-up` or `iterate`) |
 | `stale` | Lists runs whose pain was merged or split, or whose name or line changed since the run, with the old and new wording. A report: exit 0 |
+
+## Founder dream review
+
+In a staged run, the founder reviews the drafted dreams before any fix is drafted. The page works like the pain review page (`tools/pains/`).
+
+1. Run `dreams-review-build <run>`.
+2. Start the `dream-review` launch config (`.claude/launch.json`). It serves `docs/research/possibilities/runs` on `127.0.0.1:4175` only. Open `http://127.0.0.1:4175/<pain>/<runId>/reviews/review.html`.
+3. The founder accepts, edits, or rejects each dream from the keyboard. Overlap flags and their reasons are shown as text beside both dreams. Decisions stay in that browser until the founder downloads them.
+4. Save the download as `reviews/dreams-decisions.json` in the run, and run `dreams-ingest <run> <run>/reviews/dreams-decisions.json`. Ingest refuses an export that leaves a dream undecided.
+
+After ingest, `status` names `plan` as the next stage. Later stages read only accepted dreams, with the founder's edits applied. `review.html` is rebuilt from the run and isn't committed; the decisions are committed with the run.
 
 ## Rules every writer and repairer follows
 
