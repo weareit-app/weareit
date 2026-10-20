@@ -10,7 +10,6 @@
     "ios": "expo run:ios",
     "test:expo": "jest --config jest.config.cjs --runInBand",
     "typecheck": "tsc --noEmit",
-    "lint": "prettier --check app src tests e2e jest.config.cjs playwright.config.ts",
     "skia:web": "setup-skia-web public"
   },
   "dependencies": {
