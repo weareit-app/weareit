@@ -716,6 +716,10 @@ class IngestTest(Base):
         self.assertEqual((p['name'], p['line']), ('Insurance', "I can't afford insurance."))
         self.assertEqual((p['history'][0]['own'], p['history'][0]['noSource']), (True, True))
 
+    def test_draft_has_no_alternative_to_pick(self):
+        with self.assertRaises(catalog.CheckError):
+            self.ingest({self.pid('add', 'insurance-costs'): {'decision': 'alternative', 'choice': 0}})
+
     def test_draft_in_own_wording_is_also_the_founders(self):
         self.ingest({self.pid('add', 'insurance-costs'): {'decision': 'own', 'own': {'name': 'Insurance', 'line': "I can't afford my insurance."}}})
         h = catalog.load(self.tmp)['pains']['insurance-costs']['history'][0]

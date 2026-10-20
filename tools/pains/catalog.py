@@ -926,13 +926,13 @@ def apply_decisions(catalog, proposals_doc, decisions_doc, date=None):
             if c['id'] in pains:
                 issues.append('%s: %s is already in the catalog' % (p['id'], c['id']))
                 continue
+            no_source = bool(p.get('draft'))
             # Every accepted new pain waits for ranking, whatever role an older set's alternative offered.
             pains[c['id']] = new_record(c, value, 'accepted', 'not-shown')
             pains[c['id']]['unranked'] = True
             pains[c['id']]['history'] = [{**entry, 'kind': 'accept', 'to': {'name': value['name'], 'line': value['line'], 'role': 'not-shown'},
                                           # A draft has no opened source, so it is in on the founder's word alone.
-                                          'unranked': True, 'own': decision == 'own' or bool(p.get('draft')),
-                                          'noSource': bool(p.get('draft'))}]
+                                          'unranked': True, 'own': decision == 'own' or no_source, 'noSource': no_source}]
             touched[c['id']] = True
         elif kind in ('reword', 'drift'):
             pain_id = p['painIds'][0]
