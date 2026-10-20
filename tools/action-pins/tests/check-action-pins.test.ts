@@ -155,7 +155,7 @@ describe("checkActionPins", () => {
       policy: `# Dependency versions\n\n## GitHub Actions\n\n${SHA}\n`,
     });
     expect(problems).toEqual([
-      'docs/architecture/dependency-policy.md has no "## Continuous integration" section to record action pins in',
+      'docs/architecture/dependency-policy.md has no "Continuous integration" section to record action pins in',
     ]);
   });
 });
@@ -185,6 +185,13 @@ describe("checkRepo", () => {
     });
     expect(checkRepo(dir)).toEqual([
       `.github/actions/setup/action.yml:4: "pnpm/action-setup@v6" isn't pinned as owner/repo@<40-char lowercase SHA> # vX.Y.Z`,
+    ]);
+  });
+
+  it("fails when there are no workflows to check", () => {
+    const dir = repo({ "docs/architecture/dependency-policy.md": policy });
+    expect(checkRepo(dir)).toEqual([
+      "found no workflows in .github/workflows to check",
     ]);
   });
 });

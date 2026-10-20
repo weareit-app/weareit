@@ -9,7 +9,7 @@ import { fileURLToPath } from "node:url";
 const POLICY_PATH = "docs/architecture/dependency-policy.md";
 const WORKFLOWS_DIR = ".github/workflows";
 const ACTIONS_DIR = ".github/actions";
-const SECTION = "## Continuous integration";
+const SECTION_TITLE = "Continuous integration";
 // A block-style `uses:` key, optionally a list item and optionally quoted.
 const USES_LINE = /^\s*(?:-\s+)?(["']?)uses\1:\s*(.*)$/;
 // Any `uses` key, including flow style (`{uses: ...}`), which USES_LINE can't read.
@@ -22,7 +22,9 @@ const BLOCK_SCALAR_START = /:\s*[|>][-+0-9]*\s*(?:#.*)?$/;
 /** The text of the policy section that records action pins, or null when it is missing. */
 function pinsSection(policy) {
   const lines = policy.split(/\r?\n/);
-  const start = lines.findIndex((line) => line.trim() === SECTION);
+  const start = lines.findIndex(
+    (line) => line.trim() === `## ${SECTION_TITLE}`,
+  );
   if (start === -1) return null;
   const end = lines.findIndex((line, i) => i > start && line.startsWith("## "));
   return lines.slice(start + 1, end === -1 ? undefined : end).join("\n");
@@ -45,7 +47,7 @@ export function checkActionPins({ files, policy }) {
   const section = pinsSection(policy);
   if (section === null) {
     return [
-      `${POLICY_PATH} has no "${SECTION}" section to record action pins in`,
+      `${POLICY_PATH} has no "${SECTION_TITLE}" section to record action pins in`,
     ];
   }
   const recorded = new Set(section.match(SHA_TOKEN) ?? []);
@@ -80,7 +82,7 @@ export function checkActionPins({ files, policy }) {
         );
       } else if (!recorded.has(pinned[1])) {
         problems.push(
-          `${where}: ${pinned[1]} isn't recorded under "${SECTION.slice(3)}" in ${POLICY_PATH}; review the action and record it there`,
+          `${where}: ${pinned[1]} isn't recorded under "${SECTION_TITLE}" in ${POLICY_PATH}; review the action and record it there`,
         );
       }
     });
@@ -99,8 +101,14 @@ function listFiles(root, dir, keep, { recursive = false } = {}) {
 
 /** Reads the workflows, local composite actions and the policy from a repo checkout and checks them. */
 export function checkRepo(root) {
+  const workflows = listFiles(root, WORKFLOWS_DIR, (path) =>
+    /\.ya?ml$/.test(path),
+  );
+  if (workflows.length === 0) {
+    return [`found no workflows in ${WORKFLOWS_DIR} to check`];
+  }
   const paths = [
-    ...listFiles(root, WORKFLOWS_DIR, (path) => /\.ya?ml$/.test(path)),
+    ...workflows,
     ...listFiles(root, ACTIONS_DIR, (path) => /\/action\.ya?ml$/.test(path), {
       recursive: true,
     }),
@@ -119,5 +127,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     console.error(problems.join("\n"));
     process.exit(1);
   }
-  console.log("Action pins: every workflow action is pinned and recorded.");
+  console.log(
+    "Action pins: every action in the workflows and local actions is pinned and recorded.",
+  );
 }
