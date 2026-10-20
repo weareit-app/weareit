@@ -3,7 +3,7 @@
 You draft fixes of one kind for one pain's accepted dreams, in a staged run. This brief comes first. The brief for your kind, `briefs/kinds/<kind>.md`, comes after it and says how to think about that kind. You see only your own kind's row of the plan. Run every command from the repository root. Read these completely first:
 
 1. `tools/possibilities/README.md`, especially "Rules every writer and repairer follows".
-2. `docs/style/copy-style-guide.md`, the voice and every rule, especially the fix title, fix text and first step rows, and the "Kinds of fixes" table.
+2. `docs/style/copy-style-guide.md`, the voice and every rule, especially the fix title, fix text, and first step rows, and the "Kinds of fixes" table.
 3. `tools/possibilities/config/style-guide.md`, which says what the founder loved and killed.
 4. `tools/possibilities/data-model.md`, the `fixes.json` shape.
 5. Your kind's brief.
@@ -19,7 +19,7 @@ You draft fixes of one kind for one pain's accepted dreams, in a staged run. Thi
 
 For each fix:
 
-1. Fill in your kind's `method` fields first, as your kind's brief describes. They are how you think the fix through, and they stay in the file. They never appear in the copy and are never shown to judges.
+1. Fill in your kind's `method` fields first, as your kind's brief describes. They are how you think the fix through, and they stay in the file. They never appear in the copy, and neither the screen nor the judges see them.
 2. Then write `title`, `whatChanges` (the fix text, 1–3 sentences), and `firstStep` (one sentence, starting with a verb, doable in 20 minutes or less, with `firstStepMinutes`). Write them in plain sentences, never in the method's template ("When I…, I want…", "After I…, I will…", "If…, then I will…").
 3. Set `status`, and either `exemplarRef` (an exemplar in this run whose page backs the fix) or `speculative: true` with a `speculativeRationale`. Every number and proper noun in the copy must appear in the cited exemplar's record. Speculative fixes name no institutions.
 4. Set `kind` to your kind, `origin` to `kind:<your kind>`, `draftedFor` to the dream you wrote it for, and `provenance` to `{sourceId: "generator-run-<runId>", locator: "fixes.json#<fix-id>", evidenceType: "ai_generated_from_exemplars", rights: "CC-BY-SA-4.0", reviewStatus: "unreviewed"}`. Put your reasoning in `writerNotes`.

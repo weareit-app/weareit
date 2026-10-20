@@ -49,7 +49,7 @@ def link(fix, dream, order, by='assembler'):
 def links_doc():
     """Each accepted dream linked to its own two Task fixes, plus one path candidate."""
     links = [link('%s-t%d' % (dream, n), dream, n) for dream in DREAMS[:5] for n in (1, 2)]
-    return {'schemaVersion': 2, 'painId': 'burnout', 'links': links,
+    return {'schemaVersion': 2, 'painId': 'burnout', 'assembler': {'context': 'isolated', 'at': '2026-10-20'}, 'links': links,
             'pathCandidates': [{'fixIds': ['burnout-d00-t1', 'burnout-d00-t2'], 'reason': 'The shelf comes before the habit.'}]}
 
 
@@ -164,6 +164,11 @@ class Screen(FixStages):
         self.assertIn('screen judge context must be isolated', found)
         self.assertIn('screen.json must screen every fix exactly once (missing burnout-d01-t1)', found)
 
+    def test_screen_waits_for_every_planned_pool(self):
+        self.write('fixes.json', fixes_doc(), lambda d: d.update(pools={}, fixes={}))
+        self.write('screen.json', screen_doc(), lambda d: d.update(results={}))
+        self.assertIn('screen.json needs a pool for every planned kind (missing task)', self.issues())
+
     def test_a_screened_fix_cannot_leave_the_pool(self):
         self.write('screen.json', screen_doc())
         self.write('fixes.json', fixes_doc(), lambda d: d['fixes'].pop('burnout-d01-t1'))
@@ -211,6 +216,10 @@ class Assembly(FixStages):
         self.assertIn('dream burnout-d00: each link needs its own order, a positive integer', found)
         self.assertIn('link burnout-d00-t1 → burnout-d05: burnout-d05 is not an accepted dream', found)
         self.assertIn('link burnout-d01-t1 → burnout-d01 is listed twice', found)
+
+    def test_assembler_is_isolated(self):
+        self.write('links.json', links_doc(), lambda d: d.update(assembler={'context': 'writer'}))
+        self.assertIn('assembler context must be isolated', self.issues())
 
     def test_path_candidates_order_two_or_more_screened_fixes(self):
         def change(doc):

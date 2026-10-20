@@ -9,7 +9,7 @@ A Task is something a person does once, including a one-time change that keeps w
 Two methods shape a Task:
 
 - **The next action** (Getting Things Done). A Task is a physical, visible step. If it takes more than one action to finish, it's a Project.
-- **Make it easy** (the Behavioural Insights Team's EAST, and the Behaviour Change Wheel's "environmental restructuring"). The best Tasks change the setting once, so the better choice no longer needs willpower: they set a better default, remove a hassle, simplify a step, or time a prompt for when people are ready to act.
+- **Make it easy** (the Behavioural Insights Team's EAST framework: make it Easy, Attractive, Social, and Timely; and the Behaviour Change Wheel's "environmental restructuring"). The best Tasks change the setting once, so the better choice no longer needs willpower: they set a better default, remove a hassle, simplify a step, or time a prompt for when people are ready to act.
 
 For each accepted dream with a Task ceiling above zero, list the one-time actions that would move a person toward it. Look especially for ones that set a default or remove a hassle. Keep only the strongest, up to the ceiling.
 

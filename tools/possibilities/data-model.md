@@ -98,7 +98,7 @@ Rules:
 - Lint applies the dream copy rules (`title-vague`, `title-length`, `dream-not-outcome`, `line-length`, `generic-phrase`, `serial-comma`, `exclamation`, `boilerplate-caveat`, `regional-word`, `acronym-in-title`, and `stacked-hedges`), plus lens and ambition coverage across the drafted dreams. Its issues carry `dreamId` in place of `cardId`. Basics and It-led coverage need linked fixes, so they wait for the fix stages.
 - `writerNotes` is never shown to judges or on review pages.
 - A `review` has a known `decision`. An `edit` keeps the drafted `title` and `line` in `original`, and `title` and `line` hold the founder's wording. Ingest sets `provenance.reviewStatus` to `reviewed`.
-- Later stages read only accepted dreams (`accept` or `edit`), through `accepted_dreams(run)`.
+- Later stages read only accepted dreams (`accept` or `edit`), through `accepted_dreams(run)`, and the validators check against the same set.
 
 ### plan.json (staged run)
 ```
@@ -150,20 +150,22 @@ Rules:
   results: { <fix-id>: { actionable: {pass, reason}, rightKind: {pass, reason}, honestStatus: {pass, reason} } } }
 ```
 Rules:
-- `results` screens every fix in `fixes.json` exactly once. A fix in `screen.json` that is no longer in `fixes.json` fails validation, so the pool keeps every screened fix.
+- The screen runs only after every planned kind has its pool. `results` screens every fix in `fixes.json` exactly once. A fix in `screen.json` that is no longer in `fixes.json` fails validation, so the pool keeps every screened fix.
 - Each check has a boolean `pass` and a one-line `reason`.
+- The screen judges the copy, not `method` or `writerNotes`.
 - A fix is screened out when any check fails. It stays in `fixes.json`, can't be linked, and is listed in `status` as `fixes.screenedOut`.
 
 ### links.json (staged run)
 ```
-{ schemaVersion: 2, painId, runId, assembledAt,
+{ schemaVersion: 2, painId, runId, assembler: { context: "isolated", model?, at },
   links: [ { fixId, dreamId, order, how, by: assembler|founder } ],   # graph fixDreamLinks, plus order and how
   pathCandidates: [ { fixIds: [<fix-id>…], reason } ] }               # chains in order; no paths are built
 ```
 Rules:
+- `assembler.context` is `isolated`.
 - `fixId` is a fix in `fixes.json` that passed the screen, and `dreamId` is an accepted dream. Each pair appears once.
 - `how` is one sentence on how the fix helps that dream.
-- Each accepted dream has at least 2 links. At most 5 are `by: assembler`. Links `by: founder`, added in the fix review, may take a dream past 5.
+- Each accepted dream has at least 2 links. At most 5 are `by: assembler`. A dream the pools can't serve fails validation, and the run needs a repair. Links `by: founder`, added in the fix review, may take a dream past 5.
 - Within a dream, each link has its own `order`, a positive integer. Order 1 is shown first.
 - A fix may be linked to several dreams. A fix with no link stays in `fixes.json` and is listed in `status` as `fixes.unlinked`.
 - A path candidate lists two or more different screened fixes in order, with a one-line reason.
