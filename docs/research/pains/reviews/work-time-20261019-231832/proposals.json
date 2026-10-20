@@ -1,0 +1,2406 @@
+{
+  "schemaVersion": 1,
+  "setId": "work-time-20261019-231832",
+  "builtAt": "2026-10-19",
+  "runs": [
+    "docs/research/pains/sweeps/work/20261019-224658",
+    "docs/research/pains/refine/work/20261019-224622",
+    "docs/research/pains/sweeps/time/20261019-224657",
+    "docs/research/pains/refine/time/20261019-224622"
+  ],
+  "flags": [],
+  "covered": [],
+  "proposals": [
+    {
+      "kind": "add",
+      "painIds": [
+        "long-hours"
+      ],
+      "group": "work",
+      "current": null,
+      "proposed": {
+        "name": "Long hours",
+        "line": "I work so many hours that there's barely any of my life left.",
+        "group": "work",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Long hours",
+          "line": "I work so many hours that there's barely any of my life left.",
+          "group": "work",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "10% of employees in OECD countries work 50 hours or more a week; 9% of the world's population works long hours, and long hours caused 745 000 deaths from stroke and heart disease in 2016 (WHO and ILO).",
+        "sources": [
+          {
+            "url": "https://oecd-better-life-index.truth-and-beauty.net/topics/work-life-balance/",
+            "accessed": "2026-10-19",
+            "passage": "10% of employees in the OECD work 50 hours or more per week in paid work."
+          },
+          {
+            "url": "https://www.who.int/news/item/17-05-2021-long-working-hours-increasing-deaths-from-heart-disease-and-stroke-who-ilo",
+            "accessed": "2026-10-19",
+            "passage": "745 000 deaths from stroke and ischemic heart disease in 2016"
+          },
+          {
+            "url": "https://www.who.int/news/item/17-05-2021-long-working-hours-increasing-deaths-from-heart-disease-and-stroke-who-ilo",
+            "accessed": "2026-10-19",
+            "passage": "currently stands at 9% of the total population globally"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "long-hours",
+          "name": "Long hours",
+          "line": "I work so many hours that there's barely any of my life left.",
+          "page": "personal",
+          "group": "work",
+          "aliases": [
+            "Overwork",
+            "Working all the time"
+          ],
+          "sources": [
+            {
+              "url": "https://oecd-better-life-index.truth-and-beauty.net/topics/work-life-balance/",
+              "accessed": "2026-10-19",
+              "passage": "10% of employees in the OECD work 50 hours or more per week in paid work."
+            },
+            {
+              "url": "https://www.who.int/news/item/17-05-2021-long-working-hours-increasing-deaths-from-heart-disease-and-stroke-who-ilo",
+              "accessed": "2026-10-19",
+              "passage": "745 000 deaths from stroke and ischemic heart disease in 2016"
+            },
+            {
+              "url": "https://www.who.int/news/item/17-05-2021-long-working-hours-increasing-deaths-from-heart-disease-and-stroke-who-ilo",
+              "accessed": "2026-10-19",
+              "passage": "currently stands at 9% of the total population globally"
+            }
+          ],
+          "prevalence": "10% of employees in OECD countries work 50 hours or more a week; 9% of the world's population works long hours, and long hours caused 745 000 deaths from stroke and heart disease in 2016 (WHO and ILO).",
+          "covers": [
+            {
+              "list": "oecd",
+              "entry": "long-hours"
+            },
+            {
+              "list": "who-ilo",
+              "entry": "long-hours"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q30324008"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q1051107"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q763264"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/work/20261019-224658",
+      "side": [],
+      "id": "p001"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "unpredictable-schedule"
+      ],
+      "group": "work",
+      "current": null,
+      "proposed": {
+        "name": "Schedule",
+        "line": "My work hours change so often that I can't plan my life.",
+        "group": "work",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Schedule",
+          "line": "My work hours change so often that I can't plan my life.",
+          "group": "work",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "Among Boston service workers, 60% get their schedules less than two weeks ahead, 73% have irregular or variable schedules and 45% worked a closing shift followed by an opening shift (Shift Project); 2.8 million U.S. workers are on call (1.7 percent of employment, BLS).",
+        "sources": [
+          {
+            "url": "https://shift.hks.harvard.edu/newsroom/boston-service-workers-experience-unstable-unpredictable-work-schedules",
+            "accessed": "2026-10-19",
+            "passage": "60% receive their work schedules less than two weeks in advance; 73% report irregular or variable work schedules; 45% worked consecutive closing/opening shifts (“clopenings”)"
+          },
+          {
+            "url": "https://www.bls.gov/news.release/conemp.nr0.htm",
+            "accessed": "2026-10-19",
+            "passage": "2.8 million on-call workers (1.7 percent of total employment)"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "unpredictable-schedule",
+          "name": "Schedule",
+          "line": "My work hours change so often that I can't plan my life.",
+          "page": "personal",
+          "group": "work",
+          "aliases": [
+            "Shifts change every week",
+            "On call"
+          ],
+          "sources": [
+            {
+              "url": "https://shift.hks.harvard.edu/newsroom/boston-service-workers-experience-unstable-unpredictable-work-schedules",
+              "accessed": "2026-10-19",
+              "passage": "60% receive their work schedules less than two weeks in advance; 73% report irregular or variable work schedules; 45% worked consecutive closing/opening shifts (“clopenings”)"
+            },
+            {
+              "url": "https://www.bls.gov/news.release/conemp.nr0.htm",
+              "accessed": "2026-10-19",
+              "passage": "2.8 million on-call workers (1.7 percent of total employment)"
+            }
+          ],
+          "prevalence": "Among Boston service workers, 60% get their schedules less than two weeks ahead, 73% have irregular or variable schedules and 45% worked a closing shift followed by an opening shift (Shift Project); 2.8 million U.S. workers are on call (1.7 percent of employment, BLS).",
+          "covers": [
+            {
+              "list": "worker-studies",
+              "entry": "schedule-notice"
+            },
+            {
+              "list": "bls",
+              "entry": "on-call"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q1068683"
+            },
+            {
+              "list": "pew-jobs",
+              "entry": "flexibility"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/work/20261019-224658",
+      "side": [],
+      "id": "p002"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "unsafe-work"
+      ],
+      "group": "work",
+      "current": null,
+      "proposed": {
+        "name": "Unsafe work",
+        "line": "I could get badly hurt doing my job.",
+        "group": "work",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Unsafe work",
+          "line": "I could get badly hurt doing my job.",
+          "group": "work",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "U.S. private employers reported 2.5 million nonfatal workplace injuries and illnesses in 2024, and 5,070 people died from work injuries that year (BLS).",
+        "sources": [
+          {
+            "url": "https://www.bls.gov/news.release/osh.nr0.htm",
+            "accessed": "2026-10-19",
+            "passage": "Private industry employers reported 2.5 million nonfatal workplace injuries and illnesses in 2024"
+          },
+          {
+            "url": "https://www.bls.gov/news.release/cfoi.nr0.htm",
+            "accessed": "2026-10-19",
+            "passage": "There were 5,070 fatal work injuries recorded in the United States in 2024"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "unsafe-work",
+          "name": "Unsafe work",
+          "line": "I could get badly hurt doing my job.",
+          "page": "personal",
+          "group": "work",
+          "aliases": [
+            "Dangerous job",
+            "Injured at work"
+          ],
+          "sources": [
+            {
+              "url": "https://www.bls.gov/news.release/osh.nr0.htm",
+              "accessed": "2026-10-19",
+              "passage": "Private industry employers reported 2.5 million nonfatal workplace injuries and illnesses in 2024"
+            },
+            {
+              "url": "https://www.bls.gov/news.release/cfoi.nr0.htm",
+              "accessed": "2026-10-19",
+              "passage": "There were 5,070 fatal work injuries recorded in the United States in 2024"
+            }
+          ],
+          "prevalence": "U.S. private employers reported 2.5 million nonfatal workplace injuries and illnesses in 2024, and 5,070 people died from work injuries that year (BLS).",
+          "covers": [
+            {
+              "list": "sdg",
+              "entry": "8.8"
+            },
+            {
+              "list": "who-ilo",
+              "entry": "occupational-injury"
+            },
+            {
+              "list": "bls",
+              "entry": "fatal-injuries"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q629029"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q2389289"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/work/20261019-224658",
+      "similar": [
+        {
+          "id": "bad-job",
+          "name": "Mistreatment",
+          "line": "I'm treated badly at work."
+        },
+        {
+          "id": "job-could-go",
+          "name": "Layoffs",
+          "line": "I could lose my job any day."
+        }
+      ],
+      "side": [],
+      "id": "p003"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "wage-theft"
+      ],
+      "group": "work",
+      "current": null,
+      "proposed": {
+        "name": "Wage theft",
+        "line": "My boss doesn't pay me everything I've earned.",
+        "group": "work",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Wage theft",
+          "line": "My boss doesn't pay me everything I've earned.",
+          "group": "work",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "17 percent of low-wage workers are paid less than the minimum wage; in the 10 most populous states that is 2.4 million workers losing $8 billion a year (Economic Policy Institute, via Next City).",
+        "sources": [
+          {
+            "url": "https://nextcity.org/urbanist-news/minimum-wage-violations-mean-workers-losing-billions",
+            "accessed": "2026-10-19",
+            "passage": "The report says this form of wage theft affects 17 percent of low-wage workers."
+          },
+          {
+            "url": "https://nextcity.org/urbanist-news/minimum-wage-violations-mean-workers-losing-billions",
+            "accessed": "2026-10-19",
+            "passage": "In the 10 most populous U.S. states, 2.4 million workers lose $8 billion annually to minimum wage violations"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "wage-theft",
+          "name": "Wage theft",
+          "line": "My boss doesn't pay me everything I've earned.",
+          "page": "personal",
+          "group": "work",
+          "aliases": [
+            "Unpaid overtime",
+            "Paid under the minimum wage"
+          ],
+          "sources": [
+            {
+              "url": "https://nextcity.org/urbanist-news/minimum-wage-violations-mean-workers-losing-billions",
+              "accessed": "2026-10-19",
+              "passage": "The report says this form of wage theft affects 17 percent of low-wage workers."
+            },
+            {
+              "url": "https://nextcity.org/urbanist-news/minimum-wage-violations-mean-workers-losing-billions",
+              "accessed": "2026-10-19",
+              "passage": "In the 10 most populous U.S. states, 2.4 million workers lose $8 billion annually to minimum wage violations"
+            }
+          ],
+          "prevalence": "17 percent of low-wage workers are paid less than the minimum wage; in the 10 most populous states that is 2.4 million workers losing $8 billion a year (Economic Policy Institute, via Next City).",
+          "covers": [
+            {
+              "list": "worker-studies",
+              "entry": "wage-theft"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q7959502"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/work/20261019-224658",
+      "side": [],
+      "id": "p004"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "bad-boss"
+      ],
+      "group": "work",
+      "current": null,
+      "proposed": {
+        "name": "Bad boss",
+        "line": "My boss makes my job miserable.",
+        "group": "work",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Bad boss",
+          "line": "My boss makes my job miserable.",
+          "group": "work",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "Half of more than 7,000 U.S. workers have left a job at some point to get away from their manager (Gallup); 59% are highly satisfied with their relationship with their manager (Pew).",
+        "sources": [
+          {
+            "url": "https://www.govexec.com/management/2015/04/half-american-workers-have-left-job-because-they-hated-their-boss/109183/",
+            "accessed": "2026-10-19",
+            "passage": "Gallup surveyed over 7,000 members of the US workforce and found that half of them have left a job at some point in their careers solely because they could no longer put up with their manager."
+          },
+          {
+            "url": "https://www.pewresearch.org/social-trends/2024/12/10/job-satisfaction/",
+            "accessed": "2026-10-19",
+            "passage": "Their relationship with their manager or supervisor (59%)"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "bad-boss",
+          "name": "Bad boss",
+          "line": "My boss makes my job miserable.",
+          "page": "personal",
+          "group": "work",
+          "aliases": [
+            "Bad manager",
+            "Micromanaged"
+          ],
+          "sources": [
+            {
+              "url": "https://www.govexec.com/management/2015/04/half-american-workers-have-left-job-because-they-hated-their-boss/109183/",
+              "accessed": "2026-10-19",
+              "passage": "Gallup surveyed over 7,000 members of the US workforce and found that half of them have left a job at some point in their careers solely because they could no longer put up with their manager."
+            },
+            {
+              "url": "https://www.pewresearch.org/social-trends/2024/12/10/job-satisfaction/",
+              "accessed": "2026-10-19",
+              "passage": "Their relationship with their manager or supervisor (59%)"
+            }
+          ],
+          "prevalence": "Half of more than 7,000 U.S. workers have left a job at some point to get away from their manager (Gallup); 59% are highly satisfied with their relationship with their manager (Pew).",
+          "covers": [
+            {
+              "list": "gallup-workplace",
+              "entry": "left-for-manager"
+            },
+            {
+              "list": "pew-jobs",
+              "entry": "manager"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q22906141"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/work/20261019-224658",
+      "similar": [
+        {
+          "id": "bad-job",
+          "name": "Mistreatment",
+          "line": "I'm treated badly at work."
+        }
+      ],
+      "side": [],
+      "id": "p005"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "no-say-at-work"
+      ],
+      "group": "work",
+      "current": null,
+      "proposed": {
+        "name": "No say at work",
+        "line": "I have no say in how things are done at work.",
+        "group": "work",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "No say at work",
+          "line": "I have no say in how things are done at work.",
+          "group": "work",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "48% of U.S. nonunion workers say they would vote for a union if an election were held at their workplace (MIT Sloan survey, via Cornell ILR).",
+        "sources": [
+          {
+            "url": "https://www.ilr.cornell.edu/news/research/new-report-analyzes-what-workers-really-want",
+            "accessed": "2026-10-19",
+            "passage": "48% of nonunion workers said they would vote for a union if an election was held at their workplace."
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "no-say-at-work",
+          "name": "No say at work",
+          "line": "I have no say in how things are done at work.",
+          "page": "personal",
+          "group": "work",
+          "aliases": [
+            "No voice at work",
+            "Want a union"
+          ],
+          "sources": [
+            {
+              "url": "https://www.ilr.cornell.edu/news/research/new-report-analyzes-what-workers-really-want",
+              "accessed": "2026-10-19",
+              "passage": "48% of nonunion workers said they would vote for a union if an election was held at their workplace."
+            }
+          ],
+          "prevalence": "48% of U.S. nonunion workers say they would vote for a union if an election were held at their workplace (MIT Sloan survey, via Cornell ILR).",
+          "covers": [
+            {
+              "list": "worker-studies",
+              "entry": "union-voice"
+            },
+            {
+              "list": "maxneef",
+              "entry": "participation"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q178790"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q8035059"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/work/20261019-224658",
+      "side": [],
+      "id": "p006"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "overqualified"
+      ],
+      "group": "work",
+      "current": null,
+      "proposed": {
+        "name": "Overqualified",
+        "line": "My job doesn't use what I know or what I trained for.",
+        "group": "work",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Overqualified",
+          "line": "My job doesn't use what I know or what I trained for.",
+          "group": "work",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "52 percent of recent four-year college graduates are underemployed a year after graduating (Burning Glass Institute and Strada); one in four college-educated immigrants in the U.S., 1.9 million people, were underemployed or unemployed (Migration Policy Institute).",
+        "sources": [
+          {
+            "url": "https://cappsonline.org/more-than-half-of-recent-4-year-college-grads-underemployed/",
+            "accessed": "2026-10-19",
+            "passage": "More than half of recent four-year college graduates, 52 percent, are underemployed a year after they graduate"
+          },
+          {
+            "url": "https://www.americanimmigrationcouncil.org/press-release/billions-of-dollars-in-tax-receipts-forgone-annually-as-nearly-2-million-highly-skilled-immigrants-in-u-s-are-stuck-in-low-skilled-jobs-or-unemployed/",
+            "accessed": "2026-10-19",
+            "passage": "one in four, or 1.9 million individuals, were either underemployed or unemployed."
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "overqualified",
+          "name": "Overqualified",
+          "line": "My job doesn't use what I know or what I trained for.",
+          "page": "personal",
+          "group": "work",
+          "aliases": [
+            "Underemployed",
+            "My degree doesn't count here"
+          ],
+          "sources": [
+            {
+              "url": "https://cappsonline.org/more-than-half-of-recent-4-year-college-grads-underemployed/",
+              "accessed": "2026-10-19",
+              "passage": "More than half of recent four-year college graduates, 52 percent, are underemployed a year after they graduate"
+            },
+            {
+              "url": "https://www.americanimmigrationcouncil.org/press-release/billions-of-dollars-in-tax-receipts-forgone-annually-as-nearly-2-million-highly-skilled-immigrants-in-u-s-are-stuck-in-low-skilled-jobs-or-unemployed/",
+              "accessed": "2026-10-19",
+              "passage": "one in four, or 1.9 million individuals, were either underemployed or unemployed."
+            }
+          ],
+          "prevalence": "52 percent of recent four-year college graduates are underemployed a year after graduating (Burning Glass Institute and Strada); one in four college-educated immigrants in the U.S., 1.9 million people, were underemployed or unemployed (Migration Policy Institute).",
+          "covers": [
+            {
+              "list": "worker-studies",
+              "entry": "underemployed-grads"
+            },
+            {
+              "list": "worker-studies",
+              "entry": "immigrant-brain-waste"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q1931244"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/work/20261019-224658",
+      "similar": [
+        {
+          "id": "no-floor",
+          "name": "No safety net",
+          "line": "If I lose my job or get sick, I know there's nothing to fall back on."
+        }
+      ],
+      "side": [],
+      "id": "p007"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "long-commute"
+      ],
+      "group": "work",
+      "current": null,
+      "proposed": {
+        "name": "Commute",
+        "line": "I lose hours every day getting to and from work.",
+        "group": "work",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Commute",
+          "line": "I lose hours every day getting to and from work.",
+          "group": "work",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "About 8.1 percent of U.S. workers commute 60 minutes or longer each way (Census Bureau); the average one-way commute was about 27 minutes in 2023 (NCSL, from Census data).",
+        "sources": [
+          {
+            "url": "https://www.census.gov/newsroom/archives/2013-pr/cb13-41.html",
+            "accessed": "2026-10-19",
+            "passage": "About 8.1 percent of U.S. workers have commutes of 60 minutes or longer."
+          },
+          {
+            "url": "https://www.ncsl.org/resources/map-monday-get-me-to-the-job-on-time",
+            "accessed": "2026-10-19",
+            "passage": "The average time spent commuting in the U.S. in 2023 was about 27 minutes one-way"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "long-commute",
+          "name": "Commute",
+          "line": "I lose hours every day getting to and from work.",
+          "page": "personal",
+          "group": "work",
+          "aliases": [
+            "Long commute"
+          ],
+          "sources": [
+            {
+              "url": "https://www.census.gov/newsroom/archives/2013-pr/cb13-41.html",
+              "accessed": "2026-10-19",
+              "passage": "About 8.1 percent of U.S. workers have commutes of 60 minutes or longer."
+            },
+            {
+              "url": "https://www.ncsl.org/resources/map-monday-get-me-to-the-job-on-time",
+              "accessed": "2026-10-19",
+              "passage": "The average time spent commuting in the U.S. in 2023 was about 27 minutes one-way"
+            }
+          ],
+          "prevalence": "About 8.1 percent of U.S. workers commute 60 minutes or longer each way (Census Bureau); the average one-way commute was about 27 minutes in 2023 (NCSL, from Census data).",
+          "covers": [
+            {
+              "list": "worker-studies",
+              "entry": "commute"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q48442"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/work/20261019-224658",
+      "twins": [
+        {
+          "id": "no-time-off",
+          "name": "Time off",
+          "line": "I never get a real break from work.",
+          "origin": "docs/research/pains/sweeps/time/20261019-224657"
+        }
+      ],
+      "side": [],
+      "id": "p008"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "no-paid-leave"
+      ],
+      "group": "work",
+      "current": null,
+      "proposed": {
+        "name": "Paid leave",
+        "line": "I lose pay whenever I'm sick or need to care for someone.",
+        "group": "work",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Paid leave",
+          "line": "I lose pay whenever I'm sick or need to care for someone.",
+          "group": "work",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "81 percent of U.S. private industry workers had access to paid sick leave and 49 percent to paid family and medical leave (BLS).",
+        "sources": [
+          {
+            "url": "https://www.bls.gov/news.release/ebs2.nr0.htm",
+            "accessed": "2026-10-19",
+            "passage": "81 percent had access to paid sick leave"
+          },
+          {
+            "url": "https://www.bls.gov/news.release/ebs2.nr0.htm",
+            "accessed": "2026-10-19",
+            "passage": "49 percent had access to paid family and medical leave"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "no-paid-leave",
+          "name": "Paid leave",
+          "line": "I lose pay whenever I'm sick or need to care for someone.",
+          "page": "personal",
+          "group": "work",
+          "aliases": [
+            "No sick days",
+            "Can't afford to stay home sick"
+          ],
+          "sources": [
+            {
+              "url": "https://www.bls.gov/news.release/ebs2.nr0.htm",
+              "accessed": "2026-10-19",
+              "passage": "81 percent had access to paid sick leave"
+            },
+            {
+              "url": "https://www.bls.gov/news.release/ebs2.nr0.htm",
+              "accessed": "2026-10-19",
+              "passage": "49 percent had access to paid family and medical leave"
+            }
+          ],
+          "prevalence": "81 percent of U.S. private industry workers had access to paid sick leave and 49 percent to paid family and medical leave (BLS).",
+          "covers": [
+            {
+              "list": "bls",
+              "entry": "paid-sick-leave"
+            },
+            {
+              "list": "bls",
+              "entry": "paid-family-leave"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q464163"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/work/20261019-224658",
+      "similar": [
+        {
+          "id": "cant-get-care",
+          "name": "Healthcare",
+          "line": "I can't see a doctor when I need one."
+        }
+      ],
+      "side": [],
+      "id": "p009"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "gig-work"
+      ],
+      "group": "work",
+      "current": null,
+      "proposed": {
+        "name": "Gig work",
+        "line": "I work through apps with no benefits and no steady pay.",
+        "group": "work",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Gig work",
+          "line": "I work through apps with no benefits and no steady pay.",
+          "group": "work",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "9% of U.S. adults are current or recent gig platform workers, and 35% of gig workers have often or sometimes felt unsafe on the job (Pew); 4.3 percent of workers, 6.9 million people, hold contingent jobs (BLS, July 2023).",
+        "sources": [
+          {
+            "url": "https://www.pewresearch.org/internet/2021/12/08/the-state-of-gig-work-in-2021/",
+            "accessed": "2026-10-19",
+            "passage": "In total, 9% of U.S. adults are current or recent gig workers."
+          },
+          {
+            "url": "https://www.bls.gov/news.release/conemp.nr0.htm",
+            "accessed": "2026-10-19",
+            "passage": "In July 2023, 4.3 percent of workers--6.9 million people--held contingent jobs on their sole or main job"
+          },
+          {
+            "url": "https://www.pewresearch.org/internet/2021/12/08/the-state-of-gig-work-in-2021/",
+            "accessed": "2026-10-19",
+            "passage": "35% say they have often or sometimes felt unsafe while doing these jobs"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "gig-work",
+          "name": "Gig work",
+          "line": "I work through apps with no benefits and no steady pay.",
+          "page": "personal",
+          "group": "work",
+          "aliases": [
+            "Contract work",
+            "No steady job"
+          ],
+          "sources": [
+            {
+              "url": "https://www.pewresearch.org/internet/2021/12/08/the-state-of-gig-work-in-2021/",
+              "accessed": "2026-10-19",
+              "passage": "In total, 9% of U.S. adults are current or recent gig workers."
+            },
+            {
+              "url": "https://www.bls.gov/news.release/conemp.nr0.htm",
+              "accessed": "2026-10-19",
+              "passage": "In July 2023, 4.3 percent of workers--6.9 million people--held contingent jobs on their sole or main job"
+            },
+            {
+              "url": "https://www.pewresearch.org/internet/2021/12/08/the-state-of-gig-work-in-2021/",
+              "accessed": "2026-10-19",
+              "passage": "35% say they have often or sometimes felt unsafe while doing these jobs"
+            }
+          ],
+          "prevalence": "9% of U.S. adults are current or recent gig platform workers, and 35% of gig workers have often or sometimes felt unsafe on the job (Pew); 4.3 percent of workers, 6.9 million people, hold contingent jobs (BLS, July 2023).",
+          "covers": [
+            {
+              "list": "worker-studies",
+              "entry": "gig-work"
+            },
+            {
+              "list": "bls",
+              "entry": "contingent"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q51711208"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q17009677"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/work/20261019-224658",
+      "side": [],
+      "id": "p010"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "two-jobs"
+      ],
+      "group": "work",
+      "current": null,
+      "proposed": {
+        "name": "Second job",
+        "line": "I work more than one job just to get by.",
+        "group": "work",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Second job",
+          "line": "I work more than one job just to get by.",
+          "group": "work",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "5.5 percent of employed Americans hold more than one job (BLS via FRED, Sep 2026).",
+        "sources": [
+          {
+            "url": "https://fred.stlouisfed.org/series/LNS12026620",
+            "accessed": "2026-10-19",
+            "passage": "Multiple Jobholders as a Percent of Employed: Sep 2026: 5.5 | Percent, Seasonally Adjusted"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "two-jobs",
+          "name": "Second job",
+          "line": "I work more than one job just to get by.",
+          "page": "personal",
+          "group": "work",
+          "aliases": [
+            "Side hustle",
+            "Working two jobs"
+          ],
+          "sources": [
+            {
+              "url": "https://fred.stlouisfed.org/series/LNS12026620",
+              "accessed": "2026-10-19",
+              "passage": "Multiple Jobholders as a Percent of Employed: Sep 2026: 5.5 | Percent, Seasonally Adjusted"
+            }
+          ],
+          "prevalence": "5.5 percent of employed Americans hold more than one job (BLS via FRED, Sep 2026).",
+          "covers": [
+            {
+              "list": "bls",
+              "entry": "multiple-jobs"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/work/20261019-224658",
+      "similar": [
+        {
+          "id": "bad-job",
+          "name": "Mistreatment",
+          "line": "I'm treated badly at work."
+        },
+        {
+          "id": "ai-and-jobs",
+          "name": "AI job losses",
+          "line": "I worry AI will replace people's jobs and no one has a plan for them."
+        }
+      ],
+      "side": [],
+      "id": "p011"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "small-business"
+      ],
+      "group": "work",
+      "current": null,
+      "proposed": {
+        "name": "My business",
+        "line": "I'm struggling to keep my small business going.",
+        "group": "work",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "My business",
+          "line": "I'm struggling to keep my small business going.",
+          "group": "work",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "94 percent of small employer firms faced at least one financial challenge in the past year (Federal Reserve Small Business Credit Survey, 2025).",
+        "sources": [
+          {
+            "url": "https://fred.stlouisfed.org/series/SBCSS10B0V0FRB",
+            "accessed": "2026-10-19",
+            "passage": "Small Business Credit Survey: Experienced at Least One Financial Challenge: Employer Firms: 94 percent (2025)"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "small-business",
+          "name": "My business",
+          "line": "I'm struggling to keep my small business going.",
+          "page": "personal",
+          "group": "work",
+          "aliases": [
+            "Small business owner",
+            "Keeping the shop open"
+          ],
+          "sources": [
+            {
+              "url": "https://fred.stlouisfed.org/series/SBCSS10B0V0FRB",
+              "accessed": "2026-10-19",
+              "passage": "Small Business Credit Survey: Experienced at Least One Financial Challenge: Employer Firms: 94 percent (2025)"
+            }
+          ],
+          "prevalence": "94 percent of small employer firms faced at least one financial challenge in the past year (Federal Reserve Small Business Credit Survey, 2025).",
+          "covers": [
+            {
+              "list": "worker-studies",
+              "entry": "small-business"
+            },
+            {
+              "list": "sdg",
+              "entry": "8.3"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q1109680"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/work/20261019-224658",
+      "side": [],
+      "id": "p012"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "dead-end-job"
+      ],
+      "group": "work",
+      "current": null,
+      "proposed": {
+        "name": "Dead end",
+        "line": "I can't move up at work, however hard I try.",
+        "group": "work",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Dead end",
+          "line": "I can't move up at work, however hard I try.",
+          "group": "work",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "Only about a quarter of U.S. workers (26%) are highly satisfied with their opportunities for promotion (Pew).",
+        "sources": [
+          {
+            "url": "https://www.pewresearch.org/social-trends/2024/12/10/job-satisfaction/",
+            "accessed": "2026-10-19",
+            "passage": "about a quarter (26%) are highly satisfied with their opportunities for promotion at work."
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "dead-end-job",
+          "name": "Dead end",
+          "line": "I can't move up at work, however hard I try.",
+          "page": "personal",
+          "group": "work",
+          "aliases": [
+            "No promotion",
+            "Passed over"
+          ],
+          "sources": [
+            {
+              "url": "https://www.pewresearch.org/social-trends/2024/12/10/job-satisfaction/",
+              "accessed": "2026-10-19",
+              "passage": "about a quarter (26%) are highly satisfied with their opportunities for promotion at work."
+            }
+          ],
+          "prevalence": "Only about a quarter of U.S. workers (26%) are highly satisfied with their opportunities for promotion (Pew).",
+          "covers": [
+            {
+              "list": "pew-jobs",
+              "entry": "promotion"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/work/20261019-224658",
+      "side": [],
+      "id": "p013"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "burnout"
+      ],
+      "group": "work",
+      "current": {
+        "name": "Burnout",
+        "line": "I've got nothing left."
+      },
+      "proposed": {
+        "name": "Burnout",
+        "line": "Work has worn me down so much that I dread every morning."
+      },
+      "alternatives": [
+        {
+          "name": "Burned out",
+          "line": "By the end of the workday I have nothing left for my family or myself."
+        }
+      ],
+      "why": {
+        "prompt": "lint vague-line (fail)",
+        "detail": "Keeps the exhaustion of the original and says what it looks like in a day: dreading the start of work."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/work/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p014"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "bad-job"
+      ],
+      "group": "work",
+      "current": {
+        "name": "Mistreatment",
+        "line": "I'm treated badly at work."
+      },
+      "proposed": {
+        "name": "Mistreated at work",
+        "line": "My boss or coworkers treat me badly, and I dread going in."
+      },
+      "alternatives": [],
+      "why": {
+        "prompt": "lint id-mismatch (note)",
+        "detail": "Says it the way a person would and names who does it, while staying one issue."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/work/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p015"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "meaningless-work"
+      ],
+      "group": "work",
+      "current": {
+        "name": "Meaning",
+        "line": "I don't think my work matters."
+      },
+      "proposed": {
+        "name": "Pointless work",
+        "line": "I spend my days on work that doesn't help anyone."
+      },
+      "alternatives": [],
+      "why": {
+        "prompt": "refine",
+        "detail": "Names the problem rather than the area, so the heading doesn't mix labels, and makes it something you can picture."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/work/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p016"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "wrong-career"
+      ],
+      "group": "work",
+      "current": {
+        "name": "Career",
+        "line": "I'm in the wrong line of work."
+      },
+      "proposed": {
+        "name": "Wrong career",
+        "line": "I'm in the wrong line of work, and I don't know how to switch."
+      },
+      "alternatives": [],
+      "why": {
+        "prompt": "refine",
+        "detail": "Names the problem rather than the area, and the second half separates it from work that merely feels pointless."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/work/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p017"
+    },
+    {
+      "painIds": [
+        "unemployment",
+        "job-could-go"
+      ],
+      "group": "work",
+      "side": [
+        {
+          "id": "unemployment",
+          "name": "Unemployment",
+          "line": "I can't find work."
+        },
+        {
+          "id": "job-could-go",
+          "name": "Layoffs",
+          "line": "I could lose my job any day."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Someone out of work and someone afraid of losing work are in different places and need different help. Unemployment is having no job now; Layoffs is having one and fearing you'll lose it."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Unemployment",
+        "line": "I can't find work."
+      },
+      "proposed": {
+        "name": "Layoffs",
+        "line": "I could lose my job any day."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/work/20261019-224622",
+      "draft": false,
+      "id": "p018"
+    },
+    {
+      "painIds": [
+        "unemployment",
+        "ai-and-jobs"
+      ],
+      "group": "work",
+      "side": [
+        {
+          "id": "unemployment",
+          "name": "Unemployment",
+          "line": "I can't find work."
+        },
+        {
+          "id": "ai-and-jobs",
+          "name": "AI job losses",
+          "line": "I worry AI will replace people's jobs and no one has a plan for them."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "One is a personal situation today and the other is a societal worry, so people won't confuse them. Unemployment is my own search for work; AI job losses is a worry about what happens to everyone's jobs."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Unemployment",
+        "line": "I can't find work."
+      },
+      "proposed": {
+        "name": "AI job losses",
+        "line": "I worry AI will replace people's jobs and no one has a plan for them."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/work/20261019-224622",
+      "draft": false,
+      "id": "p019"
+    },
+    {
+      "painIds": [
+        "job-could-go",
+        "ai-and-jobs"
+      ],
+      "group": "work",
+      "side": [
+        {
+          "id": "job-could-go",
+          "name": "Layoffs",
+          "line": "I could lose my job any day."
+        },
+        {
+          "id": "ai-and-jobs",
+          "name": "AI job losses",
+          "line": "I worry AI will replace people's jobs and no one has a plan for them."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Fearing for my own job and worrying that AI will take people's jobs are the same fear seen from the personal and the societal page."
+      },
+      "kind": "other-page",
+      "current": {
+        "name": "Layoffs",
+        "line": "I could lose my job any day."
+      },
+      "proposed": {
+        "name": "AI job losses",
+        "line": "I worry AI will replace people's jobs and no one has a plan for them."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/work/20261019-224622",
+      "draft": false,
+      "id": "p020"
+    },
+    {
+      "painIds": [
+        "underpaid",
+        "broke"
+      ],
+      "group": "work",
+      "side": [
+        {
+          "id": "underpaid",
+          "name": "Underpaid",
+          "line": "I'm paid less than my work is worth."
+        },
+        {
+          "id": "broke",
+          "name": "Broke",
+          "line": "I run out of money before my next paycheck."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Plenty of people are underpaid without running out of money, and plenty run short for reasons other than pay. Underpaid is about pay that doesn't match the work; Broke is running out of money, which can happen for many reasons."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Underpaid",
+        "line": "I'm paid less than my work is worth."
+      },
+      "proposed": {
+        "name": "Broke",
+        "line": "I run out of money before my next paycheck."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/work/20261019-224622",
+      "draft": false,
+      "id": "p021"
+    },
+    {
+      "painIds": [
+        "bad-job",
+        "burnout"
+      ],
+      "group": "work",
+      "side": [
+        {
+          "id": "bad-job",
+          "name": "Mistreatment",
+          "line": "I'm treated badly at work."
+        },
+        {
+          "id": "burnout",
+          "name": "Burnout",
+          "line": "I've got nothing left."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "You can burn out under a kind boss and be mistreated without being exhausted, so the two are easy to tell apart. Mistreatment is how people at work treat me; Burnout is being worn down by the work itself."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Mistreatment",
+        "line": "I'm treated badly at work."
+      },
+      "proposed": {
+        "name": "Burnout",
+        "line": "I've got nothing left."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/work/20261019-224622",
+      "draft": false,
+      "id": "p022"
+    },
+    {
+      "painIds": [
+        "bad-job",
+        "underpaid"
+      ],
+      "group": "work",
+      "side": [
+        {
+          "id": "bad-job",
+          "name": "Mistreatment",
+          "line": "I'm treated badly at work."
+        },
+        {
+          "id": "underpaid",
+          "name": "Underpaid",
+          "line": "I'm paid less than my work is worth."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Low pay and bad treatment often come together, but a person can easily say which one they mean. Mistreatment is about how I'm treated; Underpaid is about what I'm paid."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Mistreatment",
+        "line": "I'm treated badly at work."
+      },
+      "proposed": {
+        "name": "Underpaid",
+        "line": "I'm paid less than my work is worth."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/work/20261019-224622",
+      "draft": false,
+      "id": "p023"
+    },
+    {
+      "painIds": [
+        "meaningless-work",
+        "wrong-career"
+      ],
+      "group": "work",
+      "side": [
+        {
+          "id": "meaningless-work",
+          "name": "Meaning",
+          "line": "I don't think my work matters."
+        },
+        {
+          "id": "wrong-career",
+          "name": "Career",
+          "line": "I'm in the wrong line of work."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Someone can be in the right field doing pointless tasks, or in the wrong field doing useful work, and the sharper lines in the alternatives make that choice easy. Meaning is feeling the job doesn't help anyone; Career is being in a field that doesn't fit me and wanting to switch."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Meaning",
+        "line": "I don't think my work matters."
+      },
+      "proposed": {
+        "name": "Career",
+        "line": "I'm in the wrong line of work."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/work/20261019-224622",
+      "draft": false,
+      "id": "p024"
+    },
+    {
+      "painIds": [
+        "wrong-career",
+        "no-path"
+      ],
+      "group": "work",
+      "side": [
+        {
+          "id": "wrong-career",
+          "name": "Career",
+          "line": "I'm in the wrong line of work."
+        },
+        {
+          "id": "no-path",
+          "name": "Direction",
+          "line": "I know what I want but not how to get there."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Direction covers goals well beyond work, while Career is specifically about being in the wrong job. Career is about the work I do now; Direction is not knowing how to reach a goal I already have, in any part of life."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Career",
+        "line": "I'm in the wrong line of work."
+      },
+      "proposed": {
+        "name": "Direction",
+        "line": "I know what I want but not how to get there."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/work/20261019-224622",
+      "draft": false,
+      "id": "p025"
+    },
+    {
+      "painIds": [
+        "burnout",
+        "always-tired"
+      ],
+      "group": "work",
+      "side": [
+        {
+          "id": "burnout",
+          "name": "Burnout",
+          "line": "I've got nothing left."
+        },
+        {
+          "id": "always-tired",
+          "name": "Tired",
+          "line": "I'm tired all the time."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Tiredness has many causes besides work, and burnout is about the job as much as the body. Burnout is being worn down by work; Tired is being tired all the time, often from sleep or health."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Burnout",
+        "line": "I've got nothing left."
+      },
+      "proposed": {
+        "name": "Tired",
+        "line": "I'm tired all the time."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/work/20261019-224622",
+      "draft": false,
+      "id": "p026"
+    },
+    {
+      "painIds": [
+        "burnout",
+        "no-free-time"
+      ],
+      "group": "work",
+      "side": [
+        {
+          "id": "burnout",
+          "name": "Burnout",
+          "line": "I've got nothing left."
+        },
+        {
+          "id": "no-free-time",
+          "name": "Busy",
+          "line": "I have no time that's mine."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "A person can have free hours and still be burned out, or be rested but have no time of their own. Burnout is having no energy left; Busy is having no hours left."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Burnout",
+        "line": "I've got nothing left."
+      },
+      "proposed": {
+        "name": "Busy",
+        "line": "I have no time that's mine."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/work/20261019-224622",
+      "draft": false,
+      "id": "p027"
+    },
+    {
+      "kind": "move",
+      "painIds": [
+        "underpaid"
+      ],
+      "group": "work",
+      "current": {
+        "name": "Underpaid",
+        "line": "I'm paid less than my work is worth.",
+        "group": "Work"
+      },
+      "proposed": {
+        "name": "Underpaid",
+        "line": "I'm paid less than my work is worth.",
+        "group": "Money"
+      },
+      "alternatives": [],
+      "why": {
+        "prompt": "card sort",
+        "detail": "the sorts placed it under Work, Money, Money"
+      },
+      "allowOwn": false,
+      "payload": {
+        "groups": [
+          "money"
+        ]
+      },
+      "origin": "docs/research/pains/refine/work/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p028"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "no-time-off"
+      ],
+      "group": "time",
+      "current": null,
+      "proposed": {
+        "name": "Time off",
+        "line": "I never get a real break from work.",
+        "group": "time",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Time off",
+          "line": "I never get a real break from work.",
+          "group": "time",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "Paid vacation was available to 80 percent of U.S. private industry workers (BLS). Of workers who get paid time off, 46% take less than they're offered, and 49% of those say they'd worry about falling behind (Pew).",
+        "sources": [
+          {
+            "url": "https://www.bls.gov/news.release/ebs2.nr0.htm",
+            "accessed": "2026-10-19",
+            "passage": "Paid vacation leave was available to 80 percent of private industry workers"
+          },
+          {
+            "url": "https://www.pewresearch.org/?p=7896",
+            "accessed": "2026-10-19",
+            "passage": "Some 46% of U.S. workers who receive paid time off from their employer"
+          },
+          {
+            "url": "https://www.pewresearch.org/?p=7896",
+            "accessed": "2026-10-19",
+            "passage": "A similar share (49%) say they'd worry about falling behind at work if they took more time off."
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "no-time-off",
+          "name": "Time off",
+          "line": "I never get a real break from work.",
+          "page": "personal",
+          "group": "time",
+          "aliases": [
+            "No vacation",
+            "Can't take time off"
+          ],
+          "sources": [
+            {
+              "url": "https://www.bls.gov/news.release/ebs2.nr0.htm",
+              "accessed": "2026-10-19",
+              "passage": "Paid vacation leave was available to 80 percent of private industry workers"
+            },
+            {
+              "url": "https://www.pewresearch.org/?p=7896",
+              "accessed": "2026-10-19",
+              "passage": "Some 46% of U.S. workers who receive paid time off from their employer"
+            },
+            {
+              "url": "https://www.pewresearch.org/?p=7896",
+              "accessed": "2026-10-19",
+              "passage": "A similar share (49%) say they'd worry about falling behind at work if they took more time off."
+            }
+          ],
+          "prevalence": "Paid vacation was available to 80 percent of U.S. private industry workers (BLS). Of workers who get paid time off, 46% take less than they're offered, and 49% of those say they'd worry about falling behind (Pew).",
+          "covers": [
+            {
+              "list": "bls-ebs-2026",
+              "entry": "paid-vacation"
+            },
+            {
+              "list": "pew-pto-2023",
+              "entry": "take-less-pto"
+            },
+            {
+              "list": "pew-pto-2023",
+              "entry": "worry-falling-behind"
+            },
+            {
+              "list": "pew-pto-2023",
+              "entry": "coworkers-guilt"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q5338673"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q7124679"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/time/20261019-224657",
+      "twins": [
+        {
+          "id": "long-commute",
+          "name": "Commute",
+          "line": "I lose hours every day getting to and from work.",
+          "origin": "docs/research/pains/sweeps/work/20261019-224658"
+        }
+      ],
+      "side": [],
+      "id": "p029"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "benefits-runaround"
+      ],
+      "group": "time",
+      "current": null,
+      "proposed": {
+        "name": "Benefits",
+        "line": "I have to fight to get or keep the benefits I qualify for.",
+        "group": "time",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Benefits",
+          "line": "I have to fight to get or keep the benefits I qualify for.",
+          "group": "time",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "More than one-third (34%) of low-income U.S. households had a civil legal problem with income maintenance, such as benefits, in the past year (Legal Services Corporation).",
+        "sources": [
+          {
+            "url": "https://justicegap.lsc.gov/resource/section-3-the-prevalence-of-civil-legal-problems/",
+            "accessed": "2026-10-19",
+            "passage": "More than one-third (34%) of all low-income households experienced a problem related to income maintenance"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "benefits-runaround",
+          "name": "Benefits",
+          "line": "I have to fight to get or keep the benefits I qualify for.",
+          "page": "personal",
+          "group": "time",
+          "aliases": [
+            "Benefits red tape",
+            "Cut off from benefits"
+          ],
+          "sources": [
+            {
+              "url": "https://justicegap.lsc.gov/resource/section-3-the-prevalence-of-civil-legal-problems/",
+              "accessed": "2026-10-19",
+              "passage": "More than one-third (34%) of all low-income households experienced a problem related to income maintenance"
+            }
+          ],
+          "prevalence": "More than one-third (34%) of low-income U.S. households had a civil legal problem with income maintenance, such as benefits, in the past year (Legal Services Corporation).",
+          "covers": [
+            {
+              "list": "lsc-justice-gap-2022",
+              "entry": "income-maintenance"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/time/20261019-224657",
+      "side": [],
+      "id": "p030"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "life-admin"
+      ],
+      "group": "time",
+      "current": {
+        "name": "Paperwork",
+        "line": "I lose my week to forms, bills and phone queues."
+      },
+      "proposed": {
+        "name": "Buried in paperwork",
+        "line": "I lose hours every week to forms, bills and waiting on hold."
+      },
+      "alternatives": [
+        {
+          "name": "Too much paperwork",
+          "line": "Forms, bills and calls on hold eat up my week."
+        }
+      ],
+      "why": {
+        "prompt": "lint id-mismatch (note)",
+        "detail": "Keeps the original's forms and bills, swaps the British \"phone queues\" for the American \"waiting on hold\", and makes the name a problem like Busy and Legal trouble."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/time/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p031"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "chores"
+      ],
+      "group": "time",
+      "current": {
+        "name": "Chores",
+        "line": "I spend my days cooking and cleaning."
+      },
+      "proposed": {
+        "name": "Too many chores",
+        "line": "I spend my days cooking and cleaning."
+      },
+      "alternatives": [
+        {
+          "name": "Never-ending chores",
+          "line": "I finish the cooking and cleaning and it's time to start again."
+        }
+      ],
+      "why": {
+        "prompt": "refine",
+        "detail": "The line is already plain and recognizable; only the name changes from an area to a problem, so the heading reads one way."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/time/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p032"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "no-fun"
+      ],
+      "group": "time",
+      "current": {
+        "name": "Fun",
+        "line": "I can't remember the last time I played."
+      },
+      "proposed": {
+        "name": "No fun",
+        "line": "I can't remember the last time I did something just for fun."
+      },
+      "alternatives": [
+        {
+          "name": "No fun",
+          "line": "I can't remember the last time I played."
+        }
+      ],
+      "why": {
+        "prompt": "refine",
+        "detail": "Keeps the original's feeling and says plainly that the missing thing is fun, not time, so it separates cleanly from Busy; the name becomes a problem."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/time/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p033"
+    },
+    {
+      "painIds": [
+        "no-free-time",
+        "chores"
+      ],
+      "group": "time",
+      "side": [
+        {
+          "id": "no-free-time",
+          "name": "Busy",
+          "line": "I have no time that's mine."
+        },
+        {
+          "id": "chores",
+          "name": "Chores",
+          "line": "I spend my days cooking and cleaning."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Someone whose time goes to cooking and cleaning will pick Chores, while someone stretched by work, commutes or everything at once picks Busy. Busy is having no time of your own for any reason; Chores names one specific thing that eats the day."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Busy",
+        "line": "I have no time that's mine."
+      },
+      "proposed": {
+        "name": "Chores",
+        "line": "I spend my days cooking and cleaning."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/time/20261019-224622",
+      "draft": false,
+      "id": "p034"
+    },
+    {
+      "painIds": [
+        "no-free-time",
+        "caregiving"
+      ],
+      "group": "time",
+      "side": [
+        {
+          "id": "no-free-time",
+          "name": "Busy",
+          "line": "I have no time that's mine."
+        },
+        {
+          "id": "caregiving",
+          "name": "Caregiving",
+          "line": "I'm looking after someone and it takes everything."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "A caregiver recognizes their own pain in Caregiving at once, and Busy stays for everyone whose time goes elsewhere. Caregiving names looking after someone, which takes more than time; Busy is general."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Busy",
+        "line": "I have no time that's mine."
+      },
+      "proposed": {
+        "name": "Caregiving",
+        "line": "I'm looking after someone and it takes everything."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/time/20261019-224622",
+      "draft": false,
+      "id": "p035"
+    },
+    {
+      "painIds": [
+        "no-fun",
+        "no-free-time"
+      ],
+      "group": "time",
+      "side": [
+        {
+          "id": "no-fun",
+          "name": "Fun",
+          "line": "I can't remember the last time I played."
+        },
+        {
+          "id": "no-free-time",
+          "name": "Busy",
+          "line": "I have no time that's mine."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Someone can have free hours and still never do anything just for fun, which the first No fun alternative makes explicit. No fun is about play and enjoyment being gone; Busy is about having no time at all."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Fun",
+        "line": "I can't remember the last time I played."
+      },
+      "proposed": {
+        "name": "Busy",
+        "line": "I have no time that's mine."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/time/20261019-224622",
+      "draft": false,
+      "id": "p036"
+    },
+    {
+      "painIds": [
+        "no-fun",
+        "nobody-to-do-things-with"
+      ],
+      "group": "time",
+      "side": [
+        {
+          "id": "no-fun",
+          "name": "Fun",
+          "line": "I can't remember the last time I played."
+        },
+        {
+          "id": "nobody-to-do-things-with",
+          "name": "Invitations",
+          "line": "I'd go out if someone asked."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "One is missing enjoyment and the other is missing people to share it with, and a person knows which one is theirs. No fun is about not playing at all; Invitations is about wanting company to go out with."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Fun",
+        "line": "I can't remember the last time I played."
+      },
+      "proposed": {
+        "name": "Invitations",
+        "line": "I'd go out if someone asked."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/time/20261019-224622",
+      "draft": false,
+      "id": "p037"
+    },
+    {
+      "painIds": [
+        "life-admin",
+        "overwhelmed"
+      ],
+      "group": "time",
+      "side": [
+        {
+          "id": "life-admin",
+          "name": "Paperwork",
+          "line": "I lose my week to forms, bills and phone queues."
+        },
+        {
+          "id": "overwhelmed",
+          "name": "Stress",
+          "line": "I'm overwhelmed."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Paperwork is a concrete chore people can point to, while Stress covers being overwhelmed by anything. Paperwork names the forms, bills and hold time; Stress is the general feeling of too much."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Paperwork",
+        "line": "I lose my week to forms, bills and phone queues."
+      },
+      "proposed": {
+        "name": "Stress",
+        "line": "I'm overwhelmed."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/time/20261019-224622",
+      "draft": false,
+      "id": "p038"
+    },
+    {
+      "painIds": [
+        "legal-mess",
+        "life-admin"
+      ],
+      "group": "time",
+      "side": [
+        {
+          "id": "legal-mess",
+          "name": "Legal trouble",
+          "line": "I'm stuck in a legal problem I can't afford."
+        },
+        {
+          "id": "life-admin",
+          "name": "Paperwork",
+          "line": "I lose my week to forms, bills and phone queues."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Being stuck in a lawsuit or legal case feels nothing like a week of forms and hold music, so no one would mix them up. Legal trouble is one serious problem you can't afford to fix; Paperwork is the steady pile of everyday forms and bills."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Legal trouble",
+        "line": "I'm stuck in a legal problem I can't afford."
+      },
+      "proposed": {
+        "name": "Paperwork",
+        "line": "I lose my week to forms, bills and phone queues."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/time/20261019-224622",
+      "draft": false,
+      "id": "p039"
+    },
+    {
+      "painIds": [
+        "legal-mess",
+        "justice-unfair"
+      ],
+      "group": "time",
+      "side": [
+        {
+          "id": "legal-mess",
+          "name": "Legal trouble",
+          "line": "I'm stuck in a legal problem I can't afford."
+        },
+        {
+          "id": "justice-unfair",
+          "name": "Justice",
+          "line": "I see police and courts treat people differently."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "One is a personal problem and the other a view about society, so they belong on different pages without a link. Legal trouble is my own legal problem; Justice is seeing courts and police treat people differently."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Legal trouble",
+        "line": "I'm stuck in a legal problem I can't afford."
+      },
+      "proposed": {
+        "name": "Justice",
+        "line": "I see police and courts treat people differently."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/time/20261019-224622",
+      "draft": false,
+      "id": "p040"
+    },
+    {
+      "painIds": [
+        "doomscrolling",
+        "cant-focus"
+      ],
+      "group": "time",
+      "side": [
+        {
+          "id": "doomscrolling",
+          "name": "Doomscrolling",
+          "line": "I lose my nights to my phone."
+        },
+        {
+          "id": "cant-focus",
+          "name": "Focus",
+          "line": "I can't keep my mind on one thing."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "The phone can cause poor focus, but someone who can't concentrate at work and someone who scrolls until 2am each know which they are. Doomscrolling is losing nights to the phone; Focus is not being able to keep your mind on one thing."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Doomscrolling",
+        "line": "I lose my nights to my phone."
+      },
+      "proposed": {
+        "name": "Focus",
+        "line": "I can't keep my mind on one thing."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/time/20261019-224622",
+      "draft": false,
+      "id": "p041"
+    },
+    {
+      "kind": "move",
+      "painIds": [
+        "chores"
+      ],
+      "group": "time",
+      "current": {
+        "name": "Chores",
+        "line": "I spend my days cooking and cleaning.",
+        "group": "Time"
+      },
+      "proposed": {
+        "name": "Chores",
+        "line": "I spend my days cooking and cleaning.",
+        "group": "Home"
+      },
+      "alternatives": [],
+      "why": {
+        "prompt": "card sort",
+        "detail": "the sorts placed it under Home, Home, Home"
+      },
+      "allowOwn": false,
+      "payload": {
+        "groups": [
+          "home"
+        ]
+      },
+      "origin": "docs/research/pains/refine/time/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p042"
+    },
+    {
+      "kind": "move",
+      "painIds": [
+        "doomscrolling"
+      ],
+      "group": "time",
+      "current": {
+        "name": "Doomscrolling",
+        "line": "I lose my nights to my phone.",
+        "group": "Time"
+      },
+      "proposed": {
+        "name": "Doomscrolling",
+        "line": "I lose my nights to my phone.",
+        "group": "Mind"
+      },
+      "alternatives": [],
+      "why": {
+        "prompt": "card sort",
+        "detail": "the sorts placed it under Mind, Mind, Mind"
+      },
+      "allowOwn": false,
+      "payload": {
+        "groups": [
+          "mind"
+        ]
+      },
+      "origin": "docs/research/pains/refine/time/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p043"
+    },
+    {
+      "kind": "move",
+      "painIds": [
+        "legal-mess"
+      ],
+      "group": "time",
+      "current": {
+        "name": "Legal trouble",
+        "line": "I'm stuck in a legal problem I can't afford.",
+        "group": "Time"
+      },
+      "proposed": {
+        "name": "Legal trouble",
+        "line": "I'm stuck in a legal problem I can't afford.",
+        "group": "Money"
+      },
+      "alternatives": [],
+      "why": {
+        "prompt": "card sort",
+        "detail": "the sorts placed it under Money, Money, Money"
+      },
+      "allowOwn": false,
+      "payload": {
+        "groups": [
+          "money"
+        ]
+      },
+      "origin": "docs/research/pains/refine/time/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p044"
+    },
+    {
+      "kind": "move",
+      "painIds": [
+        "no-fun"
+      ],
+      "group": "time",
+      "current": {
+        "name": "Fun",
+        "line": "I can't remember the last time I played.",
+        "group": "Time"
+      },
+      "proposed": {
+        "name": "Fun",
+        "line": "I can't remember the last time I played.",
+        "group": "Purpose"
+      },
+      "alternatives": [
+        {
+          "name": "Fun",
+          "line": "I can't remember the last time I played.",
+          "group": "Mind"
+        }
+      ],
+      "why": {
+        "prompt": "card sort",
+        "detail": "the sorts placed it under Purpose, Purpose, Mind"
+      },
+      "allowOwn": false,
+      "payload": {
+        "groups": [
+          "purpose",
+          "mind"
+        ]
+      },
+      "origin": "docs/research/pains/refine/time/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p045"
+    }
+  ]
+}

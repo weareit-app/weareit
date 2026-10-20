@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "candidates": {
+    "no-time-off": {
+      "id": "no-time-off",
+      "name": "Time off",
+      "line": "I never get a real break from work.",
+      "page": "personal",
+      "group": "time",
+      "aliases": [
+        "No vacation",
+        "Can't take time off"
+      ],
+      "sources": [
+        {
+          "url": "https://www.bls.gov/news.release/ebs2.nr0.htm",
+          "accessed": "2026-10-19",
+          "passage": "Paid vacation leave was available to 80 percent of private industry workers"
+        },
+        {
+          "url": "https://www.pewresearch.org/?p=7896",
+          "accessed": "2026-10-19",
+          "passage": "Some 46% of U.S. workers who receive paid time off from their employer"
+        },
+        {
+          "url": "https://www.pewresearch.org/?p=7896",
+          "accessed": "2026-10-19",
+          "passage": "A similar share (49%) say they'd worry about falling behind at work if they took more time off."
+        }
+      ],
+      "prevalence": "Paid vacation was available to 80 percent of U.S. private industry workers (BLS). Of workers who get paid time off, 46% take less than they're offered, and 49% of those say they'd worry about falling behind (Pew).",
+      "covers": [
+        {
+          "list": "bls-ebs-2026",
+          "entry": "paid-vacation"
+        },
+        {
+          "list": "pew-pto-2023",
+          "entry": "take-less-pto"
+        },
+        {
+          "list": "pew-pto-2023",
+          "entry": "worry-falling-behind"
+        },
+        {
+          "list": "pew-pto-2023",
+          "entry": "coworkers-guilt"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q5338673"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q7124679"
+        }
+      ]
+    },
+    "benefits-runaround": {
+      "id": "benefits-runaround",
+      "name": "Benefits",
+      "line": "I have to fight to get or keep the benefits I qualify for.",
+      "page": "personal",
+      "group": "time",
+      "aliases": [
+        "Benefits red tape",
+        "Cut off from benefits"
+      ],
+      "sources": [
+        {
+          "url": "https://justicegap.lsc.gov/resource/section-3-the-prevalence-of-civil-legal-problems/",
+          "accessed": "2026-10-19",
+          "passage": "More than one-third (34%) of all low-income households experienced a problem related to income maintenance"
+        }
+      ],
+      "prevalence": "More than one-third (34%) of low-income U.S. households had a civil legal problem with income maintenance, such as benefits, in the past year (Legal Services Corporation).",
+      "covers": [
+        {
+          "list": "lsc-justice-gap-2022",
+          "entry": "income-maintenance"
+        }
+      ]
+    }
+  }
+}

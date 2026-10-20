@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "scope": "time",
+  "issues": [
+    {
+      "painId": "life-admin",
+      "rule": "id-mismatch",
+      "detail": "ID life-admin, name \"Paperwork\" and line \"I lose my week to forms, bills and phone queues.\" share no word; propose a rewording only if the wording has drifted from what the ID names",
+      "severity": "note"
+    },
+    {
+      "painId": "*",
+      "group": "time",
+      "rule": "mixed-labels",
+      "severity": "fail",
+      "detail": "Time mixes problem labels and area labels; pick one style for the heading"
+    }
+  ],
+  "failing": [],
+  "checkedAt": "2026-10-19"
+}

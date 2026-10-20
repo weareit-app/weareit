@@ -1,0 +1,355 @@
+{
+  "schemaVersion": 1,
+  "lists": {
+    "bls-atus-2025": {
+      "name": "BLS American Time Use Survey, 2025 results",
+      "url": "https://www.bls.gov/news.release/atus.nr0.htm",
+      "accessed": "2026-10-19",
+      "entries": {
+        "household-activities": {
+          "name": "Household activities (housework, food preparation, lawn care)",
+          "passage": "On an average day, 81 percent of people engaged in household activities"
+        },
+        "housework-gender-gap": {
+          "name": "Women spend more time on household activities than men",
+          "passage": "On the days they did household activities, women spent an average of 2.8"
+        },
+        "childcare-young-kids": {
+          "name": "Primary childcare in households with children under 6",
+          "passage": "Adults living in households with children under age 6 spent an average of 2.3 hours per day"
+        },
+        "childcare-gender-gap": {
+          "name": "Women spend more time on primary childcare than men",
+          "passage": "women spent an hour more than men providing primary childcare to household children--2.8 hours compared to 1.7"
+        },
+        "work-hours": {
+          "name": "Hours worked on days worked (full-time employed)",
+          "passage": "On days they worked, full-time employed people worked an average of 8.1 hours."
+        },
+        "watching-tv": {
+          "name": "Watching TV, the leisure activity taking the most time",
+          "passage": "Watching TV was the leisure and sports activity that occupied the most time (2.6 hours per day)"
+        }
+      }
+    },
+    "gallup-time-crunch": {
+      "name": "Gallup: Americans' perceived time crunch (December 2015)",
+      "url": "https://news.gallup.com/poll/187982/americans-perceived-time-crunch-no-worse-past.aspx",
+      "accessed": "2026-10-19",
+      "entries": {
+        "not-enough-time": {
+          "name": "Do not have enough time to do what they want",
+          "passage": "the 48% who say they do not have enough time to do what they want to do is not much different from the 47% average"
+        },
+        "working-not-enough-time": {
+          "name": "Working Americans without enough time",
+          "passage": "About six in 10 working Americans (61%) say they do not have enough time to do what they want"
+        },
+        "parents-not-enough-time": {
+          "name": "Parents of children under 18 without enough time",
+          "passage": "Sixty-one percent of those with children younger than 18 say they do not have enough time"
+        }
+      }
+    },
+    "pew-rushed-2005": {
+      "name": "Pew Research Center: Who's feeling rushed? (2005 survey)",
+      "url": "https://www.pewresearch.org/social-trends/2006/02/28/whos-feeling-rushed/",
+      "accessed": "2026-10-19",
+      "entries": {
+        "always-rushed": {
+          "name": "Always feel rushed",
+          "passage": "about a quarter (23%) of all adults in this country say they always feel rushed"
+        },
+        "working-mothers-rushed": {
+          "name": "Working mothers who always feel rushed",
+          "passage": "Some 41% of them say they always feel rushed, compared with 25% of stay-at-home mothers of minor children"
+        }
+      }
+    },
+    "pew-smartphone-2026": {
+      "name": "Pew Research Center: time spent on smartphones (September 2026)",
+      "url": "https://www.pewresearch.org/short-reads/2026/09/01/about-half-of-americans-say-they-spend-too-much-time-on-their-smartphone/",
+      "accessed": "2026-10-19",
+      "entries": {
+        "too-much-smartphone": {
+          "name": "Spend too much time on their smartphone",
+          "passage": "Just over half of U.S. adults say they spend too much time on their smartphone"
+        },
+        "tried-to-cut-back": {
+          "name": "Tried to cut back on smartphone use",
+          "passage": "45% of U.S. adults say they've tried to cut back on their smartphone use over the past 12 months."
+        },
+        "smartphone-hurts-sleep": {
+          "name": "Smartphone hurts the amount of sleep they get",
+          "passage": "Much larger shares say their smartphones hurt than help the amount of sleep they get (41% vs. 5%)."
+        }
+      }
+    },
+    "census-commute-2019": {
+      "name": "U.S. Census Bureau: one-way travel time to work (ACS 2019)",
+      "url": "https://www.census.gov/newsroom/press-releases/2021/one-way-travel-time-to-work-rises.html",
+      "accessed": "2026-10-19",
+      "entries": {
+        "average-commute": {
+          "name": "Average one-way commute",
+          "passage": "the average one-way commute in the United States increased to a new high of 27.6 minutes in 2019"
+        },
+        "hour-plus-commute": {
+          "name": "Commutes of 60 minutes or longer",
+          "passage": "the percentage of workers reporting commutes of 60 minutes or longer increased from 7.9% in 2006 to 9.8% in 2019"
+        }
+      }
+    },
+    "bls-ebs-2026": {
+      "name": "BLS Employee Benefits in the United States (March 2026): paid leave",
+      "url": "https://www.bls.gov/news.release/ebs2.nr0.htm",
+      "accessed": "2026-10-19",
+      "entries": {
+        "paid-vacation": {
+          "name": "Access to paid vacation",
+          "passage": "Paid vacation leave was available to 80 percent of private industry workers"
+        },
+        "paid-sick-leave": {
+          "name": "Access to paid sick leave",
+          "passage": "81 percent had access to paid sick leave"
+        },
+        "sick-leave-hospitality": {
+          "name": "Paid sick leave in leisure and hospitality",
+          "passage": "Access to paid sick leave for private industry workers ranged from 58 percent for the leisure and hospitality industry"
+        }
+      }
+    },
+    "pew-pto-2023": {
+      "name": "Pew Research Center: more than 4 in 10 U.S. workers don't take all their paid time off (2023)",
+      "url": "https://www.pewresearch.org/?p=7896",
+      "accessed": "2026-10-19",
+      "entries": {
+        "take-less-pto": {
+          "name": "Take less paid time off than offered",
+          "passage": "Some 46% of U.S. workers who receive paid time off from their employer"
+        },
+        "worry-falling-behind": {
+          "name": "Would worry about falling behind at work",
+          "passage": "A similar share (49%) say they'd worry about falling behind at work if they took more time off."
+        },
+        "coworkers-guilt": {
+          "name": "Would feel bad about coworkers taking on their work",
+          "passage": "Some 43% of workers who don't take all their time off say they'd feel badly about their co-workers"
+        }
+      }
+    },
+    "lsc-justice-gap-2022": {
+      "name": "Legal Services Corporation: The Justice Gap (2022), civil legal problems of low-income households",
+      "url": "https://justicegap.lsc.gov/resource/section-3-the-prevalence-of-civil-legal-problems/",
+      "accessed": "2026-10-19",
+      "entries": {
+        "any-problem": {
+          "name": "Low-income households with at least one civil legal problem",
+          "passage": "3 in 4 (74%) low-income households experienced 1+ civil legal problems in the past year.",
+          "url": "https://justicegap.lsc.gov/resource/executive-summary"
+        },
+        "no-enough-help": {
+          "name": "Civil legal problems without enough legal help",
+          "passage": "Low-income Americans do not get any or enough legal help for 92% of their substantial civil legal problems.",
+          "url": "https://justicegap.lsc.gov/resource/executive-summary"
+        },
+        "cost-barrier": {
+          "name": "Did not seek help because of cost",
+          "passage": "1 in 2 (46%) of those who did not seek legal help for one or more problems cite concerns about cost as a reason why.",
+          "url": "https://justicegap.lsc.gov/resource/executive-summary"
+        },
+        "consumer": {
+          "name": "Consumer issues",
+          "passage": "One-half (50%) of low-income households experienced a problem related to consumer issues."
+        },
+        "health-care": {
+          "name": "Health care",
+          "passage": "Nearly two in five (39%) low-income households experienced a problem related to health care in the past year."
+        },
+        "income-maintenance": {
+          "name": "Income maintenance",
+          "passage": "More than one-third (34%) of all low-income households experienced a problem related to income maintenance"
+        },
+        "housing": {
+          "name": "Housing",
+          "passage": "One-third (33%) of all low-income households experienced a civil legal problem related to housing in the past year."
+        },
+        "family-safety": {
+          "name": "Family and safety",
+          "passage": "About one-quarter (26%) of all low-income households have experienced at least one problem related to family matters"
+        },
+        "education": {
+          "name": "Education",
+          "passage": "Nearly one in five (19%) low-income households has experienced a civil legal problem related to education in the past year."
+        }
+      }
+    },
+    "211-impact-2025": {
+      "name": "United Way 211 Impact Snapshot 2025: top referral categories",
+      "url": "https://www.unitedway.org/the-facts-about-211-2025-impact-snapshot",
+      "accessed": "2026-10-19",
+      "entries": {
+        "legal-consumer-safety": {
+          "name": "Legal, consumer and public safety assistance (#4)",
+          "passage": "Referrals for legal, consumer, and public safety assistance"
+        }
+      }
+    },
+    "oecd-wellbeing": {
+      "name": "OECD Well-being Framework: Work-life balance indicators",
+      "url": "https://www.oecd.org/en/topics/sub-issues/measuring-well-being-and-progress/oecd-well-being-framework.html",
+      "accessed": "2026-10-19",
+      "entries": {
+        "long-hours": {
+          "name": "Employees working very long hours",
+          "passage": "The portion of the labor force that works very long hours (more than 50 hours a week).",
+          "url": "https://sustainablebrands.com/read/behavior-change/oecd-u-s-has-worst-work-life-balance-among-developed-countries"
+        },
+        "leisure-personal-care": {
+          "name": "Time devoted to leisure and personal care",
+          "passage": "spending time with friends, going to the movies, pursuing hobbies, sleeping, eating, etc.",
+          "url": "https://sustainablebrands.com/read/behavior-change/oecd-u-s-has-worst-work-life-balance-among-developed-countries"
+        },
+        "gender-gap-hours": {
+          "name": "Gender gap in hours worked, paid and unpaid"
+        }
+      }
+    },
+    "whoqol-bref": {
+      "name": "WHOQOL-BREF",
+      "url": "https://depts.washington.edu/seaqol/docs/WHOQOL-BREF%20and%20Scoring%20Instructions.pdf",
+      "accessed": "2026-10-19",
+      "entries": {
+        "Q14": {
+          "name": "Q14: To what extent do you have the opportunity for leisure activities?"
+        }
+      }
+    },
+    "sdg-targets": {
+      "name": "UN SDG targets bearing on time, chores and paperwork",
+      "url": "https://sdgs.un.org/goals",
+      "accessed": "2026-10-19",
+      "entries": {
+        "5.4": {
+          "name": "Target 5.4: recognize and value unpaid care and domestic work",
+          "passage": "Recognize and value unpaid care and domestic work through the provision of public services,",
+          "url": "https://sdgs.un.org/goals/goal5"
+        },
+        "5.4-data": {
+          "name": "Women's share of unpaid domestic and care work (SDG report 2024)",
+          "passage": "On average, each day, women spend 2.5 times more hours on unpaid domestic and care work than men.",
+          "url": "https://unstats.un.org/sdgs/report/2024/Goal-05/"
+        },
+        "11.2": {
+          "name": "Target 11.2: safe, affordable, accessible transport for all",
+          "passage": "By 2030, provide access to safe, affordable, accessible and sustainable transport systems for all,",
+          "url": "https://sdgs.un.org/goals/goal11"
+        },
+        "16.3": {
+          "name": "Target 16.3: equal access to justice for all",
+          "passage": "Promote the rule of law at the national and international levels and ensure equal access to justice for all",
+          "url": "https://sdgs.un.org/goals/goal16"
+        },
+        "16.6": {
+          "name": "Target 16.6: effective, accountable and transparent institutions",
+          "passage": "Develop effective, accountable and transparent institutions at all levels",
+          "url": "https://sdgs.un.org/goals/goal16"
+        },
+        "16.9": {
+          "name": "Target 16.9: legal identity for all",
+          "passage": "By 2030, provide legal identity for all, including birth registration",
+          "url": "https://sdgs.un.org/goals/goal16"
+        }
+      }
+    },
+    "maxneef": {
+      "name": "Max-Neef's fundamental human needs",
+      "url": "https://en.wikipedia.org/wiki/Manfred_Max-Neef%27s_Fundamental_human_needs",
+      "accessed": "2026-10-19",
+      "entries": {
+        "idleness": {
+          "name": "Idleness (leisure)",
+          "passage": "daydream, brood, dream, recall old times, give way to fantasies, remember, relax, have fun, play"
+        },
+        "freedom": {
+          "name": "Freedom (temporal/spatial plasticity)",
+          "passage": "temporal/spatial plasticity"
+        }
+      }
+    },
+    "gallup-elements": {
+      "name": "Gallup's five elements of wellbeing",
+      "url": "https://www.gallup.com/workplace/237020/five-essential-elements.aspx",
+      "accessed": "2026-10-19",
+      "entries": {
+        "career": {
+          "name": "Career wellbeing",
+          "passage": "The first element is about how you occupy your time or simply liking what you do every day: your Career Well-Being."
+        }
+      }
+    },
+    "wikidata": {
+      "name": "Wikidata items for time pains",
+      "url": "https://www.wikidata.org/",
+      "accessed": "2026-10-19",
+      "entries": {
+        "Q135971254": {
+          "name": "time poverty",
+          "url": "https://www.wikidata.org/wiki/Q135971254"
+        },
+        "Q708514": {
+          "name": "housekeeping",
+          "url": "https://www.wikidata.org/wiki/Q708514"
+        },
+        "Q48442": {
+          "name": "commuting",
+          "url": "https://www.wikidata.org/wiki/Q48442"
+        },
+        "Q116039772": {
+          "name": "paperwork",
+          "url": "https://www.wikidata.org/wiki/Q116039772"
+        },
+        "Q72468": {
+          "name": "bureaucracy",
+          "url": "https://www.wikidata.org/wiki/Q72468"
+        },
+        "Q707748": {
+          "name": "legal aid",
+          "url": "https://www.wikidata.org/wiki/Q707748"
+        },
+        "Q28135689": {
+          "name": "access to justice",
+          "url": "https://www.wikidata.org/wiki/Q28135689"
+        },
+        "Q101244400": {
+          "name": "doomscrolling",
+          "url": "https://www.wikidata.org/wiki/Q101244400"
+        },
+        "Q11288503": {
+          "name": "problematic smartphone use",
+          "url": "https://www.wikidata.org/wiki/Q11288503"
+        },
+        "Q180910": {
+          "name": "leisure",
+          "url": "https://www.wikidata.org/wiki/Q180910"
+        },
+        "Q5338673": {
+          "name": "annual leave",
+          "url": "https://www.wikidata.org/wiki/Q5338673"
+        },
+        "Q7124679": {
+          "name": "paid time off",
+          "url": "https://www.wikidata.org/wiki/Q7124679"
+        },
+        "Q30324008": {
+          "name": "overwork",
+          "url": "https://www.wikidata.org/wiki/Q30324008"
+        },
+        "Q763264": {
+          "name": "work–life balance",
+          "url": "https://www.wikidata.org/wiki/Q763264"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "issues": [],
+  "moves": [
+    {
+      "painId": "chores",
+      "from": "time",
+      "to": "home",
+      "sorts": [
+        "home",
+        "home",
+        "home"
+      ]
+    },
+    {
+      "painId": "doomscrolling",
+      "from": "time",
+      "to": "mind",
+      "sorts": [
+        "mind",
+        "mind",
+        "mind"
+      ]
+    },
+    {
+      "painId": "legal-mess",
+      "from": "time",
+      "to": "money",
+      "sorts": [
+        "money",
+        "money",
+        "money"
+      ]
+    },
+    {
+      "painId": "no-fun",
+      "from": "time",
+      "to": "purpose",
+      "sorts": [
+        "purpose",
+        "purpose",
+        "mind"
+      ]
+    }
+  ],
+  "disagreements": [
+    {
+      "painId": "chores",
+      "current": "time",
+      "sorts": [
+        "home",
+        "home",
+        "home"
+      ]
+    },
+    {
+      "painId": "doomscrolling",
+      "current": "time",
+      "sorts": [
+        "mind",
+        "mind",
+        "mind"
+      ]
+    },
+    {
+      "painId": "legal-mess",
+      "current": "time",
+      "sorts": [
+        "money",
+        "money",
+        "money"
+      ]
+    },
+    {
+      "painId": "no-fun",
+      "current": "time",
+      "sorts": [
+        "purpose",
+        "purpose",
+        "mind"
+      ]
+    }
+  ],
+  "checkedAt": "2026-10-19"
+}

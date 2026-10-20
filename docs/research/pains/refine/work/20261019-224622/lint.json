@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "scope": "work",
+  "issues": [
+    {
+      "painId": "bad-job",
+      "rule": "id-mismatch",
+      "detail": "ID bad-job, name \"Mistreatment\" and line \"I'm treated badly at work.\" share no word; propose a rewording only if the wording has drifted from what the ID names",
+      "severity": "note"
+    },
+    {
+      "painId": "burnout",
+      "rule": "vague-line",
+      "detail": "nothing to picture in \"I've got nothing left.\"; say what it looks like in a day",
+      "severity": "fail"
+    },
+    {
+      "painId": "*",
+      "group": "work",
+      "rule": "mixed-labels",
+      "severity": "fail",
+      "detail": "Work mixes problem labels and area labels; pick one style for the heading"
+    }
+  ],
+  "failing": [
+    "burnout"
+  ],
+  "checkedAt": "2026-10-19"
+}

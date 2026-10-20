@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "scope": "work",
+  "runId": "20261019-224658",
+  "startedAt": "2026-10-20T02:46:58+00:00",
+  "finishedAt": "2026-10-20T02:58:23+00:00",
+  "notes": "Web searches: 21, plus 32 Wikidata wbsearchentities lookups (first attempt rate-limited, retried with backoff). oecd.org returned 403: OECD Jobs and Work-Life Balance indicators read from the Better Life Index mirror (oecd-better-life-index.truth-and-beauty.net). PDFs (OECD slide deck, WHOQOL-BREF scoring PDF, Ipsos monthly PDFs) could not be parsed; WHOQOL item read from an HTML copy, Ipsos from its live page (country figures only). Gallup MIP: 2022 table read from Datawrapper vEKjO CSV. epi.org, migrationpolicy.org, axios.com returned 403: EPI wage-theft figures via Next City, MPI brain-waste figures via the American Immigration Council release. apa.org rendered empty: APA release read on Newswise. 211: no report found ranks employment among top needs; United Way's national snapshot lists income support seventh. WHO/IHME cause-of-burden lists name diseases; the WHO/ILO long-working-hours estimate and BLS injury counts stand in. SDG 8.7 (forced and child labour) again has no pain; flag for fairness or safety. Overlaps for review: bad-boss with bad-job (Mistreatment); long-hours with burnout and no-free-time; unpredictable-schedule with uneven-pay; two-jobs and wage-theft with underpaid and broke; long-commute with getting-around; dead-end-job with stuck and no-path; overqualified with need-skills and wrong-career; gig-work with job-could-go and uneven-pay. Not proposed: age and other discrimination at work (mapped to treated-differently, societal; a personal-page work pain may be worth a refine pass), workplace sexual harassment (mapped to bad-job; a sensitive narrower pain may be worth a refine pass).",
+  "searches": 21,
+  "pagesOpened": 37
+}

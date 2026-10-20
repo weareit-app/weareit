@@ -1,0 +1,710 @@
+{
+  "schemaVersion": 1,
+  "target": 0.9,
+  "lists": {
+    "oecd": {
+      "name": "OECD Better Life Index: Jobs and Work-Life Balance topics (indicators of the How's Life? framework)",
+      "url": "https://oecd-better-life-index.truth-and-beauty.net/topics/jobs/",
+      "accessed": "2026-10-19",
+      "entries": 6,
+      "covered": 5,
+      "share": 0.833,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "employment-rate",
+          "name": "Employment rate",
+          "painId": "unemployment",
+          "why": "not having a paid job"
+        },
+        {
+          "entry": "long-term-unemployment",
+          "name": "Long-term unemployment rate",
+          "painId": "unemployment",
+          "why": "out of work for a long time"
+        },
+        {
+          "entry": "earnings",
+          "name": "Personal earnings",
+          "painId": "underpaid",
+          "why": "earnings too low for the work"
+        },
+        {
+          "entry": "job-security",
+          "name": "Job security (labour market insecurity)",
+          "painId": "job-could-go",
+          "why": "risk and cost of losing a job"
+        },
+        {
+          "entry": "leisure-time",
+          "name": "Time devoted to leisure and personal care",
+          "painId": "no-free-time",
+          "why": "too little time of one's own"
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "long-hours",
+          "name": "Employees working very long hours",
+          "url": "https://oecd-better-life-index.truth-and-beauty.net/topics/work-life-balance/",
+          "reason": "waiting for review: long-hours"
+        }
+      ]
+    },
+    "whoqol": {
+      "name": "WHOQOL-BREF (WHO, 1996)",
+      "url": "https://www.ildcare.nl/wp-content/uploads/2013/10/whoqolbref_nl.htm",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "q18",
+          "name": "How satisfied are you with your capacity for work?",
+          "url": "https://www.ildcare.nl/wp-content/uploads/2013/10/whoqolbref_nl.htm",
+          "reason": "covered by a broader pain: health-runs-my-life"
+        }
+      ]
+    },
+    "sdg": {
+      "name": "UN Sustainable Development Goals: Goal 8 targets (decent work)",
+      "url": "https://sdgs.un.org/goals/goal8",
+      "accessed": "2026-10-19",
+      "entries": 5,
+      "covered": 1,
+      "share": 0.2,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "8.5",
+          "name": "Full employment, decent work and equal pay for work of equal value",
+          "painId": "unemployment",
+          "why": "full employment and decent work; the personal side is not finding work"
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "8.3",
+          "name": "Decent job creation, entrepreneurship and small businesses",
+          "url": "https://sdgs.un.org/goals/goal8",
+          "reason": "waiting for review: small-business"
+        },
+        {
+          "entry": "8.6",
+          "name": "Youth not in employment, education or training",
+          "url": "https://sdgs.un.org/goals/goal8",
+          "reason": "covered by a broader pain: unemployment"
+        },
+        {
+          "entry": "8.7",
+          "name": "End forced labour, modern slavery, trafficking and child labour",
+          "url": "https://sdgs.un.org/goals/goal8",
+          "reason": "out of scope: forced labour, trafficking and child labour belong to the fairness or safety group; flagged in the economy sweep too"
+        },
+        {
+          "entry": "8.8",
+          "name": "Labour rights and safe, secure working environments",
+          "url": "https://sdgs.un.org/goals/goal8",
+          "reason": "waiting for review: unsafe-work"
+        }
+      ]
+    },
+    "maxneef": {
+      "name": "Max-Neef's fundamental human needs (matrix cells that name work)",
+      "url": "https://en.wikipedia.org/wiki/Manfred_Max-Neef%27s_Fundamental_human_needs",
+      "accessed": "2026-10-19",
+      "entries": 3,
+      "covered": 2,
+      "share": 0.667,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "subsistence",
+          "name": "Subsistence: having food, shelter, work",
+          "painId": "unemployment",
+          "why": "work as a means of subsistence"
+        },
+        {
+          "entry": "creation",
+          "name": "Creation: having abilities, skills, method, work",
+          "painId": "meaningless-work",
+          "why": "work as a way to create something that matters"
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "participation",
+          "name": "Participation: having rights, responsibilities, duties, privileges, work",
+          "url": "https://en.wikipedia.org/wiki/Manfred_Max-Neef%27s_Fundamental_human_needs",
+          "reason": "waiting for review: no-say-at-work"
+        }
+      ]
+    },
+    "gallup": {
+      "name": "Gallup's five elements of wellbeing",
+      "url": "https://www.gallup.com/workplace/237020/five-essential-elements.aspx",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 1,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "career",
+          "name": "Career wellbeing",
+          "painId": "meaningless-work",
+          "why": "liking what you do every day"
+        }
+      ],
+      "uncovered": []
+    },
+    "wikidata": {
+      "name": "Wikidata items for work concepts",
+      "url": "https://www.wikidata.org/",
+      "accessed": "2026-10-19",
+      "entries": 28,
+      "covered": 5,
+      "share": 0.179,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "Q41171",
+          "name": "unemployment",
+          "painId": "unemployment",
+          "why": "unemployment"
+        },
+        {
+          "entry": "Q327988",
+          "name": "occupational burnout",
+          "painId": "burnout",
+          "why": "occupational burnout"
+        },
+        {
+          "entry": "Q124381631",
+          "name": "job insecurity",
+          "painId": "job-could-go",
+          "why": "job insecurity"
+        },
+        {
+          "entry": "Q2273650",
+          "name": "workplace bullying",
+          "painId": "bad-job",
+          "why": "workplace bullying is mistreatment at work"
+        },
+        {
+          "entry": "Q17145511",
+          "name": "workplace harassment",
+          "painId": "bad-job",
+          "why": "workplace harassment is mistreatment at work"
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "Q30324008",
+          "name": "overwork",
+          "url": "https://www.wikidata.org/wiki/Q30324008",
+          "reason": "waiting for review: long-hours"
+        },
+        {
+          "entry": "Q1051107",
+          "name": "karoshi (death from overwork)",
+          "url": "https://www.wikidata.org/wiki/Q1051107",
+          "reason": "waiting for review: long-hours"
+        },
+        {
+          "entry": "Q22906141",
+          "name": "abusive supervision",
+          "url": "https://www.wikidata.org/wiki/Q22906141",
+          "reason": "waiting for review: bad-boss"
+        },
+        {
+          "entry": "Q629029",
+          "name": "occupational health and safety",
+          "url": "https://www.wikidata.org/wiki/Q629029",
+          "reason": "waiting for review: unsafe-work"
+        },
+        {
+          "entry": "Q2389289",
+          "name": "occupational injury",
+          "url": "https://www.wikidata.org/wiki/Q2389289",
+          "reason": "waiting for review: unsafe-work"
+        },
+        {
+          "entry": "Q48442",
+          "name": "commuting",
+          "url": "https://www.wikidata.org/wiki/Q48442",
+          "reason": "waiting for review: long-commute"
+        },
+        {
+          "entry": "Q1931244",
+          "name": "underemployment",
+          "url": "https://www.wikidata.org/wiki/Q1931244",
+          "reason": "waiting for review: overqualified"
+        },
+        {
+          "entry": "Q7959502",
+          "name": "wage theft",
+          "url": "https://www.wikidata.org/wiki/Q7959502",
+          "reason": "waiting for review: wage-theft"
+        },
+        {
+          "entry": "Q17009677",
+          "name": "precarious work",
+          "url": "https://www.wikidata.org/wiki/Q17009677",
+          "reason": "waiting for review: gig-work"
+        },
+        {
+          "entry": "Q51711208",
+          "name": "gig economy",
+          "url": "https://www.wikidata.org/wiki/Q51711208",
+          "reason": "waiting for review: gig-work"
+        },
+        {
+          "entry": "Q1068683",
+          "name": "shift work",
+          "url": "https://www.wikidata.org/wiki/Q1068683",
+          "reason": "waiting for review: unpredictable-schedule"
+        },
+        {
+          "entry": "Q629463",
+          "name": "job satisfaction",
+          "url": "https://www.wikidata.org/wiki/Q629463",
+          "reason": "covered by a broader pain: bad-job"
+        },
+        {
+          "entry": "Q763264",
+          "name": "work-life balance",
+          "url": "https://www.wikidata.org/wiki/Q763264",
+          "reason": "waiting for review: long-hours"
+        },
+        {
+          "entry": "Q178790",
+          "name": "labor union",
+          "url": "https://www.wikidata.org/wiki/Q178790",
+          "reason": "waiting for review: no-say-at-work"
+        },
+        {
+          "entry": "Q8035059",
+          "name": "workplace democracy",
+          "url": "https://www.wikidata.org/wiki/Q8035059",
+          "reason": "waiting for review: no-say-at-work"
+        },
+        {
+          "entry": "Q438946",
+          "name": "ageism",
+          "url": "https://www.wikidata.org/wiki/Q438946",
+          "reason": "covered by a broader pain: treated-differently"
+        },
+        {
+          "entry": "Q2606784",
+          "name": "employment discrimination",
+          "url": "https://www.wikidata.org/wiki/Q2606784",
+          "reason": "covered by a broader pain: treated-differently"
+        },
+        {
+          "entry": "Q1109680",
+          "name": "small business",
+          "url": "https://www.wikidata.org/wiki/Q1109680",
+          "reason": "waiting for review: small-business"
+        },
+        {
+          "entry": "Q827081",
+          "name": "decent work",
+          "url": "https://www.wikidata.org/wiki/Q827081",
+          "reason": "covered by a broader pain: bad-job"
+        },
+        {
+          "entry": "Q464163",
+          "name": "sick leave",
+          "url": "https://www.wikidata.org/wiki/Q464163",
+          "reason": "waiting for review: no-paid-leave"
+        },
+        {
+          "entry": "Q815298",
+          "name": "occupational stress",
+          "url": "https://www.wikidata.org/wiki/Q815298",
+          "reason": "covered by a broader pain: burnout"
+        },
+        {
+          "entry": "Q1135326",
+          "name": "remote work",
+          "url": "https://www.wikidata.org/wiki/Q1135326",
+          "reason": "out of scope: remote work is an arrangement, not a pain; being forced back shows up as commute or schedule"
+        },
+        {
+          "entry": "Q192571",
+          "name": "child labour",
+          "url": "https://www.wikidata.org/wiki/Q192571",
+          "reason": "out of scope: child labour belongs to the fairness or safety group, not a personal work pain"
+        }
+      ]
+    },
+    "gallup-mip": {
+      "name": "Gallup: Most Important Problem (U.S., open-ended), work-related rows",
+      "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+      "accessed": "2026-10-19",
+      "entries": 2,
+      "covered": 2,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "unemployment-jobs",
+          "name": "Unemployment/Jobs",
+          "painId": "unemployment",
+          "why": "jobs and unemployment named as the top problem"
+        },
+        {
+          "entry": "wage-issues",
+          "name": "Wage issues",
+          "painId": "underpaid",
+          "why": "wages too low"
+        }
+      ],
+      "uncovered": []
+    },
+    "ipsos": {
+      "name": "Ipsos: What Worries the World, work-related worry",
+      "url": "https://www.ipsos.com/en/what-worries-world",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 1,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "unemployment",
+          "name": "Unemployment",
+          "painId": "unemployment",
+          "why": "worry about unemployment"
+        }
+      ],
+      "uncovered": []
+    },
+    "gallup-workplace": {
+      "name": "Gallup: State of the Global Workplace (2025 report) and U.S. worker indicators",
+      "url": "https://www.gallup.com/workplace/697904/state-of-the-global-workplace-global-data.aspx",
+      "accessed": "2026-10-19",
+      "entries": 6,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "engagement",
+          "name": "Engaged at work",
+          "url": "https://www.gallup.com/workplace/697904/state-of-the-global-workplace-global-data.aspx",
+          "reason": "covered by a broader pain: meaningless-work"
+        },
+        {
+          "entry": "daily-stress",
+          "name": "Daily stress",
+          "url": "https://www.gallup.com/workplace/697904/state-of-the-global-workplace-global-data.aspx",
+          "reason": "covered by a broader pain: burnout"
+        },
+        {
+          "entry": "daily-anger",
+          "name": "Daily anger",
+          "url": "https://www.gallup.com/workplace/697904/state-of-the-global-workplace-global-data.aspx",
+          "reason": "covered by a broader pain: bad-job"
+        },
+        {
+          "entry": "daily-loneliness",
+          "name": "Daily loneliness",
+          "url": "https://www.gallup.com/workplace/697904/state-of-the-global-workplace-global-data.aspx",
+          "reason": "covered by a broader pain: loneliness"
+        },
+        {
+          "entry": "job-seeking",
+          "name": "Watching for or actively seeking a new job (U.S.)",
+          "url": "https://www.gallup.com/workplace/703280/worker-thriving-declines-as-job-market-pessimism-grows.aspx",
+          "reason": "covered by a broader pain: wrong-career"
+        },
+        {
+          "entry": "left-for-manager",
+          "name": "Left a job to get away from a manager",
+          "url": "https://www.govexec.com/management/2015/04/half-american-workers-have-left-job-because-they-hated-their-boss/109183/",
+          "reason": "waiting for review: bad-boss"
+        }
+      ]
+    },
+    "pew-jobs": {
+      "name": "Pew Research Center: How Americans view their jobs (October 2024 survey of workers)",
+      "url": "https://www.pewresearch.org/social-trends/2024/12/10/job-satisfaction/",
+      "accessed": "2026-10-19",
+      "entries": 7,
+      "covered": 2,
+      "share": 0.286,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "pay",
+          "name": "Satisfaction with pay",
+          "painId": "underpaid",
+          "why": "dissatisfied with pay"
+        },
+        {
+          "entry": "training",
+          "name": "Opportunities for training",
+          "painId": "need-skills",
+          "why": "no chance to learn the skills needed"
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "overall",
+          "name": "Satisfaction with the job overall",
+          "url": "https://www.pewresearch.org/social-trends/2024/12/10/job-satisfaction/",
+          "reason": "covered by a broader pain: bad-job"
+        },
+        {
+          "entry": "promotion",
+          "name": "Opportunities for promotion",
+          "url": "https://www.pewresearch.org/social-trends/2024/12/10/job-satisfaction/",
+          "reason": "waiting for review: dead-end-job"
+        },
+        {
+          "entry": "manager",
+          "name": "Relationship with manager",
+          "url": "https://www.pewresearch.org/social-trends/2024/12/10/job-satisfaction/",
+          "reason": "waiting for review: bad-boss"
+        },
+        {
+          "entry": "flexibility",
+          "name": "Choosing when to work",
+          "url": "https://www.pewresearch.org/social-trends/2024/12/10/job-satisfaction/",
+          "reason": "waiting for review: unpredictable-schedule"
+        },
+        {
+          "entry": "remote",
+          "name": "Flexibility to work remotely",
+          "url": "https://www.pewresearch.org/social-trends/2024/12/10/job-satisfaction/",
+          "reason": "out of scope: a preference about where to work rather than a pain; strain from it shows up as commute or schedule"
+        }
+      ]
+    },
+    "apa-work": {
+      "name": "American Psychological Association: 2025 Work in America survey",
+      "url": "https://www.newswise.com/articles/more-than-half-of-u-s-workers-say-job-insecurity-causing-stress",
+      "accessed": "2026-10-19",
+      "entries": 3,
+      "covered": 2,
+      "share": 0.667,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "job-insecurity-stress",
+          "name": "Job insecurity affects stress at work (54%)",
+          "painId": "job-could-go",
+          "why": "stress from job insecurity"
+        },
+        {
+          "entry": "layoff-worry",
+          "name": "Worry a downturn will lead to being laid off (44%)",
+          "painId": "job-could-go",
+          "why": "worry about being laid off"
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "change-fields",
+          "name": "Would need to change fields after a job loss (44%)",
+          "url": "https://www.newswise.com/articles/more-than-half-of-u-s-workers-say-job-insecurity-causing-stress",
+          "reason": "covered by a broader pain: wrong-career"
+        }
+      ]
+    },
+    "who-ilo": {
+      "name": "WHO/ILO: work-related burden of disease (long working hours)",
+      "url": "https://www.who.int/news/item/17-05-2021-long-working-hours-increasing-deaths-from-heart-disease-and-stroke-who-ilo",
+      "accessed": "2026-10-19",
+      "entries": 2,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "long-hours",
+          "name": "Long working hours (deaths from stroke and heart disease)",
+          "url": "https://www.who.int/news/item/17-05-2021-long-working-hours-increasing-deaths-from-heart-disease-and-stroke-who-ilo",
+          "reason": "waiting for review: long-hours"
+        },
+        {
+          "entry": "occupational-injury",
+          "name": "Work injuries (U.S. BLS)",
+          "url": "https://www.bls.gov/news.release/osh.nr0.htm",
+          "reason": "waiting for review: unsafe-work"
+        }
+      ]
+    },
+    "ilo-harassment": {
+      "name": "ILO, Lloyd's Register Foundation and Gallup: global survey of violence and harassment at work",
+      "url": "https://news.gallup.com/opinion/gallup/406793/global-study-workers-experience-violence-harassment.aspx",
+      "accessed": "2026-10-19",
+      "entries": 3,
+      "covered": 3,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "psychological",
+          "name": "Psychological violence and harassment",
+          "painId": "bad-job",
+          "why": "psychological violence and harassment at work is mistreatment"
+        },
+        {
+          "entry": "physical",
+          "name": "Physical violence and harassment",
+          "painId": "bad-job",
+          "why": "physical violence at work is mistreatment"
+        },
+        {
+          "entry": "sexual",
+          "name": "Sexual violence and harassment",
+          "painId": "bad-job",
+          "why": "sexual harassment at work is mistreatment; worth a sensitive narrower pain in a refine pass"
+        }
+      ],
+      "uncovered": []
+    },
+    "bls": {
+      "name": "U.S. Bureau of Labor Statistics: work arrangements, benefits and safety",
+      "url": "https://www.bls.gov/",
+      "accessed": "2026-10-19",
+      "entries": 6,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "fatal-injuries",
+          "name": "Fatal work injuries",
+          "url": "https://www.bls.gov/news.release/cfoi.nr0.htm",
+          "reason": "waiting for review: unsafe-work"
+        },
+        {
+          "entry": "paid-sick-leave",
+          "name": "Access to paid sick leave",
+          "url": "https://www.bls.gov/news.release/ebs2.nr0.htm",
+          "reason": "waiting for review: no-paid-leave"
+        },
+        {
+          "entry": "paid-family-leave",
+          "name": "Access to paid family and medical leave",
+          "url": "https://www.bls.gov/news.release/ebs2.nr0.htm",
+          "reason": "waiting for review: no-paid-leave"
+        },
+        {
+          "entry": "contingent",
+          "name": "Contingent jobs",
+          "url": "https://www.bls.gov/news.release/conemp.nr0.htm",
+          "reason": "waiting for review: gig-work"
+        },
+        {
+          "entry": "on-call",
+          "name": "On-call workers",
+          "url": "https://www.bls.gov/news.release/conemp.nr0.htm",
+          "reason": "waiting for review: unpredictable-schedule"
+        },
+        {
+          "entry": "multiple-jobs",
+          "name": "Multiple jobholders",
+          "url": "https://fred.stlouisfed.org/series/LNS12026620",
+          "reason": "waiting for review: two-jobs"
+        }
+      ]
+    },
+    "worker-studies": {
+      "name": "Other primary studies of U.S. workers",
+      "url": "https://shift.hks.harvard.edu/",
+      "accessed": "2026-10-19",
+      "entries": 9,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "schedule-notice",
+          "name": "Schedules posted less than two weeks ahead (Shift Project, Boston service workers)",
+          "url": "https://shift.hks.harvard.edu/newsroom/boston-service-workers-experience-unstable-unpredictable-work-schedules",
+          "reason": "waiting for review: unpredictable-schedule"
+        },
+        {
+          "entry": "commute",
+          "name": "Average commute (Census Bureau)",
+          "url": "https://www.census.gov/newsroom/archives/2013-pr/cb13-41.html",
+          "reason": "waiting for review: long-commute"
+        },
+        {
+          "entry": "gig-work",
+          "name": "Online gig platform work (Pew)",
+          "url": "https://www.pewresearch.org/internet/2021/12/08/the-state-of-gig-work-in-2021/",
+          "reason": "waiting for review: gig-work"
+        },
+        {
+          "entry": "wage-theft",
+          "name": "Minimum wage violations (Economic Policy Institute)",
+          "url": "https://nextcity.org/urbanist-news/minimum-wage-violations-mean-workers-losing-billions",
+          "reason": "waiting for review: wage-theft"
+        },
+        {
+          "entry": "underemployed-grads",
+          "name": "Recent graduates in jobs that don't need a degree (Burning Glass Institute and Strada)",
+          "url": "https://cappsonline.org/more-than-half-of-recent-4-year-college-grads-underemployed/",
+          "reason": "waiting for review: overqualified"
+        },
+        {
+          "entry": "immigrant-brain-waste",
+          "name": "College-educated immigrants in low-skilled jobs (Migration Policy Institute)",
+          "url": "https://www.americanimmigrationcouncil.org/press-release/billions-of-dollars-in-tax-receipts-forgone-annually-as-nearly-2-million-highly-skilled-immigrants-in-u-s-are-stuck-in-low-skilled-jobs-or-unemployed/",
+          "reason": "waiting for review: overqualified"
+        },
+        {
+          "entry": "age-bias",
+          "name": "Age discrimination at work (AARP, workers 50 and older)",
+          "url": "https://www.aarp.org/work/age-discrimination/age-bias-survey-2026/",
+          "reason": "covered by a broader pain: treated-differently"
+        },
+        {
+          "entry": "union-voice",
+          "name": "Nonunion workers who would vote for a union (MIT Sloan survey, via Cornell ILR)",
+          "url": "https://www.ilr.cornell.edu/news/research/new-report-analyzes-what-workers-really-want",
+          "reason": "waiting for review: no-say-at-work"
+        },
+        {
+          "entry": "small-business",
+          "name": "Small employer firms facing financial challenges (Federal Reserve Small Business Credit Survey)",
+          "url": "https://fred.stlouisfed.org/series/SBCSS10B0V0FRB",
+          "reason": "waiting for review: small-business"
+        }
+      ]
+    },
+    "211": {
+      "name": "United Way 211: 2025 impact snapshot, top referral categories",
+      "url": "https://www.unitedway.org/211Data",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "income-support",
+          "name": "Income support and financial assistance (#7)",
+          "url": "https://www.unitedway.org/211Data",
+          "reason": "covered by a broader pain: broke"
+        }
+      ]
+    }
+  },
+  "issues": [],
+  "checkedAt": "2026-10-19"
+}

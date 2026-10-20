@@ -1,0 +1,548 @@
+{
+  "schemaVersion": 1,
+  "target": 0.9,
+  "lists": {
+    "bls-atus-2025": {
+      "name": "BLS American Time Use Survey, 2025 results",
+      "url": "https://www.bls.gov/news.release/atus.nr0.htm",
+      "accessed": "2026-10-19",
+      "entries": 6,
+      "covered": 4,
+      "share": 0.667,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "household-activities",
+          "name": "Household activities (housework, food preparation, lawn care)",
+          "painId": "chores",
+          "why": "Chores: \"I spend my days cooking and cleaning.\""
+        },
+        {
+          "entry": "housework-gender-gap",
+          "name": "Women spend more time on household activities than men",
+          "painId": "chores",
+          "why": "Chores covers the weight of housework; the gap between women and men is who carries it."
+        },
+        {
+          "entry": "childcare-young-kids",
+          "name": "Primary childcare in households with children under 6",
+          "painId": "parenting-is-hard",
+          "why": "Parenting: \"I'm worn out raising my kids.\""
+        },
+        {
+          "entry": "childcare-gender-gap",
+          "name": "Women spend more time on primary childcare than men",
+          "painId": "parenting-is-hard",
+          "why": "Parenting covers the load of raising kids; the gap is who carries it."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "work-hours",
+          "name": "Hours worked on days worked (full-time employed)",
+          "url": "https://www.bls.gov/news.release/atus.nr0.htm",
+          "reason": "covered by a broader pain: no-free-time"
+        },
+        {
+          "entry": "watching-tv",
+          "name": "Watching TV, the leisure activity taking the most time",
+          "url": "https://www.bls.gov/news.release/atus.nr0.htm",
+          "reason": "out of scope: a measure of how leisure time is spent, not a pain on its own"
+        }
+      ]
+    },
+    "gallup-time-crunch": {
+      "name": "Gallup: Americans' perceived time crunch (December 2015)",
+      "url": "https://news.gallup.com/poll/187982/americans-perceived-time-crunch-no-worse-past.aspx",
+      "accessed": "2026-10-19",
+      "entries": 3,
+      "covered": 3,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "not-enough-time",
+          "name": "Do not have enough time to do what they want",
+          "painId": "no-free-time",
+          "why": "Busy: \"I have no time that's mine.\""
+        },
+        {
+          "entry": "working-not-enough-time",
+          "name": "Working Americans without enough time",
+          "painId": "no-free-time",
+          "why": "Busy, for working adults."
+        },
+        {
+          "entry": "parents-not-enough-time",
+          "name": "Parents of children under 18 without enough time",
+          "painId": "no-free-time",
+          "why": "Busy, for parents."
+        }
+      ],
+      "uncovered": []
+    },
+    "pew-rushed-2005": {
+      "name": "Pew Research Center: Who's feeling rushed? (2005 survey)",
+      "url": "https://www.pewresearch.org/social-trends/2006/02/28/whos-feeling-rushed/",
+      "accessed": "2026-10-19",
+      "entries": 2,
+      "covered": 2,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "always-rushed",
+          "name": "Always feel rushed",
+          "painId": "no-free-time",
+          "why": "Feeling always rushed is having no time that's yours."
+        },
+        {
+          "entry": "working-mothers-rushed",
+          "name": "Working mothers who always feel rushed",
+          "painId": "no-free-time",
+          "why": "Busy, for working mothers."
+        }
+      ],
+      "uncovered": []
+    },
+    "pew-smartphone-2026": {
+      "name": "Pew Research Center: time spent on smartphones (September 2026)",
+      "url": "https://www.pewresearch.org/short-reads/2026/09/01/about-half-of-americans-say-they-spend-too-much-time-on-their-smartphone/",
+      "accessed": "2026-10-19",
+      "entries": 3,
+      "covered": 3,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "too-much-smartphone",
+          "name": "Spend too much time on their smartphone",
+          "painId": "doomscrolling",
+          "why": "Doomscrolling: \"I lose my nights to my phone.\""
+        },
+        {
+          "entry": "tried-to-cut-back",
+          "name": "Tried to cut back on smartphone use",
+          "painId": "doomscrolling",
+          "why": "Trying to cut back is the same pain: losing time to the phone."
+        },
+        {
+          "entry": "smartphone-hurts-sleep",
+          "name": "Smartphone hurts the amount of sleep they get",
+          "painId": "poor-sleep",
+          "why": "Sleep: \"I don't sleep well.\"; Doomscrolling also names nights lost to the phone."
+        }
+      ],
+      "uncovered": []
+    },
+    "census-commute-2019": {
+      "name": "U.S. Census Bureau: one-way travel time to work (ACS 2019)",
+      "url": "https://www.census.gov/newsroom/press-releases/2021/one-way-travel-time-to-work-rises.html",
+      "accessed": "2026-10-19",
+      "entries": 2,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "average-commute",
+          "name": "Average one-way commute",
+          "url": "https://www.census.gov/newsroom/press-releases/2021/one-way-travel-time-to-work-rises.html",
+          "reason": "out of scope: Proposed as `long-commute` by the work sweep 20261019-224658"
+        },
+        {
+          "entry": "hour-plus-commute",
+          "name": "Commutes of 60 minutes or longer",
+          "url": "https://www.census.gov/newsroom/press-releases/2021/one-way-travel-time-to-work-rises.html",
+          "reason": "out of scope: Proposed as `long-commute` by the work sweep 20261019-224658"
+        }
+      ]
+    },
+    "bls-ebs-2026": {
+      "name": "BLS Employee Benefits in the United States (March 2026): paid leave",
+      "url": "https://www.bls.gov/news.release/ebs2.nr0.htm",
+      "accessed": "2026-10-19",
+      "entries": 3,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "paid-vacation",
+          "name": "Access to paid vacation",
+          "url": "https://www.bls.gov/news.release/ebs2.nr0.htm",
+          "reason": "waiting for review: no-time-off"
+        },
+        {
+          "entry": "paid-sick-leave",
+          "name": "Access to paid sick leave",
+          "url": "https://www.bls.gov/news.release/ebs2.nr0.htm",
+          "reason": "out of scope: Work scope; the work sweep 20261019-224658 proposes `no-paid-leave`"
+        },
+        {
+          "entry": "sick-leave-hospitality",
+          "name": "Paid sick leave in leisure and hospitality",
+          "url": "https://www.bls.gov/news.release/ebs2.nr0.htm",
+          "reason": "out of scope: Work scope; the work sweep 20261019-224658 proposes `no-paid-leave`"
+        }
+      ]
+    },
+    "pew-pto-2023": {
+      "name": "Pew Research Center: more than 4 in 10 U.S. workers don't take all their paid time off (2023)",
+      "url": "https://www.pewresearch.org/?p=7896",
+      "accessed": "2026-10-19",
+      "entries": 3,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "take-less-pto",
+          "name": "Take less paid time off than offered",
+          "url": "https://www.pewresearch.org/?p=7896",
+          "reason": "waiting for review: no-time-off"
+        },
+        {
+          "entry": "worry-falling-behind",
+          "name": "Would worry about falling behind at work",
+          "url": "https://www.pewresearch.org/?p=7896",
+          "reason": "waiting for review: no-time-off"
+        },
+        {
+          "entry": "coworkers-guilt",
+          "name": "Would feel bad about coworkers taking on their work",
+          "url": "https://www.pewresearch.org/?p=7896",
+          "reason": "waiting for review: no-time-off"
+        }
+      ]
+    },
+    "lsc-justice-gap-2022": {
+      "name": "Legal Services Corporation: The Justice Gap (2022), civil legal problems of low-income households",
+      "url": "https://justicegap.lsc.gov/resource/section-3-the-prevalence-of-civil-legal-problems/",
+      "accessed": "2026-10-19",
+      "entries": 9,
+      "covered": 3,
+      "share": 0.333,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "any-problem",
+          "name": "Low-income households with at least one civil legal problem",
+          "painId": "legal-mess",
+          "why": "Legal trouble: \"I'm stuck in a legal problem I can't afford.\""
+        },
+        {
+          "entry": "no-enough-help",
+          "name": "Civil legal problems without enough legal help",
+          "painId": "legal-mess",
+          "why": "Legal trouble: a legal problem without the help to deal with it."
+        },
+        {
+          "entry": "cost-barrier",
+          "name": "Did not seek help because of cost",
+          "painId": "legal-mess",
+          "why": "Legal trouble names the cost of help directly."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "consumer",
+          "name": "Consumer issues",
+          "url": "https://justicegap.lsc.gov/resource/section-3-the-prevalence-of-civil-legal-problems/",
+          "reason": "covered by a broader pain: legal-mess"
+        },
+        {
+          "entry": "health-care",
+          "name": "Health care",
+          "url": "https://justicegap.lsc.gov/resource/section-3-the-prevalence-of-civil-legal-problems/",
+          "reason": "covered by a broader pain: legal-mess"
+        },
+        {
+          "entry": "income-maintenance",
+          "name": "Income maintenance",
+          "url": "https://justicegap.lsc.gov/resource/section-3-the-prevalence-of-civil-legal-problems/",
+          "reason": "waiting for review: benefits-runaround"
+        },
+        {
+          "entry": "housing",
+          "name": "Housing",
+          "url": "https://justicegap.lsc.gov/resource/section-3-the-prevalence-of-civil-legal-problems/",
+          "reason": "covered by a broader pain: legal-mess"
+        },
+        {
+          "entry": "family-safety",
+          "name": "Family and safety",
+          "url": "https://justicegap.lsc.gov/resource/section-3-the-prevalence-of-civil-legal-problems/",
+          "reason": "covered by a broader pain: legal-mess"
+        },
+        {
+          "entry": "education",
+          "name": "Education",
+          "url": "https://justicegap.lsc.gov/resource/section-3-the-prevalence-of-civil-legal-problems/",
+          "reason": "covered by a broader pain: legal-mess"
+        }
+      ]
+    },
+    "211-impact-2025": {
+      "name": "United Way 211 Impact Snapshot 2025: top referral categories",
+      "url": "https://www.unitedway.org/the-facts-about-211-2025-impact-snapshot",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 1,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "legal-consumer-safety",
+          "name": "Legal, consumer and public safety assistance (#4)",
+          "painId": "legal-mess",
+          "why": "Legal trouble covers people seeking legal help."
+        }
+      ],
+      "uncovered": []
+    },
+    "oecd-wellbeing": {
+      "name": "OECD Well-being Framework: Work-life balance indicators",
+      "url": "https://www.oecd.org/en/topics/sub-issues/measuring-well-being-and-progress/oecd-well-being-framework.html",
+      "accessed": "2026-10-19",
+      "entries": 3,
+      "covered": 2,
+      "share": 0.667,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "leisure-personal-care",
+          "name": "Time devoted to leisure and personal care",
+          "painId": "no-free-time",
+          "why": "Busy: too little time left for yourself."
+        },
+        {
+          "entry": "gender-gap-hours",
+          "name": "Gender gap in hours worked, paid and unpaid",
+          "painId": "chores",
+          "why": "Chores covers unpaid housework, the main part of the gap."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "long-hours",
+          "name": "Employees working very long hours",
+          "url": "https://sustainablebrands.com/read/behavior-change/oecd-u-s-has-worst-work-life-balance-among-developed-countries",
+          "reason": "covered by a broader pain: no-free-time"
+        }
+      ]
+    },
+    "whoqol-bref": {
+      "name": "WHOQOL-BREF",
+      "url": "https://depts.washington.edu/seaqol/docs/WHOQOL-BREF%20and%20Scoring%20Instructions.pdf",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 1,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "Q14",
+          "name": "Q14: To what extent do you have the opportunity for leisure activities?",
+          "painId": "no-free-time",
+          "why": "Busy maps to Q14 in the catalog; Fun also maps to it."
+        }
+      ],
+      "uncovered": []
+    },
+    "sdg-targets": {
+      "name": "UN SDG targets bearing on time, chores and paperwork",
+      "url": "https://sdgs.un.org/goals",
+      "accessed": "2026-10-19",
+      "entries": 6,
+      "covered": 4,
+      "share": 0.667,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "5.4",
+          "name": "Target 5.4: recognize and value unpaid care and domestic work",
+          "painId": "chores",
+          "why": "Chores maps to target 5.4 in the catalog."
+        },
+        {
+          "entry": "5.4-data",
+          "name": "Women's share of unpaid domestic and care work (SDG report 2024)",
+          "painId": "chores",
+          "why": "Chores: unpaid domestic work."
+        },
+        {
+          "entry": "16.3",
+          "name": "Target 16.3: equal access to justice for all",
+          "painId": "legal-mess",
+          "why": "Legal trouble maps to target 16.3 in the catalog."
+        },
+        {
+          "entry": "16.6",
+          "name": "Target 16.6: effective, accountable and transparent institutions",
+          "painId": "life-admin",
+          "why": "Paperwork maps to target 16.6 in the catalog."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "11.2",
+          "name": "Target 11.2: safe, affordable, accessible transport for all",
+          "url": "https://sdgs.un.org/goals/goal11",
+          "reason": "covered by a broader pain: getting-around"
+        },
+        {
+          "entry": "16.9",
+          "name": "Target 16.9: legal identity for all",
+          "url": "https://sdgs.un.org/goals/goal16",
+          "reason": "covered by a broader pain: life-admin"
+        }
+      ]
+    },
+    "maxneef": {
+      "name": "Max-Neef's fundamental human needs",
+      "url": "https://en.wikipedia.org/wiki/Manfred_Max-Neef%27s_Fundamental_human_needs",
+      "accessed": "2026-10-19",
+      "entries": 2,
+      "covered": 1,
+      "share": 0.5,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "idleness",
+          "name": "Idleness (leisure)",
+          "painId": "no-fun",
+          "why": "Fun: \"I can't remember the last time I played.\""
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "freedom",
+          "name": "Freedom (temporal/spatial plasticity)",
+          "url": "https://en.wikipedia.org/wiki/Manfred_Max-Neef%27s_Fundamental_human_needs",
+          "reason": "covered by a broader pain: no-free-time"
+        }
+      ]
+    },
+    "gallup-elements": {
+      "name": "Gallup's five elements of wellbeing",
+      "url": "https://www.gallup.com/workplace/237020/five-essential-elements.aspx",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "career",
+          "name": "Career wellbeing",
+          "url": "https://www.gallup.com/workplace/237020/five-essential-elements.aspx",
+          "reason": "covered by a broader pain: meaningless-work"
+        }
+      ]
+    },
+    "wikidata": {
+      "name": "Wikidata items for time pains",
+      "url": "https://www.wikidata.org/",
+      "accessed": "2026-10-19",
+      "entries": 14,
+      "covered": 9,
+      "share": 0.643,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "Q135971254",
+          "name": "time poverty",
+          "painId": "no-free-time",
+          "why": "Busy maps to time poverty."
+        },
+        {
+          "entry": "Q708514",
+          "name": "housekeeping",
+          "painId": "chores",
+          "why": "Chores maps to housekeeping."
+        },
+        {
+          "entry": "Q116039772",
+          "name": "paperwork",
+          "painId": "life-admin",
+          "why": "Paperwork: forms and bureaucratic documents."
+        },
+        {
+          "entry": "Q707748",
+          "name": "legal aid",
+          "painId": "legal-mess",
+          "why": "Legal trouble maps to legal aid."
+        },
+        {
+          "entry": "Q28135689",
+          "name": "access to justice",
+          "painId": "legal-mess",
+          "why": "Legal trouble: no affordable legal help."
+        },
+        {
+          "entry": "Q101244400",
+          "name": "doomscrolling",
+          "painId": "doomscrolling",
+          "why": "Doomscrolling."
+        },
+        {
+          "entry": "Q11288503",
+          "name": "problematic smartphone use",
+          "painId": "doomscrolling",
+          "why": "Doomscrolling: losing time to the phone."
+        },
+        {
+          "entry": "Q180910",
+          "name": "leisure",
+          "painId": "no-fun",
+          "why": "Fun: no leisure or play."
+        },
+        {
+          "entry": "Q763264",
+          "name": "work–life balance",
+          "painId": "no-free-time",
+          "why": "Busy: work leaves no time that's mine."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "Q48442",
+          "name": "commuting",
+          "url": "https://www.wikidata.org/wiki/Q48442",
+          "reason": "out of scope: Proposed as `long-commute` by the work sweep 20261019-224658"
+        },
+        {
+          "entry": "Q72468",
+          "name": "bureaucracy",
+          "url": "https://www.wikidata.org/wiki/Q72468",
+          "reason": "covered by a broader pain: life-admin"
+        },
+        {
+          "entry": "Q5338673",
+          "name": "annual leave",
+          "url": "https://www.wikidata.org/wiki/Q5338673",
+          "reason": "waiting for review: no-time-off"
+        },
+        {
+          "entry": "Q7124679",
+          "name": "paid time off",
+          "url": "https://www.wikidata.org/wiki/Q7124679",
+          "reason": "waiting for review: no-time-off"
+        },
+        {
+          "entry": "Q30324008",
+          "name": "overwork",
+          "url": "https://www.wikidata.org/wiki/Q30324008",
+          "reason": "covered by a broader pain: burnout"
+        }
+      ]
+    }
+  },
+  "issues": [],
+  "checkedAt": "2026-10-19"
+}

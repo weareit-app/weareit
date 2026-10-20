@@ -1,0 +1,10 @@
+{
+  "labels": {
+    "no-free-time": "problem",
+    "chores": "area",
+    "life-admin": "area",
+    "legal-mess": "problem",
+    "doomscrolling": "problem",
+    "no-fun": "area"
+  }
+}

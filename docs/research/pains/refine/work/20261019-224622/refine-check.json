@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "issues": [],
+  "moves": [
+    {
+      "painId": "underpaid",
+      "from": "work",
+      "to": "money",
+      "sorts": [
+        "work",
+        "money",
+        "money"
+      ]
+    }
+  ],
+  "disagreements": [
+    {
+      "painId": "burnout",
+      "current": "work",
+      "sorts": [
+        "work",
+        "mind",
+        "work"
+      ]
+    },
+    {
+      "painId": "meaningless-work",
+      "current": "work",
+      "sorts": [
+        "work",
+        "purpose",
+        "work"
+      ]
+    },
+    {
+      "painId": "underpaid",
+      "current": "work",
+      "sorts": [
+        "work",
+        "money",
+        "money"
+      ]
+    }
+  ],
+  "checkedAt": "2026-10-19"
+}

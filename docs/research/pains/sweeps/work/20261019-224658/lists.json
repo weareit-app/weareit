@@ -1,0 +1,482 @@
+{
+  "schemaVersion": 1,
+  "lists": {
+    "oecd": {
+      "name": "OECD Better Life Index: Jobs and Work-Life Balance topics (indicators of the How's Life? framework)",
+      "url": "https://oecd-better-life-index.truth-and-beauty.net/topics/jobs/",
+      "accessed": "2026-10-19",
+      "note": "oecd.org returned 403; read from the Better Life Index mirror built for the OECD by Truth & Beauty.",
+      "entries": {
+        "employment-rate": {
+          "name": "Employment rate",
+          "passage": "Across the OECD, about 66% of the working-age population aged 15 to 64 has a paid job"
+        },
+        "long-term-unemployment": {
+          "name": "Long-term unemployment rate",
+          "passage": "the percentage of the labour force that has been unemployed for a year or longer is currently at about 1.3%"
+        },
+        "earnings": {
+          "name": "Personal earnings",
+          "passage": "In the OECD on average, people earn USD 49 165 year"
+        },
+        "job-security": {
+          "name": "Job security (labour market insecurity)",
+          "passage": "Workers face an expected 5% loss of earnings on average in OECD countries if they become unemployed."
+        },
+        "long-hours": {
+          "name": "Employees working very long hours",
+          "url": "https://oecd-better-life-index.truth-and-beauty.net/topics/work-life-balance/",
+          "passage": "10% of employees in the OECD work 50 hours or more per week in paid work."
+        },
+        "leisure-time": {
+          "name": "Time devoted to leisure and personal care",
+          "url": "https://oecd-better-life-index.truth-and-beauty.net/topics/work-life-balance/",
+          "passage": "A full-time worker in the OECD devotes 63% of the day on average, or 15 hours, to personal care"
+        }
+      }
+    },
+    "whoqol": {
+      "name": "WHOQOL-BREF (WHO, 1996)",
+      "url": "https://www.ildcare.nl/wp-content/uploads/2013/10/whoqolbref_nl.htm",
+      "accessed": "2026-10-19",
+      "note": "Only the item bearing on work. This copy numbers the item 24; the standard WHOQOL-BREF numbering (used in the catalog's maps) is Q18.",
+      "entries": {
+        "q18": {
+          "name": "How satisfied are you with your capacity for work?",
+          "passage": "How satisfied are you with your capacity for work?"
+        }
+      }
+    },
+    "sdg": {
+      "name": "UN Sustainable Development Goals: Goal 8 targets (decent work)",
+      "url": "https://sdgs.un.org/goals/goal8",
+      "accessed": "2026-10-19",
+      "note": "Goal 8 only; 8.1, 8.2, 8.4, 8.9, 8.10, 8.a and 8.b were mapped in the economy sweep and are not about work as a person lives it.",
+      "entries": {
+        "8.3": {
+          "name": "Decent job creation, entrepreneurship and small businesses",
+          "passage": "Promote development-oriented policies that support productive activities, decent job creation"
+        },
+        "8.5": {
+          "name": "Full employment, decent work and equal pay for work of equal value",
+          "passage": "By 2030, achieve full and productive employment and decent work for all women and men"
+        },
+        "8.6": {
+          "name": "Youth not in employment, education or training",
+          "passage": "By 2020, substantially reduce the proportion of youth not in employment, education or training"
+        },
+        "8.7": {
+          "name": "End forced labour, modern slavery, trafficking and child labour",
+          "passage": "Take immediate and effective measures to eradicate forced labour, end modern slavery and human trafficking"
+        },
+        "8.8": {
+          "name": "Labour rights and safe, secure working environments",
+          "passage": "Protect labour rights and promote safe and secure working environments for all workers"
+        }
+      }
+    },
+    "maxneef": {
+      "name": "Max-Neef's fundamental human needs (matrix cells that name work)",
+      "url": "https://en.wikipedia.org/wiki/Manfred_Max-Neef%27s_Fundamental_human_needs",
+      "accessed": "2026-10-19",
+      "entries": {
+        "subsistence": {
+          "name": "Subsistence: having food, shelter, work",
+          "passage": "food, shelter, work"
+        },
+        "creation": {
+          "name": "Creation: having abilities, skills, method, work",
+          "passage": "abilities, skills, method, work"
+        },
+        "participation": {
+          "name": "Participation: having rights, responsibilities, duties, privileges, work",
+          "passage": "rights, responsibilities, duties, privileges, work"
+        }
+      }
+    },
+    "gallup": {
+      "name": "Gallup's five elements of wellbeing",
+      "url": "https://www.gallup.com/workplace/237020/five-essential-elements.aspx",
+      "accessed": "2026-10-19",
+      "entries": {
+        "career": {
+          "name": "Career wellbeing",
+          "passage": "how you occupy your time or simply liking what you do every day: your Career Well-Being"
+        }
+      }
+    },
+    "wikidata": {
+      "name": "Wikidata items for work concepts",
+      "url": "https://www.wikidata.org/",
+      "accessed": "2026-10-19",
+      "note": "Found with the wbsearchentities API and picked by hand.",
+      "entries": {
+        "Q41171": {
+          "name": "unemployment",
+          "url": "https://www.wikidata.org/wiki/Q41171"
+        },
+        "Q327988": {
+          "name": "occupational burnout",
+          "url": "https://www.wikidata.org/wiki/Q327988"
+        },
+        "Q124381631": {
+          "name": "job insecurity",
+          "url": "https://www.wikidata.org/wiki/Q124381631"
+        },
+        "Q30324008": {
+          "name": "overwork",
+          "url": "https://www.wikidata.org/wiki/Q30324008"
+        },
+        "Q1051107": {
+          "name": "karoshi (death from overwork)",
+          "url": "https://www.wikidata.org/wiki/Q1051107"
+        },
+        "Q2273650": {
+          "name": "workplace bullying",
+          "url": "https://www.wikidata.org/wiki/Q2273650"
+        },
+        "Q17145511": {
+          "name": "workplace harassment",
+          "url": "https://www.wikidata.org/wiki/Q17145511"
+        },
+        "Q22906141": {
+          "name": "abusive supervision",
+          "url": "https://www.wikidata.org/wiki/Q22906141"
+        },
+        "Q629029": {
+          "name": "occupational health and safety",
+          "url": "https://www.wikidata.org/wiki/Q629029"
+        },
+        "Q2389289": {
+          "name": "occupational injury",
+          "url": "https://www.wikidata.org/wiki/Q2389289"
+        },
+        "Q48442": {
+          "name": "commuting",
+          "url": "https://www.wikidata.org/wiki/Q48442"
+        },
+        "Q1931244": {
+          "name": "underemployment",
+          "url": "https://www.wikidata.org/wiki/Q1931244"
+        },
+        "Q7959502": {
+          "name": "wage theft",
+          "url": "https://www.wikidata.org/wiki/Q7959502"
+        },
+        "Q17009677": {
+          "name": "precarious work",
+          "url": "https://www.wikidata.org/wiki/Q17009677"
+        },
+        "Q51711208": {
+          "name": "gig economy",
+          "url": "https://www.wikidata.org/wiki/Q51711208"
+        },
+        "Q1068683": {
+          "name": "shift work",
+          "url": "https://www.wikidata.org/wiki/Q1068683"
+        },
+        "Q629463": {
+          "name": "job satisfaction",
+          "url": "https://www.wikidata.org/wiki/Q629463"
+        },
+        "Q763264": {
+          "name": "work-life balance",
+          "url": "https://www.wikidata.org/wiki/Q763264"
+        },
+        "Q178790": {
+          "name": "labor union",
+          "url": "https://www.wikidata.org/wiki/Q178790"
+        },
+        "Q8035059": {
+          "name": "workplace democracy",
+          "url": "https://www.wikidata.org/wiki/Q8035059"
+        },
+        "Q438946": {
+          "name": "ageism",
+          "url": "https://www.wikidata.org/wiki/Q438946"
+        },
+        "Q2606784": {
+          "name": "employment discrimination",
+          "url": "https://www.wikidata.org/wiki/Q2606784"
+        },
+        "Q1109680": {
+          "name": "small business",
+          "url": "https://www.wikidata.org/wiki/Q1109680"
+        },
+        "Q827081": {
+          "name": "decent work",
+          "url": "https://www.wikidata.org/wiki/Q827081"
+        },
+        "Q464163": {
+          "name": "sick leave",
+          "url": "https://www.wikidata.org/wiki/Q464163"
+        },
+        "Q815298": {
+          "name": "occupational stress",
+          "url": "https://www.wikidata.org/wiki/Q815298"
+        },
+        "Q1135326": {
+          "name": "remote work",
+          "url": "https://www.wikidata.org/wiki/Q1135326"
+        },
+        "Q192571": {
+          "name": "child labour",
+          "url": "https://www.wikidata.org/wiki/Q192571"
+        }
+      }
+    },
+    "gallup-mip": {
+      "name": "Gallup: Most Important Problem (U.S., open-ended), work-related rows",
+      "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+      "accessed": "2026-10-19",
+      "note": "The trend page embeds a 2022 table (Datawrapper vEKjO), read directly from https://datawrapper.dwcdn.net/vEKjO/1/dataset.csv.",
+      "entries": {
+        "unemployment-jobs": {
+          "name": "Unemployment/Jobs",
+          "passage": "Unemployment/Jobs\t2 (Aug 2022, % mentioning)"
+        },
+        "wage-issues": {
+          "name": "Wage issues",
+          "passage": "Wage issues\t* (Aug 2022), 1 (Jul 2022)"
+        }
+      }
+    },
+    "ipsos": {
+      "name": "Ipsos: What Worries the World, work-related worry",
+      "url": "https://www.ipsos.com/en/what-worries-world",
+      "accessed": "2026-10-19",
+      "note": "The monthly PDFs could not be parsed; the live page gives country figures only.",
+      "entries": {
+        "unemployment": {
+          "name": "Unemployment",
+          "passage": "61% in Argentina are worried about unemployment"
+        }
+      }
+    },
+    "gallup-workplace": {
+      "name": "Gallup: State of the Global Workplace (2025 report) and U.S. worker indicators",
+      "url": "https://www.gallup.com/workplace/697904/state-of-the-global-workplace-global-data.aspx",
+      "accessed": "2026-10-19",
+      "entries": {
+        "engagement": {
+          "name": "Engaged at work",
+          "passage": "Twenty percent of employees globally are engaged"
+        },
+        "daily-stress": {
+          "name": "Daily stress",
+          "passage": "Forty percent of employees globally experienced stress a lot of the previous day"
+        },
+        "daily-anger": {
+          "name": "Daily anger",
+          "passage": "Twenty-two percent of employees globally experienced anger a lot of the previous day"
+        },
+        "daily-loneliness": {
+          "name": "Daily loneliness",
+          "passage": "Twenty-two percent of employees globally experienced loneliness a lot of the previous day"
+        },
+        "job-seeking": {
+          "name": "Watching for or actively seeking a new job (U.S.)",
+          "url": "https://www.gallup.com/workplace/703280/worker-thriving-declines-as-job-market-pessimism-grows.aspx",
+          "passage": "51% of U.S. employees said they were either actively looking for a new job (11%) or watching for opportunities (40%)."
+        },
+        "left-for-manager": {
+          "name": "Left a job to get away from a manager",
+          "url": "https://www.govexec.com/management/2015/04/half-american-workers-have-left-job-because-they-hated-their-boss/109183/",
+          "passage": "Gallup surveyed over 7,000 members of the US workforce and found that half of them have left a job at some point in their careers solely because they could no longer put up with their manager."
+        }
+      }
+    },
+    "pew-jobs": {
+      "name": "Pew Research Center: How Americans view their jobs (October 2024 survey of workers)",
+      "url": "https://www.pewresearch.org/social-trends/2024/12/10/job-satisfaction/",
+      "accessed": "2026-10-19",
+      "entries": {
+        "overall": {
+          "name": "Satisfaction with the job overall",
+          "passage": "Half of U.S. workers say they are extremely or very satisfied with their job overall."
+        },
+        "pay": {
+          "name": "Satisfaction with pay",
+          "passage": "Only 30% say they are extremely or very satisfied with how much they're paid."
+        },
+        "promotion": {
+          "name": "Opportunities for promotion",
+          "passage": "about a quarter (26%) are highly satisfied with their opportunities for promotion at work."
+        },
+        "training": {
+          "name": "Opportunities for training",
+          "passage": "37% of workers now say they are extremely or very satisfied with their opportunities for training"
+        },
+        "manager": {
+          "name": "Relationship with manager",
+          "passage": "Their relationship with their manager or supervisor (59%)"
+        },
+        "flexibility": {
+          "name": "Choosing when to work",
+          "passage": "to choose when they work their required hours (49%)"
+        },
+        "remote": {
+          "name": "Flexibility to work remotely",
+          "passage": "their flexibility to work remotely (37%)"
+        }
+      }
+    },
+    "apa-work": {
+      "name": "American Psychological Association: 2025 Work in America survey",
+      "url": "https://www.newswise.com/articles/more-than-half-of-u-s-workers-say-job-insecurity-causing-stress",
+      "accessed": "2026-10-19",
+      "note": "apa.org returned an empty page; read from the APA release as posted on Newswise.",
+      "entries": {
+        "job-insecurity-stress": {
+          "name": "Job insecurity affects stress at work (54%)",
+          "passage": "job insecurity has had a significant impact on their stress levels at work."
+        },
+        "layoff-worry": {
+          "name": "Worry a downturn will lead to being laid off (44%)",
+          "passage": "concerned that an economic slump, downturn or recession could lead to being laid off"
+        },
+        "change-fields": {
+          "name": "Would need to change fields after a job loss (44%)",
+          "passage": "would need to change fields or industries after a job loss"
+        }
+      }
+    },
+    "who-ilo": {
+      "name": "WHO/ILO: work-related burden of disease (long working hours)",
+      "url": "https://www.who.int/news/item/17-05-2021-long-working-hours-increasing-deaths-from-heart-disease-and-stroke-who-ilo",
+      "accessed": "2026-10-19",
+      "note": "The WHO and IHME cause-of-burden lists name diseases and risk factors; long working hours is the work risk factor WHO and ILO quantify.",
+      "entries": {
+        "long-hours": {
+          "name": "Long working hours (deaths from stroke and heart disease)",
+          "passage": "745 000 deaths from stroke and ischemic heart disease in 2016"
+        },
+        "occupational-injury": {
+          "name": "Work injuries (U.S. BLS)",
+          "url": "https://www.bls.gov/news.release/osh.nr0.htm",
+          "passage": "Private industry employers reported 2.5 million nonfatal workplace injuries and illnesses in 2024"
+        }
+      }
+    },
+    "ilo-harassment": {
+      "name": "ILO, Lloyd's Register Foundation and Gallup: global survey of violence and harassment at work",
+      "url": "https://news.gallup.com/opinion/gallup/406793/global-study-workers-experience-violence-harassment.aspx",
+      "accessed": "2026-10-19",
+      "entries": {
+        "psychological": {
+          "name": "Psychological violence and harassment",
+          "passage": "Globally, 18% of employed people, representing almost 590 million workers, said they had experienced it"
+        },
+        "physical": {
+          "name": "Physical violence and harassment",
+          "passage": "Almost one in 10 workers worldwide (9% or nearly 280 million) said they had experienced"
+        },
+        "sexual": {
+          "name": "Sexual violence and harassment",
+          "passage": "Overall, 6% of employed people (more than 200 million) had experienced sexual violence and harassment"
+        }
+      }
+    },
+    "bls": {
+      "name": "U.S. Bureau of Labor Statistics: work arrangements, benefits and safety",
+      "url": "https://www.bls.gov/",
+      "accessed": "2026-10-19",
+      "entries": {
+        "fatal-injuries": {
+          "name": "Fatal work injuries",
+          "url": "https://www.bls.gov/news.release/cfoi.nr0.htm",
+          "passage": "There were 5,070 fatal work injuries recorded in the United States in 2024"
+        },
+        "paid-sick-leave": {
+          "name": "Access to paid sick leave",
+          "url": "https://www.bls.gov/news.release/ebs2.nr0.htm",
+          "passage": "81 percent had access to paid sick leave"
+        },
+        "paid-family-leave": {
+          "name": "Access to paid family and medical leave",
+          "url": "https://www.bls.gov/news.release/ebs2.nr0.htm",
+          "passage": "49 percent had access to paid family and medical leave"
+        },
+        "contingent": {
+          "name": "Contingent jobs",
+          "url": "https://www.bls.gov/news.release/conemp.nr0.htm",
+          "passage": "In July 2023, 4.3 percent of workers--6.9 million people--held contingent jobs on their sole or main job"
+        },
+        "on-call": {
+          "name": "On-call workers",
+          "url": "https://www.bls.gov/news.release/conemp.nr0.htm",
+          "passage": "2.8 million on-call workers (1.7 percent of total employment)"
+        },
+        "multiple-jobs": {
+          "name": "Multiple jobholders",
+          "url": "https://fred.stlouisfed.org/series/LNS12026620",
+          "passage": "Multiple Jobholders as a Percent of Employed: Sep 2026: 5.5 | Percent, Seasonally Adjusted"
+        }
+      }
+    },
+    "worker-studies": {
+      "name": "Other primary studies of U.S. workers",
+      "url": "https://shift.hks.harvard.edu/",
+      "accessed": "2026-10-19",
+      "entries": {
+        "schedule-notice": {
+          "name": "Schedules posted less than two weeks ahead (Shift Project, Boston service workers)",
+          "url": "https://shift.hks.harvard.edu/newsroom/boston-service-workers-experience-unstable-unpredictable-work-schedules",
+          "passage": "60% receive their work schedules less than two weeks in advance; 73% report irregular or variable work schedules; 45% worked consecutive closing/opening shifts (“clopenings”)"
+        },
+        "commute": {
+          "name": "Average commute (Census Bureau)",
+          "url": "https://www.census.gov/newsroom/archives/2013-pr/cb13-41.html",
+          "passage": "About 8.1 percent of U.S. workers have commutes of 60 minutes or longer."
+        },
+        "gig-work": {
+          "name": "Online gig platform work (Pew)",
+          "url": "https://www.pewresearch.org/internet/2021/12/08/the-state-of-gig-work-in-2021/",
+          "passage": "In total, 9% of U.S. adults are current or recent gig workers."
+        },
+        "wage-theft": {
+          "name": "Minimum wage violations (Economic Policy Institute)",
+          "url": "https://nextcity.org/urbanist-news/minimum-wage-violations-mean-workers-losing-billions",
+          "passage": "The report says this form of wage theft affects 17 percent of low-wage workers."
+        },
+        "underemployed-grads": {
+          "name": "Recent graduates in jobs that don't need a degree (Burning Glass Institute and Strada)",
+          "url": "https://cappsonline.org/more-than-half-of-recent-4-year-college-grads-underemployed/",
+          "passage": "More than half of recent four-year college graduates, 52 percent, are underemployed a year after they graduate"
+        },
+        "immigrant-brain-waste": {
+          "name": "College-educated immigrants in low-skilled jobs (Migration Policy Institute)",
+          "url": "https://www.americanimmigrationcouncil.org/press-release/billions-of-dollars-in-tax-receipts-forgone-annually-as-nearly-2-million-highly-skilled-immigrants-in-u-s-are-stuck-in-low-skilled-jobs-or-unemployed/",
+          "passage": "one in four, or 1.9 million individuals, were either underemployed or unemployed."
+        },
+        "age-bias": {
+          "name": "Age discrimination at work (AARP, workers 50 and older)",
+          "url": "https://www.aarp.org/work/age-discrimination/age-bias-survey-2026/",
+          "passage": "about two-thirds (64 percent) reported seeing or experiencing age discrimination in the workplace. Nearly a quarter of workers age 50-plus feel like they are being pushed out of their jobs."
+        },
+        "union-voice": {
+          "name": "Nonunion workers who would vote for a union (MIT Sloan survey, via Cornell ILR)",
+          "url": "https://www.ilr.cornell.edu/news/research/new-report-analyzes-what-workers-really-want",
+          "passage": "48% of nonunion workers said they would vote for a union if an election was held at their workplace."
+        },
+        "small-business": {
+          "name": "Small employer firms facing financial challenges (Federal Reserve Small Business Credit Survey)",
+          "url": "https://fred.stlouisfed.org/series/SBCSS10B0V0FRB",
+          "passage": "Small Business Credit Survey: Experienced at Least One Financial Challenge: Employer Firms: 94 percent (2025)"
+        }
+      }
+    },
+    "211": {
+      "name": "United Way 211: 2025 impact snapshot, top referral categories",
+      "url": "https://www.unitedway.org/211Data",
+      "accessed": "2026-10-19",
+      "note": "No 211 report found ranks employment among top needs; the national snapshot lists income support seventh.",
+      "entries": {
+        "income-support": {
+          "name": "Income support and financial assistance (#7)",
+          "passage": "Referrals for income support and financial assistance"
+        }
+      }
+    }
+  }
+}
