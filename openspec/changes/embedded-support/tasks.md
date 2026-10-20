@@ -40,7 +40,7 @@ Prerequisites: `required-signup-gate` merged (migration `006_signup_gate`, heade
 
 ## 6. Support link, moments and accessibility
 
-- [ ] 6.1 Add the persistent "Support It" link to the footer (large screens) and the signed-in menu from `required-signup-gate`; verify it appears only when signed in
+- [ ] 6.1 Point the Support entry in the shared link list from `public-pages` (`apps/app/src/navigation/site-links.ts`) at the embedded Support page; it is already signed-in only; verify it appears in the footer and menu only when signed in
 - [ ] 6.2 Emit `support-reached`, `support-completed` and `support-skipped` through the existing emitter with no payload; verify a unit test that each fires once and carries no amount or cadence
 - [ ] 6.3 Accessibility pass: radio-group keyboard behaviour and announced selection, focus to step 2 heading, live-region status, reduced motion, non-colour selection cues; verify with a keyboard-only e2e and an accessibility audit of both steps
 

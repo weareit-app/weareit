@@ -12,7 +12,7 @@ import { appFonts } from "../src/theme/fonts";
 import { useIsDark, useThemeStore } from "../src/state/theme-store";
 import { applyColorScheme } from "../src/theme/apply-color-scheme";
 import { StatusBarBackdrop } from "../src/components/status-bar-backdrop";
-import { ThemeSwitchCorner } from "../src/components/theme-switch";
+import { CornerControls } from "../src/components/corner-controls";
 
 export default function RootLayout() {
   // Loaded synchronously here so static web rendering embeds the fonts in
@@ -49,7 +49,7 @@ export default function RootLayout() {
       <StatusBar style={isDark ? "light" : "dark"} />
       <Stack screenOptions={{ headerShown: false, animation: "fade" }} />
       <StatusBarBackdrop />
-      <ThemeSwitchCorner />
+      <CornerControls />
     </QueryClientProvider>
   );
 }

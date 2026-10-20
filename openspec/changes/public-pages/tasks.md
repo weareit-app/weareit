@@ -4,12 +4,12 @@ Builds after `required-signup-gate` task 5.1 (menu button and Account). Essays p
 
 ## 1. Link list, footer and menu
 
-- [ ] 1.1 Add the typed link list (groups, label, href, `always`/`signed-in`, `webOnly`, published flag) and verify with a unit test that empty groups are dropped and `signed-in` links are hidden when signed out
-- [ ] 1.2 Build the large-screen footer from the list (four groups plus the Privacy · FAQ · Licensing · email line) on every page; verify in the web preview at desktop width, signed out and signed in
+- [x] 1.1 Add the typed link list (groups, label, href, `always`/`signed-in`, `webOnly`, published flag) and verify with a unit test that empty groups are dropped and `signed-in` links are hidden when signed out
+- [x] 1.2 Build the large-screen footer from the list (four groups plus the Privacy · FAQ · Licensing · email line) on every page; verify in the web preview at desktop width, signed out and signed in
 - [ ] 1.3 Extend the menu to signed-out small screens with the same groups, "Sign in" when signed out and Account when signed in; verify at phone width in the web preview and in the iOS simulator
 - [ ] 1.4 Accessibility: labelled navigation landmark, menu `aria-expanded`, focus in and out, Escape closes, reduced motion; verify by keyboard-only and VoiceOver passes
 - [ ] 1.5 Open `webOnly` links on iOS with `expo-web-browser` (`expo install`, pinned and recorded in `dependency-policy.md`); verify in the simulator that closing returns to the same screen with picks unchanged
-- [ ] 1.6 Rewrite the link tasks in `full-privacy-page` (2.2), `embedded-support` (6.1) and `help-build-it` (3.4) as "add an entry to the link list"; verify with `openspec validate --all`
+- [x] 1.6 Rewrite the link tasks in `full-privacy-page` (2.2), `embedded-support` (6.1) and `help-build-it` (3.4) as "add an entry to the link list"; verify with `openspec validate --all`
 
 ## 2. Essay pipeline
 
