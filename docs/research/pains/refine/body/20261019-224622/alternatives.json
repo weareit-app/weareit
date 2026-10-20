@@ -1,0 +1,16 @@
+{
+  "alternatives": {
+    "not-built-for-me": [
+      {"name": "Disability", "line": "Places and services aren't built for my disability.", "why": "\"I can't access things I need\" could be about money or distance; this says what the ID names, that the world isn't built for someone like me."},
+      {"name": "Access", "line": "Buildings, websites and services shut me out because of my disability.", "why": "Names concrete places people get shut out of, and gives an area-style label like the rest of the heading."}
+    ],
+    "always-tired": [
+      {"name": "Tired", "line": "I'm worn out all day, even when I've slept.", "why": "Separates daytime exhaustion from Sleep, so someone who sleeps fine but is still drained knows this one is theirs."},
+      {"name": "Energy", "line": "I'm tired all the time.", "why": "Keeps the plain line and makes the name an area like Sleep, Fitness and Diet, so the heading doesn't mix problems and areas."}
+    ],
+    "health-runs-my-life": [
+      {"name": "Health condition", "line": "I'm living with a condition that limits me.", "why": "Keeps the line and turns the label into an area, matching Sleep, Fitness, Healthcare and Diet."},
+      {"name": "Illness", "line": "A long-term illness shapes most of my days.", "why": "Closer to what the ID names, health running my life, while staying plain and making clear it's ongoing, not a passing cold."}
+    ]
+  }
+}

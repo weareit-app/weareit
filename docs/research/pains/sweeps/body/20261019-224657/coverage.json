@@ -1,0 +1,918 @@
+{
+  "schemaVersion": 1,
+  "target": 0.9,
+  "lists": {
+    "whoqol-bref": {
+      "name": "WHOQOL-BREF: physical health and health-care items",
+      "url": "https://file.go.gov.sg/sectorevaluationframework-tools-whoqol-bref.pdf",
+      "accessed": "2026-10-19",
+      "entries": 10,
+      "covered": 6,
+      "share": 0.6,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "q3",
+          "name": "Q3 Pain stops you doing what you need to do",
+          "painId": "chronic-pain",
+          "why": "Pain: \"I hurt most days.\""
+        },
+        {
+          "entry": "q4",
+          "name": "Q4 Need for medical treatment to function",
+          "painId": "health-runs-my-life",
+          "why": "Illness: \"I'm living with a condition that limits me.\" Needing treatment to get through the day is part of it."
+        },
+        {
+          "entry": "q10",
+          "name": "Q10 Energy for everyday life",
+          "painId": "always-tired",
+          "why": "Tired: \"I'm tired all the time.\""
+        },
+        {
+          "entry": "q16",
+          "name": "Q16 Sleep",
+          "painId": "poor-sleep",
+          "why": "Sleep: \"I don't sleep well.\""
+        },
+        {
+          "entry": "q18",
+          "name": "Q18 Capacity for work",
+          "painId": "health-runs-my-life",
+          "why": "Illness: \"I'm living with a condition that limits me.\" Health limiting work is part of it."
+        },
+        {
+          "entry": "q24",
+          "name": "Q24 Access to health services",
+          "painId": "cant-get-care",
+          "why": "Healthcare: \"I can't see a doctor when I need one.\""
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "q2",
+          "name": "Q2 Satisfaction with health",
+          "url": "https://file.go.gov.sg/sectorevaluationframework-tools-whoqol-bref.pdf",
+          "reason": "covered by a broader pain: health-runs-my-life"
+        },
+        {
+          "entry": "q11",
+          "name": "Q11 Accepting your bodily appearance",
+          "url": "https://file.go.gov.sg/sectorevaluationframework-tools-whoqol-bref.pdf",
+          "reason": "waiting for review: body-image"
+        },
+        {
+          "entry": "q15",
+          "name": "Q15 Getting around",
+          "url": "https://file.go.gov.sg/sectorevaluationframework-tools-whoqol-bref.pdf",
+          "reason": "waiting for review: mobility"
+        },
+        {
+          "entry": "q17",
+          "name": "Q17 Daily living activities",
+          "url": "https://file.go.gov.sg/sectorevaluationframework-tools-whoqol-bref.pdf",
+          "reason": "waiting for review: daily-tasks"
+        }
+      ]
+    },
+    "ihme-gbd-2021": {
+      "name": "IHME Global Burden of Disease 2021: 25 leading causes of disease burden (DALYs), global",
+      "url": "https://www.healthdata.org/news-events/newsroom/news-releases/health-improvements-occurred-worldwide-2010-despite-covid-19",
+      "accessed": "2026-10-19",
+      "entries": 25,
+      "covered": 15,
+      "share": 0.6,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "ischemic-heart-disease",
+          "name": "Ischemic heart disease",
+          "painId": "health-runs-my-life",
+          "why": "Illness: \"I'm living with a condition that limits me.\" A long-term disease people live with."
+        },
+        {
+          "entry": "stroke",
+          "name": "Stroke",
+          "painId": "health-runs-my-life",
+          "why": "Illness: \"I'm living with a condition that limits me.\" A long-term disease people live with."
+        },
+        {
+          "entry": "copd",
+          "name": "Chronic obstructive pulmonary disease",
+          "painId": "health-runs-my-life",
+          "why": "Illness: \"I'm living with a condition that limits me.\" A long-term disease people live with."
+        },
+        {
+          "entry": "diabetes",
+          "name": "Diabetes mellitus",
+          "painId": "health-runs-my-life",
+          "why": "Illness: \"I'm living with a condition that limits me.\" A long-term disease people live with."
+        },
+        {
+          "entry": "low-back-pain",
+          "name": "Low back pain",
+          "painId": "chronic-pain",
+          "why": "Pain: \"I hurt most days.\" Low back pain is the leading cause of years lived with disability."
+        },
+        {
+          "entry": "congenital",
+          "name": "Congenital birth defects",
+          "painId": "health-runs-my-life",
+          "why": "Illness: \"I'm living with a condition that limits me.\" A long-term disease people live with."
+        },
+        {
+          "entry": "depressive",
+          "name": "Depressive disorders",
+          "painId": "feeling-down",
+          "why": "Depression (Mind): \"I feel low most days.\""
+        },
+        {
+          "entry": "cirrhosis",
+          "name": "Cirrhosis and other chronic liver diseases",
+          "painId": "health-runs-my-life",
+          "why": "Illness: \"I'm living with a condition that limits me.\" A long-term disease people live with."
+        },
+        {
+          "entry": "musculoskeletal",
+          "name": "Other musculoskeletal disorders",
+          "painId": "chronic-pain",
+          "why": "Pain: \"I hurt most days.\""
+        },
+        {
+          "entry": "lung-cancer",
+          "name": "Tracheal, bronchus, and lung cancer",
+          "painId": "health-runs-my-life",
+          "why": "Illness: \"I'm living with a condition that limits me.\" A long-term disease people live with."
+        },
+        {
+          "entry": "ckd",
+          "name": "Chronic kidney disease",
+          "painId": "health-runs-my-life",
+          "why": "Illness: \"I'm living with a condition that limits me.\" A long-term disease people live with."
+        },
+        {
+          "entry": "hearing-loss",
+          "name": "Age-related and other hearing loss",
+          "painId": "seeing-hearing",
+          "why": "Senses: \"I can't see or hear like I used to.\""
+        },
+        {
+          "entry": "anxiety",
+          "name": "Anxiety disorders",
+          "painId": "anxiety",
+          "why": "Anxiety (Mind): \"I worry too much.\""
+        },
+        {
+          "entry": "hiv",
+          "name": "HIV/AIDS",
+          "painId": "health-runs-my-life",
+          "why": "Illness: \"I'm living with a condition that limits me.\" A long-term disease people live with."
+        },
+        {
+          "entry": "dementias",
+          "name": "Alzheimer’s disease and other dementias",
+          "painId": "health-runs-my-life",
+          "why": "Illness: \"I'm living with a condition that limits me.\" A long-term disease people live with."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "neonatal",
+          "name": "Neonatal disorders",
+          "url": "https://www.healthdata.org/news-events/newsroom/news-releases/health-improvements-occurred-worldwide-2010-despite-covid-19",
+          "reason": "out of scope: newborn health; a parent's worry belongs under Kids or Parenting, not a pain about one's own body"
+        },
+        {
+          "entry": "covid-19",
+          "name": "COVID-19",
+          "url": "https://www.healthdata.org/news-events/newsroom/news-releases/health-improvements-occurred-worldwide-2010-despite-covid-19",
+          "reason": "covered by a broader pain: health-runs-my-life"
+        },
+        {
+          "entry": "lower-respiratory",
+          "name": "Lower respiratory infections",
+          "url": "https://www.healthdata.org/news-events/newsroom/news-releases/health-improvements-occurred-worldwide-2010-despite-covid-19",
+          "reason": "covered by a broader pain: health-runs-my-life"
+        },
+        {
+          "entry": "diarrheal",
+          "name": "Diarrheal diseases",
+          "url": "https://www.healthdata.org/news-events/newsroom/news-releases/health-improvements-occurred-worldwide-2010-despite-covid-19",
+          "reason": "out of scope: mostly a water and sanitation burden in low-income countries; a societal concern, not a personal body pain in It's launch market"
+        },
+        {
+          "entry": "road-injuries",
+          "name": "Road injuries",
+          "url": "https://www.healthdata.org/news-events/newsroom/news-releases/health-improvements-occurred-worldwide-2010-despite-covid-19",
+          "reason": "waiting for review: injury"
+        },
+        {
+          "entry": "malaria",
+          "name": "Malaria",
+          "url": "https://www.healthdata.org/news-events/newsroom/news-releases/health-improvements-occurred-worldwide-2010-despite-covid-19",
+          "reason": "out of scope: not endemic where It launches; a societal or global health concern"
+        },
+        {
+          "entry": "headache",
+          "name": "Headache disorders",
+          "url": "https://www.healthdata.org/news-events/newsroom/news-releases/health-improvements-occurred-worldwide-2010-despite-covid-19",
+          "reason": "waiting for review: headaches"
+        },
+        {
+          "entry": "tuberculosis",
+          "name": "Tuberculosis",
+          "url": "https://www.healthdata.org/news-events/newsroom/news-releases/health-improvements-occurred-worldwide-2010-despite-covid-19",
+          "reason": "covered by a broader pain: health-runs-my-life"
+        },
+        {
+          "entry": "falls",
+          "name": "Falls",
+          "url": "https://www.healthdata.org/news-events/newsroom/news-releases/health-improvements-occurred-worldwide-2010-despite-covid-19",
+          "reason": "waiting for review: injury"
+        },
+        {
+          "entry": "iron-deficiency",
+          "name": "Dietary iron deficiency",
+          "url": "https://www.healthdata.org/news-events/newsroom/news-releases/health-improvements-occurred-worldwide-2010-despite-covid-19",
+          "reason": "covered by a broader pain: eating-badly"
+        }
+      ]
+    },
+    "who-deaths-2023": {
+      "name": "WHO: leading causes of death globally, 2023",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/the-top-10-causes-of-death",
+      "accessed": "2026-10-19",
+      "entries": 8,
+      "covered": 7,
+      "share": 0.875,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "ischaemic-heart-disease",
+          "name": "Ischaemic heart disease",
+          "painId": "health-runs-my-life",
+          "why": "Illness: \"I'm living with a condition that limits me.\" A long-term disease people live with."
+        },
+        {
+          "entry": "stroke",
+          "name": "Stroke",
+          "painId": "health-runs-my-life",
+          "why": "Illness: \"I'm living with a condition that limits me.\" A long-term disease people live with."
+        },
+        {
+          "entry": "copd",
+          "name": "Chronic obstructive pulmonary disease",
+          "painId": "health-runs-my-life",
+          "why": "Illness: \"I'm living with a condition that limits me.\" A long-term disease people live with."
+        },
+        {
+          "entry": "dementias",
+          "name": "Alzheimer's disease and other dementias",
+          "painId": "health-runs-my-life",
+          "why": "Illness: \"I'm living with a condition that limits me.\" A long-term disease people live with."
+        },
+        {
+          "entry": "diabetes",
+          "name": "Diabetes",
+          "painId": "health-runs-my-life",
+          "why": "Illness: \"I'm living with a condition that limits me.\" A long-term disease people live with."
+        },
+        {
+          "entry": "lung-cancer",
+          "name": "Trachea, bronchus and lung cancers",
+          "painId": "health-runs-my-life",
+          "why": "Illness: \"I'm living with a condition that limits me.\" A long-term disease people live with."
+        },
+        {
+          "entry": "kidney",
+          "name": "Kidney diseases",
+          "painId": "health-runs-my-life",
+          "why": "Illness: \"I'm living with a condition that limits me.\" A long-term disease people live with."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "lower-respiratory",
+          "name": "Lower respiratory infections",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/the-top-10-causes-of-death",
+          "reason": "covered by a broader pain: health-runs-my-life"
+        }
+      ]
+    },
+    "sdg-goal3": {
+      "name": "UN SDG Goal 3 targets (good health and well-being)",
+      "url": "https://sdgs.un.org/goals/goal3",
+      "accessed": "2026-10-19",
+      "entries": 13,
+      "covered": 6,
+      "share": 0.462,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "3.4",
+          "name": "3.4 Reduce premature mortality from non-communicable diseases",
+          "painId": "health-runs-my-life",
+          "why": "Illness: \"I'm living with a condition that limits me.\" Non-communicable diseases are the long-term conditions it names."
+        },
+        {
+          "entry": "3.5",
+          "name": "3.5 Prevention and treatment of substance abuse",
+          "painId": "drinking-too-much",
+          "why": "Addiction: \"I can't stop something that's hurting me.\""
+        },
+        {
+          "entry": "3.7",
+          "name": "3.7 Universal access to sexual and reproductive health-care services",
+          "painId": "womens-health",
+          "why": "Hormones: reproductive health; fertility is proposed separately."
+        },
+        {
+          "entry": "3.8",
+          "name": "3.8 Universal health coverage",
+          "painId": "cant-get-care",
+          "why": "Healthcare: \"I can't see a doctor when I need one.\""
+        },
+        {
+          "entry": "3.9",
+          "name": "3.9 Reduce deaths and illnesses from hazardous chemicals and pollution",
+          "painId": "dirty-air",
+          "why": "Pollution (societal): \"I see pollution harming where I live.\""
+        },
+        {
+          "entry": "3.a",
+          "name": "3.a Tobacco control",
+          "painId": "drinking-too-much",
+          "why": "Addiction covers smoking: \"I can't stop something that's hurting me.\""
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "3.1",
+          "name": "3.1 Reduce maternal mortality",
+          "url": "https://sdgs.un.org/goals/goal3",
+          "reason": "covered by a broader pain: cant-get-care"
+        },
+        {
+          "entry": "3.2",
+          "name": "3.2 End preventable deaths of newborns and children under 5",
+          "url": "https://sdgs.un.org/goals/goal3",
+          "reason": "out of scope: child and newborn deaths; a societal Kids or Health concern, not a pain an adult names about their own body"
+        },
+        {
+          "entry": "3.3",
+          "name": "3.3 End epidemics of AIDS, tuberculosis, malaria and neglected tropical diseases",
+          "url": "https://sdgs.un.org/goals/goal3",
+          "reason": "out of scope: epidemic control is a societal health goal; living with HIV is covered by Illness"
+        },
+        {
+          "entry": "3.6",
+          "name": "3.6 Halve deaths and injuries from road traffic accidents",
+          "url": "https://sdgs.un.org/goals/goal3",
+          "reason": "waiting for review: injury"
+        },
+        {
+          "entry": "3.b",
+          "name": "3.b Access to affordable essential medicines and vaccines",
+          "url": "https://sdgs.un.org/goals/goal3",
+          "reason": "waiting for review: medicine-costs"
+        },
+        {
+          "entry": "3.c",
+          "name": "3.c Health financing and health workforce",
+          "url": "https://sdgs.un.org/goals/goal3",
+          "reason": "covered by a broader pain: cant-get-care"
+        },
+        {
+          "entry": "3.d",
+          "name": "3.d Early warning and management of national and global health risks",
+          "url": "https://sdgs.un.org/goals/goal3",
+          "reason": "out of scope: national preparedness for health emergencies; a government or societal concern, not a personal body pain"
+        }
+      ]
+    },
+    "oecd-wellbeing": {
+      "name": "OECD Well-being Framework: Health dimension and its indicators",
+      "url": "https://www.oecd.org/en/topics/sub-issues/measuring-well-being-and-progress/oecd-well-being-framework.html",
+      "accessed": "2026-10-19",
+      "entries": 5,
+      "covered": 2,
+      "share": 0.4,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "perceived-health",
+          "name": "Perceived health (share reporting good or very good health)",
+          "painId": "health-runs-my-life",
+          "why": "Illness: \"I'm living with a condition that limits me.\" Rating your own health as poor."
+        },
+        {
+          "entry": "depressive-symptoms",
+          "name": "Depressive symptoms",
+          "painId": "feeling-down",
+          "why": "Depression (Mind): \"I feel low most days.\""
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "health",
+          "name": "Health (dimension)",
+          "url": "https://www.oecd.org/en/topics/sub-issues/measuring-well-being-and-progress/oecd-well-being-framework.html",
+          "reason": "covered by a broader pain: health-runs-my-life"
+        },
+        {
+          "entry": "life-expectancy",
+          "name": "Life expectancy at birth",
+          "url": "https://www.oecd.org/en/topics/sub-issues/measuring-well-being-and-progress/oecd-well-being-framework.html",
+          "reason": "out of scope: a population outcome, not a pain a person names; the conditions behind it are covered by Illness"
+        },
+        {
+          "entry": "deaths-of-despair",
+          "name": "Deaths of despair (suicide, acute alcohol abuse and drug overdose)",
+          "url": "https://www.healthpopuli.com/2024/11/07/hows-life-around-the-world-in-the-u-s-its-the-sadness-that-stands-out/",
+          "reason": "covered by a broader pain: drinking-too-much"
+        }
+      ]
+    },
+    "maxneef": {
+      "name": "Max-Neef's fundamental human needs",
+      "url": "https://en.wikipedia.org/wiki/Manfred_Max-Neef%27s_Fundamental_human_needs",
+      "accessed": "2026-10-19",
+      "entries": 2,
+      "covered": 2,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "subsistence",
+          "name": "Subsistence",
+          "painId": "health-runs-my-life",
+          "why": "Physical health is the first \"being\" satisfier of Subsistence; Illness covers it."
+        },
+        {
+          "entry": "protection",
+          "name": "Protection",
+          "painId": "cant-get-care",
+          "why": "Health systems are a \"having\" satisfier of Protection; Healthcare covers it."
+        }
+      ],
+      "uncovered": []
+    },
+    "gallup-elements": {
+      "name": "Gallup's five elements of wellbeing",
+      "url": "https://www.gallup.com/workplace/237020/five-essential-elements.aspx",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 1,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "physical",
+          "name": "Physical wellbeing",
+          "painId": "always-tired",
+          "why": "Tired covers the \"enough energy to get things done\" half; the health half sits under Illness."
+        }
+      ],
+      "uncovered": []
+    },
+    "gallup-mip": {
+      "name": "Gallup: most important problem facing the country, health-related rows (September 2026)",
+      "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+      "accessed": "2026-10-19",
+      "entries": 4,
+      "covered": 3,
+      "share": 0.75,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "healthcare",
+          "name": "Healthcare",
+          "painId": "cant-get-care",
+          "why": "Healthcare: \"I can't see a doctor when I need one.\""
+        },
+        {
+          "entry": "drugs",
+          "name": "Drugs",
+          "painId": "addiction-here",
+          "why": "Drugs (societal): \"I'm losing people I know to drugs.\""
+        },
+        {
+          "entry": "diseases",
+          "name": "Cancer/diseases/viruses",
+          "painId": "health-runs-my-life",
+          "why": "Illness: \"I'm living with a condition that limits me.\""
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "elderly-medicare",
+          "name": "Care for the elderly/Medicare",
+          "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+          "reason": "covered by a broader pain: older-people-alone"
+        }
+      ]
+    },
+    "ipsos-www": {
+      "name": "Ipsos What Worries the World: healthcare",
+      "url": "https://www.ipsos.com/en/what-worries-world",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 1,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "healthcare",
+          "name": "Healthcare",
+          "painId": "cant-get-care",
+          "why": "Healthcare: \"I can't see a doctor when I need one.\""
+        }
+      ],
+      "uncovered": []
+    },
+    "cdc-health": {
+      "name": "CDC and NCHS: U.S. adult health statistics (chronic pain, disability, chronic disease, obesity, sleep)",
+      "url": "https://www.cdc.gov/",
+      "accessed": "2026-10-19",
+      "entries": 13,
+      "covered": 7,
+      "share": 0.538,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "chronic-pain",
+          "name": "Chronic pain",
+          "painId": "chronic-pain",
+          "why": "Pain: \"I hurt most days.\""
+        },
+        {
+          "entry": "high-impact-pain",
+          "name": "High-impact chronic pain (frequently limits life or work)",
+          "painId": "chronic-pain",
+          "why": "Pain: \"I hurt most days.\""
+        },
+        {
+          "entry": "any-disability",
+          "name": "Any disability",
+          "painId": "not-built-for-me",
+          "why": "Disability: \"I can't access things I need.\""
+        },
+        {
+          "entry": "hearing",
+          "name": "Hearing disability",
+          "painId": "seeing-hearing",
+          "why": "Senses: \"I can't see or hear like I used to.\""
+        },
+        {
+          "entry": "vision",
+          "name": "Vision disability",
+          "painId": "seeing-hearing",
+          "why": "Senses: \"I can't see or hear like I used to.\""
+        },
+        {
+          "entry": "chronic-conditions",
+          "name": "At least one chronic condition",
+          "painId": "health-runs-my-life",
+          "why": "Illness: \"I'm living with a condition that limits me.\""
+        },
+        {
+          "entry": "insufficient-sleep",
+          "name": "Not getting enough sleep",
+          "painId": "poor-sleep",
+          "why": "Sleep: \"I don't sleep well.\""
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "cognition",
+          "name": "Cognition disability",
+          "url": "https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html",
+          "reason": "out of scope: Mind scope; proposed as `memory` by the mind sweep 20261019-224657"
+        },
+        {
+          "entry": "mobility",
+          "name": "Mobility disability",
+          "url": "https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html",
+          "reason": "waiting for review: mobility"
+        },
+        {
+          "entry": "independent-living",
+          "name": "Independent living disability",
+          "url": "https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html",
+          "reason": "waiting for review: daily-tasks"
+        },
+        {
+          "entry": "self-care",
+          "name": "Self-care disability",
+          "url": "https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html",
+          "reason": "waiting for review: daily-tasks"
+        },
+        {
+          "entry": "obesity",
+          "name": "Obesity",
+          "url": "https://www.cdc.gov/obesity/adult-obesity-facts/index.html",
+          "reason": "waiting for review: weight"
+        },
+        {
+          "entry": "severe-obesity",
+          "name": "Severe obesity",
+          "url": "https://www.cdc.gov/obesity/adult-obesity-facts/index.html",
+          "reason": "waiting for review: weight"
+        }
+      ]
+    },
+    "kff-health-care": {
+      "name": "KFF polls: health care costs, insurance problems and treatment by providers",
+      "url": "https://www.kff.org/health-costs/issue-brief/americans-challenges-with-health-care-costs/",
+      "accessed": "2026-10-19",
+      "entries": 9,
+      "covered": 3,
+      "share": 0.333,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "hard-to-afford",
+          "name": "Difficult to afford health care costs",
+          "painId": "one-illness-away",
+          "why": "Medical bills (societal): \"I worry about what healthcare will cost me.\""
+        },
+        {
+          "entry": "worried-afford",
+          "name": "Worried about affording health care",
+          "painId": "one-illness-away",
+          "why": "Medical bills (societal): \"I worry about what healthcare will cost me.\""
+        },
+        {
+          "entry": "skipped-care",
+          "name": "Skipped or postponed needed care because of cost",
+          "painId": "cant-get-care",
+          "why": "Healthcare: \"I can't see a doctor when I need one.\""
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "not-filled-rx",
+          "name": "Did not fill a prescription because of cost",
+          "url": "https://www.kff.org/health-costs/issue-brief/americans-challenges-with-health-care-costs/",
+          "reason": "waiting for review: medicine-costs"
+        },
+        {
+          "entry": "cut-pills",
+          "name": "Cut pills in half or skipped doses because of cost",
+          "url": "https://www.kff.org/health-costs/issue-brief/americans-challenges-with-health-care-costs/",
+          "reason": "waiting for review: medicine-costs"
+        },
+        {
+          "entry": "medical-debt",
+          "name": "Debt from medical or dental bills",
+          "url": "https://www.kff.org/health-costs/issue-brief/americans-challenges-with-health-care-costs/",
+          "reason": "covered by a broader pain: debt"
+        },
+        {
+          "entry": "insurance-problems",
+          "name": "Problems when using health insurance",
+          "url": "https://www.kff.org/affordable-care-act/consumer-survey-highlights-problems-with-denied-health-insurance-claims/",
+          "reason": "waiting for review: insurance-denials"
+        },
+        {
+          "entry": "denied-claims",
+          "name": "Denied insurance claims",
+          "url": "https://www.kff.org/affordable-care-act/consumer-survey-highlights-problems-with-denied-health-insurance-claims/",
+          "reason": "waiting for review: insurance-denials"
+        },
+        {
+          "entry": "negative-provider",
+          "name": "Negative experiences with a health care provider (ignored, blamed, assumptions made)",
+          "url": "https://www.kff.org/racial-equity-and-health-policy/survey-on-racism-discrimination-and-health/",
+          "reason": "waiting for review: not-listened-to"
+        }
+      ]
+    },
+    "who-fact-sheets": {
+      "name": "WHO fact sheets: common conditions (hearing, vision, oral health, infertility, headache)",
+      "url": "https://www.who.int/news-room/fact-sheets",
+      "accessed": "2026-10-19",
+      "entries": 5,
+      "covered": 3,
+      "share": 0.6,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "hearing-loss",
+          "name": "Hearing loss",
+          "painId": "seeing-hearing",
+          "why": "Senses: \"I can't see or hear like I used to.\""
+        },
+        {
+          "entry": "vision-impairment",
+          "name": "Vision impairment",
+          "painId": "seeing-hearing",
+          "why": "Senses: \"I can't see or hear like I used to.\""
+        },
+        {
+          "entry": "oral-disease",
+          "name": "Oral diseases",
+          "painId": "teeth",
+          "why": "Teeth: \"I can't afford the dentist.\""
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "infertility",
+          "name": "Infertility",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/infertility",
+          "reason": "waiting for review: fertility"
+        },
+        {
+          "entry": "headache-disorders",
+          "name": "Headache disorders",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/headache-disorders",
+          "reason": "waiting for review: headaches"
+        }
+      ]
+    },
+    "mhf-body-image-2019": {
+      "name": "Mental Health Foundation (UK) body image survey, 2019",
+      "url": "https://www.mentalhealth.org.uk/about-us/news/1-8-adults-have-experienced-suicidal-thoughts-or-feelings-due-body-image",
+      "accessed": "2026-10-19",
+      "entries": 2,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "shame",
+          "name": "Felt shame because of body image",
+          "url": "https://www.mentalhealth.org.uk/about-us/news/1-8-adults-have-experienced-suicidal-thoughts-or-feelings-due-body-image",
+          "reason": "waiting for review: body-image"
+        },
+        {
+          "entry": "suicidal-thoughts",
+          "name": "Suicidal thoughts or feelings because of body image",
+          "url": "https://www.mentalhealth.org.uk/about-us/news/1-8-adults-have-experienced-suicidal-thoughts-or-feelings-due-body-image",
+          "reason": "waiting for review: body-image"
+        }
+      ]
+    },
+    "wikidata": {
+      "name": "Wikidata items for body pains",
+      "url": "https://www.wikidata.org/",
+      "accessed": "2026-10-19",
+      "entries": 24,
+      "covered": 13,
+      "share": 0.542,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "Q1869874",
+          "name": "insomnia",
+          "painId": "poor-sleep",
+          "why": "The concept behind this pain (insomnia)."
+        },
+        {
+          "entry": "Q309252",
+          "name": "physical fitness",
+          "painId": "out-of-shape",
+          "why": "The concept behind this pain (physical fitness)."
+        },
+        {
+          "entry": "Q9690",
+          "name": "fatigue",
+          "painId": "always-tired",
+          "why": "The concept behind this pain (fatigue)."
+        },
+        {
+          "entry": "Q383126",
+          "name": "chronic condition",
+          "painId": "health-runs-my-life",
+          "why": "The concept behind this pain (chronic condition)."
+        },
+        {
+          "entry": "Q1088113",
+          "name": "chronic pain",
+          "painId": "chronic-pain",
+          "why": "The concept behind this pain (chronic pain)."
+        },
+        {
+          "entry": "Q852163",
+          "name": "lower back pain",
+          "painId": "chronic-pain",
+          "why": "The concept behind this pain (lower back pain)."
+        },
+        {
+          "entry": "Q177708",
+          "name": "menopause",
+          "painId": "womens-health",
+          "why": "The concept behind this pain (menopause)."
+        },
+        {
+          "entry": "Q16035842",
+          "name": "hearing loss",
+          "painId": "seeing-hearing",
+          "why": "The concept behind this pain (hearing loss)."
+        },
+        {
+          "entry": "Q737460",
+          "name": "visual impairment",
+          "painId": "seeing-hearing",
+          "why": "The concept behind this pain (visual impairment)."
+        },
+        {
+          "entry": "Q67075251",
+          "name": "health services accessibility",
+          "painId": "cant-get-care",
+          "why": "The concept behind this pain (health services accessibility)."
+        },
+        {
+          "entry": "Q133772",
+          "name": "dental caries",
+          "painId": "teeth",
+          "why": "The concept behind this pain (dental caries)."
+        },
+        {
+          "entry": "Q5906358",
+          "name": "healthy diet",
+          "painId": "eating-badly",
+          "why": "The concept behind this pain (healthy diet)."
+        },
+        {
+          "entry": "Q12131",
+          "name": "disability",
+          "painId": "not-built-for-me",
+          "why": "The concept behind this pain (disability)."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "Q179399",
+          "name": "infertility",
+          "url": "https://www.wikidata.org/wiki/Q179399",
+          "reason": "waiting for review: fertility"
+        },
+        {
+          "entry": "Q15733239",
+          "name": "body image",
+          "url": "https://www.wikidata.org/wiki/Q15733239",
+          "reason": "waiting for review: body-image"
+        },
+        {
+          "entry": "Q133823",
+          "name": "migraine",
+          "url": "https://www.wikidata.org/wiki/Q133823",
+          "reason": "waiting for review: headaches"
+        },
+        {
+          "entry": "Q67841409",
+          "name": "headache disorder",
+          "url": "https://www.wikidata.org/wiki/Q67841409",
+          "reason": "waiting for review: headaches"
+        },
+        {
+          "entry": "Q193078",
+          "name": "injury",
+          "url": "https://www.wikidata.org/wiki/Q193078",
+          "reason": "waiting for review: injury"
+        },
+        {
+          "entry": "Q333495",
+          "name": "falling",
+          "url": "https://www.wikidata.org/wiki/Q333495",
+          "reason": "waiting for review: injury"
+        },
+        {
+          "entry": "Q3317681",
+          "name": "mobility disability",
+          "url": "https://www.wikidata.org/wiki/Q3317681",
+          "reason": "waiting for review: mobility"
+        },
+        {
+          "entry": "Q423243",
+          "name": "activities of daily living",
+          "url": "https://www.wikidata.org/wiki/Q423243",
+          "reason": "waiting for review: daily-tasks"
+        },
+        {
+          "entry": "Q7240898",
+          "name": "prescription drug prices in the United States",
+          "url": "https://www.wikidata.org/wiki/Q7240898",
+          "reason": "waiting for review: medicine-costs"
+        },
+        {
+          "entry": "Q12174",
+          "name": "obesity",
+          "url": "https://www.wikidata.org/wiki/Q12174",
+          "reason": "waiting for review: weight"
+        },
+        {
+          "entry": "Q989365",
+          "name": "memory loss",
+          "url": "https://www.wikidata.org/wiki/Q989365",
+          "reason": "out of scope: Mind scope; proposed as `memory` by the mind sweep 20261019-224657"
+        }
+      ]
+    }
+  },
+  "issues": [],
+  "checkedAt": "2026-10-19"
+}

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "scope": "body",
+  "issues": [
+    {
+      "painId": "out-of-shape",
+      "rule": "id-mismatch",
+      "detail": "ID out-of-shape, name \"Fitness\" and line \"I don't feel as fit or active as I'd like.\" share no word; propose a rewording only if the wording has drifted from what the ID names",
+      "severity": "note"
+    },
+    {
+      "painId": "health-runs-my-life",
+      "rule": "id-mismatch",
+      "detail": "ID health-runs-my-life, name \"Illness\" and line \"I'm living with a condition that limits me.\" share no word; propose a rewording only if the wording has drifted from what the ID names",
+      "severity": "note"
+    },
+    {
+      "painId": "womens-health",
+      "rule": "id-mismatch",
+      "detail": "ID womens-health, name \"Hormones\" and line \"I lose days every month to my cycle or menopause.\" share no word; propose a rewording only if the wording has drifted from what the ID names",
+      "severity": "note"
+    },
+    {
+      "painId": "cant-get-care",
+      "rule": "id-mismatch",
+      "detail": "ID cant-get-care, name \"Healthcare\" and line \"I can't see a doctor when I need one.\" share no word; propose a rewording only if the wording has drifted from what the ID names",
+      "severity": "note"
+    },
+    {
+      "painId": "eating-badly",
+      "rule": "id-mismatch",
+      "detail": "ID eating-badly, name \"Diet\" and line \"I don't eat the way I want to.\" share no word; propose a rewording only if the wording has drifted from what the ID names",
+      "severity": "note"
+    },
+    {
+      "painId": "not-built-for-me",
+      "rule": "id-mismatch",
+      "detail": "ID not-built-for-me, name \"Disability\" and line \"I can't access things I need.\" share no word; propose a rewording only if the wording has drifted from what the ID names",
+      "severity": "note"
+    },
+    {
+      "painId": "*",
+      "group": "body",
+      "rule": "mixed-labels",
+      "severity": "fail",
+      "detail": "Body mixes problem labels and area labels; pick one style for the heading"
+    }
+  ],
+  "failing": [],
+  "checkedAt": "2026-10-19"
+}

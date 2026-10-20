@@ -1,0 +1,601 @@
+{
+  "schemaVersion": 1,
+  "lists": {
+    "whoqol-bref": {
+      "name": "WHOQOL-BREF: physical health and health-care items",
+      "url": "https://file.go.gov.sg/sectorevaluationframework-tools-whoqol-bref.pdf",
+      "accessed": "2026-10-19",
+      "entries": {
+        "q2": {
+          "name": "Q2 Satisfaction with health",
+          "passage": "A2 Is he/she satisfied with his/her health?"
+        },
+        "q3": {
+          "name": "Q3 Pain stops you doing what you need to do",
+          "passage": "A3 Does (physical) pain stop him/her from doing what he/she needs to do?"
+        },
+        "q4": {
+          "name": "Q4 Need for medical treatment to function",
+          "passage": "A4 Does he/she need any medical treatment to help him/her in his/her daily life?"
+        },
+        "q10": {
+          "name": "Q10 Energy for everyday life",
+          "passage": "A10 Do you have enough energy for everyday life?"
+        },
+        "q11": {
+          "name": "Q11 Accepting your bodily appearance",
+          "passage": "A11 Are you able to accept your bodily appearance?"
+        },
+        "q15": {
+          "name": "Q15 Getting around",
+          "passage": "A15 How well are you able to get around?"
+        },
+        "q16": {
+          "name": "Q16 Sleep",
+          "passage": "A16 How satisfied are you with your sleep?"
+        },
+        "q17": {
+          "name": "Q17 Daily living activities",
+          "passage": "A17 How satisfied are you with your ability to perform your daily living activities?"
+        },
+        "q18": {
+          "name": "Q18 Capacity for work",
+          "passage": "A18 How satisfied are you with your capacity for work?"
+        },
+        "q24": {
+          "name": "Q24 Access to health services",
+          "passage": "A24 How satisfied are you with your access to health and social services?"
+        }
+      }
+    },
+    "ihme-gbd-2021": {
+      "name": "IHME Global Burden of Disease 2021: 25 leading causes of disease burden (DALYs), global",
+      "url": "https://www.healthdata.org/news-events/newsroom/news-releases/health-improvements-occurred-worldwide-2010-despite-covid-19",
+      "accessed": "2026-10-19",
+      "entries": {
+        "neonatal": {
+          "name": "Neonatal disorders",
+          "passage": "1 Neonatal disorders 2,940"
+        },
+        "covid-19": {
+          "name": "COVID-19",
+          "passage": "2 COVID-19 2,500"
+        },
+        "ischemic-heart-disease": {
+          "name": "Ischemic heart disease",
+          "passage": "3 Ischemic heart disease 2,210"
+        },
+        "stroke": {
+          "name": "Stroke",
+          "passage": "4 Stroke 1,890"
+        },
+        "lower-respiratory": {
+          "name": "Lower respiratory infections",
+          "passage": "5 Lower respiratory infections 1,170"
+        },
+        "copd": {
+          "name": "Chronic obstructive pulmonary disease",
+          "passage": "6 Chronic obstructive pulmonary disease 941"
+        },
+        "diabetes": {
+          "name": "Diabetes mellitus",
+          "passage": "7 Diabetes mellitus 916"
+        },
+        "diarrheal": {
+          "name": "Diarrheal diseases",
+          "passage": "8 Diarrheal diseases 838"
+        },
+        "low-back-pain": {
+          "name": "Low back pain",
+          "passage": "9 Low back pain 832"
+        },
+        "road-injuries": {
+          "name": "Road injuries",
+          "passage": "10 Road injuries 809"
+        },
+        "malaria": {
+          "name": "Malaria",
+          "passage": "11 Malaria 807"
+        },
+        "congenital": {
+          "name": "Congenital birth defects",
+          "passage": "12 Congenital birth defects 802"
+        },
+        "depressive": {
+          "name": "Depressive disorders",
+          "passage": "13 Depressive disorders 681"
+        },
+        "headache": {
+          "name": "Headache disorders",
+          "passage": "14 Headache disorders 588"
+        },
+        "tuberculosis": {
+          "name": "Tuberculosis",
+          "passage": "15 Tuberculosis 580"
+        },
+        "cirrhosis": {
+          "name": "Cirrhosis and other chronic liver diseases",
+          "passage": "16 Cirrhosis and other chronic liver diseases 545"
+        },
+        "musculoskeletal": {
+          "name": "Other musculoskeletal disorders",
+          "passage": "17 Other musculoskeletal disorders 534"
+        },
+        "lung-cancer": {
+          "name": "Tracheal, bronchus, and lung cancer",
+          "passage": "18 Tracheal, bronchus, and lung cancer 533"
+        },
+        "falls": {
+          "name": "Falls",
+          "passage": "19 Falls 531"
+        },
+        "ckd": {
+          "name": "Chronic kidney disease",
+          "passage": "20 Chronic kidney disease 530"
+        },
+        "hearing-loss": {
+          "name": "Age-related and other hearing loss",
+          "passage": "21 Age-related and other hearing loss 526"
+        },
+        "anxiety": {
+          "name": "Anxiety disorders",
+          "passage": "22 Anxiety disorders 524"
+        },
+        "hiv": {
+          "name": "HIV/AIDS",
+          "passage": "23 HIV/AIDS 497"
+        },
+        "dementias": {
+          "name": "Alzheimer’s disease and other dementias",
+          "passage": "24 Alzheimer’s disease and other dementias 451"
+        },
+        "iron-deficiency": {
+          "name": "Dietary iron deficiency",
+          "passage": "25 Dietary iron deficiency 424"
+        }
+      }
+    },
+    "who-deaths-2023": {
+      "name": "WHO: leading causes of death globally, 2023",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/the-top-10-causes-of-death",
+      "accessed": "2026-10-19",
+      "entries": {
+        "ischaemic-heart-disease": {
+          "name": "Ischaemic heart disease",
+          "passage": "Ischaemic heart disease: 9.5 million deaths (16% of total)"
+        },
+        "stroke": {
+          "name": "Stroke"
+        },
+        "copd": {
+          "name": "Chronic obstructive pulmonary disease"
+        },
+        "lower-respiratory": {
+          "name": "Lower respiratory infections"
+        },
+        "dementias": {
+          "name": "Alzheimer's disease and other dementias"
+        },
+        "diabetes": {
+          "name": "Diabetes"
+        },
+        "lung-cancer": {
+          "name": "Trachea, bronchus and lung cancers"
+        },
+        "kidney": {
+          "name": "Kidney diseases"
+        }
+      }
+    },
+    "sdg-goal3": {
+      "name": "UN SDG Goal 3 targets (good health and well-being)",
+      "url": "https://sdgs.un.org/goals/goal3",
+      "accessed": "2026-10-19",
+      "entries": {
+        "3.1": {
+          "name": "3.1 Reduce maternal mortality",
+          "passage": "By 2030, reduce the global maternal mortality ratio to less than 70 per 100,000 live births"
+        },
+        "3.2": {
+          "name": "3.2 End preventable deaths of newborns and children under 5"
+        },
+        "3.3": {
+          "name": "3.3 End epidemics of AIDS, tuberculosis, malaria and neglected tropical diseases"
+        },
+        "3.4": {
+          "name": "3.4 Reduce premature mortality from non-communicable diseases",
+          "passage": "By 2030, reduce by one third premature mortality from non-communicable diseases"
+        },
+        "3.5": {
+          "name": "3.5 Prevention and treatment of substance abuse",
+          "passage": "Strengthen the prevention and treatment of substance abuse, including narcotic drug abuse and harmful use of alcohol"
+        },
+        "3.6": {
+          "name": "3.6 Halve deaths and injuries from road traffic accidents",
+          "passage": "By 2020, halve the number of global deaths and injuries from road traffic accidents"
+        },
+        "3.7": {
+          "name": "3.7 Universal access to sexual and reproductive health-care services"
+        },
+        "3.8": {
+          "name": "3.8 Universal health coverage",
+          "passage": "Achieve universal health coverage, including financial risk protection,"
+        },
+        "3.9": {
+          "name": "3.9 Reduce deaths and illnesses from hazardous chemicals and pollution"
+        },
+        "3.a": {
+          "name": "3.a Tobacco control"
+        },
+        "3.b": {
+          "name": "3.b Access to affordable essential medicines and vaccines",
+          "passage": "provide access to affordable essential medicines and vaccines,"
+        },
+        "3.c": {
+          "name": "3.c Health financing and health workforce"
+        },
+        "3.d": {
+          "name": "3.d Early warning and management of national and global health risks"
+        }
+      }
+    },
+    "oecd-wellbeing": {
+      "name": "OECD Well-being Framework: Health dimension and its indicators",
+      "url": "https://www.oecd.org/en/topics/sub-issues/measuring-well-being-and-progress/oecd-well-being-framework.html",
+      "accessed": "2026-10-19",
+      "entries": {
+        "health": {
+          "name": "Health (dimension)"
+        },
+        "life-expectancy": {
+          "name": "Life expectancy at birth"
+        },
+        "perceived-health": {
+          "name": "Perceived health (share reporting good or very good health)"
+        },
+        "depressive-symptoms": {
+          "name": "Depressive symptoms"
+        },
+        "deaths-of-despair": {
+          "name": "Deaths of despair (suicide, acute alcohol abuse and drug overdose)",
+          "url": "https://www.healthpopuli.com/2024/11/07/hows-life-around-the-world-in-the-u-s-its-the-sadness-that-stands-out/",
+          "passage": "the rate of Deaths of Despair approached about 40 per 100,000 population"
+        }
+      }
+    },
+    "maxneef": {
+      "name": "Max-Neef's fundamental human needs",
+      "url": "https://en.wikipedia.org/wiki/Manfred_Max-Neef%27s_Fundamental_human_needs",
+      "accessed": "2026-10-19",
+      "entries": {
+        "subsistence": {
+          "name": "Subsistence",
+          "passage": "physical health, mental health, equilibrium, adaptability"
+        },
+        "protection": {
+          "name": "Protection",
+          "passage": "insurance systems, savings, social security, health systems, rights, family, work"
+        }
+      }
+    },
+    "gallup-elements": {
+      "name": "Gallup's five elements of wellbeing",
+      "url": "https://www.gallup.com/workplace/237020/five-essential-elements.aspx",
+      "accessed": "2026-10-19",
+      "entries": {
+        "physical": {
+          "name": "Physical wellbeing",
+          "passage": "having good health and enough energy to get things done on a daily basis"
+        }
+      }
+    },
+    "gallup-mip": {
+      "name": "Gallup: most important problem facing the country, health-related rows (September 2026)",
+      "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+      "accessed": "2026-10-19",
+      "entries": {
+        "healthcare": {
+          "name": "Healthcare",
+          "passage": "Healthcare 3 4 4 3 2 3 3"
+        },
+        "drugs": {
+          "name": "Drugs",
+          "passage": "Drugs * * * 1 1 * *"
+        },
+        "diseases": {
+          "name": "Cancer/diseases/viruses",
+          "passage": "Cancer/diseases/viruses * * * * * -- --"
+        },
+        "elderly-medicare": {
+          "name": "Care for the elderly/Medicare",
+          "passage": "Care for the elderly/Medicare * * * * 1 -- --"
+        }
+      }
+    },
+    "ipsos-www": {
+      "name": "Ipsos What Worries the World: healthcare",
+      "url": "https://www.ipsos.com/en/what-worries-world",
+      "accessed": "2026-10-19",
+      "entries": {
+        "healthcare": {
+          "name": "Healthcare",
+          "passage": "28% of Americans are worried about healthcare – up 4pp from August"
+        }
+      }
+    },
+    "cdc-health": {
+      "name": "CDC and NCHS: U.S. adult health statistics (chronic pain, disability, chronic disease, obesity, sleep)",
+      "url": "https://www.cdc.gov/",
+      "accessed": "2026-10-19",
+      "entries": {
+        "chronic-pain": {
+          "name": "Chronic pain",
+          "url": "https://www.cdc.gov/nchs/products/databriefs/db518.htm",
+          "passage": "In 2023, 24.3% of adults had chronic pain"
+        },
+        "high-impact-pain": {
+          "name": "High-impact chronic pain (frequently limits life or work)",
+          "url": "https://www.cdc.gov/nchs/products/databriefs/db518.htm",
+          "passage": "8.5% of adults had chronic pain that frequently limited life or work"
+        },
+        "any-disability": {
+          "name": "Any disability",
+          "url": "https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html",
+          "passage": "More than 1 in 4 U.S. adults have some type of disability."
+        },
+        "cognition": {
+          "name": "Cognition disability",
+          "url": "https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html",
+          "passage": "Cognition - 13.9%"
+        },
+        "mobility": {
+          "name": "Mobility disability",
+          "url": "https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html",
+          "passage": "mobility - 12.2%"
+        },
+        "independent-living": {
+          "name": "Independent living disability",
+          "url": "https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html",
+          "passage": "independent living - 7.7%"
+        },
+        "hearing": {
+          "name": "Hearing disability",
+          "url": "https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html",
+          "passage": "hearing - 6.2%"
+        },
+        "vision": {
+          "name": "Vision disability",
+          "url": "https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html",
+          "passage": "vision - 5.5%"
+        },
+        "self-care": {
+          "name": "Self-care disability",
+          "url": "https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html",
+          "passage": "self-care - 3.6%"
+        },
+        "chronic-conditions": {
+          "name": "At least one chronic condition",
+          "url": "https://www.cdc.gov/chronic-disease/about/index.html",
+          "passage": "Three in four American adults have at least one chronic condition, and over half have two or more chronic conditions."
+        },
+        "obesity": {
+          "name": "Obesity",
+          "url": "https://www.cdc.gov/obesity/adult-obesity-facts/index.html",
+          "passage": "The prevalence of obesity among U.S. adults 20 and over was 41.9% during 2017–March 2020."
+        },
+        "severe-obesity": {
+          "name": "Severe obesity",
+          "url": "https://www.cdc.gov/obesity/adult-obesity-facts/index.html",
+          "passage": "During the same time, the prevalence of severe obesity among U.S. adults was 9.2%."
+        },
+        "insufficient-sleep": {
+          "name": "Not getting enough sleep",
+          "url": "https://www.cdc.gov/sleep/data-research/facts-stats/adults-sleep-facts-and-stats.html",
+          "passage": "In 2022, it ranged from 30% of adults in Vermont to 46% adults in Hawaii."
+        }
+      }
+    },
+    "kff-health-care": {
+      "name": "KFF polls: health care costs, insurance problems and treatment by providers",
+      "url": "https://www.kff.org/health-costs/issue-brief/americans-challenges-with-health-care-costs/",
+      "accessed": "2026-10-19",
+      "entries": {
+        "hard-to-afford": {
+          "name": "Difficult to afford health care costs",
+          "url": "https://www.kff.org/health-costs/issue-brief/americans-challenges-with-health-care-costs/",
+          "passage": "very or somewhat difficult for them to afford their health care costs (44%)"
+        },
+        "worried-afford": {
+          "name": "Worried about affording health care",
+          "url": "https://www.kff.org/health-costs/issue-brief/americans-challenges-with-health-care-costs/",
+          "passage": "about six in ten saying they are \"very\" (27%) or \"somewhat worried\" (35%)"
+        },
+        "skipped-care": {
+          "name": "Skipped or postponed needed care because of cost",
+          "url": "https://www.kff.org/health-costs/issue-brief/americans-challenges-with-health-care-costs/",
+          "passage": "Roughly three in ten adults (28%) say that they have skipped or postponed getting needed health care"
+        },
+        "not-filled-rx": {
+          "name": "Did not fill a prescription because of cost",
+          "url": "https://www.kff.org/health-costs/issue-brief/americans-challenges-with-health-care-costs/",
+          "passage": "a quarter (27%) who have not filled a prescription"
+        },
+        "cut-pills": {
+          "name": "Cut pills in half or skipped doses because of cost",
+          "url": "https://www.kff.org/health-costs/issue-brief/americans-challenges-with-health-care-costs/",
+          "passage": "one in five (19%) who have cut pills in half or skipped doses of medicine because of the cost"
+        },
+        "medical-debt": {
+          "name": "Debt from medical or dental bills",
+          "url": "https://www.kff.org/health-costs/issue-brief/americans-challenges-with-health-care-costs/",
+          "passage": "In 2022, about four in ten adults (41%) reported having debt due to medical or dental bills"
+        },
+        "insurance-problems": {
+          "name": "Problems when using health insurance",
+          "url": "https://www.kff.org/affordable-care-act/consumer-survey-highlights-problems-with-denied-health-insurance-claims/",
+          "passage": "roughly 6 in 10 insured adults experience problems when they use their insurance."
+        },
+        "denied-claims": {
+          "name": "Denied insurance claims",
+          "url": "https://www.kff.org/affordable-care-act/consumer-survey-highlights-problems-with-denied-health-insurance-claims/",
+          "passage": "found that 18% of insured adults say they experienced denied claims in the past year."
+        },
+        "negative-provider": {
+          "name": "Negative experiences with a health care provider (ignored, blamed, assumptions made)",
+          "url": "https://www.kff.org/racial-equity-and-health-policy/survey-on-racism-discrimination-and-health/",
+          "passage": "A third of adults overall report at least one of several negative experiences with a health care provider"
+        }
+      }
+    },
+    "who-fact-sheets": {
+      "name": "WHO fact sheets: common conditions (hearing, vision, oral health, infertility, headache)",
+      "url": "https://www.who.int/news-room/fact-sheets",
+      "accessed": "2026-10-19",
+      "entries": {
+        "hearing-loss": {
+          "name": "Hearing loss",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss",
+          "passage": "By 2050, nearly 2.5 billion people are projected to have some degree of hearing loss"
+        },
+        "vision-impairment": {
+          "name": "Vision impairment",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/blindness-and-visual-impairment",
+          "passage": "Globally, at least 2.2 billion people have a near or distance vision impairment."
+        },
+        "oral-disease": {
+          "name": "Oral diseases",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/oral-health",
+          "passage": "It is estimated that oral diseases affect nearly 3.7 billion people."
+        },
+        "infertility": {
+          "name": "Infertility",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/infertility",
+          "passage": "Estimates suggest that approximately one in every six people of reproductive age worldwide experience infertility"
+        },
+        "headache-disorders": {
+          "name": "Headache disorders",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/headache-disorders",
+          "passage": "headache disorders affect approximately 40% of the population, or 3.1 billion people in 2021"
+        }
+      }
+    },
+    "mhf-body-image-2019": {
+      "name": "Mental Health Foundation (UK) body image survey, 2019",
+      "url": "https://www.mentalhealth.org.uk/about-us/news/1-8-adults-have-experienced-suicidal-thoughts-or-feelings-due-body-image",
+      "accessed": "2026-10-19",
+      "entries": {
+        "shame": {
+          "name": "Felt shame because of body image",
+          "passage": "one in five (20 per cent) said they had felt \"shame\" because of their body image in the last year."
+        },
+        "suicidal-thoughts": {
+          "name": "Suicidal thoughts or feelings because of body image",
+          "passage": "Just over one in eight UK adults (13 per cent) have experienced suicidal thoughts or feelings"
+        }
+      }
+    },
+    "wikidata": {
+      "name": "Wikidata items for body pains",
+      "url": "https://www.wikidata.org/",
+      "accessed": "2026-10-19",
+      "entries": {
+        "Q1869874": {
+          "name": "insomnia",
+          "url": "https://www.wikidata.org/wiki/Q1869874"
+        },
+        "Q309252": {
+          "name": "physical fitness",
+          "url": "https://www.wikidata.org/wiki/Q309252"
+        },
+        "Q9690": {
+          "name": "fatigue",
+          "url": "https://www.wikidata.org/wiki/Q9690"
+        },
+        "Q383126": {
+          "name": "chronic condition",
+          "url": "https://www.wikidata.org/wiki/Q383126"
+        },
+        "Q1088113": {
+          "name": "chronic pain",
+          "url": "https://www.wikidata.org/wiki/Q1088113"
+        },
+        "Q852163": {
+          "name": "lower back pain",
+          "url": "https://www.wikidata.org/wiki/Q852163"
+        },
+        "Q177708": {
+          "name": "menopause",
+          "url": "https://www.wikidata.org/wiki/Q177708"
+        },
+        "Q16035842": {
+          "name": "hearing loss",
+          "url": "https://www.wikidata.org/wiki/Q16035842"
+        },
+        "Q737460": {
+          "name": "visual impairment",
+          "url": "https://www.wikidata.org/wiki/Q737460"
+        },
+        "Q67075251": {
+          "name": "health services accessibility",
+          "url": "https://www.wikidata.org/wiki/Q67075251"
+        },
+        "Q133772": {
+          "name": "dental caries",
+          "url": "https://www.wikidata.org/wiki/Q133772"
+        },
+        "Q5906358": {
+          "name": "healthy diet",
+          "url": "https://www.wikidata.org/wiki/Q5906358"
+        },
+        "Q12131": {
+          "name": "disability",
+          "url": "https://www.wikidata.org/wiki/Q12131"
+        },
+        "Q179399": {
+          "name": "infertility",
+          "url": "https://www.wikidata.org/wiki/Q179399"
+        },
+        "Q15733239": {
+          "name": "body image",
+          "url": "https://www.wikidata.org/wiki/Q15733239"
+        },
+        "Q133823": {
+          "name": "migraine",
+          "url": "https://www.wikidata.org/wiki/Q133823"
+        },
+        "Q67841409": {
+          "name": "headache disorder",
+          "url": "https://www.wikidata.org/wiki/Q67841409"
+        },
+        "Q193078": {
+          "name": "injury",
+          "url": "https://www.wikidata.org/wiki/Q193078"
+        },
+        "Q333495": {
+          "name": "falling",
+          "url": "https://www.wikidata.org/wiki/Q333495"
+        },
+        "Q3317681": {
+          "name": "mobility disability",
+          "url": "https://www.wikidata.org/wiki/Q3317681"
+        },
+        "Q423243": {
+          "name": "activities of daily living",
+          "url": "https://www.wikidata.org/wiki/Q423243"
+        },
+        "Q7240898": {
+          "name": "prescription drug prices in the United States",
+          "url": "https://www.wikidata.org/wiki/Q7240898"
+        },
+        "Q12174": {
+          "name": "obesity",
+          "url": "https://www.wikidata.org/wiki/Q12174"
+        },
+        "Q989365": {
+          "name": "memory loss",
+          "url": "https://www.wikidata.org/wiki/Q989365"
+        }
+      }
+    }
+  }
+}

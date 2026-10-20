@@ -1,0 +1,29 @@
+{
+  "alternatives": {
+    "anxiety": [
+      {"name": "Anxiety", "line": "My mind keeps running through what could go wrong.", "why": "Keeps the worry at the center but says what it looks like in a day, a mind that won't stop rehearsing the worst."},
+      {"name": "Anxiety", "line": "I worry so much that I can't settle, even when things are fine.", "why": "Keeps the original 'I worry' and adds what makes it a pain: the worry stays when nothing is actually wrong."}
+    ],
+    "overwhelmed": [
+      {"name": "Stress", "line": "There's so much on my plate that I can't catch up.", "why": "Says what being overwhelmed looks like day to day, too many things at once, which also sets it apart from Anxiety's worry about what might happen."},
+      {"name": "Overwhelmed", "line": "I have so much going on that I can't think straight.", "why": "Uses the word the ID names and the person's own feeling, and shows the effect: too much at once crowds out clear thinking."}
+    ],
+    "hard-on-myself": [
+      {"name": "Hard on myself", "line": "Whatever I do, I tell myself it isn't good enough.", "why": "Names the problem the way the ID does instead of the area Self-esteem, so the heading reads as problems like Anxiety and Grief, and shows the inner voice in action."},
+      {"name": "Hard on myself", "line": "I'm never good enough for myself.", "why": "Keeps the original line, which people recognize, and only turns the area name Self-esteem into a problem name like the rest of the heading."}
+    ],
+    "cant-focus": [
+      {"name": "Can't focus", "line": "I can't keep my mind on one thing for long.", "why": "Turns the area name Focus into a problem name like the rest of the heading and keeps the original line with a small clarifying ending."}
+    ],
+    "short-fuse": [
+      {"name": "Short fuse", "line": "I snap at people I love over small things.", "why": "Brings the name back to the short fuse the ID names, and adds 'over small things' so it reads as a quick temper, not general anger at something unfair."}
+    ],
+    "feeling-down": [
+      {"name": "Feeling down", "line": "I feel low most days, and nothing seems worth the effort.", "why": "Uses the everyday words the ID names instead of a diagnosis, and says what low days look like, so people who'd never call it depression still recognize it."}
+    ],
+    "drinking-too-much": [
+      {"name": "Addiction", "line": "I can't stop drinking, using or gambling, even though it hurts me.", "why": "Keeps the broad name but says plainly what it is, so people can recognize their own habit instead of guessing what 'something' means."},
+      {"name": "Drinking too much", "line": "I drink more than I want to and can't cut back.", "why": "Brings the wording back to the drinking the ID names, in the person's own words, at the cost of leaving other addictions to their own pains."}
+    ]
+  }
+}

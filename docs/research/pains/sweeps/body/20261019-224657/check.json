@@ -1,0 +1,46 @@
+{
+  "issues": [],
+  "proposed": [
+    {
+      "candidate": "medicine-costs"
+    },
+    {
+      "candidate": "headaches"
+    },
+    {
+      "candidate": "injury"
+    },
+    {
+      "candidate": "body-image"
+    },
+    {
+      "candidate": "weight"
+    },
+    {
+      "candidate": "fertility"
+    },
+    {
+      "candidate": "mobility"
+    },
+    {
+      "candidate": "daily-tasks"
+    },
+    {
+      "candidate": "not-listened-to"
+    },
+    {
+      "candidate": "insurance-denials"
+    }
+  ],
+  "drafts": [
+    {
+      "candidate": "health-upkeep"
+    },
+    {
+      "candidate": "bladder"
+    }
+  ],
+  "skipped": [],
+  "covered": [],
+  "checkedAt": "2026-10-19"
+}

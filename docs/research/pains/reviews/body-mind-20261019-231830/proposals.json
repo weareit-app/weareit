@@ -1,0 +1,2793 @@
+{
+  "schemaVersion": 1,
+  "setId": "body-mind-20261019-231830",
+  "builtAt": "2026-10-19",
+  "runs": [
+    "docs/research/pains/sweeps/body/20261019-224657",
+    "docs/research/pains/refine/body/20261019-224622",
+    "docs/research/pains/sweeps/mind/20261019-224657",
+    "docs/research/pains/refine/mind/20261019-224622"
+  ],
+  "flags": [],
+  "covered": [],
+  "proposals": [
+    {
+      "kind": "add",
+      "painIds": [
+        "medicine-costs"
+      ],
+      "group": "body",
+      "current": null,
+      "proposed": {
+        "name": "Medicine costs",
+        "line": "I skip or stretch my medicine because I can't afford it.",
+        "group": "body",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Medicine costs",
+          "line": "I skip or stretch my medicine because I can't afford it.",
+          "group": "body",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "In a recent KFF poll, 27% of U.S. adults had not filled a prescription and 19% had cut pills in half or skipped doses because of the cost.",
+        "sources": [
+          {
+            "url": "https://www.kff.org/health-costs/issue-brief/americans-challenges-with-health-care-costs/",
+            "accessed": "2026-10-19",
+            "passage": "a quarter (27%) who have not filled a prescription"
+          },
+          {
+            "url": "https://www.kff.org/health-costs/issue-brief/americans-challenges-with-health-care-costs/",
+            "accessed": "2026-10-19",
+            "passage": "one in five (19%) who have cut pills in half or skipped doses of medicine because of the cost"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "medicine-costs",
+          "name": "Medicine costs",
+          "line": "I skip or stretch my medicine because I can't afford it.",
+          "page": "personal",
+          "group": "body",
+          "aliases": [
+            "Prescription costs",
+            "I can't afford my prescriptions."
+          ],
+          "sources": [
+            {
+              "url": "https://www.kff.org/health-costs/issue-brief/americans-challenges-with-health-care-costs/",
+              "accessed": "2026-10-19",
+              "passage": "a quarter (27%) who have not filled a prescription"
+            },
+            {
+              "url": "https://www.kff.org/health-costs/issue-brief/americans-challenges-with-health-care-costs/",
+              "accessed": "2026-10-19",
+              "passage": "one in five (19%) who have cut pills in half or skipped doses of medicine because of the cost"
+            }
+          ],
+          "covers": [
+            {
+              "list": "sdg-goal3",
+              "entry": "3.b"
+            },
+            {
+              "list": "kff-health-care",
+              "entry": "not-filled-rx"
+            },
+            {
+              "list": "kff-health-care",
+              "entry": "cut-pills"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q7240898"
+            }
+          ],
+          "prevalence": "In a recent KFF poll, 27% of U.S. adults had not filled a prescription and 19% had cut pills in half or skipped doses because of the cost."
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/body/20261019-224657",
+      "similar": [
+        {
+          "id": "one-illness-away",
+          "name": "Medical bills",
+          "line": "I worry about what healthcare will cost me."
+        }
+      ],
+      "side": [],
+      "id": "p001"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "headaches"
+      ],
+      "group": "body",
+      "current": null,
+      "proposed": {
+        "name": "Headaches",
+        "line": "I lose days to migraines or bad headaches.",
+        "group": "body",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Headaches",
+          "line": "I lose days to migraines or bad headaches.",
+          "group": "body",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "Headache disorders affect about 40% of people worldwide, 3.1 billion in 2021 (WHO), and rank 14th among causes of disease burden (IHME GBD 2021).",
+        "sources": [
+          {
+            "url": "https://www.who.int/news-room/fact-sheets/detail/headache-disorders",
+            "accessed": "2026-10-19",
+            "passage": "headache disorders affect approximately 40% of the population, or 3.1 billion people in 2021"
+          },
+          {
+            "url": "https://www.healthdata.org/news-events/newsroom/news-releases/health-improvements-occurred-worldwide-2010-despite-covid-19",
+            "accessed": "2026-10-19",
+            "passage": "14 Headache disorders 588"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "headaches",
+          "name": "Headaches",
+          "line": "I lose days to migraines or bad headaches.",
+          "page": "personal",
+          "group": "body",
+          "aliases": [
+            "Migraines"
+          ],
+          "sources": [
+            {
+              "url": "https://www.who.int/news-room/fact-sheets/detail/headache-disorders",
+              "accessed": "2026-10-19",
+              "passage": "headache disorders affect approximately 40% of the population, or 3.1 billion people in 2021"
+            },
+            {
+              "url": "https://www.healthdata.org/news-events/newsroom/news-releases/health-improvements-occurred-worldwide-2010-despite-covid-19",
+              "accessed": "2026-10-19",
+              "passage": "14 Headache disorders 588"
+            }
+          ],
+          "covers": [
+            {
+              "list": "who-fact-sheets",
+              "entry": "headache-disorders"
+            },
+            {
+              "list": "ihme-gbd-2021",
+              "entry": "headache"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q133823"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q67841409"
+            }
+          ],
+          "prevalence": "Headache disorders affect about 40% of people worldwide, 3.1 billion in 2021 (WHO), and rank 14th among causes of disease burden (IHME GBD 2021)."
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/body/20261019-224657",
+      "similar": [
+        {
+          "id": "womens-health",
+          "name": "Hormones",
+          "line": "I lose days every month to my cycle or menopause."
+        }
+      ],
+      "side": [],
+      "id": "p002"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "injury"
+      ],
+      "group": "body",
+      "current": null,
+      "proposed": {
+        "name": "Injury",
+        "line": "I got hurt, and my body still hasn't recovered.",
+        "group": "body",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Injury",
+          "line": "I got hurt, and my body still hasn't recovered.",
+          "group": "body",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "Road injuries rank 10th and falls 19th among global causes of disease burden (IHME Global Burden of Disease study).",
+        "sources": [
+          {
+            "url": "https://www.healthdata.org/news-events/newsroom/news-releases/health-improvements-occurred-worldwide-2010-despite-covid-19",
+            "accessed": "2026-10-19",
+            "passage": "10 Road injuries 809"
+          },
+          {
+            "url": "https://www.healthdata.org/news-events/newsroom/news-releases/health-improvements-occurred-worldwide-2010-despite-covid-19",
+            "accessed": "2026-10-19",
+            "passage": "19 Falls 531"
+          },
+          {
+            "url": "https://sdgs.un.org/goals/goal3",
+            "accessed": "2026-10-19",
+            "passage": "By 2020, halve the number of global deaths and injuries from road traffic accidents"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "injury",
+          "name": "Injury",
+          "line": "I got hurt, and my body still hasn't recovered.",
+          "page": "personal",
+          "group": "body",
+          "aliases": [
+            "Recovering from an injury"
+          ],
+          "sources": [
+            {
+              "url": "https://www.healthdata.org/news-events/newsroom/news-releases/health-improvements-occurred-worldwide-2010-despite-covid-19",
+              "accessed": "2026-10-19",
+              "passage": "10 Road injuries 809"
+            },
+            {
+              "url": "https://www.healthdata.org/news-events/newsroom/news-releases/health-improvements-occurred-worldwide-2010-despite-covid-19",
+              "accessed": "2026-10-19",
+              "passage": "19 Falls 531"
+            },
+            {
+              "url": "https://sdgs.un.org/goals/goal3",
+              "accessed": "2026-10-19",
+              "passage": "By 2020, halve the number of global deaths and injuries from road traffic accidents"
+            }
+          ],
+          "covers": [
+            {
+              "list": "sdg-goal3",
+              "entry": "3.6"
+            },
+            {
+              "list": "ihme-gbd-2021",
+              "entry": "road-injuries"
+            },
+            {
+              "list": "ihme-gbd-2021",
+              "entry": "falls"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q193078"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q333495"
+            }
+          ],
+          "prevalence": "Road injuries rank 10th and falls 19th among global causes of disease burden (IHME Global Burden of Disease study)."
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/body/20261019-224657",
+      "similar": [
+        {
+          "id": "chronic-pain",
+          "name": "Pain",
+          "line": "I hurt most days."
+        }
+      ],
+      "side": [],
+      "id": "p003"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "body-image"
+      ],
+      "group": "body",
+      "current": null,
+      "proposed": {
+        "name": "Body image",
+        "line": "I don't like how my body looks.",
+        "group": "body",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Body image",
+          "line": "I don't like how my body looks.",
+          "group": "body",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "In a UK survey, 20 per cent of adults had felt shame because of their body image in the last year, and 13 per cent had suicidal thoughts or feelings because of it (Mental Health Foundation).",
+        "sources": [
+          {
+            "url": "https://www.mentalhealth.org.uk/about-us/news/1-8-adults-have-experienced-suicidal-thoughts-or-feelings-due-body-image",
+            "accessed": "2026-10-19",
+            "passage": "one in five (20 per cent) said they had felt \"shame\" because of their body image in the last year."
+          },
+          {
+            "url": "https://www.mentalhealth.org.uk/about-us/news/1-8-adults-have-experienced-suicidal-thoughts-or-feelings-due-body-image",
+            "accessed": "2026-10-19",
+            "passage": "Just over one in eight UK adults (13 per cent) have experienced suicidal thoughts or feelings"
+          },
+          {
+            "url": "https://file.go.gov.sg/sectorevaluationframework-tools-whoqol-bref.pdf",
+            "accessed": "2026-10-19",
+            "passage": "A11 Are you able to accept your bodily appearance?"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "body-image",
+          "name": "Body image",
+          "line": "I don't like how my body looks.",
+          "page": "personal",
+          "group": "body",
+          "aliases": [
+            "Unhappy with my body",
+            "I'm ashamed of my body."
+          ],
+          "sources": [
+            {
+              "url": "https://www.mentalhealth.org.uk/about-us/news/1-8-adults-have-experienced-suicidal-thoughts-or-feelings-due-body-image",
+              "accessed": "2026-10-19",
+              "passage": "one in five (20 per cent) said they had felt \"shame\" because of their body image in the last year."
+            },
+            {
+              "url": "https://www.mentalhealth.org.uk/about-us/news/1-8-adults-have-experienced-suicidal-thoughts-or-feelings-due-body-image",
+              "accessed": "2026-10-19",
+              "passage": "Just over one in eight UK adults (13 per cent) have experienced suicidal thoughts or feelings"
+            },
+            {
+              "url": "https://file.go.gov.sg/sectorevaluationframework-tools-whoqol-bref.pdf",
+              "accessed": "2026-10-19",
+              "passage": "A11 Are you able to accept your bodily appearance?"
+            }
+          ],
+          "covers": [
+            {
+              "list": "whoqol-bref",
+              "entry": "q11"
+            },
+            {
+              "list": "mhf-body-image-2019",
+              "entry": "shame"
+            },
+            {
+              "list": "mhf-body-image-2019",
+              "entry": "suicidal-thoughts"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q15733239"
+            }
+          ],
+          "prevalence": "In a UK survey, 20 per cent of adults had felt shame because of their body image in the last year, and 13 per cent had suicidal thoughts or feelings because of it (Mental Health Foundation)."
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/body/20261019-224657",
+      "twins": [
+        {
+          "id": "eating-and-body-image",
+          "name": "Eating and body image",
+          "line": "I can't stop obsessing over food, my weight or how my body looks.",
+          "origin": "docs/research/pains/sweeps/mind/20261019-224657"
+        }
+      ],
+      "side": [],
+      "id": "p004"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "weight"
+      ],
+      "group": "body",
+      "current": null,
+      "proposed": {
+        "name": "Weight",
+        "line": "My weight gets in the way of how I want to live.",
+        "group": "body",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Weight",
+          "line": "My weight gets in the way of how I want to live.",
+          "group": "body",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "41.9% of U.S. adults had obesity and 9.2% severe obesity in 2017–March 2020 (CDC).",
+        "sources": [
+          {
+            "url": "https://www.cdc.gov/obesity/adult-obesity-facts/index.html",
+            "accessed": "2026-10-19",
+            "passage": "The prevalence of obesity among U.S. adults 20 and over was 41.9% during 2017–March 2020."
+          },
+          {
+            "url": "https://www.cdc.gov/obesity/adult-obesity-facts/index.html",
+            "accessed": "2026-10-19",
+            "passage": "During the same time, the prevalence of severe obesity among U.S. adults was 9.2%."
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "weight",
+          "name": "Weight",
+          "line": "My weight gets in the way of how I want to live.",
+          "page": "personal",
+          "group": "body",
+          "aliases": [
+            "Obesity"
+          ],
+          "sources": [
+            {
+              "url": "https://www.cdc.gov/obesity/adult-obesity-facts/index.html",
+              "accessed": "2026-10-19",
+              "passage": "The prevalence of obesity among U.S. adults 20 and over was 41.9% during 2017–March 2020."
+            },
+            {
+              "url": "https://www.cdc.gov/obesity/adult-obesity-facts/index.html",
+              "accessed": "2026-10-19",
+              "passage": "During the same time, the prevalence of severe obesity among U.S. adults was 9.2%."
+            }
+          ],
+          "covers": [
+            {
+              "list": "cdc-health",
+              "entry": "obesity"
+            },
+            {
+              "list": "cdc-health",
+              "entry": "severe-obesity"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q12174"
+            }
+          ],
+          "prevalence": "41.9% of U.S. adults had obesity and 9.2% severe obesity in 2017–March 2020 (CDC)."
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/body/20261019-224657",
+      "similar": [
+        {
+          "id": "eating-badly",
+          "name": "Diet",
+          "line": "I don't eat the way I want to."
+        }
+      ],
+      "side": [],
+      "id": "p005"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "fertility"
+      ],
+      "group": "body",
+      "current": null,
+      "proposed": {
+        "name": "Fertility",
+        "line": "I've been trying to have a baby, and it isn't happening.",
+        "group": "body",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Fertility",
+          "line": "I've been trying to have a baby, and it isn't happening.",
+          "group": "body",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "About one in every six people of reproductive age worldwide experience infertility (WHO).",
+        "sources": [
+          {
+            "url": "https://www.who.int/news-room/fact-sheets/detail/infertility",
+            "accessed": "2026-10-19",
+            "passage": "Estimates suggest that approximately one in every six people of reproductive age worldwide experience infertility"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "fertility",
+          "name": "Fertility",
+          "line": "I've been trying to have a baby, and it isn't happening.",
+          "page": "personal",
+          "group": "body",
+          "aliases": [
+            "Infertility"
+          ],
+          "sources": [
+            {
+              "url": "https://www.who.int/news-room/fact-sheets/detail/infertility",
+              "accessed": "2026-10-19",
+              "passage": "Estimates suggest that approximately one in every six people of reproductive age worldwide experience infertility"
+            }
+          ],
+          "covers": [
+            {
+              "list": "who-fact-sheets",
+              "entry": "infertility"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q179399"
+            }
+          ],
+          "prevalence": "About one in every six people of reproductive age worldwide experience infertility (WHO)."
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/body/20261019-224657",
+      "side": [],
+      "id": "p006"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "mobility"
+      ],
+      "group": "body",
+      "current": null,
+      "proposed": {
+        "name": "Mobility",
+        "line": "I can't walk or get around as easily as I need to.",
+        "group": "body",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Mobility",
+          "line": "I can't walk or get around as easily as I need to.",
+          "group": "body",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "12.2% of U.S. adults have a mobility disability (CDC).",
+        "sources": [
+          {
+            "url": "https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html",
+            "accessed": "2026-10-19",
+            "passage": "mobility - 12.2%"
+          },
+          {
+            "url": "https://file.go.gov.sg/sectorevaluationframework-tools-whoqol-bref.pdf",
+            "accessed": "2026-10-19",
+            "passage": "A15 How well are you able to get around?"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "mobility",
+          "name": "Mobility",
+          "line": "I can't walk or get around as easily as I need to.",
+          "page": "personal",
+          "group": "body",
+          "aliases": [
+            "Trouble walking",
+            "I have trouble walking or climbing stairs."
+          ],
+          "sources": [
+            {
+              "url": "https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html",
+              "accessed": "2026-10-19",
+              "passage": "mobility - 12.2%"
+            },
+            {
+              "url": "https://file.go.gov.sg/sectorevaluationframework-tools-whoqol-bref.pdf",
+              "accessed": "2026-10-19",
+              "passage": "A15 How well are you able to get around?"
+            }
+          ],
+          "covers": [
+            {
+              "list": "whoqol-bref",
+              "entry": "q15"
+            },
+            {
+              "list": "cdc-health",
+              "entry": "mobility"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q3317681"
+            }
+          ],
+          "prevalence": "12.2% of U.S. adults have a mobility disability (CDC)."
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/body/20261019-224657",
+      "side": [],
+      "id": "p007"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "daily-tasks"
+      ],
+      "group": "body",
+      "current": null,
+      "proposed": {
+        "name": "Everyday tasks",
+        "line": "I need help with everyday things like bathing, dressing or cooking.",
+        "group": "body",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Everyday tasks",
+          "line": "I need help with everyday things like bathing, dressing or cooking.",
+          "group": "body",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "7.7% of U.S. adults have an independent-living disability and 3.6% a self-care disability (CDC).",
+        "sources": [
+          {
+            "url": "https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html",
+            "accessed": "2026-10-19",
+            "passage": "independent living - 7.7%"
+          },
+          {
+            "url": "https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html",
+            "accessed": "2026-10-19",
+            "passage": "self-care - 3.6%"
+          },
+          {
+            "url": "https://file.go.gov.sg/sectorevaluationframework-tools-whoqol-bref.pdf",
+            "accessed": "2026-10-19",
+            "passage": "A17 How satisfied are you with your ability to perform your daily living activities?"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "daily-tasks",
+          "name": "Everyday tasks",
+          "line": "I need help with everyday things like bathing, dressing or cooking.",
+          "page": "personal",
+          "group": "body",
+          "aliases": [
+            "Help at home",
+            "Independent living"
+          ],
+          "sources": [
+            {
+              "url": "https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html",
+              "accessed": "2026-10-19",
+              "passage": "independent living - 7.7%"
+            },
+            {
+              "url": "https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html",
+              "accessed": "2026-10-19",
+              "passage": "self-care - 3.6%"
+            },
+            {
+              "url": "https://file.go.gov.sg/sectorevaluationframework-tools-whoqol-bref.pdf",
+              "accessed": "2026-10-19",
+              "passage": "A17 How satisfied are you with your ability to perform your daily living activities?"
+            }
+          ],
+          "covers": [
+            {
+              "list": "whoqol-bref",
+              "entry": "q17"
+            },
+            {
+              "list": "cdc-health",
+              "entry": "independent-living"
+            },
+            {
+              "list": "cdc-health",
+              "entry": "self-care"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q423243"
+            }
+          ],
+          "prevalence": "7.7% of U.S. adults have an independent-living disability and 3.6% a self-care disability (CDC)."
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/body/20261019-224657",
+      "side": [],
+      "id": "p008"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "not-listened-to"
+      ],
+      "group": "body",
+      "current": null,
+      "proposed": {
+        "name": "Doctors don't listen",
+        "line": "I don't feel listened to or believed by my doctors.",
+        "group": "body",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Doctors don't listen",
+          "line": "I don't feel listened to or believed by my doctors.",
+          "group": "body",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "A third of U.S. adults report at least one negative experience with a health care provider, such as being ignored or blamed (KFF).",
+        "sources": [
+          {
+            "url": "https://www.kff.org/racial-equity-and-health-policy/survey-on-racism-discrimination-and-health/",
+            "accessed": "2026-10-19",
+            "passage": "A third of adults overall report at least one of several negative experiences with a health care provider"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "not-listened-to",
+          "name": "Doctors don't listen",
+          "line": "I don't feel listened to or believed by my doctors.",
+          "page": "personal",
+          "group": "body",
+          "aliases": [
+            "Not taken seriously by doctors"
+          ],
+          "sources": [
+            {
+              "url": "https://www.kff.org/racial-equity-and-health-policy/survey-on-racism-discrimination-and-health/",
+              "accessed": "2026-10-19",
+              "passage": "A third of adults overall report at least one of several negative experiences with a health care provider"
+            }
+          ],
+          "covers": [
+            {
+              "list": "kff-health-care",
+              "entry": "negative-provider"
+            }
+          ],
+          "prevalence": "A third of U.S. adults report at least one negative experience with a health care provider, such as being ignored or blamed (KFF)."
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/body/20261019-224657",
+      "side": [],
+      "id": "p009"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "insurance-denials"
+      ],
+      "group": "body",
+      "current": null,
+      "proposed": {
+        "name": "Insurance denials",
+        "line": "I have to fight my insurance to cover care I need.",
+        "group": "body",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Insurance denials",
+          "line": "I have to fight my insurance to cover care I need.",
+          "group": "body",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "18% of insured U.S. adults had a denied claim in the past year, and roughly 6 in 10 had problems using their insurance (KFF).",
+        "sources": [
+          {
+            "url": "https://www.kff.org/affordable-care-act/consumer-survey-highlights-problems-with-denied-health-insurance-claims/",
+            "accessed": "2026-10-19",
+            "passage": "found that 18% of insured adults say they experienced denied claims in the past year."
+          },
+          {
+            "url": "https://www.kff.org/affordable-care-act/consumer-survey-highlights-problems-with-denied-health-insurance-claims/",
+            "accessed": "2026-10-19",
+            "passage": "roughly 6 in 10 insured adults experience problems when they use their insurance."
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "insurance-denials",
+          "name": "Insurance denials",
+          "line": "I have to fight my insurance to cover care I need.",
+          "page": "personal",
+          "group": "body",
+          "aliases": [
+            "Denied claims",
+            "Insurance red tape"
+          ],
+          "sources": [
+            {
+              "url": "https://www.kff.org/affordable-care-act/consumer-survey-highlights-problems-with-denied-health-insurance-claims/",
+              "accessed": "2026-10-19",
+              "passage": "found that 18% of insured adults say they experienced denied claims in the past year."
+            },
+            {
+              "url": "https://www.kff.org/affordable-care-act/consumer-survey-highlights-problems-with-denied-health-insurance-claims/",
+              "accessed": "2026-10-19",
+              "passage": "roughly 6 in 10 insured adults experience problems when they use their insurance."
+            }
+          ],
+          "covers": [
+            {
+              "list": "kff-health-care",
+              "entry": "insurance-problems"
+            },
+            {
+              "list": "kff-health-care",
+              "entry": "denied-claims"
+            }
+          ],
+          "prevalence": "18% of insured U.S. adults had a denied claim in the past year, and roughly 6 in 10 had problems using their insurance (KFF)."
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/body/20261019-224657",
+      "similar": [
+        {
+          "id": "cant-get-care",
+          "name": "Healthcare",
+          "line": "I can't see a doctor when I need one."
+        },
+        {
+          "id": "insurance-costs",
+          "name": "Insurance",
+          "line": "I can barely afford the insurance I need."
+        }
+      ],
+      "side": [],
+      "id": "p010"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "health-upkeep"
+      ],
+      "group": "body",
+      "current": null,
+      "proposed": {
+        "name": "Managing my health",
+        "line": "Keeping up with appointments, medicines and tests wears me out.",
+        "group": "body",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Managing my health",
+          "line": "Keeping up with appointments, medicines and tests wears me out.",
+          "group": "body",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "lead only",
+        "detail": "",
+        "sources": []
+      },
+      "draft": true,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "health-upkeep",
+          "name": "Managing my health",
+          "line": "Keeping up with appointments, medicines and tests wears me out.",
+          "page": "personal",
+          "group": "body",
+          "aliases": [
+            "Treatment burden"
+          ],
+          "sources": [],
+          "covers": [],
+          "leads": [
+            "Founder pool (hierarchy v2): treatment_burden, \"looking after my health takes more effort than I can comfortably manage\", \"coordinating appointments and different healthcare providers is exhausting\". No opened list names it."
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/body/20261019-224657",
+      "side": [],
+      "id": "p011"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "bladder"
+      ],
+      "group": "body",
+      "current": null,
+      "proposed": {
+        "name": "Bladder control",
+        "line": "I plan my day around getting to a bathroom in time.",
+        "group": "body",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Bladder control",
+          "line": "I plan my day around getting to a bathroom in time.",
+          "group": "body",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "lead only",
+        "detail": "",
+        "sources": []
+      },
+      "draft": true,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "bladder",
+          "name": "Bladder control",
+          "line": "I plan my day around getting to a bathroom in time.",
+          "page": "personal",
+          "group": "body",
+          "aliases": [
+            "Incontinence"
+          ],
+          "sources": [],
+          "covers": [],
+          "leads": [
+            "Founder pool (hierarchy v2): \"bladder control problems limit my social activities / make travel difficult\". No opened list names it."
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/body/20261019-224657",
+      "side": [],
+      "id": "p012"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "not-built-for-me"
+      ],
+      "group": "body",
+      "current": {
+        "name": "Disability",
+        "line": "I can't access things I need."
+      },
+      "proposed": {
+        "name": "Disability",
+        "line": "Places and services aren't built for my disability."
+      },
+      "alternatives": [
+        {
+          "name": "Access",
+          "line": "Buildings, websites and services shut me out because of my disability."
+        }
+      ],
+      "why": {
+        "prompt": "lint id-mismatch (note)",
+        "detail": "\"I can't access things I need\" could be about money or distance; this says what the ID names, that the world isn't built for someone like me."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/body/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p013"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "always-tired"
+      ],
+      "group": "body",
+      "current": {
+        "name": "Tired",
+        "line": "I'm tired all the time."
+      },
+      "proposed": {
+        "name": "Tired",
+        "line": "I'm worn out all day, even when I've slept."
+      },
+      "alternatives": [
+        {
+          "name": "Energy",
+          "line": "I'm tired all the time."
+        }
+      ],
+      "why": {
+        "prompt": "refine",
+        "detail": "Separates daytime exhaustion from Sleep, so someone who sleeps fine but is still drained knows this one is theirs."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/body/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p014"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "health-runs-my-life"
+      ],
+      "group": "body",
+      "current": {
+        "name": "Illness",
+        "line": "I'm living with a condition that limits me."
+      },
+      "proposed": {
+        "name": "Health condition",
+        "line": "I'm living with a condition that limits me."
+      },
+      "alternatives": [
+        {
+          "name": "Illness",
+          "line": "A long-term illness shapes most of my days."
+        }
+      ],
+      "why": {
+        "prompt": "lint id-mismatch (note)",
+        "detail": "Keeps the line and turns the label into an area, matching Sleep, Fitness, Healthcare and Diet."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/body/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p015"
+    },
+    {
+      "painIds": [
+        "poor-sleep",
+        "always-tired"
+      ],
+      "group": "body",
+      "side": [
+        {
+          "id": "poor-sleep",
+          "name": "Sleep",
+          "line": "I don't sleep well."
+        },
+        {
+          "id": "always-tired",
+          "name": "Tired",
+          "line": "I'm tired all the time."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Plenty of people are exhausted without a sleep problem, and the sharper Tired line above makes that choice obvious. Sleep is about nights; Tired is about days, including people who sleep fine but are drained by illness, work or caregiving."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Sleep",
+        "line": "I don't sleep well."
+      },
+      "proposed": {
+        "name": "Tired",
+        "line": "I'm tired all the time."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/body/20261019-224622",
+      "draft": false,
+      "id": "p016"
+    },
+    {
+      "painIds": [
+        "health-runs-my-life",
+        "chronic-pain"
+      ],
+      "group": "body",
+      "side": [
+        {
+          "id": "health-runs-my-life",
+          "name": "Illness",
+          "line": "I'm living with a condition that limits me."
+        },
+        {
+          "id": "chronic-pain",
+          "name": "Pain",
+          "line": "I hurt most days."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Daily pain is common enough and specific enough that people look for it by name, and many limiting conditions don't hurt. Pain is hurting most days, whatever the cause; Illness is a condition that limits you, often without pain."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Illness",
+        "line": "I'm living with a condition that limits me."
+      },
+      "proposed": {
+        "name": "Pain",
+        "line": "I hurt most days."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/body/20261019-224622",
+      "draft": false,
+      "id": "p017"
+    },
+    {
+      "painIds": [
+        "health-runs-my-life",
+        "cant-get-care"
+      ],
+      "group": "body",
+      "side": [
+        {
+          "id": "health-runs-my-life",
+          "name": "Illness",
+          "line": "I'm living with a condition that limits me."
+        },
+        {
+          "id": "cant-get-care",
+          "name": "Healthcare",
+          "line": "I can't see a doctor when I need one."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "One is about your body and the other about the system around it, and many people have one without the other. Illness is living with a condition; Healthcare is not being able to see a doctor when you need one."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Illness",
+        "line": "I'm living with a condition that limits me."
+      },
+      "proposed": {
+        "name": "Healthcare",
+        "line": "I can't see a doctor when I need one."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/body/20261019-224622",
+      "draft": false,
+      "id": "p018"
+    },
+    {
+      "painIds": [
+        "womens-health",
+        "health-runs-my-life"
+      ],
+      "group": "body",
+      "side": [
+        {
+          "id": "womens-health",
+          "name": "Hormones",
+          "line": "I lose days every month to my cycle or menopause."
+        },
+        {
+          "id": "health-runs-my-life",
+          "name": "Illness",
+          "line": "I'm living with a condition that limits me."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Someone losing days to periods or menopause wouldn't look under a heading about living with an illness. Hormones is losing days to a monthly cycle or menopause, which most people wouldn't call a condition."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Hormones",
+        "line": "I lose days every month to my cycle or menopause."
+      },
+      "proposed": {
+        "name": "Illness",
+        "line": "I'm living with a condition that limits me."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/body/20261019-224622",
+      "draft": false,
+      "id": "p019"
+    },
+    {
+      "painIds": [
+        "seeing-hearing",
+        "not-built-for-me"
+      ],
+      "group": "body",
+      "side": [
+        {
+          "id": "seeing-hearing",
+          "name": "Senses",
+          "line": "I can't see or hear like I used to."
+        },
+        {
+          "id": "not-built-for-me",
+          "name": "Disability",
+          "line": "I can't access things I need."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Many people losing their sight or hearing don't think of themselves as disabled, and many disabled people's problem is access, not their senses. Senses is losing sight or hearing over time; Disability is the world not being built for you."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Senses",
+        "line": "I can't see or hear like I used to."
+      },
+      "proposed": {
+        "name": "Disability",
+        "line": "I can't access things I need."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/body/20261019-224622",
+      "draft": false,
+      "id": "p020"
+    },
+    {
+      "painIds": [
+        "teeth",
+        "cant-get-care"
+      ],
+      "group": "body",
+      "side": [
+        {
+          "id": "teeth",
+          "name": "Teeth",
+          "line": "I can't afford the dentist."
+        },
+        {
+          "id": "cant-get-care",
+          "name": "Healthcare",
+          "line": "I can't see a doctor when I need one."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "People who can see a doctor often still can't afford a dentist, and they name it on its own. Teeth is dental care, which is insured and paid for separately from seeing a doctor."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Teeth",
+        "line": "I can't afford the dentist."
+      },
+      "proposed": {
+        "name": "Healthcare",
+        "line": "I can't see a doctor when I need one."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/body/20261019-224622",
+      "draft": false,
+      "id": "p021"
+    },
+    {
+      "painIds": [
+        "eating-badly",
+        "out-of-shape"
+      ],
+      "group": "body",
+      "side": [
+        {
+          "id": "eating-badly",
+          "name": "Diet",
+          "line": "I don't eat the way I want to."
+        },
+        {
+          "id": "out-of-shape",
+          "name": "Fitness",
+          "line": "I don't feel as fit or active as I'd like."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Someone can eat well and still feel out of shape, or the reverse, so the choice is easy. Diet is what you eat; Fitness is how fit and active you feel."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Diet",
+        "line": "I don't eat the way I want to."
+      },
+      "proposed": {
+        "name": "Fitness",
+        "line": "I don't feel as fit or active as I'd like."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/body/20261019-224622",
+      "draft": false,
+      "id": "p022"
+    },
+    {
+      "painIds": [
+        "always-tired",
+        "burnout"
+      ],
+      "group": "body",
+      "side": [
+        {
+          "id": "always-tired",
+          "name": "Tired",
+          "line": "I'm tired all the time."
+        },
+        {
+          "id": "burnout",
+          "name": "Burnout",
+          "line": "I've got nothing left."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Burnout sits under Work and names the cause, while Tired is for anyone worn out whatever the reason. Tired is physical tiredness from any cause; Burnout is being used up by work."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Tired",
+        "line": "I'm tired all the time."
+      },
+      "proposed": {
+        "name": "Burnout",
+        "line": "I've got nothing left."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/body/20261019-224622",
+      "draft": false,
+      "id": "p023"
+    },
+    {
+      "painIds": [
+        "cant-get-care",
+        "one-illness-away"
+      ],
+      "group": "body",
+      "side": [
+        {
+          "id": "cant-get-care",
+          "name": "Healthcare",
+          "line": "I can't see a doctor when I need one."
+        },
+        {
+          "id": "one-illness-away",
+          "name": "Medical bills",
+          "line": "I worry about what healthcare will cost me."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Getting seen and paying for it are different worries, and the societal page already frames cost as a shared problem. Healthcare is not being able to see a doctor; Medical bills is worrying about what care will cost."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Healthcare",
+        "line": "I can't see a doctor when I need one."
+      },
+      "proposed": {
+        "name": "Medical bills",
+        "line": "I worry about what healthcare will cost me."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/body/20261019-224622",
+      "draft": false,
+      "id": "p024"
+    },
+    {
+      "painIds": [
+        "eating-badly",
+        "running-out-of-food"
+      ],
+      "group": "body",
+      "side": [
+        {
+          "id": "eating-badly",
+          "name": "Diet",
+          "line": "I don't eat the way I want to."
+        },
+        {
+          "id": "running-out-of-food",
+          "name": "Not enough food",
+          "line": "I worry the food won't last until my next paycheck."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Not having enough food is a money problem and belongs under Money, while Diet is about the kind of food you eat. Diet is not eating the way you want; running out of food is not having enough to eat."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Diet",
+        "line": "I don't eat the way I want to."
+      },
+      "proposed": {
+        "name": "Not enough food",
+        "line": "I worry the food won't last until my next paycheck."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/body/20261019-224622",
+      "draft": false,
+      "id": "p025"
+    },
+    {
+      "painIds": [
+        "not-built-for-me",
+        "treated-differently"
+      ],
+      "group": "body",
+      "side": [
+        {
+          "id": "not-built-for-me",
+          "name": "Disability",
+          "line": "I can't access things I need."
+        },
+        {
+          "id": "treated-differently",
+          "name": "Discrimination",
+          "line": "I'm treated worse because of who I am."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "A missing ramp and being treated worse by a person are different problems, and one sits on each page. Disability is places and services not built for you; Discrimination is people treating you worse because of who you are."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Disability",
+        "line": "I can't access things I need."
+      },
+      "proposed": {
+        "name": "Discrimination",
+        "line": "I'm treated worse because of who I am."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/body/20261019-224622",
+      "draft": false,
+      "id": "p026"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "suicidal-thoughts"
+      ],
+      "group": "mind",
+      "current": null,
+      "proposed": {
+        "name": "Suicidal thoughts",
+        "line": "I think about ending my life.",
+        "group": "mind",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Suicidal thoughts",
+          "line": "I think about ending my life.",
+          "group": "mind",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "In 2024, 5.5 percent of U.S. adults (14.3 million people) had serious thoughts of suicide and 0.8 percent (2.2 million) attempted suicide (SAMHSA NSDUH). Suicide came up in 17.9% of Crisis Text Line conversations in 2023.",
+        "sources": [
+          {
+            "url": "https://www.samhsa.gov/data/sites/default/files/reports/rpt56287/2024-nsduh-annual-national/2024-nsduh-annual-national-html-071425-edited/2024-nsduh-annual-national.htm",
+            "accessed": "2026-10-19",
+            "passage": "In 2024, 5.5 percent of adults aged 18 or older (or 14.3 million people) had serious thoughts of suicide in the past year."
+          },
+          {
+            "url": "https://www.samhsa.gov/data/sites/default/files/reports/rpt56287/2024-nsduh-annual-national/2024-nsduh-annual-national-html-071425-edited/2024-nsduh-annual-national.htm",
+            "accessed": "2026-10-19",
+            "passage": "In 2024, 0.8 percent of adults aged 18 or older (or 2.2 million people) attempted suicide in the past year."
+          },
+          {
+            "url": "https://www.crisistextline.org/wp-content/uploads/2024/04/CTL_2023%20United%20In%20Empathy_Report.pdf",
+            "accessed": "2026-10-19",
+            "passage": "2023 National Mental Health Insights Issues 34.7% 33.4% 29.8% 17.9% 17.0% 13.3% 3.6% 3.3% 3.3% 3.0% 2.8% 2.4% 1.6% 1.5% 1.0% Anxiety/Stress Relationships Depression/Sadness Suicide Isolation/Loneliness Self-harm Grief Eating/Body image Bullying Emotional abuse Substance use Sexual abuse Abuse (unspecified) Physical abuse Gender/Sexual identity"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "suicidal-thoughts",
+          "name": "Suicidal thoughts",
+          "line": "I think about ending my life.",
+          "page": "personal",
+          "group": "mind",
+          "aliases": [
+            "Thoughts of suicide",
+            "I don't want to be alive any more."
+          ],
+          "sources": [
+            {
+              "url": "https://www.samhsa.gov/data/sites/default/files/reports/rpt56287/2024-nsduh-annual-national/2024-nsduh-annual-national-html-071425-edited/2024-nsduh-annual-national.htm",
+              "accessed": "2026-10-19",
+              "passage": "In 2024, 5.5 percent of adults aged 18 or older (or 14.3 million people) had serious thoughts of suicide in the past year."
+            },
+            {
+              "url": "https://www.samhsa.gov/data/sites/default/files/reports/rpt56287/2024-nsduh-annual-national/2024-nsduh-annual-national-html-071425-edited/2024-nsduh-annual-national.htm",
+              "accessed": "2026-10-19",
+              "passage": "In 2024, 0.8 percent of adults aged 18 or older (or 2.2 million people) attempted suicide in the past year."
+            },
+            {
+              "url": "https://www.crisistextline.org/wp-content/uploads/2024/04/CTL_2023%20United%20In%20Empathy_Report.pdf",
+              "accessed": "2026-10-19",
+              "passage": "2023 National Mental Health Insights Issues 34.7% 33.4% 29.8% 17.9% 17.0% 13.3% 3.6% 3.3% 3.3% 3.0% 2.8% 2.4% 1.6% 1.5% 1.0% Anxiety/Stress Relationships Depression/Sadness Suicide Isolation/Loneliness Self-harm Grief Eating/Body image Bullying Emotional abuse Substance use Sexual abuse Abuse (unspecified) Physical abuse Gender/Sexual identity"
+            }
+          ],
+          "prevalence": "In 2024, 5.5 percent of U.S. adults (14.3 million people) had serious thoughts of suicide and 0.8 percent (2.2 million) attempted suicide (SAMHSA NSDUH). Suicide came up in 17.9% of Crisis Text Line conversations in 2023.",
+          "covers": [
+            {
+              "list": "nsduh-2024",
+              "entry": "serious-thoughts-of-suicide"
+            },
+            {
+              "list": "nsduh-2024",
+              "entry": "suicide-attempt"
+            },
+            {
+              "list": "crisis-text-line-2023",
+              "entry": "suicide"
+            },
+            {
+              "list": "sdg-targets",
+              "entry": "3.4.2"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q944142"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/mind/20261019-224657",
+      "side": [],
+      "id": "p027"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "self-harm"
+      ],
+      "group": "mind",
+      "current": null,
+      "proposed": {
+        "name": "Self-harm",
+        "line": "I hurt myself to cope with how I feel.",
+        "group": "mind",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Self-harm",
+          "line": "I hurt myself to cope with how I feel.",
+          "group": "mind",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "Self-harm came up in 13.3% of Crisis Text Line conversations in 2023.",
+        "sources": [
+          {
+            "url": "https://www.crisistextline.org/wp-content/uploads/2024/04/CTL_2023%20United%20In%20Empathy_Report.pdf",
+            "accessed": "2026-10-19",
+            "passage": "2023 National Mental Health Insights Issues 34.7% 33.4% 29.8% 17.9% 17.0% 13.3% 3.6% 3.3% 3.3% 3.0% 2.8% 2.4% 1.6% 1.5% 1.0% Anxiety/Stress Relationships Depression/Sadness Suicide Isolation/Loneliness Self-harm Grief Eating/Body image Bullying Emotional abuse Substance use Sexual abuse Abuse (unspecified) Physical abuse Gender/Sexual identity"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "self-harm",
+          "name": "Self-harm",
+          "line": "I hurt myself to cope with how I feel.",
+          "page": "personal",
+          "group": "mind",
+          "aliases": [
+            "Hurting myself",
+            "Cutting"
+          ],
+          "sources": [
+            {
+              "url": "https://www.crisistextline.org/wp-content/uploads/2024/04/CTL_2023%20United%20In%20Empathy_Report.pdf",
+              "accessed": "2026-10-19",
+              "passage": "2023 National Mental Health Insights Issues 34.7% 33.4% 29.8% 17.9% 17.0% 13.3% 3.6% 3.3% 3.3% 3.0% 2.8% 2.4% 1.6% 1.5% 1.0% Anxiety/Stress Relationships Depression/Sadness Suicide Isolation/Loneliness Self-harm Grief Eating/Body image Bullying Emotional abuse Substance use Sexual abuse Abuse (unspecified) Physical abuse Gender/Sexual identity"
+            }
+          ],
+          "prevalence": "Self-harm came up in 13.3% of Crisis Text Line conversations in 2023.",
+          "covers": [
+            {
+              "list": "crisis-text-line-2023",
+              "entry": "self-harm"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q622527"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/mind/20261019-224657",
+      "similar": [
+        {
+          "id": "hard-on-myself",
+          "name": "Self-esteem",
+          "line": "I'm never good enough for myself."
+        }
+      ],
+      "side": [],
+      "id": "p028"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "eating-and-body-image"
+      ],
+      "group": "mind",
+      "current": null,
+      "proposed": {
+        "name": "Eating and body image",
+        "line": "I can't stop obsessing over food, my weight or how my body looks.",
+        "group": "mind",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Eating and body image",
+          "line": "I can't stop obsessing over food, my weight or how my body looks.",
+          "group": "mind",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "In 2023, 18 million people worldwide experienced eating disorders, including 4.7 million children and adolescents (WHO). Eating and body image came up in 3.3% of Crisis Text Line conversations in 2023.",
+        "sources": [
+          {
+            "url": "https://www.who.int/news-room/fact-sheets/detail/mental-disorders",
+            "accessed": "2026-10-19",
+            "passage": "In 2023, 18 million people experienced eating disorders, including 4.7 million children and adolescents"
+          },
+          {
+            "url": "https://www.crisistextline.org/wp-content/uploads/2024/04/CTL_2023%20United%20In%20Empathy_Report.pdf",
+            "accessed": "2026-10-19",
+            "passage": "2023 National Mental Health Insights Issues 34.7% 33.4% 29.8% 17.9% 17.0% 13.3% 3.6% 3.3% 3.3% 3.0% 2.8% 2.4% 1.6% 1.5% 1.0% Anxiety/Stress Relationships Depression/Sadness Suicide Isolation/Loneliness Self-harm Grief Eating/Body image Bullying Emotional abuse Substance use Sexual abuse Abuse (unspecified) Physical abuse Gender/Sexual identity"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "eating-and-body-image",
+          "name": "Eating and body image",
+          "line": "I can't stop obsessing over food, my weight or how my body looks.",
+          "page": "personal",
+          "group": "mind",
+          "aliases": [
+            "Eating",
+            "Body image",
+            "Eating disorder"
+          ],
+          "sources": [
+            {
+              "url": "https://www.who.int/news-room/fact-sheets/detail/mental-disorders",
+              "accessed": "2026-10-19",
+              "passage": "In 2023, 18 million people experienced eating disorders, including 4.7 million children and adolescents"
+            },
+            {
+              "url": "https://www.crisistextline.org/wp-content/uploads/2024/04/CTL_2023%20United%20In%20Empathy_Report.pdf",
+              "accessed": "2026-10-19",
+              "passage": "2023 National Mental Health Insights Issues 34.7% 33.4% 29.8% 17.9% 17.0% 13.3% 3.6% 3.3% 3.3% 3.0% 2.8% 2.4% 1.6% 1.5% 1.0% Anxiety/Stress Relationships Depression/Sadness Suicide Isolation/Loneliness Self-harm Grief Eating/Body image Bullying Emotional abuse Substance use Sexual abuse Abuse (unspecified) Physical abuse Gender/Sexual identity"
+            }
+          ],
+          "prevalence": "In 2023, 18 million people worldwide experienced eating disorders, including 4.7 million children and adolescents (WHO). Eating and body image came up in 3.3% of Crisis Text Line conversations in 2023.",
+          "covers": [
+            {
+              "list": "who-mental-disorders",
+              "entry": "eating-disorders"
+            },
+            {
+              "list": "crisis-text-line-2023",
+              "entry": "eating-body-image"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q373822"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q15733239"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/mind/20261019-224657",
+      "twins": [
+        {
+          "id": "body-image",
+          "name": "Body image",
+          "line": "I don't like how my body looks.",
+          "origin": "docs/research/pains/sweeps/body/20261019-224657"
+        }
+      ],
+      "side": [],
+      "id": "p029"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "serious-mental-illness"
+      ],
+      "group": "mind",
+      "current": null,
+      "proposed": {
+        "name": "Mental illness",
+        "line": "I live with a mental illness that can take over my life.",
+        "group": "mind",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Mental illness",
+          "line": "I live with a mental illness that can take over my life.",
+          "group": "mind",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "In 2024, 5.6 percent of U.S. adults (14.6 million people) had a serious mental illness (SAMHSA NSDUH). In 2023, 36 million people worldwide experienced bipolar disorder and about 27 million, or 1 in 300, schizophrenia (WHO).",
+        "sources": [
+          {
+            "url": "https://www.samhsa.gov/data/sites/default/files/reports/rpt56287/2024-nsduh-annual-national/2024-nsduh-annual-national-html-071425-edited/2024-nsduh-annual-national.htm",
+            "accessed": "2026-10-19",
+            "passage": "In 2024, 5.6 percent of adults aged 18 or older (or 14.6 million people) had SMI in the past year."
+          },
+          {
+            "url": "https://www.who.int/news-room/fact-sheets/detail/mental-disorders",
+            "accessed": "2026-10-19",
+            "passage": "In 2023, 36 million people experienced bipolar disorder, including 3.3 million adolescents aged 10–19 years"
+          },
+          {
+            "url": "https://www.who.int/news-room/fact-sheets/detail/mental-disorders",
+            "accessed": "2026-10-19",
+            "passage": "In 2023, schizophrenia affected approximately 27 million people or 1 in 300 people worldwide"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "serious-mental-illness",
+          "name": "Mental illness",
+          "line": "I live with a mental illness that can take over my life.",
+          "page": "personal",
+          "group": "mind",
+          "aliases": [
+            "Serious mental illness",
+            "Bipolar",
+            "Psychosis",
+            "Schizophrenia"
+          ],
+          "sources": [
+            {
+              "url": "https://www.samhsa.gov/data/sites/default/files/reports/rpt56287/2024-nsduh-annual-national/2024-nsduh-annual-national-html-071425-edited/2024-nsduh-annual-national.htm",
+              "accessed": "2026-10-19",
+              "passage": "In 2024, 5.6 percent of adults aged 18 or older (or 14.6 million people) had SMI in the past year."
+            },
+            {
+              "url": "https://www.who.int/news-room/fact-sheets/detail/mental-disorders",
+              "accessed": "2026-10-19",
+              "passage": "In 2023, 36 million people experienced bipolar disorder, including 3.3 million adolescents aged 10–19 years"
+            },
+            {
+              "url": "https://www.who.int/news-room/fact-sheets/detail/mental-disorders",
+              "accessed": "2026-10-19",
+              "passage": "In 2023, schizophrenia affected approximately 27 million people or 1 in 300 people worldwide"
+            }
+          ],
+          "prevalence": "In 2024, 5.6 percent of U.S. adults (14.6 million people) had a serious mental illness (SAMHSA NSDUH). In 2023, 36 million people worldwide experienced bipolar disorder and about 27 million, or 1 in 300, schizophrenia (WHO).",
+          "covers": [
+            {
+              "list": "nsduh-2024",
+              "entry": "serious-mental-illness"
+            },
+            {
+              "list": "who-mental-disorders",
+              "entry": "bipolar-disorder"
+            },
+            {
+              "list": "who-mental-disorders",
+              "entry": "schizophrenia"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q19365224"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q131755"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q41112"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q170082"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/mind/20261019-224657",
+      "side": [],
+      "id": "p030"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "mental-health-care"
+      ],
+      "group": "mind",
+      "current": null,
+      "proposed": {
+        "name": "Therapy",
+        "line": "I can't get or afford help for my mental health.",
+        "group": "mind",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Therapy",
+          "line": "I can't get or afford help for my mental health.",
+          "group": "mind",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "Of 29.5 million U.S. adults with a mental illness who got no treatment in 2024, 21.0 percent (6.1 million people) felt they needed it; among adults with an unmet need, 65.2 percent said treatment would cost too much (SAMHSA NSDUH).",
+        "sources": [
+          {
+            "url": "https://www.samhsa.gov/data/sites/default/files/reports/rpt56287/2024-nsduh-annual-national/2024-nsduh-annual-national-html-071425-edited/2024-nsduh-annual-national.htm",
+            "accessed": "2026-10-19",
+            "passage": "Of the 61.5 million adults aged 18 or older in 2024 who had AMI in the past year ( Figure 57 ), slightly less than half (29.5 million people) did not receive mental health treatment in the past year ( Table A.66A ). Among these 29.5 million adults with AMI in the past year who did not receive mental health treatment, 21.0 percent (or 6.1 million people) perceived an unmet need for mental health treatment in the past year"
+          },
+          {
+            "url": "https://www.samhsa.gov/data/sites/default/files/reports/rpt56287/2024-nsduh-annual-national/2024-nsduh-annual-national-html-071425-edited/2024-nsduh-annual-national.htm",
+            "accessed": "2026-10-19",
+            "passage": "The second most common reason for not receiving treatment was thinking treatment would cost too much (65.2 percent)."
+          },
+          {
+            "url": "https://www.unitedway.org/the-facts-about-211-2025-impact-snapshot",
+            "accessed": "2026-10-19",
+            "passage": "Referrals for mental health and substance use disorders assistance"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "mental-health-care",
+          "name": "Therapy",
+          "line": "I can't get or afford help for my mental health.",
+          "page": "personal",
+          "group": "mind",
+          "aliases": [
+            "Mental health care",
+            "I can't find a therapist."
+          ],
+          "sources": [
+            {
+              "url": "https://www.samhsa.gov/data/sites/default/files/reports/rpt56287/2024-nsduh-annual-national/2024-nsduh-annual-national-html-071425-edited/2024-nsduh-annual-national.htm",
+              "accessed": "2026-10-19",
+              "passage": "Of the 61.5 million adults aged 18 or older in 2024 who had AMI in the past year ( Figure 57 ), slightly less than half (29.5 million people) did not receive mental health treatment in the past year ( Table A.66A ). Among these 29.5 million adults with AMI in the past year who did not receive mental health treatment, 21.0 percent (or 6.1 million people) perceived an unmet need for mental health treatment in the past year"
+            },
+            {
+              "url": "https://www.samhsa.gov/data/sites/default/files/reports/rpt56287/2024-nsduh-annual-national/2024-nsduh-annual-national-html-071425-edited/2024-nsduh-annual-national.htm",
+              "accessed": "2026-10-19",
+              "passage": "The second most common reason for not receiving treatment was thinking treatment would cost too much (65.2 percent)."
+            },
+            {
+              "url": "https://www.unitedway.org/the-facts-about-211-2025-impact-snapshot",
+              "accessed": "2026-10-19",
+              "passage": "Referrals for mental health and substance use disorders assistance"
+            }
+          ],
+          "prevalence": "Of 29.5 million U.S. adults with a mental illness who got no treatment in 2024, 21.0 percent (6.1 million people) felt they needed it; among adults with an unmet need, 65.2 percent said treatment would cost too much (SAMHSA NSDUH).",
+          "covers": [
+            {
+              "list": "nsduh-2024",
+              "entry": "unmet-need-mental-health"
+            },
+            {
+              "list": "nsduh-2024",
+              "entry": "treatment-cost"
+            },
+            {
+              "list": "211-impact-2025",
+              "entry": "mental-health-substance-use"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q4382888"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q183257"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/mind/20261019-224657",
+      "similar": [
+        {
+          "id": "mental-health-crisis",
+          "name": "Mental health",
+          "line": "I see people I care about struggling with their mental health."
+        }
+      ],
+      "side": [],
+      "id": "p031"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "memory"
+      ],
+      "group": "mind",
+      "current": null,
+      "proposed": {
+        "name": "Memory",
+        "line": "I forget things more than I used to.",
+        "group": "mind",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Memory",
+          "line": "I forget things more than I used to.",
+          "group": "mind",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "Overall, 11.2% of U.S. adults aged 45 and older reported worsening or more frequent confusion or memory loss, and 50.6% of them said it limited their daily activities (CDC, BRFSS).",
+        "sources": [
+          {
+            "url": "https://www.cdc.gov/mmwr/volumes/67/wr/mm6727a1.htm",
+            "accessed": "2026-10-19",
+            "passage": "Overall, 11.2% of adults aged ≥45 years reported having SCD, 50.6% of whom reported SCD-related functional limitations."
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "memory",
+          "name": "Memory",
+          "line": "I forget things more than I used to.",
+          "page": "personal",
+          "group": "mind",
+          "aliases": [
+            "Memory loss",
+            "Getting forgetful",
+            "Brain fog"
+          ],
+          "sources": [
+            {
+              "url": "https://www.cdc.gov/mmwr/volumes/67/wr/mm6727a1.htm",
+              "accessed": "2026-10-19",
+              "passage": "Overall, 11.2% of adults aged ≥45 years reported having SCD, 50.6% of whom reported SCD-related functional limitations."
+            }
+          ],
+          "prevalence": "Overall, 11.2% of U.S. adults aged 45 and older reported worsening or more frequent confusion or memory loss, and 50.6% of them said it limited their daily activities (CDC, BRFSS).",
+          "covers": [
+            {
+              "list": "cdc-cognitive-decline",
+              "entry": "subjective-cognitive-decline"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q989365"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q83030"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/mind/20261019-224657",
+      "side": [],
+      "id": "p032"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "anxiety"
+      ],
+      "group": "mind",
+      "current": {
+        "name": "Anxiety",
+        "line": "I worry too much."
+      },
+      "proposed": {
+        "name": "Anxiety",
+        "line": "My mind keeps running through what could go wrong."
+      },
+      "alternatives": [
+        {
+          "name": "Anxiety",
+          "line": "I worry so much that I can't settle, even when things are fine."
+        }
+      ],
+      "why": {
+        "prompt": "lint vague-line (fail)",
+        "detail": "Keeps the worry at the center but says what it looks like in a day, a mind that won't stop rehearsing the worst."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/mind/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p033"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "overwhelmed"
+      ],
+      "group": "mind",
+      "current": {
+        "name": "Stress",
+        "line": "I'm overwhelmed."
+      },
+      "proposed": {
+        "name": "Stress",
+        "line": "There's so much on my plate that I can't catch up."
+      },
+      "alternatives": [
+        {
+          "name": "Overwhelmed",
+          "line": "I have so much going on that I can't think straight."
+        }
+      ],
+      "why": {
+        "prompt": "lint vague-line (fail)",
+        "detail": "Says what being overwhelmed looks like day to day, too many things at once, which also sets it apart from Anxiety's worry about what might happen."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/mind/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p034"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "hard-on-myself"
+      ],
+      "group": "mind",
+      "current": {
+        "name": "Self-esteem",
+        "line": "I'm never good enough for myself."
+      },
+      "proposed": {
+        "name": "Hard on myself",
+        "line": "Whatever I do, I tell myself it isn't good enough."
+      },
+      "alternatives": [
+        {
+          "name": "Hard on myself",
+          "line": "I'm never good enough for myself."
+        }
+      ],
+      "why": {
+        "prompt": "refine",
+        "detail": "Names the problem the way the ID does instead of the area Self-esteem, so the heading reads as problems like Anxiety and Grief, and shows the inner voice in action."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/mind/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p035"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "cant-focus"
+      ],
+      "group": "mind",
+      "current": {
+        "name": "Focus",
+        "line": "I can't keep my mind on one thing."
+      },
+      "proposed": {
+        "name": "Can't focus",
+        "line": "I can't keep my mind on one thing for long."
+      },
+      "alternatives": [],
+      "why": {
+        "prompt": "refine",
+        "detail": "Turns the area name Focus into a problem name like the rest of the heading and keeps the original line with a small clarifying ending."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/mind/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p036"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "short-fuse"
+      ],
+      "group": "mind",
+      "current": {
+        "name": "Anger",
+        "line": "I snap at people I love."
+      },
+      "proposed": {
+        "name": "Short fuse",
+        "line": "I snap at people I love over small things."
+      },
+      "alternatives": [],
+      "why": {
+        "prompt": "lint id-mismatch (note)",
+        "detail": "Brings the name back to the short fuse the ID names, and adds 'over small things' so it reads as a quick temper, not general anger at something unfair."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/mind/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p037"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "feeling-down"
+      ],
+      "group": "mind",
+      "current": {
+        "name": "Depression",
+        "line": "I feel low most days."
+      },
+      "proposed": {
+        "name": "Feeling down",
+        "line": "I feel low most days, and nothing seems worth the effort."
+      },
+      "alternatives": [],
+      "why": {
+        "prompt": "lint id-mismatch (note)",
+        "detail": "Uses the everyday words the ID names instead of a diagnosis, and says what low days look like, so people who'd never call it depression still recognize it."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/mind/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p038"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "drinking-too-much"
+      ],
+      "group": "mind",
+      "current": {
+        "name": "Addiction",
+        "line": "I can't stop something that's hurting me."
+      },
+      "proposed": {
+        "name": "Addiction",
+        "line": "I can't stop drinking, using or gambling, even though it hurts me."
+      },
+      "alternatives": [
+        {
+          "name": "Drinking too much",
+          "line": "I drink more than I want to and can't cut back."
+        }
+      ],
+      "why": {
+        "prompt": "lint id-mismatch (note)",
+        "detail": "Keeps the broad name but says plainly what it is, so people can recognize their own habit instead of guessing what 'something' means."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/mind/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p039"
+    },
+    {
+      "painIds": [
+        "anxiety",
+        "overwhelmed"
+      ],
+      "group": "mind",
+      "side": [
+        {
+          "id": "anxiety",
+          "name": "Anxiety",
+          "line": "I worry too much."
+        },
+        {
+          "id": "overwhelmed",
+          "name": "Stress",
+          "line": "I'm overwhelmed."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Someone with a calm schedule can still worry all day, and someone buried in tasks may not be worried at all, so people can tell which one they live with. Anxiety is worry about what might go wrong; Stress is having too much going on right now."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Anxiety",
+        "line": "I worry too much."
+      },
+      "proposed": {
+        "name": "Stress",
+        "line": "I'm overwhelmed."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/mind/20261019-224622",
+      "draft": false,
+      "id": "p040"
+    },
+    {
+      "painIds": [
+        "overwhelmed",
+        "life-admin"
+      ],
+      "group": "mind",
+      "side": [
+        {
+          "id": "overwhelmed",
+          "name": "Stress",
+          "line": "I'm overwhelmed."
+        },
+        {
+          "id": "life-admin",
+          "name": "Paperwork",
+          "line": "I lose my week to forms, bills and phone queues."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Paperwork is one specific cause with its own fixes, while being overwhelmed can come from work, family or anything else. Stress is the feeling of too much at once from any source; Paperwork is the time lost to forms, bills and phone queues."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Stress",
+        "line": "I'm overwhelmed."
+      },
+      "proposed": {
+        "name": "Paperwork",
+        "line": "I lose my week to forms, bills and phone queues."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/mind/20261019-224622",
+      "draft": false,
+      "id": "p041"
+    },
+    {
+      "painIds": [
+        "short-fuse",
+        "home-tension"
+      ],
+      "group": "mind",
+      "side": [
+        {
+          "id": "short-fuse",
+          "name": "Anger",
+          "line": "I snap at people I love."
+        },
+        {
+          "id": "home-tension",
+          "name": "Family",
+          "line": "I'm caught in fighting at home."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "One is about how I react and the other is about the home I live in, and a person knows whether the problem is mostly them or the household. Short fuse is my own temper with people I love; Family is being caught in fighting at home that others start too."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Anger",
+        "line": "I snap at people I love."
+      },
+      "proposed": {
+        "name": "Family",
+        "line": "I'm caught in fighting at home."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/mind/20261019-224622",
+      "draft": false,
+      "id": "p042"
+    },
+    {
+      "painIds": [
+        "short-fuse",
+        "overwhelmed"
+      ],
+      "group": "mind",
+      "side": [
+        {
+          "id": "short-fuse",
+          "name": "Anger",
+          "line": "I snap at people I love."
+        },
+        {
+          "id": "overwhelmed",
+          "name": "Stress",
+          "line": "I'm overwhelmed."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Plenty of stressed people don't snap at anyone, and the fixes for a quick temper are different from the fixes for too much on my plate. Short fuse is how I treat people when I'm on edge; Stress is the load that may put me there."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Anger",
+        "line": "I snap at people I love."
+      },
+      "proposed": {
+        "name": "Stress",
+        "line": "I'm overwhelmed."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/mind/20261019-224622",
+      "draft": false,
+      "id": "p043"
+    },
+    {
+      "painIds": [
+        "feeling-down",
+        "anxiety"
+      ],
+      "group": "mind",
+      "side": [
+        {
+          "id": "feeling-down",
+          "name": "Depression",
+          "line": "I feel low most days."
+        },
+        {
+          "id": "anxiety",
+          "name": "Anxiety",
+          "line": "I worry too much."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "They often come together, but people describe them very differently and would pick the one that sounds like their days. Feeling down is low mood and nothing seeming worth it; Anxiety is a mind racing with worry."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Depression",
+        "line": "I feel low most days."
+      },
+      "proposed": {
+        "name": "Anxiety",
+        "line": "I worry too much."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/mind/20261019-224622",
+      "draft": false,
+      "id": "p044"
+    },
+    {
+      "painIds": [
+        "feeling-down",
+        "burnout"
+      ],
+      "group": "mind",
+      "side": [
+        {
+          "id": "feeling-down",
+          "name": "Depression",
+          "line": "I feel low most days."
+        },
+        {
+          "id": "burnout",
+          "name": "Burnout",
+          "line": "I've got nothing left."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Burnout sits under Work because rest and changes at work help it, while feeling low most days reaches beyond work. Feeling down is low mood across life; Burnout is being worn out, usually by work."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Depression",
+        "line": "I feel low most days."
+      },
+      "proposed": {
+        "name": "Burnout",
+        "line": "I've got nothing left."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/mind/20261019-224622",
+      "draft": false,
+      "id": "p045"
+    },
+    {
+      "painIds": [
+        "hard-on-myself",
+        "feeling-down"
+      ],
+      "group": "mind",
+      "side": [
+        {
+          "id": "hard-on-myself",
+          "name": "Self-esteem",
+          "line": "I'm never good enough for myself."
+        },
+        {
+          "id": "feeling-down",
+          "name": "Depression",
+          "line": "I feel low most days."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Many people who judge themselves harshly don't feel low most days, so they would choose without hesitating. Hard on myself is the voice that says I'm never good enough; Feeling down is a low mood that may have no such voice."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Self-esteem",
+        "line": "I'm never good enough for myself."
+      },
+      "proposed": {
+        "name": "Depression",
+        "line": "I feel low most days."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/mind/20261019-224622",
+      "draft": false,
+      "id": "p046"
+    },
+    {
+      "painIds": [
+        "past-still-hurts",
+        "feeling-down"
+      ],
+      "group": "mind",
+      "side": [
+        {
+          "id": "past-still-hurts",
+          "name": "Trauma",
+          "line": "I'm still living with something that happened."
+        },
+        {
+          "id": "feeling-down",
+          "name": "Depression",
+          "line": "I feel low most days."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Someone shaped by a past event knows it is about that event, and it needs its own care and, later, its own crisis resources. Trauma is living with one thing that happened; Feeling down is a general low mood with or without a cause."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Trauma",
+        "line": "I'm still living with something that happened."
+      },
+      "proposed": {
+        "name": "Depression",
+        "line": "I feel low most days."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/mind/20261019-224622",
+      "draft": false,
+      "id": "p047"
+    },
+    {
+      "painIds": [
+        "past-still-hurts",
+        "anxiety"
+      ],
+      "group": "mind",
+      "side": [
+        {
+          "id": "past-still-hurts",
+          "name": "Trauma",
+          "line": "I'm still living with something that happened."
+        },
+        {
+          "id": "anxiety",
+          "name": "Anxiety",
+          "line": "I worry too much."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "The past event is the center of one and absent from the other, so the person living it can tell them apart. Trauma is about something that already happened; Anxiety is worry about what might happen."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Trauma",
+        "line": "I'm still living with something that happened."
+      },
+      "proposed": {
+        "name": "Anxiety",
+        "line": "I worry too much."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/mind/20261019-224622",
+      "draft": false,
+      "id": "p048"
+    },
+    {
+      "painIds": [
+        "cant-focus",
+        "procrastination"
+      ],
+      "group": "mind",
+      "side": [
+        {
+          "id": "cant-focus",
+          "name": "Focus",
+          "line": "I can't keep my mind on one thing."
+        },
+        {
+          "id": "procrastination",
+          "name": "Procrastination",
+          "line": "I put things off."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "People know whether their trouble is getting going or staying with it, and the fixes differ. Can't focus is my attention drifting once I start; Procrastination is not starting at all."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Focus",
+        "line": "I can't keep my mind on one thing."
+      },
+      "proposed": {
+        "name": "Procrastination",
+        "line": "I put things off."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/mind/20261019-224622",
+      "draft": false,
+      "id": "p049"
+    },
+    {
+      "painIds": [
+        "cant-focus",
+        "doomscrolling"
+      ],
+      "group": "mind",
+      "side": [
+        {
+          "id": "cant-focus",
+          "name": "Focus",
+          "line": "I can't keep my mind on one thing."
+        },
+        {
+          "id": "doomscrolling",
+          "name": "Doomscrolling",
+          "line": "I lose my nights to my phone."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "The phone is one cause of scattered attention, but plenty of people can't focus with the phone put away. Can't focus is attention that won't stay on any one thing; Doomscrolling is evenings lost to the phone."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Focus",
+        "line": "I can't keep my mind on one thing."
+      },
+      "proposed": {
+        "name": "Doomscrolling",
+        "line": "I lose my nights to my phone."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/mind/20261019-224622",
+      "draft": false,
+      "id": "p050"
+    },
+    {
+      "painIds": [
+        "grief",
+        "loneliness"
+      ],
+      "group": "mind",
+      "side": [
+        {
+          "id": "grief",
+          "name": "Grief",
+          "line": "I'm missing someone I lost."
+        },
+        {
+          "id": "loneliness",
+          "name": "Loneliness",
+          "line": "I feel alone."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "A grieving person can be surrounded by family and still miss the one who died, so the two are easy to tell apart. Grief is missing one person I lost; Loneliness is not having people around me now."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Grief",
+        "line": "I'm missing someone I lost."
+      },
+      "proposed": {
+        "name": "Loneliness",
+        "line": "I feel alone."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/mind/20261019-224622",
+      "draft": false,
+      "id": "p051"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "issues": [],
+  "moves": [],
+  "disagreements": [
+    {
+      "painId": "drinking-too-much",
+      "current": "mind",
+      "sorts": [
+        "body",
+        "mind",
+        "mind"
+      ]
+    }
+  ],
+  "checkedAt": "2026-10-19"
+}

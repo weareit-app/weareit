@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "scope": "body",
+  "runId": "20261019-224657",
+  "startedAt": "2026-10-20T02:46:57+00:00",
+  "finishedAt": "2026-10-20T03:00:05+00:00",
+  "notes": "Fourteen lists read. oecd.org returned 403 (curl and fetch), so OECD entries are the Health dimension's indicators as named in docs/spec/pains/pain-inventory.md, with one passage from a healthpopuli.com summary of How's Life 2024. WHOQOL-BREF wording comes from a Singapore government copy (file.go.gov.sg); its self-report page for items 1-6 did not extract, so Q2-Q4 passages use the same copy's proxy wording. Ipsos's January 2026 PDF did not extract; the Ipsos entry uses the What Worries the World web page (U.S. figure only). The 211 Impact Snapshot names no health care category among its top seven referrals (mental health and substance use is #6, Mind scope), so no 211 list is recorded. IHME/WHO burden lists name diseases; long-term diseases are mapped to Illness (health-runs-my-life), and acute or low-income-country infections are broader or out of scope. Wikidata QIDs from wbsearchentities (about 40 lookups, not counted as searches). Overlaps for refine: weight vs eating-badly, out-of-shape and body-image; body-image vs hard-on-myself (which maps WHOQOL Q11); mobility and daily-tasks vs not-built-for-me and getting-around; medicine-costs vs one-illness-away; insurance-denials vs insurance-costs (Money) and life-admin; Drafts from the founder pool only: health-upkeep (treatment burden) and bladder. Weaker evidence: not-listened-to (one combined KFF figure). Memory was removed (coordinator, 2026-10-19): the mind sweep 20261019-224657 proposes the same ID. Its entries (cdc-health/cognition, wikidata/Q989365) are recorded out of scope. Source kept for the mind sweep: https://www.cdc.gov/disability-and-health/articles-documents/disability-impacts-all-of-us-infographic.html, accessed 2026-10-19, passage 'Cognition - 13.9%' (13.9% of U.S. adults have a cognition disability, which includes serious difficulty remembering).",
+  "searches": 8,
+  "pagesOpened": 27
+}

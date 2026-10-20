@@ -1,0 +1,27 @@
+{
+  "issues": [],
+  "proposed": [
+    {
+      "candidate": "suicidal-thoughts"
+    },
+    {
+      "candidate": "self-harm"
+    },
+    {
+      "candidate": "eating-and-body-image"
+    },
+    {
+      "candidate": "serious-mental-illness"
+    },
+    {
+      "candidate": "mental-health-care"
+    },
+    {
+      "candidate": "memory"
+    }
+  ],
+  "drafts": [],
+  "skipped": [],
+  "covered": [],
+  "checkedAt": "2026-10-19"
+}

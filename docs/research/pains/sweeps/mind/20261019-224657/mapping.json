@@ -1,0 +1,338 @@
+{
+  "schemaVersion": 1,
+  "entries": {
+    "nsduh-2024/any-mental-illness": {
+      "broader": "mental-health-crisis",
+      "why": "Any mental illness is an umbrella across conditions; the societal Mental health pain covers it loosely, and each condition has its own personal pain."
+    },
+    "nsduh-2024/serious-mental-illness": {
+      "candidate": "serious-mental-illness"
+    },
+    "nsduh-2024/major-depressive-episode": {
+      "painId": "feeling-down",
+      "why": "Depression: \"I feel low most days.\""
+    },
+    "nsduh-2024/anxiety-symptoms": {
+      "painId": "anxiety",
+      "why": "Anxiety: \"I worry too much.\""
+    },
+    "nsduh-2024/substance-use-disorder": {
+      "painId": "drinking-too-much",
+      "why": "Addiction: \"I can't stop something that's hurting me.\""
+    },
+    "nsduh-2024/serious-thoughts-of-suicide": {
+      "candidate": "suicidal-thoughts"
+    },
+    "nsduh-2024/suicide-attempt": {
+      "candidate": "suicidal-thoughts"
+    },
+    "nsduh-2024/unmet-need-mental-health": {
+      "candidate": "mental-health-care"
+    },
+    "nsduh-2024/treatment-cost": {
+      "candidate": "mental-health-care"
+    },
+    "who-mental-disorders/anxiety-disorders": {
+      "painId": "anxiety",
+      "why": "Anxiety: \"I worry too much.\""
+    },
+    "who-mental-disorders/depression": {
+      "painId": "feeling-down",
+      "why": "Depression: \"I feel low most days.\""
+    },
+    "who-mental-disorders/bipolar-disorder": {
+      "candidate": "serious-mental-illness"
+    },
+    "who-mental-disorders/ptsd": {
+      "painId": "past-still-hurts",
+      "why": "Trauma: \"I'm still living with something that happened.\""
+    },
+    "who-mental-disorders/schizophrenia": {
+      "candidate": "serious-mental-illness"
+    },
+    "who-mental-disorders/eating-disorders": {
+      "candidate": "eating-and-body-image"
+    },
+    "who-mental-disorders/disruptive-dissocial": {
+      "broader": "parenting-is-hard",
+      "why": "A children's condition; from an adult's side it shows up as Parenting. Belongs to a Kids or People sweep."
+    },
+    "who-mental-disorders/neurodevelopmental": {
+      "broader": "cant-focus",
+      "why": "ADHD, the most common in adults, shows up as Focus: \"I can't keep my mind on one thing.\" Autism and intellectual disability are not covered."
+    },
+    "crisis-text-line-2023/anxiety-stress": {
+      "painId": "anxiety",
+      "why": "Anxiety: \"I worry too much.\" Stress is also covered by overwhelmed."
+    },
+    "crisis-text-line-2023/relationships": {
+      "painId": "relationship-strain",
+      "why": "Relationship: \"I'm struggling with my partner.\" Family fights sit under home-tension."
+    },
+    "crisis-text-line-2023/depression-sadness": {
+      "painId": "feeling-down",
+      "why": "Depression: \"I feel low most days.\""
+    },
+    "crisis-text-line-2023/suicide": {
+      "candidate": "suicidal-thoughts"
+    },
+    "crisis-text-line-2023/isolation-loneliness": {
+      "painId": "loneliness",
+      "why": "Loneliness: \"I feel alone.\""
+    },
+    "crisis-text-line-2023/self-harm": {
+      "candidate": "self-harm"
+    },
+    "crisis-text-line-2023/grief": {
+      "painId": "grief",
+      "why": "Grief: \"I'm missing someone I lost.\""
+    },
+    "crisis-text-line-2023/eating-body-image": {
+      "candidate": "eating-and-body-image"
+    },
+    "crisis-text-line-2023/bullying": {
+      "outOfScope": "being bullied is harm from other people at school, work or online; for the People, Kids or Safety sweeps, not a Mind pain"
+    },
+    "crisis-text-line-2023/emotional-abuse": {
+      "painId": "unsafe-at-home",
+      "why": "Safety at home: \"I don't feel safe with someone in my life.\""
+    },
+    "crisis-text-line-2023/substance-use": {
+      "painId": "drinking-too-much",
+      "why": "Addiction: \"I can't stop something that's hurting me.\""
+    },
+    "crisis-text-line-2023/sexual-abuse": {
+      "broader": "unsafe-at-home",
+      "why": "Ongoing abuse is Safety at home; abuse in the past is Trauma (past-still-hurts)."
+    },
+    "crisis-text-line-2023/abuse-unspecified": {
+      "painId": "unsafe-at-home",
+      "why": "Safety at home: \"I don't feel safe with someone in my life.\""
+    },
+    "crisis-text-line-2023/physical-abuse": {
+      "painId": "unsafe-at-home",
+      "why": "Safety at home: \"I don't feel safe with someone in my life.\""
+    },
+    "crisis-text-line-2023/gender-sexual-identity": {
+      "broader": "belonging",
+      "why": "Questions and struggles about gender or sexual identity are covered loosely by Belonging and, for unfair treatment, Discrimination (treated-differently)."
+    },
+    "gallup-emotions-2026/worry": {
+      "painId": "anxiety",
+      "why": "Anxiety: \"I worry too much.\""
+    },
+    "gallup-emotions-2026/stress": {
+      "painId": "overwhelmed",
+      "why": "Stress: \"I'm overwhelmed.\""
+    },
+    "gallup-emotions-2026/physical-pain": {
+      "painId": "chronic-pain",
+      "why": "Pain: \"I hurt most days.\""
+    },
+    "gallup-emotions-2026/sadness": {
+      "painId": "feeling-down",
+      "why": "Depression: \"I feel low most days.\""
+    },
+    "gallup-emotions-2026/anger": {
+      "painId": "short-fuse",
+      "why": "Anger: \"I snap at people I love.\""
+    },
+    "gallup-emotions-2026/enjoyment": {
+      "broader": "no-fun",
+      "why": "Less enjoyment is covered loosely by Fun (\"I can't remember the last time I played\") and Depression."
+    },
+    "ipsos-health-2026/mental-health": {
+      "painId": "mental-health-crisis",
+      "why": "Mental health (societal): \"I see people I care about struggling with their mental health.\""
+    },
+    "ipsos-health-2026/stress": {
+      "painId": "overwhelmed",
+      "why": "Stress: \"I'm overwhelmed.\""
+    },
+    "ipsos-health-2026/drug-abuse": {
+      "painId": "addiction-here",
+      "why": "Drugs (societal): \"I'm losing people I know to drugs.\""
+    },
+    "apa-stress-2025/societal-division": {
+      "painId": "we-cant-talk",
+      "why": "Polarization: \"I can't disagree with someone without losing them.\""
+    },
+    "apa-stress-2025/isolated": {
+      "painId": "loneliness",
+      "why": "Loneliness: \"I feel alone.\""
+    },
+    "apa-stress-2025/left-out": {
+      "painId": "belonging",
+      "why": "Belonging: \"I don't feel like I belong anywhere.\""
+    },
+    "apa-stress-2025/lacking-companionship": {
+      "painId": "loneliness",
+      "why": "Loneliness: \"I feel alone.\""
+    },
+    "apa-stress-2025/needed-emotional-support": {
+      "painId": "no-one-to-lean-on",
+      "why": "Support: \"I have no one to call when I need help.\""
+    },
+    "cdc-cognitive-decline/subjective-cognitive-decline": {
+      "candidate": "memory"
+    },
+    "gallup-mip/drugs": {
+      "painId": "addiction-here",
+      "why": "Drugs (societal): \"I'm losing people I know to drugs.\""
+    },
+    "211-impact-2025/mental-health-substance-use": {
+      "candidate": "mental-health-care"
+    },
+    "oecd-wellbeing/life-satisfaction": {
+      "broader": "stuck",
+      "why": "Low life satisfaction overall is covered loosely by Stuck (\"my life isn't going anywhere\") and Depression."
+    },
+    "oecd-wellbeing/negative-affect-balance": {
+      "broader": "feeling-down",
+      "why": "More bad feelings than good is covered loosely by Depression, Anxiety and Stress."
+    },
+    "oecd-wellbeing/deaths-of-despair": {
+      "broader": "mental-health-crisis",
+      "why": "Suicide, overdose and alcohol deaths, as a society-wide measure, are covered loosely by the societal Mental health and Drugs pains."
+    },
+    "whoqol-bref/q5": {
+      "broader": "no-fun",
+      "why": "Enjoying life is covered loosely by Fun and Depression."
+    },
+    "whoqol-bref/q6": {
+      "broader": "stuck",
+      "why": "A life that feels meaningless is covered loosely by Stuck and Identity (lost-myself); meaning in life belongs to the Purpose sweep."
+    },
+    "whoqol-bref/q7": {
+      "painId": "cant-focus",
+      "why": "Focus: \"I can't keep my mind on one thing.\""
+    },
+    "whoqol-bref/q11": {
+      "painId": "hard-on-myself",
+      "why": "Self-esteem maps WHOQOL Q11 in the catalog; disordered eating and body image get their own candidate."
+    },
+    "whoqol-bref/q19": {
+      "painId": "hard-on-myself",
+      "why": "Self-esteem: \"I'm never good enough for myself.\""
+    },
+    "whoqol-bref/q26": {
+      "painId": "feeling-down",
+      "why": "Depression maps WHOQOL Q26 (blue mood, despair); anxiety is Anxiety."
+    },
+    "sdg-targets/3.4": {
+      "broader": "feeling-down",
+      "why": "Promoting mental health and well-being is covered loosely by the Mind pains as a whole."
+    },
+    "sdg-targets/3.4.2": {
+      "candidate": "suicidal-thoughts"
+    },
+    "sdg-targets/3.5": {
+      "painId": "drinking-too-much",
+      "why": "Addiction maps SDG 3.5 in the catalog."
+    },
+    "sdg-targets/3.5.2": {
+      "painId": "drinking-too-much",
+      "why": "Addiction, earlier worded \"I drink more than I want to.\""
+    },
+    "maxneef/identity": {
+      "painId": "hard-on-myself",
+      "why": "Self-esteem maps Max-Neef Identity in the catalog."
+    },
+    "maxneef/idleness": {
+      "broader": "overwhelmed",
+      "why": "Peace of mind is covered loosely by Stress and Anxiety."
+    },
+    "gallup-elements/physical": {
+      "broader": "always-tired",
+      "why": "Energy to get through the day is covered loosely by Tired; the catalog maps most Mind pains to Physical."
+    },
+    "wikidata/Q944142": {
+      "candidate": "suicidal-thoughts"
+    },
+    "wikidata/Q622527": {
+      "candidate": "self-harm"
+    },
+    "wikidata/Q373822": {
+      "candidate": "eating-and-body-image"
+    },
+    "wikidata/Q15733239": {
+      "candidate": "eating-and-body-image"
+    },
+    "wikidata/Q989365": {
+      "candidate": "memory"
+    },
+    "wikidata/Q83030": {
+      "candidate": "memory"
+    },
+    "wikidata/Q19365224": {
+      "candidate": "serious-mental-illness"
+    },
+    "wikidata/Q131755": {
+      "candidate": "serious-mental-illness"
+    },
+    "wikidata/Q41112": {
+      "candidate": "serious-mental-illness"
+    },
+    "wikidata/Q170082": {
+      "candidate": "serious-mental-illness"
+    },
+    "wikidata/Q696490": {
+      "broader": "anxiety",
+      "why": "Panic attacks are covered loosely by Anxiety."
+    },
+    "wikidata/Q4382888": {
+      "candidate": "mental-health-care"
+    },
+    "wikidata/Q183257": {
+      "candidate": "mental-health-care"
+    },
+    "wikidata/Q748309": {
+      "broader": "drinking-too-much",
+      "why": "Addiction (\"I can't stop something that's hurting me\") covers gambling as well as substances."
+    },
+    "wikidata/Q202387": {
+      "painId": "past-still-hurts",
+      "why": "Trauma maps psychological trauma; PTSD is the clinical form."
+    },
+    "wikidata/Q181923": {
+      "broader": "cant-focus",
+      "why": "ADHD is covered loosely by Focus."
+    },
+    "wikidata/Q223270": {
+      "painId": "loneliness",
+      "why": "Loneliness maps Q223270 in the catalog."
+    },
+    "wikidata/Q1436482": {
+      "painId": "anxiety",
+      "why": "Anxiety: \"I worry too much.\""
+    },
+    "wikidata/Q169251": {
+      "painId": "feeling-down",
+      "why": "Depression: \"I feel low most days.\""
+    },
+    "wikidata/Q544006": {
+      "painId": "anxiety",
+      "why": "Anxiety maps Q154430 (anxiety); anxiety disorder is the clinical form."
+    },
+    "wikidata/Q3500368": {
+      "painId": "overwhelmed",
+      "why": "Stress maps Q3500368 in the catalog."
+    },
+    "wikidata/Q65076667": {
+      "broader": "mental-health-crisis",
+      "why": "A society-wide measure, covered loosely by the societal Mental health and Drugs pains."
+    },
+    "wikidata/Q317309": {
+      "painId": "mental-health-crisis",
+      "why": "Mental health (societal)."
+    },
+    "wikidata/Q12135": {
+      "broader": "mental-health-crisis",
+      "why": "Mental disorder in general; each common condition has its own pain."
+    },
+    "wikidata/Q1117179": {
+      "broader": "stuck",
+      "why": "Life satisfaction is covered loosely by Stuck and Depression."
+    }
+  }
+}

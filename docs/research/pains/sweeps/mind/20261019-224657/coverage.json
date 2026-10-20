@@ -1,0 +1,736 @@
+{
+  "schemaVersion": 1,
+  "target": 0.9,
+  "lists": {
+    "nsduh-2024": {
+      "name": "SAMHSA: 2024 National Survey on Drug Use and Health, annual national report (U.S.)",
+      "url": "https://www.samhsa.gov/data/sites/default/files/reports/rpt56287/2024-nsduh-annual-national/2024-nsduh-annual-national-html-071425-edited/2024-nsduh-annual-national.htm",
+      "accessed": "2026-10-19",
+      "entries": 9,
+      "covered": 3,
+      "share": 0.333,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "major-depressive-episode",
+          "name": "Major depressive episode (MDE) in the past year, adults",
+          "painId": "feeling-down",
+          "why": "Depression: \"I feel low most days.\""
+        },
+        {
+          "entry": "anxiety-symptoms",
+          "name": "Moderate or severe symptoms of generalized anxiety disorder, adults",
+          "painId": "anxiety",
+          "why": "Anxiety: \"I worry too much.\""
+        },
+        {
+          "entry": "substance-use-disorder",
+          "name": "Substance use disorder (SUD) in the past year",
+          "painId": "drinking-too-much",
+          "why": "Addiction: \"I can't stop something that's hurting me.\""
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "any-mental-illness",
+          "name": "Any mental illness (AMI) in the past year, adults",
+          "url": "https://www.samhsa.gov/data/sites/default/files/reports/rpt56287/2024-nsduh-annual-national/2024-nsduh-annual-national-html-071425-edited/2024-nsduh-annual-national.htm",
+          "reason": "covered by a broader pain: mental-health-crisis"
+        },
+        {
+          "entry": "serious-mental-illness",
+          "name": "Serious mental illness (SMI) in the past year, adults",
+          "url": "https://www.samhsa.gov/data/sites/default/files/reports/rpt56287/2024-nsduh-annual-national/2024-nsduh-annual-national-html-071425-edited/2024-nsduh-annual-national.htm",
+          "reason": "waiting for review: serious-mental-illness"
+        },
+        {
+          "entry": "serious-thoughts-of-suicide",
+          "name": "Serious thoughts of suicide in the past year, adults",
+          "url": "https://www.samhsa.gov/data/sites/default/files/reports/rpt56287/2024-nsduh-annual-national/2024-nsduh-annual-national-html-071425-edited/2024-nsduh-annual-national.htm",
+          "reason": "waiting for review: suicidal-thoughts"
+        },
+        {
+          "entry": "suicide-attempt",
+          "name": "Attempted suicide in the past year, adults",
+          "url": "https://www.samhsa.gov/data/sites/default/files/reports/rpt56287/2024-nsduh-annual-national/2024-nsduh-annual-national-html-071425-edited/2024-nsduh-annual-national.htm",
+          "reason": "waiting for review: suicidal-thoughts"
+        },
+        {
+          "entry": "unmet-need-mental-health",
+          "name": "Perceived unmet need for mental health treatment, adults with AMI not treated",
+          "url": "https://www.samhsa.gov/data/sites/default/files/reports/rpt56287/2024-nsduh-annual-national/2024-nsduh-annual-national-html-071425-edited/2024-nsduh-annual-national.htm",
+          "reason": "waiting for review: mental-health-care"
+        },
+        {
+          "entry": "treatment-cost",
+          "name": "Reason for not getting mental health treatment: would cost too much",
+          "url": "https://www.samhsa.gov/data/sites/default/files/reports/rpt56287/2024-nsduh-annual-national/2024-nsduh-annual-national-html-071425-edited/2024-nsduh-annual-national.htm",
+          "reason": "waiting for review: mental-health-care"
+        }
+      ]
+    },
+    "who-mental-disorders": {
+      "name": "WHO fact sheet: Mental disorders (types and number of people living with each, 2023)",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/mental-disorders",
+      "accessed": "2026-10-19",
+      "entries": 8,
+      "covered": 3,
+      "share": 0.375,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "anxiety-disorders",
+          "name": "Anxiety disorders",
+          "painId": "anxiety",
+          "why": "Anxiety: \"I worry too much.\""
+        },
+        {
+          "entry": "depression",
+          "name": "Depression",
+          "painId": "feeling-down",
+          "why": "Depression: \"I feel low most days.\""
+        },
+        {
+          "entry": "ptsd",
+          "name": "Post-traumatic stress disorder (PTSD)",
+          "painId": "past-still-hurts",
+          "why": "Trauma: \"I'm still living with something that happened.\""
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "bipolar-disorder",
+          "name": "Bipolar disorder",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/mental-disorders",
+          "reason": "waiting for review: serious-mental-illness"
+        },
+        {
+          "entry": "schizophrenia",
+          "name": "Schizophrenia",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/mental-disorders",
+          "reason": "waiting for review: serious-mental-illness"
+        },
+        {
+          "entry": "eating-disorders",
+          "name": "Eating disorders",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/mental-disorders",
+          "reason": "waiting for review: eating-and-body-image"
+        },
+        {
+          "entry": "disruptive-dissocial",
+          "name": "Disruptive behaviour and dissocial disorders",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/mental-disorders",
+          "reason": "covered by a broader pain: parenting-is-hard"
+        },
+        {
+          "entry": "neurodevelopmental",
+          "name": "Neurodevelopmental disorders",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/mental-disorders",
+          "reason": "covered by a broader pain: cant-focus"
+        }
+      ]
+    },
+    "crisis-text-line-2023": {
+      "name": "Crisis Text Line, United in Empathy 2023: issues texters brought (share of 1.33 million conversations)",
+      "url": "https://www.crisistextline.org/wp-content/uploads/2024/04/CTL_2023%20United%20In%20Empathy_Report.pdf",
+      "accessed": "2026-10-19",
+      "entries": 15,
+      "covered": 9,
+      "share": 0.6,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "anxiety-stress",
+          "name": "Anxiety/Stress (34.7%)",
+          "painId": "anxiety",
+          "why": "Anxiety: \"I worry too much.\" Stress is also covered by overwhelmed."
+        },
+        {
+          "entry": "relationships",
+          "name": "Relationships (33.4%)",
+          "painId": "relationship-strain",
+          "why": "Relationship: \"I'm struggling with my partner.\" Family fights sit under home-tension."
+        },
+        {
+          "entry": "depression-sadness",
+          "name": "Depression/Sadness (29.8%)",
+          "painId": "feeling-down",
+          "why": "Depression: \"I feel low most days.\""
+        },
+        {
+          "entry": "isolation-loneliness",
+          "name": "Isolation/Loneliness (17.0%)",
+          "painId": "loneliness",
+          "why": "Loneliness: \"I feel alone.\""
+        },
+        {
+          "entry": "grief",
+          "name": "Grief (3.6%)",
+          "painId": "grief",
+          "why": "Grief: \"I'm missing someone I lost.\""
+        },
+        {
+          "entry": "emotional-abuse",
+          "name": "Emotional abuse (3.0%)",
+          "painId": "unsafe-at-home",
+          "why": "Safety at home: \"I don't feel safe with someone in my life.\""
+        },
+        {
+          "entry": "substance-use",
+          "name": "Substance use (2.8%)",
+          "painId": "drinking-too-much",
+          "why": "Addiction: \"I can't stop something that's hurting me.\""
+        },
+        {
+          "entry": "abuse-unspecified",
+          "name": "Abuse (unspecified) (1.6%)",
+          "painId": "unsafe-at-home",
+          "why": "Safety at home: \"I don't feel safe with someone in my life.\""
+        },
+        {
+          "entry": "physical-abuse",
+          "name": "Physical abuse (1.5%)",
+          "painId": "unsafe-at-home",
+          "why": "Safety at home: \"I don't feel safe with someone in my life.\""
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "suicide",
+          "name": "Suicide (17.9%)",
+          "url": "https://www.crisistextline.org/wp-content/uploads/2024/04/CTL_2023%20United%20In%20Empathy_Report.pdf",
+          "reason": "waiting for review: suicidal-thoughts"
+        },
+        {
+          "entry": "self-harm",
+          "name": "Self-harm (13.3%)",
+          "url": "https://www.crisistextline.org/wp-content/uploads/2024/04/CTL_2023%20United%20In%20Empathy_Report.pdf",
+          "reason": "waiting for review: self-harm"
+        },
+        {
+          "entry": "eating-body-image",
+          "name": "Eating/Body image (3.3%)",
+          "url": "https://www.crisistextline.org/wp-content/uploads/2024/04/CTL_2023%20United%20In%20Empathy_Report.pdf",
+          "reason": "waiting for review: eating-and-body-image"
+        },
+        {
+          "entry": "bullying",
+          "name": "Bullying (3.3%)",
+          "url": "https://www.crisistextline.org/wp-content/uploads/2024/04/CTL_2023%20United%20In%20Empathy_Report.pdf",
+          "reason": "out of scope: being bullied is harm from other people at school, work or online; for the People, Kids or Safety sweeps, not a Mind pain"
+        },
+        {
+          "entry": "sexual-abuse",
+          "name": "Sexual abuse (2.4%)",
+          "url": "https://www.crisistextline.org/wp-content/uploads/2024/04/CTL_2023%20United%20In%20Empathy_Report.pdf",
+          "reason": "covered by a broader pain: unsafe-at-home"
+        },
+        {
+          "entry": "gender-sexual-identity",
+          "name": "Gender/Sexual identity (1.0%)",
+          "url": "https://www.crisistextline.org/wp-content/uploads/2024/04/CTL_2023%20United%20In%20Empathy_Report.pdf",
+          "reason": "covered by a broader pain: belonging"
+        }
+      ]
+    },
+    "gallup-emotions-2026": {
+      "name": "Gallup: State of the World's Emotional Health 2026 (daily experiences, 2025 data)",
+      "url": "https://www.gallup.com/analytics/349280/state-of-worlds-emotional-health.aspx",
+      "accessed": "2026-10-19",
+      "entries": 6,
+      "covered": 5,
+      "share": 0.833,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "worry",
+          "name": "Worry",
+          "painId": "anxiety",
+          "why": "Anxiety: \"I worry too much.\""
+        },
+        {
+          "entry": "stress",
+          "name": "Stress",
+          "painId": "overwhelmed",
+          "why": "Stress: \"I'm overwhelmed.\""
+        },
+        {
+          "entry": "physical-pain",
+          "name": "Physical pain",
+          "painId": "chronic-pain",
+          "why": "Pain: \"I hurt most days.\""
+        },
+        {
+          "entry": "sadness",
+          "name": "Sadness",
+          "painId": "feeling-down",
+          "why": "Depression: \"I feel low most days.\""
+        },
+        {
+          "entry": "anger",
+          "name": "Anger",
+          "painId": "short-fuse",
+          "why": "Anger: \"I snap at people I love.\""
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "enjoyment",
+          "name": "Enjoyment (declining)",
+          "url": "https://www.gallup.com/analytics/349280/state-of-worlds-emotional-health.aspx",
+          "reason": "covered by a broader pain: no-fun"
+        }
+      ]
+    },
+    "ipsos-health-2026": {
+      "name": "Ipsos Health Service Report 2026: biggest health problems in your country (32-country average)",
+      "url": "https://www.ipsos.com/en-ro/node/1084971",
+      "accessed": "2026-10-19",
+      "entries": 3,
+      "covered": 3,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "mental-health",
+          "name": "Mental health",
+          "painId": "mental-health-crisis",
+          "why": "Mental health (societal): \"I see people I care about struggling with their mental health.\""
+        },
+        {
+          "entry": "stress",
+          "name": "Stress",
+          "painId": "overwhelmed",
+          "why": "Stress: \"I'm overwhelmed.\""
+        },
+        {
+          "entry": "drug-abuse",
+          "name": "Drug abuse",
+          "painId": "addiction-here",
+          "why": "Drugs (societal): \"I'm losing people I know to drugs.\""
+        }
+      ],
+      "uncovered": []
+    },
+    "apa-stress-2025": {
+      "name": "APA Stress in America 2025 (Harris Poll), as reported by UPI",
+      "url": "https://www.upi.com/Health_News/2025/11/07/apa-survey-america-divided/2001762525430/",
+      "accessed": "2026-10-19",
+      "entries": 5,
+      "covered": 5,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "societal-division",
+          "name": "Societal division as a significant source of stress",
+          "painId": "we-cant-talk",
+          "why": "Polarization: \"I can't disagree with someone without losing them.\""
+        },
+        {
+          "entry": "isolated",
+          "name": "Feeling isolated",
+          "painId": "loneliness",
+          "why": "Loneliness: \"I feel alone.\""
+        },
+        {
+          "entry": "left-out",
+          "name": "Feeling left out",
+          "painId": "belonging",
+          "why": "Belonging: \"I don't feel like I belong anywhere.\""
+        },
+        {
+          "entry": "lacking-companionship",
+          "name": "Lacking companionship",
+          "painId": "loneliness",
+          "why": "Loneliness: \"I feel alone.\""
+        },
+        {
+          "entry": "needed-emotional-support",
+          "name": "Needed more emotional support than received",
+          "painId": "no-one-to-lean-on",
+          "why": "Support: \"I have no one to call when I need help.\""
+        }
+      ],
+      "uncovered": []
+    },
+    "cdc-cognitive-decline": {
+      "name": "CDC MMWR: Subjective cognitive decline among adults aged 45 and older (BRFSS 2015–2016)",
+      "url": "https://www.cdc.gov/mmwr/volumes/67/wr/mm6727a1.htm",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "subjective-cognitive-decline",
+          "name": "Subjective cognitive decline (worsening or more frequent confusion or memory loss)",
+          "url": "https://www.cdc.gov/mmwr/volumes/67/wr/mm6727a1.htm",
+          "reason": "waiting for review: memory"
+        }
+      ]
+    },
+    "gallup-mip": {
+      "name": "Gallup: most important problem facing the country, non-economic problems (latest monthly reading)",
+      "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 1,
+      "share": 1.0,
+      "meetsTarget": true,
+      "coveredEntries": [
+        {
+          "entry": "drugs",
+          "name": "Drugs",
+          "painId": "addiction-here",
+          "why": "Drugs (societal): \"I'm losing people I know to drugs.\""
+        }
+      ],
+      "uncovered": []
+    },
+    "211-impact-2025": {
+      "name": "United Way 211 Impact Snapshot 2025: top referral categories",
+      "url": "https://www.unitedway.org/the-facts-about-211-2025-impact-snapshot",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "mental-health-substance-use",
+          "name": "Referrals for mental health and substance use disorders assistance",
+          "url": "https://www.unitedway.org/the-facts-about-211-2025-impact-snapshot",
+          "reason": "waiting for review: mental-health-care"
+        }
+      ]
+    },
+    "oecd-wellbeing": {
+      "name": "OECD Well-being Framework: Subjective well-being and related indicators",
+      "url": "https://www.oecd.org/en/topics/sub-issues/measuring-well-being-and-progress/oecd-well-being-framework.html",
+      "accessed": "2026-10-19",
+      "entries": 3,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "life-satisfaction",
+          "name": "Life satisfaction (Subjective well-being dimension)",
+          "url": "https://www.oecd.org/en/topics/sub-issues/measuring-well-being-and-progress/oecd-well-being-framework.html",
+          "reason": "covered by a broader pain: stuck"
+        },
+        {
+          "entry": "negative-affect-balance",
+          "name": "Negative affect balance: more negative than positive feelings (Subjective well-being dimension)",
+          "url": "https://www.oecd.org/en/topics/sub-issues/measuring-well-being-and-progress/oecd-well-being-framework.html",
+          "reason": "covered by a broader pain: feeling-down"
+        },
+        {
+          "entry": "deaths-of-despair",
+          "name": "Deaths of despair",
+          "url": "https://tuac.org/news/oecd-report-well-being-warning-signs/",
+          "reason": "covered by a broader pain: mental-health-crisis"
+        }
+      ]
+    },
+    "whoqol-bref": {
+      "name": "WHOQOL-BREF (English, Australian version)",
+      "url": "https://cdn.who.int/media/docs/default-source/publishing-policies/whoqol-bref/english-australian-whoqol-bref.zip?sfvrsn=a7452ad6_2",
+      "accessed": "2026-10-19",
+      "entries": 6,
+      "covered": 4,
+      "share": 0.667,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "q7",
+          "name": "Q7 How well are you able to concentrate?",
+          "painId": "cant-focus",
+          "why": "Focus: \"I can't keep my mind on one thing.\""
+        },
+        {
+          "entry": "q11",
+          "name": "Q11 Are you able to accept your bodily appearance?",
+          "painId": "hard-on-myself",
+          "why": "Self-esteem maps WHOQOL Q11 in the catalog; disordered eating and body image get their own candidate."
+        },
+        {
+          "entry": "q19",
+          "name": "Q19 How satisfied are you with yourself?",
+          "painId": "hard-on-myself",
+          "why": "Self-esteem: \"I'm never good enough for myself.\""
+        },
+        {
+          "entry": "q26",
+          "name": "Q26 How often do you have negative feelings such as blue mood, despair, anxiety or depression?",
+          "painId": "feeling-down",
+          "why": "Depression maps WHOQOL Q26 (blue mood, despair); anxiety is Anxiety."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "q5",
+          "name": "Q5 How much do you enjoy life?",
+          "url": "https://cdn.who.int/media/docs/default-source/publishing-policies/whoqol-bref/english-australian-whoqol-bref.zip?sfvrsn=a7452ad6_2",
+          "reason": "covered by a broader pain: no-fun"
+        },
+        {
+          "entry": "q6",
+          "name": "Q6 To what extent do you feel your life to be meaningful?",
+          "url": "https://cdn.who.int/media/docs/default-source/publishing-policies/whoqol-bref/english-australian-whoqol-bref.zip?sfvrsn=a7452ad6_2",
+          "reason": "covered by a broader pain: stuck"
+        }
+      ]
+    },
+    "sdg-targets": {
+      "name": "UN SDG targets bearing on mental health and substance use",
+      "url": "https://sdgs.un.org/goals/goal3",
+      "accessed": "2026-10-19",
+      "entries": 4,
+      "covered": 2,
+      "share": 0.5,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "3.5",
+          "name": "3.5 Prevention and treatment of substance abuse",
+          "painId": "drinking-too-much",
+          "why": "Addiction maps SDG 3.5 in the catalog."
+        },
+        {
+          "entry": "3.5.2",
+          "name": "3.5.2 Alcohol per capita consumption",
+          "painId": "drinking-too-much",
+          "why": "Addiction, earlier worded \"I drink more than I want to.\""
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "3.4",
+          "name": "3.4 Reduce premature deaths from non-communicable diseases and promote mental health and well-being",
+          "url": "https://sdgs.un.org/goals/goal3",
+          "reason": "covered by a broader pain: feeling-down"
+        },
+        {
+          "entry": "3.4.2",
+          "name": "3.4.2 Suicide mortality rate",
+          "url": "https://sdgs.un.org/goals/goal3",
+          "reason": "waiting for review: suicidal-thoughts"
+        }
+      ]
+    },
+    "maxneef": {
+      "name": "Max-Neef's fundamental human needs",
+      "url": "https://en.wikipedia.org/wiki/Manfred_Max-Neef%27s_Fundamental_human_needs",
+      "accessed": "2026-10-19",
+      "entries": 2,
+      "covered": 1,
+      "share": 0.5,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "identity",
+          "name": "Identity",
+          "painId": "hard-on-myself",
+          "why": "Self-esteem maps Max-Neef Identity in the catalog."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "idleness",
+          "name": "Idleness (leisure)",
+          "url": "https://en.wikipedia.org/wiki/Manfred_Max-Neef%27s_Fundamental_human_needs",
+          "reason": "covered by a broader pain: overwhelmed"
+        }
+      ]
+    },
+    "gallup-elements": {
+      "name": "Gallup's five elements of wellbeing",
+      "url": "https://www.gallup.com/workplace/237020/five-essential-elements.aspx",
+      "accessed": "2026-10-19",
+      "entries": 1,
+      "covered": 0,
+      "share": 0.0,
+      "meetsTarget": false,
+      "coveredEntries": [],
+      "uncovered": [
+        {
+          "entry": "physical",
+          "name": "Physical wellbeing",
+          "url": "https://www.gallup.com/workplace/237020/five-essential-elements.aspx",
+          "reason": "covered by a broader pain: always-tired"
+        }
+      ]
+    },
+    "wikidata": {
+      "name": "Wikidata items for mind pains",
+      "url": "https://www.wikidata.org/",
+      "accessed": "2026-10-19",
+      "entries": 25,
+      "covered": 7,
+      "share": 0.28,
+      "meetsTarget": false,
+      "coveredEntries": [
+        {
+          "entry": "Q202387",
+          "name": "post-traumatic stress disorder",
+          "painId": "past-still-hurts",
+          "why": "Trauma maps psychological trauma; PTSD is the clinical form."
+        },
+        {
+          "entry": "Q223270",
+          "name": "loneliness",
+          "painId": "loneliness",
+          "why": "Loneliness maps Q223270 in the catalog."
+        },
+        {
+          "entry": "Q1436482",
+          "name": "worry",
+          "painId": "anxiety",
+          "why": "Anxiety: \"I worry too much.\""
+        },
+        {
+          "entry": "Q169251",
+          "name": "sadness",
+          "painId": "feeling-down",
+          "why": "Depression: \"I feel low most days.\""
+        },
+        {
+          "entry": "Q544006",
+          "name": "anxiety disorder",
+          "painId": "anxiety",
+          "why": "Anxiety maps Q154430 (anxiety); anxiety disorder is the clinical form."
+        },
+        {
+          "entry": "Q3500368",
+          "name": "psychological stress",
+          "painId": "overwhelmed",
+          "why": "Stress maps Q3500368 in the catalog."
+        },
+        {
+          "entry": "Q317309",
+          "name": "mental health",
+          "painId": "mental-health-crisis",
+          "why": "Mental health (societal)."
+        }
+      ],
+      "uncovered": [
+        {
+          "entry": "Q944142",
+          "name": "suicidal ideation",
+          "url": "https://www.wikidata.org/wiki/Q944142",
+          "reason": "waiting for review: suicidal-thoughts"
+        },
+        {
+          "entry": "Q622527",
+          "name": "self-injury",
+          "url": "https://www.wikidata.org/wiki/Q622527",
+          "reason": "waiting for review: self-harm"
+        },
+        {
+          "entry": "Q373822",
+          "name": "eating disorder",
+          "url": "https://www.wikidata.org/wiki/Q373822",
+          "reason": "waiting for review: eating-and-body-image"
+        },
+        {
+          "entry": "Q15733239",
+          "name": "body image",
+          "url": "https://www.wikidata.org/wiki/Q15733239",
+          "reason": "waiting for review: eating-and-body-image"
+        },
+        {
+          "entry": "Q989365",
+          "name": "memory loss",
+          "url": "https://www.wikidata.org/wiki/Q989365",
+          "reason": "waiting for review: memory"
+        },
+        {
+          "entry": "Q83030",
+          "name": "dementia",
+          "url": "https://www.wikidata.org/wiki/Q83030",
+          "reason": "waiting for review: memory"
+        },
+        {
+          "entry": "Q19365224",
+          "name": "serious mental illness",
+          "url": "https://www.wikidata.org/wiki/Q19365224",
+          "reason": "waiting for review: serious-mental-illness"
+        },
+        {
+          "entry": "Q131755",
+          "name": "bipolar disorder",
+          "url": "https://www.wikidata.org/wiki/Q131755",
+          "reason": "waiting for review: serious-mental-illness"
+        },
+        {
+          "entry": "Q41112",
+          "name": "schizophrenia",
+          "url": "https://www.wikidata.org/wiki/Q41112",
+          "reason": "waiting for review: serious-mental-illness"
+        },
+        {
+          "entry": "Q170082",
+          "name": "psychosis",
+          "url": "https://www.wikidata.org/wiki/Q170082",
+          "reason": "waiting for review: serious-mental-illness"
+        },
+        {
+          "entry": "Q696490",
+          "name": "panic attack",
+          "url": "https://www.wikidata.org/wiki/Q696490",
+          "reason": "covered by a broader pain: anxiety"
+        },
+        {
+          "entry": "Q4382888",
+          "name": "mental health care",
+          "url": "https://www.wikidata.org/wiki/Q4382888",
+          "reason": "waiting for review: mental-health-care"
+        },
+        {
+          "entry": "Q183257",
+          "name": "psychotherapy",
+          "url": "https://www.wikidata.org/wiki/Q183257",
+          "reason": "waiting for review: mental-health-care"
+        },
+        {
+          "entry": "Q748309",
+          "name": "problem gambling",
+          "url": "https://www.wikidata.org/wiki/Q748309",
+          "reason": "covered by a broader pain: drinking-too-much"
+        },
+        {
+          "entry": "Q181923",
+          "name": "attention deficit hyperactivity disorder",
+          "url": "https://www.wikidata.org/wiki/Q181923",
+          "reason": "covered by a broader pain: cant-focus"
+        },
+        {
+          "entry": "Q65076667",
+          "name": "death of despair",
+          "url": "https://www.wikidata.org/wiki/Q65076667",
+          "reason": "covered by a broader pain: mental-health-crisis"
+        },
+        {
+          "entry": "Q12135",
+          "name": "mental disorder",
+          "url": "https://www.wikidata.org/wiki/Q12135",
+          "reason": "covered by a broader pain: mental-health-crisis"
+        },
+        {
+          "entry": "Q1117179",
+          "name": "life satisfaction",
+          "url": "https://www.wikidata.org/wiki/Q1117179",
+          "reason": "covered by a broader pain: stuck"
+        }
+      ]
+    }
+  },
+  "issues": [],
+  "checkedAt": "2026-10-19"
+}
