@@ -6,9 +6,9 @@
    - Wait: publish nothing mathematical until an outside reviewer has read the work.
 
 2. **Which result goes first?**
-   - **The one whose statement a stranger can follow in two sentences, even if it's a smaller result (Recommended).** It shows the method and invites checking.
+   - **The one whose statement a stranger can follow in two sentences, even if it's a smaller result (Recommended).** A small result still shows the method and invites checking.
    - The strongest or most general result, with a longer plain-language lead-in.
-   - The type-theory "stacked levels" reasoning behind the content graph (already in the public repo, `docs/research/thing-type-relation/research.md`), cited properly. It's not It's own result, so label it as background.
+   - The type-theory "stacked levels" reasoning behind the content graph (already in the public repo, `docs/research/thing-type-relation/research.md`), cited properly. This isn't It's own result, so label it as background.
 
 3. **How much of the Lean source is public?**
    - **The statement, the assumptions and a link to the full source once you've reviewed it (Recommended).** Readers can check it themselves.

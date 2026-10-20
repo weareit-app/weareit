@@ -11,7 +11,7 @@
 - Machine-checked proofs move trust from a reader to a checker and to the stated assumptions (link the `/math` note when it exists).
 
 ## 3. Our present view
-- Label: **planned practice, partly in use.** The rules It already follows, each one a link:
+- The rules It already follows, each one a link (they're in use, so they need no status label; any rule not yet in use carries **planned engineering**):
   - status labels on every result, view or plan (the public-essays spec);
   - sources next to the claims they support, and the essay's source list;
   - fix examples stated as what happened, with who, where and when (copy style guide);

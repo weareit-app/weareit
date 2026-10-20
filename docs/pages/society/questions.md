@@ -6,7 +6,7 @@
    - Own page now: an essay on plural futures.
 
 2. **If it's written later, what's its job?**
-   - **Explain why It shows several futures under each societal pain and who chooses them (Recommended).** It's specific to It and answers the "is this a platform?" worry directly.
+   - **Explain why It shows several futures under each societal pain and who chooses them (Recommended).** That job is specific to It and answers the "is this a platform?" worry directly.
    - A tour of ideas about a better society (Sen, Wright, Landemore).
    - Your own view of a better society, labelled as yours.
 
@@ -16,5 +16,5 @@
    - Freely; it's your project.
 
 4. **Does community ownership belong here or on `/principles`?**
-   - **`/principles`, with a link from here (Recommended).** It already has the guardrail about not claiming ownership before it's true.
+   - **`/principles`, with a link from here (Recommended).** `/principles` already has the guardrail about not claiming ownership before it's true.
    - Here, as the main example of collective action.

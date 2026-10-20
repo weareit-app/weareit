@@ -1,7 +1,7 @@
 # /learning: founder questions
 
 1. **Own page now, section under /research, or wait?**
-   - **Section under /research: one note on what the October generator evaluation taught us (Recommended).** It's a real, dated finding with numbers already in the repo, and it fits the atlas's "include one failed approach". A `/learning` page about human and machine learning in general would be a survey with no It evidence. Promote it when there are two or three such notes.
+   - **Section under /research: one note on what the October generator evaluation taught us (Recommended).** The evaluation is a real, dated finding with numbers already in the repo, and it fits the atlas's "include one failed approach". A `/learning` page about human and machine learning in general would be a survey with no It evidence. Promote it when there are two or three such notes.
    - Wait: keep the evaluation internal until a second round confirms it.
    - Own page now: a broader essay on learning, with the evaluation as its example.
 

@@ -20,7 +20,7 @@
 - **You:** one concrete consequence. If the result holds, what decision or design in It changes?
 
 ## 5. What remains open
-- What the result doesn't say (the model's limits; the file header itself notes it doesn't strengthen the empirical reading of the model).
+- What the result doesn't say: a checked proof about a model is not a finding about the world. **You:** the model's limits.
 - **You:** one approach that failed or was abandoned.
 - What's held back pending review, said plainly.
 

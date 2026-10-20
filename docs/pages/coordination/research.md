@@ -7,7 +7,7 @@
 - **The atlas's question:** "Why shared goals are not necessary for useful cooperation; how different goals, resources, needs and capabilities might lead to jointly possible actions" (§4).
 - **`/risks` area 5, "Lack of coordination"** (founder, 2026-10-19), already outlined with a labelled working hypothesis: better tools for finding people who want the same future could make some coordination easier, and It doesn't do this yet (`openspec/changes/public-pages/outlines/risks.md`).
 - **The explorer itself:** several dreams under each pain, more than one can be picked, and fixes sit under each dream. Whether fixes repeat across dreams is checkable from It's content alone, with no personal data. [ASSUMPTION: not yet measured]
-- **Planned, not built:** "Matching people with goals to people offering help" is listed as *soon* in `docs/spec/features.md`. Any overlap shown between people involves their choices, so the privacy invariants in `AGENTS.md` apply (nothing personal public by default; aggregate counts only with consent and enough people).
+- **Planned, not built:** "Matching people with goals to people offering help" is listed as *soon* in `docs/spec/features.md`. Any overlap shown between people involves their choices, so the privacy invariants in `AGENTS.md` apply: "Never expose personal selections or their sensitive derivatives in public artifacts by default." The atlas floats threshold-protected aggregate counts (§1, §9), but AGENTS.md has no such exception; any aggregate would need a decision record first (open question).
 
 ## Key primary sources
 

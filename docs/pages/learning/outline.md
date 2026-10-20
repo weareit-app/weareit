@@ -11,7 +11,7 @@
 - Calibration and scoring of forecasts, as a model of learning from outcomes (Tetlock's tournament work).
 
 ## 3. Our present view
-- Label: **observed in one evaluation round (October 2026), not replicated.** From `docs/research/possibilities/evaluations/generator-2026-10/evaluation.md`: every numeric check passed, but lower-ranked cards were loved about as often as finalists (14 of 16 against 37 of 40), so the AI judges weren't separating good from weaker cards. The founder's notes found problems the ratings didn't measure (fix kinds, "Learn how…" fixes, dreams written as actions).
+- Label: **working hypothesis**, from one evaluation round in October 2026 that hasn't been repeated. From `docs/research/possibilities/evaluations/generator-2026-10/evaluation.md`: every numeric check passed, but lower-ranked cards were loved about as often as finalists (14 of 16 against 37 of 40), so the AI judges weren't separating good from weaker cards. The founder's notes found problems the ratings didn't measure (fix kinds, "Learn how…" fixes, dreams written as actions).
 - The double-loop lesson: the fix was to change what gets measured, not to tune the rating.
 - **You:** what you'd tell a reader this taught you; whether the quotes from your audit notes can be public.
 

@@ -20,7 +20,7 @@
 
 ## 5. What remains open
 - Whether showing overlap makes cooperation more likely, or just more visible. No evidence yet.
-- Privacy: overlap means comparing people's choices. Nothing personal is shown to others (AGENTS.md); aggregate counts only above a threshold.
+- Privacy: overlap means comparing people's choices. AGENTS.md: "Never expose personal selections or their sensitive derivatives in public artifacts by default." Whether any aggregate count could ever be shown, and under what conditions, is an open question; changing the invariant would need a decision record.
 - **You:** what It would have to build first, and what you'd refuse to build.
 
 ## 6. Where to pick this up
