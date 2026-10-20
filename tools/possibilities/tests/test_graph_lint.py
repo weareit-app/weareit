@@ -74,9 +74,26 @@ class NearDuplicateFix(GraphLint):
 COVERAGE = {'lens-coverage', 'ambition-coverage', 'basics-coverage', 'it-led-coverage'}
 
 
+def one_feature_three_habits(doc):
+    doc['fixes']['burnout-d04-t1'].update(kind='feature', status='proposed_it_feature', origin='kind:feature')
+    for key in ('burnout-d01-t1', 'burnout-d02-t1', 'burnout-d03-t1'):
+        doc['fixes'][key].update(kind='habit', origin='kind:habit')
+
+
 class Coverage(GraphLint):
-    def test_pain_with_no_feature_that_meets_every_other_check_has_no_coverage_issue(self):
-        self.assertEqual(self.rules() & COVERAGE, set())
+    def test_one_feature_and_three_habits_meeting_every_other_check_has_no_coverage_issue(self):
+        self.assertEqual(self.rules(one_feature_three_habits) & COVERAGE, set())
+
+    def test_pain_with_no_feature_linked_to_any_dream_fails_it_led_coverage(self):
+        issues = self.lint()
+        self.assertIn('it-led-coverage', {i['rule'] for i in issues})
+        self.assertFalse(cards.read(self.run_dir / 'lint.json')['passed'])
+
+    def test_an_unlinked_feature_does_not_lead_a_dream(self):
+        def unlinked_feature(doc):
+            doc['fixes']['burnout-d04-t3'] = dict(doc['fixes']['burnout-d04-t1'], title='Show which evenings ran late',
+                                                 kind='feature', status='proposed_it_feature', origin='kind:feature')
+        self.assertIn('it-led-coverage', self.rules(unlinked_feature))
 
     def test_coverage_counts_accepted_dreams_only(self):
         def reject(doc):

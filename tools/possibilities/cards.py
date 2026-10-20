@@ -898,6 +898,11 @@ def lint_staged_run(run, root):
         coverage['basicsTonight'] = len(basics)
         if len(basics) < 3:
             add('*', 'basics-coverage', 'only %d basic tonight fixes linked; link at least 3 common practical fixes to tonight dreams' % len(basics))
+        # Led by It: a dream with any Feature linked, anywhere among its fixes (founder, 2026-10-20).
+        led = sorted({e['dreamId'] for e in links if fixes[e['fixId']].get('kind') == 'feature'})
+        coverage['itLed'] = led
+        if not led:
+            add('*', 'it-led-coverage', 'no dream has a Feature linked; link at least one idea It could build')
     result = {'passed': not issues, 'issues': issues, 'coverage': coverage,
               'dreams': len(dreams), 'checkedAt': now()}
     write(run / 'lint.json', result)

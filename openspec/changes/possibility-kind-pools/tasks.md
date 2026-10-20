@@ -24,9 +24,9 @@ Start only after the pain-catalog change (PR #27) and the full pain sweep are me
 
 ## 4. Lint
 
-- [ ] 4.1 Add `template-copy` lint for method templates in titles and text ("When I…, I want…", "After I…, I will…", "If…, then I will…"). Verify with tests using the spec's job-story example.
-- [ ] 4.2 Add `near-duplicate-fix` lint, comparing title tokens across a pain's pool. Verify with a test: two fixes that differ only in word order are flagged.
-- [ ] 4.3 Move coverage from cards to accepted dreams and their linked fixes: at least 4 lenses, all three ambitions, at least 3 basics tonight, and at least one dream with a Feature linked, with no kind minimum. Verify with the spec's "No features" scenario as a test.
+- [x] 4.1 Add `template-copy` lint for method templates in titles and text ("When I…, I want…", "After I…, I will…", "If…, then I will…"). Verify with tests using the spec's job-story example.
+- [x] 4.2 Add `near-duplicate-fix` lint, comparing title tokens across a pain's pool. Verify with a test: two fixes that differ only in word order are flagged.
+- [x] 4.3 Move coverage from cards to accepted dreams and their linked fixes: at least 4 lenses, all three ambitions, at least 3 basics tonight, and at least one dream with a Feature linked, with no kind minimum. Verify with the spec's "One Feature is enough" and "No Feature" scenarios as tests.
 
 ## 5. Screen, assembly and judging
 
