@@ -42,6 +42,54 @@ test("draws diagrams and typesets math from this site only", async ({
   expect([...hosts].filter((host) => !own.has(host))).toEqual([]);
 });
 
+test("keeps the TeX until KaTeX's stylesheet has loaded", async ({ page }) => {
+  // Without the stylesheet, KaTeX's typeset HTML and its MathML both show.
+  let release = () => {};
+  const held = new Promise<void>((resolve) => (release = resolve));
+  let requested = () => {};
+  const stylesheetRequested = new Promise<void>(
+    (resolve) => (requested = resolve),
+  );
+  await page.route("**/katex/katex.min.css", async (route) => {
+    requested();
+    await held;
+    await route.continue();
+  });
+  await page.goto(LAB);
+  await stylesheetRequested;
+  // Long enough for KaTeX to have typeset, were it not waiting.
+  await page.waitForTimeout(500);
+
+  await expect(page.getByText(QUADRATIC_TEX, { exact: true })).toBeVisible();
+  await expect(page.locator(".katex-mathml")).toHaveCount(0);
+
+  release();
+  await expect(page.locator("math")).toHaveCount(2);
+  // The stylesheet visually hides the MathML (a 1px clip, which Playwright
+  // still counts as visible), so check it applied.
+  await expect(page.locator(".katex-mathml").first()).toHaveCSS(
+    "position",
+    "absolute",
+  );
+});
+
+test("keeps the TeX when KaTeX's stylesheet fails to load", async ({
+  page,
+}) => {
+  let failed = () => {};
+  const stylesheetFailed = new Promise<void>((resolve) => (failed = resolve));
+  await page.route("**/katex/katex.min.css", async (route) => {
+    await route.abort();
+    failed();
+  });
+  await page.goto(LAB);
+  await stylesheetFailed;
+  await page.waitForTimeout(500);
+
+  await expect(page.getByText(QUADRATIC_TEX, { exact: true })).toBeVisible();
+  await expect(page.locator(".katex")).toHaveCount(0);
+});
+
 test.describe("with scripts off", () => {
   test.use({ javaScriptEnabled: false });
 

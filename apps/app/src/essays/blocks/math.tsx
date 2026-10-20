@@ -41,12 +41,16 @@ export function InlineMath({ tex }: { tex: string }) {
 }
 
 // Production builds fold Platform.OS, so native bundles never include KaTeX.
-const loadKatex = Platform.OS === "web" ? () => import("./katex") : null;
+// It resolves only once KaTeX's stylesheet has loaded (see katex.ts).
+const loadKatex =
+  Platform.OS === "web"
+    ? () => import("./katex").then(({ ready }) => ready)
+    : null;
 
 function useTypeset(tex: string, { displayMode }: { displayMode: boolean }) {
   return useWebDrawing(
     loadKatex,
-    ({ katex }) =>
+    (katex) =>
       katex.renderToString(tex, {
         displayMode,
         output: "htmlAndMathml",
