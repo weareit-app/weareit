@@ -14,3 +14,7 @@
 
 .claude/
 .agents/
+
+# Expo rewrites this on every start, unformatted. apps/app/.gitignore lists it, but
+# Prettier reads only the root .gitignore.
+apps/app/expo-env.d.ts
