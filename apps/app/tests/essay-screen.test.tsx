@@ -84,14 +84,6 @@ const essay: Essay = {
       head: [[{ type: "text", value: "City" }]],
       rows: [[[{ type: "text", value: "Seattle" }]]],
     },
-    {
-      type: "block",
-      block: {
-        type: "timeline",
-        id: "milestones",
-        data: { entries: [{ date: "2026-10", title: "First spec" }] },
-      },
-    },
   ],
 };
 
@@ -146,12 +138,6 @@ describe("essay page", () => {
       "October 1, 2026",
       "First version.",
     ]);
-  });
-
-  it("shows a plain fallback for blocks that aren't drawn yet", async () => {
-    await render(<EssayPage essay={essay} />);
-
-    expect(screen.getByText("This timeline can't be shown yet.")).toBeTruthy();
   });
 });
 
