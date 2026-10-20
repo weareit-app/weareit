@@ -1,5 +1,6 @@
-# Runs the same checks as the Lefthook pre-commit hook, so `git commit --no-verify`
-# cannot skip them. Action pins and the reasons for them: docs/architecture/dependency-policy.md.
+# Runs the typecheck, lint, and the Vitest and jest-expo tests on every pull request,
+# so a commit made with `git commit --no-verify` is still checked.
+# Action pins and the reasons for them: docs/architecture/dependency-policy.md.
 name: CI
 
 on:

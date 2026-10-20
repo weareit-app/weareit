@@ -28,9 +28,9 @@ CI (`.github/workflows/ci.yml`) pins each third-party action to a full commit SH
 
 - `actions/checkout` v7.0.1, `3d3c42e5aac5ba805825da76410c181273ba90b1` (released 2026-07-20).
 - `actions/setup-node` v7.0.0, `820762786026740c76f36085b0efc47a31fe5020` (2026-07-14). v7.1.0 (2026-10-08) was too new.
-- `pnpm/action-setup` v6.1.0, `ea17c68df8912ef543352723c149a84f56e3d413` (2026-09-05). It reads pnpm 11.25.0 from `packageManager`.
+- `pnpm/action-setup` v6.1.0, `ea17c68df8912ef543352723c149a84f56e3d413` (2026-09-05). It reads pnpm 11.25.0 from `packageManager`. Its TypeScript source at this commit was read on 2026-10-20: it installs pnpm with `npm ci` from a lockfile committed in the action, which carries the package's integrity hash. Our pnpm version matches that lockfile, so the action runs no self-update. The bundled `dist/index.js` that actually runs was not compared with the source.
 
-CI runs typecheck, lint, the Vitest unit tests and the jest-expo tests (about 8 seconds). It leaves out the Playwright end-to-end tests: they download a browser and start the Expo web server (up to two minutes) on every run, which is slow and the most likely part to flake. To update a pin, pick a newer release at least two weeks old, read its changes, resolve the tag to its commit SHA (`gh api repos/<owner>/<repo>/commits/<tag> --jq .sha`), and update both the workflow and this list.
+CI runs typecheck, lint, the Vitest unit tests and the jest-expo tests (about 8 seconds). It leaves out the Playwright end-to-end tests: they download a browser and start the Expo web server (up to two minutes) on every run, which is slow and the step most likely to fail for reasons unrelated to the code. To update a pin, pick a newer release at least two weeks old, read its changes, resolve the tag to its commit SHA (`gh api repos/<owner>/<repo>/commits/<tag> --jq .sha`), and update both the workflow and this list.
 
 ## Spec and agent tooling
 
