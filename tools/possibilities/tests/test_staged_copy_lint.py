@@ -67,6 +67,14 @@ class Wording(StagedCopyLint):
         self.assertEqual(len(hits), 1, hits)
         self.assertIn('GP', hits[0]['detail'])
 
+    def test_fix_text_saying_ask_your_gp_is_a_regional_word(self):
+        hits = self.fix_hits('regional-word', whatChanges='Book a call and ask your GP about the late shifts.')
+        self.assertEqual(len(hits), 1, hits)
+
+    def test_acronym_spelled_out_in_fix_text_is_not_a_regional_word(self):
+        text = 'Ask about CBT-I, cognitive behavioral therapy for insomnia, at the next checkup.'
+        self.assertEqual(self.fix_hits('regional-word', whatChanges=text), [])
+
     def test_british_word_in_fix_text_is_a_regional_word(self):
         hits = self.fix_hits('regional-word', whatChanges='The shift rota ends at six, so work ends there.')
         self.assertEqual(len(hits), 1, hits)
@@ -125,7 +133,7 @@ class ItRules(StagedCopyLint):
                                                       whatChanges='It matches you with neighbors.'))
         self.assertEqual(len(hits), 1, hits)
 
-    def test_feature_text_opening_with_it_is_not_a_pitch(self):
+    def test_feature_text_opening_with_it_is_a_pitch(self):
         self.assertEqual(len(self.fix_hits('feature-pitch', **feature(title='Find neighbors who walk at night',
                                                                       whatChanges='It would pair you with a walking buddy.'))), 1)
 
@@ -161,6 +169,12 @@ class Malformed(StagedCopyLint):
             doc['fixes'][FIX].update(title=['Move the laptop'], whatChanges=None, firstStep=3)
             doc['fixes']['burnout-d01-t1'].update(exemplarRef=['ex-1'], kind=['task'])
         self.assertIn('it-led-coverage', {i['rule'] for i in self.lint(change)})
+
+    def test_exemplar_that_is_not_a_record_does_not_crash_lint(self):
+        examples = {'ex-%d' % i: exemplar(i) for i in range(12)}
+        examples['ex-1'] = 'not a record'
+        cards.write(self.run_dir / 'exemplars.json', {'schemaVersion': 1, 'painId': 'burnout', 'exemplars': examples})
+        self.assertIn('it-led-coverage', {i['rule'] for i in self.lint()})
 
 
 if __name__ == '__main__':

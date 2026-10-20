@@ -925,7 +925,10 @@ def copy_patterns(root):
     boilerplate, modals = phrase_pattern(banned.get('boilerplate', [])), phrase_pattern(banned.get('softModals', []))
     regional_words = banned.get('regional', [])
     acronyms = [w for w in regional_words if w.isupper() or '-' in w]
-    regional = re.compile(r'\b(' + '|'.join(re.escape(w) for w in regional_words if w not in acronyms) + r')\b', re.I) if regional_words else None
+    # British words match in any case; an acronym matches as written, unless it may be spelled out in the text.
+    alternatives = ['(?i:%s)' % re.escape(w) for w in regional_words if w not in acronyms]
+    alternatives += [re.escape(w) for w in acronyms if w not in banned.get('spelledOutInText', [])]
+    regional = re.compile(r'\b(' + '|'.join(alternatives) + r')\b') if alternatives else None
     acronym_titles = re.compile(r'\b(' + '|'.join(re.escape(w) for w in acronyms) + r')\b') if acronyms else None
     return {'banned': banned, 'generic': generic, 'boilerplate': boilerplate, 'modals': modals,
             'regional': regional, 'acronymTitles': acronym_titles}
@@ -1023,7 +1026,8 @@ def lint_staged_run(run, root):
             add(key, rule, detail)
     fixes = read(run / 'fixes.json').get('fixes') if (run / 'fixes.json').is_file() else {}
     fixes = {key: f for key, f in fixes.items() if isinstance(f, dict)} if isinstance(fixes, dict) else {}
-    exemplars = read(run / 'exemplars.json').get('exemplars', {}) if (run / 'exemplars.json').is_file() else {}
+    exemplars = read(run / 'exemplars.json').get('exemplars') if (run / 'exemplars.json').is_file() else {}
+    exemplars = {key: e for key, e in exemplars.items() if isinstance(e, dict)} if isinstance(exemplars, dict) else {}
     lint_staged_fixes(fixes, add_fix, exemplars, patterns)
     # Coverage is across accepted dreams once the review is in (spec, "Coverage per pain"); before it, the drafted ones.
     accepted = reviewed_dreams(run)
@@ -1065,21 +1069,21 @@ def known_places(exemplars):
     return {w for w in names if len(w) > 2 and w[:1].isupper()} - {'The', 'United', 'States', 'City', 'County', 'One', 'Two', 'Three', 'Several', 'Many', 'Some', 'Most', 'Large', 'Small'}
 
 
-def fix_copy_rules(f, patterns, card=None):
+def fix_copy_rules(f, patterns, card_copy=None):
     """(rule, detail) for one fix's wording, shared by cards and staged fixes. A card's fix is also checked with the
-    card's own title and line, since they show together."""
-    card = card or {}
+    card's own title and line (card_copy), since they show together."""
+    card_copy = card_copy or {}
     title, text, first_step = f.get('title', ''), f.get('whatChanges', ''), f.get('firstStep', '')
-    for field, value in list(card.items()) + [('fix title', title), ('whatChanges', text), ('firstStep', first_step)]:
+    fields = [('fix title', title), ('whatChanges', text), ('firstStep', first_step)]
+    for field, value in list(card_copy.items()) + fields:
         yield from phrase_rules(field, value, patterns)
     if len(SENTENCE.findall(text.strip())) > 3:
         yield 'fix-text-length', 'fix text should be 1-3 sentences'
     regional, acronym_titles = patterns['regional'], patterns['acronymTitles']
-    fields = [('fix title', title), ('whatChanges', text), ('firstStep', first_step)]
-    for field, value in fields + ([('line', card['line'])] if 'line' in card else []):
+    for field, value in fields + ([('line', card_copy['line'])] if 'line' in card_copy else []):
         for m in regional.finditer(value) if regional else ():
             yield 'regional-word', '%s: "%s" (use the everyday American word)' % (field, m[0])
-    for m in acronym_titles.finditer(title + ' ' + card.get('title', '')) if acronym_titles else ():
+    for m in acronym_titles.finditer(title + ' ' + card_copy.get('title', '')) if acronym_titles else ():
         yield 'acronym-in-title', '"%s" in a title; spell it out or rephrase' % m[0]
     learnish = re.match(r'(Learn|Read|Know|Understand|Study|Find out)\b', title)
     if learnish and f.get('kind') not in ('feature', 'learn'):

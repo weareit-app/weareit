@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "note": "Matched case-insensitively on word boundaries. 'generic' and 'hype' apply to all copy fields. 'boilerplate' caveats never belong in copy (status labels carry them). 'softModals' are allowed once per card (one plain limit, per docs/style/copy-style-guide.md). Edit freely; changes are reviewable in git. 'regional' lists British words and unexplained acronyms; match is case-sensitive for acronyms. NHS/CBT-I are allowed in fix text only when spelled out nearby (lint flags them in titles only). 'allowedTerms' are capitalized words the unsourced-detail check never treats as factual claims.",
+  "note": "Matched case-insensitively on word boundaries. 'generic' and 'hype' apply to all copy fields. 'boilerplate' caveats never belong in copy (status labels carry them). 'softModals' are allowed once per card (one plain limit, per docs/style/copy-style-guide.md). Edit freely; changes are reviewable in git. 'regional' lists British words and unexplained acronyms; match is case-sensitive for acronyms, and lint flags acronyms such as GP in any field. 'spelledOutInText' lists the acronyms allowed in fix text when spelled out nearby; lint flags them in titles only. 'allowedTerms' are capitalized words the unsourced-detail check never treats as factual claims.",
   "generic": [
     "find support",
     "seek support",
@@ -90,6 +90,10 @@
     "neighbourhood",
     "colour",
     "favour",
+    "CBT-I",
+    "NHS"
+  ],
+  "spelledOutInText": [
     "CBT-I",
     "NHS"
   ],
