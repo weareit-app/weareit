@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "setId": "health-kids-safety-wording-20261020-144417",
+  "decisions": {
+    "p001": {
+      "decision": "own",
+      "note": "",
+      "decidedAt": "2026-10-20T18:51:43.478Z",
+      "own": {
+        "name": "Prescription drug costs",
+        "line": "I worry I won't be able to afford the medicine I need."
+      }
+    },
+    "p002": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:51:48.249Z"
+    },
+    "p003": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:51:50.180Z"
+    },
+    "p004": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:51:52.508Z"
+    },
+    "p005": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:51:55.913Z"
+    },
+    "p006": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:51:57.850Z"
+    },
+    "p007": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:51:59.495Z"
+    },
+    "p008": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:52:01.033Z"
+    },
+    "p009": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:52:02.456Z"
+    },
+    "p010": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:52:04.292Z"
+    },
+    "p011": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:52:11.992Z"
+    },
+    "p012": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:52:26.681Z"
+    },
+    "p013": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:52:34.393Z"
+    },
+    "p014": {
+      "decision": "alternative",
+      "note": "",
+      "decidedAt": "2026-10-20T18:52:41.492Z",
+      "choice": 0
+    },
+    "p015": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:52:47.684Z"
+    },
+    "p016": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:52:49.401Z"
+    },
+    "p017": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:52:51.437Z"
+    },
+    "p018": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:52:53.363Z"
+    },
+    "p019": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:52:54.620Z"
+    },
+    "p020": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:52:55.797Z"
+    },
+    "p021": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:52:58.383Z"
+    },
+    "p022": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:53:00.146Z"
+    },
+    "p023": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:53:02.042Z"
+    },
+    "p024": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:53:05.009Z"
+    },
+    "p025": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:53:07.128Z"
+    },
+    "p026": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:53:11.420Z"
+    },
+    "p027": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:53:13.271Z"
+    },
+    "p028": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:53:14.688Z"
+    },
+    "p029": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:53:16.514Z"
+    },
+    "p030": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:53:18.211Z"
+    },
+    "p031": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:53:19.437Z"
+    },
+    "p032": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:53:20.553Z"
+    },
+    "p033": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:53:21.845Z"
+    },
+    "p034": {
+      "decision": "own",
+      "note": "",
+      "decidedAt": "2026-10-20T18:53:45.261Z",
+      "own": {
+        "name": "War and conflict",
+        "line": "I see war threatening people and places I care about."
+      }
+    },
+    "p035": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:53:51.404Z"
+    }
+  }
+}
