@@ -11,6 +11,7 @@ import {
 import { statusCopy } from "../personal/way-row";
 import { Text } from "../text";
 import { Button, Field, RelationPicker, SelectField } from "./fields";
+import { badStatusDateIds, statusDateHelp } from "./status-date";
 
 export type RoadmapContent = Pick<ContentGraph, "roadmapItems" | "fixes">;
 // The saved draft's roadmap items and fixes.
@@ -23,7 +24,13 @@ export function refuseRoadmapStatusChangesWithoutNotes(
   savedItems: readonly ContentRoadmapItem[],
   items: readonly ContentRoadmapItem[],
 ) {
-  const { issues } = applyRoadmapItemStatusChanges(savedItems, items, today());
+  const issues = [
+    ...badStatusDateIds(items).map((id) => ({
+      path: `roadmap_item.${id}.statusChangedOn`,
+      message: statusDateHelp,
+    })),
+    ...applyRoadmapItemStatusChanges(savedItems, items, today()).issues,
+  ];
   if (!issues.length) return null;
   return `Not saved. ${issues
     .map(({ path, message }) => `${path.split(".")[1]}: ${message}`)
@@ -234,6 +241,11 @@ export function RoadmapEditor({
               updateItem({ statusChangedOn: value.trim() || undefined })
             }
           />
+          {badStatusDateIds([selected]).length ? (
+            <Text accessibilityRole="alert" className="text-ink">
+              {statusDateHelp}
+            </Text>
+          ) : null}
           <Field
             label="Status note"
             value={selected.statusNote ?? ""}

@@ -2,7 +2,7 @@ import { z } from "zod";
 
 const idSchema = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
 const copySchema = z.string().trim().min(1).max(4000);
-const calendarDateSchema = z.iso.date();
+export const calendarDateSchema = z.iso.date();
 
 export const fixKinds = ["once", "habit", "group", "feature"] as const;
 // Roadmap order: live, being built, decided, being looked into, undecided.

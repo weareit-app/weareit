@@ -320,6 +320,40 @@ describe("disconnecting a fix connected in this draft", () => {
   });
 });
 
+describe("roadmap item status date", () => {
+  const dateHelp = "Write the status date as year-month-day, like 2026-10-20.";
+
+  it("asks for a real date in year-month-day form", async () => {
+    await renderEditor();
+
+    await press("Use It in Spanish");
+    await fireEvent.changeText(screen.getByLabelText("Status date"), "20 Oct");
+
+    expect(screen.getByText(dateHelp)).toBeTruthy();
+  });
+
+  it("is quiet for a valid date", async () => {
+    await renderEditor();
+
+    await press("Use It in Spanish");
+    await fireEvent.changeText(
+      screen.getByLabelText("Status date"),
+      "2026-10-20",
+    );
+
+    expect(screen.queryByText(dateHelp)).toBeNull();
+  });
+
+  it("refuses to save a date that isn't a calendar date", () => {
+    expect(
+      refuseRoadmapStatusChangesWithoutNotes(
+        [spanish],
+        [{ ...spanish, statusChangedOn: "2026-02-30" }],
+      ),
+    ).toBe(`Not saved. use-it-in-spanish: ${dateHelp}`);
+  });
+});
+
 describe("refuseRoadmapStatusChangesWithoutNotes", () => {
   it("refuses to save an item status change without a note", () => {
     expect(
