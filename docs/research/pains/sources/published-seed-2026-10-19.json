@@ -1,0 +1,824 @@
+{
+  "schemaVersion": 1,
+  "source": "packages/content/src/tier-1.ts (the content editor seed graph, via packages/database/src/tier1-import.ts) at commit 52844ab",
+  "takenAt": "2026-10-19",
+  "note": "Stands in for the editor's latest published version, which needs a running API to read. The drift check compares the live editor later.",
+  "domains": [
+    {
+      "id": "body",
+      "title": "Body",
+      "scope": "personal",
+      "order": 0,
+      "pains": [
+        {
+          "id": "poor-sleep",
+          "title": "Sleep",
+          "description": "I don't sleep well.",
+          "dreams": 3
+        },
+        {
+          "id": "out-of-shape",
+          "title": "Fitness",
+          "description": "I don't feel as fit or active as I'd like.",
+          "dreams": 2
+        },
+        {
+          "id": "always-tired",
+          "title": "Tired",
+          "description": "I'm tired all the time.",
+          "dreams": 2
+        },
+        {
+          "id": "health-runs-my-life",
+          "title": "Illness",
+          "description": "I'm living with a condition that limits me.",
+          "dreams": 0
+        },
+        {
+          "id": "chronic-pain",
+          "title": "Pain",
+          "description": "I hurt most days.",
+          "dreams": 2
+        },
+        {
+          "id": "cant-get-care",
+          "title": "Healthcare",
+          "description": "I can't see a doctor when I need one.",
+          "dreams": 0
+        },
+        {
+          "id": "eating-badly",
+          "title": "Diet",
+          "description": "I don't eat the way I want to.",
+          "dreams": 2
+        },
+        {
+          "id": "not-built-for-me",
+          "title": "Disability",
+          "description": "I can't access things I need.",
+          "dreams": 0
+        }
+      ]
+    },
+    {
+      "id": "mind",
+      "title": "Mind",
+      "scope": "personal",
+      "order": 1,
+      "pains": [
+        {
+          "id": "anxiety",
+          "title": "Anxiety",
+          "description": "I worry too much.",
+          "dreams": 3
+        },
+        {
+          "id": "overwhelmed",
+          "title": "Stress",
+          "description": "I'm overwhelmed.",
+          "dreams": 2
+        },
+        {
+          "id": "feeling-down",
+          "title": "Depression",
+          "description": "I feel low most days.",
+          "dreams": 0
+        },
+        {
+          "id": "hard-on-myself",
+          "title": "Self-esteem",
+          "description": "I'm never good enough for myself.",
+          "dreams": 0
+        },
+        {
+          "id": "cant-focus",
+          "title": "Focus",
+          "description": "I can't keep my mind on one thing.",
+          "dreams": 2
+        },
+        {
+          "id": "grief",
+          "title": "Grief",
+          "description": "I'm missing someone I lost.",
+          "dreams": 0
+        },
+        {
+          "id": "drinking-too-much",
+          "title": "Addiction",
+          "description": "I can't stop something that's hurting me.",
+          "dreams": 2
+        }
+      ]
+    },
+    {
+      "id": "money",
+      "title": "Money",
+      "scope": "personal",
+      "order": 2,
+      "pains": [
+        {
+          "id": "broke",
+          "title": "Broke",
+          "description": "I'm always short on money.",
+          "dreams": 3
+        },
+        {
+          "id": "no-cushion",
+          "title": "Savings",
+          "description": "I have nothing put aside.",
+          "dreams": 2
+        },
+        {
+          "id": "running-out-of-food",
+          "title": "Food",
+          "description": "I worry the food won't last the month.",
+          "dreams": 0
+        },
+        {
+          "id": "debt",
+          "title": "Debt",
+          "description": "I owe more than I can pay down.",
+          "dreams": 2
+        },
+        {
+          "id": "cant-stop-working",
+          "title": "Retirement",
+          "description": "I won't have enough to retire.",
+          "dreams": 0
+        }
+      ]
+    },
+    {
+      "id": "work",
+      "title": "Work",
+      "scope": "personal",
+      "order": 3,
+      "pains": [
+        {
+          "id": "unemployment",
+          "title": "Unemployment",
+          "description": "I can't find work.",
+          "dreams": 0
+        },
+        {
+          "id": "job-could-go",
+          "title": "Layoffs",
+          "description": "I could lose my job any day.",
+          "dreams": 0
+        },
+        {
+          "id": "underpaid",
+          "title": "Underpaid",
+          "description": "I'm paid less than my work is worth.",
+          "dreams": 2
+        },
+        {
+          "id": "bad-job",
+          "title": "Mistreatment",
+          "description": "I'm treated badly at work.",
+          "dreams": 0
+        },
+        {
+          "id": "meaningless-work",
+          "title": "Meaning",
+          "description": "I don't think my work matters.",
+          "dreams": 2
+        },
+        {
+          "id": "wrong-career",
+          "title": "Career",
+          "description": "I'm in the wrong line of work.",
+          "dreams": 2
+        },
+        {
+          "id": "burnout",
+          "title": "Burnout",
+          "description": "I've got nothing left.",
+          "dreams": 3
+        }
+      ]
+    },
+    {
+      "id": "home",
+      "title": "Home",
+      "scope": "personal",
+      "order": 4,
+      "pains": [
+        {
+          "id": "homeless",
+          "title": "Homeless",
+          "description": "I don't have a reliable place to stay.",
+          "dreams": 0
+        },
+        {
+          "id": "home-is-hard",
+          "title": "Housing",
+          "description": "I live somewhere cramped, broken or noisy.",
+          "dreams": 0
+        },
+        {
+          "id": "cold-home",
+          "title": "Heating",
+          "description": "I can't afford to heat my home.",
+          "dreams": 0
+        },
+        {
+          "id": "might-lose-my-home",
+          "title": "Eviction",
+          "description": "I might lose my home.",
+          "dreams": 0
+        },
+        {
+          "id": "unsafe-near-me",
+          "title": "Safety",
+          "description": "I don't feel safe where I live.",
+          "dreams": 0
+        },
+        {
+          "id": "getting-around",
+          "title": "Transport",
+          "description": "I struggle to get where I need to go.",
+          "dreams": 0
+        }
+      ]
+    },
+    {
+      "id": "time",
+      "title": "Time",
+      "scope": "personal",
+      "order": 5,
+      "pains": [
+        {
+          "id": "no-free-time",
+          "title": "Busy",
+          "description": "I have no time that's mine.",
+          "dreams": 2
+        },
+        {
+          "id": "chores",
+          "title": "Chores",
+          "description": "I spend my days cooking and cleaning.",
+          "dreams": 0
+        },
+        {
+          "id": "life-admin",
+          "title": "Paperwork",
+          "description": "I lose my week to forms, bills and phone queues.",
+          "dreams": 0
+        },
+        {
+          "id": "legal-mess",
+          "title": "Legal trouble",
+          "description": "I'm stuck in a legal problem I can't afford.",
+          "dreams": 0
+        },
+        {
+          "id": "doomscrolling",
+          "title": "Doomscrolling",
+          "description": "I lose my nights to my phone.",
+          "dreams": 2
+        },
+        {
+          "id": "no-fun",
+          "title": "Fun",
+          "description": "I can't remember the last time I played.",
+          "dreams": 0
+        }
+      ]
+    },
+    {
+      "id": "people",
+      "title": "People",
+      "scope": "personal",
+      "order": 6,
+      "pains": [
+        {
+          "id": "unsafe-at-home",
+          "title": "Safety at home",
+          "description": "I don't feel safe with someone in my life.",
+          "dreams": 0
+        },
+        {
+          "id": "loneliness",
+          "title": "Loneliness",
+          "description": "I feel alone.",
+          "dreams": 2
+        },
+        {
+          "id": "want-a-partner",
+          "title": "Dating",
+          "description": "I want a partner and it isn't happening.",
+          "dreams": 0
+        },
+        {
+          "id": "no-one-to-lean-on",
+          "title": "Support",
+          "description": "I have no one to call when I need help.",
+          "dreams": 0
+        },
+        {
+          "id": "belonging",
+          "title": "Belonging",
+          "description": "I don't feel like I belong anywhere.",
+          "dreams": 0
+        },
+        {
+          "id": "nobody-into-my-thing",
+          "title": "Interests",
+          "description": "I can't find people who love what I love.",
+          "dreams": 0
+        },
+        {
+          "id": "intimacy",
+          "title": "Intimacy",
+          "description": "I'm missing closeness with someone.",
+          "dreams": 0
+        },
+        {
+          "id": "nobody-to-do-things-with",
+          "title": "Invitations",
+          "description": "I'd go out if someone asked.",
+          "dreams": 0
+        },
+        {
+          "id": "drifted-apart",
+          "title": "Friends",
+          "description": "I've lost touch with people who matter.",
+          "dreams": 2
+        },
+        {
+          "id": "relationship-strain",
+          "title": "Relationship",
+          "description": "I'm struggling with my partner.",
+          "dreams": 2
+        },
+        {
+          "id": "home-tension",
+          "title": "Family",
+          "description": "I'm caught in fighting at home.",
+          "dreams": 0
+        },
+        {
+          "id": "caregiving",
+          "title": "Caregiving",
+          "description": "I'm looking after someone and it takes everything.",
+          "dreams": 0
+        },
+        {
+          "id": "parenting-is-hard",
+          "title": "Parenting",
+          "description": "I'm worn out raising my kids.",
+          "dreams": 0
+        }
+      ]
+    },
+    {
+      "id": "purpose",
+      "title": "Purpose",
+      "scope": "personal",
+      "order": 7,
+      "pains": [
+        {
+          "id": "learning",
+          "title": "Learning",
+          "description": "I want to learn something, but I don't know how to start.",
+          "dreams": 0
+        },
+        {
+          "id": "need-skills",
+          "title": "Skills",
+          "description": "I don't have the skills I need now.",
+          "dreams": 2
+        },
+        {
+          "id": "procrastination",
+          "title": "Procrastination",
+          "description": "I put things off.",
+          "dreams": 3
+        },
+        {
+          "id": "no-path",
+          "title": "Direction",
+          "description": "I know what I want but not how to get there.",
+          "dreams": 0
+        },
+        {
+          "id": "stuck",
+          "title": "Stuck",
+          "description": "I feel like my life isn't going anywhere.",
+          "dreams": 2
+        },
+        {
+          "id": "nothing-i-make",
+          "title": "Creativity",
+          "description": "I don't get to make things any more.",
+          "dreams": 0
+        }
+      ]
+    },
+    {
+      "id": "government",
+      "title": "Government",
+      "scope": "world",
+      "order": 0,
+      "pains": [
+        {
+          "id": "they-dont-listen",
+          "title": "Representation",
+          "description": "I'm not heard by the people in charge.",
+          "dreams": 1
+        },
+        {
+          "id": "far-away-decisions",
+          "title": "Local control",
+          "description": "I watch decisions about here get made far away.",
+          "dreams": 0
+        },
+        {
+          "id": "freedoms",
+          "title": "Freedoms",
+          "description": "I'm losing the freedom to make my own choices.",
+          "dreams": 0
+        },
+        {
+          "id": "infrastructure",
+          "title": "Infrastructure",
+          "description": "I depend on roads, water and power that keep breaking down.",
+          "dreams": 0
+        },
+        {
+          "id": "dont-know-who-to-vote-for",
+          "title": "Voting",
+          "description": "I don't know who to vote for.",
+          "dreams": 1
+        },
+        {
+          "id": "no-accountability",
+          "title": "Accountability",
+          "description": "I see leaders break promises with no consequences.",
+          "dreams": 1
+        },
+        {
+          "id": "corruption",
+          "title": "Corruption",
+          "description": "I see the rules bend for people with money.",
+          "dreams": 0
+        },
+        {
+          "id": "taxes-dont-buy-much",
+          "title": "Taxes",
+          "description": "I pay more and get less back.",
+          "dreams": 0
+        },
+        {
+          "id": "democracy-slipping",
+          "title": "Institutions",
+          "description": "I see the institutions we rely on falling apart.",
+          "dreams": 0
+        },
+        {
+          "id": "immigration-broken",
+          "title": "Immigration",
+          "description": "I don't think the immigration system is working well.",
+          "dreams": 0
+        }
+      ]
+    },
+    {
+      "id": "economy",
+      "title": "Economy",
+      "scope": "world",
+      "order": 1,
+      "pains": [
+        {
+          "id": "cost-of-living",
+          "title": "Inflation",
+          "description": "I can't keep up with rising prices.",
+          "dreams": 0
+        },
+        {
+          "id": "childcare-costs",
+          "title": "Childcare",
+          "description": "I can't afford childcare.",
+          "dreams": 0
+        },
+        {
+          "id": "study-costs",
+          "title": "Student debt",
+          "description": "I'll be paying for my education for years.",
+          "dreams": 0
+        },
+        {
+          "id": "cant-afford-kids",
+          "title": "Starting a family",
+          "description": "I want kids but can't afford them.",
+          "dreams": 0
+        },
+        {
+          "id": "rent-eats-everything",
+          "title": "Rent",
+          "description": "I pay too much for housing.",
+          "dreams": 1
+        },
+        {
+          "id": "homelessness",
+          "title": "Homelessness",
+          "description": "I see more neighbors with no home.",
+          "dreams": 0
+        },
+        {
+          "id": "it-all-goes-up",
+          "title": "Inequality",
+          "description": "I see the gap between those with plenty and those struggling grow.",
+          "dreams": 1
+        },
+        {
+          "id": "ai-and-jobs",
+          "title": "AI",
+          "description": "I worry AI will take work and no one's ready.",
+          "dreams": 0
+        },
+        {
+          "id": "no-floor",
+          "title": "Safety net",
+          "description": "I know if I fall, nothing will catch me.",
+          "dreams": 0
+        },
+        {
+          "id": "hunger",
+          "title": "Hunger",
+          "description": "I see people near me without enough to eat.",
+          "dreams": 0
+        },
+        {
+          "id": "town-dying",
+          "title": "Decline",
+          "description": "I'm watching my town empty out.",
+          "dreams": 0
+        }
+      ]
+    },
+    {
+      "id": "health",
+      "title": "Health",
+      "scope": "world",
+      "order": 2,
+      "pains": [
+        {
+          "id": "one-illness-away",
+          "title": "Medical bills",
+          "description": "I worry about what healthcare will cost me.",
+          "dreams": 1
+        },
+        {
+          "id": "mental-health-crisis",
+          "title": "Mental health",
+          "description": "I see people I care about struggling with their mental health.",
+          "dreams": 0
+        },
+        {
+          "id": "addiction-here",
+          "title": "Drugs",
+          "description": "I'm losing people I know to drugs.",
+          "dreams": 0
+        },
+        {
+          "id": "older-people-alone",
+          "title": "Aging",
+          "description": "I see older people left on their own.",
+          "dreams": 0
+        }
+      ]
+    },
+    {
+      "id": "community",
+      "title": "Community",
+      "scope": "world",
+      "order": 3,
+      "pains": [
+        {
+          "id": "nobody-knows-anybody",
+          "title": "Neighbors",
+          "description": "I don't know the people on my street.",
+          "dreams": 1
+        },
+        {
+          "id": "trust",
+          "title": "Trust",
+          "description": "I can't trust the people and groups around me any more.",
+          "dreams": 0
+        },
+        {
+          "id": "we-cant-talk",
+          "title": "Polarization",
+          "description": "I can't disagree with someone without losing them.",
+          "dreams": 1
+        },
+        {
+          "id": "cant-pool",
+          "title": "Sharing",
+          "description": "I know we could afford it together, but there's no way to pool.",
+          "dreams": 0
+        }
+      ]
+    },
+    {
+      "id": "fairness",
+      "title": "Fairness",
+      "scope": "world",
+      "order": 4,
+      "pains": [
+        {
+          "id": "treated-differently",
+          "title": "Discrimination",
+          "description": "I'm treated worse because of who I am.",
+          "dreams": 1
+        },
+        {
+          "id": "people-treated-badly",
+          "title": "Prejudice",
+          "description": "I watch people get treated badly for who they are.",
+          "dreams": 1
+        },
+        {
+          "id": "justice-unfair",
+          "title": "Justice",
+          "description": "I see police and courts treat people differently.",
+          "dreams": 0
+        },
+        {
+          "id": "where-youre-born",
+          "title": "Opportunity",
+          "description": "I see where you're born decide your life.",
+          "dreams": 0
+        }
+      ]
+    },
+    {
+      "id": "information",
+      "title": "Information",
+      "scope": "world",
+      "order": 5,
+      "pains": [
+        {
+          "id": "dont-know-whats-true",
+          "title": "Misinformation",
+          "description": "I don't know what's true any more.",
+          "dreams": 1
+        },
+        {
+          "id": "nobody-covers-here",
+          "title": "Local news",
+          "description": "I don't know what's happening in my own town.",
+          "dreams": 1
+        },
+        {
+          "id": "watched-by-companies",
+          "title": "Privacy",
+          "description": "I feel watched by companies that know everything about me.",
+          "dreams": 0
+        }
+      ]
+    },
+    {
+      "id": "environment",
+      "title": "Environment",
+      "scope": "world",
+      "order": 6,
+      "pains": [
+        {
+          "id": "climate",
+          "title": "Climate change",
+          "description": "I'm worried about the planet heating up.",
+          "dreams": 0
+        },
+        {
+          "id": "disasters",
+          "title": "Disasters",
+          "description": "I'm living with floods, fires, storms or extreme heat.",
+          "dreams": 0
+        },
+        {
+          "id": "dirty-air",
+          "title": "Pollution",
+          "description": "I see pollution harming where I live.",
+          "dreams": 0
+        },
+        {
+          "id": "car-or-nothing",
+          "title": "Cars",
+          "description": "I can't get anywhere without a car.",
+          "dreams": 0
+        },
+        {
+          "id": "nature-disappearing",
+          "title": "Nature",
+          "description": "I see fewer birds, trees and green spaces.",
+          "dreams": 0
+        }
+      ]
+    },
+    {
+      "id": "safety",
+      "title": "Safety",
+      "scope": "world",
+      "order": 7,
+      "pains": [
+        {
+          "id": "crime-and-violence",
+          "title": "Crime",
+          "description": "I don't feel safe from crime and violence.",
+          "dreams": 0
+        },
+        {
+          "id": "world-on-fire",
+          "title": "War",
+          "description": "I see war threatening people and places I care about.",
+          "dreams": 0
+        }
+      ]
+    },
+    {
+      "id": "kids",
+      "title": "Kids",
+      "scope": "world",
+      "order": 8,
+      "pains": [
+        {
+          "id": "kids-future",
+          "title": "Kids' future",
+          "description": "I think kids will have it worse than we did.",
+          "dreams": 0
+        },
+        {
+          "id": "schools-fail-kids",
+          "title": "Education",
+          "description": "I see kids not getting what they need at school.",
+          "dreams": 0
+        },
+        {
+          "id": "screens-and-kids",
+          "title": "Screens",
+          "description": "I see phones raising our kids.",
+          "dreams": 0
+        }
+      ]
+    },
+    {
+      "id": "making-change",
+      "title": "Making change",
+      "scope": "world",
+      "order": 9,
+      "pains": [
+        {
+          "id": "nothing-ever-changes",
+          "title": "Gridlock",
+          "description": "I see the same problems stay year after year.",
+          "dreams": 1
+        },
+        {
+          "id": "groups-go-nowhere",
+          "title": "Meetings",
+          "description": "I go to meetings where nothing happens.",
+          "dreams": 0
+        },
+        {
+          "id": "shouting-into-void",
+          "title": "Unheard",
+          "description": "I care and it goes nowhere.",
+          "dreams": 1
+        },
+        {
+          "id": "alone-in-caring",
+          "title": "Allies",
+          "description": "I don't know who else cares.",
+          "dreams": 1
+        },
+        {
+          "id": "dont-know-whats-happening",
+          "title": "Coordination",
+          "description": "I can't find who's already working on this.",
+          "dreams": 0
+        },
+        {
+          "id": "want-to-help",
+          "title": "Helping",
+          "description": "I'd do something if I knew what.",
+          "dreams": 0
+        },
+        {
+          "id": "giving-feels-blind",
+          "title": "Giving",
+          "description": "I'd give if I knew it worked.",
+          "dreams": 0
+        },
+        {
+          "id": "idea-no-team",
+          "title": "Collaborators",
+          "description": "I have an idea and nobody to build it with.",
+          "dreams": 0
+        }
+      ]
+    }
+  ]
+}

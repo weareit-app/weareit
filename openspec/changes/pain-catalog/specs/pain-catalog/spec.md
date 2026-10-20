@@ -18,7 +18,7 @@ Each pain in the catalog SHALL have a stable ID, a short name, a first-person li
 - **THEN** the relation is one of `overlaps`, `broader`, `narrower`, `other-page`, `merged-into` or `split-from`, and points at an ID in the catalog
 
 ### Requirement: Seeded from the inventory
-The catalog SHALL be seeded from the 125-pain inventory without changing any ID, keeping its wording, page, heading, framework references, evidence, overlaps and founder-pool area. A `current` pain becomes `accepted`, and is `shown` if it's in the editor's latest published version. A candidate the founder cut becomes `rejected`, and every other pain stays a `candidate`. After seeding, the catalog SHALL replace the inventory as the pain list that tools read.
+The catalog SHALL be seeded from the 125-pain inventory without changing any ID, keeping its wording, page, heading, framework references, evidence, overlaps and founder-pool area. A pain in the editor's published content becomes `accepted` and `shown`. A candidate the founder cut becomes `rejected`, and every other pain stays a `candidate`. After seeding, the catalog SHALL replace the inventory as the pain list that tools read.
 
 #### Scenario: Seed keeps IDs
 - **WHEN** the catalog is seeded

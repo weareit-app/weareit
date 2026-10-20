@@ -65,8 +65,8 @@ class Base(unittest.TestCase):
         (self.tmp / 'openspec/config.yaml').write_text('schema: spec-driven')
         shutil.copy(ROOT / 'tools/possibilities/config/banned-phrases.json', self.tmp / 'tools/possibilities/config/')
         (self.tmp / 'tools/possibilities/config/rubric.md').write_text('rubric')
-        (self.tmp / 'docs/spec/pains').mkdir(parents=True)
-        shutil.copy(ROOT / 'docs/spec/pains/pain-inventory.yaml', self.tmp / 'docs/spec/pains/')
+        (self.tmp / 'docs/research/pains').mkdir(parents=True)
+        shutil.copy(ROOT / cards.PAIN_CATALOG, self.tmp / cards.PAIN_CATALOG)
         self.run = self.make_run('poor-sleep')
 
     def tearDown(self):
@@ -445,6 +445,53 @@ class Calibration(Base):
         self.assertEqual(cards.report(self.tmp)['agreement']['top3HitRate'], 0.0)
 
 
+class Stale(Base):
+    def catalog(self, fn):
+        path = self.tmp / cards.PAIN_CATALOG
+        doc = cards.read(path)
+        fn(doc['pains'])
+        cards.write(path, doc)
+
+    def run_meta(self, pain, started='2026-10-17T00:00:00+00:00', **extra):
+        folder = self.tmp / 'docs/research/possibilities/runs' / pain / '20261017-000000'
+        folder.mkdir(parents=True, exist_ok=True)
+        cards.write(folder / 'run.json',
+                    {'schemaVersion': 1, 'painId': pain, 'runId': '20261017-000000', 'startedAt': started, **extra})
+
+    def reasons(self):
+        return {s['painId']: s for s in cards.stale(self.tmp)['stale']}
+
+    def test_unchanged_runs_are_not_stale(self):
+        self.run_meta('poor-sleep')
+        self.assertEqual(self.reasons(), {})
+
+    def test_line_change_lists_old_and_new_from_history(self):
+        self.run_meta('poor-sleep')
+        self.catalog(lambda p: (p['poor-sleep'].update(line='I lie awake most nights.'), p['poor-sleep']['history'].append(
+            {'date': '2026-10-20', 'kind': 'reword', 'from': {'name': 'Sleep', 'line': "I don't sleep well."},
+             'to': {'name': 'Sleep', 'line': 'I lie awake most nights.'}})))
+        entry = self.reasons()['poor-sleep']
+        self.assertEqual(entry['reason'], 'wording changed')
+        self.assertEqual((entry['old']['line'], entry['new']['line']), ("I don't sleep well.", 'I lie awake most nights.'))
+
+    def test_recorded_wording_wins_over_history(self):
+        self.run_meta('poor-sleep', painName='Sleep', painLine='I sleep badly.')
+        self.assertEqual(self.reasons()['poor-sleep']['old']['line'], 'I sleep badly.')
+
+    def test_merged_split_and_unknown(self):
+        self.run_meta('homeless')
+        self.run_meta('broke')
+        self.run_meta('gone-pain')
+        def change(p):
+            p['homeless'].update(status='merged', role='not-shown', relations=[{'kind': 'merged-into', 'id': 'homelessness'}])
+            p['broke']['history'].append({'date': '2026-10-18', 'kind': 'split', 'note': 'split off no-cushion'})
+        self.catalog(change)
+        found = self.reasons()
+        self.assertEqual(found['homeless']['reason'], 'merged into homelessness')
+        self.assertEqual(found['broke']['reason'], 'split since the run')
+        self.assertEqual(found['gone-pain']['reason'], 'pain not in the catalog')
+
+
 class Cli(Base):
     def test_new_run_rejects_unknown_pain_and_run_escape(self):
         base = [sys.executable, str(SCRIPT)]
@@ -455,6 +502,21 @@ class Cli(Base):
         ok = subprocess.run(base + ['new-run', 'burnout', '--root', str(self.tmp)], capture_output=True, text=True)
         self.assertEqual(ok.returncode, 0, ok.stderr)
         self.assertIn("I've got nothing left.", ok.stdout)
+
+    def test_new_run_records_wording_and_follows_merges(self):
+        catalog_path = self.tmp / cards.PAIN_CATALOG
+        doc = cards.read(catalog_path)
+        doc['pains']['homeless'].update(status='merged', role='not-shown',
+                                        relations=[{'kind': 'merged-into', 'id': 'homelessness'}])
+        cards.write(catalog_path, doc)
+        result = subprocess.run([sys.executable, str(SCRIPT), 'new-run', 'homeless', '--root', str(self.tmp)],
+                                capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        out = json.loads(result.stdout)
+        self.assertIn('runs/homelessness/', out['run'])
+        self.assertEqual(out['notes'], ['homeless was merged into homelessness'])
+        run = cards.read(self.tmp / out['run'] / 'run.json')
+        self.assertEqual((run['painName'], run['painLine']), ('Homelessness', doc['pains']['homelessness']['line']))
 
     def test_lint_exit_code(self):
         result = subprocess.run([sys.executable, str(SCRIPT), 'lint', str(self.run), '--root', str(self.tmp)], capture_output=True, text=True)

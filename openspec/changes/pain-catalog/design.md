@@ -29,7 +29,7 @@
    - `docs/research/pains/catalog.json`
    - `sources/`: the inventory snapshot, the founder's CSVs and opened-source snapshots.
    - `sweeps/<scope>/<runId>/` with `candidates.json`, `coverage.json` and `coverage.md`.
-   - `refine/<runId>/` with `lint.json`, `overlaps.json`, `sorts/{1,2,3}.json` and `balance.json`.
+   - `refine/<scope>/<runId>/` with `lint.json`, `alternatives.json`, `overlaps.json`, `labels.json`, `sorts/{1,2,3}.json` and `balance.json`.
    - `reviews/<setId>/` with `proposals.json`, `review.html` and `decisions.json`.
 
    *Why:* the same shape as `docs/research/possibilities/runs`. Runs are never overwritten.
@@ -42,7 +42,7 @@
      - `retired` with `replacementPainId` for merged pains that are published;
      - new shown pains only when they have founder-approved dreams in the draft.
 
-   It calls `cms.getDraft` and then `cms.saveDraft` with the same `expectedRevision`, so a concurrent edit makes the save fail instead of overwriting. The API URL and token come from the environment and are never written to disk. A `--dry-run` prints the patch and the heading warnings. *Alternative:* the founder copies changes by hand. Rejected, because it's error-prone and leaves no record.
+   It calls `cms.getDraft`, checks the patched content with the read-only `cms.previewDraft` (the editor's own schema), then `cms.saveDraft` with the same `expectedRevision`, so a concurrent edit makes the save fail instead of overwriting. Only pains this review touched are patched, and one the editor changed since is reported as a conflict, never overwritten. "Approved futures" means the pain's `futures` lists dream IDs already in the draft; card import (a separate change) will fill it. Merges of pains the editor still shows are held as "later" until the `retired` field exists. The API URL and token come from the environment and are never written to disk. A `--dry-run` prints the patch and the heading warnings. *Alternative:* the founder copies changes by hand. Rejected, because it's error-prone and leaves no record.
 7. **Drift check.** It compares the catalog with `cms.getDraft` and the latest published version, and lists differences. Bringing an editor change back is a normal review proposal of kind `reword`, prompted by `drift`.
 8. **Generator hand-off.** `cards.py pains()` reads `catalog.json`, resolving `merged-into`. New runs write `painName` and `painLine` into `run.json`. `cards.py stale` compares each latest run with the catalog. For old runs without wording, it uses the catalog history at `startedAt`, falling back to the seed wording.
 9. **Founder's pool.** Before copying, the CSVs are checked for names, places or personal notes. Only the generic pain hierarchy goes in, with a README saying it is AI-generated and counts as leads only.

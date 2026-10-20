@@ -53,7 +53,9 @@ Rules:
 `{ finalists: [card-id…3–5], auditSample: [card-id…≥2], ranking: [ {cardId, wins, meanScore} ], excluded: [ {cardId, reason} ] }`
 
 ## run.json (per run)
-`{ painId, runId, startedAt, finishedAt, searches, pagesOpened, tokens?, notes }`
+`{ painId, runId, startedAt, painName, painLine, finishedAt, searches, pagesOpened, tokens?, notes }`
+
+`painName` and `painLine` are the catalog wording the run was written for (added 2026-10-19; older runs lack them, and `stale` falls back to the catalog history at `startedAt`). `painId` is always the surviving ID: a run started for a merged pain is created for the pain it was merged into.
 
 ## Calibration files (`docs/research/possibilities/calibration/`)
 - **baseline.json**: 16 old cards in the `cards.json` card shape, with fixes without exemplars, and `provenance.sourceId` pointing at `founder-review.md` with an anchor locator.
