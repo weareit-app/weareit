@@ -47,6 +47,9 @@
     "react-native-svg": "15.15.4",
     "react-native-web": "0.21.4",
     "react-native-worklets": "~0.10.1",
+    "vega": "6.4.0",
+    "vega-embed": "7.3.0",
+    "vega-lite": "6.4.3",
     "zustand": "5.0.15"
   },
   "devDependencies": {
@@ -54,6 +57,7 @@
     "@testing-library/react-native": "^14.1.0",
     "@types/jest": "29.5.14",
     "@types/react": "~19.2.18",
+    "@types/react-dom": "~19.2.7",
     "jest": "~29.7.0",
     "jest-expo": "~57.0.6",
     "lightningcss": "1.30.1",

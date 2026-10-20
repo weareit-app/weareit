@@ -12,6 +12,8 @@ NativeWind 5.0.0-rc.0 and react-native-css 3.1.0-rc.0 are an intentional prerele
 
 `expo-font` was added with `expo install`. The `@expo-google-fonts/bitter` and `@expo-google-fonts/inter` font packages are pinned at 0.4.2; changing them changes the font files the app ships, so check the type on web and iOS after a refresh (see `docs/architecture/typography.md`).
 
+`vega` 6.4.0, `vega-lite` 6.4.3 and `vega-embed` 7.3.0 draw essay charts on the web (public-pages, design decision 3; reviewed 2026-10-20). Each is the newest release at least two weeks old (vega-lite 6.5.0, 2026-10-08, was too new). The tree adds 73 packages: the `vega-*` modules (BSD-3-Clause), d3 modules, `internmap`, `delaunator` and `topojson-client` (ISC), `robust-predicates` (Unlicense), `rw` (BSD-3-Clause), and `fast-json-patch`, `json-stringify-pretty-compact` and vega-lite's CLI-only `yargs` chain (MIT/ISC). None has an install script. They load no fonts (charts use the page's system fonts) and fetch nothing when the spec and its data are passed inline; the only outside address is the Vega editor link in vega-embed's actions menu, which the chart block turns off. They are imported lazily, only when a chart renders on the web, so the explorer's bundle does not include them. `expo install --check` passes with them. `@types/react-dom` (dev, selected by `expo install`) types the block tests, which render essays with `react-dom/server`.
+
 ## Other toolchain pins
 
 - Prettier 3.9.10 and Turborepo 2.11.8 are current releases within their existing major versions.
