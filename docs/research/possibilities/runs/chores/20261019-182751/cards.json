@@ -17,7 +17,7 @@
           "who": "You",
           "exemplarRef": "energystar-dishwasher",
           "speculative": false,
-          "firstStep": "Tonight, scrape the dinner plates, load them without rinsing and run the machine full.",
+          "firstStep": "Tonight, scrape the dinner plates, load them without rinsing, and run the machine full.",
           "firstStepMinutes": 10,
           "status": "real_now",
           "kind": "habit"
@@ -489,7 +489,7 @@
         {
           "id": "chores-lunch-check",
           "title": "Check whether your child’s school lunch is already free",
-          "whatChanges": "As of the 2025 to 2026 school year, nine states give every public school student free lunch with no application: California, Colorado, Maine, Massachusetts, Michigan, Minnesota, New Mexico, New York and Vermont. Elsewhere, many schools are still free for everyone through a federal program, so ask.",
+          "whatChanges": "As of the 2025 to 2026 school year, nine states give every public school student free lunch with no application: California, Colorado, Maine, Massachusetts, Michigan, Minnesota, New Mexico, New York, and Vermont. Elsewhere, many schools are still free for everyone through a federal program, so ask.",
           "who": "You",
           "exemplarRef": "us-school-meals",
           "speculative": false,
