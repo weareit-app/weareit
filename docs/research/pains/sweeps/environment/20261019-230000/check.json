@@ -1,0 +1,24 @@
+{
+  "issues": [],
+  "proposed": [
+    {
+      "candidate": "water-pollution"
+    },
+    {
+      "candidate": "trash-and-plastic"
+    },
+    {
+      "candidate": "water-shortages"
+    },
+    {
+      "candidate": "toxic-chemicals"
+    },
+    {
+      "candidate": "noise"
+    }
+  ],
+  "drafts": [],
+  "skipped": [],
+  "covered": [],
+  "checkedAt": "2026-10-19"
+}

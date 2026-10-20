@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "alternatives": {
+    "people-are-meaner": [
+      {"name": "Meanness", "line": "I see people treat each other meaner than they used to.", "why": "The ID names people getting meaner, but the wording drifted to an abstract 'moral decline'; this says what someone actually notices day to day and fits a problem-style heading."},
+      {"name": "Moral decline", "line": "I think people care less about treating each other decently.", "why": "Keeps the founder's 'moral decline' framing but grounds it in how people treat each other, which is what someone would say out loud, rather than 'right and wrong'."}
+    ],
+    "trust": [
+      {"name": "Distrust", "line": "I can't trust the people around me any more.", "why": "Drops 'and groups' so the pain is about everyday people, leaving institutions to the government heading, and 'Distrust' makes the name a problem like the rest of the heading."}
+    ],
+    "nobody-knows-anybody": [
+      {"name": "Strangers nearby", "line": "I don't know the people on my street.", "why": "Same line; 'Neighbors' is an area label in a heading of problem labels, while 'Strangers nearby' names the problem."}
+    ],
+    "cant-pool": [
+      {"name": "Can't pool money", "line": "I know we could afford it together, but there's no way to pool our money.", "why": "'Sharing' is an area label and vague on its own; this names the problem and says what is being pooled."}
+    ],
+    "town-dying": [
+      {"name": "Dying town", "line": "I'm watching my town empty out.", "why": "'Decline' alone could sit under many headings; 'Dying town' says what is declining and matches the ID."}
+    ],
+    "building-cant-organize": [
+      {"name": "Can't organize", "line": "I can't get my neighbors to act together on anything.", "why": "Makes the name a problem like the rest of the heading and keeps the plain everyday line."}
+    ]
+  }
+}

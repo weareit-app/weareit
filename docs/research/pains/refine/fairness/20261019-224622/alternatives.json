@@ -1,0 +1,44 @@
+{
+  "alternatives": {
+    "it-all-goes-up": [
+      {
+        "name": "Wealth gap",
+        "line": "I see a few people get richer every year while most of us fall further behind.",
+        "why": "Keeps the growing gap but says which way it moves, which is what the ID (everything goes up to the top) named; \"Wealth gap\" is plainer than \"Inequality\" and says gap in what."
+      }
+    ],
+    "justice-unfair": [
+      {
+        "name": "Unequal justice",
+        "line": "I see police and courts treat some people far worse than others for the same thing.",
+        "why": "\"Justice\" alone is an area label in a heading of problem labels; \"for the same thing\" says what unequal means without naming a group."
+      }
+    ],
+    "where-youre-born": [
+      {
+        "name": "Unequal chances",
+        "line": "I see kids born in some neighborhoods get far fewer chances than kids born a few miles away.",
+        "why": "\"Opportunity\" is an area label among problem labels; the line keeps the zip-code idea and makes it something you can picture."
+      },
+      {
+        "name": "Unfair start",
+        "line": "I see where someone is born decide how their whole life turns out.",
+        "why": "Closest to the current line, with \"where you're born decide your life\" made into a full, natural sentence."
+      }
+    ],
+    "treated-differently": [
+      {
+        "name": "Discrimination against me",
+        "line": "I get treated worse at work, in stores or by landlords because of who I am.",
+        "why": "Says plainly that it happens to me, and where, so it can't be confused with watching it happen to others (Prejudice)."
+      }
+    ],
+    "people-treated-badly": [
+      {
+        "name": "Prejudice around me",
+        "line": "I see people around me treated badly because of their race, religion, or who they love.",
+        "why": "\"Discrimination\" and \"Prejudice\" read as synonyms side by side; saying \"around me\" and naming common reasons makes this the one about others."
+      }
+    ]
+  }
+}

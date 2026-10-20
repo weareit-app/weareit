@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "scope": "environment",
+  "runId": "20261019-230000",
+  "startedAt": "2026-10-20T03:00:00+00:00",
+  "finishedAt": "2026-10-20T03:16:23+00:00",
+  "notes": "Thirteen lists read. oecd.org and oecdbetterlifeindex.org returned 403 or a bot challenge, and the OECD WISE deck on unstats.un.org carries the dimensions only as an image, so the OECD entry is the Better Life Index environment topic quoted from Wikipedia; natural capital was not opened. Gallup's 2025 environment topline and Ipsos May 2026 PDF text were extracted locally. Gallup MIP from Datawrapper table vEKjO v101 (latest column 26-Sep). Eurobarometer issue ranking is the 2020 survey via Slovenia's environment agency; the 2024 survey's ranking was only seen in search snippets. No national 211 report has an environment category; 211 LA's January 2025 wildfire report stands in. WHO fact sheets stand in for cause-of-burden lists (IHME not opened). United Nations Water and UNEP waste pages returned 403. Wikidata QIDs via wbsearchentities (about 35 lookups, not counted as searches). Overlaps for review: water-pollution with dirty-air (Pollution) and the home sweep's tap-water candidate (personal view of the same worry); toxic-chemicals with dirty-air; noise with home-is-hard (Housing names noisy homes); water-shortages with disasters (drought) and infrastructure; trash-and-plastic with dirty-air. water-shortages and noise rest on European figures only; noise is weaker as a societal worry (8% in Eurobarometer) but common as exposure. Household air pollution (cooking smoke, WHO 2.1 billion people) was mapped broader to Pollution rather than proposed, since it is mostly a low- and middle-income country pain.",
+  "searches": 7,
+  "pagesOpened": 28
+}

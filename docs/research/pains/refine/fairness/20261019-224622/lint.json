@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "scope": "fairness",
+  "issues": [
+    {
+      "painId": "it-all-goes-up",
+      "rule": "id-mismatch",
+      "detail": "ID it-all-goes-up, name \"Inequality\" and line \"I see the gap grow between people with plenty and people who are struggling.\" share no word; propose a rewording only if the wording has drifted from what the ID names",
+      "severity": "note"
+    },
+    {
+      "painId": "*",
+      "group": "fairness",
+      "rule": "mixed-labels",
+      "severity": "fail",
+      "detail": "Fairness mixes problem labels and area labels; pick one style for the heading"
+    }
+  ],
+  "failing": [],
+  "checkedAt": "2026-10-19"
+}

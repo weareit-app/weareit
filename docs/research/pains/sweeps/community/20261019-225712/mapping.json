@@ -1,0 +1,254 @@
+{
+  "schemaVersion": 1,
+  "entries": {
+    "gallup-mip/moral-decline": {
+      "painId": "people-are-meaner",
+      "why": "Moral decline: \"I think people care less about right and wrong.\""
+    },
+    "gallup-mip/lack-of-respect": {
+      "painId": "people-are-meaner",
+      "why": "Moral decline, alias \"Everyone's ruder and angrier now.\""
+    },
+    "gallup-mip/unifying-the-country": {
+      "painId": "we-cant-talk",
+      "why": "Polarization: people divided and unable to disagree."
+    },
+    "gallup-mip/poverty-hunger-homelessness": {
+      "painId": "homelessness",
+      "why": "Homelessness, the community face of this row; poverty and hunger sit under Economy."
+    },
+    "gallup-mip/race-relations": {
+      "painId": "people-treated-badly",
+      "why": "Prejudice: \"I watch people get treated badly for who they are.\""
+    },
+    "ipsos-www/moral-decline": {
+      "painId": "people-are-meaner",
+      "why": "Moral decline."
+    },
+    "ipsos-www/rise-of-extremism": {
+      "candidate": "extremism"
+    },
+    "ipsos-www/poverty-inequality": {
+      "painId": "poverty",
+      "why": "Poverty: \"I see people around me who can't make ends meet.\""
+    },
+    "nyc-311-2025/illegal-parking": {
+      "candidate": "parking"
+    },
+    "nyc-311-2025/noise-residential": {
+      "painId": "home-is-hard",
+      "why": "Housing: \"I live somewhere cramped, broken or noisy.\""
+    },
+    "nyc-311-2025/noise-street": {
+      "painId": "home-is-hard",
+      "why": "Housing covers a noisy home, whatever the source."
+    },
+    "nyc-311-2025/blocked-driveway": {
+      "candidate": "parking"
+    },
+    "nyc-311-2025/noise-commercial": {
+      "painId": "home-is-hard",
+      "why": "Housing covers a noisy home, whatever the source."
+    },
+    "nyc-311-2025/noise-vehicle": {
+      "painId": "home-is-hard",
+      "why": "Housing covers a noisy home, whatever the source."
+    },
+    "nyc-311-2025/dirty-condition": {
+      "candidate": "dirty-streets"
+    },
+    "nyc-311-2025/illegal-dumping": {
+      "candidate": "dirty-streets"
+    },
+    "nyc-311-2025/rodent": {
+      "candidate": "dirty-streets"
+    },
+    "nyc-311-2025/abandoned-vehicle": {
+      "candidate": "dirty-streets"
+    },
+    "nyc-311-2025/derelict-vehicles": {
+      "candidate": "dirty-streets"
+    },
+    "nyc-311-2025/encampment": {
+      "painId": "homelessness",
+      "why": "Homelessness: \"I see more neighbors with no home.\""
+    },
+    "nyc-311-2025/homeless-assistance": {
+      "painId": "homelessness",
+      "why": "Homelessness."
+    },
+    "uk-community-life-2024-25/belonging": {
+      "painId": "belonging",
+      "why": "Belonging: \"I don't feel like I belong anywhere\"; the 38% who don't feel they belong where they live."
+    },
+    "uk-community-life-2024-25/trust-neighbours": {
+      "painId": "trust",
+      "why": "Trust: \"I can't trust the people and groups around me any more.\""
+    },
+    "uk-community-life-2024-25/chat-neighbours": {
+      "painId": "nobody-knows-anybody",
+      "why": "Neighbors: \"I don't know the people on my street.\""
+    },
+    "uk-community-life-2024-25/pull-together": {
+      "painId": "building-cant-organize",
+      "why": "Organizing: \"I can't get my neighbors to act together.\""
+    },
+    "uk-community-life-2024-25/area-got-worse": {
+      "painId": "town-dying",
+      "why": "Decline: \"I'm watching my town empty out.\""
+    },
+    "uk-community-life-2024-25/satisfied-local-area": {
+      "broader": "town-dying"
+    },
+    "uk-community-life-2024-25/different-backgrounds": {
+      "broader": "trust"
+    },
+    "uk-community-life-2024-25/green-space-litter": {
+      "candidate": "dirty-streets"
+    },
+    "uk-community-life-2024-25/green-space-lack": {
+      "painId": "nature-disappearing",
+      "why": "Nature: \"I see fewer birds, trees and green spaces.\""
+    },
+    "uk-community-life-2024-25/influence-local-decisions": {
+      "painId": "far-away-decisions",
+      "why": "Local control: \"I watch decisions about here get made far away.\""
+    },
+    "pew-neighbors-2025/know-neighbors": {
+      "painId": "nobody-knows-anybody",
+      "why": "Neighbors: \"I don't know the people on my street.\""
+    },
+    "pew-neighbors-2025/trust-neighbors": {
+      "painId": "trust",
+      "why": "Trust."
+    },
+    "survey-center-gathering/no-gathering-places": {
+      "candidate": "nowhere-to-gather"
+    },
+    "survey-center-gathering/no-third-place": {
+      "candidate": "nowhere-to-gather"
+    },
+    "survey-center-gathering/library-visits": {
+      "candidate": "nowhere-to-gather"
+    },
+    "texas-lyceum-gentrification/gentrification": {
+      "candidate": "gentrification"
+    },
+    "211-impact-2025/housing": {
+      "painId": "homeless",
+      "why": "Homeless: \"I don't have a reliable place to stay\"; shelter is the part of housing help that bears on community."
+    },
+    "211-impact-2025/community-support": {
+      "broader": "no-one-to-lean-on"
+    },
+    "oecd-wellbeing/social-support": {
+      "painId": "no-one-to-lean-on",
+      "why": "Support: \"I have no one to call when I need help.\""
+    },
+    "whoqol-bref/q9": {
+      "painId": "dirty-air",
+      "why": "Pollution: \"I see pollution harming where I live.\""
+    },
+    "sdg-targets/11.1": {
+      "painId": "homelessness",
+      "why": "Homelessness, as the community face of housing for all."
+    },
+    "sdg-targets/11.3": {
+      "painId": "far-away-decisions",
+      "why": "Local control: decisions about here made far away."
+    },
+    "sdg-targets/11.6": {
+      "candidate": "dirty-streets"
+    },
+    "sdg-targets/11.7": {
+      "candidate": "nowhere-to-gather"
+    },
+    "sdg-targets/10.2": {
+      "painId": "belonging",
+      "why": "Belonging: \"I don't feel like I belong anywhere.\""
+    },
+    "maxneef/participation": {
+      "painId": "building-cant-organize",
+      "why": "Organizing: neighbors cooperating and acting together."
+    },
+    "maxneef/identity": {
+      "painId": "belonging",
+      "why": "Belonging to a group that shares who you are."
+    },
+    "gallup-elements/community": {
+      "painId": "nobody-knows-anybody",
+      "why": "Neighbors: the closest pain to not being engaged with where you live."
+    },
+    "wikidata/Q119380": {
+      "candidate": "gentrification"
+    },
+    "wikidata/Q3540209": {
+      "candidate": "nowhere-to-gather"
+    },
+    "wikidata/Q294440": {
+      "candidate": "nowhere-to-gather"
+    },
+    "wikidata/Q466439": {
+      "candidate": "extremism"
+    },
+    "wikidata/Q3416483": {
+      "candidate": "extremism"
+    },
+    "wikidata/Q1780867": {
+      "candidate": "dirty-streets"
+    },
+    "wikidata/Q1134541": {
+      "candidate": "dirty-streets"
+    },
+    "wikidata/Q267917": {
+      "candidate": "parking"
+    },
+    "wikidata/Q131327": {
+      "painId": "homelessness",
+      "why": "Homelessness."
+    },
+    "wikidata/Q2039238": {
+      "painId": "town-dying",
+      "why": "Decline."
+    },
+    "wikidata/Q2608153": {
+      "painId": "town-dying",
+      "why": "Decline: \"The shops close and the young leave.\""
+    },
+    "wikidata/Q1986893": {
+      "painId": "nobody-knows-anybody",
+      "why": "Neighbors."
+    },
+    "wikidata/Q214693": {
+      "painId": "trust",
+      "why": "Trust, the core of social capital."
+    },
+    "wikidata/Q553270": {
+      "broader": "trust"
+    },
+    "wikidata/Q3082509": {
+      "painId": "we-cant-talk",
+      "why": "Polarization."
+    },
+    "wikidata/Q3149921": {
+      "painId": "people-are-meaner",
+      "why": "Moral decline: \"Everyone's ruder and angrier now.\""
+    },
+    "wikidata/Q766238": {
+      "painId": "cant-pool",
+      "why": "Sharing: \"there's no way to pool.\""
+    },
+    "wikidata/Q25866": {
+      "painId": "building-cant-organize",
+      "why": "Organizing."
+    },
+    "wikidata/Q5853064": {
+      "painId": "belonging",
+      "why": "Belonging."
+    },
+    "wikidata/Q92251": {
+      "painId": "home-is-hard",
+      "why": "Housing: a noisy home."
+    }
+  }
+}

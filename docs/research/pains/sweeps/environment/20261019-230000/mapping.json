@@ -1,0 +1,350 @@
+{
+  "schemaVersion": 1,
+  "entries": {
+    "gallup-env-worries/drinking-water": {
+      "candidate": "water-pollution"
+    },
+    "gallup-env-worries/rivers-lakes": {
+      "candidate": "water-pollution"
+    },
+    "eurobarometer-env/rivers": {
+      "candidate": "water-pollution"
+    },
+    "eurobarometer-env/marine": {
+      "candidate": "water-pollution"
+    },
+    "who-environment/unsafe-water": {
+      "candidate": "water-pollution"
+    },
+    "sdg/6.1": {
+      "candidate": "water-pollution"
+    },
+    "sdg/6.3": {
+      "candidate": "water-pollution"
+    },
+    "sdg/14.1": {
+      "candidate": "water-pollution"
+    },
+    "wikidata/Q183129": {
+      "candidate": "water-pollution"
+    },
+    "wikidata/Q1058325": {
+      "candidate": "water-pollution"
+    },
+    "wikidata/Q7892": {
+      "candidate": "water-pollution"
+    },
+    "gallup-env-worries/waste": {
+      "candidate": "trash-and-plastic"
+    },
+    "eurobarometer-env/waste": {
+      "candidate": "trash-and-plastic"
+    },
+    "sdg/12.3": {
+      "candidate": "trash-and-plastic"
+    },
+    "sdg/12.5": {
+      "candidate": "trash-and-plastic"
+    },
+    "wikidata/Q7202090": {
+      "candidate": "trash-and-plastic"
+    },
+    "wikidata/Q18538": {
+      "candidate": "trash-and-plastic"
+    },
+    "wikidata/Q18919": {
+      "candidate": "trash-and-plastic"
+    },
+    "eurobarometer-env/water-shortage": {
+      "candidate": "water-shortages"
+    },
+    "sdg/6.4": {
+      "candidate": "water-shortages"
+    },
+    "wikidata/Q43059": {
+      "candidate": "water-shortages"
+    },
+    "wikidata/Q5376358": {
+      "candidate": "water-shortages"
+    },
+    "gallup-env-worries/toxic-waste": {
+      "candidate": "toxic-chemicals"
+    },
+    "who-environment/lead": {
+      "candidate": "toxic-chemicals"
+    },
+    "eurobarometer-env/agriculture": {
+      "candidate": "toxic-chemicals"
+    },
+    "sdg/3.9": {
+      "candidate": "toxic-chemicals"
+    },
+    "sdg/12.4": {
+      "candidate": "toxic-chemicals"
+    },
+    "wikidata/Q110315": {
+      "candidate": "toxic-chemicals"
+    },
+    "wikidata/Q212734": {
+      "candidate": "toxic-chemicals"
+    },
+    "wikidata/Q1069369": {
+      "candidate": "toxic-chemicals"
+    },
+    "eea-noise/transport-noise": {
+      "candidate": "noise"
+    },
+    "eurobarometer-env/noise": {
+      "candidate": "noise"
+    },
+    "wikidata/Q92251": {
+      "candidate": "noise"
+    },
+    "gallup-env-worries/climate": {
+      "painId": "climate",
+      "why": "Climate change: \"I'm worried about the planet heating up.\""
+    },
+    "gallup-env-worries/extinction": {
+      "painId": "nature-disappearing",
+      "why": "Nature: \"I see fewer birds, trees and green spaces.\""
+    },
+    "gallup-env-worries/air": {
+      "painId": "dirty-air",
+      "why": "Pollution: \"I see pollution harming where I live.\""
+    },
+    "gallup-env-worries/rain-forests": {
+      "broader": "nature-disappearing",
+      "why": "Nature covers loss of wild places, though its line is about what people see near them, not distant rain forests."
+    },
+    "ipsos/climate-change": {
+      "painId": "climate",
+      "why": "Climate change: \"I'm worried about the planet heating up.\""
+    },
+    "ipsos/threats-environment": {
+      "broader": "dirty-air",
+      "why": "A general worry about harm to the environment; Pollution and Nature cover it loosely."
+    },
+    "gallup-mip/environment": {
+      "painId": "climate",
+      "why": "Climate change and Pollution together cover this combined code."
+    },
+    "gallup-mip/energy": {
+      "broader": "infrastructure",
+      "why": "Energy supply is covered loosely by Infrastructure (\"roads, water and power that keep breaking down\"); energy bills sit under Utility bills."
+    },
+    "eurobarometer-env/climate": {
+      "painId": "climate",
+      "why": "Climate change: \"I'm worried about the planet heating up.\""
+    },
+    "eurobarometer-env/air": {
+      "painId": "dirty-air",
+      "why": "Pollution: \"I see pollution harming where I live.\""
+    },
+    "eurobarometer-env/species": {
+      "painId": "nature-disappearing",
+      "why": "Nature: \"I see fewer birds, trees and green spaces.\""
+    },
+    "eurobarometer-env/droughts-floods": {
+      "painId": "disasters",
+      "why": "Disasters: \"I'm living with floods, fires, storms or extreme heat.\" Drought as water running out is the water-shortages candidate."
+    },
+    "who-environment/ambient-air": {
+      "painId": "dirty-air",
+      "why": "Pollution: \"I see pollution harming where I live.\""
+    },
+    "who-environment/household-air": {
+      "broader": "dirty-air",
+      "why": "Smoke from cooking on open fires is air pollution inside the home; Pollution covers it loosely. It is mostly a low- and middle-income country pain."
+    },
+    "who-environment/heat": {
+      "painId": "disasters",
+      "why": "Disasters: \"I'm living with floods, fires, storms or extreme heat.\""
+    },
+    "211-la-wildfires/emergency-housing": {
+      "painId": "disasters",
+      "why": "Disasters: \"I'm living with floods, fires, storms or extreme heat.\""
+    },
+    "211-la-wildfires/power-interruptions": {
+      "painId": "infrastructure",
+      "why": "Infrastructure: \"I depend on roads, water and power that keep breaking down.\""
+    },
+    "sdg/6.2": {
+      "broader": "infrastructure",
+      "why": "Sanitation is a basic public service; Infrastructure covers it loosely."
+    },
+    "sdg/6.6": {
+      "broader": "nature-disappearing",
+      "why": "Protecting rivers, wetlands and forests is covered loosely by Nature."
+    },
+    "sdg/7.1": {
+      "broader": "utility-bills",
+      "why": "Affordable, reliable energy: Utility bills covers the cost and Infrastructure the reliability."
+    },
+    "sdg/7.2": {
+      "broader": "climate",
+      "why": "More renewable energy is a response to climate change, not a pain on its own."
+    },
+    "sdg/11.2": {
+      "broader": "car-or-nothing",
+      "why": "Cars: \"I can't get anywhere without a car.\" Transport also sits under Transport (getting-around)."
+    },
+    "sdg/11.4": {
+      "broader": "nature-disappearing",
+      "why": "Natural heritage is covered loosely by Nature."
+    },
+    "sdg/11.5": {
+      "painId": "disasters",
+      "why": "Disasters: \"I'm living with floods, fires, storms or extreme heat.\""
+    },
+    "sdg/11.6": {
+      "broader": "dirty-air",
+      "why": "The environmental impact of cities (air quality and waste) is covered by Pollution and the trash-and-plastic candidate."
+    },
+    "sdg/11.7": {
+      "painId": "nature-disappearing",
+      "why": "Nature names green spaces."
+    },
+    "sdg/11.b": {
+      "broader": "disasters",
+      "why": "City plans for disaster resilience are a response to Disasters."
+    },
+    "sdg/12.2": {
+      "broader": "nature-disappearing",
+      "why": "Using up natural resources is covered loosely by Nature and Climate change."
+    },
+    "sdg/12.8": {
+      "outOfScope": "awareness of sustainable development is a remedy, not a pain"
+    },
+    "sdg/13.1": {
+      "painId": "disasters",
+      "why": "Disasters: \"I'm living with floods, fires, storms or extreme heat.\""
+    },
+    "sdg/13.2": {
+      "broader": "climate",
+      "why": "Climate policy is a response to Climate change."
+    },
+    "sdg/13.3": {
+      "outOfScope": "climate education is a remedy, not a pain"
+    },
+    "sdg/14.2": {
+      "broader": "nature-disappearing",
+      "why": "Marine and coastal ecosystems are covered loosely by Nature."
+    },
+    "sdg/14.3": {
+      "broader": "climate",
+      "why": "Ocean acidification comes from the same carbon emissions as Climate change."
+    },
+    "sdg/14.4": {
+      "broader": "nature-disappearing",
+      "why": "Overfishing is covered loosely by Nature."
+    },
+    "sdg/15.1": {
+      "painId": "nature-disappearing",
+      "why": "Nature: \"I see fewer birds, trees and green spaces.\""
+    },
+    "sdg/15.2": {
+      "painId": "nature-disappearing",
+      "why": "Nature names trees; forest loss is its main form."
+    },
+    "sdg/15.3": {
+      "broader": "nature-disappearing",
+      "why": "Degraded land and desertification are covered loosely by Nature and the water-shortages candidate."
+    },
+    "sdg/15.5": {
+      "painId": "nature-disappearing",
+      "why": "Nature: \"I see fewer birds, trees and green spaces.\""
+    },
+    "sdg/15.7": {
+      "broader": "nature-disappearing",
+      "why": "Poaching is covered loosely by Nature."
+    },
+    "oecd/environment": {
+      "painId": "dirty-air",
+      "why": "Environmental quality is measured mainly by air quality and green space: Pollution and Nature."
+    },
+    "whoqol/q9": {
+      "painId": "dirty-air",
+      "why": "How healthy the physical environment is: Pollution is the main pain about it."
+    },
+    "maxneef/subsistence-living-environment": {
+      "broader": "dirty-air",
+      "why": "A healthy living environment is covered loosely by Pollution and Housing."
+    },
+    "maxneef/idleness-surroundings": {
+      "broader": "nature-disappearing",
+      "why": "Surroundings and landscapes are covered loosely by Nature."
+    },
+    "gallup-elements/community": {
+      "broader": "nature-disappearing",
+      "why": "Liking the area where you live is broader than the environment; Nature and Pollution cover its environmental side, the Community group the rest."
+    },
+    "wikidata/Q125928": {
+      "painId": "climate",
+      "why": "Climate change: \"I'm worried about the planet heating up.\""
+    },
+    "wikidata/Q7942": {
+      "painId": "climate",
+      "why": "Climate change: \"I'm worried about the planet heating up.\""
+    },
+    "wikidata/Q131123": {
+      "painId": "dirty-air",
+      "why": "Pollution: \"I see pollution harming where I live.\""
+    },
+    "wikidata/Q58734": {
+      "painId": "dirty-air",
+      "why": "Pollution: \"I see pollution harming where I live.\""
+    },
+    "wikidata/Q215864": {
+      "painId": "disasters",
+      "why": "Disasters: \"I'm living with floods, fires, storms or extreme heat.\""
+    },
+    "wikidata/Q169950": {
+      "painId": "disasters",
+      "why": "Disasters: \"I'm living with floods, fires, storms or extreme heat.\""
+    },
+    "wikidata/Q8068": {
+      "painId": "disasters",
+      "why": "Disasters: \"I'm living with floods, fires, storms or extreme heat.\""
+    },
+    "wikidata/Q8065": {
+      "painId": "disasters",
+      "why": "Disasters: \"I'm living with floods, fires, storms or extreme heat.\""
+    },
+    "wikidata/Q1277161": {
+      "painId": "disasters",
+      "why": "Disasters: \"I'm living with floods, fires, storms or extreme heat.\""
+    },
+    "wikidata/Q169940": {
+      "painId": "nature-disappearing",
+      "why": "Nature: \"I see fewer birds, trees and green spaces.\""
+    },
+    "wikidata/Q18466271": {
+      "painId": "nature-disappearing",
+      "why": "Nature: \"I see fewer birds, trees and green spaces.\""
+    },
+    "wikidata/Q123509": {
+      "painId": "nature-disappearing",
+      "why": "Nature: \"I see fewer birds, trees and green spaces.\""
+    },
+    "wikidata/Q22658": {
+      "painId": "nature-disappearing",
+      "why": "Nature names green spaces."
+    },
+    "wikidata/Q331828": {
+      "broader": "nature-disappearing",
+      "why": "Overfishing is covered loosely by Nature."
+    },
+    "wikidata/Q786773": {
+      "painId": "car-or-nothing",
+      "why": "Cars: \"I can't get anywhere without a car.\""
+    },
+    "wikidata/Q104885559": {
+      "broader": "dirty-air",
+      "why": "Indoor air pollution is covered loosely by Pollution; damp and mold is a home-sweep candidate."
+    },
+    "wikidata/Q2491965": {
+      "broader": "dirty-air",
+      "why": "Pollution falling hardest on some groups: Pollution and Discrimination cover it loosely."
+    }
+  }
+}

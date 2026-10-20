@@ -1,0 +1,35 @@
+{
+  "alternatives": {
+    "dirty-air": [
+      {
+        "name": "Dirty air",
+        "line": "The air where I live isn't clean enough to breathe safely.",
+        "why": "Brings the wording back to what the ID names and says the harm in words a neighbor would use, instead of the abstract \"pollution harming\"."
+      },
+      {
+        "name": "Pollution",
+        "line": "I worry the air and water where I live aren't safe.",
+        "why": "Keeps the original name and its wider reach (water as well as air) while saying what is actually polluted, so the line is concrete enough to recognize."
+      }
+    ],
+    "car-or-nothing": [
+      {
+        "name": "Needing a car",
+        "line": "I can't get anywhere without a car.",
+        "why": "Same line; the name becomes a problem label like the rest of Environment (Climate change, Disasters, Pollution), so the heading no longer mixes styles."
+      }
+    ],
+    "nature-disappearing": [
+      {
+        "name": "Losing nature",
+        "line": "I see fewer birds, trees and green spaces around me.",
+        "why": "Turns the area label \"Nature\" into a problem label that matches the heading, and grounds the line in the person's own surroundings."
+      },
+      {
+        "name": "Disappearing wildlife",
+        "line": "I see fewer birds, insects and wild places than I used to.",
+        "why": "Names the loss over time that the ID points at, which separates it more clearly from climate change."
+      }
+    ]
+  }
+}

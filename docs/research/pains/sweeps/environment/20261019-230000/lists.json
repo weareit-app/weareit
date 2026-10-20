@@ -1,0 +1,520 @@
+{
+  "schemaVersion": 1,
+  "lists": {
+    "gallup-env-worries": {
+      "name": "Gallup: how much Americans personally worry about environmental problems (March 2025)",
+      "url": "https://news.gallup.com/file/poll/659441/20250416GlobalWarming.pdf",
+      "accessed": "2026-10-19",
+      "entries": {
+        "drinking-water": {
+          "name": "Pollution of drinking water",
+          "passage": "Pollution of drinking water 54 26 20 (Gallup, March 3-16, 2025; % worry a great deal / fair amount / only a little or not at all)"
+        },
+        "rivers-lakes": {
+          "name": "Pollution of rivers, lakes, and reservoirs",
+          "passage": "Pollution of rivers, lakes, and reservoirs 51 29 19 (Gallup, March 3-16, 2025; % worry a great deal / fair amount / only a little or not at all)"
+        },
+        "waste": {
+          "name": "Management of waste produce in the U.S., including trash and recyclables",
+          "passage": "Management of waste produce in the U.S., including trash and recyclables 41 34 25 (Gallup, March 3-16, 2025; % worry a great deal / fair amount / only a little or not at all)"
+        },
+        "climate": {
+          "name": "Global warming or Climate change",
+          "passage": "Global warming or Climate change 40 23 37 (Gallup, March 3-16, 2025; % worry a great deal / fair amount / only a little or not at all)"
+        },
+        "extinction": {
+          "name": "Extinction of plant and animal species",
+          "passage": "Extinction of plant and animal species 40 24 35 (Gallup, March 3-16, 2025; % worry a great deal / fair amount / only a little or not at all)"
+        },
+        "air": {
+          "name": "Air pollution",
+          "passage": "Air pollution 40 30 30 (Gallup, March 3-16, 2025; % worry a great deal / fair amount / only a little or not at all)"
+        },
+        "rain-forests": {
+          "name": "The loss of tropical rain forests",
+          "passage": "The loss of tropical rain forests 40 27 33 (Gallup, March 3-16, 2025; % worry a great deal / fair amount / only a little or not at all)"
+        },
+        "toxic-waste": {
+          "name": "Soil and water contamination by toxic waste",
+          "url": "https://news.gallup.com/poll/643850/seven-key-gallup-findings-environment-earth-day.aspx",
+          "passage": "Slightly more than half also worry a great deal about the pollution of rivers, lakes, and reservoirs and about soil and water contamination by toxic waste. (Gallup, 2024)"
+        }
+      },
+      "note": "2025 topline PDF text extracted locally. Toxic waste was not asked in 2025; it comes from Gallup's 2024 Earth Day article."
+    },
+    "ipsos": {
+      "name": "Ipsos: What Worries the World (30-country average, May 2026), environment worries",
+      "url": "https://resources.ipsos.com/rs/297-CXJ-795/images/What-Worries-the-World-May-2026.pdf",
+      "accessed": "2026-10-19",
+      "entries": {
+        "climate-change": {
+          "name": "Climate change",
+          "passage": "Climate change 12% (full list, % mentioned in May 2026, global country average)"
+        },
+        "threats-environment": {
+          "name": "Threats against the environment",
+          "passage": "Threats against the environment 7% (full list, % mentioned in May 2026, global country average)"
+        }
+      },
+      "note": "Text extracted locally from the preview PDF (Wave 221); category names paired with the chart values in order (Inflation 32% ... Climate change 12% ... Threats against the environment 7%)."
+    },
+    "gallup-mip": {
+      "name": "Gallup: Most Important Problem (U.S., open-ended), environment and energy",
+      "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+      "accessed": "2026-10-19",
+      "entries": {
+        "environment": {
+          "name": "Environment/Pollution/Climate change",
+          "passage": "Environment/Pollution/Climate change\t1 (26-Sep, % mentioning; Datawrapper table vEKjO v101 embedded on the page)"
+        },
+        "energy": {
+          "name": "Energy/Lack of energy sources",
+          "passage": "Energy/Lack of energy sources\t* (26-Sep, % mentioning; Datawrapper table vEKjO v101)"
+        }
+      }
+    },
+    "eurobarometer-env": {
+      "name": "Eurobarometer: most important environmental issues, EU-27 (2020), as reported by the Slovenian Environment Agency",
+      "url": "https://kazalci.arso.gov.si/en/content/attitudes-citizens-towards-environment",
+      "accessed": "2026-10-19",
+      "entries": {
+        "climate": {
+          "name": "Climate change",
+          "passage": "Climate change 51 (EU-27, 2020, % of respondents, up to four answers)"
+        },
+        "air": {
+          "name": "Air pollution",
+          "passage": "Air pollution 45 (EU-27, 2020, %)"
+        },
+        "waste": {
+          "name": "Growing amount of waste",
+          "passage": "Growing amount of waste 45 (EU-27, 2020, %)"
+        },
+        "marine": {
+          "name": "Marine pollution",
+          "passage": "Marine pollution 40 (EU-27, 2020, %)"
+        },
+        "rivers": {
+          "name": "Pollution of rivers, lakes and ground water",
+          "passage": "Pollution of rivers, lakes and ground water 38 (EU-27, 2020, %)"
+        },
+        "species": {
+          "name": "Decline or extinction of species and habitats, and of natural ecosystems",
+          "passage": "Decline or extinction of species and habitats, and of natural ecosystems 36 (EU-27, 2020, %)"
+        },
+        "agriculture": {
+          "name": "Agricultural pollution and soil degradation",
+          "passage": "Agricultural pollution and soil degradation 32 (EU-27, 2020, %)"
+        },
+        "droughts-floods": {
+          "name": "Frequent droughts or floods",
+          "passage": "Frequent droughts or floods 29 (EU-27, 2020, %)"
+        },
+        "water-shortage": {
+          "name": "Shortage of drinking water",
+          "passage": "Shortage of drinking water 25 (EU-27, 2020, %)"
+        },
+        "noise": {
+          "name": "Noise pollution",
+          "passage": "Noise pollution 8 (EU-27, 2020, %)"
+        }
+      },
+      "note": "The 2024 Eurobarometer (78% say environmental issues affect daily life and health) was found only in search snippets; its issue ranking was not opened. The 2020 table comes from ARSO, Slovenia's environment agency."
+    },
+    "eea-noise": {
+      "name": "European Environment Agency: noise",
+      "url": "https://www.eea.europa.eu/en/topics/in-depth/noise",
+      "accessed": "2026-10-19",
+      "entries": {
+        "transport-noise": {
+          "name": "Long-term harmful noise (road, rail and air traffic)",
+          "passage": "at least one in five people in the EU are exposed to long-term noise levels considered harmful to their health. About 92 million people are exposed to harmful day-evening-night noise levels caused by road traffic."
+        }
+      }
+    },
+    "who-environment": {
+      "name": "WHO fact sheets: environmental causes of death and disease",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/ambient-(outdoor)-air-quality-and-health",
+      "accessed": "2026-10-19",
+      "entries": {
+        "ambient-air": {
+          "name": "Ambient (outdoor) air pollution",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/ambient-(outdoor)-air-quality-and-health",
+          "passage": "In 2019, 99% of the world's population was living in places where the WHO air quality guidelines levels were not met. Ambient (outdoor) air pollution is estimated to have caused 4.2 million premature deaths worldwide in 2019."
+        },
+        "household-air": {
+          "name": "Household air pollution",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/household-air-pollution-and-health",
+          "passage": "Around 2.1 billion people worldwide (around a quarter of the global population) cook using open fires or inefficient stoves. Household air pollution was responsible for an estimated 2.9 million deaths per year in 2021"
+        },
+        "unsafe-water": {
+          "name": "Contaminated drinking water",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/drinking-water",
+          "passage": "In 2022, globally, at least 1.7 billion people use a drinking water source contaminated with faeces."
+        },
+        "heat": {
+          "name": "Extreme heat",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/climate-change-heat-and-health",
+          "passage": "Between 2000–2019 studies show approximately 489 000 heat-related deaths occur each year"
+        },
+        "lead": {
+          "name": "Lead exposure",
+          "url": "https://www.who.int/news-room/fact-sheets/detail/lead-poisoning-and-health",
+          "passage": "Lead exposure was attributed to more than 3.5 million deaths globally in 2023, primarily due to cardiovascular effects."
+        }
+      },
+      "note": "IHME GBD risk-factor tables were not opened; WHO fact sheets stand in for the cause-of-burden list."
+    },
+    "211-la-wildfires": {
+      "name": "211 LA: January 2025 Los Angeles wildfires",
+      "url": "https://211la.org/articles/los-angeles-county-recognizes-211-las-wildfire-disaster-relief-efforts-211-day",
+      "accessed": "2026-10-19",
+      "entries": {
+        "emergency-housing": {
+          "name": "Emergency housing after the wildfires",
+          "passage": "over 51,000 households have requested emergency housing"
+        },
+        "power-interruptions": {
+          "name": "Power interruptions",
+          "passage": "provided material support to 491 households affected by power interruptions"
+        }
+      },
+      "note": "No national 211 top-needs report has an environment category; this regional disaster report is the closest 211 source."
+    },
+    "sdg": {
+      "name": "UN Sustainable Development Goals: targets bearing on the environment",
+      "url": "https://sdgs.un.org/goals",
+      "accessed": "2026-10-19",
+      "entries": {
+        "3.9": {
+          "name": "Target 3.9",
+          "url": "https://sdgs.un.org/goals/goal3",
+          "passage": "By 2030, substantially reduce the number of deaths and illnesses from hazardous chemicals and air, water and soil"
+        },
+        "6.1": {
+          "name": "Target 6.1",
+          "url": "https://sdgs.un.org/goals/goal6",
+          "passage": "By 2030, achieve universal and equitable access to safe and affordable drinking water for all"
+        },
+        "6.2": {
+          "name": "Target 6.2",
+          "url": "https://sdgs.un.org/goals/goal6",
+          "passage": "By 2030, achieve access to adequate and equitable sanitation and hygiene for all and end open defecation"
+        },
+        "6.3": {
+          "name": "Target 6.3",
+          "url": "https://sdgs.un.org/goals/goal6",
+          "passage": "By 2030, improve water quality by reducing pollution, eliminating dumping and minimizing release of hazardous chemicals"
+        },
+        "6.4": {
+          "name": "Target 6.4",
+          "url": "https://sdgs.un.org/goals/goal6",
+          "passage": "By 2030, substantially increase water-use efficiency across all sectors and ensure sustainable withdrawals"
+        },
+        "6.6": {
+          "name": "Target 6.6",
+          "url": "https://sdgs.un.org/goals/goal6",
+          "passage": "By 2020, protect and restore water-related ecosystems, including mountains, forests, wetlands, rivers, aquifers and lakes"
+        },
+        "7.1": {
+          "name": "Target 7.1",
+          "url": "https://sdgs.un.org/goals/goal7",
+          "passage": "By 2030, ensure universal access to affordable, reliable and modern energy services"
+        },
+        "7.2": {
+          "name": "Target 7.2",
+          "url": "https://sdgs.un.org/goals/goal7",
+          "passage": "By 2030, increase substantially the share of renewable energy in the global energy mix"
+        },
+        "11.2": {
+          "name": "Target 11.2",
+          "url": "https://sdgs.un.org/goals/goal11",
+          "passage": "By 2030, provide access to safe, affordable, accessible and sustainable transport systems for all,"
+        },
+        "11.4": {
+          "name": "Target 11.4",
+          "url": "https://sdgs.un.org/goals/goal11",
+          "passage": "Strengthen efforts to protect and safeguard the world’s cultural and natural heritage"
+        },
+        "11.5": {
+          "name": "Target 11.5",
+          "url": "https://sdgs.un.org/goals/goal11",
+          "passage": "By 2030, significantly reduce the number of deaths and the number of people affected"
+        },
+        "11.6": {
+          "name": "Target 11.6",
+          "url": "https://sdgs.un.org/goals/goal11",
+          "passage": "By 2030, reduce the adverse per capita environmental impact of cities"
+        },
+        "11.7": {
+          "name": "Target 11.7",
+          "url": "https://sdgs.un.org/goals/goal11",
+          "passage": "By 2030, provide universal access to safe, inclusive and accessible, green and public spaces"
+        },
+        "11.b": {
+          "name": "Target 11.b",
+          "url": "https://sdgs.un.org/goals/goal11",
+          "passage": "By 2020, substantially increase the number of cities and human settlements adopting and implementing integrated policies"
+        },
+        "12.2": {
+          "name": "Target 12.2",
+          "url": "https://sdgs.un.org/goals/goal12",
+          "passage": "By 2030, achieve the sustainable management and efficient use of natural resources"
+        },
+        "12.3": {
+          "name": "Target 12.3",
+          "url": "https://sdgs.un.org/goals/goal12",
+          "passage": "By 2030, halve per capita global food waste at the retail and consumer levels and reduce food losses"
+        },
+        "12.4": {
+          "name": "Target 12.4",
+          "url": "https://sdgs.un.org/goals/goal12",
+          "passage": "By 2020, achieve the environmentally sound management of chemicals and all wastes throughout their life cycle"
+        },
+        "12.5": {
+          "name": "Target 12.5",
+          "url": "https://sdgs.un.org/goals/goal12",
+          "passage": "By 2030, substantially reduce waste generation through prevention, reduction, recycling and reuse"
+        },
+        "12.8": {
+          "name": "Target 12.8",
+          "url": "https://sdgs.un.org/goals/goal12",
+          "passage": "By 2030, ensure that people everywhere have the relevant information and awareness for sustainable development"
+        },
+        "13.1": {
+          "name": "Target 13.1",
+          "url": "https://sdgs.un.org/goals/goal13",
+          "passage": "Strengthen resilience and adaptive capacity to climate-related hazards and natural disasters in all countries"
+        },
+        "13.2": {
+          "name": "Target 13.2",
+          "url": "https://sdgs.un.org/goals/goal13",
+          "passage": "Integrate climate change measures into national policies, strategies and planning"
+        },
+        "13.3": {
+          "name": "Target 13.3",
+          "url": "https://sdgs.un.org/goals/goal13",
+          "passage": "Improve education, awareness-raising and human and institutional capacity on climate change mitigation, adaptation,"
+        },
+        "14.1": {
+          "name": "Target 14.1",
+          "url": "https://sdgs.un.org/goals/goal14",
+          "passage": "By 2025, prevent and significantly reduce marine pollution of all kinds"
+        },
+        "14.2": {
+          "name": "Target 14.2",
+          "url": "https://sdgs.un.org/goals/goal14",
+          "passage": "By 2020, sustainably manage and protect marine and coastal ecosystems"
+        },
+        "14.3": {
+          "name": "Target 14.3",
+          "url": "https://sdgs.un.org/goals/goal14",
+          "passage": "Minimize and address the impacts of ocean acidification"
+        },
+        "14.4": {
+          "name": "Target 14.4",
+          "url": "https://sdgs.un.org/goals/goal14",
+          "passage": "By 2020, effectively regulate harvesting and end overfishing"
+        },
+        "15.1": {
+          "name": "Target 15.1",
+          "url": "https://sdgs.un.org/goals/goal15",
+          "passage": "By 2020, ensure the conservation, restoration and sustainable use of terrestrial and inland freshwater ecosystems"
+        },
+        "15.2": {
+          "name": "Target 15.2",
+          "url": "https://sdgs.un.org/goals/goal15",
+          "passage": "By 2020, promote the implementation of sustainable management of all types of forests"
+        },
+        "15.3": {
+          "name": "Target 15.3",
+          "url": "https://sdgs.un.org/goals/goal15",
+          "passage": "By 2030, combat desertification, restore degraded land and soil"
+        },
+        "15.5": {
+          "name": "Target 15.5",
+          "url": "https://sdgs.un.org/goals/goal15",
+          "passage": "Take urgent and significant action to reduce the degradation of natural habitats, halt the loss of biodiversity"
+        },
+        "15.7": {
+          "name": "Target 15.7",
+          "url": "https://sdgs.un.org/goals/goal15",
+          "passage": "Take urgent action to end poaching and trafficking of protected species of flora and fauna"
+        }
+      },
+      "note": "Passages are the opening words of each target."
+    },
+    "oecd": {
+      "name": "OECD Better Life Index / Well-being Framework: Environment",
+      "url": "https://en.wikipedia.org/wiki/OECD_Better_Life_Index",
+      "accessed": "2026-10-19",
+      "entries": {
+        "environment": {
+          "name": "Environment (Environmental quality)",
+          "passage": "quality of environment (e.g. environmental health)"
+        }
+      },
+      "note": "oecd.org and oecdbetterlifeindex.org returned 403 or a bot challenge; the OECD WISE deck on unstats.un.org shows the dimensions as an image only. The Better Life Index topic is quoted from Wikipedia. Natural capital (a resource for future well-being) was not opened in any source."
+    },
+    "whoqol": {
+      "name": "WHOQOL-BREF (WHO, 1996): environment item",
+      "url": "https://depts.washington.edu/seaqol/docs/WHOQOL-BREF%20and%20Scoring%20Instructions.pdf",
+      "accessed": "2026-10-19",
+      "entries": {
+        "q9": {
+          "name": "How healthy is your physical environment?",
+          "passage": "9. How healthy is your physical environment?"
+        }
+      }
+    },
+    "maxneef": {
+      "name": "Max-Neef's fundamental human needs: environment satisfiers",
+      "url": "https://en.wikipedia.org/wiki/Manfred_Max-Neef%27s_Fundamental_human_needs",
+      "accessed": "2026-10-19",
+      "entries": {
+        "subsistence-living-environment": {
+          "name": "Subsistence (interacting): living environment",
+          "passage": "living environment, social setting"
+        },
+        "idleness-surroundings": {
+          "name": "Idleness (interacting): surroundings, landscapes",
+          "passage": "privacy, intimacy, spaces of closeness, free time, surroundings, landscapes"
+        }
+      }
+    },
+    "gallup-elements": {
+      "name": "Gallup's five elements of wellbeing: Community",
+      "url": "https://www.gallup.com/workplace/237020/five-essential-elements.aspx",
+      "accessed": "2026-10-19",
+      "entries": {
+        "community": {
+          "name": "Community wellbeing",
+          "passage": "the sense of engagement you have with the area where you live"
+        }
+      }
+    },
+    "wikidata": {
+      "name": "Wikidata items for environment concepts",
+      "url": "https://www.wikidata.org/",
+      "accessed": "2026-10-19",
+      "entries": {
+        "Q125928": {
+          "name": "climate change",
+          "url": "https://www.wikidata.org/wiki/Q125928"
+        },
+        "Q7942": {
+          "name": "global warming",
+          "url": "https://www.wikidata.org/wiki/Q7942"
+        },
+        "Q131123": {
+          "name": "air pollution",
+          "url": "https://www.wikidata.org/wiki/Q131123"
+        },
+        "Q58734": {
+          "name": "pollution",
+          "url": "https://www.wikidata.org/wiki/Q58734"
+        },
+        "Q183129": {
+          "name": "water pollution",
+          "url": "https://www.wikidata.org/wiki/Q183129"
+        },
+        "Q1058325": {
+          "name": "marine pollution",
+          "url": "https://www.wikidata.org/wiki/Q1058325"
+        },
+        "Q7892": {
+          "name": "drinking water",
+          "url": "https://www.wikidata.org/wiki/Q7892"
+        },
+        "Q92251": {
+          "name": "noise pollution",
+          "url": "https://www.wikidata.org/wiki/Q92251"
+        },
+        "Q43059": {
+          "name": "drought",
+          "url": "https://www.wikidata.org/wiki/Q43059"
+        },
+        "Q5376358": {
+          "name": "water scarcity",
+          "url": "https://www.wikidata.org/wiki/Q5376358"
+        },
+        "Q110315": {
+          "name": "lead poisoning",
+          "url": "https://www.wikidata.org/wiki/Q110315"
+        },
+        "Q212734": {
+          "name": "soil contamination",
+          "url": "https://www.wikidata.org/wiki/Q212734"
+        },
+        "Q1069369": {
+          "name": "hazardous waste",
+          "url": "https://www.wikidata.org/wiki/Q1069369"
+        },
+        "Q7202090": {
+          "name": "plastic pollution",
+          "url": "https://www.wikidata.org/wiki/Q7202090"
+        },
+        "Q18538": {
+          "name": "municipal solid waste",
+          "url": "https://www.wikidata.org/wiki/Q18538"
+        },
+        "Q18919": {
+          "name": "food waste",
+          "url": "https://www.wikidata.org/wiki/Q18919"
+        },
+        "Q215864": {
+          "name": "heat wave",
+          "url": "https://www.wikidata.org/wiki/Q215864"
+        },
+        "Q169950": {
+          "name": "wildfire",
+          "url": "https://www.wikidata.org/wiki/Q169950"
+        },
+        "Q8068": {
+          "name": "flood",
+          "url": "https://www.wikidata.org/wiki/Q8068"
+        },
+        "Q8065": {
+          "name": "natural disaster",
+          "url": "https://www.wikidata.org/wiki/Q8065"
+        },
+        "Q1277161": {
+          "name": "extreme weather event",
+          "url": "https://www.wikidata.org/wiki/Q1277161"
+        },
+        "Q169940": {
+          "name": "deforestation",
+          "url": "https://www.wikidata.org/wiki/Q169940"
+        },
+        "Q18466271": {
+          "name": "biodiversity loss",
+          "url": "https://www.wikidata.org/wiki/Q18466271"
+        },
+        "Q123509": {
+          "name": "extinction",
+          "url": "https://www.wikidata.org/wiki/Q123509"
+        },
+        "Q22658": {
+          "name": "urban open space",
+          "url": "https://www.wikidata.org/wiki/Q22658"
+        },
+        "Q331828": {
+          "name": "overfishing",
+          "url": "https://www.wikidata.org/wiki/Q331828"
+        },
+        "Q786773": {
+          "name": "car dependency",
+          "url": "https://www.wikidata.org/wiki/Q786773"
+        },
+        "Q104885559": {
+          "name": "indoor air pollution",
+          "url": "https://www.wikidata.org/wiki/Q104885559"
+        },
+        "Q2491965": {
+          "name": "environmental racism",
+          "url": "https://www.wikidata.org/wiki/Q2491965"
+        }
+      }
+    }
+  }
+}

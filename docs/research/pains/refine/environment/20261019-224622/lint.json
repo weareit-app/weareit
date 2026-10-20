@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "scope": "environment",
+  "issues": [
+    {
+      "painId": "dirty-air",
+      "rule": "id-mismatch",
+      "detail": "ID dirty-air, name \"Pollution\" and line \"I see pollution harming where I live.\" share no word; propose a rewording only if the wording has drifted from what the ID names",
+      "severity": "note"
+    },
+    {
+      "painId": "*",
+      "group": "environment",
+      "rule": "mixed-labels",
+      "severity": "fail",
+      "detail": "Environment mixes problem labels and area labels; pick one style for the heading"
+    }
+  ],
+  "failing": [],
+  "checkedAt": "2026-10-19"
+}

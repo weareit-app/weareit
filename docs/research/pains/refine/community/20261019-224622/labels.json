@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "labels": {
+    "homelessness": "problem",
+    "town-dying": "problem",
+    "nobody-knows-anybody": "area",
+    "trust": "area",
+    "we-cant-talk": "problem",
+    "people-are-meaner": "problem",
+    "cant-pool": "area",
+    "building-cant-organize": "area"
+  }
+}

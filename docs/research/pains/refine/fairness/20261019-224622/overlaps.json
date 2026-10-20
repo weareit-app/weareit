@@ -1,0 +1,45 @@
+{
+  "pairs": [
+    {
+      "a": "treated-differently",
+      "b": "people-treated-badly",
+      "action": "keep",
+      "distinction": "Discrimination is being treated worse myself; prejudice is seeing it happen to other people.",
+      "reason": "Being on the receiving end and being a witness are different places to stand, but with the names \"Discrimination\" and \"Prejudice\" people can't tell them apart, so the alternatives sharpen both names."
+    },
+    {
+      "a": "justice-unfair",
+      "b": "people-treated-badly",
+      "action": "keep",
+      "distinction": "Justice is unequal treatment by police and courts; prejudice is unequal treatment by people in everyday life.",
+      "reason": "Someone angry about sentencing or policing names an institution, while someone bothered by how neighbors or coworkers treat people names something else, so each picks one easily."
+    },
+    {
+      "a": "it-all-goes-up",
+      "b": "where-youre-born",
+      "action": "keep",
+      "distinction": "Inequality is the gap in money and wealth now; opportunity is whether where you start decides where you end up.",
+      "reason": "They often travel together, but someone can be bothered by the wealth gap today without naming mobility, and the other way around."
+    },
+    {
+      "a": "it-all-goes-up",
+      "b": "cost-of-living",
+      "action": "keep",
+      "distinction": "Rising prices squeeze my own budget; inequality is the gap between groups, which can grow even when prices are steady.",
+      "reason": "Someone hit by prices and someone angry about the rich pulling away are naming different things, and either could pick one without the other."
+    },
+    {
+      "a": "treated-differently",
+      "b": "not-built-for-me",
+      "action": "other-page",
+      "reason": "Being shut out of places and services because of a disability is one personal form of being treated worse for who you are, so the two stay linked across pages."
+    },
+    {
+      "a": "where-youre-born",
+      "b": "kids-future",
+      "action": "keep",
+      "distinction": "Opportunity is some kids starting far behind others now; kids' future is a worry that this whole generation will have it worse than the last.",
+      "reason": "One is a gap between kids and the other is a fall between generations, so a person can tell at once which one they mean."
+    }
+  ]
+}

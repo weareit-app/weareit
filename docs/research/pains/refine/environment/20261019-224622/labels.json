@@ -1,0 +1,9 @@
+{
+  "labels": {
+    "climate": "problem",
+    "disasters": "problem",
+    "dirty-air": "problem",
+    "car-or-nothing": "area",
+    "nature-disappearing": "area"
+  }
+}

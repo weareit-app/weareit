@@ -1,0 +1,341 @@
+{
+  "schemaVersion": 1,
+  "entries": {
+    "oecd/inclusion-inequalities": {
+      "painId": "it-all-goes-up",
+      "why": "unequal distribution and deprivation between people"
+    },
+    "oecd/group-inequalities": {
+      "broader": "treated-differently",
+      "why": "gaps between groups by gender, age and education; some are discrimination, some are not"
+    },
+    "sdg/5.1": {
+      "painId": "people-treated-badly",
+      "why": "discrimination against women is one way people are treated badly for who they are"
+    },
+    "sdg/5.2": {
+      "broader": "unsafe-at-home",
+      "why": "violence against women, at home and in public; trafficking goes to modern-slavery"
+    },
+    "sdg/5.3": {
+      "candidate": "modern-slavery"
+    },
+    "sdg/5.5": {
+      "broader": "treated-differently",
+      "why": "women held back from leadership"
+    },
+    "sdg/5.6": {
+      "painId": "freedoms",
+      "why": "reproductive rights are part of the freedom to make my own choices"
+    },
+    "sdg/5.a": {
+      "broader": "treated-differently",
+      "why": "women denied equal rights to property and money"
+    },
+    "sdg/5.c": {
+      "broader": "people-treated-badly",
+      "why": "laws and policies for gender equality"
+    },
+    "sdg/8.5": {
+      "candidate": "pay-gap"
+    },
+    "sdg/8.7": {
+      "candidate": "modern-slavery"
+    },
+    "sdg/8.8": {
+      "painId": "bad-job",
+      "why": "labor rights and unsafe work are mistreatment at work"
+    },
+    "sdg/10.2": {
+      "painId": "treated-differently",
+      "why": "exclusion because of age, sex, disability, race or origin"
+    },
+    "sdg/10.3": {
+      "painId": "where-youre-born",
+      "why": "equal opportunity"
+    },
+    "sdg/10.4": {
+      "broader": "it-all-goes-up",
+      "why": "tax, wage and safety-net policy for greater equality; tax-fairness covers taxes on the rich"
+    },
+    "sdg/16.2": {
+      "candidate": "modern-slavery"
+    },
+    "sdg/16.3": {
+      "painId": "justice-unfair",
+      "why": "equal access to justice"
+    },
+    "sdg/16.9": {
+      "candidate": "no-id"
+    },
+    "sdg/16.10": {
+      "painId": "freedoms",
+      "why": "fundamental freedoms"
+    },
+    "sdg/16.b": {
+      "painId": "treated-differently",
+      "why": "discriminatory laws and policies"
+    },
+    "maxneef/freedom": {
+      "painId": "treated-differently",
+      "why": "equal rights, the satisfier Max-Neef names for freedom"
+    },
+    "wikidata/Q8461": {
+      "painId": "people-treated-badly",
+      "why": "prejudice against a group, which this pain names"
+    },
+    "wikidata/Q93200": {
+      "painId": "people-treated-badly",
+      "why": "prejudice against a group, which this pain names"
+    },
+    "wikidata/Q438946": {
+      "painId": "people-treated-badly",
+      "why": "prejudice against a group, which this pain names"
+    },
+    "wikidata/Q1192251": {
+      "painId": "people-treated-badly",
+      "why": "prejudice against a group, which this pain names"
+    },
+    "wikidata/Q33487": {
+      "painId": "people-treated-badly",
+      "why": "prejudice against a group, which this pain names"
+    },
+    "wikidata/Q59677": {
+      "painId": "people-treated-badly",
+      "why": "prejudice against a group, which this pain names"
+    },
+    "wikidata/Q166005": {
+      "painId": "people-treated-badly",
+      "why": "prejudice against a group, which this pain names"
+    },
+    "wikidata/Q22649": {
+      "painId": "people-treated-badly",
+      "why": "prejudice against a group, which this pain names"
+    },
+    "wikidata/Q486296": {
+      "painId": "people-treated-badly",
+      "why": "prejudice against a group, which this pain names"
+    },
+    "wikidata/Q2891097": {
+      "painId": "people-treated-badly",
+      "why": "prejudice against a group, which this pain names"
+    },
+    "wikidata/Q169207": {
+      "painId": "treated-differently",
+      "why": "discrimination itself"
+    },
+    "wikidata/Q106230553": {
+      "painId": "treated-differently",
+      "why": "discrimination because of sex or gender"
+    },
+    "wikidata/Q5431887": {
+      "painId": "it-all-goes-up",
+      "why": "uneven distribution of resources"
+    },
+    "wikidata/Q3154018": {
+      "painId": "it-all-goes-up",
+      "why": "the gap in wealth"
+    },
+    "wikidata/Q194417": {
+      "painId": "where-youre-born",
+      "why": "moving up from where you started"
+    },
+    "wikidata/Q912512": {
+      "painId": "where-youre-born",
+      "why": "equal chances"
+    },
+    "wikidata/Q1996993": {
+      "painId": "justice-unfair",
+      "why": "police using excessive force"
+    },
+    "wikidata/Q1850662": {
+      "painId": "justice-unfair",
+      "why": "police targeting people by race or religion"
+    },
+    "wikidata/Q25004529": {
+      "broader": "justice-unfair",
+      "why": "how many people are locked up; the pain names unequal policing and courts"
+    },
+    "wikidata/Q181784": {
+      "candidate": "modern-slavery"
+    },
+    "wikidata/Q705818": {
+      "candidate": "modern-slavery"
+    },
+    "wikidata/Q192571": {
+      "candidate": "modern-slavery"
+    },
+    "wikidata/Q3369955": {
+      "candidate": "modern-slavery"
+    },
+    "wikidata/Q1546421": {
+      "candidate": "modern-slavery"
+    },
+    "wikidata/Q28135689": {
+      "painId": "legal-mess",
+      "why": "legal help that people can't get or afford"
+    },
+    "wikidata/Q707748": {
+      "painId": "legal-mess",
+      "why": "legal help that people can't afford"
+    },
+    "wikidata/Q1070100": {
+      "candidate": "criminal-record"
+    },
+    "wikidata/Q329303": {
+      "candidate": "tax-fairness"
+    },
+    "wikidata/Q27916524": {
+      "candidate": "tax-fairness"
+    },
+    "wikidata/Q47988": {
+      "candidate": "no-id"
+    },
+    "wikidata/Q2491965": {
+      "broader": "dirty-air",
+      "why": "pollution that falls hardest on some neighborhoods"
+    },
+    "wikidata/Q1453838": {
+      "broader": "treated-differently",
+      "why": "neighborhoods denied loans and services"
+    },
+    "wikidata/Q244752": {
+      "painId": "offline",
+      "why": "no decent internet"
+    },
+    "wikidata/Q5531013": {
+      "candidate": "pay-gap"
+    },
+    "wikidata/Q1536343": {
+      "painId": "freedoms",
+      "why": "reproductive rights are part of the freedom to make my own choices"
+    },
+    "gallup-mip/rich-poor-gap": {
+      "painId": "it-all-goes-up",
+      "why": "the gap between rich and poor"
+    },
+    "gallup-mip/racism": {
+      "painId": "people-treated-badly",
+      "why": "racism is people treated badly for who they are"
+    },
+    "gallup-mip/judicial-system": {
+      "painId": "justice-unfair",
+      "why": "courts and laws"
+    },
+    "gallup-mip/police-brutality": {
+      "painId": "justice-unfair",
+      "why": "police treating people differently"
+    },
+    "gallup-mip/abortion": {
+      "painId": "freedoms",
+      "why": "abortion rights and limits are about the freedom to make my own choices"
+    },
+    "ipsos/poverty-inequality": {
+      "painId": "it-all-goes-up",
+      "why": "social inequality; poverty itself is the economy group's poverty pain"
+    },
+    "pew-discrimination/immigrants-illegal": {
+      "painId": "people-treated-badly",
+      "why": "people treated badly for who they are"
+    },
+    "pew-discrimination/immigrants-legal": {
+      "painId": "people-treated-badly",
+      "why": "people treated badly for who they are"
+    },
+    "pew-discrimination/transgender": {
+      "painId": "people-treated-badly",
+      "why": "people treated badly for who they are"
+    },
+    "pew-discrimination/muslims": {
+      "painId": "people-treated-badly",
+      "why": "people treated badly for who they are"
+    },
+    "pew-discrimination/jews": {
+      "painId": "people-treated-badly",
+      "why": "people treated badly for who they are"
+    },
+    "pew-discrimination/black": {
+      "painId": "people-treated-badly",
+      "why": "people treated badly for who they are"
+    },
+    "pew-discrimination/hispanic": {
+      "painId": "people-treated-badly",
+      "why": "people treated badly for who they are"
+    },
+    "pew-discrimination/asian": {
+      "painId": "people-treated-badly",
+      "why": "people treated badly for who they are"
+    },
+    "pew-discrimination/white": {
+      "painId": "people-treated-badly",
+      "why": "people treated badly for who they are"
+    },
+    "pew-discrimination/gay-lesbian": {
+      "painId": "people-treated-badly",
+      "why": "people treated badly for who they are"
+    },
+    "pew-discrimination/women": {
+      "painId": "people-treated-badly",
+      "why": "people treated badly for who they are"
+    },
+    "pew-discrimination/men": {
+      "painId": "people-treated-badly",
+      "why": "people treated badly for who they are"
+    },
+    "pew-discrimination/religious": {
+      "painId": "people-treated-badly",
+      "why": "people treated badly for who they are"
+    },
+    "pew-discrimination/atheists": {
+      "painId": "people-treated-badly",
+      "why": "people treated badly for who they are"
+    },
+    "pew-discrimination/evangelicals": {
+      "painId": "people-treated-badly",
+      "why": "people treated badly for who they are"
+    },
+    "pew-discrimination/older": {
+      "painId": "people-treated-badly",
+      "why": "people treated badly for who they are"
+    },
+    "pew-discrimination/younger": {
+      "painId": "people-treated-badly",
+      "why": "people treated badly for who they are"
+    },
+    "pew-discrimination/rural": {
+      "broader": "where-youre-born",
+      "why": "treated differently for where you live"
+    },
+    "pew-discrimination/cities": {
+      "broader": "where-youre-born",
+      "why": "treated differently for where you live"
+    },
+    "gallup-taxes/upper-income-too-little": {
+      "candidate": "tax-fairness"
+    },
+    "gallup-taxes/corporations-too-little": {
+      "candidate": "tax-fairness"
+    },
+    "gallup-taxes/lower-income-too-much": {
+      "broader": "taxes-dont-buy-much",
+      "why": "paying too much in taxes"
+    },
+    "lsc-justice-gap/civil-legal-problems": {
+      "painId": "legal-mess",
+      "why": "a legal problem I can't afford"
+    },
+    "lsc-justice-gap/no-adequate-help": {
+      "painId": "legal-mess",
+      "why": "no legal help for the problem"
+    },
+    "ilo-modern-slavery/forced-labour": {
+      "candidate": "modern-slavery"
+    },
+    "ilo-modern-slavery/forced-marriage": {
+      "candidate": "modern-slavery"
+    },
+    "ilo-modern-slavery/children-forced-labour": {
+      "candidate": "modern-slavery"
+    }
+  }
+}
