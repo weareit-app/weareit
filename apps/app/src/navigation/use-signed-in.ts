@@ -1,8 +1,11 @@
-import { authClient } from "../auth/auth-client";
+import { createContext, useContext } from "react";
 
 // Whether this device has a signed-in session, for the links only signed-in
-// (or signed-out) people see. False until the session check answers.
+// (or signed-out) people see. SignedInProvider fills it at the root; anything
+// rendered without the provider (stories, component tests) sees a signed-out
+// visitor and never calls the auth server.
+export const SignedInContext = createContext(false);
+
 export function useSignedIn() {
-  const { data } = authClient.useSession();
-  return Boolean(data?.session);
+  return useContext(SignedInContext);
 }

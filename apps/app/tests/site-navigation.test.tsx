@@ -2,6 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react-native";
 import { SiteFooter } from "../src/components/site-footer";
 import { SiteMenuButton } from "../src/components/site-menu";
 import { CONTACT_EMAIL } from "../src/navigation/site-links";
+import { SignedInContext } from "../src/navigation/use-signed-in";
 
 jest.mock("react-native-reanimated", () => ({ useReducedMotion: () => false }));
 jest.mock("react-native-safe-area-context", () => ({
@@ -16,6 +17,16 @@ describe("site footer", () => {
     expect(screen.getByText("Contact")).toBeTruthy();
     expect(screen.getByText(CONTACT_EMAIL)).toBeTruthy();
     expect(screen.queryByText("Support")).toBeNull();
+  });
+
+  it("shows Support once signed in", async () => {
+    await render(
+      <SignedInContext.Provider value>
+        <SiteFooter />
+      </SignedInContext.Provider>,
+    );
+
+    expect(screen.getByText("Support")).toBeTruthy();
   });
 
   it("hides groups with nothing published", async () => {
