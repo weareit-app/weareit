@@ -1,11 +1,26 @@
 {
   "$schema": "https://turborepo.com/schema.json",
   "tasks": {
-    "build": { "dependsOn": ["^build"], "outputs": ["dist/**", ".expo/**"] },
-    "typecheck": { "dependsOn": ["^typecheck"], "outputs": [] },
+    "essays": {
+      "inputs": [
+        "essays/**",
+        "essay-build/**",
+        "scripts/build-essays.ts",
+        "src/essay-schema.ts"
+      ],
+      "outputs": ["src/essays.generated.ts", "src/essay-drafts.generated.ts"]
+    },
+    "build": {
+      "dependsOn": ["^build", "essays", "^essays"],
+      "outputs": ["dist/**", ".expo/**"]
+    },
+    "typecheck": {
+      "dependsOn": ["^typecheck", "essays", "^essays"],
+      "outputs": []
+    },
     "//#typecheck:root": { "cache": false },
-    "dev": { "cache": false, "persistent": true },
-    "web": { "cache": false, "persistent": true },
-    "ios": { "cache": false, "persistent": true }
+    "dev": { "dependsOn": ["^essays"], "cache": false, "persistent": true },
+    "web": { "dependsOn": ["^essays"], "cache": false, "persistent": true },
+    "ios": { "dependsOn": ["^essays"], "cache": false, "persistent": true }
   }
 }

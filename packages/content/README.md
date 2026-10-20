@@ -7,3 +7,5 @@ The structured Tier 1 pain/future copy is CC0-1.0 content. The TypeScript schema
 `src/schema.ts` provides Zod validation for import, publish, and API boundaries. Keep image and UI mappings in the app package; this package must stay independent of React Native and Expo.
 
 The first-party CMS is a focused structured editor: draft content, validate IDs and relations plus provenance, preview onboarding, and publish a versioned snapshot with rollback. `src/first-actions.ts` supplies initial import material for a small set of pain-to-action links. Each action includes source, effort estimate, and whether it is practical or a candidate to investigate. The bedroom HEPA idea is conditional and presented as a hypothesis, not medical advice.
+
+Essays for the public pages are Markdown files in `essays/`, turned into a typed module at build time; the format is in `essays/README.md`. The Markdown parser is a build-time dependency only (`essay-build/`), never exported.
