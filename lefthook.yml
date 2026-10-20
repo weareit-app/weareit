@@ -5,7 +5,8 @@ pre-commit:
   jobs:
     - name: format
       # Formats only what `.prettierignore` lets through (code, not docs), the same files
-      # CI checks with `pnpm run lint`. Prettier skips the ignored ones silently.
+      # CI checks with `pnpm run lint`. No glob here, so that file stays the one definition:
+      # Prettier 3 skips ignored files passed by name and exits 0, even when all are ignored.
       run: pnpm exec prettier --write {staged_files}
       stage_fixed: true
     - name: typecheck
