@@ -4,7 +4,7 @@ import re
 import unittest
 
 from test_cards import cards
-from test_fix_stages import DREAMS, FixStages, cli, fixes_doc, plan_doc, task_fix
+from test_fix_stages import DREAMS, FixStages, cli, fixes_doc, plan_doc, shared_pass_only, task_fix
 
 TRIALS = ('leave', 'switch')
 
@@ -142,6 +142,7 @@ class TrialKinds(Kinds):
         self.pilot()
         self.assertEqual(start('plan')['kinds'], list(cards.KIND_BRIEFS) + list(TRIALS))
         self.write('plan.json', ceilings('switch', trials=True))
+        self.write('fixes.json', fixes_doc(), shared_pass_only)
         self.assertEqual(start('kind-pools')['kinds'], {'task': cards.KIND_BRIEFS['task'], 'switch': cards.TRIAL_KIND_BRIEFS['switch']})
 
 

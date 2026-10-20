@@ -25,7 +25,7 @@ Rules:
     title, line, lens, ambition, status,          # no scene (dropped 2026-10-17)
     fixes: [ { id, title, whatChanges, who, exemplarRef | null,
                speculative: bool, speculativeRationale?, firstStep, firstStepMinutes, status,
-               kind: feature|task|schedule|habit|practice|learn|project|group|new-group|path,
+               kind: feature|task|schedule|habit|practice|learn|project|group|new-group|ask|resource|path,
                featureIdea? } ],   # feature ⇔ status proposed_it_feature; practice requires featureIdea
     provenance: { sourceId, locator, evidenceType, rights, reviewStatus: "unreviewed" },
     writerNotes? } } }
@@ -68,18 +68,20 @@ A staged run mirrors the content graph (`packages/content/src/graph-schema.ts`):
 - `dreams` is complete when `dreams.json` exists;
 - `dream-review` is complete when every dream in `dreams.json` has a `review` with a `decision`. `dreams-ingest` writes it from the founder's export (see *Dream review files*);
 - `plan` is complete when `plan.json` exists;
-- `shared-fixes` isn't built yet (#95), so it is complete once `plan.json` exists;
+- `shared-fixes` is complete when `fixes.json` has a `shared` record with `draftedAt`, written by the shared pass even when it drafts no fix;
 - `kind-pools` is complete when `fixes.json` has a `pools` entry for every kind the plan gives a ceiling above zero. A kind with only zero ceilings doesn't run;
 - `screen` is complete when `screen.json` exists;
-- `assemble` is complete when `links.json` exists.
+- `assemble` is complete when `links.json` exists;
+- `judge` is complete when `ranking.json` exists. `select` writes it after `consensus`.
 
 `start <run> <stage>` refuses with a usage error (exit 2) while any earlier stage is incomplete, so no fix stage runs before the dream review is ingested. Otherwise it names the stage's brief:
-- for `plan`, `kinds` lists the kinds the planner sets ceilings for, which are the kinds that have a brief (`KIND_BRIEFS` in `cards.py`: `task`, `ask`, and `resource` so far), plus the trial kinds `leave` and `switch` (`TRIAL_KIND_BRIEFS`) in a pilot run;
-- for `kind-pools`, `brief` is the shared kind brief, and `kinds` maps each kind still to draft (a ceiling above zero and no pool yet) to its own brief.
+- for `plan`, `kinds` lists the kinds the planner sets ceilings for, which are the kinds that have a brief (`KIND_BRIEFS` in `cards.py`: every kind except `path`), plus the trial kinds `leave` and `switch` (`TRIAL_KIND_BRIEFS`) in a pilot run;
+- for `shared-fixes`, `brief` is `briefs/shared-fixes.md`;
+- for `kind-pools`, `brief` is the shared kind brief, `kinds` maps each kind still to draft (a ceiling above zero and no pool yet) to its own brief, and `shared` lists the IDs of the shared pass's fixes, which kind briefs read so they don't repeat them.
 
-`judge` and `fix-review` aren't built yet. Once `fixes.json` exists, `status` also reports the fix pool: `fixes: {total, screenedOut: [fix-id…], unlinked: [fix-id…] | null}`. `unlinked` is `null` until `links.json` exists.
+`start <run> judge` names `briefs/judge.md`. `fix-review` isn't built yet. Once `fixes.json` exists, `status` also reports the fix pool: `fixes: {total, screenedOut: [fix-id…], unlinked: [fix-id…] | null}`. `unlinked` is `null` until `links.json` exists.
 
-`validate` checks each file below when it is present, and that each file's stage came after the one before: a plan needs an ingested dream review, `fixes.json` needs `plan.json`, `screen.json` needs `fixes.json`, and `links.json` needs `screen.json`. Each file has `schemaVersion: 2` and the `painId` of `run.json`. Only accepted dreams (`accept` or `edit`) can be planned, drafted for, or linked.
+`validate` checks each file below when it is present, and that each file's stage came after the one before: a plan needs an ingested dream review, `fixes.json` needs `plan.json`, kind pools need the `shared` record, `screen.json` needs `fixes.json`, `links.json` needs `screen.json`, and `judgments.json` needs `links.json`. Each file has `schemaVersion: 2` and the `painId` of `run.json`. Only accepted dreams (`accept` or `edit`) can be planned, drafted for, or linked.
 
 ### dreams.json (staged run)
 ```
@@ -97,7 +99,7 @@ Rules:
 - `schemaVersion` is 2, and `painId` matches `run.json`.
 - Each overlap names two different dreams in the run, with a reason, and each pair is flagged once.
 - `title` and `line` map to the graph dream's `title` and `description`.
-- Lint applies the dream copy rules (`title-vague`, `title-length`, `dream-not-outcome`, `line-length`, `generic-phrase`, `serial-comma`, `exclamation`, `boilerplate-caveat`, `regional-word`, `acronym-in-title`, and `stacked-hedges`), plus lens and ambition coverage across the drafted dreams. Its issues carry `dreamId` in place of `cardId`. Basics and It-led coverage need linked fixes, so they wait for the fix stages.
+- Lint applies the dream copy rules (`title-vague`, `title-length`, `dream-not-outcome`, `line-length`, `generic-phrase`, `serial-comma`, `exclamation`, `boilerplate-caveat`, `regional-word`, `acronym-in-title`, and `stacked-hedges`). Its issues carry `dreamId` in place of `cardId`. Coverage is in "lint.json (staged run)".
 - `writerNotes` is never shown to judges or on review pages.
 - A `review` has a known `decision`. An `edit` keeps the drafted `title` and `line` in `original`, and `title` and `line` hold the founder's wording. Ingest sets `provenance.reviewStatus` to `reviewed`.
 - Later stages read only accepted dreams (`accept` or `edit`), through `accepted_dreams(run)`, and the validators check against the same set.
@@ -120,18 +122,22 @@ The run's whole fix pool. Fixes that fail the screen or are left unlinked stay i
 { schemaVersion: 2, painId, runId,
   fixes: { <fix-id>: {
     title, whatChanges,                   # graph fix title and description
-    kind, status, origin: "kind:<kind>",  # origin "shared" arrives with the shared-fixes pass (#95)
-    draftedFor: <dream-id>,               # the dream whose ceiling the fix counts against
+    kind, status, origin: "shared" | "kind:<kind>",   # the pass that drafted it
+    draftedFor: <dream-id>,               # kind fixes: the dream whose ceiling the fix counts against
+    proposedLinks: [ { dreamId, how } ],  # shared fixes, in place of draftedFor: every dream the fix helps
     method: { … },                        # the kind's method fields; never copy, never shown to judges
     exemplarRef | null, speculative: bool, speculativeRationale?,
     firstStep, firstStepMinutes,
     provenance: { sourceId, locator, evidenceType, rights, reviewStatus },
     writerNotes? } },
-  pools: { <kind>: { draftedAt, shortfalls: { <dream-id>: <one-line reason> } } } }
+  pools: { <kind>: { draftedAt, shortfalls: { <dream-id>: <one-line reason> } } },
+  shared: { draftedAt, emptyReason? } }     # the shared-fixes pass ran; emptyReason when it drafted no fix
 ```
 Rules:
-- `kind` is a kind that has a brief, and `origin` is `kind:<kind>`. Every kind with fixes has a `pools` entry. A kind brief adds its entry even when it drafted every ceiling in full, because the entry records that the kind ran.
-- `draftedFor` is an accepted dream.
+- `kind` is a kind that has a brief, and `origin` is `shared` or `kind:<kind>`. Every kind with `kind:<kind>` fixes has a `pools` entry. A kind brief adds its entry even when it drafted every ceiling in full, because the entry records that the kind ran.
+- The shared pass writes the `shared` record before any kind pool, so `pools` needs it. With no `origin: shared` fix, `shared.emptyReason` says in one line why no fix serves several dreams.
+- A shared fix has no `draftedFor` and counts against no ceiling. Its `proposedLinks` name two or more different accepted dreams, each with a one-sentence `how`. They are proposals: `links.json` holds the final links, and the assembler may leave some out.
+- A kind fix's `draftedFor` is an accepted dream.
 - For each kind with a pool and each accepted dream, the number of fixes with that `kind` and `draftedFor` is at most the plan's `max`. If it is lower, `shortfalls` gives a one-line reason for that dream.
 - Status rules: `status` is a known status, and kind `feature` goes with status `proposed_it_feature`, and only with it. A `resource` fix has status `existing_resource` or `real_now`.
 - Trial kinds: a `leave` or `switch` fix, or its pool, fails validation unless `run.json` has `"pilot": true`.
@@ -144,6 +150,26 @@ Rules:
   | | `doneWhen` | what is true once it's done |
   | | `keepsWorking` | `true` or `false`: a one-time change that keeps working afterward |
   | | `lever` | `default`, `remove-hassle`, `simplify`, `timing`, or `other` |
+  | `feature` | `when`, `want`, `soThat` | a job story: the situation, what the person wants, and what that lets them do |
+  | | `pattern` | a row of `config/feature-patterns.md`, or `new` |
+  | | `dataOrTools` | the public data or tools that would make it work |
+  | `schedule` | `what` | what repeats |
+  | | `cadence` | how often |
+  | `habit` | `cue` | something the person already does, with a clear end point |
+  | | `behavior` | the small behavior that follows it |
+  | `practice` | `situation` | when the skill comes up |
+  | | `move` | one concrete thing to try next time |
+  | | `wentBetterWhen` | the sign that it went better |
+  | `learn` | `ableTo` | what the reader will be able to do, starting with a verb |
+  | | `useWhen` | the situation they'll use it in |
+  | `project` | `finishedThing` | what exists at the end |
+  | | `doneWhen` | when it's done |
+  | `group` | `whatMembersDo` | what members do together |
+  | | `howToFind` | how the reader finds theirs |
+  | `new-group` | `whoFor` | the people it's for |
+  | | `whatMembersDo` | what members would do together |
+  | | `firstTest` | the first thing the group does that shows it's working |
+  | | `existingFirst` | what to check exists before starting one |
   | `ask` | `decisionMaker` | who can say yes, as a role a reader can find |
   | | `request` | the one specific request they can answer yes or no |
   | `resource` | `provider` | who runs it |
@@ -156,7 +182,8 @@ Rules:
   | | `switchTo` | the better version of the same thing |
   | | `tradeOff` | what the move costs or loses |
 
-  Other kinds add their rows with their briefs (#93).
+  Every value is nonempty text, except `keepsWorking` and `lever`. A kind brief may add optional fields, which aren't checked.
+- A `practice` fix also has `featureIdea`: one line, a coaching feature It could build. It sits on the fix, not in `method`, because the app shows it.
 
 ### screen.json (staged run)
 ```
@@ -183,6 +210,43 @@ Rules:
 - Within a dream, each link has its own `order`, a positive integer. Order 1 is shown first.
 - A fix may be linked to several dreams. A fix with no link stays in `fixes.json` and is listed in `status` as `fixes.unlinked`.
 - A path candidate lists two or more different screened fixes in order, with a one-line reason.
+
+### judgments.json (staged run)
+The panel's judgments, in the card-run shape above but keyed by accepted dream ID: each judge scores a dream together with its linked fixes. `judge-input <run>` gives each judge the run's accepted dreams, each with its linked fixes in link order:
+```
+dreams: { <dream-id>: { title, line, lens, ambition, exemplarRefs,
+                        fixes: [ { id, title, whatChanges, kind, status, exemplarRef, speculative, speculativeRationale?,
+                                   firstStep, firstStepMinutes, how } ] } }
+```
+Rules:
+- `judge-input` refuses until `links.json` exists and the run validates.
+- A fix linked to several dreams appears under each one. Its `method`, `origin`, `draftedFor`, `provenance`, and `writerNotes`, and the dream's `provenance`, `writerNotes`, and `review`, are left out.
+- `schemaVersion` is 2, and `painId` matches `run.json`. `scores` has exactly one key for each accepted dream. A score key that is a fix ID fails validation, and that judge is rerun. Pairwise entries name two dreams.
+- `judgments-<n>.json` from each judge have the same shape. `consensus` combines them into `judgments.json` with mean scores, a majority vote on honest status, and Borda points, as in a card run.
+
+### ranking.json (staged run)
+```
+{ schemaVersion: 2, painId, runId, rankedAt, judges,
+  ranking: [ { dreamId, wins, meanScore, honestStatus: { pass, reason }, fixIds: [<fix-id>…] } ],
+  fixOrder: [<fix-id>…] }
+```
+Rules:
+- `select <run>` writes it from `judgments.json`, with no finalists or audit samples (founder, 2026-10-20). `--seed` doesn't apply. A new `consensus` deletes the old `ranking.json`, so `status` returns to `judge` until `select` runs again.
+- `ranking` lists every accepted dream once. Dreams that pass honest status come first, by Borda points (or pairwise wins from a single judge), then mean score, then ID. Dreams that fail honest status follow in the same order and are marked by `honestStatus.pass: false`.
+- `fixIds` are the dream's linked fixes in link order.
+- `fixOrder` lists each linked fix once, under the best-ranked dream it serves, and this sets the order of the founder's fix review. Unlinked fixes aren't in it; the review lists them after the linked ones.
+
+### lint.json (staged run)
+`{ passed: bool, issues: [ { dreamId | fixId, rule, detail } ], coverage: { lenses, ambitions, basicsTonight?, itLed? }, dreams, checkedAt }`
+
+Rules:
+- Fix copy rules: `template-copy` flags a method written into a title, `whatChanges`, or `firstStep`, such as "When I…, I want…, so I can…", "After I…, I will…", or "If…, then I will…". `near-duplicate-fix` flags two fixes in the pool whose titles share at least 80% of their words, ignoring small words like "the" and "in". The issue names the first fix by ID and the second in `detail`, so the screen can drop one.
+- Coverage counts the accepted dreams once the dream review is in, and the drafted dreams before it. Links to screened-out fixes don't count. A coverage issue has `dreamId: "*"`.
+  - `lens-coverage`: at least 4 lenses.
+  - `ambition-coverage`: all three ambitions.
+  - `basics-coverage`, once `links.json` exists: at least 3 distinct fixes with status `real_now` or `existing_resource` linked to a tonight dream.
+  - `it-led-coverage`, once `links.json` exists: at least one dream led by It, which means a Feature linked to it anywhere among its fixes (founder, 2026-10-20).
+- No kind has a minimum.
 
 ### Dream review files (`<run>/reviews/`)
 - **proposals.json**: `{ schemaVersion: 1, setId: "<painId>-<runId>", builtAt, proposals: [ { id, title, line, lens, ambition, examples: [{id, name, place, year, outcome}], overlaps: [{with, title, reason}] } ] }`. Each dream appears once. An overlap is listed under both of its dreams. No `writerNotes`.
