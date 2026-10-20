@@ -127,6 +127,7 @@ Decided 2026-10-19 by the founder (ticket "Pick hosting, email provider and depl
 - **Database:** Neon in `aws-us-east-1`, starting on the Free plan.
 - **Email:** Resend over SMTP behind the `sendEmail` boundary, starting on the Free plan; Postmark is the upgrade if volume or deliverability needs it. Resend keeps email data, including sign-in codes, for 30 days, and the privacy page says so.
 - **Deploys:** master deploys to production only after CI passes; pull requests get previews of the static web build only; no staging; database migrations run before each API deploy; rollback is a redeploy of an earlier deploy.
+- **CI:** GitHub Actions on standard `ubuntu-latest` runners, which are free for public repositories. Two jobs must pass before master deploys: `check` (typecheck, lint, Vitest, jest-expo) and `e2e` (Playwright web tests). Runner costs and action pins: `docs/architecture/dependency-policy.md`.
 
 ## Open implementation decisions
 
@@ -151,3 +152,4 @@ Decided 2026-10-19 by the founder (ticket "Pick hosting, email provider and depl
 - 2026-10-19: added the generated possibility content decisions (honesty in fields, plain but specific copy, verified and traced examples, fix kinds); the generator moved from a Spec Kit extension to `tools/possibilities/` and skills.
 - 2026-10-19: founder chose hosting, email and deploys for launch (Render, Neon Free, Resend Free, master deploys after CI); replaces the SST on AWS lean.
 - 2026-10-19: chose Cloudflare R2 for image storage, behind the asset boundary (over S3 with CloudFront: DNS already on Cloudflare, no download fees).
+- 2026-10-20: founder chose to run the Playwright web tests in CI as their own job (weareit-app/weareit#63), reversing the choice in #66 to leave them out as slow and prone to failing for reasons unrelated to the code. Deploys from master now also wait for them; if they prove flaky, remove the `e2e` job.
