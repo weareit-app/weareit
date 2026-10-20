@@ -1,6 +1,6 @@
 # /possibility: questions for the founder
 
-Ready for a grilling round (AskUserQuestion takes four per call, so three calls). The recommended option is first in each. Background: `outline.md`, `design.md`, `research.md`.
+Ready for a grilling round (AskUserQuestion takes four per call, so four calls; the last has one question). The recommended option is first in each. Background: `outline.md`, `design.md`, `research.md`.
 
 ## Round 1: scope and the example
 
@@ -29,12 +29,12 @@ Ready for a grilling round (AskUserQuestion takes four per call, so three calls)
 - Named, with a short "for and against" and no evidence card: shorter, but less checkable.
 - Not on this page; link to `/risks`, which already lists it as a proposal under inequality.
 
-**6. Where does "Try it yourself" link?**
+**6. Where does the link into the explorer go?**
 - `/p/unemployment` once pain pages ship, `/` until then (Recommended): lands on the exact pain; one explorer.
 - Always `/`: simplest; the reader has to find Unemployment under Work.
 - The societal page (`/onboarding/world`): frames it as a shared problem first.
 
-**7. What does "See a future we missed?" lead to?**
+**7. Where does the invitation to name a missing future lead?**
 - The contact address now; the contribution flow (after signup, founder review) once it exists (Recommended).
 - Only the contribution flow, so the line waits until that's built.
 - Leave the invitation out of the first version.
@@ -65,3 +65,9 @@ Ready for a grilling round (AskUserQuestion takes four per call, so three calls)
 - One or two sentences of yours in the opening, then evidence (Recommended): a reason to care without biography standing in for evidence.
 - None; keep the page impersonal and link `/why`.
 - A short personal example as the opening paragraph.
+
+## Round 4: one label
+
+**13. How should the option-generation evidence be labelled ("people list fewer than half of their own relevant options, and prompting with their goals helps")?**
+- Replicated finding, saying in the text that the studies come from one research group (Recommended): Siebert and Keeney ran five studies, and Bond, Carlson and Keeney found a matching pattern for goals.
+- Working hypothesis: more cautious, since no independent group has repeated the studies as far as `research.md` found.
