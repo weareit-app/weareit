@@ -35,7 +35,7 @@ The gate SHALL show an opt-in checkbox for occasional update emails from It, unt
 - **THEN** the account records the opt-in and the wording version shown, in the language shown
 
 ### Requirement: Terms line
-The gate SHALL show "By signing up you agree to…" with a link to the privacy page, with no checkbox.
+The gate SHALL show "By continuing, you acknowledge We Are It's Privacy Policy", with "Privacy Policy" linking to the privacy page, and no checkbox (founder wording, 2026-10-19).
 
 #### Scenario: Following the link
 - **WHEN** the person taps the privacy link on the gate

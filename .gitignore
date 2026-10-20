@@ -19,6 +19,10 @@ android/
 # Skia web runtime for the dev-only watercolor lab (copied by `pnpm --filter @it/app skia:web`)
 apps/app/public/canvaskit.wasm
 
+# Storybook builds and the component review report (pnpm storybook:review)
+apps/app/storybook-static/
+apps/app/storybook-review/
+
 # Python bytecode (tools/)
 __pycache__/
 *.pyc

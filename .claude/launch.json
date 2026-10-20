@@ -53,6 +53,16 @@
         "dev"
       ],
       "port": 3001
+    },
+    {
+      "name": "storybook",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "--filter",
+        "@it/app",
+        "storybook"
+      ],
+      "port": 6006
     }
   ]
 }
