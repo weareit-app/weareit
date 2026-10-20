@@ -1,6 +1,7 @@
 import { View } from "react-native";
 import {
   applyFeatureStatusChanges,
+  contentFixSchema,
   featureStatuses,
   resolveFeatureStatuses,
   type ContentFix,
@@ -21,16 +22,34 @@ const today = () => new Date().toISOString().slice(0, 10);
 // it was showing, so one disconnected from its item keeps that status freely.
 type SavedContent = Pick<ContentGraph, "fixes" | "roadmapItems">;
 
+const dateHelp = "Write the status date as year-month-day, like 2026-10-20.";
+
+// Free text in the form, so a mistyped date gets a plain message here rather
+// than a schema error from the API.
+function dateIssues(fixes: readonly ContentFix[]) {
+  return fixes
+    .filter(
+      ({ statusChangedOn }) =>
+        statusChangedOn !== undefined &&
+        !contentFixSchema.shape.statusChangedOn.safeParse(statusChangedOn)
+          .success,
+    )
+    .map(({ id }) => ({
+      path: `fix.${id}.statusChangedOn`,
+      message: dateHelp,
+    }));
+}
+
 // The save is refused here before it reaches the API, which refuses it too.
 export function refuseStatusChangesWithoutNotes(
   saved: SavedContent,
   fixes: readonly ContentFix[],
 ) {
-  const { issues } = applyFeatureStatusChanges(
-    resolveFeatureStatuses(saved),
-    fixes,
-    today(),
-  );
+  const issues = [
+    ...dateIssues(fixes),
+    ...applyFeatureStatusChanges(resolveFeatureStatuses(saved), fixes, today())
+      .issues,
+  ];
   if (!issues.length) return null;
   return `Not saved. ${issues
     .map(({ path, message }) => `${path.split(".")[1]}: ${message}`)
@@ -56,6 +75,9 @@ export function FeatureStatusEditor({
     resolveFeatureStatuses(saved),
     features,
     today(),
+  );
+  const badDates = new Set(
+    dateIssues(features).map(({ path }) => path.split(".")[1]),
   );
   return (
     <View className="gap-3 rounded-2xl bg-paper-raised p-5">
@@ -96,6 +118,11 @@ export function FeatureStatusEditor({
                 })
               }
             />
+            {badDates.has(fix.id) ? (
+              <Text accessibilityRole="alert" className="text-ink">
+                {dateHelp}
+              </Text>
+            ) : null}
             <Field
               label="Status note"
               value={fix.statusNote ?? ""}
