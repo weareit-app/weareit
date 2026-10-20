@@ -10,8 +10,10 @@
     "ios": "expo run:ios",
     "test:expo": "jest --config jest.config.cjs --runInBand",
     "typecheck": "tsc --noEmit",
-    "lint": "prettier --check app src tests e2e jest.config.cjs playwright.config.ts",
-    "skia:web": "setup-skia-web public"
+    "skia:web": "setup-skia-web public",
+    "storybook": "storybook dev -p 6006 --no-open",
+    "build-storybook": "storybook build -o storybook-static",
+    "storybook:review": "node scripts/storybook-review.mts"
   },
   "dependencies": {
     "@better-auth/expo": "1.7.8",
@@ -49,6 +51,8 @@
     "zustand": "5.0.15"
   },
   "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "@storybook/react-native-web-vite": "10.6.1",
     "@tailwindcss/postcss": "4.3.3",
     "@testing-library/react-native": "^14.1.0",
     "@types/jest": "29.5.14",
@@ -57,6 +61,8 @@
     "jest-expo": "~57.0.6",
     "lightningcss": "1.30.1",
     "postcss": "8.5.30",
-    "tailwindcss": "4.3.3"
+    "storybook": "10.6.1",
+    "tailwindcss": "4.3.3",
+    "vite": "7.3.6"
   }
 }

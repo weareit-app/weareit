@@ -48,10 +48,12 @@ Decided 2026-10-16 (founder override of the assessment's weak-evidence gate); co
 - Keep `lightningcss` at 1.30.1 as the NativeWind/react-native-css compatibility override. Dependency refresh rules and current intentional version pins are recorded in `docs/architecture/dependency-policy.md`.
 - Use oRPC for typed API contracts and Kysely for SQL access. Keep contracts/framework independent where practical.
 - Use Neon initially through a provider-neutral PostgreSQL connection boundary.
+- Store uploaded and other non-bundled images in Cloudflare R2, served from It's own domain (founder, 2026-10-19). Code reaches it only through the provider-neutral asset boundary over the S3-compatible API, so S3 with CloudFront stays a configuration swap. Chosen over S3 with CloudFront because DNS is already on Cloudflare (less setup) and R2 charges nothing for downloads. Images that ship with the app stay in the app build.
 - Use TanStack Query for server state. Adopt other TanStack packages only for concrete needs.
 - General offline sync is deferred. Pre-signup onboarding still needs local draft persistence and restart recovery on each platform.
 - Product content (domains, pains, dreams, first actions, and their provenance) is database-backed from the start, not maintained as Git-authored runtime content. Build a first-party CMS for editing and publishing this structured content. PostgreSQL is the source of truth; Kysely owns migrations and SQL access, and the app receives validated content through semantic oRPC operations. Git may hold schema, migrations, seed/import tools, and snapshots for review, but must not become a competing source of truth.
 - The CMS starts with a small structured workflow: edit drafts, validate references and required provenance, preview the onboarding experience, and publish a versioned content snapshot. Keep content revisions and publication history so changes can be reviewed and rolled back. Do not build a general page builder or workflow engine for MVP.
+- Prettier formats code only (JavaScript and TypeScript). Docs, research data and vendored skills stay as written. `.prettierignore` is the one definition of what gets formatted, used by `pnpm run format`, CI's `pnpm run lint` and the pre-commit hook (weareit-app/weareit#62, #77).
 
 ## Identity and privacy
 
@@ -117,10 +119,25 @@ Decided 2026-10-18; details in `docs/architecture/typography.md`.
 
 Expo Router now documents static and request-time server rendering. Start with static output for public content and app routes; evaluate server output for dynamic share previews before adding a separate web framework or custom metadata server. Dynamic server rendering requires a production server runtime, so this decision also depends on the hosting path.
 
+## Hosting, email and deploys
+
+Decided 2026-10-19 by the founder (ticket "Pick hosting, email provider and deploy flow for launch", weareit-app/weareit#6), replacing the earlier SST on AWS lean on cost and setup time. Revisit at the re-assessment about a month after launch.
+
+- **Hosting:** Render. The web build is a static site at `weareit.app`; the API is an always-on paid web service in Virginia at `api.weareit.app`.
+- **Staying portable:** no Render-only features or host-local disks; config only from environment variables; DNS stays on Cloudflare; Render setup lives in one small `render.yaml`; the API has a real build step rather than starting through `tsx`.
+- **Database:** Neon in `aws-us-east-1`, starting on the Free plan.
+- **Email:** Resend over SMTP behind the `sendEmail` boundary, starting on the Free plan; Postmark is the upgrade if volume or deliverability needs it. Resend keeps email data, including sign-in codes, for 30 days, and the privacy page says so.
+- **Deploys:** master deploys to production only after CI passes; pull requests get previews of the static web build only; no staging; database migrations run before each API deploy; rollback is a redeploy of an earlier deploy.
+- **CI:** GitHub Actions on standard `ubuntu-latest` runners, which are free for public repositories. Two jobs must pass before master deploys: `check` (typecheck, lint, Vitest, jest-expo) and `e2e` (Playwright web tests). Runner costs and action pins: `docs/architecture/dependency-policy.md`.
+
+## Component review
+
+- Storybook (`@storybook/react-native-web-vite`, web only) shows components one at a time for pull-request review, and `pnpm storybook:review` screenshots every story for a branch and its merge base and reports what changed (founder, 2026-10-20). The founder chose Storybook over an in-app gallery route, on condition that it render the app faithfully. Storybook builds with Vite, not Metro; NativeWind 5's Babel preset and Tailwind's PostCSS plugin both run there, and the stories render the app's tokens, fonts and dark mode. If a NativeWind or Expo update breaks that, fix the Storybook config, or move the stories to an in-app gallery route; don't change the app to suit Storybook. Details: `docs/architecture/storybook.md`.
+- Review is local for now: screenshots and a report on the reviewer's machine. Publishing Storybook on pull-request previews waits on the Render preview deploys above (weareit-app/weareit#72).
+
 ## Open implementation decisions
 
-- Production SMTP provider and sender identity.
-- Hosting/runtime and deployment setup. Lean: SST on AWS if it is the cheapest and easiest to change later; keep app code host-neutral (2026-10-16).
+- Sender identity (from-address and reply-to) for service email.
 - Role-based CMS authorization before inviting additional or outside editors; the initial single-admin token is a bootstrap gate.
 - Stripe product identifiers and sandbox/live account setup.
 - App Store Connect and RevenueCat product/webhook configuration before the first native purchase.
@@ -139,3 +156,8 @@ Expo Router now documents static and request-time server rendering. Start with s
 - 2026-10-19: measurement privacy invariant changed (spec 013, founder answers Q1–Q12). Changed: the signup/sign-in visit is linked to the account (reverses 008 FR-028 "never linked"); per-page views including each pain page (reverses the per-pain part of 012 FR-020); each opened pain recorded by ID (reverses 008's "opened pains not sent"); deleted accounts' visits unlinked and kept; exact receive times; records kept indefinitely; no opt-out. Kept: no picks or selected fixes sent before signup; visit ID in memory only; no cross-visit link before signup; how a visit arrived is not recorded; never public. Open: when account linking switches on (010 Q37).
 - 2026-10-19: recorded the v0.1 launch decision and its conditions (from the it-mvp assessment; founder confirmed which still hold); moved assessment research to `docs/research/`.
 - 2026-10-19: added the generated possibility content decisions (honesty in fields, plain but specific copy, verified and traced examples, fix kinds); the generator moved from a Spec Kit extension to `tools/possibilities/` and skills.
+- 2026-10-19: founder chose hosting, email and deploys for launch (Render, Neon Free, Resend Free, master deploys after CI); replaces the SST on AWS lean.
+- 2026-10-19: chose Cloudflare R2 for image storage, behind the asset boundary (over S3 with CloudFront: DNS already on Cloudflare, no download fees).
+- 2026-10-20: founder chose Storybook for component review, with a local screenshot comparison per branch; Storybook links on pull-request previews come later.
+- 2026-10-20: founder chose to run the Playwright web tests in CI as their own job (weareit-app/weareit#63), reversing the choice in #66 to leave them out as slow and prone to failing for reasons unrelated to the code. Deploys from master now also wait for them; if they prove flaky, remove the `e2e` job.
+- 2026-10-20: recorded the code-only Prettier decision (from #62 and #77), which until then lived only in tool config comments.

@@ -10,7 +10,6 @@
     "zod": "4.6.7"
   },
   "scripts": {
-    "typecheck": "tsc --noEmit",
-    "lint": "prettier --check src tests"
+    "typecheck": "tsc --noEmit"
   }
 }

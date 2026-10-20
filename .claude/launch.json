@@ -7,13 +7,13 @@
       "runtimeArgs": [
         "-m",
         "http.server",
-        "4173",
+        "4180",
         "--bind",
         "127.0.0.1",
         "--directory",
         "docs/brand"
       ],
-      "port": 4173
+      "port": 4180
     },
     {
       "name": "pain-review",
@@ -53,6 +53,16 @@
         "dev"
       ],
       "port": 3001
+    },
+    {
+      "name": "storybook",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "--filter",
+        "@it/app",
+        "storybook"
+      ],
+      "port": 6006
     }
   ]
 }

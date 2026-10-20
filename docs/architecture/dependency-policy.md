@@ -17,10 +17,32 @@ NativeWind 5.0.0-rc.0 and react-native-css 3.1.0-rc.0 are an intentional prerele
 - Prettier 3.9.10 and Turborepo 2.11.8 are current releases within their existing major versions.
 - Zod 4.6.7 and Zustand 5.0.15 are current releases within their existing major versions.
 - TypeScript remains at 5.9.3, the latest 5.x release. Do not adopt TypeScript 7 as a major toolchain change until Expo and workspace tooling compatibility is established.
+- Lefthook 2.1.17 runs the git pre-commit hook (`lefthook.yml`; chosen 2026-10-20 as the newest release at least two weeks old). Its postinstall only runs `lefthook install` (skipped when `CI` is set), so it is allowed in `pnpm-workspace.yaml` `allowBuilds`. It is one Go binary with staged-file filtering and restaging built in, so no lint-staged is needed.
 - pnpm remains pinned to 11.25.0 for reproducible contributor installs. A pnpm major upgrade should include a lockfile review.
 
 The Expo CLI's dependency resolver owns SDK-specific package versions. Re-run `expo install --check` after dependency changes. `pnpm outdated` is useful for finding candidates, but its `Latest` column is not an Expo compatibility guarantee. pnpm added exact-version entries to `minimumReleaseAgeExclude` for Expo packages selected by the CLI because those releases were newer than pnpm's release-age window at install time.
 
+## Storybook
+
+Storybook 10.6.1 (`storybook` and `@storybook/react-native-web-vite`, pinned exactly) with Vite 7.3.6: each the newest release at least two weeks old on 2026-10-20, from the npm registry's release dates (`npm view <package> time`, checked 2026-10-20). Storybook 10.6.1 came out 2026-09-29 (10.6.2, 2026-10-12, was too new); Vite 7.3.6 came out 2026-06-25 (7.3.7, 2026-10-06, was too new). Vite 7 is within the framework's supported Vite range (`^5 || ^6 || ^7 || ^8`, its peer dependencies, checked the same day). Both are dev dependencies of `@it/app` only. Telemetry is off in `apps/app/.storybook/main.ts`. Keep `storybook` and its framework package on the same version. After an upgrade, or a NativeWind, react-native-css, Tailwind or Expo update, run `pnpm storybook:review --no-base` and look at the report: styling, fonts and dark mode must still match the app. See `docs/architecture/storybook.md`.
+
+## Continuous integration
+
+`.github/workflows/ci.yml` runs on every pull request and on pushes to `master`, so a commit made with `git commit --no-verify` is still checked. It has three jobs that run in parallel:
+
+- `check`: typecheck, the typecheck coverage check, the story coverage check, lint, the Vitest unit tests and the jest-expo tests (about 8 seconds of test time). The coverage check (`tools/typecheck-coverage/`) fails when a tracked TypeScript file is in no project a `typecheck` script runs, since `tsc` skips files outside a tsconfig's `include` without saying so. Root files and the repo tools without a package of their own are in the root `tsconfig.json`, checked by `pnpm run typecheck:root`. The story coverage check (`tools/story-coverage/`) fails when a UI component has no `*.stories.tsx` beside it and no entry in its allowlist; see `docs/architecture/storybook.md`.
+- `e2e`: the Playwright web tests. It downloads Chromium and starts the Expo web server, so it takes about two minutes and is the job most likely to fail for reasons unrelated to the code. It is a separate job so it does not hold up `check`. On failure it uploads `apps/app/test-results/` (kept 7 days).
+- `stories`: `pnpm storybook:review --no-base`, which builds Storybook and screenshots every story in light and dark with Playwright's Chromium, failing when a story doesn't render. On failure it uploads the report and screenshots (kept 7 days). See `docs/architecture/storybook.md`.
+
+The shared install steps (pnpm, Node, `pnpm install`) live in `.github/actions/setup/action.yml`, so each pin and the Node version appear once. Node is pinned to the version in `mise.toml`; update both together.
+
+Cost (checked 2026-10-20 against GitHub's Actions billing docs): GitHub Actions is free for public repositories on standard GitHub-hosted runners, so this workflow costs nothing while `weareit-app/weareit` stays public. Larger runners are billed even on public repositories. If the repository becomes private, the organization's free plan includes 2,000 minutes and 500 MB of artifact storage a month. To keep CI free:
+
+- Use `ubuntu-latest` only. Do not add larger runners. The billing docs do not say whether standard macOS runners are free for public repositories, so check them before adding a macOS job (for example an iOS build).
+- Keep `timeout-minutes` on every job and keep artifacts short-lived.
+- Keep the organization's Actions budget at $0, so usage that would be billed is blocked rather than charged.
+
+Action pins and their review notes: `docs/architecture/ci-actions.md`.
 
 ## Spec and agent tooling
 
