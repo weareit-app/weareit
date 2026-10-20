@@ -227,6 +227,107 @@ def start(run, stage):
     return {'run': run.name, 'stage': stage, 'brief': STAGE_BRIEFS[stage]}
 
 
+# ---------- founder dream review ----------
+
+def review_set_id(run):
+    meta = read(run / 'run.json')
+    return '%s-%s' % (meta['painId'], meta['runId'])
+
+
+def dreams_review_build(run, root):
+    """Write reviews/proposals.json and a static review.html (pain review pattern) for the founder's dream review."""
+    require_staged(run)
+    pending = next_stage(run)
+    if pending != 'dream-review':
+        raise ValueError('dream review cannot be built: next stage is %s' % pending)
+    issues = validate_run(run)
+    if issues:
+        raise ValueError('fix validation first: ' + '; '.join(issues))
+    meta, doc = read(run / 'run.json'), read(run / 'dreams.json')
+    dreams, exemplars = doc['dreams'], read(run / 'exemplars.json')['exemplars']
+
+    def overlaps(key):
+        found = []
+        for o in doc.get('overlaps', []):
+            other = o['b'] if o['a'] == key else o['a'] if o['b'] == key else None
+            if other:
+                found.append({'with': other, 'title': dreams[other]['title'], 'reason': o['reason']})
+        return found
+
+    # writerNotes stay out: they are never shown on review pages (data-model.md).
+    proposals = [{'id': key, 'title': d['title'], 'line': d['line'], 'lens': d['lens'], 'ambition': d['ambition'],
+                  'examples': [{'id': r, **{f: exemplars[r].get(f) for f in ('name', 'place', 'year', 'outcome')}}
+                               for r in d['exemplarRefs']],
+                  'overlaps': overlaps(key)} for key, d in sorted(dreams.items())]
+    set_id = review_set_id(run)
+    folder = run / 'reviews'
+    folder.mkdir(exist_ok=True)
+    write(folder / 'proposals.json', {'schemaVersion': 1, 'setId': set_id, 'builtAt': now(), 'proposals': proposals})
+    page = {'setId': set_id, 'painName': meta.get('painName', meta['painId']), 'painLine': meta.get('painLine', ''),
+            'proposals': proposals}
+    data = json.dumps(page, ensure_ascii=False).replace('</', '<\\/')
+    template = (config_root(root) / 'dream-review-page.template.html').read_text()
+    (folder / 'review.html').write_text(template.replace('/*__DATA__*/', data))
+    return {'set': set_id, 'page': str((folder / 'review.html').relative_to(data_root(root) / 'runs')),
+            'dreams': len(proposals), 'overlaps': len(doc.get('overlaps', []))}
+
+
+DREAM_DECISIONS = ('accept', 'edit', 'reject')  # an edit accepts the dream with the founder's wording
+
+
+def dreams_ingest(run, decisions_path):
+    """Apply the founder's exported dream decisions: record each one, keep the drafted wording beside an edit."""
+    require_staged(run)
+    if dream_review_ingested(run):
+        raise ValueError('the dream review of %s was already ingested' % run.name)
+    if not (run / 'reviews/proposals.json').is_file():
+        raise ValueError('no dream review was built for %s; run dreams-review-build first' % run.name)
+    export, doc = read(decisions_path), read(run / 'dreams.json')
+    set_id, dreams = review_set_id(run), doc['dreams']
+    if export.get('setId') != set_id:
+        raise ValueError('decisions are for %s, not %s' % (export.get('setId'), set_id))
+    decisions, issues = export.get('decisions') or {}, []
+    issues += ['unknown dream %s' % key for key in sorted(set(decisions) - set(dreams))]
+    undecided = sorted(set(dreams) - set(decisions))
+    if undecided:
+        issues.append('undecided: ' + ', '.join(undecided))
+    for key, d in sorted(decisions.items()):
+        if d.get('decision') not in DREAM_DECISIONS:
+            issues.append('%s: unknown decision %s' % (key, d.get('decision')))
+        elif d['decision'] == 'edit':
+            edit = d.get('edit') or {}
+            if not all(isinstance(edit.get(f), str) and edit[f].strip() for f in ('title', 'line')):
+                issues.append('%s: an edit needs a title and a line' % key)
+    if issues:
+        raise ValueError('; '.join(issues))
+    ingested = now()
+    for key, d in decisions.items():
+        dream = dreams[key]
+        review = {'decision': d['decision'], 'note': d.get('note', ''), 'decidedAt': d.get('decidedAt'), 'ingestedAt': ingested}
+        if d['decision'] == 'edit':
+            review['original'] = {'title': dream['title'], 'line': dream['line']}
+            dream['title'], dream['line'] = d['edit']['title'].strip(), d['edit']['line'].strip()
+        dream['review'] = review
+        dream['provenance']['reviewStatus'] = 'reviewed'
+    issues = []
+    validate_dreams(doc, read(run / 'exemplars.json')['exemplars'], issues, read(run / 'run.json').get('painId'))
+    if issues:
+        raise ValueError('the reviewed dreams do not validate: ' + '; '.join(issues))
+    # The export is kept in the run, so the decisions are committed with it (design: reviews/dreams-decisions.json).
+    write(run / 'reviews/dreams-decisions.json', export)
+    write(run / 'dreams.json', doc)
+    return {'run': run.name, 'decisions': {k: sum(d['decision'] == k for d in decisions.values()) for k in DREAM_DECISIONS},
+            'next': next_stage(run)}
+
+
+def accepted_dreams(run):
+    """The dreams later stages work from: accepted or edited ones, with the founder's wording."""
+    require_staged(run)
+    if not dream_review_ingested(run):
+        raise ValueError('dream-review is not complete for %s' % run.name)
+    return {key: d for key, d in read(run / 'dreams.json')['dreams'].items() if d['review']['decision'] != 'reject'}
+
+
 # ---------- validation ----------
 
 def require(condition, message, issues):
@@ -327,6 +428,13 @@ def validate_dreams(doc, exemplars, issues, pain=None):
         prov = d.get('provenance', {})
         for field in ('sourceId', 'locator', 'evidenceType', 'rights', 'reviewStatus'):
             require(prov.get(field), where + ': provenance lacks ' + field, issues)
+        review = d.get('review')
+        if review is not None:
+            require(isinstance(review, dict) and review.get('decision') in DREAM_DECISIONS, where + ': unknown review decision', issues)
+            if isinstance(review, dict) and review.get('decision') == 'edit':
+                original = review.get('original') or {}
+                require(all(isinstance(original.get(f), str) and original[f].strip() for f in ('title', 'line')),
+                        where + ': an edit keeps the original title and line', issues)
     pairs = set()
     for o in doc.get('overlaps', []):
         pair = frozenset((o.get('a'), o.get('b')))
@@ -884,7 +992,7 @@ def report(root, audit_path=None):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', choices=('new-run', 'status', 'start', 'validate', 'lint', 'judge-input', 'consensus', 'select', 'finish-run',
+    parser.add_argument('command', choices=('new-run', 'status', 'start', 'dreams-review-build', 'dreams-ingest', 'validate', 'lint', 'judge-input', 'consensus', 'select', 'finish-run',
                                             'calibrate-build', 'calibrate-ingest', 'audit-build', 'report', 'stale'))
     parser.add_argument('targets', nargs='*')
     parser.add_argument('--root', type=Path, default=Path.cwd())
@@ -928,6 +1036,14 @@ def main():
         if len(args.targets) != 2:
             parser.error('start needs a run directory and a stage: ' + ', '.join(STAGES))
         out = start(run_dir(args.targets[0]), args.targets[1])
+    elif args.command == 'dreams-review-build':
+        if len(args.targets) != 1:
+            parser.error('dreams-review-build needs one run directory')
+        out = dreams_review_build(run_dir(args.targets[0]), root)
+    elif args.command == 'dreams-ingest':
+        if len(args.targets) != 2:
+            parser.error('dreams-ingest needs a run directory and the decisions export')
+        out = dreams_ingest(run_dir(args.targets[0]), Path(args.targets[1]))
     elif args.command in ('validate', 'lint', 'judge-input', 'consensus', 'select', 'finish-run'):
         if not args.targets:
             parser.error(args.command + ' needs a run directory')

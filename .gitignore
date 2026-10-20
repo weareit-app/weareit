@@ -35,3 +35,5 @@ docs/research/pains/refine/**/lint.json
 docs/research/pains/refine/**/balance.json
 docs/research/pains/refine/**/refine-check.json
 docs/research/pains/reviews/*/review.html
+# Possibility generator: the dream review page is rebuilt from the run by dreams-review-build
+docs/research/possibilities/runs/**/reviews/review.html
