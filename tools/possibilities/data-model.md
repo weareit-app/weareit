@@ -175,7 +175,7 @@ Rules:
 
 Rules:
 - Fix copy rules: `template-copy` flags a method written into a title, `whatChanges`, or `firstStep`, such as "When I…, I want…, so I can…", "After I…, I will…", or "If…, then I will…". `near-duplicate-fix` flags two fixes in the pool whose titles share at least 80% of their words, ignoring small words like "the" and "in". The issue names the first fix by ID and the second in `detail`, so the screen can drop one.
-- Coverage counts the accepted dreams once the dream review is in, and the drafted dreams before it. A coverage issue has `dreamId: "*"`.
+- Coverage counts the accepted dreams once the dream review is in, and the drafted dreams before it. Links to screened-out fixes don't count. A coverage issue has `dreamId: "*"`.
   - `lens-coverage`: at least 4 lenses.
   - `ambition-coverage`: all three ambitions.
   - `basics-coverage`, once `links.json` exists: at least 3 distinct fixes with status `real_now` or `existing_resource` linked to a tonight dream.

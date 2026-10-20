@@ -823,11 +823,11 @@ def phrase_rules(field, text, patterns):
 
 
 # A kind's method written out as copy: a job story, or an if-then plan (spec, "Copy"). Method fields hold these.
-TEMPLATE_COPY = re.compile(r'\bWhen I\b[^.!?]*,\s*I want\b'
-                           r'|\b(When|After|Before|If)\b[^.!?]*,\s*(then\s+)?I(\s+will|’ll|\'ll)\b', re.I)
+TEMPLATE_COPY = re.compile(r'\bWhen I\b[^.!?]*\bI want\b'
+                           r'|\b(When|Whenever|Once|After|Before|If)\b[^.!?]*,\s*(then\s+)?I(\s+will|’ll|\'ll)\b', re.I)
 
 
-TITLE_FILLER = {'a', 'an', 'the', 'and', 'or', 'at', 'on', 'in', 'of', 'to', 'for', 'with', 'my', 'your', 'our'}
+TITLE_FILLER = {'a', 'an', 'the', 'and', 'or', 'at', 'in', 'of', 'to', 'for', 'with', 'my', 'your', 'our'}  # not on/off
 NEAR_DUPLICATE = 0.8  # share of title words two fixes have in common (Jaccard) before lint flags them for the screen
 
 
@@ -876,13 +876,14 @@ def lint_staged_run(run, root):
         modal_hits = [m[0] for text in copy.values() for m in (modals.finditer(text) if modals else ())]
         if len(modal_hits) > 1:
             add(key, 'stacked-hedges', 'soft modals used %d times (%s); keep at most one plain limit' % (len(modal_hits), ', '.join(modal_hits)))
-    fixes = read(run / 'fixes.json').get('fixes', {}) if (run / 'fixes.json').is_file() else {}
+    fixes = read(run / 'fixes.json').get('fixes') if (run / 'fixes.json').is_file() else {}
+    fixes = {key: f for key, f in fixes.items() if isinstance(f, dict)} if isinstance(fixes, dict) else {}
     lint_staged_fixes(fixes, add_fix)
     # Coverage is across accepted dreams once the review is in (spec, "Coverage per pain"); before it, the drafted ones.
     accepted = reviewed_dreams(run)
     covered = {key: d for key, d in dreams.items() if accepted is None or key in accepted}
-    lenses = sorted({str(d.get('lens')) for d in covered.values()})
-    ambitions = sorted({str(d.get('ambition')) for d in covered.values()})
+    lenses = sorted({d['lens'] for d in covered.values() if isinstance(d.get('lens'), str)})
+    ambitions = sorted({d['ambition'] for d in covered.values() if isinstance(d.get('ambition'), str)})
     coverage = {'lenses': lenses, 'ambitions': ambitions}
     if len(lenses) < 4:
         add('*', 'lens-coverage', 'only %d lenses: %s' % (len(lenses), ', '.join(lenses)))
@@ -891,17 +892,20 @@ def lint_staged_run(run, root):
         add('*', 'ambition-coverage', 'missing ambition levels: ' + ', '.join(missing))
     # Basics and It-led coverage need linked fixes, so they wait for the assembler. No kind has a minimum.
     if (run / 'links.json').is_file():
+        # A link to a screened-out fix fails validate; coverage leaves it out too.
+        linkable = set(fixes) - set(screened_out(run))
         links = [e for e in read(run / 'links.json').get('links', []) if isinstance(e, dict)
-                 and e.get('dreamId') in covered and isinstance(fixes.get(e.get('fixId')), dict)]
+                 and isinstance(e.get('dreamId'), str) and e['dreamId'] in covered
+                 and isinstance(e.get('fixId'), str) and e['fixId'] in linkable]
         basics = sorted({e['fixId'] for e in links if covered[e['dreamId']].get('ambition') == 'tonight'
                          and fixes[e['fixId']].get('status') in ('real_now', 'existing_resource')})
         coverage['basicsTonight'] = len(basics)
         if len(basics) < 3:
             add('*', 'basics-coverage', 'only %d basic tonight fixes linked; link at least 3 common practical fixes to tonight dreams' % len(basics))
         # Led by It: a dream with any Feature linked, anywhere among its fixes (founder, 2026-10-20).
-        led = sorted({e['dreamId'] for e in links if fixes[e['fixId']].get('kind') == 'feature'})
-        coverage['itLed'] = led
-        if not led:
+        it_led = sorted({e['dreamId'] for e in links if fixes[e['fixId']].get('kind') == 'feature'})
+        coverage['itLed'] = it_led
+        if not it_led:
             add('*', 'it-led-coverage', 'no dream has a Feature linked; link at least one idea It could build')
     result = {'passed': not issues, 'issues': issues, 'coverage': coverage,
               'dreams': len(dreams), 'checkedAt': now()}

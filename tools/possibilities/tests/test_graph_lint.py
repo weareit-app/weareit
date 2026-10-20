@@ -52,6 +52,13 @@ class TemplateCopy(GraphLint):
         hits = {i.get('fixId') for i in self.lint(change) if i['rule'] == 'template-copy'}
         self.assertEqual(hits, {'burnout-d00-t1', 'burnout-d01-t1'})
 
+    def test_job_story_without_commas_and_once_plans_are_template_copy(self):
+        def change(doc):
+            doc['fixes']['burnout-d00-t1']['whatChanges'] = 'When I get home I want to rest so I can sleep.'
+            doc['fixes']['burnout-d01-t1']['firstStep'] = 'Once I close the laptop, I will walk to the corner.'
+        hits = {i.get('fixId') for i in self.lint(change) if i['rule'] == 'template-copy'}
+        self.assertEqual(hits, {'burnout-d00-t1', 'burnout-d01-t1'})
+
     def test_plain_copy_that_opens_with_when_is_not_template_copy(self):
         text = 'When the alarm goes off, the laptop is already in the hall.'
         self.assertNotIn('template-copy', self.rules(lambda d: d['fixes']['burnout-d00-t1'].update(whatChanges=text)))
@@ -66,6 +73,12 @@ class NearDuplicateFix(GraphLint):
         self.assertEqual(len(hits), 1, hits)
         self.assertEqual(hits[0]['fixId'], 'burnout-d00-t1')
         self.assertIn('burnout-d03-t2', hits[0]['detail'])
+
+    def test_opposite_fixes_are_not_near_duplicates(self):
+        def change(doc):
+            doc['fixes']['burnout-d00-t1']['title'] = 'Turn on the phone alarm at six'
+            doc['fixes']['burnout-d03-t2']['title'] = 'Turn off the phone alarm at six'
+        self.assertNotIn('near-duplicate-fix', self.rules(change))
 
     def test_different_fixes_in_the_pool_are_not_flagged(self):
         self.assertNotIn('near-duplicate-fix', self.rules())
@@ -107,6 +120,20 @@ class Coverage(GraphLint):
             for key in ('burnout-d00-t1', 'burnout-d00-t2', 'burnout-d03-t1'):
                 doc['fixes'][key]['status'] = 'societal_proposal'
         self.assertIn('basics-coverage', self.rules(proposals))
+
+
+    def test_links_to_screened_out_fixes_do_not_count(self):
+        self.write('fixes.json', self.fixes, one_feature_three_habits)
+        self.write('screen.json', screen_doc(failing=('burnout-d04-t1',)))
+        self.write('links.json', links_doc())
+        self.assertIn('it-led-coverage', {i['rule'] for i in cards.lint_run(self.run_dir, self.tmp)['issues']})
+
+    def test_malformed_fixes_and_links_do_not_crash_lint(self):
+        self.fixes['fixes']['burnout-d00-t9'] = 'not a record'
+        self.write('fixes.json', self.fixes)
+        self.write('screen.json', screen_doc())
+        self.write('links.json', links_doc(), lambda d: d['links'].append({'fixId': ['x'], 'dreamId': ['burnout-d00']}))
+        self.assertIn('it-led-coverage', {i['rule'] for i in cards.lint_run(self.run_dir, self.tmp)['issues']})
 
 
 if __name__ == '__main__':
