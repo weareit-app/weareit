@@ -53,26 +53,31 @@ Answer each by number. "yes" accepts the recommendation. The specs are written t
    - Recommendation: A.
 
 10. **Length limits.** **Founder answer (2026-10-19): yes (A).**
-   - A. Name up to 60 characters, line up to 160 characters.
-   - B. Other numbers (say which).
-   - Recommendation: A, as placeholders the founder can change.
+
+- A. Name up to 60 characters, line up to 160 characters.
+- B. Other numbers (say which).
+- Recommendation: A, as placeholders the founder can change.
 
 11. **Limits and crisis guidance** (decisions.md marks both VERIFY before launch). **Founder answer (2026-10-19): yes (A) for the 20-per-day limit and the reviewer note; crisis guidance planned for after v0.1.**
-   - A. Launch with a placeholder of 20 sends per account per day and a short reviewer note on what to do when a contribution suggests someone is in crisis, both written or approved by the founder before launch.
-   - B. Decide the numbers and guidance now (say what).
-   - Recommendation: A; launch blocks until the founder approves both.
+
+- A. Launch with a placeholder of 20 sends per account per day and a short reviewer note on what to do when a contribution suggests someone is in crisis, both written or approved by the founder before launch.
+- B. Decide the numbers and guidance now (say what).
+- Recommendation: A; launch blocks until the founder approves both.
 
 12. **Account deletion.** **Founder answer (2026-10-19): yes (A).**
-   - A. Published contributions stay as ordinary content; their provenance is removed; anything in review or declined is deleted.
-   - B. Keep provenance after deletion for abuse handling.
-   - Recommendation: A.
+
+- A. Published contributions stay as ordinary content; their provenance is removed; anything in review or declined is deleted.
+- B. Keep provenance after deletion for abuse handling.
+- Recommendation: A.
 
 13. **Pain pages.** Should "Add a future" and "Add a way" also appear on a pain's own page at `/p/<slug>`? **Founder answer (2026-10-19): yes (A).**
-   - A. Yes, the same as on the personal and societal pages.
-   - B. No, only on the personal and societal pages.
-   - Recommendation: A.
+
+- A. Yes, the same as on the personal and societal pages.
+- B. No, only on the personal and societal pages.
+- Recommendation: A.
 
 14. **Who the reviewer sees.** **Founder answer (2026-10-19): yes (A).**
-   - A. The queue hides who sent an item by default; the founder can reveal it for abuse handling.
-   - B. Always shown.
-   - Recommendation: A.
+
+- A. The queue hides who sent an item by default; the founder can reveal it for abuse handling.
+- B. Always shown.
+- Recommendation: A.

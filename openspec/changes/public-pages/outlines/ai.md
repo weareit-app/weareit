@@ -30,13 +30,13 @@ The three sentences above as the frame. **You:** why you decided to use AI to bu
 
 A table: area → what AI does → how a person reviews it → status.
 
-| Area | Candidates to confirm |
-| --- | --- |
-| Code | Written largely with AI coding agents; the founder reviews and decides |
+| Area          | Candidates to confirm                                                                                                                                         |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Code          | Written largely with AI coding agents; the founder reviews and decides                                                                                        |
 | Illustrations | Watercolor mark and illustrations: say which are AI-generated and how they were edited (`licensing.md`: illustrations keep generation and editing provenance) |
-| Content | Pains, futures and fixes drafted with AI from sources, founder-approved |
-| These essays | `/principles`, `/risks` and `/roadmap` drafted with AI from outlines, rewritten and approved by the founder; `/why` and `/ai` written by the founder |
-| Research | Literature search and summaries, checked against the original sources |
+| Content       | Pains, futures and fixes drafted with AI from sources, founder-approved                                                                                       |
+| These essays  | `/principles`, `/risks` and `/roadmap` drafted with AI from outlines, rewritten and approved by the founder; `/why` and `/ai` written by the founder          |
+| Research      | Literature search and summaries, checked against the original sources                                                                                         |
 
 **You:** correct this table; it must match what is actually true at publish time.
 

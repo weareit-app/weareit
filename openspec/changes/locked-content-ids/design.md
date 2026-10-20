@@ -13,20 +13,22 @@ See proposal.md for why. Current state:
 ## Goals / Non-Goals
 
 **Goals:**
+
 - No ID that has ever been published can change by accident, through the editor or the API.
 - Keep the whole-draft editing model; no new content workflow.
 
 **Non-Goals:**
+
 - Slugs, aliases, retired states and replacements (pain-pages change).
 - Preventing deletion altogether; deletion stays possible with explicit confirmation (confirm.md Q3).
 
 ## Decisions
 
-1. **Published-ID set from snapshots.** Compute the set of `{kind, id}` that appear in any row of `published_content_versions` (confirm.md Q2). With few versions this is cheap; if it grows, cache it in a `published_content_ids (kind, id, first_version)` table filled at publish. *Alternative:* only the latest version; rejected because a rollback could otherwise re-expose a renamed ID's old picks inconsistently.
+1. **Published-ID set from snapshots.** Compute the set of `{kind, id}` that appear in any row of `published_content_versions` (confirm.md Q2). With few versions this is cheap; if it grows, cache it in a `published_content_ids (kind, id, first_version)` table filled at publish. _Alternative:_ only the latest version; rejected because a rollback could otherwise re-expose a renamed ID's old picks inconsistently.
 
 2. **Lock in the editor.** `cms.getDraft` returns the published-ID set; the editor renders the ID field read-only for those IDs and blocks the rename cascade. Draft-only records stay editable.
 
-3. **Guard on the server, not by guessing renames.** `cms.validateDraft` returns `removedPublishedIds` and `firstTimeIds`. `cms.publishDraft` and `cms.rollback` take `confirmRemovedIds` and `confirmFirstTimeIds`; the server refuses unless they exactly match what it computes (so stale confirmations fail too). A rename made outside the editor shows up as an unconfirmed removal plus a new ID. *Alternatives:* UI lock only, rejected because the API accepts any graph; forbidding removal entirely, rejected because retiring content needs the pain-pages work first.
+3. **Guard on the server, not by guessing renames.** `cms.validateDraft` returns `removedPublishedIds` and `firstTimeIds`. `cms.publishDraft` and `cms.rollback` take `confirmRemovedIds` and `confirmFirstTimeIds`; the server refuses unless they exactly match what it computes (so stale confirmations fail too). A rename made outside the editor shows up as an unconfirmed removal plus a new ID. _Alternatives:_ UI lock only, rejected because the API accepts any graph; forbidding removal entirely, rejected because retiring content needs the pain-pages work first.
 
 4. **Placeholder IDs refused at publish.** Publish validation adds an issue for any ID matching `^new-(domain|pain|dream|action|fix)-` (confirm.md Q6).
 

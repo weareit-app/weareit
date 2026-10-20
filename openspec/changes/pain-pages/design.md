@@ -15,21 +15,23 @@ See proposal.md for why. Current state:
 ## Goals / Non-Goals
 
 **Goals:**
+
 - One opened-pain behaviour shared by the list pages and the pain page, so they cannot drift.
 - Resolving a slug needs only the published version: current slug, alias, retired-with-replacement, or not found.
 - Links stay valid forever: slugs never reused, aliases never removed, published IDs never renamed.
 - No new third parties on pain pages.
 
 **Non-Goals:**
+
 - Sending page views or pain opens (measurement change). The pain page only exposes the moments it needs.
 - Universal links on iOS.
 - An AI drafting tool inside the editor (pending confirm.md item 7).
 
 ## Decisions
 
-1. **Extract an `OpenedPain` view.** Move the open-pain body (dreams, "Ways it can be better", tags, closed summary) out of `PainExplorer` into a component both the list pages and `/p/[slug]` render, reading and writing the same draft store (`apps/app/src/state/onboarding-store.ts`) or, when signed in, the account picks from required-signup-gate. *Alternative:* a separate pain-page implementation; rejected because "exactly as on the personal page" would drift.
+1. **Extract an `OpenedPain` view.** Move the open-pain body (dreams, "Ways it can be better", tags, closed summary) out of `PainExplorer` into a component both the list pages and `/p/[slug]` render, reading and writing the same draft store (`apps/app/src/state/onboarding-store.ts`) or, when signed in, the account picks from required-signup-gate. _Alternative:_ a separate pain-page implementation; rejected because "exactly as on the personal page" would drift.
 
-2. **Slug data lives in the content graph.** Add to the pain record: `slug`, `slugAliases[]`, `retired` (boolean), `replacementPainId`, `launchSet` (boolean), and `detail` (ordered sections). Database: columns on `content_pains` plus `content_pain_slugs (slug primary key, pain_id, kind current|alias, first_published_version)`, so global uniqueness and "never reused" are enforced by a primary key that is never deleted. The publish step checks the draft against this table. *Alternative:* derive slugs from IDs; rejected because the founder chose a separate field (012 Q2).
+2. **Slug data lives in the content graph.** Add to the pain record: `slug`, `slugAliases[]`, `retired` (boolean), `replacementPainId`, `launchSet` (boolean), and `detail` (ordered sections). Database: columns on `content_pains` plus `content_pain_slugs (slug primary key, pain_id, kind current|alias, first_published_version)`, so global uniqueness and "never reused" are enforced by a primary key that is never deleted. The publish step checks the draft against this table. _Alternative:_ derive slugs from IDs; rejected because the founder chose a separate field (012 Q2).
 
 3. **Semantic resolve operation.** Add `content.resolvePainLink({ slug })` returning one of `{ kind: "pain", painId, slug }`, `{ kind: "redirect", slug }` (alias or replacement), or `{ kind: "notFound", reason: "unknown" | "retired" }`, computed from the latest published version. Input validated with Zod (slug pattern, max length); anything failing validation is `notFound: unknown`. The app normalises case and trailing slash before calling, and uses `router.replace` for redirects so history holds only the current slug. `unknown` covers unpublished pains, so drafts are not revealed.
 

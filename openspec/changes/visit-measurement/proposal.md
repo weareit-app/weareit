@@ -25,9 +25,11 @@ Conflict noted, not decided here: features.md §1 and §2b still say "coarse tot
 ## Capabilities
 
 ### New Capabilities
+
 - `measurement`: what It counts per visit (stage list, page views, pain opens), the in-memory visit number, what each message may contain, how the server validates and keeps records, linking the signup or sign-in visit to an account, unlinking on account deletion, disclosure before sending, never blocking the person, and the founder's report.
 
 ### Modified Capabilities
+
 - `on-device-choices`: "Nothing sent before signup" changes: choices still never leave the device before signup, but the disclosed measurement (stages, page views, pain opens) may be sent.
 - `account-signup`: signup and sign-in link the current visit to the account, and the gate lists that visit's pages, pains opened and steps among what is saved.
 

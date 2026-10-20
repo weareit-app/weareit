@@ -20,20 +20,20 @@
 
 Taken from the proposed OpenSpec changes, so each one is real work. Suggested statuses are guesses for you to correct at publish time. Any item can be connected to Feature fixes in the explorer; those fixes then show inside the item and take its status.
 
-| Item | Source | Suggested status |
-| --- | --- | --- |
-| Explore what could be better for you and for us | the explorer (built, not yet launched) | In Progress until launch, then Shipped |
-| Save your picks with an account | `required-signup-gate` | In Progress |
-| Support It once, monthly or yearly | `embedded-support` | In Progress |
-| A page for every pain, to share | `pain-pages` | Planned |
-| Help build It with your skills | `help-build-it` | Planned |
-| Use It in Spanish | `spanish-language` | Planned |
-| Add your own pains, futures and ways | `own-contributions` | Planned |
-| A full privacy page | `full-privacy-page` | Planned |
-| Essays on research, technology, possibility and the future | next public-pages change | Exploring |
-| A personal story of your chosen futures | features.md "soon" | Idea |
-| Find people who want the same future | features.md "soon" | Idea |
-| Evidence labels on ways | features.md "soon" | Idea |
+| Item                                                       | Source                                 | Suggested status                       |
+| ---------------------------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Explore what could be better for you and for us            | the explorer (built, not yet launched) | In Progress until launch, then Shipped |
+| Save your picks with an account                            | `required-signup-gate`                 | In Progress                            |
+| Support It once, monthly or yearly                         | `embedded-support`                     | In Progress                            |
+| A page for every pain, to share                            | `pain-pages`                           | Planned                                |
+| Help build It with your skills                             | `help-build-it`                        | Planned                                |
+| Use It in Spanish                                          | `spanish-language`                     | Planned                                |
+| Add your own pains, futures and ways                       | `own-contributions`                    | Planned                                |
+| A full privacy page                                        | `full-privacy-page`                    | Planned                                |
+| Essays on research, technology, possibility and the future | next public-pages change               | Exploring                              |
+| A personal story of your chosen futures                    | features.md "soon"                     | Idea                                   |
+| Find people who want the same future                       | features.md "soon"                     | Idea                                   |
+| Evidence labels on ways                                    | features.md "soon"                     | Idea                                   |
 
 ## What changed (change list)
 

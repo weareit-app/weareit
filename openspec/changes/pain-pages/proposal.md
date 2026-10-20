@@ -25,6 +25,7 @@ What people see and do, screen by screen (features.md §2b, all core):
 Reversal to note: spec 012 (2026-10-18) said arriving by link counts as an ordinary visit with no per-pain counting. The measurement invariant changed on 2026-10-19 (AGENTS.md, spec 013): page views are counted per page, including each pain page by its ID. That counting belongs to the measurement change. This change specifies no counting, and keeps the part that still holds: how a visit arrived (the link, the referring site, tracking tags) is never recorded.
 
 Out of scope:
+
 - Measurement of pain-page views and pain opens (the measurement change, spec 013).
 - The full privacy page (spec 010); this change only adds what the privacy page must say about links and hosting logs.
 - Opening links in the installed iOS app (universal links); researched later.
@@ -32,6 +33,7 @@ Out of scope:
 - An in-editor AI drafting tool, unless the founder asks for one (Open questions).
 
 Must leave room for (features.md Stages):
+
 - **Starting from a dream (soon)**: the address scheme leaves room for other link kinds without changing what `/p/` means.
 - **Sharing a future or path (soon)**: Share this topic shares only the page; sharing picks stays a separate, explicit act.
 - **Personal story (soon)**: pain-page picks keep their content version like all picks.
@@ -42,9 +44,11 @@ Must leave room for (features.md Stages):
 ## Capabilities
 
 ### New Capabilities
+
 - `pain-pages`: the single-pain page at `/p/<slug>`: arrival, basic and detailed content, picks, See more pains, Share this topic, link hygiene, unknown/retired/old-slug handling, previews, and its privacy, honest-status and accessibility rules.
 
 ### Modified Capabilities
+
 - `content-catalog`: slugs with permanent aliases that are never reused, founder slug approval at first publish, retired pains with an optional replacement, a launch-set flag, sourced detailed content, links shown in the editor, and published IDs locked.
 - `pain-explorer`: a calm note on the personal page when a pain link leads nowhere.
 

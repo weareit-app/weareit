@@ -13,18 +13,20 @@ See proposal.md for why. Current state (from `openspec/specs/account-signup`):
 ## Goals / Non-Goals
 
 **Goals:**
+
 - Picks stored per item with the content version they were made under, so saves from different devices and versions combine without loss.
 - One semantic API for picks, used both at signup and for auto-saving after signup.
 - Better Auth stays the only auth system; no custom crypto.
 
 **Non-Goals:**
+
 - Measurement transport or visit linking (spec 013's change).
 - Choosing the production email provider.
 - Native iOS passkeys (needs associated domains and an App Store build).
 
 ## Decisions
 
-1. **Store picks as rows, not one JSON draft.** New tables: `user_dream_picks (user_id, scope, pain_id, dream_id, content_version, picked_at)` and `user_fix_selections (user_id, scope, pain_id, dream_id, fix_id, content_version, selected_at)`, each with a unique key on the identity columns so combining is an upsert that ignores duplicates. Fixes keep their pain → dream path, which leaves room for explicit paths and the personal story (features.md Stages). *Alternative:* merge JSON drafts in place; rejected because per-version validation and per-item auto-save get awkward. The existing `user_onboarding_drafts` rows are left untouched (no production data) and the table is dropped in a later cleanup.
+1. **Store picks as rows, not one JSON draft.** New tables: `user_dream_picks (user_id, scope, pain_id, dream_id, content_version, picked_at)` and `user_fix_selections (user_id, scope, pain_id, dream_id, fix_id, content_version, selected_at)`, each with a unique key on the identity columns so combining is an upsert that ignores duplicates. Fixes keep their pain → dream path, which leaves room for explicit paths and the personal story (features.md Stages). _Alternative:_ merge JSON drafts in place; rejected because per-version validation and per-item auto-save get awkward. The existing `user_onboarding_drafts` rows are left untouched (no production data) and the table is dropped in a later cleanup.
 
 2. **Semantic operations.** Replace `account.saveOnboarding` with `account.savePicks({ contentVersion, picks: [{scope, painId, dreamId, fixIds[]}], optIn: {chosen, wordingVersion} })` (combine) for signup, and `account.pickDream`, `account.unpickDream`, `account.selectFix`, `account.unselectFix` plus `account.getPicks` for signed-in pages. Inputs validated with Zod in `packages/api`. Each pick is validated against the content version it claims; unmatched items are dropped and logged, the rest stored (founder, 2026-10-19).
 

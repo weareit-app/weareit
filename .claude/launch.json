@@ -33,11 +33,7 @@
     {
       "name": "api",
       "runtimeExecutable": "pnpm",
-      "runtimeArgs": [
-        "--filter",
-        "@it/api-server",
-        "dev"
-      ],
+      "runtimeArgs": ["--filter", "@it/api-server", "dev"],
       "port": 3001
     }
   ]

@@ -6,30 +6,31 @@ The founder rated 40 cards blind in about 21 minutes: 24 from the repaired gener
 
 - **Specific, real things the reader didn't know existed.** "Specificity is good." "I'm genuinely surprised by some of the suggestions for things that I had absolutely no idea about before… Totally unique things. This is really Hayek in action." Write cards that put scattered, local knowledge in front of someone who would never have found it: a program, a precedent, a tool, with a name and a number.
 - **Plain titles and lines that still carry detail.** "Making the title/description simple enough for normal people to understand while still allowing for detail is good." Loved examples:
-  - *Hospital bills cut or forgiven when I can't pay*
-  - *Getting solar power without owning a roof*
-  - *Hiring software that has to prove it's fair*
-  - *Randomly chosen residents advising on hard questions*
+  - _Hospital bills cut or forgiven when I can't pay_
+  - _Getting solar power without owning a roof_
+  - _Hiring software that has to prove it's fair_
+  - _Randomly chosen residents advising on hard questions_
 
 ## What the founder kills
 
 - **Vague, short descriptions.** "The shorter cards tended to be more vague and blah than the others, but usually not because of the title." Kills and their reasons:
-  - *Comfortable* ("super vague")
-  - *Room for rest* ("Super vague title. Super vague options.")
-  - *We can pull it off* ("a little vague")
-  - *Help that lasts* ("vague")
+  - _Comfortable_ ("super vague")
+  - _Room for rest_ ("Super vague title. Super vague options.")
+  - _We can pull it off_ ("a little vague")
+  - _Help that lasts_ ("vague")
 
   Short is fine only when it is specific. When a line or fix has no concrete detail in it, add the detail rather than trimming.
+
 - **Euphemisms instead of the plain name.** On "Put a floor under income": "I think you're trying to avoid saying UBI or something like it, but it doesn't read like anything a normal person would understand." If the idea has a common name (universal basic income, a union, rent control), use it, and present it as a proposal people disagree about.
-- **Words nobody would use about their own life.** *Free* got "I don't know what free means here." *A secure floor* got "needs reworked to make the wording more obvious to someone."
-- **Obvious restatements of the pain.** *Choose what to do* for procrastination got "super vague for procrastination. Like no fucking duh?" A dream must say something the pain line didn't already imply.
-- **Passive voice.** *My idea exists* got "This is super passive voice; needs reworked." Dream lines should have a person doing or having something.
-- **Fixes that blur two different problems.** *Safe through heat and floods* got "doesn't really answer [the title]… This is mixing up different things." Each fix should actually deliver the dream it sits under. Maybe "safe during severe weather."
+- **Words nobody would use about their own life.** _Free_ got "I don't know what free means here." _A secure floor_ got "needs reworked to make the wording more obvious to someone."
+- **Obvious restatements of the pain.** _Choose what to do_ for procrastination got "super vague for procrastination. Like no fucking duh?" A dream must say something the pain line didn't already imply.
+- **Passive voice.** _My idea exists_ got "This is super passive voice; needs reworked." Dream lines should have a person doing or having something.
+- **Fixes that blur two different problems.** _Safe through heat and floods_ got "doesn't really answer [the title]… This is mixing up different things." Each fix should actually deliver the dream it sits under. Maybe "safe during severe weather."
 - **Vague mechanisms.** "Choose residents from across the community and give them a vote that counts on one public issue." got "That's vague." Say who chooses, how, and what the vote decides, and name a place it happened.
 
 ## Old cards the founder liked
 
-*More time to live*, *Tools we control* and *Our money, our say* got Love, and *Shared ownership* got Keep for its line ("The people who do the work own a share and have a say in where the gains go."). Short, strong ideas can work. What sinks the old cards is the vague fixes underneath them.
+_More time to live_, _Tools we control_ and _Our money, our say_ got Love, and _Shared ownership_ got Keep for its line ("The people who do the work own a share and have a say in where the gains go."). Short, strong ideas can work. What sinks the old cards is the vague fixes underneath them.
 
 ## Caveats
 

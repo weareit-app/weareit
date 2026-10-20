@@ -29,7 +29,10 @@ Run the TypeScript and formatting checks with:
 ```sh
 pnpm run typecheck
 pnpm run lint
+pnpm run format:check
 ```
+
+`format:check` covers the whole repository, docs included, except the folders listed in `.prettierignore`. CI runs it too. `pnpm run format` fixes what it reports.
 
 `pnpm install` also installs a git pre-commit hook ([Lefthook](https://lefthook.dev), configured in `lefthook.yml`). When a commit includes code, it formats the staged JavaScript and TypeScript files with Prettier and restages them, then runs the typecheck and the Vitest unit tests. Commits that only touch docs skip it. To skip it once, use `git commit --no-verify`.
 

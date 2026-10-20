@@ -23,6 +23,7 @@ Out of scope: the "soon" watercolor ideas (scene kit, live simulation, others) l
 ### New Capabilities
 
 ### Modified Capabilities
+
 - `brand-mark`: loader timing, failure and screen-reader behaviour; fallback on every platform; palettes as data with no picker; accessibility; performance targets.
 
 ## Impact

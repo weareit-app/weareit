@@ -1,10 +1,10 @@
 # Tasks
 
-Tasks marked *(after launch)* wait until after the Oct 26 web launch (see proposal.md, "Launch scope").
+Tasks marked _(after launch)_ wait until after the Oct 26 web launch (see proposal.md, "Launch scope").
 
 ## 1. Data model
 
-- [ ] 1.1 Write migration `006_signup_gate`: `user_dream_picks` and `user_fix_selections` with unique identity keys and `content_version`; opt-in columns on `user`; nullable `user.name`; passkey table from the passkey plugin schema *(after launch)*
+- [ ] 1.1 Write migration `006_signup_gate`: `user_dream_picks` and `user_fix_selections` with unique identity keys and `content_version`; opt-in columns on `user`; nullable `user.name`; passkey table from the passkey plugin schema _(after launch)_
 - [ ] 1.2 Update `packages/database/src/types.ts` for the new tables and columns
 - [ ] 1.3 Add repository functions: combine picks (validate each against its content version, drop and log unmatched), get picks, pick/unpick dream, select/unselect fix, record opt-in; with tests for union, duplicates and unmatched picks
 
@@ -17,18 +17,18 @@ Tasks marked *(after launch)* wait until after the Oct 26 web launch (see propos
 ## 3. Auth
 
 - [ ] 3.1 Move email sending behind one `sendEmail` boundary in the API server (nodemailer as the SMTP/dev implementation)
-- [ ] 3.2 *(after launch)* Enable email + password sign-in with a 12-character minimum and password sign-up turned off; add the `haveIBeenPwned` plugin
-- [ ] 3.3 *(after launch)* Add `@better-auth/passkey` pinned to the Better Auth version (web only) and its client plugin on web
+- [ ] 3.2 _(after launch)_ Enable email + password sign-in with a 12-character minimum and password sign-up turned off; add the `haveIBeenPwned` plugin
+- [ ] 3.3 _(after launch)_ Add `@better-auth/passkey` pinned to the Better Auth version (web only) and its client plugin on web
 - [ ] 3.4 Configure rate limits: 5 code requests per email per hour plus a per-IP window; map limit errors to "Try again in a few minutes."
 - [ ] 3.5 Stop sending a placeholder name at sign-up
-- [ ] 3.6 Auth tests: code-only account creation and rate limit hit at launch; *(after launch)* password sign-in after setting one, short and breached passwords refused
-- [ ] 3.7 *(after launch)* Record the password hash algorithm and parameters in `docs/architecture/decisions.md`; pin new packages in `docs/architecture/dependency-policy.md`
+- [ ] 3.6 Auth tests: code-only account creation and rate limit hit at launch; _(after launch)_ password sign-in after setting one, short and breached passwords refused
+- [ ] 3.7 _(after launch)_ Record the password hash algorithm and parameters in `docs/architecture/decisions.md`; pin new packages in `docs/architecture/dependency-policy.md`
 
 ## 4. Signup screens
 
 - [ ] 4.1 Build `/signup`: email field with passkey autofill on web, the "what will be saved" list, unticked opt-in (placeholder label), terms line linking to `/privacy`, no "Not now"
-- [ ] 4.2 Build the code step (neutral wording, eight-digit code; the "Use a password" variant is *after launch*) and error states, including the rate-limit message
-- [ ] 4.3 Build `/welcome/name` (required); the "Want a faster way back? Add a passkey or password" line linking to `/account` is *after launch*; route any signed-in user without a name here
+- [ ] 4.2 Build the code step (neutral wording, eight-digit code; the "Use a password" variant is _after launch_) and error states, including the rate-limit message
+- [ ] 4.3 Build `/welcome/name` (required); the "Want a faster way back? Add a passkey or password" line linking to `/account` is _after launch_; route any signed-in user without a name here
 - [ ] 4.4 Build `/all-set`; wire Support so skip, success and cancel lead to `/all-set`
 - [ ] 4.5 Redirect `/save-progress` → `/signup`, `/ways-to-help` → `/`, `/onboarding/futures` → `/onboarding/world`; delete the old screens
 - [ ] 4.6 Societal page "Continue"/"Skip" go to `/signup` (or past it when signed in)
@@ -36,7 +36,7 @@ Tasks marked *(after launch)* wait until after the Oct 26 web launch (see propos
 ## 5. Account, menu and privacy
 
 - [ ] 5.1 Add shared page chrome: "Sign in" link when signed out, a menu when signed in (email and "Sign out" only at launch)
-- [ ] 5.2 *(after launch)* Build `/account`: name (editable), email, set/change password, add passkey (web only), sign out
+- [ ] 5.2 _(after launch)_ Build `/account`: name (editable), email, set/change password, add passkey (web only), sign out
 - [ ] 5.3 Build `/privacy` placeholder: on-device data, exactly what signup sends and stores, session IP/browser data until the session ends, HaveIBeenPwned, 16+, placeholder notice
 
 ## 6. Picks after signup
