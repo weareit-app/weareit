@@ -6,6 +6,7 @@ import {
 } from "@testing-library/react-native";
 import { useState } from "react";
 import type { ContentFix, ContentRoadmapItem } from "@it/content/graph-schema";
+import { refuseStatusChangesWithoutNotes } from "../src/components/cms/feature-status-editor";
 import {
   RoadmapEditor,
   refuseRoadmapStatusChangesWithoutNotes,
@@ -73,7 +74,7 @@ async function renderEditor(start = initial) {
     return (
       <RoadmapEditor
         content={content}
-        savedItems={initial.roadmapItems}
+        savedItems={start.roadmapItems}
         onChange={(next) => {
           latest.current = next;
           setContent(next);
@@ -220,6 +221,39 @@ describe("RoadmapEditor", () => {
     );
     expect(fix?.featureStatus).toBe("planned");
     expect(fix?.roadmapItemId).toBeUndefined();
+  });
+});
+
+describe("saving after roadmap edits", () => {
+  const { statusNote: _note, statusChangedOn: _date, ...noNote } = spanish;
+  const saved: RoadmapContent = {
+    roadmapItems: [noNote],
+    fixes: [translatedPages],
+  };
+  const refusals = (next: RoadmapContent) => [
+    refuseStatusChangesWithoutNotes(saved, next.fixes),
+    refuseRoadmapStatusChangesWithoutNotes(
+      saved.roadmapItems,
+      next.roadmapItems,
+    ),
+  ];
+
+  it("saves a new item without a note", async () => {
+    const latest = await renderEditor(saved);
+
+    await press("Add roadmap item");
+
+    expect(refusals(latest.current)).toEqual([null, null]);
+  });
+
+  it("saves after removing an item that has no note", async () => {
+    const latest = await renderEditor(saved);
+
+    await press("Use It in Spanish");
+    await press("Remove item");
+
+    expect(latest.current.fixes[0]?.featureStatus).toBe("planned");
+    expect(refusals(latest.current)).toEqual([null, null]);
   });
 });
 

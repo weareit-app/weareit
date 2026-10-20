@@ -180,10 +180,11 @@ describe("applyRoadmapItemStatusChanges", () => {
     });
   });
 
-  it("requires a note for a new item", () => {
-    const { statusNote: _note, ...noNote } = spanish;
-    expect(
-      applyRoadmapItemStatusChanges([], [noNote], today).issues,
-    ).toHaveLength(1);
+  it("saves a new item without a note and records today's date", () => {
+    const { statusNote: _note, statusChangedOn: _date, ...noNote } = spanish;
+    const result = applyRoadmapItemStatusChanges([], [noNote], today);
+
+    expect(result.issues).toEqual([]);
+    expect(result.items[0]?.statusChangedOn).toBe(today);
   });
 });

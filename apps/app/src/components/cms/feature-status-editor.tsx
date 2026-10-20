@@ -2,7 +2,9 @@ import { View } from "react-native";
 import {
   applyFeatureStatusChanges,
   featureStatuses,
+  resolveFeatureStatuses,
   type ContentFix,
+  type ContentGraph,
 } from "@it/content/graph-schema";
 import { statusCopy } from "../personal/way-row";
 import { Text } from "../text";
@@ -15,12 +17,20 @@ type StatusFields = Pick<
 
 const today = () => new Date().toISOString().slice(0, 10);
 
+// The saved draft's fixes and roadmap items. A fix is compared with the status
+// it was showing, so one disconnected from its item keeps that status freely.
+type SavedContent = Pick<ContentGraph, "fixes" | "roadmapItems">;
+
 // The save is refused here before it reaches the API, which refuses it too.
 export function refuseStatusChangesWithoutNotes(
-  savedFixes: readonly ContentFix[],
+  saved: SavedContent,
   fixes: readonly ContentFix[],
 ) {
-  const { issues } = applyFeatureStatusChanges(savedFixes, fixes, today());
+  const { issues } = applyFeatureStatusChanges(
+    resolveFeatureStatuses(saved),
+    fixes,
+    today(),
+  );
   if (!issues.length) return null;
   return `Not saved. ${issues
     .map(({ path, message }) => `${path.split(".")[1]}: ${message}`)
@@ -31,18 +41,22 @@ export function refuseStatusChangesWithoutNotes(
 // what changed. A changed status needs a new note before the draft saves.
 export function FeatureStatusEditor({
   fixes,
-  savedFixes,
+  saved,
   onChange,
 }: {
   fixes: readonly ContentFix[];
-  savedFixes: readonly ContentFix[];
+  saved: SavedContent;
   onChange: (fixId: string, patch: StatusFields) => void;
 }) {
   // A fix connected to a roadmap item takes its status from the Roadmap section.
   const features = fixes.filter(
     ({ kind, roadmapItemId }) => kind === "feature" && !roadmapItemId,
   );
-  const { issues } = applyFeatureStatusChanges(savedFixes, features, today());
+  const { issues } = applyFeatureStatusChanges(
+    resolveFeatureStatuses(saved),
+    features,
+    today(),
+  );
   return (
     <View className="gap-3 rounded-2xl bg-paper-raised p-5">
       <Text className="font-ui-semibold text-ink">Feature statuses</Text>

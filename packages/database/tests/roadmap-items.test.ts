@@ -199,6 +199,69 @@ describe.skipIf(!connectionString)("roadmap items in Postgres", () => {
     ).toHaveLength(featureIds.length);
   });
 
+  it("saves a new item without a note, and disconnects from it", async () => {
+    const groups = {
+      id: "local-groups",
+      title: "Local groups",
+      line: "Meet people near you.",
+      status: "exploring" as const,
+      sortOrder: 1,
+    };
+    let draft = await readDraftContent(db);
+    await saveDraftContent(
+      db,
+      {
+        ...draft.content,
+        roadmapItems: [...draft.content.roadmapItems, groups],
+        fixes: draft.content.fixes.map((fix) =>
+          fix.id === featureIds[0] ? { ...fix, roadmapItemId: groups.id } : fix,
+        ),
+      },
+      {
+        expectedRevision: draft.revision,
+        actor: "test",
+        changeNote: "Add local groups",
+        today: "2026-10-22",
+      },
+    );
+
+    draft = await readDraftContent(db);
+    expect(
+      draft.content.roadmapItems.find(({ id }) => id === groups.id),
+    ).toEqual({ ...groups, statusChangedOn: "2026-10-22" });
+
+    // The fix keeps the status it was showing, with the item's date and no note.
+    await saveDraftContent(
+      db,
+      {
+        ...draft.content,
+        fixes: draft.content.fixes.map((fix) => {
+          if (fix.id !== featureIds[0]) return fix;
+          const { roadmapItemId: _item, ...rest } = fix;
+          return {
+            ...rest,
+            featureStatus: "exploring" as const,
+            statusChangedOn: "2026-10-22",
+          };
+        }),
+      },
+      {
+        expectedRevision: draft.revision,
+        actor: "test",
+        changeNote: "Disconnect from local groups",
+      },
+    );
+
+    expect(
+      (await readDraftContent(db)).content.fixes.find(
+        ({ id }) => id === featureIds[0],
+      ),
+    ).toMatchObject({
+      featureStatus: "exploring",
+      statusChangedOn: "2026-10-22",
+    });
+  });
+
   it("rolls the migration back once no fix is connected", async () => {
     await rollbackToVersion(db, firstVersion, "test");
 

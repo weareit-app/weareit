@@ -354,7 +354,9 @@ export function resolveFeatureStatuses(
 type StatusChangeIssue = { path: string; message: string };
 
 // A saved status change needs a new note saying what changed, and records the
-// date: today, unless the founder set a different date with the change.
+// date: today, unless the founder set a different date with the change. A new
+// record counts as a change unless `newNeedsNote` is false; then it only gets
+// the date.
 function applyStatusChanges<
   T extends {
     id: string;
@@ -367,6 +369,7 @@ function applyStatusChanges<
   today: string,
   statusOf: (record: T) => FeatureStatus | undefined,
   pathPrefix: string,
+  newNeedsNote = true,
 ): { records: T[]; issues: StatusChangeIssue[] } {
   const before = new Map(previous.map((record) => [record.id, record]));
   const issues: StatusChangeIssue[] = [];
@@ -374,6 +377,10 @@ function applyStatusChanges<
     const old = before.get(record.id);
     const status = statusOf(record);
     if (!status || (old && statusOf(old) === status)) return record;
+    if (!old && !newNeedsNote)
+      return record.statusChangedOn
+        ? record
+        : { ...record, statusChangedOn: today };
     if (!record.statusNote?.trim() || record.statusNote === old?.statusNote) {
       issues.push({
         path: `${pathPrefix}.${record.id}.statusNote`,
@@ -389,6 +396,8 @@ function applyStatusChanges<
   return { records, issues };
 }
 
+// Pass the fixes as they were shown (see resolveFeatureStatuses), so a fix
+// disconnected from its roadmap item keeps the item's status without a change.
 export function applyFeatureStatusChanges(
   previous: readonly ContentFix[],
   next: readonly ContentFix[],
@@ -404,6 +413,7 @@ export function applyFeatureStatusChanges(
   return { fixes: records, issues };
 }
 
+// A new item needs no note: it starts at its status on the day it is saved.
 export function applyRoadmapItemStatusChanges(
   previous: readonly ContentRoadmapItem[],
   next: readonly ContentRoadmapItem[],
@@ -415,6 +425,7 @@ export function applyRoadmapItemStatusChanges(
     today,
     (item) => item.status,
     "roadmap_item",
+    false,
   );
   return { items: records, issues };
 }

@@ -80,7 +80,7 @@ export default function CmsScreen() {
       if (!graph || !draftQuery.data)
         throw new Error("Load a draft before saving.");
       const refusal = refuseStatusChangesWithoutNotes(
-        draftQuery.data.content.fixes,
+        draftQuery.data.content,
         graph.fixes,
       );
       const itemRefusal = refuseRoadmapStatusChangesWithoutNotes(
@@ -736,7 +736,7 @@ export default function CmsScreen() {
       />
       <FeatureStatusEditor
         fixes={graph.fixes}
-        savedFixes={draftQuery.data.content.fixes}
+        saved={draftQuery.data.content}
         onChange={(fixId, patch) =>
           setGraph({
             ...graph,

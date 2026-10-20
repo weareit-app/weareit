@@ -32,7 +32,7 @@ describe("FeatureStatusEditor", () => {
     await render(
       <FeatureStatusEditor
         fixes={[feature, habit]}
-        savedFixes={[feature, habit]}
+        saved={{ fixes: [feature, habit], roadmapItems: [] }}
         onChange={() => {}}
       />,
     );
@@ -57,7 +57,7 @@ describe("FeatureStatusEditor", () => {
     await render(
       <FeatureStatusEditor
         fixes={[feature, connected]}
-        savedFixes={[feature, connected]}
+        saved={{ fixes: [feature, connected], roadmapItems: [] }}
         onChange={() => {}}
       />,
     );
@@ -71,7 +71,7 @@ describe("FeatureStatusEditor", () => {
     await render(
       <FeatureStatusEditor
         fixes={[feature]}
-        savedFixes={[feature]}
+        saved={{ fixes: [feature], roadmapItems: [] }}
         onChange={onChange}
       />,
     );
@@ -97,7 +97,7 @@ describe("FeatureStatusEditor", () => {
     await render(
       <FeatureStatusEditor
         fixes={[{ ...feature, featureStatus: "in-progress" }]}
-        savedFixes={[feature]}
+        saved={{ fixes: [feature], roadmapItems: [] }}
         onChange={() => {}}
       />,
     );
@@ -119,7 +119,7 @@ describe("FeatureStatusEditor", () => {
             statusNote: "Building it.",
           },
         ]}
-        savedFixes={[feature]}
+        saved={{ fixes: [feature], roadmapItems: [] }}
         onChange={() => {}}
       />,
     );
@@ -132,18 +132,16 @@ describe("FeatureStatusEditor", () => {
 describe("refuseStatusChangesWithoutNotes", () => {
   it("refuses to save a status change without a note", () => {
     expect(
-      refuseStatusChangesWithoutNotes(
-        [feature],
-        [{ ...feature, featureStatus: "live" }],
-      ),
+      refuseStatusChangesWithoutNotes({ fixes: [feature], roadmapItems: [] }, [
+        { ...feature, featureStatus: "live" },
+      ]),
     ).toBe(
       "Not saved. check-ins: Add a note saying what changed before changing the status.",
     );
     expect(
-      refuseStatusChangesWithoutNotes(
-        [feature],
-        [{ ...feature, featureStatus: "live", statusNote: "Live." }],
-      ),
+      refuseStatusChangesWithoutNotes({ fixes: [feature], roadmapItems: [] }, [
+        { ...feature, featureStatus: "live", statusNote: "Live." },
+      ]),
     ).toBeNull();
   });
 });

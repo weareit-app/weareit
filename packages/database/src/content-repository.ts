@@ -2,6 +2,7 @@ import {
   applyFeatureStatusChanges,
   applyRoadmapItemStatusChanges,
   contentGraphSchema,
+  resolveFeatureStatuses,
   type ContentGraph,
 } from "@it/content/graph-schema";
 import { sql, type Kysely } from "kysely";
@@ -448,7 +449,7 @@ export async function saveDraftContent(
     const previous = await readDraftContent(trx);
     const today = options.today ?? new Date().toISOString().slice(0, 10);
     const { fixes, issues } = applyFeatureStatusChanges(
-      previous.content.fixes,
+      resolveFeatureStatuses(previous.content),
       parsed.fixes,
       today,
     );
