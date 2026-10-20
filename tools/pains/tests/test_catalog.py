@@ -514,7 +514,7 @@ class ReviewTest(Base):
     def test_similar_pain_in_catalog_is_listed(self):
         sweep, refine = fixture_runs(self.tmp)
         doc = catalog.load(self.tmp)
-        doc['pains']['scam-worry'] = pain('scam-worry', name='Scams', line='I lost money to a scam once.')
+        doc['pains']['scam-worry'] = pain('scam-worry', name='Scam worry', line='I lost money to a scam once.')
         catalog.write(self.tmp / catalog.CATALOG, doc)
         out = catalog.review_build(self.tmp, [sweep])
         add = next(p for p in catalog.read(self.tmp / out['set'] / 'proposals.json')['proposals'] if p['painIds'] == ['scams-and-fraud'])
@@ -526,9 +526,17 @@ class ReviewTest(Base):
         self.assertEqual(out['byKind']['merge'], 1)
         self.assertEqual(out['byKind']['reword'], 1)
 
+    def test_set_builds_from_inputs_only(self):
+        sweep, refine = fixture_runs(self.tmp)
+        for derived in (sweep / 'check.json', refine / 'refine-check.json', refine / 'lint.json', refine / 'balance.json'):
+            derived.unlink()
+        out = catalog.review_build(self.tmp, [sweep, refine], 'fresh')
+        self.assertEqual(out['byKind'], {'add': 2, 'merge': 1, 'move': 1, 'reword': 1})
+
     def test_unchecked_run_is_refused(self):
         sweep, refine = fixture_runs(self.tmp)
-        catalog.write(refine / 'refine-check.json', {'issues': ['x'], 'moves': []})
+        for sort in (refine / 'sorts').glob('*.json'):
+            sort.unlink()  # refine-check now fails: no blind sorts
         with self.assertRaises(catalog.CheckError):
             catalog.review_build(self.tmp, [refine])
 

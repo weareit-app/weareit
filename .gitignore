@@ -22,3 +22,12 @@ apps/app/public/canvaskit.wasm
 # Python bytecode (tools/)
 __pycache__/
 *.pyc
+
+# Pain catalog: derived run files are rebuilt from inputs, never committed (pain-catalog design decision 12)
+docs/research/pains/sweeps/**/check.json
+docs/research/pains/sweeps/**/coverage.json
+docs/research/pains/sweeps/**/coverage.md
+docs/research/pains/refine/**/lint.json
+docs/research/pains/refine/**/balance.json
+docs/research/pains/refine/**/refine-check.json
+docs/research/pains/reviews/*/review.html

@@ -810,10 +810,14 @@ def review_build(root, runs, name=None, extra=(), stage=None):
     for run in runs:
         run = Path(run)
         sources.append(str(run.relative_to(root)))
+        # Derived files aren't committed (design decision 12): rebuild them from the run's inputs every time.
         if (run / 'sweep.json').is_file():
+            sweep_check(root, run)
             found, cover = sweep_proposals(catalog, run)
             covered += cover
         else:
+            refine_lint(root, run)
+            refine_check(root, run)
             found, more = refine_proposals(catalog, run)
             flags += more
         for p in found:
