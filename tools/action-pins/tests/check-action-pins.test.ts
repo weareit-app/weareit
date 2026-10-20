@@ -1,5 +1,8 @@
+import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it } from "vitest";
 import { checkActionPins, checkRepo } from "../check-action-pins.mjs";
 
 const SHA = "3d3c42e5aac5ba805825da76410c181273ba90b1";
@@ -8,7 +11,7 @@ const EMBEDDED_SHA = "0123456789abcdef0123456789abcdef01234567";
 
 const policy = `# Dependency versions
 
-## GitHub Actions
+## Continuous integration
 
 - \`actions/checkout\` v7.0.1, \`${SHA}\`.
 - A sha256 that only contains a SHA: \`${EMBEDDED_SHA}0000\`.
@@ -20,7 +23,7 @@ const policy = `# Dependency versions
 
 function check(steps: string) {
   return checkActionPins({
-    workflows: [
+    files: [
       {
         path: ".github/workflows/ci.yml",
         text: `jobs:\n  check:\n    steps:\n${steps}`,
@@ -64,7 +67,7 @@ describe("checkActionPins", () => {
     ).toHaveLength(1);
   });
 
-  it("fails a SHA that isn't recorded under GitHub Actions", () => {
+  it("fails a SHA that isn't recorded in the policy section", () => {
     const unrecorded = "0123456789abcdef0123456789abcdef01234567";
     const problems = check(
       `      - uses: actions/setup-node@${unrecorded} # v7.0.0\n`,
@@ -139,5 +142,49 @@ describe("checkActionPins", () => {
 
   it("ignores commented-out uses", () => {
     expect(check("      # - uses: actions/checkout@v7\n")).toEqual([]);
+  });
+
+  it("fails clearly when the policy section is missing", () => {
+    const problems = checkActionPins({
+      files: [
+        {
+          path: ".github/workflows/ci.yml",
+          text: `      - uses: actions/checkout@${SHA} # v7.0.1\n`,
+        },
+      ],
+      policy: `# Dependency versions\n\n## GitHub Actions\n\n${SHA}\n`,
+    });
+    expect(problems).toEqual([
+      'docs/architecture/dependency-policy.md has no "## Continuous integration" section to record action pins in',
+    ]);
+  });
+});
+
+describe("checkRepo", () => {
+  let root: string | undefined;
+  afterEach(() => {
+    if (root) rmSync(root, { recursive: true, force: true });
+  });
+
+  function repo(files: Record<string, string>) {
+    root = mkdtempSync(join(tmpdir(), "action-pins-"));
+    for (const [path, text] of Object.entries(files)) {
+      mkdirSync(dirname(join(root, path)), { recursive: true });
+      writeFileSync(join(root, path), text);
+    }
+    return root;
+  }
+
+  it("checks composite actions under .github/actions", () => {
+    const dir = repo({
+      "docs/architecture/dependency-policy.md": policy,
+      ".github/workflows/ci.yml": `    steps:\n      - uses: actions/checkout@${SHA} # v7.0.1\n      - uses: ./.github/actions/setup\n`,
+      ".github/actions/setup/action.yml":
+        "runs:\n  using: composite\n  steps:\n    - uses: pnpm/action-setup@v6\n",
+      ".github/actions/other/action.yaml": `runs:\n  steps:\n    - uses: actions/checkout@${SHA} # v7.0.1\n`,
+    });
+    expect(checkRepo(dir)).toEqual([
+      `.github/actions/setup/action.yml:4: "pnpm/action-setup@v6" isn't pinned as owner/repo@<40-char lowercase SHA> # vX.Y.Z`,
+    ]);
   });
 });

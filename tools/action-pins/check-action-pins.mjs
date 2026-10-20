@@ -1,12 +1,15 @@
-// Fails when a workflow action isn't pinned to a reviewed release.
-// The rules are in the "GitHub Actions" section of docs/architecture/dependency-policy.md.
+// Fails when an action used by a workflow or a local composite action isn't pinned to a
+// reviewed release.
+// The rules are in the "Continuous integration" section of docs/architecture/dependency-policy.md.
 // Run from the repo root: `node tools/action-pins/check-action-pins.mjs`.
-import { readFileSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const POLICY_PATH = "docs/architecture/dependency-policy.md";
 const WORKFLOWS_DIR = ".github/workflows";
+const ACTIONS_DIR = ".github/actions";
+const SECTION = "## Continuous integration";
 // A block-style `uses:` key, optionally a list item and optionally quoted.
 const USES_LINE = /^\s*(?:-\s+)?(["']?)uses\1:\s*(.*)$/;
 // Any `uses` key, including flow style (`{uses: ...}`), which USES_LINE can't read.
@@ -16,17 +19,13 @@ const SHA_TOKEN = /(?<![0-9a-f])[0-9a-f]{40}(?![0-9a-f])/g;
 // A key whose value is a literal or folded block (`run: |`, `script: >-`).
 const BLOCK_SCALAR_START = /:\s*[|>][-+0-9]*\s*(?:#.*)?$/;
 
-/** The text of the "## GitHub Actions" section, or "" when it is missing. */
-export function actionsSection(policy) {
-  const match = policy.match(
-    /^## GitHub Actions\s*$([\s\S]*?)(?=^## |(?![\s\S]))/m,
-  );
-  return match ? match[1] : "";
-}
-
-/** Every full commit SHA written in the "GitHub Actions" section. */
-function recordedShas(policy) {
-  return new Set(actionsSection(policy).match(SHA_TOKEN) ?? []);
+/** The text of the policy section that records action pins, or null when it is missing. */
+function pinsSection(policy) {
+  const lines = policy.split(/\r?\n/);
+  const start = lines.findIndex((line) => line.trim() === SECTION);
+  if (start === -1) return null;
+  const end = lines.findIndex((line, i) => i > start && line.startsWith("## "));
+  return lines.slice(start + 1, end === -1 ? undefined : end).join("\n");
 }
 
 /** Removes the quotes around a `uses:` value, keeping any trailing comment. */
@@ -39,13 +38,19 @@ function indentOf(line) {
 }
 
 /**
- * @param {{ workflows: { path: string, text: string }[], policy: string }} input
+ * @param {{ files: { path: string, text: string }[], policy: string }} input
  * @returns {string[]} one message per problem; empty when every pin is valid.
  */
-export function checkActionPins({ workflows, policy }) {
-  const recorded = recordedShas(policy);
+export function checkActionPins({ files, policy }) {
+  const section = pinsSection(policy);
+  if (section === null) {
+    return [
+      `${POLICY_PATH} has no "${SECTION}" section to record action pins in`,
+    ];
+  }
+  const recorded = new Set(section.match(SHA_TOKEN) ?? []);
   const problems = [];
-  for (const { path, text } of workflows) {
+  for (const { path, text } of files) {
     // Indent of the key that opened the block scalar we're inside, if any.
     let blockIndent = null;
     text.split(/\r?\n/).forEach((line, index) => {
@@ -75,7 +80,7 @@ export function checkActionPins({ workflows, policy }) {
         );
       } else if (!recorded.has(pinned[1])) {
         problems.push(
-          `${where}: ${pinned[1]} isn't recorded under "GitHub Actions" in ${POLICY_PATH}; review the action and record it there`,
+          `${where}: ${pinned[1]} isn't recorded under "${SECTION.slice(3)}" in ${POLICY_PATH}; review the action and record it there`,
         );
       }
     });
@@ -83,18 +88,29 @@ export function checkActionPins({ workflows, policy }) {
   return problems;
 }
 
-/** Reads the workflows and the policy from a repo checkout and checks them. */
+/** Paths, relative to `root`, of the files in `dir` (searched recursively when asked) that `keep` accepts. */
+function listFiles(root, dir, keep, { recursive = false } = {}) {
+  if (!existsSync(join(root, dir))) return [];
+  return readdirSync(join(root, dir), { recursive })
+    .map((name) => `${dir}/${name.split("\\").join("/")}`)
+    .filter(keep)
+    .sort();
+}
+
+/** Reads the workflows, local composite actions and the policy from a repo checkout and checks them. */
 export function checkRepo(root) {
-  const dir = join(root, WORKFLOWS_DIR);
-  const workflows = readdirSync(dir)
-    .filter((name) => /\.ya?ml$/.test(name))
-    .sort()
-    .map((name) => ({
-      path: `${WORKFLOWS_DIR}/${name}`,
-      text: readFileSync(join(dir, name), "utf8"),
-    }));
+  const paths = [
+    ...listFiles(root, WORKFLOWS_DIR, (path) => /\.ya?ml$/.test(path)),
+    ...listFiles(root, ACTIONS_DIR, (path) => /\/action\.ya?ml$/.test(path), {
+      recursive: true,
+    }),
+  ];
+  const files = paths.map((path) => ({
+    path,
+    text: readFileSync(join(root, path), "utf8"),
+  }));
   const policy = readFileSync(join(root, POLICY_PATH), "utf8");
-  return checkActionPins({ workflows, policy });
+  return checkActionPins({ files, policy });
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
