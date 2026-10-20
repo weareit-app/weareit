@@ -1,6 +1,6 @@
 # Storybook and component review
 
-Storybook shows the app's components one at a time, on web, in light and dark. Its main job is pull-request review: seeing what a change did to the components without walking through the app.
+Storybook shows the app's components one at a time, on web, in light and dark. Storybook's main job here is pull-request review: seeing what a change did to the components without walking through the app.
 
 ## Running it
 
@@ -11,7 +11,7 @@ pnpm storybook:review <ref>     # compared with another branch or commit
 pnpm storybook:review --no-base # every story, no comparison
 ```
 
-`storybook:review` builds Storybook for the current checkout and for its merge base with the compared ref (in a temporary Git worktree, installed from the pnpm store). It then screenshots every story in light and dark with Playwright and writes `apps/app/storybook-review/index.html`. The report lists stories that fail to render, stories that changed (before, after, and a difference image with changed pixels in magenta), new stories, and removed ones. To review a pull request, check out its branch and run it. A merge base's build is kept between runs, so later runs only build the branch. Motion is reduced for the screenshots, so animated components hold still. The command exits non-zero when a story fails to render.
+`storybook:review` builds Storybook for the current checkout and for its merge base with the compared ref (in a temporary Git worktree, installed from the pnpm store). The script then screenshots every story in light and dark with Playwright and writes `apps/app/storybook-review/index.html`. The report lists stories that fail to render, stories that changed (before, after, and a difference image with changed pixels in magenta), new stories, and removed ones. To review a pull request, check out its branch and run the command. Uncommitted changes count as part of the branch. A merge base's build is kept between runs, so later runs only build the branch. Motion is reduced for the screenshots, so animated components hold still. The command exits non-zero when a story fails to render.
 
 If the compared ref has no Storybook yet, every story is listed as new.
 

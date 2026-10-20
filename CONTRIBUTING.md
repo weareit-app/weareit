@@ -33,7 +33,7 @@ pnpm run lint
 
 ## Components and Storybook
 
-Each UI component has stories next to it (`*.stories.tsx`). Browse them with `pnpm storybook`. To see what a branch changed in the components, run `pnpm storybook:review`: it compares every story, in light and dark, with `origin/master` and writes a report. See `docs/architecture/storybook.md`.
+UI components have stories next to them (`*.stories.tsx`). Browse them with `pnpm storybook`. To see what a branch changed in the components, run `pnpm storybook:review`, which compares every story, in light and dark, with `origin/master` and writes a report. See `docs/architecture/storybook.md`.
 
 ## Project boundaries
 

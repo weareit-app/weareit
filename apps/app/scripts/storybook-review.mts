@@ -116,52 +116,69 @@ async function shoot(
     viewport: { width: 800, height: 600 },
     reducedMotion: "reduce",
   });
-  const shootOne = async (story: (typeof stories)[number], theme: Theme) => {
+  const shootOne = async (
+    story: (typeof stories)[number],
+    theme: Theme,
+  ): Promise<Shot> => {
+    const file = `${story.id}--${theme}.png`;
+    const shot = { id: story.id, title: story.title, name: story.name, theme };
     const page = await context.newPage();
     const errors: string[] = [];
     page.on("pageerror", (error) => errors.push(error.message));
-    await page.goto(
-      `${url}/iframe.html?id=${story.id}&viewMode=story&globals=theme:${theme}`,
-    );
-    // Rendered, played and settled: done, or Storybook's error screen.
-    await page
-      .waitForFunction(
-        () =>
-          document.body.classList.contains("sb-show-errordisplay") ||
-          ["completed", "finished"].includes(
-            (
+    try {
+      await page.goto(
+        `${url}/iframe.html?id=${story.id}&viewMode=story&globals=theme:${theme}`,
+      );
+      // Settled (rendered and played), failed, or showing Storybook's error
+      // screen.
+      const phase = await page
+        .waitForFunction(
+          () => {
+            const current = (
               window as {
                 __STORYBOOK_PREVIEW__?: {
                   currentRender?: { phase?: string };
                 };
               }
-            ).__STORYBOOK_PREVIEW__?.currentRender?.phase ?? "",
-          ),
-        undefined,
-        { timeout: 15_000 },
-      )
-      .catch(() => errors.push("Timed out waiting for the story to render."));
-    await page.evaluate(() => document.fonts.ready);
-    // Past the loader's delay, so it shows.
-    await page.waitForTimeout(400);
-    const shown = await page.evaluate(() =>
-      document.body.classList.contains("sb-show-errordisplay")
-        ? (document.querySelector("#error-message")?.textContent ??
-          "Storybook showed an error.")
-        : null,
-    );
-    if (shown) errors.unshift(shown);
-    const file = `${story.id}--${theme}.png`;
-    await page.screenshot({ path: join(shotsDir, file), fullPage: true });
-    await page.close();
-    return {
-      id: story.id,
-      title: story.title,
-      name: story.name,
-      theme,
-      file,
-      ...(errors.length > 0 && { error: errors.join("\n") }),
-    };
+            ).__STORYBOOK_PREVIEW__?.currentRender?.phase;
+            if (document.body.classList.contains("sb-show-errordisplay"))
+              return "errored";
+            return ["completed", "finished", "errored", "aborted"].includes(
+              current ?? "",
+            )
+              ? current
+              : false;
+          },
+          undefined,
+          { timeout: 15_000 },
+        )
+        .then((handle) => handle.jsonValue())
+        .catch(() => "timed out");
+      await page.evaluate(() => document.fonts.ready);
+      // Past the loader's delay, so it shows.
+      await page.waitForTimeout(400);
+      const message = await page.evaluate(
+        () => document.querySelector("#error-message")?.textContent ?? null,
+      );
+      if (phase === "errored")
+        errors.unshift(message ?? "Storybook reported an error.");
+      else if (phase === "aborted") errors.unshift("The story was aborted.");
+      else if (phase === "timed out")
+        errors.push("Timed out waiting for the story to render.");
+      await page.screenshot({ path: join(shotsDir, file), fullPage: true });
+      return {
+        ...shot,
+        file,
+        ...(errors.length > 0 && { error: errors.join("\n") }),
+      };
+    } catch (error) {
+      // The page itself failed (navigation or screenshot): report the story
+      // as broken and carry on with the rest.
+      errors.unshift(error instanceof Error ? error.message : String(error));
+      return { ...shot, file, error: errors.join("\n") };
+    } finally {
+      await page.close();
+    }
   };
   const queue = stories.flatMap((story) =>
     themes.map((theme) => [story, theme] as const),
@@ -188,16 +205,38 @@ async function shoot(
 }
 
 // A build of the merge base, kept between runs: the same base needs building
-// only once.
+// only once. A build counts only once it has finished.
 function baseBuild(): { sha: string; staticDir: string } | null {
   const root = run("git", ["rev-parse", "--show-toplevel"], appDir);
-  run("git", ["fetch", "--quiet", "origin"], root);
+  const remote = baseRef.includes("/") ? baseRef.split("/")[0]! : null;
+  if (remote && run("git", ["remote"], root).split("\n").includes(remote)) {
+    try {
+      run("git", ["fetch", "--quiet", remote], root);
+    } catch {
+      console.warn(`Couldn't fetch ${remote}; using the local ${baseRef}.`);
+    }
+  }
   const sha = run("git", ["merge-base", baseRef, "HEAD"], root);
-  const staticDir = join(outDir, `base-${sha.slice(0, 12)}`);
-  if (existsSync(join(staticDir, "index.json"))) return { sha, staticDir };
-  const checkout = join(tmpdir(), `it-storybook-base-${sha.slice(0, 12)}`);
-  if (!existsSync(checkout))
-    run("git", ["worktree", "add", "--quiet", "--detach", checkout, sha], root);
+  const short = sha.slice(0, 12);
+  const staticDir = join(outDir, `base-${short}`);
+  const done = join(staticDir, ".complete");
+  if (existsSync(done)) return { sha, staticDir };
+
+  // A fresh checkout each time: drop what an interrupted run left behind.
+  const checkout = join(tmpdir(), `it-storybook-base-${short}`);
+  run("git", ["worktree", "prune"], root);
+  if (existsSync(checkout)) {
+    try {
+      execFileSync("git", ["worktree", "remove", "--force", checkout], {
+        cwd: root,
+        stdio: "ignore",
+      });
+    } catch {
+      // Not a registered worktree, only a leftover folder.
+      rmSync(checkout, { recursive: true, force: true });
+    }
+  }
+  run("git", ["worktree", "add", "--quiet", "--detach", checkout, sha], root);
   try {
     const baseApp = join(checkout, relative(root, appDir));
     if (!existsSync(join(baseApp, ".storybook", "main.ts"))) {
@@ -212,14 +251,23 @@ function baseBuild(): { sha: string; staticDir: string } | null {
       stdio: ["ignore", "ignore", "inherit"],
     });
     buildStorybook(baseApp, staticDir, baseRef);
+    writeFileSync(done, sha);
     return { sha, staticDir };
   } finally {
-    run("git", ["worktree", "remove", "--force", checkout], root);
+    // Cleanup must not hide an install or build error.
+    try {
+      run("git", ["worktree", "remove", "--force", checkout], root);
+    } catch {
+      console.warn(`Couldn't remove the temporary checkout at ${checkout}.`);
+    }
   }
 }
 
+// A failed story may have no screenshot.
 const digest = (file: string) =>
-  createHash("sha256").update(readFileSync(file)).digest("hex");
+  existsSync(file)
+    ? createHash("sha256").update(readFileSync(file)).digest("hex")
+    : null;
 
 const escape = (text: string) =>
   text.replace(
@@ -239,9 +287,10 @@ async function diffImage(
   const dataUrl = await page.evaluate(
     async ([a, b]) => {
       const load = (src: string) =>
-        new Promise<HTMLImageElement>((done) => {
+        new Promise<HTMLImageElement>((done, fail) => {
           const image = new Image();
           image.onload = () => done(image);
+          image.onerror = () => fail(new Error("Couldn't read a screenshot."));
           image.src = `data:image/png;base64,${src}`;
         });
       const [first, second] = await Promise.all([load(a!), load(b!)]);
@@ -253,24 +302,25 @@ async function diffImage(
         context.drawImage(image, 0, 0);
         return context.getImageData(0, 0, width, height);
       };
-      const x = pixels(first).data;
-      const y = pixels(second);
-      for (let i = 0; i < y.data.length; i += 4) {
+      const old = pixels(first).data;
+      const diff = pixels(second);
+      const now = diff.data;
+      for (let i = 0; i < now.length; i += 4) {
         const same =
-          x[i] === y.data[i] &&
-          x[i + 1] === y.data[i + 1] &&
-          x[i + 2] === y.data[i + 2] &&
-          x[i + 3] === y.data[i + 3];
+          old[i] === now[i] &&
+          old[i + 1] === now[i + 1] &&
+          old[i + 2] === now[i + 2] &&
+          old[i + 3] === now[i + 3];
         for (let c = 0; c < 3; c++)
-          y.data[i + c] = same
-            ? 255 - (255 - y.data[i + c]!) * 0.25
+          now[i + c] = same
+            ? 255 - (255 - now[i + c]!) * 0.25
             : [255, 0, 170][c]!;
-        y.data[i + 3] = 255;
+        now[i + 3] = 255;
       }
       const canvas = document.createElement("canvas");
       canvas.width = width;
       canvas.height = height;
-      canvas.getContext("2d")!.putImageData(y, 0, 0);
+      canvas.getContext("2d")!.putImageData(diff, 0, 0);
       return canvas.toDataURL("image/png");
     },
     [readFileSync(before, "base64"), readFileSync(after, "base64")],
@@ -285,12 +335,11 @@ async function report(
   base: Shot[] | null,
   baseLabel: string,
 ) {
-  const key = (shot: Shot) => shot.file;
-  const baseByKey = new Map((base ?? []).map((shot) => [key(shot), shot]));
-  const headKeys = new Set(head.map(key));
+  const baseByFile = new Map((base ?? []).map((shot) => [shot.file, shot]));
+  const headFiles = new Set(head.map((shot) => shot.file));
   const broken = head.filter((shot) => shot.error);
   const changed = head.filter((shot) => {
-    const before = baseByKey.get(key(shot));
+    const before = baseByFile.get(shot.file);
     return (
       !shot.error &&
       before &&
@@ -300,23 +349,28 @@ async function report(
   });
   // With no comparison, every story is listed.
   const added = head.filter(
-    (shot) => !shot.error && (!base || !baseByKey.has(key(shot))),
+    (shot) => !shot.error && (!base || !baseByFile.has(shot.file)),
   );
-  const removed = (base ?? []).filter((shot) => !headKeys.has(key(shot)));
+  const removed = (base ?? []).filter((shot) => !headFiles.has(shot.file));
   const diffDir = join(outDir, "diff");
   rmSync(diffDir, { recursive: true, force: true });
   mkdirSync(diffDir, { recursive: true });
-  for (const shot of changed)
-    await diffImage(
-      browser,
-      join(outDir, "base", baseByKey.get(key(shot))!.file),
-      join(outDir, "head", shot.file),
-      join(diffDir, shot.file),
-    );
+  for (const shot of changed) {
+    const before = join(outDir, "base", baseByFile.get(shot.file)!.file);
+    if (existsSync(before))
+      await diffImage(
+        browser,
+        before,
+        join(outDir, "head", shot.file),
+        join(diffDir, shot.file),
+      );
+  }
 
   const captions = { base: "Before", head: "After", diff: "Difference" };
   const img = (side: keyof typeof captions, shot: Shot) =>
-    `<figure><figcaption>${captions[side]}</figcaption><img src="${side}/${shot.file}" loading="lazy"></figure>`;
+    existsSync(join(outDir, side, shot.file))
+      ? `<figure><figcaption>${captions[side]}</figcaption><img src="${side}/${shot.file}" loading="lazy"></figure>`
+      : "";
   const card = (shot: Shot, body: string) =>
     `<section><h3>${escape(shot.title)} · ${escape(shot.name)} <small>${shot.theme}</small></h3><div class="pair">${body}</div></section>`;
   const group = (
@@ -342,7 +396,7 @@ async function report(
 <p>${escape(baseLabel)} · ${head.length / themes.length} stories, light and dark.
 ${base && broken.length + changed.length + added.length + removed.length === 0 ? "<strong>No visible changes.</strong>" : ""}</p>
 ${group("Fails to render", broken, (shot) => `<pre>${escape(shot.error ?? "")}</pre>${img("head", shot)}`)}
-${group("Changed", changed, (shot) => img("base", baseByKey.get(key(shot))!) + img("head", shot) + img("diff", shot))}
+${group("Changed", changed, (shot) => img("base", baseByFile.get(shot.file)!) + img("head", shot) + img("diff", shot))}
 ${group(base ? "New" : "All stories", added, (shot) => img("head", shot))}
 ${group("Removed", removed, (shot) => img("base", shot))}`;
   const file = join(outDir, "index.html");

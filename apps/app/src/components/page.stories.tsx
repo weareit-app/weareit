@@ -1,15 +1,27 @@
 import type { Meta, StoryObj } from "@storybook/react-native-web-vite";
-import { Text } from "./text";
+import { fn } from "storybook/test";
+import { personalPain } from "../stories/content";
+import { ChoiceCard } from "./choice-card";
 import { Page } from "./page";
 
+const procrastination = personalPain("procrastination");
+
+// Copy from the Support It page (app/support-it.tsx).
 const meta = {
   component: Page,
   args: {
-    eyebrow: "For you",
-    title: "What weighs on you?",
+    eyebrow: "Optional support",
+    title: "Help keep the work moving.",
     description:
-      "Pick anything that's been hard lately. Your answers stay on this device.",
-    children: <Text className="text-ink-soft">Page content goes here.</Text>,
+      "People can contribute time, ideas, introductions, or money. Supporting It is optional and does not unlock a better version of the product.",
+    children: (
+      <ChoiceCard
+        title={procrastination.title}
+        description={procrastination.description}
+        selected={false}
+        onPress={fn()}
+      />
+    ),
   },
   // Page brings its own padding and paper.
   parameters: { padded: false },
