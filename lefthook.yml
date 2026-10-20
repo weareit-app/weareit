@@ -4,11 +4,8 @@ pre-commit:
   parallel: true
   jobs:
     - name: format
-      # Code only: docs, research data and vendored skills are not Prettier-formatted.
-      glob: "*.{ts,tsx,mts,cts,js,jsx,mjs,cjs}"
-      exclude:
-        - ".claude/**"
-        - ".agents/**"
+      # Formats only what `.prettierignore` lets through (code, not docs), the same files
+      # CI checks with `pnpm run lint`. Prettier skips the ignored ones silently.
       run: pnpm exec prettier --write {staged_files}
       stage_fixed: true
     - name: typecheck

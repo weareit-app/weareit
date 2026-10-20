@@ -31,7 +31,7 @@ pnpm run typecheck
 pnpm run lint
 ```
 
-`pnpm install` also installs a git pre-commit hook ([Lefthook](https://lefthook.dev), configured in `lefthook.yml`). When a commit includes code, it formats the staged JavaScript and TypeScript files with Prettier and restages them, then runs the typecheck and the Vitest unit tests. Commits that only touch docs skip it. To skip it once, use `git commit --no-verify`.
+`pnpm install` also installs a git pre-commit hook ([Lefthook](https://lefthook.dev), configured in `lefthook.yml`). It formats the staged JavaScript and TypeScript files with Prettier and restages them, then, when the commit includes code, runs the typecheck and the Vitest unit tests. `.prettierignore` decides which files count as code for both the hook and `pnpm run lint` (which CI runs); docs are not Prettier-formatted. To skip it once, use `git commit --no-verify`.
 
 ## Project boundaries
 
