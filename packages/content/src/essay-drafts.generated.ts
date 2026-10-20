@@ -347,7 +347,7 @@ export const draftEssays: Partial<Record<string, Essay>> = {
                 {
                   type: "text",
                   value:
-                    "The exact wording of an exception to the AGPL that lets the app be offered through Apple's App Store.",
+                    "The exact wording and scope of an exception to the AGPL that lets the app be offered through Apple's App Store.",
                 },
               ],
             },
@@ -359,7 +359,7 @@ export const draftEssays: Partial<Record<string, Essay>> = {
                 {
                   type: "text",
                   value:
-                    "The terms for contributing, which say what rights a contributor grants for code, data, prose and illustrations.",
+                    "How people contribute: either a sign-off on each contribution (a Developer Certificate of Origin) or a signed contributor agreement, and what rights a contributor grants for code, data, prose and illustrations.",
                 },
               ],
             },
@@ -370,7 +370,8 @@ export const draftEssays: Partial<Record<string, Essay>> = {
               children: [
                 {
                   type: "text",
-                  value: "A trademark policy for the name and the logo.",
+                  value:
+                    "A trademark policy, and governance rules that protect It's mission and its name.",
                 },
               ],
             },
@@ -388,7 +389,7 @@ export const draftEssays: Partial<Record<string, Essay>> = {
           {
             type: "text",
             value:
-              "We intend for the people who use It to share in owning and running it, and for It's core to stay available for anyone to run on their own servers. Today that is an intention, not a commitment: It is one person and a small company, and nothing about shared ownership has been written into a legal document yet. A license alone can't promise it, so it will need its own governance documents ",
+              "We intend for the people who use It to share in owning and running it, and for It's core to stay available for anyone to run on their own servers. Today that is an intention, not a commitment: It is one person and a small company, and nothing about shared ownership has been written into a legal document yet. A license alone can't promise shared ownership, so that will need its own governance documents ",
           },
           { type: "status", label: "open question" },
           { type: "text", value: "." },
@@ -503,7 +504,7 @@ export const draftEssays: Partial<Record<string, Essay>> = {
           {
             type: "text",
             value:
-              "Occupation and skill names come from ESCO, the European classification of skills, competences and occupations, published by the European Commission under the Creative Commons Attribution 4.0 International license (CC BY 4.0). We've changed some of the names to make them clearer, so a name you see here may differ from ESCO's. ",
+              "Occupation and skill names come from ESCO, the European classification of skills, competences and occupations, published by the European Commission under the Creative Commons Attribution 4.0 International license (CC BY 4.0). We've changed some of the names to make them clearer, so a name you see in It may differ from ESCO's. ",
           },
           {
             type: "link",

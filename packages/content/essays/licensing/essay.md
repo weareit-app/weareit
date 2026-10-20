@@ -45,13 +45,13 @@ These are the licenses we've chosen for each kind of material[^licensing-decisio
 
 Before outside contributions are accepted, three documents need to exist:
 
-1. The exact wording of an exception to the AGPL that lets the app be offered through Apple's App Store.
-2. The terms for contributing, which say what rights a contributor grants for code, data, prose and illustrations.
-3. A trademark policy for the name and the logo.
+1. The exact wording and scope of an exception to the AGPL that lets the app be offered through Apple's App Store.
+2. How people contribute: either a sign-off on each contribution (a Developer Certificate of Origin) or a signed contributor agreement, and what rights a contributor grants for code, data, prose and illustrations.
+3. A trademark policy, and governance rules that protect It's mission and its name.
 
 ## Shared ownership
 
-We intend for the people who use It to share in owning and running it, and for It's core to stay available for anyone to run on their own servers. Today that is an intention, not a commitment: It is one person and a small company, and nothing about shared ownership has been written into a legal document yet. A license alone can't promise it, so it will need its own governance documents :status[open question].
+We intend for the people who use It to share in owning and running it, and for It's core to stay available for anyone to run on their own servers. Today that is an intention, not a commitment: It is one person and a small company, and nothing about shared ownership has been written into a legal document yet. A license alone can't promise shared ownership, so that will need its own governance documents :status[open question].
 
 ## Credits
 
@@ -66,6 +66,6 @@ It uses work published by other people. Naming it here doesn't mean they endorse
 
 The Help build It page, which is coming soon, lets people describe what they know. That page uses these lists.
 
-Occupation and skill names come from ESCO, the European classification of skills, competences and occupations, published by the European Commission under the Creative Commons Attribution 4.0 International license (CC BY 4.0). We've changed some of the names to make them clearer, so a name you see here may differ from ESCO's. [ESCO's website](https://esco.ec.europa.eu) and [the CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/).
+Occupation and skill names come from ESCO, the European classification of skills, competences and occupations, published by the European Commission under the Creative Commons Attribution 4.0 International license (CC BY 4.0). We've changed some of the names to make them clearer, so a name you see in It may differ from ESCO's. [ESCO's website](https://esco.ec.europa.eu) and [the CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/).
 
 Education levels and fields of study come from the International Standard Classification of Education (ISCED 2011), published by the UNESCO Institute for Statistics. [ISCED on the UNESCO Institute for Statistics website](https://uis.unesco.org/en/topic/international-standard-classification-education-isced).

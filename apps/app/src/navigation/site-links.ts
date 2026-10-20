@@ -76,6 +76,17 @@ export const menuExtras: SiteLink[] = [
   { label: "Account", href: "/account", when: "signed-in", published: false },
 ];
 
+/** Whether a page is published in the footer: in a group or the bottom line. */
+export function isListedPage(
+  href: string,
+  groups: SiteGroup[] = siteGroups,
+  bottomLine: SiteLink[] = siteBottomLine,
+) {
+  return [...groups.flatMap((group) => group.links), ...bottomLine].some(
+    (link) => link.href === href && link.published,
+  );
+}
+
 type Viewer = { signedIn: boolean };
 
 export function visibleLinks(links: SiteLink[], { signedIn }: Viewer) {

@@ -13,7 +13,7 @@ export type Credit = {
 };
 
 export const escoCredit: Credit = {
-  text: "Occupation and skill names come from ESCO, the European classification of skills, competences and occupations, published by the European Commission under the Creative Commons Attribution 4.0 International license (CC BY 4.0). We've changed some of the names to make them clearer, so a name you see here may differ from ESCO's.",
+  text: "Occupation and skill names come from ESCO, the European classification of skills, competences and occupations, published by the European Commission under the Creative Commons Attribution 4.0 International license (CC BY 4.0). We've changed some of the names to make them clearer, so a name you see in It may differ from ESCO's.",
   url: "https://esco.ec.europa.eu",
   licenseUrl: "https://creativecommons.org/licenses/by/4.0/",
 };

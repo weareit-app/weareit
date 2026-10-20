@@ -22,9 +22,9 @@ jest.mock("expo-router", () => ({
     return createElement(Text, null, "This screen doesn't exist.");
   },
 }));
-jest.mock("../src/navigation/site-links", () => ({
-  ...jest.requireActual("../src/navigation/site-links"),
-  siteGroups: [
+jest.mock("../src/navigation/site-links", () => {
+  const actual = jest.requireActual("../src/navigation/site-links");
+  const siteGroups = [
     {
       title: "About It",
       links: [
@@ -32,16 +32,23 @@ jest.mock("../src/navigation/site-links", () => ({
         { label: "AI", href: "/ai", when: "always", published: false },
       ],
     },
-  ],
-  siteBottomLine: [
+  ];
+  const siteBottomLine = [
     {
       label: "Licensing",
       href: "/licensing",
       when: "always",
       published: true,
     },
-  ],
-}));
+  ];
+  return {
+    ...actual,
+    siteGroups,
+    siteBottomLine,
+    isListedPage: (href: string) =>
+      actual.isListedPage(href, siteGroups, siteBottomLine),
+  };
+});
 jest.mock("../src/watercolor/brand-mark", () => ({ BrandMark: () => null }));
 jest.mock("react-native-reanimated", () => ({ useReducedMotion: () => false }));
 
