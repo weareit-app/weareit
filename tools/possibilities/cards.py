@@ -121,11 +121,16 @@ def resolve_pain(root, pain_id):
     return pain_id, notes
 
 
-def wording_at(record, date):
-    """The pain's name and line on a date: the "from" of the first reword after it, else the current wording."""
+def wording_at(record, started):
+    """The pain's name and line when a run started: the "from" of the first reword after it, else the current wording.
+
+    A history entry with a full timestamp ("at") is compared exactly; one with only a date counts as after a run
+    started that same day, so a same-day reword is never missed."""
+    def after(h):
+        return h['at'] > started if h.get('at') else h['date'] >= started[:10]
     for h in sorted((h for h in record.get('history', []) if h.get('kind') == 'reword' and h.get('from')),
-                    key=lambda h: h['date']):
-        if h['date'] > date:
+                    key=lambda h: h.get('at') or h['date']):
+        if after(h):
             return {'name': h['from'].get('name', record['name']), 'line': h['from'].get('line', record['line'])}
     return {'name': record['name'], 'line': record['line']}
 
@@ -135,7 +140,7 @@ def stale(root):
     records, found, checked = pain_records(root), [], 0
     for meta in sorted((data_root(root) / 'runs').glob('*/*/run.json')):
         run, checked = read(meta), checked + 1
-        pain, started = run.get('painId') or meta.parent.parent.name, (run.get('startedAt') or '')[:10]
+        pain, started = run.get('painId') or meta.parent.parent.name, run.get('startedAt') or ''
         entry = {'run': str(meta.parent.relative_to(root)), 'painId': pain}
         record = records.get(pain)
         if not record:
@@ -145,7 +150,8 @@ def stale(root):
             survivor, _ = resolve_pain(root, pain)
             found.append({**entry, 'reason': 'merged into ' + survivor})
             continue
-        if any(h.get('kind') == 'split' and h['date'] >= started for h in record.get('history', [])):
+        if any(h.get('kind') == 'split' and (h['at'] > started if h.get('at') else h['date'] >= started[:10])
+               for h in record.get('history', [])):
             found.append({**entry, 'reason': 'split since the run'})
             continue
         used = ({'name': run['painName'], 'line': run['painLine']} if run.get('painLine')

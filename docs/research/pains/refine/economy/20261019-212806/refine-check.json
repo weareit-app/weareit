@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "issues": [],
+  "moves": [
+    {
+      "painId": "cant-afford-kids",
+      "from": "economy",
+      "to": "kids",
+      "sorts": [
+        "kids",
+        "kids",
+        "kids"
+      ]
+    },
+    {
+      "painId": "childcare-costs",
+      "from": "economy",
+      "to": "kids",
+      "sorts": [
+        "kids",
+        "kids",
+        "kids"
+      ]
+    },
+    {
+      "painId": "homelessness",
+      "from": "economy",
+      "to": "community",
+      "sorts": [
+        "community",
+        "community",
+        "community"
+      ]
+    },
+    {
+      "painId": "hunger",
+      "from": "economy",
+      "to": "health",
+      "sorts": [
+        "health",
+        "health",
+        "health"
+      ]
+    },
+    {
+      "painId": "it-all-goes-up",
+      "from": "economy",
+      "to": "fairness",
+      "sorts": [
+        "fairness",
+        "fairness",
+        "fairness"
+      ]
+    },
+    {
+      "painId": "town-dying",
+      "from": "economy",
+      "to": "community",
+      "sorts": [
+        "community",
+        "community",
+        "community"
+      ]
+    }
+  ],
+  "disagreements": [
+    {
+      "painId": "cant-afford-kids",
+      "current": "economy",
+      "sorts": [
+        "kids",
+        "kids",
+        "kids"
+      ]
+    },
+    {
+      "painId": "childcare-costs",
+      "current": "economy",
+      "sorts": [
+        "kids",
+        "kids",
+        "kids"
+      ]
+    },
+    {
+      "painId": "homelessness",
+      "current": "economy",
+      "sorts": [
+        "community",
+        "community",
+        "community"
+      ]
+    },
+    {
+      "painId": "hunger",
+      "current": "economy",
+      "sorts": [
+        "health",
+        "health",
+        "health"
+      ]
+    },
+    {
+      "painId": "it-all-goes-up",
+      "current": "economy",
+      "sorts": [
+        "fairness",
+        "fairness",
+        "fairness"
+      ]
+    },
+    {
+      "painId": "town-dying",
+      "current": "economy",
+      "sorts": [
+        "community",
+        "community",
+        "community"
+      ]
+    }
+  ],
+  "checkedAt": "2026-10-19"
+}

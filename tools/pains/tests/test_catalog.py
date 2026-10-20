@@ -419,8 +419,8 @@ class RefineTest(Base):
         flags = catalog.balance(doc, 'societal')['flags']
         self.assertIn({'group': 'safety', 'shown': 1, 'median': 4.0, 'flag': 'small'}, flags)
 
-    def test_real_catalog_flags_safety_small_and_people_large(self):
-        flags = {f['group']: f['flag'] for f in catalog.balance(catalog.load(ROOT), 'all')['flags']}
+    def test_seeded_catalog_flags_safety_small_and_people_large(self):
+        flags = {f['group']: f['flag'] for f in catalog.balance(catalog.seed(ROOT), 'all')['flags']}
         self.assertEqual((flags.get('safety'), flags.get('people')), ('small', 'large'))
 
 
@@ -477,6 +477,12 @@ class ReviewTest(Base):
         out = catalog.review_build(self.tmp, [refine])
         self.assertEqual(out['later'], 1)
         self.assertEqual(catalog.read(self.tmp / out['set'] / 'proposals.json')['proposals'][0]['painIds'], ['debt'])
+
+    def test_same_overlap_from_two_runs_is_shown_once(self):
+        sweep, refine = fixture_runs(self.tmp)
+        out = catalog.review_build(self.tmp, [refine, refine])
+        self.assertEqual(out['byKind']['merge'], 1)
+        self.assertEqual(out['byKind']['reword'], 2)
 
     def test_unchecked_run_is_refused(self):
         sweep, refine = fixture_runs(self.tmp)
@@ -558,6 +564,15 @@ class IngestTest(Base):
         self.assertEqual(doc['pains']['scams-and-fraud']['status'], 'rejected')
         again = catalog.check_candidates(doc, {'candidates': {'scam-losses': candidate('scam-losses', covers=[{'list': 'gallup-mip', 'entry': 'scams-and-fraud'}])}})
         self.assertEqual(again['skipped'], [{'candidate': 'scam-losses', 'reason': 'rejected earlier as scams-and-fraud'}])
+
+    def test_duplicate_reject_moves_coverage_to_the_twin(self):
+        self.ingest({self.pid('add', 'scams-and-fraud'): {'decision': 'reject', 'duplicateOf': ['debt'], 'note': 'same as debt'}})
+        doc = catalog.load(self.tmp)
+        self.assertEqual(doc['pains']['scams-and-fraud']['covers'], [])
+        self.assertIn({'list': 'gallup-mip', 'entry': 'scams-and-fraud'}, doc['pains']['debt']['covers'])
+        self.assertEqual(doc['pains']['scams-and-fraud']['history'][0]['duplicateOf'], ['debt'])
+        with self.assertRaises(catalog.CheckError):
+            catalog.ingest(self.tmp, self.set_dir, self.tmp / 'decisions.json', client=self.cms)
 
     def test_new_shown_pain_waits_for_futures(self):
         out = self.ingest({self.pid('add', 'scams-and-fraud'): {'decision': 'alternative', 'choice': 0}})

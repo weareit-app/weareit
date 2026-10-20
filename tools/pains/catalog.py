@@ -709,7 +709,14 @@ def review_build(root, runs, name=None, extra=()):
             p['origin'] = str(run.relative_to(root))
         proposals += found
     later = read(root / LATER)['proposals'] if (root / LATER).is_file() else []
-    proposals = later + proposals
+    found_all, proposals, seen = later + proposals, [], set()
+    for p in found_all:
+        # Two refine runs can propose the same overlap action (a pair spanning both scopes); show it once.
+        key = (p['kind'], frozenset(p['painIds'])) if p['kind'] in ('keep', 'other-page', 'merge') else None
+        if key and key in seen:
+            continue
+        seen.add(key)
+        proposals.append(p)
     for n, p in enumerate(proposals, 1):
         p.setdefault('draft', False)
         p.setdefault('side', [])
@@ -748,6 +755,7 @@ def apply_decisions(catalog, proposals_doc, decisions_doc, date=None):
     """Apply accepted decisions to a copy of the catalog. Returns (catalog, touched IDs, log, later, issues)."""
     import copy
     date = date or today()
+    stamp = datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat()
     catalog = copy.deepcopy(catalog)
     pains = catalog['pains']
     decisions = decisions_doc['decisions']
@@ -768,7 +776,7 @@ def apply_decisions(catalog, proposals_doc, decisions_doc, date=None):
         if p.get('draft') and decision in ('accept', 'alternative'):
             issues.append('%s: a draft without an opened source can only be added as the founder\'s own' % p['id'])
             continue
-        entry = {'date': date, 'prompt': '%s (%s, review %s %s)' % (p['why'].get('prompt', ''), p.get('origin', ''), set_id, p['id']),
+        entry = {'date': date, 'at': stamp, 'prompt': '%s (%s, review %s %s)' % (p['why'].get('prompt', ''), p.get('origin', ''), set_id, p['id']),
                  'note': d.get('note', '')}
 
         def note(pain_id, **fields):
@@ -782,6 +790,20 @@ def apply_decisions(catalog, proposals_doc, decisions_doc, date=None):
                     continue
                 pains[c['id']] = new_record(c, c, 'rejected', 'not-shown')
                 pains[c['id']]['history'] = [{**entry, 'kind': 'reject', 'proposed': {'name': c['name'], 'line': c['line']}}]
+                twins = d.get('duplicateOf', [])
+                missing = [t for t in twins if t not in pains]
+                if missing:
+                    issues.append('%s: duplicate of unknown pain %s' % (p['id'], ', '.join(missing)))
+                    continue
+                if twins:
+                    # A duplicate, not out of scope: its sources count as covered by the pains it duplicates.
+                    record = pains[c['id']]
+                    for twin in twins:
+                        pains[twin]['covers'] += [cv for cv in record['covers'] if cv not in pains[twin]['covers']]
+                        record['relations'].append({'kind': 'overlaps', 'id': twin})
+                        note(twin, kind='duplicate-covered', **{'from': c['id']})
+                    record['covers'] = []
+                    record['history'][0]['duplicateOf'] = twins
             else:
                 for pain_id in p['painIds']:
                     if pain_id in pains:

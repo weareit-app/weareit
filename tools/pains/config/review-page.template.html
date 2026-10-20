@@ -41,6 +41,7 @@ article { background: var(--surface); border: 1px solid var(--line); border-radi
 .name { font-weight: 600; margin: 0; }
 .line { font-family: var(--font-display); font-style: italic; margin: 0; }
 .why { margin: 0; }
+.help { margin: 0; font-size: 0.9rem; background: var(--bg); border-radius: 6px; padding: 8px 10px; }
 .why ul { margin: 4px 0 0; padding-left: 20px; }
 .side { font-size: 0.9rem; }
 .decide { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -99,6 +100,23 @@ button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-
 <script>
 const DATA = /*__DATA__*/;
 const KEY = 'pain-review:' + DATA.setId;
+const HELP = {
+  add: 'Accept adds it to the catalog, not shown on the page. Alternative 2 adds it and shows it. Reject keeps it out; say in the note if it duplicates a pain.',
+  reword: 'Accept uses the proposed wording. The old wording is kept as another way people say it.',
+  merge: 'Accept retires the first pain into the second; old links keep working. Reject keeps both.',
+  split: 'Accept splits the pain in two. Reject keeps it as one.',
+  keep: 'Accept keeps these as two separate pains. Reject means they overlap too much, and the next round proposes a merge.',
+  'other-page': 'Accept links these two pains across the personal and societal pages. Both stay.',
+  move: 'Accept moves the pain to the proposed group. Reject leaves it where it is.',
+  drift: 'Accept takes the editor\'s wording into the catalog. Reject leaves the catalog as it is.'
+};
+const LABELS = {
+  keep: ['Pain 1', 'Pain 2', 'Alternative'], 'other-page': ['Pain 1', 'Pain 2', 'Alternative'],
+  merge: ['Retired', 'Kept', 'Or keep this one instead'], split: ['Now', 'Becomes', 'Alternative'],
+  add: ['Now', 'Proposed', 'Alternative'], move: ['Now', 'Proposed', 'Or this group'], reword: ['Now', 'Proposed', 'Alternative'],
+  drift: ['Catalog', 'Editor', 'Alternative']
+};
+const label = (p, i, n) => { const l = LABELS[p.kind] || ['Now', 'Proposed', 'Alternative']; return i < 2 ? l[i] : l[2] + (l[2] === 'Alternative' ? ' ' + n : ''); };
 const KIND = { add: 'New pain', reword: 'Reword', merge: 'Merge', split: 'Split', keep: 'Keep both', 'other-page': 'Link across pages', move: 'Move group', drift: 'Editor wording' };
 let decisions = {};
 try { decisions = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { decisions = {}; }
@@ -131,9 +149,10 @@ function render() {
   card.innerHTML =
     '<p class="kind" id="card-title">' + esc(KIND[p.kind] || p.kind) + (p.newEvidence ? ' · new evidence' : '') + (p.draft ? ' · draft: no opened source' : '') + ' · ' + esc(p.painIds.join(', ')) + '</p>' +
     '<p class="state" data-d="' + esc(d ? d.decision : '') + '">' + (d ? 'Decided: ' + esc(d.decision) + (d.decision === 'alternative' ? ' ' + (d.choice + 2) : '') : 'Not decided yet') + '</p>' +
-    '<div class="compare"><section aria-label="Now"><h2>Now</h2>' + wording(p.current) + '</section>' +
-    '<section aria-label="Proposed"><h2>Proposed</h2>' + wording(p.proposed) + '</section>' +
-    alts.map((a, i) => '<section aria-label="Alternative ' + (i + 2) + '"><h2>Alternative ' + (i + 2) + '</h2>' + wording(a) + '</section>').join('') + '</div>' +
+    '<p class="help">' + esc(HELP[p.kind] || '') + '</p>' +
+    '<div class="compare"><section aria-label="' + label(p, 0) + '"><h2>' + label(p, 0) + '</h2>' + wording(p.current) + '</section>' +
+    '<section aria-label="' + label(p, 1) + '"><h2>' + label(p, 1) + '</h2>' + wording(p.proposed) + '</section>' +
+    alts.map((a, i) => { const t = label(p, 2, i + 2) + (label(p, 2, i + 2).endsWith(String(i + 2)) ? '' : ' (key ' + (i + 2) + ')'); return '<section aria-label="' + t + '"><h2>' + t + '</h2>' + wording(a) + '</section>'; }).join('') + '</div>' +
     '<div class="why"><strong>Why:</strong> ' + esc(why.prompt) + (why.detail ? ': ' + esc(why.detail) : '') +
     (why.sources && why.sources.length ? '<ul>' + why.sources.map((s) => '<li><a href="' + esc(s.url) + '" rel="noopener noreferrer">' + esc(s.url) + '</a> (' + esc(s.accessed) + '): “' + esc(s.passage) + '”</li>').join('') + '</ul>' : '') +
     (p.rejection ? '<p class="muted">Rejected earlier on ' + esc(p.rejection.date) + ': ' + esc(p.rejection.note) + '</p>' : '') + '</div>' +

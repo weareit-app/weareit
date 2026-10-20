@@ -474,6 +474,18 @@ class Stale(Base):
         self.assertEqual(entry['reason'], 'wording changed')
         self.assertEqual((entry['old']['line'], entry['new']['line']), ("I don't sleep well.", 'I lie awake most nights.'))
 
+    def test_same_day_reword_counts_as_after_the_run(self):
+        self.run_meta('poor-sleep', started='2026-10-20T09:00:00+00:00')
+        self.catalog(lambda p: (p['poor-sleep'].update(line='I lie awake.'), p['poor-sleep']['history'].append(
+            {'date': '2026-10-20', 'kind': 'reword', 'from': {'name': 'Sleep', 'line': "I don't sleep well."}, 'to': {'name': 'Sleep', 'line': 'I lie awake.'}})))
+        self.assertEqual(self.reasons()['poor-sleep']['reason'], 'wording changed')
+
+    def test_timestamped_reword_before_the_run_is_not_stale(self):
+        self.run_meta('poor-sleep', started='2026-10-20T09:00:00+00:00', painName='Sleep', painLine='I lie awake.')
+        self.catalog(lambda p: (p['poor-sleep'].update(line='I lie awake.'), p['poor-sleep']['history'].append(
+            {'date': '2026-10-20', 'at': '2026-10-20T08:00:00+00:00', 'kind': 'reword', 'from': {'name': 'Sleep', 'line': "I don't sleep well."}, 'to': {'name': 'Sleep', 'line': 'I lie awake.'}})))
+        self.assertEqual(self.reasons(), {})
+
     def test_recorded_wording_wins_over_history(self):
         self.run_meta('poor-sleep', painName='Sleep', painLine='I sleep badly.')
         self.assertEqual(self.reasons()['poor-sleep']['old']['line'], 'I sleep badly.')

@@ -1,0 +1,68 @@
+{
+  "alternatives": {
+    "cost-of-living": [
+      {
+        "name": "Rising costs",
+        "line": "Everything costs more each year, and my pay hasn't kept up.",
+        "why": "Says what inflation feels like in a day, keeps the pay gap from the alias, and the name matches what the ID names."
+      },
+      {
+        "name": "Inflation",
+        "line": "I can't keep up as prices rise faster than my pay.",
+        "why": "Keeps the familiar name and adds the pay side, which is what makes rising prices hurt."
+      }
+    ],
+    "it-all-goes-up": [
+      {
+        "name": "Inequality",
+        "line": "I see the gap between people with plenty and people who are struggling keep growing.",
+        "why": "Same meaning, fixes the awkward \"those struggling grow\" so the sentence reads naturally out loud."
+      },
+      {
+        "name": "Growing gap",
+        "line": "I see the people who own things get more while everyone else falls behind.",
+        "why": "Brings back the earlier wording people recognized, in plainer words than \"inequality\"."
+      }
+    ],
+    "ai-and-jobs": [
+      {
+        "name": "AI job losses",
+        "line": "I worry AI will replace people's jobs and no one has a plan for them.",
+        "why": "Names the problem rather than the technology, matching the ID, and says what \"no one's ready\" means."
+      },
+      {
+        "name": "AI and jobs",
+        "line": "I worry AI will take people's work and no one's ready for it.",
+        "why": "A light touch: the name says what about AI worries people, and the line keeps its voice."
+      }
+    ],
+    "no-floor": [
+      {
+        "name": "No safety net",
+        "line": "If I lose my job or get sick, I know there's nothing to fall back on.",
+        "why": "Says what falling means in a day instead of a metaphor, and the name states the problem so it matches the heading's other problem names."
+      }
+    ],
+    "childcare-costs": [
+      {
+        "name": "Childcare costs",
+        "line": "I can't afford childcare, even though I need it to work.",
+        "why": "The name says the problem is the cost, and the line adds the bind most parents describe."
+      }
+    ],
+    "rent-eats-everything": [
+      {
+        "name": "High rent",
+        "line": "Rent takes so much of my pay that little is left for anything else.",
+        "why": "Brings back the ID's \"rent eats everything\" in plain words, and the name states the problem."
+      }
+    ],
+    "cant-afford-kids": [
+      {
+        "name": "Can't afford kids",
+        "line": "I want kids but can't afford to raise them.",
+        "why": "The earlier name says the problem plainly, where \"Starting a family\" reads like a topic, and it matches the ID."
+      }
+    ]
+  }
+}

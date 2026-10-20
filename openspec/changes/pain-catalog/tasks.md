@@ -41,8 +41,8 @@
 
 ## 7. Pilot
 
-- [ ] 7.1 Run discover and refine on Money and Economy, build the review set, and verify the founder can work through it (target 50 proposals in 20 minutes)
-- [ ] 7.2 Ingest the founder's decisions, show the draft patch, and verify nothing is published and `catalog.py validate` and `cards.py stale` run cleanly
+- [x] 7.1 Run discover and refine on Money and Economy, build the review set, and verify the founder can work through it (target 50 proposals in 20 minutes)
+- [x] 7.2 Ingest the founder's decisions, show the draft patch, and verify nothing is published and `catalog.py validate` and `cards.py stale` run cleanly
 
 ## Workflow follow-up
 

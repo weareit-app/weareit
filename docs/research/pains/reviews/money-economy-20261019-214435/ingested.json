@@ -1,0 +1,647 @@
+{
+  "set": "money-economy-20261019-214435",
+  "decided": 60,
+  "later": 0,
+  "held": [],
+  "catalogChanged": [
+    "ai-and-jobs",
+    "broke",
+    "buying-a-home",
+    "cant-afford-kids",
+    "cant-get-credit",
+    "cant-stop-working",
+    "childcare-costs",
+    "cost-of-living",
+    "credit-report-errors",
+    "debt",
+    "debt-collectors",
+    "far-away-decisions",
+    "home-is-hard",
+    "homelessness",
+    "hunger",
+    "identity-theft",
+    "insurance-costs",
+    "investments",
+    "it-all-goes-up",
+    "job-could-go",
+    "might-lose-my-home",
+    "money-skills",
+    "national-debt",
+    "no-bank-account",
+    "no-cushion",
+    "no-floor",
+    "nobody-knows-anybody",
+    "one-illness-away",
+    "parenting-is-hard",
+    "poverty",
+    "recession",
+    "rent-eats-everything",
+    "running-out-of-food",
+    "scammed",
+    "sending-money-home",
+    "study-costs",
+    "supporting-family",
+    "town-dying",
+    "unemployment",
+    "uneven-pay",
+    "utility-bills",
+    "watched-by-companies",
+    "where-youre-born"
+  ],
+  "editor": {
+    "changes": [
+      {
+        "painId": "ai-and-jobs",
+        "change": "update",
+        "title": "AI job losses",
+        "description": "I worry AI will replace people's jobs and no one has a plan for them."
+      },
+      {
+        "painId": "broke",
+        "change": "update",
+        "description": "I run out of money before my next paycheck."
+      },
+      {
+        "painId": "cant-afford-kids",
+        "change": "update",
+        "title": "Can't afford kids",
+        "description": "I want kids but can't afford to raise them."
+      },
+      {
+        "painId": "cant-stop-working",
+        "change": "update",
+        "title": "Can't retire",
+        "description": "I won't have enough to stop working when I'm older."
+      },
+      {
+        "painId": "childcare-costs",
+        "change": "update",
+        "title": "Childcare costs",
+        "description": "I can't afford childcare, even though I need it to work."
+      },
+      {
+        "painId": "cost-of-living",
+        "change": "update",
+        "title": "Rising costs",
+        "description": "Everything costs more each year, and my pay hasn't kept up."
+      },
+      {
+        "painId": "homelessness",
+        "change": "update",
+        "domainId": "community",
+        "sortOrder": 4
+      },
+      {
+        "painId": "it-all-goes-up",
+        "change": "update",
+        "description": "I see the gap grow between people with plenty and people who are struggling.",
+        "domainId": "fairness",
+        "sortOrder": 4
+      },
+      {
+        "painId": "no-cushion",
+        "change": "update",
+        "title": "No savings",
+        "description": "I couldn't cover a surprise bill if one came."
+      },
+      {
+        "painId": "no-floor",
+        "change": "update",
+        "title": "No safety net",
+        "description": "If I lose my job or get sick, I know there's nothing to fall back on."
+      },
+      {
+        "painId": "rent-eats-everything",
+        "change": "update",
+        "title": "High rent"
+      },
+      {
+        "painId": "running-out-of-food",
+        "change": "update",
+        "title": "Not enough food",
+        "description": "I worry the food won't last until my next paycheck."
+      },
+      {
+        "painId": "town-dying",
+        "change": "update",
+        "domainId": "community",
+        "sortOrder": 5
+      }
+    ],
+    "waiting": [
+      "buying-a-home",
+      "cant-get-credit",
+      "money-skills",
+      "national-debt",
+      "poverty",
+      "recession",
+      "uneven-pay",
+      "utility-bills"
+    ],
+    "conflicts": [],
+    "refused": [],
+    "warnings": [
+      "People would have 13 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "Government would have 10 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "Information would have 3 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "Safety would have 2 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "Kids would have 3 shown pains (aim for 4-8); nothing was cut or added because of it"
+    ],
+    "schemaChecked": true,
+    "revision": 2
+  },
+  "dryRun": false,
+  "log": [
+    {
+      "proposal": "p001",
+      "kind": "add",
+      "decision": "alternative",
+      "painIds": [
+        "uneven-pay"
+      ]
+    },
+    {
+      "proposal": "p002",
+      "kind": "add",
+      "decision": "alternative",
+      "painIds": [
+        "cant-get-credit"
+      ]
+    },
+    {
+      "proposal": "p003",
+      "kind": "add",
+      "decision": "accept",
+      "painIds": [
+        "no-bank-account"
+      ]
+    },
+    {
+      "proposal": "p004",
+      "kind": "add",
+      "decision": "accept",
+      "painIds": [
+        "credit-report-errors"
+      ]
+    },
+    {
+      "proposal": "p005",
+      "kind": "add",
+      "decision": "accept",
+      "painIds": [
+        "debt-collectors"
+      ]
+    },
+    {
+      "proposal": "p006",
+      "kind": "add",
+      "decision": "accept",
+      "painIds": [
+        "identity-theft"
+      ]
+    },
+    {
+      "proposal": "p007",
+      "kind": "add",
+      "decision": "accept",
+      "painIds": [
+        "supporting-family"
+      ]
+    },
+    {
+      "proposal": "p008",
+      "kind": "add",
+      "decision": "accept",
+      "painIds": [
+        "insurance-costs"
+      ]
+    },
+    {
+      "proposal": "p009",
+      "kind": "add",
+      "decision": "alternative",
+      "painIds": [
+        "money-skills"
+      ]
+    },
+    {
+      "proposal": "p010",
+      "kind": "add",
+      "decision": "accept",
+      "painIds": [
+        "sending-money-home"
+      ]
+    },
+    {
+      "proposal": "p011",
+      "kind": "add",
+      "decision": "alternative",
+      "painIds": [
+        "utility-bills"
+      ]
+    },
+    {
+      "proposal": "p012",
+      "kind": "add",
+      "decision": "accept",
+      "painIds": [
+        "investments"
+      ]
+    },
+    {
+      "proposal": "p013",
+      "kind": "add",
+      "decision": "alternative",
+      "painIds": [
+        "recession"
+      ]
+    },
+    {
+      "proposal": "p014",
+      "kind": "add",
+      "decision": "alternative",
+      "painIds": [
+        "national-debt"
+      ]
+    },
+    {
+      "proposal": "p015",
+      "kind": "add",
+      "decision": "reject"
+    },
+    {
+      "proposal": "p016",
+      "kind": "add",
+      "decision": "alternative",
+      "painIds": [
+        "buying-a-home"
+      ]
+    },
+    {
+      "proposal": "p017",
+      "kind": "add",
+      "decision": "reject"
+    },
+    {
+      "proposal": "p018",
+      "kind": "add",
+      "decision": "alternative",
+      "painIds": [
+        "poverty"
+      ]
+    },
+    {
+      "proposal": "p019",
+      "kind": "reword",
+      "decision": "accept",
+      "painIds": [
+        "no-cushion"
+      ]
+    },
+    {
+      "proposal": "p020",
+      "kind": "reword",
+      "decision": "accept",
+      "painIds": [
+        "cant-stop-working"
+      ]
+    },
+    {
+      "proposal": "p021",
+      "kind": "reword",
+      "decision": "accept",
+      "painIds": [
+        "running-out-of-food"
+      ]
+    },
+    {
+      "proposal": "p022",
+      "kind": "reword",
+      "decision": "accept",
+      "painIds": [
+        "broke"
+      ]
+    },
+    {
+      "proposal": "p023",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "broke",
+        "debt"
+      ]
+    },
+    {
+      "proposal": "p024",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "broke",
+        "no-cushion"
+      ]
+    },
+    {
+      "proposal": "p025",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "broke",
+        "running-out-of-food"
+      ]
+    },
+    {
+      "proposal": "p026",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "broke",
+        "cant-stop-working"
+      ]
+    },
+    {
+      "proposal": "p027",
+      "kind": "other-page",
+      "decision": "accept",
+      "painIds": [
+        "running-out-of-food",
+        "hunger"
+      ]
+    },
+    {
+      "proposal": "p028",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "no-cushion",
+        "one-illness-away"
+      ]
+    },
+    {
+      "proposal": "p029",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "scammed",
+        "watched-by-companies"
+      ]
+    },
+    {
+      "proposal": "p030",
+      "kind": "reword",
+      "decision": "accept",
+      "painIds": [
+        "cost-of-living"
+      ]
+    },
+    {
+      "proposal": "p031",
+      "kind": "reword",
+      "decision": "own",
+      "painIds": [
+        "it-all-goes-up"
+      ]
+    },
+    {
+      "proposal": "p032",
+      "kind": "reword",
+      "decision": "accept",
+      "painIds": [
+        "ai-and-jobs"
+      ]
+    },
+    {
+      "proposal": "p033",
+      "kind": "reword",
+      "decision": "accept",
+      "painIds": [
+        "no-floor"
+      ]
+    },
+    {
+      "proposal": "p034",
+      "kind": "reword",
+      "decision": "accept",
+      "painIds": [
+        "childcare-costs"
+      ]
+    },
+    {
+      "proposal": "p035",
+      "kind": "reword",
+      "decision": "own",
+      "painIds": [
+        "rent-eats-everything"
+      ]
+    },
+    {
+      "proposal": "p036",
+      "kind": "reword",
+      "decision": "accept",
+      "painIds": [
+        "cant-afford-kids"
+      ]
+    },
+    {
+      "proposal": "p037",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "cost-of-living",
+        "it-all-goes-up"
+      ]
+    },
+    {
+      "proposal": "p038",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "cost-of-living",
+        "rent-eats-everything"
+      ]
+    },
+    {
+      "proposal": "p039",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "cant-afford-kids",
+        "childcare-costs"
+      ]
+    },
+    {
+      "proposal": "p040",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "cant-afford-kids",
+        "rent-eats-everything"
+      ]
+    },
+    {
+      "proposal": "p041",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "homelessness",
+        "rent-eats-everything"
+      ]
+    },
+    {
+      "proposal": "p042",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "no-floor",
+        "homelessness"
+      ]
+    },
+    {
+      "proposal": "p043",
+      "kind": "other-page",
+      "decision": "accept",
+      "painIds": [
+        "cost-of-living",
+        "broke"
+      ]
+    },
+    {
+      "proposal": "p044",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "it-all-goes-up",
+        "where-youre-born"
+      ]
+    },
+    {
+      "proposal": "p045",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "childcare-costs",
+        "parenting-is-hard"
+      ]
+    },
+    {
+      "proposal": "p046",
+      "kind": "other-page",
+      "decision": "accept",
+      "painIds": [
+        "study-costs",
+        "debt"
+      ]
+    },
+    {
+      "proposal": "p047",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "rent-eats-everything",
+        "home-is-hard"
+      ]
+    },
+    {
+      "proposal": "p048",
+      "kind": "other-page",
+      "decision": "accept",
+      "painIds": [
+        "rent-eats-everything",
+        "might-lose-my-home"
+      ]
+    },
+    {
+      "proposal": "p049",
+      "kind": "other-page",
+      "decision": "accept",
+      "painIds": [
+        "homelessness",
+        "might-lose-my-home"
+      ]
+    },
+    {
+      "proposal": "p050",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "ai-and-jobs",
+        "job-could-go"
+      ]
+    },
+    {
+      "proposal": "p051",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "ai-and-jobs",
+        "unemployment"
+      ]
+    },
+    {
+      "proposal": "p052",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "no-floor",
+        "one-illness-away"
+      ]
+    },
+    {
+      "proposal": "p053",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "town-dying",
+        "nobody-knows-anybody"
+      ]
+    },
+    {
+      "proposal": "p054",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "town-dying",
+        "far-away-decisions"
+      ]
+    },
+    {
+      "proposal": "p055",
+      "kind": "move",
+      "decision": "reject"
+    },
+    {
+      "proposal": "p056",
+      "kind": "move",
+      "decision": "reject"
+    },
+    {
+      "proposal": "p057",
+      "kind": "move",
+      "decision": "accept",
+      "painIds": [
+        "homelessness"
+      ]
+    },
+    {
+      "proposal": "p058",
+      "kind": "move",
+      "decision": "reject"
+    },
+    {
+      "proposal": "p059",
+      "kind": "move",
+      "decision": "accept",
+      "painIds": [
+        "it-all-goes-up"
+      ]
+    },
+    {
+      "proposal": "p060",
+      "kind": "move",
+      "decision": "accept",
+      "painIds": [
+        "town-dying"
+      ]
+    }
+  ],
+  "ingestedAt": "2026-10-19"
+}

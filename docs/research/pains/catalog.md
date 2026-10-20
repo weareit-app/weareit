@@ -2,7 +2,7 @@
 
 Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py render`; edit the JSON through the pipeline, not this page. Rules and commands: [tools/pains/README.md](../../../tools/pains/README.md).
 
-125 pains: 112 shown, 13 candidate, 112 accepted.
+143 pains: 120 shown, 13 candidate, 128 accepted, 2 rejected.
 
 ## Personal
 
@@ -36,16 +36,29 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `past-still-hurts` | Trauma | I'm still living with something that happened. | candidate · sensitive | no |  |
 | `short-fuse` | Anger | I snap at people I love. | candidate | no |  |
 
-### Money (5 shown)
+### Money (9 shown)
 
 | ID | Name | Line | Status | Shown | Runs |
 | --- | --- | --- | --- | --- | --- |
-| `broke` | Broke | I'm always short on money. | accepted | yes | 2 |
-| `cant-stop-working` | Retirement | I won't have enough to retire. | accepted | yes |  |
+| `broke` | Broke | I run out of money before my next paycheck. | accepted | yes | 2 |
+| `cant-get-credit` | Credit | I get turned down when I need a loan or a credit card. | accepted | yes |  |
+| `cant-stop-working` | Can't retire | I won't have enough to stop working when I'm older. | accepted | yes |  |
 | `debt` | Debt | I owe more than I can pay down. | accepted | yes |  |
-| `no-cushion` | Savings | I have nothing put aside. | accepted | yes |  |
-| `running-out-of-food` | Food | I worry the food won't last the month. | accepted · sensitive | yes |  |
+| `money-skills` | Money skills | I never learned how to budget or manage money. | accepted | yes |  |
+| `no-cushion` | No savings | I couldn't cover a surprise bill if one came. | accepted | yes |  |
+| `running-out-of-food` | Not enough food | I worry the food won't last until my next paycheck. | accepted · sensitive | yes |  |
+| `uneven-pay` | Uneven pay | My pay changes so much from month to month that I can't plan. | accepted | yes |  |
+| `utility-bills` | Utility bills | I'm behind on my power or water bill. | accepted | yes |  |
+| `banking` | Banking | I can't get a bank account or a loan on fair terms. | rejected | no |  |
+| `credit-report-errors` | Credit report | My credit report has mistakes I can't get fixed. | accepted | no |  |
+| `debt-collectors` | Debt collectors | Debt collectors keep coming after me, sometimes for money I don't owe. | accepted | no |  |
+| `identity-theft` | Identity theft | Someone used my name to open accounts or take my money. | accepted | no |  |
+| `insurance-costs` | Insurance | I can barely afford the insurance I need. | accepted | no |  |
+| `investments` | Investments | I worry my savings and investments will lose their value. | accepted | no |  |
+| `no-bank-account` | Bank account | I don't have a bank account, so cashing checks and paying bills costs me extra. | accepted | no |  |
 | `scammed` | Scams | I lost money to a scam. | candidate | no |  |
+| `sending-money-home` | Sending money home | I lose too much to fees when I send money to family in another country. | accepted | no |  |
+| `supporting-family` | Supporting family | I'm paying to support my parents or grown kids, and there isn't enough left for me. | accepted | no |  |
 
 ### Work (7 shown)
 
@@ -131,21 +144,23 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `taxes-dont-buy-much` | Taxes | I pay more and get less back. | accepted | yes |  |
 | `they-dont-listen` | Representation | I'm not heard by the people in charge. | accepted | yes | 2 |
 
-### Economy (11 shown)
+### Economy (12 shown)
 
 | ID | Name | Line | Status | Shown | Runs |
 | --- | --- | --- | --- | --- | --- |
-| `ai-and-jobs` | AI | I worry AI will take work and no one's ready. | accepted | yes | 2 |
-| `cant-afford-kids` | Starting a family | I want kids but can't afford them. | accepted | yes |  |
-| `childcare-costs` | Childcare | I can't afford childcare. | accepted | yes |  |
-| `cost-of-living` | Inflation | I can't keep up with rising prices. | accepted | yes |  |
-| `homelessness` | Homelessness | I see more neighbors with no home. | accepted | yes |  |
+| `ai-and-jobs` | AI job losses | I worry AI will replace people's jobs and no one has a plan for them. | accepted | yes | 2 |
+| `buying-a-home` | Buying a home | I can't afford to buy a home. | accepted | yes |  |
+| `cant-afford-kids` | Can't afford kids | I want kids but can't afford to raise them. | accepted | yes |  |
+| `childcare-costs` | Childcare costs | I can't afford childcare, even though I need it to work. | accepted | yes |  |
+| `cost-of-living` | Rising costs | Everything costs more each year, and my pay hasn't kept up. | accepted | yes |  |
 | `hunger` | Hunger | I see people near me without enough to eat. | accepted | yes |  |
-| `it-all-goes-up` | Inequality | I see the gap between those with plenty and those struggling grow. | accepted | yes | 2 |
-| `no-floor` | Safety net | I know if I fall, nothing will catch me. | accepted | yes |  |
-| `rent-eats-everything` | Rent | I pay too much for housing. | accepted | yes | 1 |
+| `national-debt` | National debt | I worry about how much debt the country keeps piling up. | accepted | yes |  |
+| `no-floor` | No safety net | If I lose my job or get sick, I know there's nothing to fall back on. | accepted | yes |  |
+| `poverty` | Poverty | I see people around me who can't make ends meet. | accepted | yes |  |
+| `recession` | Recession | I worry the economy is getting worse. | accepted | yes |  |
+| `rent-eats-everything` | High rent | I pay too much for housing. | accepted | yes | 1 |
 | `study-costs` | Student debt | I'll be paying for my education for years. | accepted | yes |  |
-| `town-dying` | Decline | I'm watching my town empty out. | accepted | yes |  |
+| `energy-costs` | Energy costs | I can barely keep up with my power, gas and fuel bills. | rejected | no |  |
 
 ### Health (4 shown)
 
@@ -156,21 +171,24 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | `older-people-alone` | Aging | I see older people left on their own. | accepted | yes |  |
 | `one-illness-away` | Medical bills | I worry about what healthcare will cost me. | accepted | yes |  |
 
-### Community (4 shown)
+### Community (6 shown)
 
 | ID | Name | Line | Status | Shown | Runs |
 | --- | --- | --- | --- | --- | --- |
 | `cant-pool` | Sharing | I know we could afford it together, but there's no way to pool. | accepted | yes |  |
+| `homelessness` | Homelessness | I see more neighbors with no home. | accepted | yes |  |
 | `nobody-knows-anybody` | Neighbors | I don't know the people on my street. | accepted | yes | 1 |
+| `town-dying` | Decline | I'm watching my town empty out. | accepted | yes |  |
 | `trust` | Trust | I can't trust the people and groups around me any more. | accepted | yes |  |
 | `we-cant-talk` | Polarization | I can't disagree with someone without losing them. | accepted | yes | 1 |
 | `building-cant-organize` | Organizing | I can't get my neighbors to act together. | candidate | no |  |
 | `people-are-meaner` | Moral decline | I think people care less about right and wrong. | candidate | no |  |
 
-### Fairness (4 shown)
+### Fairness (5 shown)
 
 | ID | Name | Line | Status | Shown | Runs |
 | --- | --- | --- | --- | --- | --- |
+| `it-all-goes-up` | Inequality | I see the gap grow between people with plenty and people who are struggling. | accepted | yes | 2 |
 | `justice-unfair` | Justice | I see police and courts treat people differently. | accepted | yes |  |
 | `people-treated-badly` | Prejudice | I watch people get treated badly for who they are. | accepted | yes |  |
 | `treated-differently` | Discrimination | I'm treated worse because of who I am. | accepted | yes |  |

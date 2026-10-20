@@ -1,0 +1,330 @@
+{
+  "schemaVersion": 1,
+  "setId": "money-economy-20261019-214435",
+  "decisions": {
+    "p001": {
+      "decision": "alternative",
+      "note": "",
+      "decidedAt": "2026-10-20T02:13:42.935Z",
+      "choice": 0
+    },
+    "p002": {
+      "decision": "alternative",
+      "note": "",
+      "decidedAt": "2026-10-20T02:13:58.698Z",
+      "choice": 0
+    },
+    "p003": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:14:16.035Z"
+    },
+    "p004": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:14:35.164Z"
+    },
+    "p005": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:14:42.843Z"
+    },
+    "p006": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:14:48.340Z"
+    },
+    "p007": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:14:59.483Z"
+    },
+    "p008": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:15:12.843Z"
+    },
+    "p009": {
+      "decision": "alternative",
+      "note": "",
+      "decidedAt": "2026-10-20T02:15:34.584Z",
+      "choice": 0
+    },
+    "p010": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:15:42.991Z"
+    },
+    "p011": {
+      "decision": "alternative",
+      "note": "",
+      "decidedAt": "2026-10-20T02:15:57.879Z",
+      "choice": 0
+    },
+    "p012": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:16:04.248Z"
+    },
+    "p013": {
+      "decision": "alternative",
+      "note": "",
+      "decidedAt": "2026-10-20T02:16:41.892Z",
+      "choice": 0
+    },
+    "p014": {
+      "decision": "alternative",
+      "note": "",
+      "decidedAt": "2026-10-20T02:16:48.120Z",
+      "choice": 0
+    },
+    "p015": {
+      "decision": "reject",
+      "duplicateOf": [
+        "utility-bills"
+      ],
+      "note": "Founder follow-up 2026-10-19: keep Utility bills only; Energy costs duplicates it.",
+      "decidedAt": "2026-10-19"
+    },
+    "p016": {
+      "decision": "alternative",
+      "note": "",
+      "decidedAt": "2026-10-20T02:17:02.607Z",
+      "choice": 0
+    },
+    "p017": {
+      "decision": "reject",
+      "note": "Duplicate of Bank account and Credit (founder follow-up 2026-10-19).",
+      "decidedAt": "2026-10-20T02:17:27.971Z",
+      "duplicateOf": [
+        "no-bank-account",
+        "cant-get-credit"
+      ]
+    },
+    "p018": {
+      "decision": "alternative",
+      "note": "",
+      "decidedAt": "2026-10-20T02:17:38.918Z",
+      "choice": 0
+    },
+    "p019": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:17:57.670Z"
+    },
+    "p020": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:18:11.651Z"
+    },
+    "p021": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:18:27.682Z"
+    },
+    "p022": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:18:45.761Z"
+    },
+    "p023": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:18:56.225Z"
+    },
+    "p024": {
+      "decision": "accept",
+      "note": "I thought we had a duplicate here?",
+      "decidedAt": "2026-10-20T02:20:58.078Z"
+    },
+    "p025": {
+      "decision": "accept",
+      "note": "Duplicate",
+      "decidedAt": "2026-10-20T02:21:00.337Z"
+    },
+    "p026": {
+      "decision": "accept",
+      "note": "Duplicate",
+      "decidedAt": "2026-10-20T02:21:02.228Z"
+    },
+    "p027": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:19:48.462Z"
+    },
+    "p028": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:20:16.611Z"
+    },
+    "p029": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:20:43.076Z"
+    },
+    "p030": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:21:18.347Z"
+    },
+    "p031": {
+      "decision": "own",
+      "note": "",
+      "decidedAt": "2026-10-20T02:22:57.123Z",
+      "own": {
+        "name": "Inequality",
+        "line": "I see the gap grow between people with plenty and people who are struggling."
+      }
+    },
+    "p032": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:23:09.669Z"
+    },
+    "p033": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:23:14.240Z"
+    },
+    "p034": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:23:29.610Z"
+    },
+    "p035": {
+      "decision": "own",
+      "note": "",
+      "decidedAt": "2026-10-20T02:24:15.090Z",
+      "own": {
+        "name": "High rent",
+        "line": "I pay too much for housing."
+      }
+    },
+    "p036": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:24:26.602Z"
+    },
+    "p037": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:24:32.399Z"
+    },
+    "p038": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:24:35.961Z"
+    },
+    "p039": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:24:37.747Z"
+    },
+    "p040": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:24:39.617Z"
+    },
+    "p041": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:24:40.793Z"
+    },
+    "p042": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:24:43.042Z"
+    },
+    "p043": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:24:45.625Z"
+    },
+    "p044": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:24:46.883Z"
+    },
+    "p045": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:24:59.345Z"
+    },
+    "p046": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:25:00.845Z"
+    },
+    "p047": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:25:04.727Z"
+    },
+    "p048": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:25:07.883Z"
+    },
+    "p049": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:25:09.206Z"
+    },
+    "p050": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:25:11.695Z"
+    },
+    "p051": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:25:15.324Z"
+    },
+    "p052": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:25:17.715Z"
+    },
+    "p053": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:25:19.437Z"
+    },
+    "p054": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:25:23.937Z"
+    },
+    "p055": {
+      "decision": "reject",
+      "note": "",
+      "decidedAt": "2026-10-20T02:25:42.360Z"
+    },
+    "p056": {
+      "decision": "reject",
+      "note": "",
+      "decidedAt": "2026-10-20T02:25:59.240Z"
+    },
+    "p057": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:26:12.633Z"
+    },
+    "p058": {
+      "decision": "reject",
+      "note": "",
+      "decidedAt": "2026-10-20T02:26:25.665Z"
+    },
+    "p059": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:26:40.964Z"
+    },
+    "p060": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T02:26:48.216Z"
+    }
+  },
+  "followUp": "2026-10-19: founder confirmed Broke keep-both decisions stand; Energy costs rejected as a duplicate of Utility bills; Banking recorded as a duplicate. Original download kept at the founder's Downloads."
+}

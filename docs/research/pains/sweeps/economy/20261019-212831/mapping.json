@@ -1,0 +1,512 @@
+{
+  "schemaVersion": 1,
+  "entries": {
+    "oecd/income-and-wealth": {
+      "painId": "broke",
+      "why": "the personal side of income and wealth: always short on money"
+    },
+    "oecd/work-and-job-quality": {
+      "painId": "bad-job",
+      "why": "poor job quality, as treatment at work"
+    },
+    "oecd/housing": {
+      "painId": "rent-eats-everything",
+      "why": "housing affordability, the economy-page side of housing"
+    },
+    "oecd/economic-capital": {
+      "outOfScope": "a national stock of capital measured for future well-being, not something people name as a pain"
+    },
+    "whoqol/q12": {
+      "painId": "broke",
+      "why": "not having enough money for needs"
+    },
+    "sdg/1.1": {
+      "candidate": "poverty"
+    },
+    "sdg/1.2": {
+      "candidate": "poverty"
+    },
+    "sdg/1.3": {
+      "painId": "no-floor",
+      "why": "social protection floors are the safety net"
+    },
+    "sdg/1.4": {
+      "broader": "it-all-goes-up",
+      "why": "unequal access to resources, land and financial services; banking is a separate candidate"
+    },
+    "sdg/1.5": {
+      "broader": "no-floor",
+      "why": "nothing to catch people when a shock hits"
+    },
+    "sdg/1.a": {
+      "outOfScope": "development finance between countries, not a pain a person names"
+    },
+    "sdg/1.b": {
+      "outOfScope": "a policy instrument, not a pain a person names"
+    },
+    "sdg/2.1": {
+      "painId": "hunger",
+      "why": "people near me without enough to eat"
+    },
+    "sdg/2.c": {
+      "broader": "cost-of-living",
+      "why": "rising food prices are part of rising prices"
+    },
+    "sdg/4.3": {
+      "painId": "study-costs",
+      "why": "education that costs too much"
+    },
+    "sdg/5.4": {
+      "painId": "caregiving",
+      "why": "unpaid care that takes everything"
+    },
+    "sdg/8.1": {
+      "candidate": "recession"
+    },
+    "sdg/8.2": {
+      "outOfScope": "a macroeconomic goal, not a pain a person names"
+    },
+    "sdg/8.3": {
+      "outOfScope": "a development-policy target; a small business owner's own struggle belongs in a work sweep"
+    },
+    "sdg/8.4": {
+      "outOfScope": "environment group, not economy"
+    },
+    "sdg/8.5": {
+      "painId": "unemployment",
+      "why": "not finding work"
+    },
+    "sdg/8.6": {
+      "broader": "unemployment",
+      "why": "young people out of work"
+    },
+    "sdg/8.7": {
+      "outOfScope": "belongs to the fairness or safety group; no pain covers it yet, flag for those sweeps"
+    },
+    "sdg/8.8": {
+      "painId": "bad-job",
+      "why": "treated badly at work"
+    },
+    "sdg/8.9": {
+      "outOfScope": "a sector policy, not a pain a person names"
+    },
+    "sdg/8.10": {
+      "candidate": "banking"
+    },
+    "sdg/8.a": {
+      "outOfScope": "development finance between countries"
+    },
+    "sdg/8.b": {
+      "outOfScope": "a policy instrument"
+    },
+    "sdg/10.1": {
+      "painId": "it-all-goes-up",
+      "why": "the gap between rich and poor"
+    },
+    "sdg/10.2": {
+      "broader": "treated-differently",
+      "why": "exclusion because of who you are"
+    },
+    "sdg/10.3": {
+      "painId": "where-youre-born",
+      "why": "where you're born decides your life"
+    },
+    "sdg/10.4": {
+      "painId": "it-all-goes-up",
+      "why": "inequality"
+    },
+    "sdg/10.5": {
+      "outOfScope": "financial regulation, not a pain a person names"
+    },
+    "sdg/10.6": {
+      "outOfScope": "between countries"
+    },
+    "sdg/10.7": {
+      "painId": "immigration-broken",
+      "why": "the immigration system"
+    },
+    "sdg/10.a": {
+      "outOfScope": "between countries"
+    },
+    "sdg/10.b": {
+      "outOfScope": "between countries"
+    },
+    "sdg/10.c": {
+      "outOfScope": "fees for sending money home; a niche cost for a money sweep, not an economy-page pain"
+    },
+    "sdg/11.1": {
+      "painId": "rent-eats-everything",
+      "why": "paying too much for housing"
+    },
+    "maxneef/subsistence": {
+      "painId": "broke",
+      "why": "food, shelter and work: having enough to live on"
+    },
+    "maxneef/protection": {
+      "painId": "no-floor",
+      "why": "insurance, savings and social security"
+    },
+    "gallup-elements/financial": {
+      "painId": "broke",
+      "why": "managing your economic life"
+    },
+    "wikidata/Q35865": {
+      "painId": "cost-of-living",
+      "why": "rising prices"
+    },
+    "wikidata/Q575619": {
+      "painId": "cost-of-living",
+      "why": "rising prices"
+    },
+    "wikidata/Q122397142": {
+      "painId": "cost-of-living",
+      "why": "prices rising faster than pay"
+    },
+    "wikidata/Q41171": {
+      "painId": "unemployment",
+      "why": "can't find work"
+    },
+    "wikidata/Q10294": {
+      "candidate": "poverty"
+    },
+    "wikidata/Q649011": {
+      "candidate": "poverty"
+    },
+    "wikidata/Q5055020": {
+      "painId": "it-all-goes-up",
+      "why": "the gap between rich and poor"
+    },
+    "wikidata/Q176494": {
+      "candidate": "recession"
+    },
+    "wikidata/Q189833": {
+      "candidate": "recession"
+    },
+    "wikidata/Q3024789": {
+      "candidate": "national-debt"
+    },
+    "wikidata/Q1341244": {
+      "candidate": "energy-costs"
+    },
+    "wikidata/Q3061848": {
+      "candidate": "banking"
+    },
+    "wikidata/Q98108964": {
+      "candidate": "buying-a-home"
+    },
+    "wikidata/Q4689034": {
+      "painId": "rent-eats-everything",
+      "why": "housing that costs too much"
+    },
+    "wikidata/Q131327": {
+      "painId": "homelessness",
+      "why": "neighbors with no home"
+    },
+    "wikidata/Q1229911": {
+      "painId": "hunger",
+      "why": "not enough to eat"
+    },
+    "wikidata/Q7551358": {
+      "painId": "no-floor",
+      "why": "the safety net"
+    },
+    "wikidata/Q1455871": {
+      "painId": "childcare-costs",
+      "why": "affording childcare"
+    },
+    "wikidata/Q7627822": {
+      "painId": "study-costs",
+      "why": "student debt"
+    },
+    "wikidata/Q186228": {
+      "broader": "underpaid",
+      "why": "low pay; a wage floor is a fix, the pain is being underpaid"
+    },
+    "wikidata/Q827081": {
+      "painId": "bad-job",
+      "why": "work that respects rights"
+    },
+    "wikidata/Q7897274": {
+      "painId": "caregiving",
+      "why": "unpaid care work"
+    },
+    "gallup-mip/economy-in-general": {
+      "candidate": "recession"
+    },
+    "gallup-mip/cost-of-living": {
+      "painId": "cost-of-living",
+      "why": "rising prices"
+    },
+    "gallup-mip/fuel-oil-prices": {
+      "candidate": "energy-costs"
+    },
+    "gallup-mip/unemployment": {
+      "painId": "unemployment",
+      "why": "can't find work"
+    },
+    "gallup-mip/federal-deficit": {
+      "candidate": "national-debt"
+    },
+    "gallup-mip/lack-of-money": {
+      "painId": "broke",
+      "why": "always short on money"
+    },
+    "gallup-mip/rich-poor-gap": {
+      "painId": "it-all-goes-up",
+      "why": "inequality"
+    },
+    "gallup-mip/recession": {
+      "candidate": "recession"
+    },
+    "gallup-mip/taxes": {
+      "painId": "taxes-dont-buy-much",
+      "why": "taxes"
+    },
+    "gallup-mip/wage-issues": {
+      "painId": "underpaid",
+      "why": "pay too low for the work"
+    },
+    "gallup-mip/corporate-corruption": {
+      "broader": "corruption",
+      "why": "rules bending for people with money; corporate wrongdoing in particular is narrower"
+    },
+    "gallup-mip/poverty-hunger-homelessness": {
+      "painId": "hunger",
+      "why": "hunger, with homelessness and the poverty candidate alongside"
+    },
+    "gallup-mip/welfare": {
+      "painId": "no-floor",
+      "why": "the safety net"
+    },
+    "gallup-mip/energy": {
+      "candidate": "energy-costs"
+    },
+    "gallup-mip/elderly-medicare": {
+      "broader": "older-people-alone",
+      "why": "older people left without care"
+    },
+    "gallup-mip/social-security": {
+      "broader": "no-floor",
+      "why": "public pensions as part of the safety net"
+    },
+    "gallup-mip/technology": {
+      "broader": "ai-and-jobs",
+      "why": "technology taking work"
+    },
+    "gallup-financial/inflation": {
+      "painId": "cost-of-living",
+      "why": "rising prices"
+    },
+    "gallup-financial/energy-costs": {
+      "candidate": "energy-costs"
+    },
+    "gallup-financial/housing-costs": {
+      "painId": "rent-eats-everything",
+      "why": "housing costs"
+    },
+    "gallup-financial/healthcare": {
+      "painId": "one-illness-away",
+      "why": "what healthcare costs"
+    },
+    "gallup-financial/taxes": {
+      "painId": "taxes-dont-buy-much",
+      "why": "taxes"
+    },
+    "gallup-financial/economy": {
+      "candidate": "recession"
+    },
+    "gallup-financial/stock-market": {
+      "broader": "cant-stop-working",
+      "why": "savings and retirement at the mercy of the market"
+    },
+    "gallup-financial/interest-rates": {
+      "broader": "debt",
+      "why": "the cost of borrowing"
+    },
+    "gallup-financial/social-security": {
+      "broader": "cant-stop-working",
+      "why": "income in retirement"
+    },
+    "gallup-financial/lack-of-money": {
+      "painId": "broke",
+      "why": "always short on money"
+    },
+    "gallup-financial/unemployment": {
+      "painId": "unemployment",
+      "why": "can't find work"
+    },
+    "gallup-financial/too-much-debt": {
+      "painId": "debt",
+      "why": "owing more than I can pay"
+    },
+    "gallup-financial/credit-cards": {
+      "painId": "debt",
+      "why": "owing more than I can pay"
+    },
+    "gallup-financial/retirement-savings": {
+      "painId": "cant-stop-working",
+      "why": "won't have enough to retire"
+    },
+    "gallup-financial/savings": {
+      "painId": "no-cushion",
+      "why": "nothing put aside"
+    },
+    "gallup-financial/worry-retirement": {
+      "painId": "cant-stop-working",
+      "why": "won't have enough to retire"
+    },
+    "gallup-financial/worry-medical-costs": {
+      "painId": "one-illness-away",
+      "why": "what healthcare will cost me"
+    },
+    "gallup-financial/worry-investments": {
+      "broader": "cant-stop-working",
+      "why": "savings losing value"
+    },
+    "gallup-financial/worry-standard-of-living": {
+      "painId": "cost-of-living",
+      "why": "keeping up as prices rise"
+    },
+    "gallup-financial/worry-routine-healthcare": {
+      "painId": "one-illness-away",
+      "why": "what healthcare costs"
+    },
+    "gallup-financial/worry-monthly-bills": {
+      "painId": "broke",
+      "why": "always short on money"
+    },
+    "gallup-financial/worry-college": {
+      "painId": "study-costs",
+      "why": "paying for education"
+    },
+    "gallup-financial/worry-housing": {
+      "painId": "rent-eats-everything",
+      "why": "paying too much for housing"
+    },
+    "gallup-financial/worry-credit-card": {
+      "painId": "debt",
+      "why": "owing more than I can pay"
+    },
+    "ipsos/inflation": {
+      "painId": "cost-of-living",
+      "why": "rising prices"
+    },
+    "ipsos/unemployment": {
+      "painId": "unemployment",
+      "why": "can't find work"
+    },
+    "ipsos/poverty-inequality": {
+      "painId": "it-all-goes-up",
+      "why": "inequality; poverty is also proposed as its own candidate"
+    },
+    "ipsos/taxes": {
+      "painId": "taxes-dont-buy-much",
+      "why": "taxes"
+    },
+    "ipsos/social-programmes": {
+      "painId": "no-floor",
+      "why": "the safety net"
+    },
+    "ipsos/access-to-credit": {
+      "candidate": "banking"
+    },
+    "pew-problems/health-care-affordability": {
+      "painId": "one-illness-away",
+      "why": "what healthcare will cost"
+    },
+    "pew-problems/inflation": {
+      "painId": "cost-of-living",
+      "why": "rising prices"
+    },
+    "pew-problems/federal-deficit": {
+      "candidate": "national-debt"
+    },
+    "pew-problems/unemployment": {
+      "painId": "unemployment",
+      "why": "can't find work"
+    },
+    "fed-shed/doing-okay": {
+      "painId": "broke",
+      "why": "the share not doing okay is short on money"
+    },
+    "fed-shed/price-increases": {
+      "painId": "cost-of-living",
+      "why": "rising prices"
+    },
+    "fed-shed/emergency-400": {
+      "painId": "no-cushion",
+      "why": "nothing put aside"
+    },
+    "fed-shed/unpaid-bills": {
+      "painId": "broke",
+      "why": "always short on money"
+    },
+    "fed-shed/behind-on-rent": {
+      "painId": "rent-eats-everything",
+      "why": "rent that costs too much"
+    },
+    "fed-shed/retirement-on-track": {
+      "painId": "cant-stop-working",
+      "why": "won't have enough to retire"
+    },
+    "fed-shed/bank-account": {
+      "candidate": "banking"
+    },
+    "fed-shed/bnpl": {
+      "broader": "debt",
+      "why": "borrowing to cover purchases"
+    },
+    "fed-shed/job-concern": {
+      "painId": "job-could-go",
+      "why": "worry about keeping a job"
+    },
+    "fed-shed/paid-childcare": {
+      "painId": "childcare-costs",
+      "why": "affording childcare"
+    },
+    "fed-shed/student-loan-difficulty": {
+      "painId": "study-costs",
+      "why": "paying for education for years"
+    },
+    "fed-shed/national-economy": {
+      "candidate": "recession"
+    },
+    "211-kc/housing-shelter": {
+      "painId": "might-lose-my-home",
+      "why": "people calling for rent help or shelter"
+    },
+    "211-kc/utility-assistance": {
+      "candidate": "energy-costs"
+    },
+    "211-kc/tax-preparation": {
+      "painId": "life-admin",
+      "why": "forms and paperwork"
+    },
+    "211-kc/transportation": {
+      "painId": "getting-around",
+      "why": "getting where I need to go"
+    },
+    "211-kc/legal-services": {
+      "painId": "legal-mess",
+      "why": "a legal problem I can't afford"
+    },
+    "211-hawaii/housing": {
+      "painId": "might-lose-my-home",
+      "why": "people calling for help keeping or finding a home"
+    },
+    "211-hawaii/food-assistance": {
+      "painId": "running-out-of-food",
+      "why": "food running out"
+    },
+    "wikidata/Q39048742": {
+      "candidate": "recession"
+    },
+    "wikidata/Q56397488": {
+      "candidate": "energy-costs"
+    },
+    "wikidata/Q1253693": {
+      "broader": "cost-of-living",
+      "why": "prices raised far beyond what is fair, a cause of rising prices"
+    }
+  }
+}
