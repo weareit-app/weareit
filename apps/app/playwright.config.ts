@@ -2,6 +2,8 @@ import { defineConfig } from "@playwright/test";
 
 export default defineConfig({
   testDir: "./e2e",
+  // CI uploads this folder when a test fails (.github/workflows/ci.yml).
+  outputDir: "./test-results",
   fullyParallel: true,
   reporter: "list",
   use: {
