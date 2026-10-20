@@ -2,39 +2,57 @@
 
 Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py render`; edit the JSON through the pipeline, not this page. Rules and commands: [tools/pains/README.md](../../../tools/pains/README.md).
 
-143 pains: 120 shown, 13 candidate, 128 accepted, 2 rejected.
+161 pains: 132 shown, 13 candidate, 144 accepted, 4 rejected.
 
 ## Personal
 
-### Body (8 shown)
+### Body (18 shown)
 
 | ID | Name | Line | Status | Shown | Runs |
 | --- | --- | --- | --- | --- | --- |
-| `always-tired` | Tired | I'm tired all the time. | accepted | yes |  |
+| `always-tired` | Energy | I'm tired all the time. | accepted | yes |  |
+| `body-image` | Body image | I don't like how my body looks. | accepted | yes |  |
 | `cant-get-care` | Healthcare | I can't see a doctor when I need one. | accepted | yes |  |
 | `chronic-pain` | Pain | I hurt most days. | accepted | yes |  |
+| `daily-tasks` | Everyday tasks | I need help with everyday things like bathing, dressing or cooking. | accepted | yes |  |
 | `eating-badly` | Diet | I don't eat the way I want to. | accepted | yes |  |
-| `health-runs-my-life` | Illness | I'm living with a condition that limits me. | accepted | yes |  |
-| `not-built-for-me` | Disability | I can't access things I need. | accepted | yes |  |
+| `fertility` | Fertility | I've been trying to have a baby, and it isn't happening. | accepted | yes |  |
+| `headaches` | Headaches | I lose days to migraines or bad headaches. | accepted | yes |  |
+| `health-runs-my-life` | Health condition | I'm living with a condition that limits me. | accepted | yes |  |
+| `injury` | Injury | I got hurt, and my body still hasn't recovered. | accepted | yes |  |
+| `insurance-denials` | Insurance denials | I have to fight my insurance to cover care I need. | accepted | yes |  |
+| `medicine-costs` | Medicine costs | I skip or stretch my medicine because I can't afford it. | accepted | yes |  |
+| `mobility` | Mobility | I can't walk or get around as easily as I need to. | accepted | yes |  |
+| `not-built-for-me` | Access | Buildings, websites and services shut me out because of my disability. | accepted | yes |  |
+| `not-listened-to` | Doctors don't listen | I don't feel listened to or believed by my doctors. | accepted | yes |  |
 | `out-of-shape` | Fitness | I don't feel as fit or active as I'd like. | accepted | yes |  |
 | `poor-sleep` | Sleep | I don't sleep well. | accepted | yes | 2 |
+| `weight` | Weight | My weight gets in the way of how I want to live. | accepted | yes |  |
+| `bladder` | Bladder control | I plan my day around getting to a bathroom in time. | rejected | no |  |
+| `health-upkeep` | Managing my health | Keeping up with appointments, medicines and tests wears me out. | rejected | no |  |
 | `seeing-hearing` | Senses | I can't see or hear like I used to. | candidate | no |  |
 | `teeth` | Teeth | I can't afford the dentist. | candidate | no |  |
 | `womens-health` | Hormones | I lose days every month to my cycle or menopause. | candidate | no |  |
 
-### Mind (7 shown)
+### Mind (9 shown)
 
 | ID | Name | Line | Status | Shown | Runs |
 | --- | --- | --- | --- | --- | --- |
-| `anxiety` | Anxiety | I worry too much. | accepted | yes |  |
-| `cant-focus` | Focus | I can't keep my mind on one thing. | accepted | yes |  |
-| `drinking-too-much` | Addiction | I can't stop something that's hurting me. | accepted · sensitive | yes |  |
-| `feeling-down` | Depression | I feel low most days. | accepted · sensitive | yes |  |
+| `anxiety` | Anxiety | My mind keeps running through what could go wrong. | accepted | yes |  |
+| `cant-focus` | Can't focus | I can't keep my mind on one thing for long. | accepted | yes |  |
+| `drinking-too-much` | Addiction | I can't stop something even though it hurts me. | accepted · sensitive | yes |  |
+| `feeling-down` | Feeling down | I feel low most days, and nothing seems worth the effort. | accepted · sensitive | yes |  |
 | `grief` | Grief | I'm missing someone I lost. | accepted · sensitive | yes |  |
-| `hard-on-myself` | Self-esteem | I'm never good enough for myself. | accepted | yes |  |
-| `overwhelmed` | Stress | I'm overwhelmed. | accepted | yes |  |
+| `hard-on-myself` | Hard on myself | Whatever I do, I tell myself it isn't good enough. | accepted | yes |  |
+| `memory` | Memory | I forget things more than I used to. | accepted | yes |  |
+| `mental-health-care` | Therapy | I can't get or afford help for my mental health. | accepted | yes |  |
+| `overwhelmed` | Stress | There's so much on my plate that I can't catch up. | accepted | yes |  |
+| `eating-and-body-image` | Eating and body image | I can't stop obsessing over food, my weight or how my body looks. | accepted | no |  |
 | `past-still-hurts` | Trauma | I'm still living with something that happened. | candidate · sensitive | no |  |
-| `short-fuse` | Anger | I snap at people I love. | candidate | no |  |
+| `self-harm` | Self-harm | I hurt myself to cope with how I feel. | accepted | no |  |
+| `serious-mental-illness` | Mental health | I live with a mental health issue that can take over my life. | accepted | no |  |
+| `short-fuse` | Anger | I feel frequently upset and can lash out. | candidate | no |  |
+| `suicidal-thoughts` | Suicidal thoughts | I think about ending my life. | accepted | no |  |
 
 ### Money (9 shown)
 

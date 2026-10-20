@@ -1,0 +1,560 @@
+{
+  "set": "body-mind-20261019-231830",
+  "decided": 51,
+  "later": 0,
+  "held": [],
+  "catalogChanged": [
+    "always-tired",
+    "anxiety",
+    "body-image",
+    "burnout",
+    "cant-focus",
+    "cant-get-care",
+    "chronic-pain",
+    "daily-tasks",
+    "doomscrolling",
+    "drinking-too-much",
+    "eating-and-body-image",
+    "eating-badly",
+    "feeling-down",
+    "fertility",
+    "grief",
+    "hard-on-myself",
+    "headaches",
+    "health-runs-my-life",
+    "home-tension",
+    "injury",
+    "insurance-denials",
+    "life-admin",
+    "loneliness",
+    "medicine-costs",
+    "memory",
+    "mental-health-care",
+    "mobility",
+    "not-built-for-me",
+    "not-listened-to",
+    "one-illness-away",
+    "out-of-shape",
+    "overwhelmed",
+    "past-still-hurts",
+    "poor-sleep",
+    "procrastination",
+    "running-out-of-food",
+    "seeing-hearing",
+    "self-harm",
+    "serious-mental-illness",
+    "short-fuse",
+    "suicidal-thoughts",
+    "teeth",
+    "treated-differently",
+    "weight",
+    "womens-health"
+  ],
+  "editor": {
+    "changes": [
+      {
+        "painId": "always-tired",
+        "change": "update",
+        "title": "Energy"
+      },
+      {
+        "painId": "anxiety",
+        "change": "update",
+        "description": "My mind keeps running through what could go wrong."
+      },
+      {
+        "painId": "cant-focus",
+        "change": "update",
+        "title": "Can't focus",
+        "description": "I can't keep my mind on one thing for long."
+      },
+      {
+        "painId": "drinking-too-much",
+        "change": "update",
+        "description": "I can't stop something even though it hurts me."
+      },
+      {
+        "painId": "feeling-down",
+        "change": "update",
+        "title": "Feeling down",
+        "description": "I feel low most days, and nothing seems worth the effort."
+      },
+      {
+        "painId": "hard-on-myself",
+        "change": "update",
+        "title": "Hard on myself",
+        "description": "Whatever I do, I tell myself it isn't good enough."
+      },
+      {
+        "painId": "health-runs-my-life",
+        "change": "update",
+        "title": "Health condition"
+      },
+      {
+        "painId": "not-built-for-me",
+        "change": "update",
+        "title": "Access",
+        "description": "Buildings, websites and services shut me out because of my disability."
+      },
+      {
+        "painId": "overwhelmed",
+        "change": "update",
+        "description": "There's so much on my plate that I can't catch up."
+      }
+    ],
+    "waiting": [
+      "body-image",
+      "daily-tasks",
+      "fertility",
+      "headaches",
+      "injury",
+      "insurance-denials",
+      "medicine-costs",
+      "memory",
+      "mental-health-care",
+      "mobility",
+      "not-listened-to",
+      "weight"
+    ],
+    "conflicts": [],
+    "refused": [],
+    "warnings": [
+      "People would have 13 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "Government would have 10 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "Information would have 3 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "Safety would have 2 shown pains (aim for 4-8); nothing was cut or added because of it",
+      "Kids would have 3 shown pains (aim for 4-8); nothing was cut or added because of it"
+    ],
+    "schemaChecked": true,
+    "revision": 3
+  },
+  "dryRun": false,
+  "log": [
+    {
+      "proposal": "p001",
+      "kind": "add",
+      "decision": "alternative",
+      "painIds": [
+        "medicine-costs"
+      ]
+    },
+    {
+      "proposal": "p002",
+      "kind": "add",
+      "decision": "alternative",
+      "painIds": [
+        "headaches"
+      ]
+    },
+    {
+      "proposal": "p003",
+      "kind": "add",
+      "decision": "alternative",
+      "painIds": [
+        "injury"
+      ]
+    },
+    {
+      "proposal": "p004",
+      "kind": "add",
+      "decision": "alternative",
+      "painIds": [
+        "body-image"
+      ]
+    },
+    {
+      "proposal": "p005",
+      "kind": "add",
+      "decision": "alternative",
+      "painIds": [
+        "weight"
+      ]
+    },
+    {
+      "proposal": "p006",
+      "kind": "add",
+      "decision": "alternative",
+      "painIds": [
+        "fertility"
+      ]
+    },
+    {
+      "proposal": "p007",
+      "kind": "add",
+      "decision": "alternative",
+      "painIds": [
+        "mobility"
+      ]
+    },
+    {
+      "proposal": "p008",
+      "kind": "add",
+      "decision": "alternative",
+      "painIds": [
+        "daily-tasks"
+      ]
+    },
+    {
+      "proposal": "p009",
+      "kind": "add",
+      "decision": "alternative",
+      "painIds": [
+        "not-listened-to"
+      ]
+    },
+    {
+      "proposal": "p010",
+      "kind": "add",
+      "decision": "alternative",
+      "painIds": [
+        "insurance-denials"
+      ]
+    },
+    {
+      "proposal": "p011",
+      "kind": "add",
+      "decision": "reject"
+    },
+    {
+      "proposal": "p012",
+      "kind": "add",
+      "decision": "reject"
+    },
+    {
+      "proposal": "p013",
+      "kind": "reword",
+      "decision": "alternative",
+      "painIds": [
+        "not-built-for-me"
+      ]
+    },
+    {
+      "proposal": "p014",
+      "kind": "reword",
+      "decision": "alternative",
+      "painIds": [
+        "always-tired"
+      ]
+    },
+    {
+      "proposal": "p015",
+      "kind": "reword",
+      "decision": "accept",
+      "painIds": [
+        "health-runs-my-life"
+      ]
+    },
+    {
+      "proposal": "p016",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "poor-sleep",
+        "always-tired"
+      ]
+    },
+    {
+      "proposal": "p017",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "health-runs-my-life",
+        "chronic-pain"
+      ]
+    },
+    {
+      "proposal": "p018",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "health-runs-my-life",
+        "cant-get-care"
+      ]
+    },
+    {
+      "proposal": "p019",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "womens-health",
+        "health-runs-my-life"
+      ]
+    },
+    {
+      "proposal": "p020",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "seeing-hearing",
+        "not-built-for-me"
+      ]
+    },
+    {
+      "proposal": "p021",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "teeth",
+        "cant-get-care"
+      ]
+    },
+    {
+      "proposal": "p022",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "eating-badly",
+        "out-of-shape"
+      ]
+    },
+    {
+      "proposal": "p023",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "always-tired",
+        "burnout"
+      ]
+    },
+    {
+      "proposal": "p024",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "cant-get-care",
+        "one-illness-away"
+      ]
+    },
+    {
+      "proposal": "p025",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "eating-badly",
+        "running-out-of-food"
+      ]
+    },
+    {
+      "proposal": "p026",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "not-built-for-me",
+        "treated-differently"
+      ]
+    },
+    {
+      "proposal": "p027",
+      "kind": "add",
+      "decision": "accept",
+      "painIds": [
+        "suicidal-thoughts"
+      ]
+    },
+    {
+      "proposal": "p028",
+      "kind": "add",
+      "decision": "accept",
+      "painIds": [
+        "self-harm"
+      ]
+    },
+    {
+      "proposal": "p029",
+      "kind": "add",
+      "decision": "accept",
+      "painIds": [
+        "eating-and-body-image"
+      ]
+    },
+    {
+      "proposal": "p030",
+      "kind": "add",
+      "decision": "own",
+      "painIds": [
+        "serious-mental-illness"
+      ]
+    },
+    {
+      "proposal": "p031",
+      "kind": "add",
+      "decision": "alternative",
+      "painIds": [
+        "mental-health-care"
+      ]
+    },
+    {
+      "proposal": "p032",
+      "kind": "add",
+      "decision": "alternative",
+      "painIds": [
+        "memory"
+      ]
+    },
+    {
+      "proposal": "p033",
+      "kind": "reword",
+      "decision": "accept",
+      "painIds": [
+        "anxiety"
+      ]
+    },
+    {
+      "proposal": "p034",
+      "kind": "reword",
+      "decision": "accept",
+      "painIds": [
+        "overwhelmed"
+      ]
+    },
+    {
+      "proposal": "p035",
+      "kind": "reword",
+      "decision": "accept",
+      "painIds": [
+        "hard-on-myself"
+      ]
+    },
+    {
+      "proposal": "p036",
+      "kind": "reword",
+      "decision": "accept",
+      "painIds": [
+        "cant-focus"
+      ]
+    },
+    {
+      "proposal": "p037",
+      "kind": "reword",
+      "decision": "own",
+      "painIds": [
+        "short-fuse"
+      ]
+    },
+    {
+      "proposal": "p038",
+      "kind": "reword",
+      "decision": "accept",
+      "painIds": [
+        "feeling-down"
+      ]
+    },
+    {
+      "proposal": "p039",
+      "kind": "reword",
+      "decision": "own",
+      "painIds": [
+        "drinking-too-much"
+      ]
+    },
+    {
+      "proposal": "p040",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "anxiety",
+        "overwhelmed"
+      ]
+    },
+    {
+      "proposal": "p041",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "overwhelmed",
+        "life-admin"
+      ]
+    },
+    {
+      "proposal": "p042",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "short-fuse",
+        "home-tension"
+      ]
+    },
+    {
+      "proposal": "p043",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "short-fuse",
+        "overwhelmed"
+      ]
+    },
+    {
+      "proposal": "p044",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "feeling-down",
+        "anxiety"
+      ]
+    },
+    {
+      "proposal": "p045",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "feeling-down",
+        "burnout"
+      ]
+    },
+    {
+      "proposal": "p046",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "hard-on-myself",
+        "feeling-down"
+      ]
+    },
+    {
+      "proposal": "p047",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "past-still-hurts",
+        "feeling-down"
+      ]
+    },
+    {
+      "proposal": "p048",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "past-still-hurts",
+        "anxiety"
+      ]
+    },
+    {
+      "proposal": "p049",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "cant-focus",
+        "procrastination"
+      ]
+    },
+    {
+      "proposal": "p050",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "cant-focus",
+        "doomscrolling"
+      ]
+    },
+    {
+      "proposal": "p051",
+      "kind": "keep",
+      "decision": "accept",
+      "painIds": [
+        "grief",
+        "loneliness"
+      ]
+    }
+  ],
+  "ingestedAt": "2026-10-19"
+}
