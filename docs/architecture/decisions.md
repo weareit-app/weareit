@@ -48,6 +48,7 @@ Decided 2026-10-16 (founder override of the assessment's weak-evidence gate); co
 - Keep `lightningcss` at 1.30.1 as the NativeWind/react-native-css compatibility override. Dependency refresh rules and current intentional version pins are recorded in `docs/architecture/dependency-policy.md`.
 - Use oRPC for typed API contracts and Kysely for SQL access. Keep contracts/framework independent where practical.
 - Use Neon initially through a provider-neutral PostgreSQL connection boundary.
+- Store uploaded and other non-bundled images in Cloudflare R2, served from It's own domain (founder, 2026-10-19). Code reaches it only through the provider-neutral asset boundary over the S3-compatible API, so S3 with CloudFront stays a configuration swap. Chosen over S3 with CloudFront because DNS is already on Cloudflare (less setup) and R2 charges nothing for downloads. Images that ship with the app stay in the app build.
 - Use TanStack Query for server state. Adopt other TanStack packages only for concrete needs.
 - General offline sync is deferred. Pre-signup onboarding still needs local draft persistence and restart recovery on each platform.
 - Product content (domains, pains, dreams, first actions, and their provenance) is database-backed from the start, not maintained as Git-authored runtime content. Build a first-party CMS for editing and publishing this structured content. PostgreSQL is the source of truth; Kysely owns migrations and SQL access, and the app receives validated content through semantic oRPC operations. Git may hold schema, migrations, seed/import tools, and snapshots for review, but must not become a competing source of truth.
@@ -149,3 +150,4 @@ Decided 2026-10-19 by the founder (ticket "Pick hosting, email provider and depl
 - 2026-10-19: recorded the v0.1 launch decision and its conditions (from the it-mvp assessment; founder confirmed which still hold); moved assessment research to `docs/research/`.
 - 2026-10-19: added the generated possibility content decisions (honesty in fields, plain but specific copy, verified and traced examples, fix kinds); the generator moved from a Spec Kit extension to `tools/possibilities/` and skills.
 - 2026-10-19: founder chose hosting, email and deploys for launch (Render, Neon Free, Resend Free, master deploys after CI); replaces the SST on AWS lean.
+- 2026-10-19: chose Cloudflare R2 for image storage, behind the asset boundary (over S3 with CloudFront: DNS already on Cloudflare, no download fees).
