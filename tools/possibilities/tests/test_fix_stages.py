@@ -30,9 +30,15 @@ def task_fix(dream, n):
 
 
 def fixes_doc():
-    """Two Task fixes for each accepted dream: a full pool against plan_doc()."""
+    """Two Task fixes for each accepted dream: a full pool against plan_doc(), after a shared pass that found none."""
     fixes = {'%s-t%d' % (dream, n): task_fix(dream, n) for dream in DREAMS[:5] for n in (1, 2)}
-    return {'schemaVersion': 2, 'painId': 'burnout', 'fixes': fixes, 'pools': {'task': {'shortfalls': {}}}}
+    return {'schemaVersion': 2, 'painId': 'burnout', 'fixes': fixes, 'pools': {'task': {'shortfalls': {}}},
+            'shared': {'draftedAt': '2026-10-20', 'emptyReason': 'Each dream needs its own way.'}}
+
+
+def shared_pass_only(doc):
+    """fixes.json as the shared pass leaves it when it finds no fix for several dreams: no kind pool yet."""
+    doc.update(pools={}, fixes={})
 
 
 def screen_doc(failing=()):
@@ -251,9 +257,8 @@ class Gate(FixStages):
     def test_status_follows_the_files_from_plan_to_judge(self):
         self.assertEqual(self.status(self.run_dir)['next'], 'plan')
         self.write('plan.json', plan_doc())
-        # Shared fixes (#95) are not built yet, so the stage passes once the plan exists.
-        self.assertEqual(self.status(self.run_dir)['next'], 'kind-pools')
-        self.write('fixes.json', fixes_doc(), lambda d: d.update(pools={}, fixes={}))
+        self.assertEqual(self.status(self.run_dir)['next'], 'shared-fixes')
+        self.write('fixes.json', fixes_doc(), shared_pass_only)
         self.assertEqual(self.status(self.run_dir)['next'], 'kind-pools')
         self.write('fixes.json', fixes_doc())
         self.assertEqual(self.status(self.run_dir)['next'], 'screen')
@@ -264,6 +269,7 @@ class Gate(FixStages):
 
     def test_kind_with_no_ceiling_above_zero_does_not_run(self):
         self.write('plan.json', plan_doc(task=0))
+        self.write('fixes.json', fixes_doc(), shared_pass_only)
         self.assertEqual(self.status(self.run_dir)['next'], 'screen')
         self.write('plan.json', plan_doc(task=0), lambda p: p['ceilings']['burnout-d03']['task'].update(max=1))
         ready = self.start('kind-pools')
@@ -276,6 +282,8 @@ class Gate(FixStages):
         self.assertEqual(json.loads(planned.stdout), {'run': self.run_dir.name, 'stage': 'plan',
                                                       'brief': 'tools/possibilities/briefs/planner.md', 'kinds': ['task']})
         self.write('plan.json', plan_doc())
+        self.assertEqual(json.loads(self.start('shared-fixes').stdout)['brief'], 'tools/possibilities/briefs/shared-fixes.md')
+        self.write('fixes.json', fixes_doc(), shared_pass_only)
         pools = json.loads(self.start('kind-pools').stdout)
         self.assertEqual(pools['brief'], 'tools/possibilities/briefs/kinds/_shared.md')
         self.write('fixes.json', fixes_doc())
@@ -289,6 +297,8 @@ class Gate(FixStages):
             self.assertEqual(result.returncode, 2, stage)
             self.assertIn('%s cannot start: %s is not complete' % (stage, pending), result.stderr)
         self.write('plan.json', plan_doc())
+        self.assertIn('shared-fixes is not complete', self.start('assemble').stderr)
+        self.write('fixes.json', fixes_doc(), shared_pass_only)
         self.assertIn('kind-pools is not complete', self.start('assemble').stderr)
 
     def test_every_brief_the_helper_names_exists(self):
