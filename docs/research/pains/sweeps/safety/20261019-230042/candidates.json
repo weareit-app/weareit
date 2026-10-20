@@ -1,0 +1,410 @@
+{
+  "schemaVersion": 1,
+  "candidates": {
+    "gun-violence": {
+      "id": "gun-violence",
+      "name": "Gun violence",
+      "line": "I worry about people getting shot where I live.",
+      "page": "societal",
+      "group": "safety",
+      "aliases": [
+        "Shootings",
+        "Mass shootings"
+      ],
+      "sources": [
+        {
+          "url": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/02/PP_2025.2.20_national-problems_topline.pdf",
+          "accessed": "2026-10-19",
+          "passage": "GUN Gun violence Jan 27-Feb 2, 2025 48 29 18 4 *"
+        },
+        {
+          "url": "https://www.cdc.gov/nchs/fastats/injury.htm",
+          "accessed": "2026-10-19",
+          "passage": "All firearm deaths Number of deaths: 44,447 Deaths per 100,000 population: 13.1"
+        }
+      ],
+      "prevalence": "In early 2025, 48% of U.S. adults called gun violence a very big problem (Pew). 44,447 people died from firearms in the U.S. in the latest year of CDC data.",
+      "covers": [
+        {
+          "list": "gallup-mip",
+          "entry": "guns"
+        },
+        {
+          "list": "pew-national-problems",
+          "entry": "gun-violence"
+        },
+        {
+          "list": "cdc-injury",
+          "entry": "firearm-deaths"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q5618454"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q21480300"
+        }
+      ]
+    },
+    "school-shootings": {
+      "id": "school-shootings",
+      "name": "School shootings",
+      "line": "I worry that a shooting could happen at my kids' school.",
+      "page": "societal",
+      "group": "safety",
+      "aliases": [
+        "Safe at school",
+        "Lockdown drills"
+      ],
+      "sources": [
+        {
+          "url": "https://www.pewresearch.org/short-reads/2024/04/11/about-1-in-4-us-teachers-say-their-school-went-into-a-gun-related-lockdown-in-the-last-school-year/",
+          "accessed": "2026-10-19",
+          "passage": "Roughly a third of parents with K-12 students (32%) said they were extremely or very worried"
+        },
+        {
+          "url": "https://www.pewresearch.org/short-reads/2024/04/11/about-1-in-4-us-teachers-say-their-school-went-into-a-gun-related-lockdown-in-the-last-school-year/",
+          "accessed": "2026-10-19",
+          "passage": "a majority of public K-12 teachers (59%) say they are at least somewhat worried"
+        },
+        {
+          "url": "https://news.gallup.com/poll/1603/crime.aspx",
+          "accessed": "2026-10-19",
+          "passage": "Often Worry Crimes Child Harmed at School Table Frequently Occasionally Rarely Never Does not apply (vol.) No opinion % % % % % % 2025 Oct 1-16 25 18 19 22 15 1"
+        }
+      ],
+      "prevalence": "32% of U.S. parents of K-12 students are extremely or very worried about a shooting at their child's school, and 59% of public school teachers are at least somewhat worried (Pew). In 2025, 25% of U.S. adults frequently worried about a child being harmed at school (Gallup).",
+      "covers": [
+        {
+          "list": "gallup-mip",
+          "entry": "school-shootings"
+        },
+        {
+          "list": "gallup-crime",
+          "entry": "child-harmed-at-school"
+        },
+        {
+          "list": "pew-school-shootings",
+          "entry": "teachers-worried"
+        },
+        {
+          "list": "pew-school-shootings",
+          "entry": "parents-worried"
+        },
+        {
+          "list": "pew-school-shootings",
+          "entry": "lockdowns"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q473853"
+        }
+      ]
+    },
+    "road-deaths": {
+      "id": "road-deaths",
+      "name": "Traffic deaths",
+      "line": "I worry about people getting killed or badly hurt on the roads around here.",
+      "page": "societal",
+      "group": "safety",
+      "aliases": [
+        "Road safety",
+        "Dangerous roads",
+        "Car crashes"
+      ],
+      "sources": [
+        {
+          "url": "https://www.who.int/news-room/fact-sheets/detail/road-traffic-injuries",
+          "accessed": "2026-10-19",
+          "passage": "Approximately 1.16 million people die each year as a result of road traffic crashes."
+        },
+        {
+          "url": "https://news.gallup.com/poll/653084/road-accidents-remain-world-top-perceived-safety-risk.aspx",
+          "accessed": "2026-10-19",
+          "passage": "In 2023, 16% of adults worldwide named road-related accidents as the greatest source of risk in their life"
+        },
+        {
+          "url": "https://news.gallup.com/poll/653084/road-accidents-remain-world-top-perceived-safety-risk.aspx",
+          "accessed": "2026-10-19",
+          "passage": "Over three in four adults worldwide (76%) say they are very or somewhat worried about being harmed in a road accident"
+        },
+        {
+          "url": "https://www.cdc.gov/nchs/fastats/injury.htm",
+          "accessed": "2026-10-19",
+          "passage": "Motor vehicle traffic deaths Number of deaths: 41,241 Deaths per 100,000 population: 12.1"
+        }
+      ],
+      "prevalence": "About 1.16 million people die in road crashes each year (WHO). In 2023, 16% of adults worldwide named road accidents as the biggest risk in their life, the top answer, and 76% were worried about being harmed on the road (World Risk Poll). 41,241 people died in U.S. traffic in the latest year of CDC data.",
+      "covers": [
+        {
+          "list": "world-risk-poll",
+          "entry": "road-accidents"
+        },
+        {
+          "list": "world-risk-poll",
+          "entry": "worry-road"
+        },
+        {
+          "list": "who-injuries",
+          "entry": "road-traffic"
+        },
+        {
+          "list": "cdc-injury",
+          "entry": "motor-vehicle-deaths"
+        },
+        {
+          "list": "sdg-targets",
+          "entry": "3.6"
+        },
+        {
+          "list": "sdg-targets",
+          "entry": "11.2"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q9687"
+        }
+      ]
+    },
+    "terrorism": {
+      "id": "terrorism",
+      "name": "Terrorism",
+      "line": "I worry about attacks meant to kill and frighten people.",
+      "page": "societal",
+      "group": "safety",
+      "aliases": [
+        "Extremism",
+        "Domestic terrorism"
+      ],
+      "sources": [
+        {
+          "url": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/02/PP_2025.2.20_national-problems_topline.pdf",
+          "accessed": "2026-10-19",
+          "passage": "ITERR International terrorism Jan 27-Feb 2, 2025 36 38 22 3 1"
+        },
+        {
+          "url": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/02/PP_2025.2.20_national-problems_topline.pdf",
+          "accessed": "2026-10-19",
+          "passage": "DTERR Domestic terrorism Jan 27-Feb 2, 2025 34 38 24 3 1"
+        },
+        {
+          "url": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-02/What-Worries-the-World-January-2026.pdf",
+          "accessed": "2026-10-19",
+          "passage": "Rise of extremism Terrorism"
+        }
+      ],
+      "prevalence": "In early 2025, 36% of U.S. adults called international terrorism and 34% domestic terrorism a very big problem (Pew). Ipsos tracks terrorism and the rise of extremism as national worries.",
+      "covers": [
+        {
+          "list": "gallup-mip",
+          "entry": "terrorism"
+        },
+        {
+          "list": "ipsos-www",
+          "entry": "rise-of-extremism"
+        },
+        {
+          "list": "ipsos-www",
+          "entry": "terrorism"
+        },
+        {
+          "list": "gallup-crime",
+          "entry": "terrorism"
+        },
+        {
+          "list": "pew-national-problems",
+          "entry": "international-terrorism"
+        },
+        {
+          "list": "pew-national-problems",
+          "entry": "domestic-terrorism"
+        },
+        {
+          "list": "sdg-targets",
+          "entry": "16.a"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q7283"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q466439"
+        }
+      ]
+    },
+    "violence-against-women": {
+      "id": "violence-against-women",
+      "name": "Violence against women",
+      "line": "I see women and girls hurt by men, often by someone they know.",
+      "page": "societal",
+      "group": "safety",
+      "aliases": [
+        "Gender-based violence",
+        "Women's safety"
+      ],
+      "sources": [
+        {
+          "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women",
+          "accessed": "2026-10-19",
+          "passage": "about 1 in 3 (31.6%) of women worldwide (840 million women and girls) have been subjected to either physical and/or sexual"
+        },
+        {
+          "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women",
+          "accessed": "2026-10-19",
+          "passage": "on average 140 women and girls were killed every day by their partner or other family members globally"
+        }
+      ],
+      "prevalence": "About 1 in 3 women worldwide (31.6%, 840 million) have faced physical or sexual violence; on average 140 women and girls a day were killed by a partner or family member (WHO).",
+      "covers": [
+        {
+          "list": "who-violence",
+          "entry": "violence-against-women"
+        },
+        {
+          "list": "who-violence",
+          "entry": "non-partner-sexual-violence"
+        },
+        {
+          "list": "who-violence",
+          "entry": "women-killed-by-partners"
+        },
+        {
+          "list": "sdg-targets",
+          "entry": "5.2"
+        },
+        {
+          "list": "sdg-targets",
+          "entry": "5.3"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q1800556"
+        }
+      ]
+    },
+    "elder-abuse": {
+      "id": "elder-abuse",
+      "name": "Elder abuse",
+      "line": "I worry about older people being hurt, neglected or cheated by people they trust.",
+      "page": "societal",
+      "group": "safety",
+      "aliases": [
+        "Abuse of older people"
+      ],
+      "sources": [
+        {
+          "url": "https://www.who.int/news-room/fact-sheets/detail/abuse-of-older-people",
+          "accessed": "2026-10-19",
+          "passage": "Around 1 in 6 people 60 years and older experienced some form of abuse in community settings during the past year."
+        }
+      ],
+      "prevalence": "Around 1 in 6 people aged 60 and older experienced some form of abuse in the past year (WHO).",
+      "covers": [
+        {
+          "list": "who-violence",
+          "entry": "elder-abuse"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q427883"
+        }
+      ]
+    },
+    "trafficking": {
+      "id": "trafficking",
+      "name": "Trafficking",
+      "line": "I know people are still being trafficked, forced to work or forced to marry.",
+      "page": "societal",
+      "group": "safety",
+      "aliases": [
+        "Human trafficking",
+        "Modern slavery",
+        "Forced labor"
+      ],
+      "sources": [
+        {
+          "url": "https://www.ilo.org/resource/news/50-million-people-worldwide-modern-slavery-0",
+          "accessed": "2026-10-19",
+          "passage": "Fifty million people were living in modern slavery in 2021"
+        },
+        {
+          "url": "https://www.ilo.org/resource/news/50-million-people-worldwide-modern-slavery-0",
+          "accessed": "2026-10-19",
+          "passage": "28 million were in forced labour"
+        },
+        {
+          "url": "https://www.ilo.org/resource/news/50-million-people-worldwide-modern-slavery-0",
+          "accessed": "2026-10-19",
+          "passage": "An estimated 22 million people were living in forced marriage on any given day in 2021."
+        }
+      ],
+      "prevalence": "Fifty million people were living in modern slavery in 2021: 28 million in forced labor and 22 million in forced marriage (ILO, Walk Free, IOM).",
+      "covers": [
+        {
+          "list": "ilo-modern-slavery",
+          "entry": "modern-slavery"
+        },
+        {
+          "list": "ilo-modern-slavery",
+          "entry": "forced-labour"
+        },
+        {
+          "list": "ilo-modern-slavery",
+          "entry": "forced-marriage"
+        },
+        {
+          "list": "sdg-targets",
+          "entry": "8.7"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q181784"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q3369955"
+        }
+      ]
+    },
+    "unsafe-food": {
+      "id": "unsafe-food",
+      "name": "Unsafe food",
+      "line": "I worry the food I buy could make my family sick.",
+      "page": "societal",
+      "group": "safety",
+      "aliases": [
+        "Food safety",
+        "Food poisoning"
+      ],
+      "sources": [
+        {
+          "url": "https://www.who.int/news-room/fact-sheets/detail/food-safety",
+          "accessed": "2026-10-19",
+          "passage": "An estimated 866 million – almost 1 in 9 people in the world – fall ill after eating contaminated food"
+        },
+        {
+          "url": "https://news.gallup.com/poll/653084/road-accidents-remain-world-top-perceived-safety-risk.aspx",
+          "accessed": "2026-10-19",
+          "passage": "Food 21 37 59"
+        }
+      ],
+      "prevalence": "About 866 million people, almost 1 in 9, fall ill each year from contaminated food (WHO). 59% of adults worldwide were worried that food could seriously harm them (World Risk Poll).",
+      "covers": [
+        {
+          "list": "world-risk-poll",
+          "entry": "worry-food"
+        },
+        {
+          "list": "who-food-safety",
+          "entry": "foodborne-illness"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q909821"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "scope": "safety",
+  "issues": [
+    {
+      "painId": "world-on-fire",
+      "rule": "id-mismatch",
+      "detail": "ID world-on-fire, name \"War\" and line \"I see war threatening people and places I care about.\" share no word; propose a rewording only if the wording has drifted from what the ID names",
+      "severity": "note"
+    }
+  ],
+  "failing": [],
+  "checkedAt": "2026-10-19"
+}

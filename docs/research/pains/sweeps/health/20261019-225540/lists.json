@@ -1,0 +1,567 @@
+{
+  "schemaVersion": 1,
+  "lists": {
+    "ipsos-health-problems": {
+      "name": "Ipsos Health Service Report 2025: biggest health problems facing people in your country (30-country average)",
+      "url": "https://www.ipsos.com/sites/default/files/ct/publication/documents/2025-10/Ipsos_health_service_report_2025-en_0.pdf",
+      "accessed": "2026-10-19",
+      "entries": {
+        "mental-health": {
+          "name": "Mental Health (45%)",
+          "passage": "30 - Country Average 45% 41% 31% 25% 23% 19% 16% 16% 13% 8% 6% 4% 4% 2% Mental Health Cancer Stress Obesity Drug abuse Diabetes Alcohol abuse Heart Disease Smoking Dementia Coronavirus/COVID - 19 Sexually transmitted diseases (STD) Hospital superbugs Other"
+        },
+        "cancer": {
+          "name": "Cancer (41%)",
+          "passage": "30 - Country Average 45% 41% 31% 25% 23% 19% 16% 16% 13% 8% 6% 4% 4% 2% Mental Health Cancer Stress Obesity Drug abuse Diabetes Alcohol abuse Heart Disease Smoking Dementia Coronavirus/COVID - 19 Sexually transmitted diseases (STD) Hospital superbugs Other"
+        },
+        "stress": {
+          "name": "Stress (31%)",
+          "passage": "30 - Country Average 45% 41% 31% 25% 23% 19% 16% 16% 13% 8% 6% 4% 4% 2% Mental Health Cancer Stress Obesity Drug abuse Diabetes Alcohol abuse Heart Disease Smoking Dementia Coronavirus/COVID - 19 Sexually transmitted diseases (STD) Hospital superbugs Other"
+        },
+        "obesity": {
+          "name": "Obesity (25%)",
+          "passage": "30 - Country Average 45% 41% 31% 25% 23% 19% 16% 16% 13% 8% 6% 4% 4% 2% Mental Health Cancer Stress Obesity Drug abuse Diabetes Alcohol abuse Heart Disease Smoking Dementia Coronavirus/COVID - 19 Sexually transmitted diseases (STD) Hospital superbugs Other"
+        },
+        "drug-abuse": {
+          "name": "Drug abuse (23%)",
+          "passage": "30 - Country Average 45% 41% 31% 25% 23% 19% 16% 16% 13% 8% 6% 4% 4% 2% Mental Health Cancer Stress Obesity Drug abuse Diabetes Alcohol abuse Heart Disease Smoking Dementia Coronavirus/COVID - 19 Sexually transmitted diseases (STD) Hospital superbugs Other"
+        },
+        "diabetes": {
+          "name": "Diabetes (19%)",
+          "passage": "30 - Country Average 45% 41% 31% 25% 23% 19% 16% 16% 13% 8% 6% 4% 4% 2% Mental Health Cancer Stress Obesity Drug abuse Diabetes Alcohol abuse Heart Disease Smoking Dementia Coronavirus/COVID - 19 Sexually transmitted diseases (STD) Hospital superbugs Other"
+        },
+        "alcohol-abuse": {
+          "name": "Alcohol abuse (16%)",
+          "passage": "30 - Country Average 45% 41% 31% 25% 23% 19% 16% 16% 13% 8% 6% 4% 4% 2% Mental Health Cancer Stress Obesity Drug abuse Diabetes Alcohol abuse Heart Disease Smoking Dementia Coronavirus/COVID - 19 Sexually transmitted diseases (STD) Hospital superbugs Other"
+        },
+        "heart-disease": {
+          "name": "Heart Disease (16%)",
+          "passage": "30 - Country Average 45% 41% 31% 25% 23% 19% 16% 16% 13% 8% 6% 4% 4% 2% Mental Health Cancer Stress Obesity Drug abuse Diabetes Alcohol abuse Heart Disease Smoking Dementia Coronavirus/COVID - 19 Sexually transmitted diseases (STD) Hospital superbugs Other"
+        },
+        "smoking": {
+          "name": "Smoking (13%)",
+          "passage": "30 - Country Average 45% 41% 31% 25% 23% 19% 16% 16% 13% 8% 6% 4% 4% 2% Mental Health Cancer Stress Obesity Drug abuse Diabetes Alcohol abuse Heart Disease Smoking Dementia Coronavirus/COVID - 19 Sexually transmitted diseases (STD) Hospital superbugs Other"
+        },
+        "dementia": {
+          "name": "Dementia (8%)",
+          "passage": "30 - Country Average 45% 41% 31% 25% 23% 19% 16% 16% 13% 8% 6% 4% 4% 2% Mental Health Cancer Stress Obesity Drug abuse Diabetes Alcohol abuse Heart Disease Smoking Dementia Coronavirus/COVID - 19 Sexually transmitted diseases (STD) Hospital superbugs Other"
+        },
+        "coronavirus": {
+          "name": "Coronavirus/COVID-19 (6%)",
+          "passage": "30 - Country Average 45% 41% 31% 25% 23% 19% 16% 16% 13% 8% 6% 4% 4% 2% Mental Health Cancer Stress Obesity Drug abuse Diabetes Alcohol abuse Heart Disease Smoking Dementia Coronavirus/COVID - 19 Sexually transmitted diseases (STD) Hospital superbugs Other"
+        },
+        "std": {
+          "name": "Sexually transmitted diseases (STD) (4%)",
+          "passage": "30 - Country Average 45% 41% 31% 25% 23% 19% 16% 16% 13% 8% 6% 4% 4% 2% Mental Health Cancer Stress Obesity Drug abuse Diabetes Alcohol abuse Heart Disease Smoking Dementia Coronavirus/COVID - 19 Sexually transmitted diseases (STD) Hospital superbugs Other"
+        },
+        "superbugs": {
+          "name": "Hospital superbugs (4%)",
+          "passage": "30 - Country Average 45% 41% 31% 25% 23% 19% 16% 16% 13% 8% 6% 4% 4% 2% Mental Health Cancer Stress Obesity Drug abuse Diabetes Alcohol abuse Heart Disease Smoking Dementia Coronavirus/COVID - 19 Sexually transmitted diseases (STD) Hospital superbugs Other"
+        }
+      }
+    },
+    "ipsos-health-system": {
+      "name": "Ipsos Health Service Report 2025: biggest problems facing the healthcare system in your country (30-country average)",
+      "url": "https://www.ipsos.com/sites/default/files/ct/publication/documents/2025-10/Ipsos_health_service_report_2025-en_0.pdf",
+      "accessed": "2026-10-19",
+      "entries": {
+        "waiting-times": {
+          "name": "Access to treatment/long waiting times (47%)",
+          "passage": "30 - Country Average 47% 43% 33% 23% 23% 20% 19% 17% 8% 8% 7% 2% Access to treatment/ long waiting times Not enough staff Cost of accessing treatment Ageing population Bureaucracy Lack of investment in preventative health Lack of investment Poor quality treatment Poor safety Lack of choice Low standards of cleanliness Other"
+        },
+        "not-enough-staff": {
+          "name": "Not enough staff (43%)",
+          "passage": "30 - Country Average 47% 43% 33% 23% 23% 20% 19% 17% 8% 8% 7% 2% Access to treatment/ long waiting times Not enough staff Cost of accessing treatment Ageing population Bureaucracy Lack of investment in preventative health Lack of investment Poor quality treatment Poor safety Lack of choice Low standards of cleanliness Other"
+        },
+        "cost-of-treatment": {
+          "name": "Cost of accessing treatment (33%)",
+          "passage": "30 - Country Average 47% 43% 33% 23% 23% 20% 19% 17% 8% 8% 7% 2% Access to treatment/ long waiting times Not enough staff Cost of accessing treatment Ageing population Bureaucracy Lack of investment in preventative health Lack of investment Poor quality treatment Poor safety Lack of choice Low standards of cleanliness Other"
+        },
+        "ageing-population": {
+          "name": "Ageing population (23%)",
+          "passage": "30 - Country Average 47% 43% 33% 23% 23% 20% 19% 17% 8% 8% 7% 2% Access to treatment/ long waiting times Not enough staff Cost of accessing treatment Ageing population Bureaucracy Lack of investment in preventative health Lack of investment Poor quality treatment Poor safety Lack of choice Low standards of cleanliness Other"
+        },
+        "bureaucracy": {
+          "name": "Bureaucracy (23%)",
+          "passage": "30 - Country Average 47% 43% 33% 23% 23% 20% 19% 17% 8% 8% 7% 2% Access to treatment/ long waiting times Not enough staff Cost of accessing treatment Ageing population Bureaucracy Lack of investment in preventative health Lack of investment Poor quality treatment Poor safety Lack of choice Low standards of cleanliness Other"
+        },
+        "preventative-health": {
+          "name": "Lack of investment in preventative health (20%)",
+          "passage": "30 - Country Average 47% 43% 33% 23% 23% 20% 19% 17% 8% 8% 7% 2% Access to treatment/ long waiting times Not enough staff Cost of accessing treatment Ageing population Bureaucracy Lack of investment in preventative health Lack of investment Poor quality treatment Poor safety Lack of choice Low standards of cleanliness Other"
+        },
+        "lack-of-investment": {
+          "name": "Lack of investment (19%)",
+          "passage": "30 - Country Average 47% 43% 33% 23% 23% 20% 19% 17% 8% 8% 7% 2% Access to treatment/ long waiting times Not enough staff Cost of accessing treatment Ageing population Bureaucracy Lack of investment in preventative health Lack of investment Poor quality treatment Poor safety Lack of choice Low standards of cleanliness Other"
+        },
+        "poor-quality": {
+          "name": "Poor quality treatment (17%)",
+          "passage": "30 - Country Average 47% 43% 33% 23% 23% 20% 19% 17% 8% 8% 7% 2% Access to treatment/ long waiting times Not enough staff Cost of accessing treatment Ageing population Bureaucracy Lack of investment in preventative health Lack of investment Poor quality treatment Poor safety Lack of choice Low standards of cleanliness Other"
+        },
+        "poor-safety": {
+          "name": "Poor safety (8%)",
+          "passage": "30 - Country Average 47% 43% 33% 23% 23% 20% 19% 17% 8% 8% 7% 2% Access to treatment/ long waiting times Not enough staff Cost of accessing treatment Ageing population Bureaucracy Lack of investment in preventative health Lack of investment Poor quality treatment Poor safety Lack of choice Low standards of cleanliness Other"
+        },
+        "lack-of-choice": {
+          "name": "Lack of choice (8%)",
+          "passage": "30 - Country Average 47% 43% 33% 23% 23% 20% 19% 17% 8% 8% 7% 2% Access to treatment/ long waiting times Not enough staff Cost of accessing treatment Ageing population Bureaucracy Lack of investment in preventative health Lack of investment Poor quality treatment Poor safety Lack of choice Low standards of cleanliness Other"
+        },
+        "cleanliness": {
+          "name": "Low standards of cleanliness (7%)",
+          "passage": "30 - Country Average 47% 43% 33% 23% 23% 20% 19% 17% 8% 8% 7% 2% Access to treatment/ long waiting times Not enough staff Cost of accessing treatment Ageing population Bureaucracy Lack of investment in preventative health Lack of investment Poor quality treatment Poor safety Lack of choice Low standards of cleanliness Other"
+        },
+        "cannot-afford": {
+          "name": "Many people in my country cannot afford good healthcare (agree/disagree statement)",
+          "passage": "To what extent do you agree or disagree with the following statements? Many people in my country cannot afford good healthcare"
+        },
+        "trust-system": {
+          "name": "I trust the healthcare system in my country to provide me with the best treatment (agree/disagree statement)",
+          "passage": "I trust the healthcare system in my country to provide me with the best treatment"
+        }
+      }
+    },
+    "who-top-causes": {
+      "name": "WHO: the top 10 causes of death (Global Health Estimates, 2023)",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/the-top-10-causes-of-death",
+      "accessed": "2026-10-19",
+      "entries": {
+        "ischaemic-heart-disease": {
+          "name": "Ischaemic heart disease",
+          "passage": "The world's biggest killer is ischaemic heart disease, responsible for 16% of the world's total deaths."
+        },
+        "stroke": {
+          "name": "Stroke",
+          "passage": "Stroke and chronic obstructive pulmonary disease were the second and third leading causes of deaths in 2023."
+        },
+        "copd": {
+          "name": "Chronic obstructive pulmonary disease",
+          "passage": "Stroke and chronic obstructive pulmonary disease were the second and third leading causes of deaths in 2023."
+        },
+        "lower-respiratory-infections": {
+          "name": "Lower respiratory infections",
+          "passage": "In 2023 it claimed 2.7 million lives, returning back up to its 2019 pre-pandemic level."
+        },
+        "alzheimers-dementia": {
+          "name": "Alzheimer's disease and other dementias",
+          "passage": "Alzheimer's disease and other forms of dementia ranked as the fifth leading cause of death, killing 2.1 million people."
+        },
+        "diabetes": {
+          "name": "Diabetes",
+          "passage": "claiming 2.0 million lives, more than double the deaths in 2000"
+        },
+        "lung-cancer": {
+          "name": "Trachea, bronchus and lung cancers",
+          "passage": "Trachea, bronchus and lung cancers deaths have risen from 1.1 million in 2000 to 1.8 million in 2023."
+        },
+        "kidney-diseases": {
+          "name": "Kidney diseases",
+          "passage": "Kidney diseases have risen from the world's seventeenth leading cause of death to the ninth."
+        },
+        "covid-19": {
+          "name": "COVID-19 (fourteenth in 2023)",
+          "passage": "Falling to 0.9 million globally, making it the fourteenth leading cause of death."
+        }
+      }
+    },
+    "sdg-goal3": {
+      "name": "UN SDG Goal 3 targets (good health and well-being)",
+      "url": "https://sdgs.un.org/goals/goal3",
+      "accessed": "2026-10-19",
+      "entries": {
+        "3.1": {
+          "name": "3.1 Maternal mortality",
+          "passage": "By 2030, reduce the global maternal mortality ratio to less than 70 per 100,000 live births"
+        },
+        "3.2": {
+          "name": "3.2 Deaths of newborns and children under 5",
+          "passage": "By 2030, end preventable deaths of newborns and children under 5 years of age"
+        },
+        "3.3": {
+          "name": "3.3 Epidemics and communicable diseases",
+          "passage": "By 2030, end the epidemics of AIDS, tuberculosis, malaria and neglected tropical diseases"
+        },
+        "3.4": {
+          "name": "3.4 Non-communicable diseases, mental health and well-being",
+          "passage": "By 2030, reduce by one third premature mortality from non-communicable diseases"
+        },
+        "3.5": {
+          "name": "3.5 Substance abuse",
+          "passage": "Strengthen the prevention and treatment of substance abuse, including narcotic drug abuse and harmful use of alcohol"
+        },
+        "3.6": {
+          "name": "3.6 Road traffic deaths and injuries",
+          "passage": "By 2020, halve the number of global deaths and injuries from road traffic accidents"
+        },
+        "3.7": {
+          "name": "3.7 Sexual and reproductive health-care services",
+          "passage": "By 2030, ensure universal access to sexual and reproductive health-care services"
+        },
+        "3.8": {
+          "name": "3.8 Universal health coverage",
+          "passage": "Achieve universal health coverage, including financial risk protection"
+        },
+        "3.9": {
+          "name": "3.9 Deaths and illnesses from hazardous chemicals and pollution",
+          "passage": "By 2030, substantially reduce the number of deaths and illnesses from hazardous chemicals"
+        },
+        "3.a": {
+          "name": "3.a Tobacco control",
+          "passage": "Strengthen the implementation of the World Health Organization Framework Convention on Tobacco Control"
+        },
+        "3.b": {
+          "name": "3.b Research on and access to affordable medicines and vaccines",
+          "passage": "Support the research and development of vaccines and medicines for the communicable and non-communicable diseases"
+        },
+        "3.c": {
+          "name": "3.c Health financing and health workforce",
+          "passage": "Substantially increase health financing and the recruitment, development, training"
+        },
+        "3.d": {
+          "name": "3.d Early warning and management of health risks",
+          "passage": "Strengthen the capacity of all countries, in particular developing countries"
+        }
+      }
+    },
+    "oecd-wellbeing": {
+      "name": "OECD Well-being Framework: Health dimension and its indicators",
+      "url": "https://unstats.un.org/unsd/demographic-social/meetings/2024/iaeggs-20241203/4.2_OECD.pdf",
+      "accessed": "2026-10-19",
+      "entries": {
+        "health": {
+          "name": "Health (dimension)",
+          "passage": "Work and Job QualityHousingIncome andWealth HealthEnvironmental Quality"
+        },
+        "life-expectancy": {
+          "name": "Life expectancy",
+          "url": "https://en.wikipedia.org/wiki/OECD_Better_Life_Index",
+          "passage": "Life Expectancy Score"
+        },
+        "self-reported-health": {
+          "name": "Self-reported health",
+          "url": "https://en.wikipedia.org/wiki/OECD_Better_Life_Index",
+          "passage": "Self-reported Health Score"
+        },
+        "deaths-of-despair": {
+          "name": "Deaths of despair (suicide, acute alcohol abuse and drug overdose)",
+          "url": "https://www.healthpopuli.com/2024/11/07/hows-life-around-the-world-in-the-u-s-its-the-sadness-that-stands-out/",
+          "passage": "fatalities from suicide, acute alcohol abuse and drug overdose"
+        }
+      }
+    },
+    "whoqol-bref": {
+      "name": "WHOQOL-BREF items bearing on health",
+      "url": "https://depts.washington.edu/seaqol/docs/WHOQOL-BREF%20and%20Scoring%20Instructions.pdf",
+      "accessed": "2026-10-19",
+      "entries": {
+        "q2": {
+          "name": "Q2 How satisfied are you with your health?",
+          "passage": "How satisfied are you with your health?"
+        },
+        "q3": {
+          "name": "Q3 Physical pain prevents you from doing what you need to do",
+          "passage": "physical pain prevents you from doing what you need to do?"
+        },
+        "q4": {
+          "name": "Q4 Need for medical treatment to function in daily life",
+          "passage": "How much do you need any medical treatment to function in your daily life?"
+        },
+        "q9": {
+          "name": "Q9 How healthy is your physical environment?",
+          "passage": "How healthy is your physical environment?"
+        },
+        "q24": {
+          "name": "Q24 Satisfaction with access to health services",
+          "passage": "How satisfied are you with your access to health services?"
+        }
+      }
+    },
+    "maxneef": {
+      "name": "Max-Neef's fundamental human needs (health-related cells)",
+      "url": "https://en.wikipedia.org/wiki/Manfred_Max-Neef%27s_Fundamental_human_needs",
+      "accessed": "2026-10-19",
+      "entries": {
+        "subsistence": {
+          "name": "Subsistence (being: physical health, mental health)",
+          "passage": "physical health, mental health, equilibrium, adaptability"
+        },
+        "protection": {
+          "name": "Protection (having: health systems; doing: cure, take care of)",
+          "passage": "insurance systems, savings, social security, health systems, rights, family, work"
+        }
+      }
+    },
+    "gallup-elements": {
+      "name": "Gallup's five elements of wellbeing",
+      "url": "https://www.gallup.com/workplace/237020/five-essential-elements.aspx",
+      "accessed": "2026-10-19",
+      "entries": {
+        "physical": {
+          "name": "Physical wellbeing",
+          "passage": "having good health and enough energy to get things done on a daily basis"
+        }
+      }
+    },
+    "gallup-worries-2026": {
+      "name": "Gallup: how much do you personally worry about each problem (March 2026)",
+      "url": "https://news.gallup.com/poll/707732/healthcare-reclaims-top-spot-among-domestic-worries.aspx",
+      "accessed": "2026-10-19",
+      "entries": {
+        "healthcare": {
+          "name": "Availability and affordability of healthcare",
+          "passage": "61% of Americans worry a great deal about healthcare access and affordability."
+        },
+        "drug-use": {
+          "name": "Drug use",
+          "passage": "Terrorism, crime and violence, and drug use are among the lower-ranked concerns."
+        }
+      }
+    },
+    "gallup-mip": {
+      "name": "Gallup: most important problem facing the country (health-related categories)",
+      "url": "https://news.gallup.com/poll/1675/most-important-problem.aspx",
+      "accessed": "2026-10-19",
+      "entries": {
+        "healthcare": {
+          "name": "Healthcare"
+        }
+      }
+    },
+    "pew-problems-2026": {
+      "name": "Pew Research Center: very big problems facing the country (April 2026), health-related items",
+      "url": "https://www.pewresearch.org/politics/2026/05/11/americans-see-health-care-costs-deficit-inflation-as-big-problems-facing-the-nation/",
+      "accessed": "2026-10-19",
+      "entries": {
+        "health-care-affordability": {
+          "name": "The affordability of health care (73%)",
+          "passage": "73% of adults now say the affordability of health care is a very big problem for the country"
+        },
+        "drug-addiction": {
+          "name": "Drug addiction (55%)"
+        },
+        "gun-violence": {
+          "name": "Gun violence (49%)"
+        }
+      }
+    },
+    "ipsos-www": {
+      "name": "Ipsos What Worries the World (September 2026), health-related worries",
+      "url": "https://www.ipsos.com/en/what-worries-world",
+      "accessed": "2026-10-19",
+      "entries": {
+        "healthcare": {
+          "name": "Healthcare",
+          "passage": "28% of Americans are worried about healthcare"
+        }
+      }
+    },
+    "kff-health-tracking-2026": {
+      "name": "KFF Health Tracking Polls (January and February-March 2026): worries about affording care",
+      "url": "https://www.kff.org/public-opinion/kff-health-tracking-poll-health-care-costs-expiring-aca-tax-credits-and-the-2026-midterms/",
+      "accessed": "2026-10-19",
+      "entries": {
+        "afford-health-care": {
+          "name": "Worry about being able to afford health care",
+          "passage": "Two-thirds of the public (66%) say they worry about being able to afford health care for them and their family"
+        },
+        "afford-prescription-drugs": {
+          "name": "Worry about being able to afford prescription drugs",
+          "url": "https://www.kff.org/public-opinion/poll-public-worries-about-prescription-drug-costs-reach-new-high-most-across-political-parties-want-government-to-do-more-to-regulate-prices/",
+          "passage": "59% of the public now say they are at least somewhat worried about being able to afford prescription drugs"
+        }
+      }
+    },
+    "kff-consumer-insurance": {
+      "name": "KFF Survey of Consumer Experiences with Health Insurance (2023)",
+      "url": "https://www.kff.org/affordable-care-act/consumer-survey-highlights-problems-with-denied-health-insurance-claims/",
+      "accessed": "2026-10-19",
+      "entries": {
+        "denied-claims": {
+          "name": "Denied claims",
+          "passage": "18% of insured adults say they experienced denied claims in the past year."
+        },
+        "insurance-problems": {
+          "name": "Problems using health insurance",
+          "passage": "roughly 6 in 10 insured adults experience problems when they use their insurance."
+        }
+      }
+    },
+    "211-impact-2025": {
+      "name": "United Way 211 Impact Snapshot 2025: top referral categories (health-related)",
+      "url": "https://www.unitedway.org/the-facts-about-211-2025-impact-snapshot",
+      "accessed": "2026-10-19",
+      "entries": {
+        "mental-health-substance-use": {
+          "name": "Mental health and substance use disorders assistance",
+          "passage": "Referrals for mental health and substance use disorders assistance"
+        }
+      }
+    },
+    "census-health-insurance-2025": {
+      "name": "U.S. Census Bureau: Health Insurance Coverage in the United States, 2025",
+      "url": "https://www2.census.gov/library/publications/2026/demo/p60-291.pdf",
+      "accessed": "2026-10-19",
+      "entries": {
+        "uninsured": {
+          "name": "Uninsured for the entire year",
+          "passage": "In 2025, 26.7 million people (7.9 percent) were uninsured for the entire year"
+        }
+      }
+    },
+    "chartis-rural-2026": {
+      "name": "Chartis Center for Rural Health: 2026 Rural Health State of the State",
+      "url": "https://www.chartis.com/insights/2026-rural-health-state-state",
+      "accessed": "2026-10-19",
+      "entries": {
+        "vulnerable-to-closure": {
+          "name": "Rural hospitals vulnerable to closure",
+          "passage": "This year's analysis reveals that 417 rural hospitals are vulnerable to closure."
+        },
+        "closed-or-converted": {
+          "name": "Rural hospitals closed or converted since 2010",
+          "passage": "206 rural hospitals have either closed or converted to models that exclude inpatient care"
+        },
+        "ob-services-stopped": {
+          "name": "Rural hospitals that stopped offering obstetrics",
+          "passage": "Between 2011 and 2024, 331 rural hospitals stopped offering OB services."
+        }
+      }
+    },
+    "cdc-nchs": {
+      "name": "CDC: adult obesity and maternal mortality statistics",
+      "url": "https://www.cdc.gov/nchs/data/hestat/hestat113.htm",
+      "accessed": "2026-10-19",
+      "entries": {
+        "maternal-mortality": {
+          "name": "Maternal mortality",
+          "passage": "In 2024, 649 women died of maternal causes in the United States, compared with 669 in 2023"
+        },
+        "adult-obesity": {
+          "name": "Adult obesity",
+          "url": "https://www.cdc.gov/obesity/adult-obesity-facts/index.html",
+          "passage": "The prevalence of obesity among U.S. adults 20 and over was 41.9% during 2017–March 2020."
+        }
+      }
+    },
+    "who-road-traffic": {
+      "name": "WHO fact sheet: road traffic injuries",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/road-traffic-injuries",
+      "accessed": "2026-10-19",
+      "entries": {
+        "road-deaths": {
+          "name": "Road traffic deaths",
+          "passage": "Approximately 1.16 million people die each year as a result of road traffic crashes."
+        }
+      }
+    },
+    "wikidata": {
+      "name": "Wikidata items for health pains",
+      "url": "https://www.wikidata.org/",
+      "accessed": "2026-10-19",
+      "entries": {
+        "Q31207": {
+          "name": "health care",
+          "url": "https://www.wikidata.org/wiki/Q31207"
+        },
+        "Q3274205": {
+          "name": "universal health care",
+          "url": "https://www.wikidata.org/wiki/Q3274205"
+        },
+        "Q12184": {
+          "name": "pandemic",
+          "url": "https://www.wikidata.org/wiki/Q12184"
+        },
+        "Q21698220": {
+          "name": "antimicrobial resistance",
+          "url": "https://www.wikidata.org/wiki/Q21698220"
+        },
+        "Q12174": {
+          "name": "obesity",
+          "url": "https://www.wikidata.org/wiki/Q12174"
+        },
+        "Q83030": {
+          "name": "dementia",
+          "url": "https://www.wikidata.org/wiki/Q83030"
+        },
+        "Q7240898": {
+          "name": "prescription drug prices in the United States",
+          "url": "https://www.wikidata.org/wiki/Q7240898"
+        },
+        "Q334911": {
+          "name": "health insurance",
+          "url": "https://www.wikidata.org/wiki/Q334911"
+        },
+        "Q1339474": {
+          "name": "maternal death",
+          "url": "https://www.wikidata.org/wiki/Q1339474"
+        },
+        "Q9687": {
+          "name": "traffic collision",
+          "url": "https://www.wikidata.org/wiki/Q9687"
+        },
+        "Q3137154": {
+          "name": "non-communicable disease",
+          "url": "https://www.wikidata.org/wiki/Q3137154"
+        },
+        "Q12078": {
+          "name": "cancer",
+          "url": "https://www.wikidata.org/wiki/Q12078"
+        },
+        "Q12206": {
+          "name": "diabetes",
+          "url": "https://www.wikidata.org/wiki/Q12206"
+        },
+        "Q389735": {
+          "name": "cardiovascular disease",
+          "url": "https://www.wikidata.org/wiki/Q389735"
+        },
+        "Q1475557": {
+          "name": "patient safety",
+          "url": "https://www.wikidata.org/wiki/Q1475557"
+        },
+        "Q17003063": {
+          "name": "health care quality",
+          "url": "https://www.wikidata.org/wiki/Q17003063"
+        },
+        "Q3505252": {
+          "name": "drug overdose",
+          "url": "https://www.wikidata.org/wiki/Q3505252"
+        },
+        "Q3184856": {
+          "name": "substance abuse",
+          "url": "https://www.wikidata.org/wiki/Q3184856"
+        },
+        "Q15326": {
+          "name": "alcoholism",
+          "url": "https://www.wikidata.org/wiki/Q15326"
+        },
+        "Q7212330": {
+          "name": "tobacco smoking",
+          "url": "https://www.wikidata.org/wiki/Q7212330"
+        },
+        "Q10737": {
+          "name": "suicide",
+          "url": "https://www.wikidata.org/wiki/Q10737"
+        },
+        "Q12135": {
+          "name": "mental disorder",
+          "url": "https://www.wikidata.org/wiki/Q12135"
+        },
+        "Q3500368": {
+          "name": "psychological stress",
+          "url": "https://www.wikidata.org/wiki/Q3500368"
+        },
+        "Q12198": {
+          "name": "sexually transmitted infection",
+          "url": "https://www.wikidata.org/wiki/Q12198"
+        },
+        "Q439112": {
+          "name": "population ageing",
+          "url": "https://www.wikidata.org/wiki/Q439112"
+        },
+        "Q188419": {
+          "name": "life expectancy",
+          "url": "https://www.wikidata.org/wiki/Q188419"
+        }
+      }
+    }
+  }
+}

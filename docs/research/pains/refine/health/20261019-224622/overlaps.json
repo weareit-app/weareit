@@ -1,0 +1,12 @@
+{
+  "pairs": [
+    {"a": "one-illness-away", "b": "cant-get-care", "action": "other-page", "reason": "Being ruined by medical bills is a shared problem with how care is paid for, while not being able to see a doctor is a personal problem of getting care at all, so both belong, linked across pages."},
+    {"a": "one-illness-away", "b": "no-cushion", "action": "other-page", "reason": "Having no savings for any surprise bill is personal, while fearing that illness itself could ruin you points at how healthcare is paid for, so keep both and link them."},
+    {"a": "mental-health-crisis", "b": "feeling-down", "action": "other-page", "reason": "Feeling low yourself and seeing people around you struggle are different things to pick, one personal and one shared, so keep both linked across pages."},
+    {"a": "mental-health-crisis", "b": "anxiety", "action": "other-page", "reason": "Worrying too much yourself is a personal pain, while watching people you care about struggle is a shared one, so keep both linked across pages."},
+    {"a": "addiction-here", "b": "drinking-too-much", "action": "other-page", "reason": "Not being able to stop something yourself is a personal pain, while losing people you know to drugs is a shared one, so keep both linked across pages."},
+    {"a": "older-people-alone", "b": "loneliness", "action": "other-page", "reason": "Feeling alone yourself is personal, while seeing older people left on their own is a shared problem, so keep both linked across pages."},
+    {"a": "older-people-alone", "b": "caregiving", "action": "other-page", "reason": "Looking after someone yourself is a personal load, while older people left without anyone is a shared problem, so keep both linked across pages."},
+    {"a": "mental-health-crisis", "b": "addiction-here", "action": "keep", "distinction": "One is about people struggling with their mental health, the other about losing people to drugs; someone can tell them apart at a glance.", "reason": "They often go together, but someone watching friends struggle and someone losing friends to drugs would each know which one is theirs."}
+  ]
+}

@@ -1,0 +1,436 @@
+{
+  "schemaVersion": 1,
+  "entries": {
+    "gallup-mip/war-middle-east": {
+      "painId": "world-on-fire",
+      "why": "War: \"I see war threatening people and places I care about.\""
+    },
+    "gallup-mip/fear-of-war": {
+      "painId": "world-on-fire",
+      "why": "War covers fear of war."
+    },
+    "gallup-mip/national-security": {
+      "broader": "world-on-fire",
+      "why": "National security is mostly worry about war and foreign threats; War covers it loosely."
+    },
+    "gallup-mip/crime-violence": {
+      "painId": "crime-and-violence",
+      "why": "Crime: \"I don't feel safe from crime and violence.\""
+    },
+    "gallup-mip/terrorism": {
+      "candidate": "terrorism"
+    },
+    "gallup-mip/guns": {
+      "candidate": "gun-violence"
+    },
+    "gallup-mip/drugs": {
+      "painId": "addiction-here",
+      "why": "Drugs: \"I'm losing people I know to drugs.\""
+    },
+    "gallup-mip/russia": {
+      "broader": "world-on-fire",
+      "why": "Worry about Russia is mostly fear of war; War covers it loosely."
+    },
+    "gallup-mip/china": {
+      "broader": "world-on-fire",
+      "why": "Worry about China is partly fear of conflict; War covers it loosely."
+    },
+    "gallup-mip/military-defense": {
+      "broader": "world-on-fire",
+      "why": "Defense worry is about war and foreign threats; War covers it loosely."
+    },
+    "gallup-mip/international-issues": {
+      "broader": "world-on-fire",
+      "why": "Broad international worry; War covers the safety part loosely."
+    },
+    "gallup-mip/police-brutality": {
+      "painId": "justice-unfair",
+      "why": "Justice: \"I see police and courts treat people differently.\""
+    },
+    "gallup-mip/judicial-system": {
+      "painId": "justice-unfair",
+      "why": "Justice covers courts and laws treating people unfairly."
+    },
+    "gallup-mip/school-shootings": {
+      "candidate": "school-shootings"
+    },
+    "ipsos-www/crime-violence": {
+      "painId": "crime-and-violence",
+      "why": "Crime covers crime and violence."
+    },
+    "ipsos-www/military-conflict": {
+      "painId": "world-on-fire",
+      "why": "War covers military conflict between nations."
+    },
+    "ipsos-www/rise-of-extremism": {
+      "candidate": "terrorism"
+    },
+    "ipsos-www/terrorism": {
+      "candidate": "terrorism"
+    },
+    "gallup-crime/worry-crime": {
+      "painId": "crime-and-violence",
+      "why": "Crime covers worry about crime and violence."
+    },
+    "gallup-crime/more-crime": {
+      "painId": "crime-and-violence",
+      "why": "Crime covers the sense that crime is rising."
+    },
+    "gallup-crime/walk-alone": {
+      "painId": "unsafe-near-me",
+      "why": "Safety: \"I don't feel safe where I live.\""
+    },
+    "gallup-crime/identity-theft": {
+      "painId": "identity-theft",
+      "why": "Identity theft: \"Someone used my name to open accounts or take my money.\""
+    },
+    "gallup-crime/personal-info-stolen": {
+      "painId": "identity-theft",
+      "why": "Identity theft covers having personal information stolen and used."
+    },
+    "gallup-crime/scammed": {
+      "painId": "scammed",
+      "why": "Scams: \"I lost money to a scam.\""
+    },
+    "gallup-crime/car-stolen": {
+      "painId": "crime-and-violence",
+      "why": "Crime covers property crime such as car theft."
+    },
+    "gallup-crime/burglary-away": {
+      "painId": "crime-and-violence",
+      "why": "Crime covers burglary."
+    },
+    "gallup-crime/burglary-home": {
+      "painId": "crime-and-violence",
+      "why": "Crime covers burglary."
+    },
+    "gallup-crime/child-harmed-at-school": {
+      "candidate": "school-shootings"
+    },
+    "gallup-crime/attacked-driving": {
+      "painId": "crime-and-violence",
+      "why": "Crime covers violent attacks."
+    },
+    "gallup-crime/mugged": {
+      "painId": "crime-and-violence",
+      "why": "Crime covers robbery."
+    },
+    "gallup-crime/hate-crime": {
+      "broader": "people-treated-badly",
+      "why": "Prejudice (\"I watch people get treated badly for who they are\") and Crime together cover hate crime loosely."
+    },
+    "gallup-crime/sexual-assault": {
+      "painId": "crime-and-violence",
+      "why": "Crime covers fear of being sexually assaulted by anyone."
+    },
+    "gallup-crime/murdered": {
+      "painId": "crime-and-violence",
+      "why": "Crime covers fear of being killed."
+    },
+    "gallup-crime/assaulted-at-work": {
+      "broader": "bad-job",
+      "why": "Mistreatment (\"I'm treated badly at work\") covers harassment by coworkers loosely."
+    },
+    "gallup-crime/terrorism": {
+      "candidate": "terrorism"
+    },
+    "gallup-crime/ever-victim": {
+      "painId": "crime-and-violence",
+      "why": "Crime covers having been harmed by crime."
+    },
+    "pew-national-problems/gun-violence": {
+      "candidate": "gun-violence"
+    },
+    "pew-national-problems/violent-crime": {
+      "painId": "crime-and-violence",
+      "why": "Crime covers violent crime."
+    },
+    "pew-national-problems/international-terrorism": {
+      "candidate": "terrorism"
+    },
+    "pew-national-problems/domestic-terrorism": {
+      "candidate": "terrorism"
+    },
+    "pew-national-problems/natural-disasters": {
+      "painId": "disasters",
+      "why": "Disasters: \"I'm living with floods, fires, storms or extreme heat.\""
+    },
+    "pew-national-problems/drug-addiction": {
+      "painId": "addiction-here",
+      "why": "Drugs covers drug addiction around me."
+    },
+    "pew-school-shootings/teachers-worried": {
+      "candidate": "school-shootings"
+    },
+    "pew-school-shootings/parents-worried": {
+      "candidate": "school-shootings"
+    },
+    "pew-school-shootings/lockdowns": {
+      "candidate": "school-shootings"
+    },
+    "world-risk-poll/road-accidents": {
+      "candidate": "road-deaths"
+    },
+    "world-risk-poll/crime-violence": {
+      "painId": "crime-and-violence",
+      "why": "Crime covers crime and violence."
+    },
+    "world-risk-poll/personal-health": {
+      "broader": "health-runs-my-life",
+      "why": "Illness covers a health condition as a personal risk, in the Body group."
+    },
+    "world-risk-poll/economy": {
+      "painId": "recession",
+      "why": "Recession: \"I worry the economy is getting worse.\""
+    },
+    "world-risk-poll/severe-weather-top": {
+      "painId": "disasters",
+      "why": "Disasters covers severe weather."
+    },
+    "world-risk-poll/financial": {
+      "broader": "broke",
+      "why": "Money risk; the Money group covers it, with Broke the closest."
+    },
+    "world-risk-poll/war-terrorism": {
+      "painId": "world-on-fire",
+      "why": "War covers war; terrorism also goes to the terrorism candidate."
+    },
+    "world-risk-poll/worry-road": {
+      "candidate": "road-deaths"
+    },
+    "world-risk-poll/worry-severe-weather": {
+      "painId": "disasters",
+      "why": "Disasters covers severe weather."
+    },
+    "world-risk-poll/worry-violent-crime": {
+      "painId": "crime-and-violence",
+      "why": "Crime covers violent crime."
+    },
+    "world-risk-poll/worry-food": {
+      "candidate": "unsafe-food"
+    },
+    "world-risk-poll/worry-mental-health": {
+      "broader": "mental-health-crisis",
+      "why": "Mental health covers this from the societal side; Anxiety and Depression cover it personally."
+    },
+    "world-risk-poll/worry-work": {
+      "outOfScope": "harm at work is a Work-group pain; the work sweep proposes unsafe-work"
+    },
+    "world-risk-poll/worry-drinking-water": {
+      "broader": "infrastructure",
+      "why": "Infrastructure covers water systems loosely; the home sweep proposes tap-water."
+    },
+    "world-risk-poll/politics": {
+      "broader": "we-cant-talk",
+      "why": "Polarization covers political conflict loosely; the government sweep proposes political-violence."
+    },
+    "who-injuries/road-traffic": {
+      "candidate": "road-deaths"
+    },
+    "who-injuries/suicide": {
+      "broader": "mental-health-crisis",
+      "why": "Mental health covers suicide loosely on the societal page; the mind sweep proposes suicidal-thoughts."
+    },
+    "who-injuries/homicide": {
+      "painId": "crime-and-violence",
+      "why": "Crime covers homicide."
+    },
+    "who-injuries/war-conflict": {
+      "painId": "world-on-fire",
+      "why": "War covers deaths from war and conflict."
+    },
+    "who-injuries/falls": {
+      "outOfScope": "falls are a personal injury risk, mostly for older people at home; belongs to Body or Home, not societal Safety"
+    },
+    "who-injuries/drowning": {
+      "outOfScope": "a personal injury risk with no societal pain wording yet; belongs to Body or Kids"
+    },
+    "who-violence/violence-against-women": {
+      "candidate": "violence-against-women"
+    },
+    "who-violence/non-partner-sexual-violence": {
+      "candidate": "violence-against-women"
+    },
+    "who-violence/women-killed-by-partners": {
+      "candidate": "violence-against-women"
+    },
+    "who-violence/child-sexual-abuse": {
+      "outOfScope": "Kids scope; proposed as `child-abuse` by the kids sweep 20261019-230115"
+    },
+    "who-violence/physical-punishment": {
+      "outOfScope": "Kids scope; proposed as `child-abuse` by the kids sweep 20261019-230115"
+    },
+    "who-violence/elder-abuse": {
+      "candidate": "elder-abuse"
+    },
+    "ilo-modern-slavery/modern-slavery": {
+      "candidate": "trafficking"
+    },
+    "ilo-modern-slavery/forced-labour": {
+      "candidate": "trafficking"
+    },
+    "ilo-modern-slavery/forced-marriage": {
+      "candidate": "trafficking"
+    },
+    "who-food-safety/foodborne-illness": {
+      "candidate": "unsafe-food"
+    },
+    "cdc-injury/firearm-deaths": {
+      "candidate": "gun-violence"
+    },
+    "cdc-injury/motor-vehicle-deaths": {
+      "candidate": "road-deaths"
+    },
+    "bjs-ncvs-2024/violent-victimization": {
+      "painId": "crime-and-violence",
+      "why": "Crime covers violent victimization."
+    },
+    "211-impact-2025/legal-public-safety": {
+      "broader": "legal-mess",
+      "why": "Mostly legal help; Legal trouble covers it loosely, Crime covers the public-safety part."
+    },
+    "oecd-wellbeing/safety": {
+      "painId": "crime-and-violence",
+      "why": "Crime is the societal pain for the Safety dimension."
+    },
+    "oecd-wellbeing/homicide-rate": {
+      "painId": "crime-and-violence",
+      "why": "Crime covers homicide."
+    },
+    "oecd-wellbeing/feeling-safe-at-night": {
+      "painId": "unsafe-near-me",
+      "why": "Safety: \"I don't feel safe where I live.\""
+    },
+    "whoqol-bref/q8": {
+      "painId": "unsafe-near-me",
+      "why": "Safety covers feeling unsafe in daily life."
+    },
+    "sdg-targets/16.1": {
+      "painId": "crime-and-violence",
+      "why": "Crime covers violence and violent death."
+    },
+    "sdg-targets/16.2": {
+      "outOfScope": "Kids scope; proposed as `child-abuse` by the kids sweep 20261019-230115"
+    },
+    "sdg-targets/16.4": {
+      "broader": "crime-and-violence",
+      "why": "Crime covers organized crime loosely."
+    },
+    "sdg-targets/16.a": {
+      "candidate": "terrorism"
+    },
+    "sdg-targets/5.2": {
+      "candidate": "violence-against-women"
+    },
+    "sdg-targets/5.3": {
+      "candidate": "violence-against-women"
+    },
+    "sdg-targets/3.6": {
+      "candidate": "road-deaths"
+    },
+    "sdg-targets/3.d": {
+      "outOfScope": "health emergencies and pandemics belong to the Health group"
+    },
+    "sdg-targets/11.2": {
+      "candidate": "road-deaths"
+    },
+    "sdg-targets/11.5": {
+      "painId": "disasters",
+      "why": "Disasters covers harm from disasters."
+    },
+    "sdg-targets/11.7": {
+      "broader": "unsafe-near-me",
+      "why": "Safety covers feeling unsafe in public places near home loosely; Nature covers green space."
+    },
+    "sdg-targets/8.7": {
+      "candidate": "trafficking"
+    },
+    "sdg-targets/8.8": {
+      "outOfScope": "workplace safety is a Work-group pain; the work sweep proposes unsafe-work"
+    },
+    "maxneef/protection": {
+      "broader": "crime-and-violence",
+      "why": "Protection is a broad need; Crime, Safety and Safety at home each cover part of it."
+    },
+    "gallup-elements/community": {
+      "broader": "unsafe-near-me",
+      "why": "Community wellbeing is broader than safety; Safety covers its safety part."
+    },
+    "wikidata/Q83267": {
+      "painId": "crime-and-violence",
+      "why": "Crime."
+    },
+    "wikidata/Q1520311": {
+      "painId": "crime-and-violence",
+      "why": "Crime covers violent crime."
+    },
+    "wikidata/Q329425": {
+      "painId": "crime-and-violence",
+      "why": "Crime covers burglary."
+    },
+    "wikidata/Q294240": {
+      "broader": "crime-and-violence",
+      "why": "Public security is the general concept; Crime covers it loosely."
+    },
+    "wikidata/Q5618454": {
+      "candidate": "gun-violence"
+    },
+    "wikidata/Q21480300": {
+      "candidate": "gun-violence"
+    },
+    "wikidata/Q473853": {
+      "candidate": "school-shootings"
+    },
+    "wikidata/Q7283": {
+      "candidate": "terrorism"
+    },
+    "wikidata/Q466439": {
+      "candidate": "terrorism"
+    },
+    "wikidata/Q198": {
+      "painId": "world-on-fire",
+      "why": "War."
+    },
+    "wikidata/Q201424": {
+      "broader": "world-on-fire",
+      "why": "War covers fear of nuclear war loosely."
+    },
+    "wikidata/Q9687": {
+      "candidate": "road-deaths"
+    },
+    "wikidata/Q156537": {
+      "painId": "unsafe-at-home",
+      "why": "Safety at home: \"I don't feel safe with someone in my life.\""
+    },
+    "wikidata/Q1800556": {
+      "candidate": "violence-against-women"
+    },
+    "wikidata/Q558075": {
+      "broader": "crime-and-violence",
+      "why": "Crime covers sexual violence against anyone; the violence-against-women candidate covers its most common form."
+    },
+    "wikidata/Q167191": {
+      "outOfScope": "Kids scope; proposed as `child-abuse` by the kids sweep 20261019-230115"
+    },
+    "wikidata/Q427883": {
+      "candidate": "elder-abuse"
+    },
+    "wikidata/Q181784": {
+      "candidate": "trafficking"
+    },
+    "wikidata/Q3369955": {
+      "candidate": "trafficking"
+    },
+    "wikidata/Q909821": {
+      "candidate": "unsafe-food"
+    },
+    "wikidata/Q1996993": {
+      "painId": "justice-unfair",
+      "why": "Justice covers police treating people unfairly."
+    },
+    "wikidata/Q459409": {
+      "broader": "people-treated-badly",
+      "why": "Prejudice covers hate crime loosely."
+    }
+  }
+}

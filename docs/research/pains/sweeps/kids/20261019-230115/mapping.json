@@ -1,0 +1,298 @@
+{
+  "schemaVersion": 1,
+  "entries": {
+    "cdc-yrbs-2023/persistent-sadness": {
+      "candidate": "kids-mental-health"
+    },
+    "cdc-yrbs-2023/considered-suicide": {
+      "candidate": "kids-mental-health"
+    },
+    "pew-parent-worries-2023/anxiety-depression": {
+      "candidate": "kids-mental-health"
+    },
+    "who-adolescent-health/depression-anxiety": {
+      "candidate": "kids-mental-health"
+    },
+    "who-adolescent-health/suicide": {
+      "candidate": "kids-mental-health"
+    },
+    "wikidata/Q110344742": {
+      "candidate": "kids-mental-health"
+    },
+    "wikidata/Q8059353": {
+      "candidate": "kids-mental-health"
+    },
+    "cdc-yrbs-2023/bullied-at-school": {
+      "candidate": "bullying"
+    },
+    "pew-parent-worries-2023/bullied": {
+      "candidate": "bullying"
+    },
+    "wikidata/Q240126": {
+      "candidate": "bullying"
+    },
+    "wikidata/Q494348": {
+      "candidate": "bullying"
+    },
+    "pew-school-shootings-2018/teens-worried": {
+      "candidate": "guns-and-kids"
+    },
+    "pew-school-shootings-2018/parents-worried": {
+      "candidate": "guns-and-kids"
+    },
+    "ahr-child-injury-deaths/firearm-deaths": {
+      "candidate": "guns-and-kids"
+    },
+    "cdc-yrbs-2023/missed-school-unsafe": {
+      "candidate": "guns-and-kids"
+    },
+    "cdc-yrbs-2023/threatened-with-weapon": {
+      "candidate": "guns-and-kids"
+    },
+    "pew-parent-worries-2023/shot": {
+      "candidate": "guns-and-kids"
+    },
+    "kids-count-2025/child-teen-deaths": {
+      "candidate": "guns-and-kids"
+    },
+    "wikidata/Q473853": {
+      "candidate": "guns-and-kids"
+    },
+    "wikidata/Q1145436": {
+      "candidate": "guns-and-kids"
+    },
+    "kids-count-2025/children-in-poverty": {
+      "candidate": "child-poverty"
+    },
+    "kids-count-2025/high-poverty-areas": {
+      "candidate": "child-poverty"
+    },
+    "kids-count-2025/parents-lack-secure-employment": {
+      "candidate": "child-poverty"
+    },
+    "sdg-targets/1.2": {
+      "candidate": "child-poverty"
+    },
+    "wikidata/Q1561657": {
+      "candidate": "child-poverty"
+    },
+    "hhs-child-maltreatment-2023/maltreatment-victims": {
+      "candidate": "child-abuse"
+    },
+    "hhs-child-maltreatment-2023/maltreatment-deaths": {
+      "candidate": "child-abuse"
+    },
+    "hhs-child-maltreatment-2023/neglect-share": {
+      "candidate": "child-abuse"
+    },
+    "sdg-targets/16.2": {
+      "candidate": "child-abuse"
+    },
+    "wikidata/Q167191": {
+      "candidate": "child-abuse"
+    },
+    "wikidata/Q559562": {
+      "candidate": "child-abuse"
+    },
+    "adoption-council-2025/waiting-to-be-adopted": {
+      "candidate": "foster-care"
+    },
+    "adoption-council-2025/aged-out": {
+      "candidate": "foster-care"
+    },
+    "wikidata/Q1430789": {
+      "candidate": "foster-care"
+    },
+    "cap-child-care-deserts/child-care-deserts": {
+      "candidate": "childcare-shortage"
+    },
+    "kids-count-2025/young-children-not-in-school": {
+      "candidate": "childcare-shortage"
+    },
+    "sdg-targets/4.2": {
+      "candidate": "childcare-shortage"
+    },
+    "wikidata/Q1472221": {
+      "candidate": "childcare-shortage"
+    },
+    "kids-count-2025/teens-not-in-school-or-working": {
+      "candidate": "teens-no-path"
+    },
+    "sdg-targets/8.6": {
+      "candidate": "teens-no-path"
+    },
+    "wikidata/Q694489": {
+      "candidate": "teens-no-path"
+    },
+    "ncmec-cybertipline/cybertipline-reports": {
+      "candidate": "kids-unsafe-online"
+    },
+    "ncmec-cybertipline/online-enticement": {
+      "candidate": "kids-unsafe-online"
+    },
+    "ncmec-cybertipline/sextortion": {
+      "candidate": "kids-unsafe-online"
+    },
+    "wikidata/Q660567": {
+      "candidate": "kids-unsafe-online"
+    },
+    "kids-count-2025/overweight-obese": {
+      "candidate": "kids-health"
+    },
+    "wikidata/Q3241451": {
+      "candidate": "kids-health"
+    },
+    "kids-count-2025/low-birth-weight": {
+      "candidate": "moms-and-babies"
+    },
+    "who-adolescent-health/pregnancy-complications": {
+      "candidate": "moms-and-babies"
+    },
+    "sdg-targets/3.2": {
+      "candidate": "moms-and-babies"
+    },
+    "wikidata/Q61559": {
+      "candidate": "moms-and-babies"
+    },
+    "kids-count-2025/high-housing-cost-burden": {
+      "painId": "rent-eats-everything",
+      "why": "High rent: \"I pay too much for housing.\" Families with children carry the same burden."
+    },
+    "kids-count-2025/fourth-grade-reading": {
+      "painId": "schools-fail-kids",
+      "why": "Education: \"I see kids not getting what they need at school.\""
+    },
+    "kids-count-2025/eighth-grade-math": {
+      "painId": "schools-fail-kids",
+      "why": "Education: kids falling behind in math."
+    },
+    "kids-count-2025/not-graduating-on-time": {
+      "painId": "schools-fail-kids",
+      "why": "Education: kids not finishing school."
+    },
+    "kids-count-2025/children-uninsured": {
+      "broader": "cant-get-care",
+      "why": "Healthcare covers not being able to see a doctor; children without insurance are one cause."
+    },
+    "kids-count-2025/single-parent-families": {
+      "broader": "parenting-is-hard",
+      "why": "A family structure, not a pain in itself; the strain of raising kids alone sits under Parenting."
+    },
+    "kids-count-2025/head-lacks-diploma": {
+      "broader": "where-youre-born",
+      "why": "Opportunity: \"I see where you're born decide your life.\""
+    },
+    "kids-count-2025/teen-births": {
+      "outOfScope": "the indicator counts births, which fell from 17 to 13 per 1,000; a parent's worry about teen pregnancy is mapped from the Pew list"
+    },
+    "pew-parent-worries-2023/parenting-tiring": {
+      "painId": "parenting-is-hard",
+      "why": "Parenting: \"I'm worn out raising my kids.\""
+    },
+    "pew-parent-worries-2023/kidnapped": {
+      "broader": "crime-and-violence",
+      "why": "Crime: \"I don't feel safe from crime and violence\"; a parent's fear for a child is one form."
+    },
+    "pew-parent-worries-2023/beaten-up": {
+      "broader": "crime-and-violence",
+      "why": "Crime covers violence against kids loosely."
+    },
+    "pew-parent-worries-2023/drugs-alcohol": {
+      "broader": "addiction-here",
+      "why": "Drugs: \"I'm losing people I know to drugs\"; a parent's fear for a child is one form."
+    },
+    "pew-parent-worries-2023/teen-pregnancy": {
+      "broader": "parenting-is-hard",
+      "why": "A worry parents carry; Parenting covers it loosely."
+    },
+    "pew-parent-worries-2023/trouble-with-police": {
+      "broader": "justice-unfair",
+      "why": "Justice: \"I see police and courts treat people differently.\""
+    },
+    "who-adolescent-health/interpersonal-violence": {
+      "broader": "crime-and-violence",
+      "why": "Crime covers violence; guns-and-kids covers the U.S. form most named."
+    },
+    "who-adolescent-health/injuries": {
+      "outOfScope": "road traffic injuries and drowning are global injury causes; no U.S. list read here names them as a worry about kids"
+    },
+    "who-adolescent-health/infections": {
+      "outOfScope": "diarrhoea and pneumonia deaths among 10–14-year-olds are concentrated in low-income countries"
+    },
+    "gallup-mip/education": {
+      "painId": "schools-fail-kids",
+      "why": "Education."
+    },
+    "gallup-mip/childrens-needs": {
+      "broader": "kids-future",
+      "why": "A general answer about children; Kids' future covers it loosely."
+    },
+    "gallup-mip/guns": {
+      "broader": "crime-and-violence",
+      "why": "Guns and gun control as a national issue; Crime covers it loosely, guns-and-kids covers the fear for children."
+    },
+    "ipsos-www/education": {
+      "painId": "schools-fail-kids",
+      "why": "Education."
+    },
+    "211-impact-2025/family-support": {
+      "broader": "parenting-is-hard",
+      "why": "A broad referral category covering family support; Parenting covers the family part loosely."
+    },
+    "oecd-wellbeing/knowledge-and-skills": {
+      "painId": "schools-fail-kids",
+      "why": "Education is the children's side of the Knowledge and Skills dimension."
+    },
+    "oecd-wellbeing/good-start-in-life": {
+      "broader": "kids-future",
+      "why": "A policy priority about children's start in life; Kids' future covers it loosely."
+    },
+    "sdg-targets/2.2": {
+      "broader": "hunger",
+      "why": "Hunger: \"I see people near me without enough to eat\"; child malnutrition is one form."
+    },
+    "sdg-targets/4.1": {
+      "painId": "schools-fail-kids",
+      "why": "Education: quality primary and secondary schooling."
+    },
+    "sdg-targets/4.5": {
+      "broader": "where-youre-born",
+      "why": "Opportunity covers unequal access to education loosely."
+    },
+    "sdg-targets/4.a": {
+      "broader": "schools-fail-kids",
+      "why": "Safe, effective learning environments; Education covers it loosely, guns-and-kids and bullying cover the safety part."
+    },
+    "sdg-targets/5.3": {
+      "outOfScope": "a global target; no list read here names child marriage as a U.S. worry"
+    },
+    "sdg-targets/8.7": {
+      "outOfScope": "a global target mainly about forced labour and trafficking; no list read here names child labour as a U.S. worry"
+    },
+    "sdg-targets/16.9": {
+      "outOfScope": "birth registration is a global civil-registration target, not a pain the U.S. lists name"
+    },
+    "maxneef/protection": {
+      "broader": "crime-and-violence",
+      "why": "Protection is a broad need; Crime and the new child-abuse candidate cover it for kids."
+    },
+    "maxneef/understanding": {
+      "painId": "schools-fail-kids",
+      "why": "Understanding includes education; Education covers it for kids."
+    },
+    "maxneef/leisure": {
+      "broader": "no-fun",
+      "why": "Leisure and play; Fun covers it loosely on the personal page."
+    },
+    "wikidata/Q1455871": {
+      "painId": "childcare-costs",
+      "why": "Childcare costs maps to Q1455871 (child care)."
+    },
+    "wikidata/Q192571": {
+      "outOfScope": "child labour: see SDG 8.7"
+    },
+    "wikidata/Q1546421": {
+      "outOfScope": "child marriage: see SDG 5.3"
+    }
+  }
+}

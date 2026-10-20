@@ -1,0 +1,3757 @@
+{
+  "schemaVersion": 1,
+  "setId": "health-kids-safety-20261019-231937",
+  "builtAt": "2026-10-19",
+  "runs": [
+    "docs/research/pains/sweeps/health/20261019-225540",
+    "docs/research/pains/refine/health/20261019-224622",
+    "docs/research/pains/sweeps/kids/20261019-230115",
+    "docs/research/pains/refine/kids/20261019-224622",
+    "docs/research/pains/sweeps/safety/20261019-230042",
+    "docs/research/pains/refine/safety/20261019-224622"
+  ],
+  "flags": [
+    "Government has 10 shown pains (page median 5): large",
+    "Economy has 12 shown pains (page median 5): large",
+    "Safety has 2 shown pains (page median 5): small",
+    "Government has 10 shown pains (page median 5): large",
+    "Economy has 12 shown pains (page median 5): large",
+    "Safety has 2 shown pains (page median 5): small",
+    "Government has 10 shown pains (page median 5): large",
+    "Economy has 12 shown pains (page median 5): large",
+    "Safety has 2 shown pains (page median 5): small"
+  ],
+  "covered": [],
+  "proposals": [
+    {
+      "kind": "add",
+      "painIds": [
+        "drug-prices"
+      ],
+      "group": "health",
+      "current": null,
+      "proposed": {
+        "name": "Medicine prices",
+        "line": "I worry I won't be able to afford the medicine I need.",
+        "group": "health",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Medicine prices",
+          "line": "I worry I won't be able to afford the medicine I need.",
+          "group": "health",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "59% of U.S. adults are at least somewhat worried about affording prescription drugs, and 22% are very worried (KFF).",
+        "sources": [
+          {
+            "url": "https://www.kff.org/public-opinion/poll-public-worries-about-prescription-drug-costs-reach-new-high-most-across-political-parties-want-government-to-do-more-to-regulate-prices/",
+            "accessed": "2026-10-19",
+            "passage": "59% of the public now say they are at least somewhat worried about being able to afford prescription drugs"
+          },
+          {
+            "url": "https://www.kff.org/public-opinion/poll-public-worries-about-prescription-drug-costs-reach-new-high-most-across-political-parties-want-government-to-do-more-to-regulate-prices/",
+            "accessed": "2026-10-19",
+            "passage": "This includes about one in five (22%) who are “very worried” about affording prescription drug costs."
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "drug-prices",
+          "name": "Medicine prices",
+          "line": "I worry I won't be able to afford the medicine I need.",
+          "page": "societal",
+          "group": "health",
+          "aliases": [
+            "Drug prices",
+            "Prescription costs"
+          ],
+          "sources": [
+            {
+              "url": "https://www.kff.org/public-opinion/poll-public-worries-about-prescription-drug-costs-reach-new-high-most-across-political-parties-want-government-to-do-more-to-regulate-prices/",
+              "accessed": "2026-10-19",
+              "passage": "59% of the public now say they are at least somewhat worried about being able to afford prescription drugs"
+            },
+            {
+              "url": "https://www.kff.org/public-opinion/poll-public-worries-about-prescription-drug-costs-reach-new-high-most-across-political-parties-want-government-to-do-more-to-regulate-prices/",
+              "accessed": "2026-10-19",
+              "passage": "This includes about one in five (22%) who are “very worried” about affording prescription drug costs."
+            }
+          ],
+          "prevalence": "59% of U.S. adults are at least somewhat worried about affording prescription drugs, and 22% are very worried (KFF).",
+          "covers": [
+            {
+              "list": "kff-health-tracking-2026",
+              "entry": "afford-prescription-drugs"
+            },
+            {
+              "list": "sdg-goal3",
+              "entry": "3.b"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q7240898"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/health/20261019-225540",
+      "side": [],
+      "id": "p001"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "short-staffed-care"
+      ],
+      "group": "health",
+      "current": null,
+      "proposed": {
+        "name": "Not enough doctors",
+        "line": "I see clinics and hospitals without enough doctors and nurses.",
+        "group": "health",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Not enough doctors",
+          "line": "I see clinics and hospitals without enough doctors and nurses.",
+          "group": "health",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "Across 30 countries, 43% name not enough staff as one of the biggest problems facing their healthcare system (Ipsos).",
+        "sources": [
+          {
+            "url": "https://www.ipsos.com/sites/default/files/ct/publication/documents/2025-10/Ipsos_health_service_report_2025-en_0.pdf",
+            "accessed": "2026-10-19",
+            "passage": "30 - Country Average 47% 43% 33% 23% 23% 20% 19% 17% 8% 8% 7% 2% Access to treatment/ long waiting times Not enough staff Cost of accessing treatment Ageing population Bureaucracy Lack of investment in preventative health Lack of investment Poor quality treatment Poor safety Lack of choice Low standards of cleanliness Other"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "short-staffed-care",
+          "name": "Not enough doctors",
+          "line": "I see clinics and hospitals without enough doctors and nurses.",
+          "page": "societal",
+          "group": "health",
+          "aliases": [
+            "Health worker shortage",
+            "Short-staffed hospitals"
+          ],
+          "sources": [
+            {
+              "url": "https://www.ipsos.com/sites/default/files/ct/publication/documents/2025-10/Ipsos_health_service_report_2025-en_0.pdf",
+              "accessed": "2026-10-19",
+              "passage": "30 - Country Average 47% 43% 33% 23% 23% 20% 19% 17% 8% 8% 7% 2% Access to treatment/ long waiting times Not enough staff Cost of accessing treatment Ageing population Bureaucracy Lack of investment in preventative health Lack of investment Poor quality treatment Poor safety Lack of choice Low standards of cleanliness Other"
+            }
+          ],
+          "prevalence": "Across 30 countries, 43% name not enough staff as one of the biggest problems facing their healthcare system (Ipsos).",
+          "covers": [
+            {
+              "list": "ipsos-health-system",
+              "entry": "not-enough-staff"
+            },
+            {
+              "list": "sdg-goal3",
+              "entry": "3.c"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/health/20261019-225540",
+      "side": [],
+      "id": "p002"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "hospital-closing"
+      ],
+      "group": "health",
+      "current": null,
+      "proposed": {
+        "name": "Hospital closures",
+        "line": "The hospital near me closed or cut services, so care is farther away.",
+        "group": "health",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Hospital closures",
+          "line": "The hospital near me closed or cut services, so care is farther away.",
+          "group": "health",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "417 U.S. rural hospitals are vulnerable to closure, and 206 have closed or stopped inpatient care (Chartis).",
+        "sources": [
+          {
+            "url": "https://www.chartis.com/insights/2026-rural-health-state-state",
+            "accessed": "2026-10-19",
+            "passage": "This year's analysis reveals that 417 rural hospitals are vulnerable to closure."
+          },
+          {
+            "url": "https://www.chartis.com/insights/2026-rural-health-state-state",
+            "accessed": "2026-10-19",
+            "passage": "206 rural hospitals have either closed or converted to models that exclude inpatient care"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "hospital-closing",
+          "name": "Hospital closures",
+          "line": "The hospital near me closed or cut services, so care is farther away.",
+          "page": "societal",
+          "group": "health",
+          "aliases": [
+            "Rural hospitals closing",
+            "No hospital nearby"
+          ],
+          "sources": [
+            {
+              "url": "https://www.chartis.com/insights/2026-rural-health-state-state",
+              "accessed": "2026-10-19",
+              "passage": "This year's analysis reveals that 417 rural hospitals are vulnerable to closure."
+            },
+            {
+              "url": "https://www.chartis.com/insights/2026-rural-health-state-state",
+              "accessed": "2026-10-19",
+              "passage": "206 rural hospitals have either closed or converted to models that exclude inpatient care"
+            }
+          ],
+          "leads": [
+            "Founder pool: getting healthcare requires more travel time than I can comfortably manage"
+          ],
+          "prevalence": "417 U.S. rural hospitals are vulnerable to closure, and 206 have closed or stopped inpatient care (Chartis).",
+          "covers": [
+            {
+              "list": "chartis-rural-2026",
+              "entry": "vulnerable-to-closure"
+            },
+            {
+              "list": "chartis-rural-2026",
+              "entry": "closed-or-converted"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/health/20261019-225540",
+      "side": [],
+      "id": "p003"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "no-health-insurance"
+      ],
+      "group": "health",
+      "current": null,
+      "proposed": {
+        "name": "No insurance",
+        "line": "I don't have health insurance, or I'm about to lose it.",
+        "group": "health",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "No insurance",
+          "line": "I don't have health insurance, or I'm about to lose it.",
+          "group": "health",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "26.7 million people in the U.S. (7.9 percent) had no health insurance for all of 2025 (Census Bureau).",
+        "sources": [
+          {
+            "url": "https://www2.census.gov/library/publications/2026/demo/p60-291.pdf",
+            "accessed": "2026-10-19",
+            "passage": "In 2025, 26.7 million people (7.9 percent) were uninsured for the entire year"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "no-health-insurance",
+          "name": "No insurance",
+          "line": "I don't have health insurance, or I'm about to lose it.",
+          "page": "societal",
+          "group": "health",
+          "aliases": [
+            "Uninsured",
+            "Losing my coverage"
+          ],
+          "sources": [
+            {
+              "url": "https://www2.census.gov/library/publications/2026/demo/p60-291.pdf",
+              "accessed": "2026-10-19",
+              "passage": "In 2025, 26.7 million people (7.9 percent) were uninsured for the entire year"
+            }
+          ],
+          "prevalence": "26.7 million people in the U.S. (7.9 percent) had no health insurance for all of 2025 (Census Bureau).",
+          "covers": [
+            {
+              "list": "census-health-insurance-2025",
+              "entry": "uninsured"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q334911"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/health/20261019-225540",
+      "similar": [
+        {
+          "id": "womens-health",
+          "name": "Hormones",
+          "line": "I lose days every month to my cycle or menopause."
+        },
+        {
+          "id": "one-illness-away",
+          "name": "Medical bills",
+          "line": "I worry about what healthcare will cost me."
+        },
+        {
+          "id": "mental-health-crisis",
+          "name": "Mental health",
+          "line": "I see people I care about struggling with their mental health."
+        }
+      ],
+      "side": [],
+      "id": "p004"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "obesity"
+      ],
+      "group": "health",
+      "current": null,
+      "proposed": {
+        "name": "Obesity",
+        "line": "I see more people struggling with their weight and the illnesses that come with it.",
+        "group": "health",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Obesity",
+          "line": "I see more people struggling with their weight and the illnesses that come with it.",
+          "group": "health",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "Across 30 countries, 25% name obesity as one of the biggest health problems (Ipsos); 41.9% of U.S. adults had obesity in 2017–March 2020 (CDC).",
+        "sources": [
+          {
+            "url": "https://www.ipsos.com/sites/default/files/ct/publication/documents/2025-10/Ipsos_health_service_report_2025-en_0.pdf",
+            "accessed": "2026-10-19",
+            "passage": "30 - Country Average 45% 41% 31% 25% 23% 19% 16% 16% 13% 8% 6% 4% 4% 2% Mental Health Cancer Stress Obesity Drug abuse Diabetes Alcohol abuse Heart Disease Smoking Dementia Coronavirus/COVID - 19 Sexually transmitted diseases (STD) Hospital superbugs Other"
+          },
+          {
+            "url": "https://www.cdc.gov/obesity/adult-obesity-facts/index.html",
+            "accessed": "2026-10-19",
+            "passage": "The prevalence of obesity among U.S. adults 20 and over was 41.9% during 2017–March 2020."
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "obesity",
+          "name": "Obesity",
+          "line": "I see more people struggling with their weight and the illnesses that come with it.",
+          "page": "societal",
+          "group": "health",
+          "aliases": [
+            "Weight",
+            "Unhealthy weight"
+          ],
+          "sources": [
+            {
+              "url": "https://www.ipsos.com/sites/default/files/ct/publication/documents/2025-10/Ipsos_health_service_report_2025-en_0.pdf",
+              "accessed": "2026-10-19",
+              "passage": "30 - Country Average 45% 41% 31% 25% 23% 19% 16% 16% 13% 8% 6% 4% 4% 2% Mental Health Cancer Stress Obesity Drug abuse Diabetes Alcohol abuse Heart Disease Smoking Dementia Coronavirus/COVID - 19 Sexually transmitted diseases (STD) Hospital superbugs Other"
+            },
+            {
+              "url": "https://www.cdc.gov/obesity/adult-obesity-facts/index.html",
+              "accessed": "2026-10-19",
+              "passage": "The prevalence of obesity among U.S. adults 20 and over was 41.9% during 2017–March 2020."
+            }
+          ],
+          "prevalence": "Across 30 countries, 25% name obesity as one of the biggest health problems (Ipsos); 41.9% of U.S. adults had obesity in 2017–March 2020 (CDC).",
+          "covers": [
+            {
+              "list": "ipsos-health-problems",
+              "entry": "obesity"
+            },
+            {
+              "list": "cdc-nchs",
+              "entry": "adult-obesity"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q12174"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/health/20261019-225540",
+      "side": [],
+      "id": "p005"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "chronic-disease"
+      ],
+      "group": "health",
+      "current": null,
+      "proposed": {
+        "name": "Chronic disease",
+        "line": "I see cancer, heart disease and diabetes taking more people I know.",
+        "group": "health",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Chronic disease",
+          "line": "I see cancer, heart disease and diabetes taking more people I know.",
+          "group": "health",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "Across 30 countries, 41% name cancer, 19% diabetes and 16% heart disease among the biggest health problems (Ipsos). Ischaemic heart disease causes 16% of deaths worldwide (WHO).",
+        "sources": [
+          {
+            "url": "https://www.ipsos.com/sites/default/files/ct/publication/documents/2025-10/Ipsos_health_service_report_2025-en_0.pdf",
+            "accessed": "2026-10-19",
+            "passage": "30 - Country Average 45% 41% 31% 25% 23% 19% 16% 16% 13% 8% 6% 4% 4% 2% Mental Health Cancer Stress Obesity Drug abuse Diabetes Alcohol abuse Heart Disease Smoking Dementia Coronavirus/COVID - 19 Sexually transmitted diseases (STD) Hospital superbugs Other"
+          },
+          {
+            "url": "https://www.who.int/news-room/fact-sheets/detail/the-top-10-causes-of-death",
+            "accessed": "2026-10-19",
+            "passage": "The world's biggest killer is ischaemic heart disease, responsible for 16% of the world's total deaths."
+          },
+          {
+            "url": "https://www.who.int/news-room/fact-sheets/detail/the-top-10-causes-of-death",
+            "accessed": "2026-10-19",
+            "passage": "claiming 2.0 million lives, more than double the deaths in 2000"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "chronic-disease",
+          "name": "Chronic disease",
+          "line": "I see cancer, heart disease and diabetes taking more people I know.",
+          "page": "societal",
+          "group": "health",
+          "aliases": [
+            "Cancer",
+            "Heart disease",
+            "Diabetes"
+          ],
+          "sources": [
+            {
+              "url": "https://www.ipsos.com/sites/default/files/ct/publication/documents/2025-10/Ipsos_health_service_report_2025-en_0.pdf",
+              "accessed": "2026-10-19",
+              "passage": "30 - Country Average 45% 41% 31% 25% 23% 19% 16% 16% 13% 8% 6% 4% 4% 2% Mental Health Cancer Stress Obesity Drug abuse Diabetes Alcohol abuse Heart Disease Smoking Dementia Coronavirus/COVID - 19 Sexually transmitted diseases (STD) Hospital superbugs Other"
+            },
+            {
+              "url": "https://www.who.int/news-room/fact-sheets/detail/the-top-10-causes-of-death",
+              "accessed": "2026-10-19",
+              "passage": "The world's biggest killer is ischaemic heart disease, responsible for 16% of the world's total deaths."
+            },
+            {
+              "url": "https://www.who.int/news-room/fact-sheets/detail/the-top-10-causes-of-death",
+              "accessed": "2026-10-19",
+              "passage": "claiming 2.0 million lives, more than double the deaths in 2000"
+            }
+          ],
+          "prevalence": "Across 30 countries, 41% name cancer, 19% diabetes and 16% heart disease among the biggest health problems (Ipsos). Ischaemic heart disease causes 16% of deaths worldwide (WHO).",
+          "covers": [
+            {
+              "list": "ipsos-health-problems",
+              "entry": "cancer"
+            },
+            {
+              "list": "ipsos-health-problems",
+              "entry": "diabetes"
+            },
+            {
+              "list": "ipsos-health-problems",
+              "entry": "heart-disease"
+            },
+            {
+              "list": "who-top-causes",
+              "entry": "ischaemic-heart-disease"
+            },
+            {
+              "list": "who-top-causes",
+              "entry": "stroke"
+            },
+            {
+              "list": "who-top-causes",
+              "entry": "copd"
+            },
+            {
+              "list": "who-top-causes",
+              "entry": "diabetes"
+            },
+            {
+              "list": "who-top-causes",
+              "entry": "lung-cancer"
+            },
+            {
+              "list": "who-top-causes",
+              "entry": "kidney-diseases"
+            },
+            {
+              "list": "sdg-goal3",
+              "entry": "3.4"
+            },
+            {
+              "list": "oecd-wellbeing",
+              "entry": "life-expectancy"
+            },
+            {
+              "list": "ipsos-health-system",
+              "entry": "preventative-health"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q3137154"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q12078"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q12206"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q389735"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q188419"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/health/20261019-225540",
+      "similar": [
+        {
+          "id": "addiction-here",
+          "name": "Drugs",
+          "line": "I'm losing people I know to drugs."
+        }
+      ],
+      "side": [],
+      "id": "p006"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "pandemics"
+      ],
+      "group": "health",
+      "current": null,
+      "proposed": {
+        "name": "Pandemics",
+        "line": "I worry about the next pandemic or a disease our medicines can't stop.",
+        "group": "health",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Pandemics",
+          "line": "I worry about the next pandemic or a disease our medicines can't stop.",
+          "group": "health",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "Lower respiratory infections killed 2.7 million people in 2023 (WHO); across 30 countries, 6% still name COVID-19 among the biggest health problems (Ipsos).",
+        "sources": [
+          {
+            "url": "https://www.who.int/news-room/fact-sheets/detail/the-top-10-causes-of-death",
+            "accessed": "2026-10-19",
+            "passage": "In 2023 it claimed 2.7 million lives, returning back up to its 2019 pre-pandemic level."
+          },
+          {
+            "url": "https://www.ipsos.com/sites/default/files/ct/publication/documents/2025-10/Ipsos_health_service_report_2025-en_0.pdf",
+            "accessed": "2026-10-19",
+            "passage": "30 - Country Average 45% 41% 31% 25% 23% 19% 16% 16% 13% 8% 6% 4% 4% 2% Mental Health Cancer Stress Obesity Drug abuse Diabetes Alcohol abuse Heart Disease Smoking Dementia Coronavirus/COVID - 19 Sexually transmitted diseases (STD) Hospital superbugs Other"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "pandemics",
+          "name": "Pandemics",
+          "line": "I worry about the next pandemic or a disease our medicines can't stop.",
+          "page": "societal",
+          "group": "health",
+          "aliases": [
+            "Outbreaks",
+            "Superbugs"
+          ],
+          "sources": [
+            {
+              "url": "https://www.who.int/news-room/fact-sheets/detail/the-top-10-causes-of-death",
+              "accessed": "2026-10-19",
+              "passage": "In 2023 it claimed 2.7 million lives, returning back up to its 2019 pre-pandemic level."
+            },
+            {
+              "url": "https://www.ipsos.com/sites/default/files/ct/publication/documents/2025-10/Ipsos_health_service_report_2025-en_0.pdf",
+              "accessed": "2026-10-19",
+              "passage": "30 - Country Average 45% 41% 31% 25% 23% 19% 16% 16% 13% 8% 6% 4% 4% 2% Mental Health Cancer Stress Obesity Drug abuse Diabetes Alcohol abuse Heart Disease Smoking Dementia Coronavirus/COVID - 19 Sexually transmitted diseases (STD) Hospital superbugs Other"
+            }
+          ],
+          "prevalence": "Lower respiratory infections killed 2.7 million people in 2023 (WHO); across 30 countries, 6% still name COVID-19 among the biggest health problems (Ipsos).",
+          "covers": [
+            {
+              "list": "ipsos-health-problems",
+              "entry": "coronavirus"
+            },
+            {
+              "list": "ipsos-health-problems",
+              "entry": "superbugs"
+            },
+            {
+              "list": "ipsos-health-problems",
+              "entry": "std"
+            },
+            {
+              "list": "who-top-causes",
+              "entry": "lower-respiratory-infections"
+            },
+            {
+              "list": "who-top-causes",
+              "entry": "covid-19"
+            },
+            {
+              "list": "sdg-goal3",
+              "entry": "3.3"
+            },
+            {
+              "list": "sdg-goal3",
+              "entry": "3.d"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q12184"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q21698220"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q12198"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/health/20261019-225540",
+      "side": [],
+      "id": "p007"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "dementia"
+      ],
+      "group": "health",
+      "current": null,
+      "proposed": {
+        "name": "Dementia",
+        "line": "I'm watching dementia take away people I love.",
+        "group": "health",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Dementia",
+          "line": "I'm watching dementia take away people I love.",
+          "group": "health",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "Alzheimer's disease and other dementias killed 2.1 million people worldwide, the fifth leading cause of death (WHO); across 30 countries, 8% name dementia among the biggest health problems (Ipsos).",
+        "sources": [
+          {
+            "url": "https://www.who.int/news-room/fact-sheets/detail/the-top-10-causes-of-death",
+            "accessed": "2026-10-19",
+            "passage": "Alzheimer's disease and other forms of dementia ranked as the fifth leading cause of death, killing 2.1 million people."
+          },
+          {
+            "url": "https://www.ipsos.com/sites/default/files/ct/publication/documents/2025-10/Ipsos_health_service_report_2025-en_0.pdf",
+            "accessed": "2026-10-19",
+            "passage": "30 - Country Average 45% 41% 31% 25% 23% 19% 16% 16% 13% 8% 6% 4% 4% 2% Mental Health Cancer Stress Obesity Drug abuse Diabetes Alcohol abuse Heart Disease Smoking Dementia Coronavirus/COVID - 19 Sexually transmitted diseases (STD) Hospital superbugs Other"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "dementia",
+          "name": "Dementia",
+          "line": "I'm watching dementia take away people I love.",
+          "page": "societal",
+          "group": "health",
+          "aliases": [
+            "Alzheimer's",
+            "Memory loss"
+          ],
+          "sources": [
+            {
+              "url": "https://www.who.int/news-room/fact-sheets/detail/the-top-10-causes-of-death",
+              "accessed": "2026-10-19",
+              "passage": "Alzheimer's disease and other forms of dementia ranked as the fifth leading cause of death, killing 2.1 million people."
+            },
+            {
+              "url": "https://www.ipsos.com/sites/default/files/ct/publication/documents/2025-10/Ipsos_health_service_report_2025-en_0.pdf",
+              "accessed": "2026-10-19",
+              "passage": "30 - Country Average 45% 41% 31% 25% 23% 19% 16% 16% 13% 8% 6% 4% 4% 2% Mental Health Cancer Stress Obesity Drug abuse Diabetes Alcohol abuse Heart Disease Smoking Dementia Coronavirus/COVID - 19 Sexually transmitted diseases (STD) Hospital superbugs Other"
+            }
+          ],
+          "prevalence": "Alzheimer's disease and other dementias killed 2.1 million people worldwide, the fifth leading cause of death (WHO); across 30 countries, 8% name dementia among the biggest health problems (Ipsos).",
+          "covers": [
+            {
+              "list": "who-top-causes",
+              "entry": "alzheimers-dementia"
+            },
+            {
+              "list": "ipsos-health-problems",
+              "entry": "dementia"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q83030"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/health/20261019-225540",
+      "similar": [
+        {
+          "id": "far-away-decisions",
+          "name": "Local control",
+          "line": "I watch decisions about here get made far away."
+        }
+      ],
+      "side": [],
+      "id": "p008"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "care-quality"
+      ],
+      "group": "health",
+      "current": null,
+      "proposed": {
+        "name": "Poor care",
+        "line": "I don't trust the care I get to be good or safe.",
+        "group": "health",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Poor care",
+          "line": "I don't trust the care I get to be good or safe.",
+          "group": "health",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "Across 30 countries, 17% name poor quality treatment and 8% poor safety among the biggest problems facing their healthcare system (Ipsos).",
+        "sources": [
+          {
+            "url": "https://www.ipsos.com/sites/default/files/ct/publication/documents/2025-10/Ipsos_health_service_report_2025-en_0.pdf",
+            "accessed": "2026-10-19",
+            "passage": "30 - Country Average 47% 43% 33% 23% 23% 20% 19% 17% 8% 8% 7% 2% Access to treatment/ long waiting times Not enough staff Cost of accessing treatment Ageing population Bureaucracy Lack of investment in preventative health Lack of investment Poor quality treatment Poor safety Lack of choice Low standards of cleanliness Other"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "care-quality",
+          "name": "Poor care",
+          "line": "I don't trust the care I get to be good or safe.",
+          "page": "societal",
+          "group": "health",
+          "aliases": [
+            "Bad care",
+            "Brushed off by doctors"
+          ],
+          "sources": [
+            {
+              "url": "https://www.ipsos.com/sites/default/files/ct/publication/documents/2025-10/Ipsos_health_service_report_2025-en_0.pdf",
+              "accessed": "2026-10-19",
+              "passage": "30 - Country Average 47% 43% 33% 23% 23% 20% 19% 17% 8% 8% 7% 2% Access to treatment/ long waiting times Not enough staff Cost of accessing treatment Ageing population Bureaucracy Lack of investment in preventative health Lack of investment Poor quality treatment Poor safety Lack of choice Low standards of cleanliness Other"
+            }
+          ],
+          "leads": [
+            "Founder pool: I feel that healthcare providers dismiss or minimize symptoms that matter to me"
+          ],
+          "prevalence": "Across 30 countries, 17% name poor quality treatment and 8% poor safety among the biggest problems facing their healthcare system (Ipsos).",
+          "covers": [
+            {
+              "list": "ipsos-health-system",
+              "entry": "poor-quality"
+            },
+            {
+              "list": "ipsos-health-system",
+              "entry": "poor-safety"
+            },
+            {
+              "list": "ipsos-health-system",
+              "entry": "cleanliness"
+            },
+            {
+              "list": "ipsos-health-system",
+              "entry": "trust-system"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q1475557"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q17003063"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/health/20261019-225540",
+      "side": [],
+      "id": "p009"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "pregnancy-care"
+      ],
+      "group": "health",
+      "current": null,
+      "proposed": {
+        "name": "Pregnancy care",
+        "line": "I worry about getting safe care through pregnancy and birth.",
+        "group": "health",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Pregnancy care",
+          "line": "I worry about getting safe care through pregnancy and birth.",
+          "group": "health",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "649 women died of maternal causes in the U.S. in 2024, 17.9 per 100,000 live births (CDC); 331 rural hospitals stopped offering obstetrics between 2011 and 2024 (Chartis).",
+        "sources": [
+          {
+            "url": "https://www.cdc.gov/nchs/data/hestat/hestat113.htm",
+            "accessed": "2026-10-19",
+            "passage": "In 2024, 649 women died of maternal causes in the United States, compared with 669 in 2023"
+          },
+          {
+            "url": "https://www.cdc.gov/nchs/data/hestat/hestat113.htm",
+            "accessed": "2026-10-19",
+            "passage": "The maternal mortality rate for 2024, 17.9 deaths per 100,000 live births"
+          },
+          {
+            "url": "https://www.chartis.com/insights/2026-rural-health-state-state",
+            "accessed": "2026-10-19",
+            "passage": "Between 2011 and 2024, 331 rural hospitals stopped offering OB services."
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "pregnancy-care",
+          "name": "Pregnancy care",
+          "line": "I worry about getting safe care through pregnancy and birth.",
+          "page": "societal",
+          "group": "health",
+          "aliases": [
+            "Maternity care",
+            "Giving birth safely"
+          ],
+          "sources": [
+            {
+              "url": "https://www.cdc.gov/nchs/data/hestat/hestat113.htm",
+              "accessed": "2026-10-19",
+              "passage": "In 2024, 649 women died of maternal causes in the United States, compared with 669 in 2023"
+            },
+            {
+              "url": "https://www.cdc.gov/nchs/data/hestat/hestat113.htm",
+              "accessed": "2026-10-19",
+              "passage": "The maternal mortality rate for 2024, 17.9 deaths per 100,000 live births"
+            },
+            {
+              "url": "https://www.chartis.com/insights/2026-rural-health-state-state",
+              "accessed": "2026-10-19",
+              "passage": "Between 2011 and 2024, 331 rural hospitals stopped offering OB services."
+            }
+          ],
+          "prevalence": "649 women died of maternal causes in the U.S. in 2024, 17.9 per 100,000 live births (CDC); 331 rural hospitals stopped offering obstetrics between 2011 and 2024 (Chartis).",
+          "covers": [
+            {
+              "list": "cdc-nchs",
+              "entry": "maternal-mortality"
+            },
+            {
+              "list": "chartis-rural-2026",
+              "entry": "ob-services-stopped"
+            },
+            {
+              "list": "sdg-goal3",
+              "entry": "3.1"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q1339474"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/health/20261019-225540",
+      "twins": [
+        {
+          "id": "moms-and-babies",
+          "name": "Pregnancy and birth",
+          "line": "I see moms and babies not getting the care they need before and after birth.",
+          "origin": "docs/research/pains/sweeps/kids/20261019-230115"
+        }
+      ],
+      "side": [],
+      "id": "p010"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "medicine-shortages"
+      ],
+      "group": "health",
+      "current": null,
+      "proposed": {
+        "name": "Medicine shortages",
+        "line": "I can't get a medicine I rely on because it's out of stock.",
+        "group": "health",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Medicine shortages",
+          "line": "I can't get a medicine I rely on because it's out of stock.",
+          "group": "health",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "lead only",
+        "detail": "",
+        "sources": []
+      },
+      "draft": true,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "medicine-shortages",
+          "name": "Medicine shortages",
+          "line": "I can't get a medicine I rely on because it's out of stock.",
+          "page": "societal",
+          "group": "health",
+          "aliases": [
+            "Drug shortages"
+          ],
+          "sources": [],
+          "leads": [
+            "Founder pool: a medication I rely on is difficult or impossible to obtain",
+            "ASHP drug shortage statistics (https://www.ashp.org/drug-shortages/shortage-resources/drug-shortages-statistics) returned 403; a search snippet put active U.S. shortages at 227 in mid-2026, unchecked"
+          ],
+          "covers": []
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/health/20261019-225540",
+      "side": [],
+      "id": "p011"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "one-illness-away"
+      ],
+      "group": "health",
+      "current": {
+        "name": "Medical bills",
+        "line": "I worry about what healthcare will cost me."
+      },
+      "proposed": {
+        "name": "Medical bills",
+        "line": "One bad illness could wipe out everything I have."
+      },
+      "alternatives": [
+        {
+          "name": "Cost of illness",
+          "line": "Getting sick could ruin me with medical bills."
+        }
+      ],
+      "why": {
+        "prompt": "lint id-mismatch (note)",
+        "detail": "Brings back what the ID names, the fear of being one illness from ruin, instead of a general worry about cost, which also keeps it apart from personal Healthcare (getting care at all)."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/health/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p012"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "mental-health-crisis"
+      ],
+      "group": "health",
+      "current": {
+        "name": "Mental health",
+        "line": "I see people I care about struggling with their mental health."
+      },
+      "proposed": {
+        "name": "Mental health crisis",
+        "line": "I see people I care about struggling with their mental health."
+      },
+      "alternatives": [
+        {
+          "name": "People not okay",
+          "line": "So many people around me aren't okay."
+        }
+      ],
+      "why": {
+        "prompt": "refine",
+        "detail": "Keeps the line and makes the name a problem label, so the Health heading no longer mixes areas and problems."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/health/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p013"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "older-people-alone"
+      ],
+      "group": "health",
+      "current": {
+        "name": "Aging",
+        "line": "I see older people left on their own."
+      },
+      "proposed": {
+        "name": "Older people alone",
+        "line": "I see older people left on their own."
+      },
+      "alternatives": [
+        {
+          "name": "Growing old alone",
+          "line": "Older people around me are left to cope on their own."
+        }
+      ],
+      "why": {
+        "prompt": "refine",
+        "detail": "Keeps the line and names the problem the ID describes; \"Aging\" is an area and reads like a personal worry about getting old."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/health/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p014"
+    },
+    {
+      "painIds": [
+        "one-illness-away",
+        "cant-get-care"
+      ],
+      "group": "health",
+      "side": [
+        {
+          "id": "one-illness-away",
+          "name": "Medical bills",
+          "line": "I worry about what healthcare will cost me."
+        },
+        {
+          "id": "cant-get-care",
+          "name": "Healthcare",
+          "line": "I can't see a doctor when I need one."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Being ruined by medical bills is a shared problem with how care is paid for, while not being able to see a doctor is a personal problem of getting care at all, so both belong, linked across pages."
+      },
+      "kind": "other-page",
+      "current": {
+        "name": "Medical bills",
+        "line": "I worry about what healthcare will cost me."
+      },
+      "proposed": {
+        "name": "Healthcare",
+        "line": "I can't see a doctor when I need one."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/health/20261019-224622",
+      "draft": false,
+      "id": "p015"
+    },
+    {
+      "painIds": [
+        "one-illness-away",
+        "no-cushion"
+      ],
+      "group": "health",
+      "side": [
+        {
+          "id": "one-illness-away",
+          "name": "Medical bills",
+          "line": "I worry about what healthcare will cost me."
+        },
+        {
+          "id": "no-cushion",
+          "name": "No savings",
+          "line": "I couldn't cover a surprise bill if one came."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Having no savings for any surprise bill is personal, while fearing that illness itself could ruin you points at how healthcare is paid for, so keep both and link them."
+      },
+      "kind": "other-page",
+      "current": {
+        "name": "Medical bills",
+        "line": "I worry about what healthcare will cost me."
+      },
+      "proposed": {
+        "name": "No savings",
+        "line": "I couldn't cover a surprise bill if one came."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/health/20261019-224622",
+      "draft": false,
+      "id": "p016"
+    },
+    {
+      "painIds": [
+        "mental-health-crisis",
+        "feeling-down"
+      ],
+      "group": "health",
+      "side": [
+        {
+          "id": "mental-health-crisis",
+          "name": "Mental health",
+          "line": "I see people I care about struggling with their mental health."
+        },
+        {
+          "id": "feeling-down",
+          "name": "Depression",
+          "line": "I feel low most days."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Feeling low yourself and seeing people around you struggle are different things to pick, one personal and one shared, so keep both linked across pages."
+      },
+      "kind": "other-page",
+      "current": {
+        "name": "Mental health",
+        "line": "I see people I care about struggling with their mental health."
+      },
+      "proposed": {
+        "name": "Depression",
+        "line": "I feel low most days."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/health/20261019-224622",
+      "draft": false,
+      "id": "p017"
+    },
+    {
+      "painIds": [
+        "mental-health-crisis",
+        "anxiety"
+      ],
+      "group": "health",
+      "side": [
+        {
+          "id": "mental-health-crisis",
+          "name": "Mental health",
+          "line": "I see people I care about struggling with their mental health."
+        },
+        {
+          "id": "anxiety",
+          "name": "Anxiety",
+          "line": "I worry too much."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Worrying too much yourself is a personal pain, while watching people you care about struggle is a shared one, so keep both linked across pages."
+      },
+      "kind": "other-page",
+      "current": {
+        "name": "Mental health",
+        "line": "I see people I care about struggling with their mental health."
+      },
+      "proposed": {
+        "name": "Anxiety",
+        "line": "I worry too much."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/health/20261019-224622",
+      "draft": false,
+      "id": "p018"
+    },
+    {
+      "painIds": [
+        "addiction-here",
+        "drinking-too-much"
+      ],
+      "group": "health",
+      "side": [
+        {
+          "id": "addiction-here",
+          "name": "Drugs",
+          "line": "I'm losing people I know to drugs."
+        },
+        {
+          "id": "drinking-too-much",
+          "name": "Addiction",
+          "line": "I can't stop something that's hurting me."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Not being able to stop something yourself is a personal pain, while losing people you know to drugs is a shared one, so keep both linked across pages."
+      },
+      "kind": "other-page",
+      "current": {
+        "name": "Drugs",
+        "line": "I'm losing people I know to drugs."
+      },
+      "proposed": {
+        "name": "Addiction",
+        "line": "I can't stop something that's hurting me."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/health/20261019-224622",
+      "draft": false,
+      "id": "p019"
+    },
+    {
+      "painIds": [
+        "older-people-alone",
+        "loneliness"
+      ],
+      "group": "health",
+      "side": [
+        {
+          "id": "older-people-alone",
+          "name": "Aging",
+          "line": "I see older people left on their own."
+        },
+        {
+          "id": "loneliness",
+          "name": "Loneliness",
+          "line": "I feel alone."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Feeling alone yourself is personal, while seeing older people left on their own is a shared problem, so keep both linked across pages."
+      },
+      "kind": "other-page",
+      "current": {
+        "name": "Aging",
+        "line": "I see older people left on their own."
+      },
+      "proposed": {
+        "name": "Loneliness",
+        "line": "I feel alone."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/health/20261019-224622",
+      "draft": false,
+      "id": "p020"
+    },
+    {
+      "painIds": [
+        "older-people-alone",
+        "caregiving"
+      ],
+      "group": "health",
+      "side": [
+        {
+          "id": "older-people-alone",
+          "name": "Aging",
+          "line": "I see older people left on their own."
+        },
+        {
+          "id": "caregiving",
+          "name": "Caregiving",
+          "line": "I'm looking after someone and it takes everything."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Looking after someone yourself is a personal load, while older people left without anyone is a shared problem, so keep both linked across pages."
+      },
+      "kind": "other-page",
+      "current": {
+        "name": "Aging",
+        "line": "I see older people left on their own."
+      },
+      "proposed": {
+        "name": "Caregiving",
+        "line": "I'm looking after someone and it takes everything."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/health/20261019-224622",
+      "draft": false,
+      "id": "p021"
+    },
+    {
+      "painIds": [
+        "mental-health-crisis",
+        "addiction-here"
+      ],
+      "group": "health",
+      "side": [
+        {
+          "id": "mental-health-crisis",
+          "name": "Mental health",
+          "line": "I see people I care about struggling with their mental health."
+        },
+        {
+          "id": "addiction-here",
+          "name": "Drugs",
+          "line": "I'm losing people I know to drugs."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "They often go together, but someone watching friends struggle and someone losing friends to drugs would each know which one is theirs. One is about people struggling with their mental health, the other about losing people to drugs; someone can tell them apart at a glance."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Mental health",
+        "line": "I see people I care about struggling with their mental health."
+      },
+      "proposed": {
+        "name": "Drugs",
+        "line": "I'm losing people I know to drugs."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/health/20261019-224622",
+      "draft": false,
+      "id": "p022"
+    },
+    {
+      "kind": "move",
+      "painIds": [
+        "older-people-alone"
+      ],
+      "group": "health",
+      "current": {
+        "name": "Aging",
+        "line": "I see older people left on their own.",
+        "group": "Health"
+      },
+      "proposed": {
+        "name": "Aging",
+        "line": "I see older people left on their own.",
+        "group": "Community"
+      },
+      "alternatives": [],
+      "why": {
+        "prompt": "card sort",
+        "detail": "the sorts placed it under Community, Community, Community"
+      },
+      "allowOwn": false,
+      "payload": {
+        "groups": [
+          "community"
+        ]
+      },
+      "origin": "docs/research/pains/refine/health/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p023"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "kids-mental-health"
+      ],
+      "group": "kids",
+      "current": null,
+      "proposed": {
+        "name": "Kids' mental health",
+        "line": "I see more kids anxious and depressed, and too little help for them.",
+        "group": "kids",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Kids' mental health",
+          "line": "I see more kids anxious and depressed, and too little help for them.",
+          "group": "kids",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "40% of U.S. high school students had persistent feelings of sadness or hopelessness, down from 42% (CDC Youth Risk Behavior Survey); among female students, 27% seriously considered attempting suicide. Four-in-ten parents are extremely or very worried their children will struggle with anxiety or depression (Pew).",
+        "sources": [
+          {
+            "url": "https://www.cdc.gov/yrbs/results/2023-yrbs-results.html",
+            "accessed": "2026-10-19",
+            "passage": "The percentage of students overall who had persistent feelings of sadness or hopelessness (42% to 40%)."
+          },
+          {
+            "url": "https://www.cdc.gov/yrbs/results/2023-yrbs-results.html",
+            "accessed": "2026-10-19",
+            "passage": "The percentage of female students who felt persistently sad or hopeless (57% to 53%) … who seriously considered attempting suicide (30% to 27%)."
+          },
+          {
+            "url": "https://www.pewresearch.org/social-trends/2023/01/24/parenting-in-america-today/",
+            "accessed": "2026-10-19",
+            "passage": "four-in-ten U.S. parents with children younger than 18 say they are extremely or very worried that their children might struggle with anxiety or depression at some point. In fact, mental health concerns top the list of parental worries, followed by 35% who are similarly concerned about their children being bullied"
+          },
+          {
+            "url": "https://www.who.int/news-room/fact-sheets/detail/adolescents-health-risks-and-solutions",
+            "accessed": "2026-10-19",
+            "passage": "Depression and anxiety are among the leading causes of illness and disability among adolescents."
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "kids-mental-health",
+          "name": "Kids' mental health",
+          "line": "I see more kids anxious and depressed, and too little help for them.",
+          "page": "societal",
+          "group": "kids",
+          "aliases": [
+            "Youth mental health",
+            "Teens are struggling"
+          ],
+          "sources": [
+            {
+              "url": "https://www.cdc.gov/yrbs/results/2023-yrbs-results.html",
+              "accessed": "2026-10-19",
+              "passage": "The percentage of students overall who had persistent feelings of sadness or hopelessness (42% to 40%)."
+            },
+            {
+              "url": "https://www.cdc.gov/yrbs/results/2023-yrbs-results.html",
+              "accessed": "2026-10-19",
+              "passage": "The percentage of female students who felt persistently sad or hopeless (57% to 53%) … who seriously considered attempting suicide (30% to 27%)."
+            },
+            {
+              "url": "https://www.pewresearch.org/social-trends/2023/01/24/parenting-in-america-today/",
+              "accessed": "2026-10-19",
+              "passage": "four-in-ten U.S. parents with children younger than 18 say they are extremely or very worried that their children might struggle with anxiety or depression at some point. In fact, mental health concerns top the list of parental worries, followed by 35% who are similarly concerned about their children being bullied"
+            },
+            {
+              "url": "https://www.who.int/news-room/fact-sheets/detail/adolescents-health-risks-and-solutions",
+              "accessed": "2026-10-19",
+              "passage": "Depression and anxiety are among the leading causes of illness and disability among adolescents."
+            }
+          ],
+          "prevalence": "40% of U.S. high school students had persistent feelings of sadness or hopelessness, down from 42% (CDC Youth Risk Behavior Survey); among female students, 27% seriously considered attempting suicide. Four-in-ten parents are extremely or very worried their children will struggle with anxiety or depression (Pew).",
+          "covers": [
+            {
+              "list": "cdc-yrbs-2023",
+              "entry": "persistent-sadness"
+            },
+            {
+              "list": "cdc-yrbs-2023",
+              "entry": "considered-suicide"
+            },
+            {
+              "list": "pew-parent-worries-2023",
+              "entry": "anxiety-depression"
+            },
+            {
+              "list": "who-adolescent-health",
+              "entry": "depression-anxiety"
+            },
+            {
+              "list": "who-adolescent-health",
+              "entry": "suicide"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q110344742"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q8059353"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/kids/20261019-230115",
+      "side": [],
+      "id": "p024"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "bullying"
+      ],
+      "group": "kids",
+      "current": null,
+      "proposed": {
+        "name": "Bullying",
+        "line": "I see kids bullied at school and online, and the adults around them not stopping it.",
+        "group": "kids",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Bullying",
+          "line": "I see kids bullied at school and online, and the adults around them not stopping it.",
+          "group": "kids",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "19% of U.S. high school students were bullied at school, up from 15% (CDC Youth Risk Behavior Survey); 35% of parents are extremely or very worried their children will be bullied (Pew).",
+        "sources": [
+          {
+            "url": "https://www.cdc.gov/yrbs/results/2023-yrbs-results.html",
+            "accessed": "2026-10-19",
+            "passage": "The percentage of students overall who were bullied at school (15% to 19%)."
+          },
+          {
+            "url": "https://www.pewresearch.org/social-trends/2023/01/24/parenting-in-america-today/",
+            "accessed": "2026-10-19",
+            "passage": "four-in-ten U.S. parents with children younger than 18 say they are extremely or very worried that their children might struggle with anxiety or depression at some point. In fact, mental health concerns top the list of parental worries, followed by 35% who are similarly concerned about their children being bullied"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "bullying",
+          "name": "Bullying",
+          "line": "I see kids bullied at school and online, and the adults around them not stopping it.",
+          "page": "societal",
+          "group": "kids",
+          "aliases": [
+            "Cyberbullying",
+            "Kids being bullied"
+          ],
+          "sources": [
+            {
+              "url": "https://www.cdc.gov/yrbs/results/2023-yrbs-results.html",
+              "accessed": "2026-10-19",
+              "passage": "The percentage of students overall who were bullied at school (15% to 19%)."
+            },
+            {
+              "url": "https://www.pewresearch.org/social-trends/2023/01/24/parenting-in-america-today/",
+              "accessed": "2026-10-19",
+              "passage": "four-in-ten U.S. parents with children younger than 18 say they are extremely or very worried that their children might struggle with anxiety or depression at some point. In fact, mental health concerns top the list of parental worries, followed by 35% who are similarly concerned about their children being bullied"
+            }
+          ],
+          "prevalence": "19% of U.S. high school students were bullied at school, up from 15% (CDC Youth Risk Behavior Survey); 35% of parents are extremely or very worried their children will be bullied (Pew).",
+          "covers": [
+            {
+              "list": "cdc-yrbs-2023",
+              "entry": "bullied-at-school"
+            },
+            {
+              "list": "pew-parent-worries-2023",
+              "entry": "bullied"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q240126"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q494348"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/kids/20261019-230115",
+      "twins": [
+        {
+          "id": "school-shootings",
+          "name": "School shootings",
+          "line": "I worry that a shooting could happen at my kids' school.",
+          "origin": "docs/research/pains/sweeps/safety/20261019-230042"
+        }
+      ],
+      "side": [],
+      "id": "p025"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "guns-and-kids"
+      ],
+      "group": "kids",
+      "current": null,
+      "proposed": {
+        "name": "Guns and kids",
+        "line": "I'm afraid kids will get shot, at school or anywhere else.",
+        "group": "kids",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Guns and kids",
+          "line": "I'm afraid kids will get shot, at school or anywhere else.",
+          "group": "kids",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "57% of U.S. teens and 63% of their parents were at least somewhat worried about a shooting at school (Pew). Firearms became the leading means of death among children ages 1-19 in 2020 (America's Health Rankings). 13% of high school students missed school due to safety concerns, up from 9% (CDC YRBS).",
+        "sources": [
+          {
+            "url": "https://alpha.pewresearch.org/pewresearch-org/short-reads/2018/04/18/a-majority-of-u-s-teens-fear-a-shooting-could-happen-at-their-school-and-most-parents-share-their-concern/",
+            "accessed": "2026-10-19",
+            "passage": "Overall, 57% of teens say they are worried about the possibility of a shooting happening at their school, with one-in-four saying they are very worried."
+          },
+          {
+            "url": "https://alpha.pewresearch.org/pewresearch-org/short-reads/2018/04/18/a-majority-of-u-s-teens-fear-a-shooting-could-happen-at-their-school-and-most-parents-share-their-concern/",
+            "accessed": "2026-10-19",
+            "passage": "Parents of teenagers express similar levels of concern as teens themselves, with 63% saying they are at least somewhat worried about the possibility of a shooting happening at their child’s school."
+          },
+          {
+            "url": "https://www.americashealthrankings.org/explore/measures/injury_deaths_children",
+            "accessed": "2026-10-19",
+            "passage": "the child firearm death rate increased 68%, exceeding motor vehicle crashes in 2020 to become the leading means of death among children ages 1-19"
+          },
+          {
+            "url": "https://www.cdc.gov/yrbs/results/2023-yrbs-results.html",
+            "accessed": "2026-10-19",
+            "passage": "The percentage of students overall who missed school due to safety concerns either at school or on the way to school (9% to 13%)."
+          },
+          {
+            "url": "https://www.cdc.gov/yrbs/results/2023-yrbs-results.html",
+            "accessed": "2026-10-19",
+            "passage": "The percentage of students overall who were threatened or injured with a weapon at school (7% to 9%)."
+          },
+          {
+            "url": "https://www.pewresearch.org/social-trends/2023/01/24/parenting-in-america-today/",
+            "accessed": "2026-10-19",
+            "passage": "Black and Hispanic parents are more likely than White and Asian parents to say they are extremely or very worried about their children getting shot or getting in trouble with the police."
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "guns-and-kids",
+          "name": "Guns and kids",
+          "line": "I'm afraid kids will get shot, at school or anywhere else.",
+          "page": "societal",
+          "group": "kids",
+          "aliases": [
+            "School shootings",
+            "Kids and gun violence"
+          ],
+          "sources": [
+            {
+              "url": "https://alpha.pewresearch.org/pewresearch-org/short-reads/2018/04/18/a-majority-of-u-s-teens-fear-a-shooting-could-happen-at-their-school-and-most-parents-share-their-concern/",
+              "accessed": "2026-10-19",
+              "passage": "Overall, 57% of teens say they are worried about the possibility of a shooting happening at their school, with one-in-four saying they are very worried."
+            },
+            {
+              "url": "https://alpha.pewresearch.org/pewresearch-org/short-reads/2018/04/18/a-majority-of-u-s-teens-fear-a-shooting-could-happen-at-their-school-and-most-parents-share-their-concern/",
+              "accessed": "2026-10-19",
+              "passage": "Parents of teenagers express similar levels of concern as teens themselves, with 63% saying they are at least somewhat worried about the possibility of a shooting happening at their child’s school."
+            },
+            {
+              "url": "https://www.americashealthrankings.org/explore/measures/injury_deaths_children",
+              "accessed": "2026-10-19",
+              "passage": "the child firearm death rate increased 68%, exceeding motor vehicle crashes in 2020 to become the leading means of death among children ages 1-19"
+            },
+            {
+              "url": "https://www.cdc.gov/yrbs/results/2023-yrbs-results.html",
+              "accessed": "2026-10-19",
+              "passage": "The percentage of students overall who missed school due to safety concerns either at school or on the way to school (9% to 13%)."
+            },
+            {
+              "url": "https://www.cdc.gov/yrbs/results/2023-yrbs-results.html",
+              "accessed": "2026-10-19",
+              "passage": "The percentage of students overall who were threatened or injured with a weapon at school (7% to 9%)."
+            },
+            {
+              "url": "https://www.pewresearch.org/social-trends/2023/01/24/parenting-in-america-today/",
+              "accessed": "2026-10-19",
+              "passage": "Black and Hispanic parents are more likely than White and Asian parents to say they are extremely or very worried about their children getting shot or getting in trouble with the police."
+            }
+          ],
+          "prevalence": "57% of U.S. teens and 63% of their parents were at least somewhat worried about a shooting at school (Pew). Firearms became the leading means of death among children ages 1-19 in 2020 (America's Health Rankings). 13% of high school students missed school due to safety concerns, up from 9% (CDC YRBS).",
+          "covers": [
+            {
+              "list": "pew-school-shootings-2018",
+              "entry": "teens-worried"
+            },
+            {
+              "list": "pew-school-shootings-2018",
+              "entry": "parents-worried"
+            },
+            {
+              "list": "ahr-child-injury-deaths",
+              "entry": "firearm-deaths"
+            },
+            {
+              "list": "cdc-yrbs-2023",
+              "entry": "missed-school-unsafe"
+            },
+            {
+              "list": "cdc-yrbs-2023",
+              "entry": "threatened-with-weapon"
+            },
+            {
+              "list": "pew-parent-worries-2023",
+              "entry": "shot"
+            },
+            {
+              "list": "kids-count-2025",
+              "entry": "child-teen-deaths"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q473853"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q1145436"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/kids/20261019-230115",
+      "twins": [
+        {
+          "id": "school-shootings",
+          "name": "School shootings",
+          "line": "I worry that a shooting could happen at my kids' school.",
+          "origin": "docs/research/pains/sweeps/safety/20261019-230042"
+        }
+      ],
+      "side": [],
+      "id": "p026"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "child-poverty"
+      ],
+      "group": "kids",
+      "current": null,
+      "proposed": {
+        "name": "Child poverty",
+        "line": "I see kids going without the basics because their families can't afford them.",
+        "group": "kids",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Child poverty",
+          "line": "I see kids going without the basics because their families can't afford them.",
+          "group": "kids",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "16% of U.S. children lived in poverty in 2023, 11,445,000 children; 25% had parents who lacked secure employment (KIDS COUNT Data Book).",
+        "sources": [
+          {
+            "url": "https://assets.aecf.org/m/databook/2025-KCDB-profile-US.pdf",
+            "accessed": "2026-10-19",
+            "passage": "Children in poverty US 11,445,000 17% 2019 16% 2023 BETTER"
+          },
+          {
+            "url": "https://assets.aecf.org/m/databook/2025-KCDB-profile-US.pdf",
+            "accessed": "2026-10-19",
+            "passage": "Children living in high-poverty areas US 5,546,000 10% 2014–18 8% 2019–23 BETTER"
+          },
+          {
+            "url": "https://assets.aecf.org/m/databook/2025-KCDB-profile-US.pdf",
+            "accessed": "2026-10-19",
+            "passage": "Children whose parents lack secure employment US 18,437,000 26% 2019 25% 2023 BETTER"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "child-poverty",
+          "name": "Child poverty",
+          "line": "I see kids going without the basics because their families can't afford them.",
+          "page": "societal",
+          "group": "kids",
+          "aliases": [
+            "Kids growing up poor"
+          ],
+          "sources": [
+            {
+              "url": "https://assets.aecf.org/m/databook/2025-KCDB-profile-US.pdf",
+              "accessed": "2026-10-19",
+              "passage": "Children in poverty US 11,445,000 17% 2019 16% 2023 BETTER"
+            },
+            {
+              "url": "https://assets.aecf.org/m/databook/2025-KCDB-profile-US.pdf",
+              "accessed": "2026-10-19",
+              "passage": "Children living in high-poverty areas US 5,546,000 10% 2014–18 8% 2019–23 BETTER"
+            },
+            {
+              "url": "https://assets.aecf.org/m/databook/2025-KCDB-profile-US.pdf",
+              "accessed": "2026-10-19",
+              "passage": "Children whose parents lack secure employment US 18,437,000 26% 2019 25% 2023 BETTER"
+            }
+          ],
+          "prevalence": "16% of U.S. children lived in poverty in 2023, 11,445,000 children; 25% had parents who lacked secure employment (KIDS COUNT Data Book).",
+          "covers": [
+            {
+              "list": "kids-count-2025",
+              "entry": "children-in-poverty"
+            },
+            {
+              "list": "kids-count-2025",
+              "entry": "high-poverty-areas"
+            },
+            {
+              "list": "kids-count-2025",
+              "entry": "parents-lack-secure-employment"
+            },
+            {
+              "list": "sdg-targets",
+              "entry": "1.2"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q1561657"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/kids/20261019-230115",
+      "similar": [
+        {
+          "id": "cant-afford-kids",
+          "name": "Can't afford kids",
+          "line": "I want kids but can't afford to raise them."
+        },
+        {
+          "id": "screens-and-kids",
+          "name": "Screens",
+          "line": "I see phones raising our kids."
+        }
+      ],
+      "side": [],
+      "id": "p027"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "child-abuse"
+      ],
+      "group": "kids",
+      "current": null,
+      "proposed": {
+        "name": "Child abuse",
+        "line": "I see kids hurt or neglected by the adults who should be protecting them.",
+        "group": "kids",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Child abuse",
+          "line": "I see kids hurt or neglected by the adults who should be protecting them.",
+          "group": "kids",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "546,159 U.S. children were found to be victims of abuse or neglect, and an estimated 2,000 children died as a result of abuse or neglect in 2023 (HHS, via USAFacts). Neglect was 74.0% of substantiated cases (childstats.gov).",
+        "sources": [
+          {
+            "url": "https://usafacts.org/articles/how-many-children-are-victims-of-abuse-or-neglect-in-the-us/",
+            "accessed": "2026-10-19",
+            "passage": "Out of those referrals, 546,159 children were found to be victims of abuse or neglect."
+          },
+          {
+            "url": "https://usafacts.org/articles/how-many-children-are-victims-of-abuse-or-neglect-in-the-us/",
+            "accessed": "2026-10-19",
+            "passage": "An estimated 2,000 children died as a result of abuse or neglect in 2023, a rate of 2.73 children per every 100,000."
+          },
+          {
+            "url": "https://childstats.gov/americaschildren/tables/fam3b.asp",
+            "accessed": "2026-10-19",
+            "passage": "FAM3.B Child maltreatment: Percentage of substantiated maltreatment of children ages 0–17 by maltreatment type and age, 2023. Overall: Neglect 74.0; Physical abuse 17.5; Sexual abuse 9.8; Psychological abuse 6.9"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "child-abuse",
+          "name": "Child abuse",
+          "line": "I see kids hurt or neglected by the adults who should be protecting them.",
+          "page": "societal",
+          "group": "kids",
+          "sensitive": true,
+          "aliases": [
+            "Child neglect",
+            "Kids not safe at home"
+          ],
+          "sources": [
+            {
+              "url": "https://usafacts.org/articles/how-many-children-are-victims-of-abuse-or-neglect-in-the-us/",
+              "accessed": "2026-10-19",
+              "passage": "Out of those referrals, 546,159 children were found to be victims of abuse or neglect."
+            },
+            {
+              "url": "https://usafacts.org/articles/how-many-children-are-victims-of-abuse-or-neglect-in-the-us/",
+              "accessed": "2026-10-19",
+              "passage": "An estimated 2,000 children died as a result of abuse or neglect in 2023, a rate of 2.73 children per every 100,000."
+            },
+            {
+              "url": "https://childstats.gov/americaschildren/tables/fam3b.asp",
+              "accessed": "2026-10-19",
+              "passage": "FAM3.B Child maltreatment: Percentage of substantiated maltreatment of children ages 0–17 by maltreatment type and age, 2023. Overall: Neglect 74.0; Physical abuse 17.5; Sexual abuse 9.8; Psychological abuse 6.9"
+            }
+          ],
+          "prevalence": "546,159 U.S. children were found to be victims of abuse or neglect, and an estimated 2,000 children died as a result of abuse or neglect in 2023 (HHS, via USAFacts). Neglect was 74.0% of substantiated cases (childstats.gov).",
+          "covers": [
+            {
+              "list": "hhs-child-maltreatment-2023",
+              "entry": "maltreatment-victims"
+            },
+            {
+              "list": "hhs-child-maltreatment-2023",
+              "entry": "maltreatment-deaths"
+            },
+            {
+              "list": "hhs-child-maltreatment-2023",
+              "entry": "neglect-share"
+            },
+            {
+              "list": "sdg-targets",
+              "entry": "16.2"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q167191"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q559562"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/kids/20261019-230115",
+      "similar": [
+        {
+          "id": "screens-and-kids",
+          "name": "Screens",
+          "line": "I see phones raising our kids."
+        }
+      ],
+      "side": [],
+      "id": "p028"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "foster-care"
+      ],
+      "group": "kids",
+      "current": null,
+      "proposed": {
+        "name": "Foster care",
+        "line": "I see kids in foster care moved from home to home, and many turn 18 with no family at all.",
+        "group": "kids",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Foster care",
+          "line": "I see kids in foster care moved from home to home, and many turn 18 with no family at all.",
+          "group": "kids",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "70,418 U.S. foster children were waiting to be adopted at the end of 2024, and 15,379 youth aged out of foster care without a permanent family that year (National Council For Adoption, from AFCARS).",
+        "sources": [
+          {
+            "url": "https://adoptioncouncil.org/wp-content/uploads/2025/10/Adoption-Statistics-2025-2.pdf",
+            "accessed": "2026-10-19",
+            "passage": "70,418 U.S. foster children were waiting to be adopted at the end of 2024"
+          },
+          {
+            "url": "https://adoptioncouncil.org/wp-content/uploads/2025/10/Adoption-Statistics-2025-2.pdf",
+            "accessed": "2026-10-19",
+            "passage": "15,379 Youth aged out of foster care without a permanent family in 2024"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "foster-care",
+          "name": "Foster care",
+          "line": "I see kids in foster care moved from home to home, and many turn 18 with no family at all.",
+          "page": "societal",
+          "group": "kids",
+          "aliases": [
+            "Aging out of foster care"
+          ],
+          "sources": [
+            {
+              "url": "https://adoptioncouncil.org/wp-content/uploads/2025/10/Adoption-Statistics-2025-2.pdf",
+              "accessed": "2026-10-19",
+              "passage": "70,418 U.S. foster children were waiting to be adopted at the end of 2024"
+            },
+            {
+              "url": "https://adoptioncouncil.org/wp-content/uploads/2025/10/Adoption-Statistics-2025-2.pdf",
+              "accessed": "2026-10-19",
+              "passage": "15,379 Youth aged out of foster care without a permanent family in 2024"
+            }
+          ],
+          "prevalence": "70,418 U.S. foster children were waiting to be adopted at the end of 2024, and 15,379 youth aged out of foster care without a permanent family that year (National Council For Adoption, from AFCARS).",
+          "covers": [
+            {
+              "list": "adoption-council-2025",
+              "entry": "waiting-to-be-adopted"
+            },
+            {
+              "list": "adoption-council-2025",
+              "entry": "aged-out"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q1430789"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/kids/20261019-230115",
+      "side": [],
+      "id": "p029"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "childcare-shortage"
+      ],
+      "group": "kids",
+      "current": null,
+      "proposed": {
+        "name": "Finding childcare",
+        "line": "I see families who can't find a childcare or preschool spot anywhere near them.",
+        "group": "kids",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Finding childcare",
+          "line": "I see families who can't find a childcare or preschool spot anywhere near them.",
+          "group": "kids",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "51 percent of Americans live in neighborhoods classified as child care deserts (Center for American Progress); 54% of U.S. children ages 3 and 4 were not in school in 2019–23 (KIDS COUNT).",
+        "sources": [
+          {
+            "url": "https://www.americanprogress.org/press/release-unprecedented-report-finds-majority-americans-live-child-care-desert-neighborhoods/",
+            "accessed": "2026-10-19",
+            "passage": "finds that a majority, or 51 percent, of Americans live in neighborhoods classified as child care deserts."
+          },
+          {
+            "url": "https://assets.aecf.org/m/databook/2025-KCDB-profile-US.pdf",
+            "accessed": "2026-10-19",
+            "passage": "Young children (ages 3 and 4) not in school US 4,317,000 52% 2014–18 54% 2019–23 WORSE"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "childcare-shortage",
+          "name": "Finding childcare",
+          "line": "I see families who can't find a childcare or preschool spot anywhere near them.",
+          "page": "societal",
+          "group": "kids",
+          "aliases": [
+            "Child care deserts",
+            "No preschool spots"
+          ],
+          "sources": [
+            {
+              "url": "https://www.americanprogress.org/press/release-unprecedented-report-finds-majority-americans-live-child-care-desert-neighborhoods/",
+              "accessed": "2026-10-19",
+              "passage": "finds that a majority, or 51 percent, of Americans live in neighborhoods classified as child care deserts."
+            },
+            {
+              "url": "https://assets.aecf.org/m/databook/2025-KCDB-profile-US.pdf",
+              "accessed": "2026-10-19",
+              "passage": "Young children (ages 3 and 4) not in school US 4,317,000 52% 2014–18 54% 2019–23 WORSE"
+            }
+          ],
+          "prevalence": "51 percent of Americans live in neighborhoods classified as child care deserts (Center for American Progress); 54% of U.S. children ages 3 and 4 were not in school in 2019–23 (KIDS COUNT).",
+          "covers": [
+            {
+              "list": "cap-child-care-deserts",
+              "entry": "child-care-deserts"
+            },
+            {
+              "list": "kids-count-2025",
+              "entry": "young-children-not-in-school"
+            },
+            {
+              "list": "sdg-targets",
+              "entry": "4.2"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q1472221"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/kids/20261019-230115",
+      "similar": [
+        {
+          "id": "cant-afford-kids",
+          "name": "Can't afford kids",
+          "line": "I want kids but can't afford to raise them."
+        }
+      ],
+      "side": [],
+      "id": "p030"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "teens-no-path"
+      ],
+      "group": "kids",
+      "current": null,
+      "proposed": {
+        "name": "Teens adrift",
+        "line": "I see young people out of school and out of work, with nothing pulling them forward.",
+        "group": "kids",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Teens adrift",
+          "line": "I see young people out of school and out of work, with nothing pulling them forward.",
+          "group": "kids",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "7% of U.S. teens were not in school and not working in 2023, up from 6% in 2019, about 1,168,000 teens (KIDS COUNT Data Book).",
+        "sources": [
+          {
+            "url": "https://assets.aecf.org/m/databook/2025-KCDB-profile-US.pdf",
+            "accessed": "2026-10-19",
+            "passage": "Teens not in school and not working US 1,168,000 6% 2019 7% 2023 WORSE"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "teens-no-path",
+          "name": "Teens adrift",
+          "line": "I see young people out of school and out of work, with nothing pulling them forward.",
+          "page": "societal",
+          "group": "kids",
+          "aliases": [
+            "Young people not in school or work",
+            "Disconnected youth"
+          ],
+          "sources": [
+            {
+              "url": "https://assets.aecf.org/m/databook/2025-KCDB-profile-US.pdf",
+              "accessed": "2026-10-19",
+              "passage": "Teens not in school and not working US 1,168,000 6% 2019 7% 2023 WORSE"
+            }
+          ],
+          "prevalence": "7% of U.S. teens were not in school and not working in 2023, up from 6% in 2019, about 1,168,000 teens (KIDS COUNT Data Book).",
+          "covers": [
+            {
+              "list": "kids-count-2025",
+              "entry": "teens-not-in-school-or-working"
+            },
+            {
+              "list": "sdg-targets",
+              "entry": "8.6"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q694489"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/kids/20261019-230115",
+      "side": [],
+      "id": "p031"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "kids-unsafe-online"
+      ],
+      "group": "kids",
+      "current": null,
+      "proposed": {
+        "name": "Kids online",
+        "line": "I worry about strangers reaching kids online to exploit them.",
+        "group": "kids",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Kids online",
+          "line": "I worry about strangers reaching kids online to exploit them.",
+          "group": "kids",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "The National Center for Missing & Exploited Children's CyberTipline received 21.3 million reports in 2025, including 1.4 million concerning online enticement and more than 80,000 concerning sextortion.",
+        "sources": [
+          {
+            "url": "https://www.missingkids.org/cybertiplinedata",
+            "accessed": "2026-10-19",
+            "passage": "In 2025, the CyberTipline received 21.3 million reports"
+          },
+          {
+            "url": "https://www.missingkids.org/cybertiplinedata",
+            "accessed": "2026-10-19",
+            "passage": "The CyberTipline received 1.4 million reports concerning online enticement in 2025, which included more than 800 reports in which an offender traveled to meet a child in person and more than 80,000 reports concerning sextortion"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "kids-unsafe-online",
+          "name": "Kids online",
+          "line": "I worry about strangers reaching kids online to exploit them.",
+          "page": "societal",
+          "group": "kids",
+          "sensitive": true,
+          "aliases": [
+            "Online predators",
+            "Sextortion"
+          ],
+          "sources": [
+            {
+              "url": "https://www.missingkids.org/cybertiplinedata",
+              "accessed": "2026-10-19",
+              "passage": "In 2025, the CyberTipline received 21.3 million reports"
+            },
+            {
+              "url": "https://www.missingkids.org/cybertiplinedata",
+              "accessed": "2026-10-19",
+              "passage": "The CyberTipline received 1.4 million reports concerning online enticement in 2025, which included more than 800 reports in which an offender traveled to meet a child in person and more than 80,000 reports concerning sextortion"
+            }
+          ],
+          "prevalence": "The National Center for Missing & Exploited Children's CyberTipline received 21.3 million reports in 2025, including 1.4 million concerning online enticement and more than 80,000 concerning sextortion.",
+          "covers": [
+            {
+              "list": "ncmec-cybertipline",
+              "entry": "cybertipline-reports"
+            },
+            {
+              "list": "ncmec-cybertipline",
+              "entry": "online-enticement"
+            },
+            {
+              "list": "ncmec-cybertipline",
+              "entry": "sextortion"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q660567"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/kids/20261019-230115",
+      "side": [],
+      "id": "p032"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "kids-health"
+      ],
+      "group": "kids",
+      "current": null,
+      "proposed": {
+        "name": "Kids' health",
+        "line": "I see kids growing up on junk food, with too little time to run around.",
+        "group": "kids",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Kids' health",
+          "line": "I see kids growing up on junk food, with too little time to run around.",
+          "group": "kids",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "31% of U.S. children and teens ages 10 to 17 were overweight or obese in 2022–23 (KIDS COUNT Data Book).",
+        "sources": [
+          {
+            "url": "https://assets.aecf.org/m/databook/2025-KCDB-profile-US.pdf",
+            "accessed": "2026-10-19",
+            "passage": "Children and teens (ages 10 to 17) who are overweight or obese US N.A. 31% 2018–19 31% 2022–23 SAME"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "kids-health",
+          "name": "Kids' health",
+          "line": "I see kids growing up on junk food, with too little time to run around.",
+          "page": "societal",
+          "group": "kids",
+          "aliases": [
+            "Childhood obesity",
+            "Kids eating badly"
+          ],
+          "sources": [
+            {
+              "url": "https://assets.aecf.org/m/databook/2025-KCDB-profile-US.pdf",
+              "accessed": "2026-10-19",
+              "passage": "Children and teens (ages 10 to 17) who are overweight or obese US N.A. 31% 2018–19 31% 2022–23 SAME"
+            }
+          ],
+          "prevalence": "31% of U.S. children and teens ages 10 to 17 were overweight or obese in 2022–23 (KIDS COUNT Data Book).",
+          "covers": [
+            {
+              "list": "kids-count-2025",
+              "entry": "overweight-obese"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q3241451"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/kids/20261019-230115",
+      "side": [],
+      "id": "p033"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "moms-and-babies"
+      ],
+      "group": "kids",
+      "current": null,
+      "proposed": {
+        "name": "Pregnancy and birth",
+        "line": "I see moms and babies not getting the care they need before and after birth.",
+        "group": "kids",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Pregnancy and birth",
+          "line": "I see moms and babies not getting the care they need before and after birth.",
+          "group": "kids",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "8.6% of U.S. babies were born at low birth weight in 2023, up from 8.3% in 2019 (KIDS COUNT Data Book). Worldwide, complications from pregnancy and childbirth are among the leading causes of death for girls aged 15–19 (WHO).",
+        "sources": [
+          {
+            "url": "https://assets.aecf.org/m/databook/2025-KCDB-profile-US.pdf",
+            "accessed": "2026-10-19",
+            "passage": "Low birth-weight babies US 308,263 8.3% 2019 8.6% 2023 WORSE"
+          },
+          {
+            "url": "https://www.who.int/news-room/fact-sheets/detail/adolescents-health-risks-and-solutions",
+            "accessed": "2026-10-19",
+            "passage": "Complications from pregnancy and childbirth are among the leading causes of death for girls aged 15–19 years globally."
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "moms-and-babies",
+          "name": "Pregnancy and birth",
+          "line": "I see moms and babies not getting the care they need before and after birth.",
+          "page": "societal",
+          "group": "kids",
+          "aliases": [
+            "Maternal and infant health",
+            "Safe births"
+          ],
+          "sources": [
+            {
+              "url": "https://assets.aecf.org/m/databook/2025-KCDB-profile-US.pdf",
+              "accessed": "2026-10-19",
+              "passage": "Low birth-weight babies US 308,263 8.3% 2019 8.6% 2023 WORSE"
+            },
+            {
+              "url": "https://www.who.int/news-room/fact-sheets/detail/adolescents-health-risks-and-solutions",
+              "accessed": "2026-10-19",
+              "passage": "Complications from pregnancy and childbirth are among the leading causes of death for girls aged 15–19 years globally."
+            }
+          ],
+          "prevalence": "8.6% of U.S. babies were born at low birth weight in 2023, up from 8.3% in 2019 (KIDS COUNT Data Book). Worldwide, complications from pregnancy and childbirth are among the leading causes of death for girls aged 15–19 (WHO).",
+          "covers": [
+            {
+              "list": "kids-count-2025",
+              "entry": "low-birth-weight"
+            },
+            {
+              "list": "who-adolescent-health",
+              "entry": "pregnancy-complications"
+            },
+            {
+              "list": "sdg-targets",
+              "entry": "3.2"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q61559"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/kids/20261019-230115",
+      "twins": [
+        {
+          "id": "pregnancy-care",
+          "name": "Pregnancy care",
+          "line": "I worry about getting safe care through pregnancy and birth.",
+          "origin": "docs/research/pains/sweeps/health/20261019-225540"
+        }
+      ],
+      "similar": [
+        {
+          "id": "cant-get-care",
+          "name": "Healthcare",
+          "line": "I can't see a doctor when I need one."
+        }
+      ],
+      "side": [],
+      "id": "p034"
+    },
+    {
+      "painIds": [
+        "schools-fail-kids",
+        "kids-future"
+      ],
+      "group": "kids",
+      "side": [
+        {
+          "id": "schools-fail-kids",
+          "name": "Education",
+          "line": "I see kids not getting what they need at school."
+        },
+        {
+          "id": "kids-future",
+          "name": "Kids' future",
+          "line": "I think kids will have it worse than we did."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Someone upset about their local school and someone dreading the world kids will inherit are naming different things, and a person can pick between them without thinking twice. Education is about what kids get at school today; Kids' future is the broader worry that their whole lives will be harder than ours."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Education",
+        "line": "I see kids not getting what they need at school."
+      },
+      "proposed": {
+        "name": "Kids' future",
+        "line": "I think kids will have it worse than we did."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/kids/20261019-224622",
+      "draft": false,
+      "id": "p035"
+    },
+    {
+      "painIds": [
+        "kids-future",
+        "where-youre-born"
+      ],
+      "group": "kids",
+      "side": [
+        {
+          "id": "kids-future",
+          "name": "Kids' future",
+          "line": "I think kids will have it worse than we did."
+        },
+        {
+          "id": "where-youre-born",
+          "name": "Opportunity",
+          "line": "I see where you're born decide your life."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Worrying that every kid will have it worse is not the same complaint as seeing some kids held back by where they started. Kids' future compares one generation with the last; Opportunity compares people born in different places or families at the same time."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Kids' future",
+        "line": "I think kids will have it worse than we did."
+      },
+      "proposed": {
+        "name": "Opportunity",
+        "line": "I see where you're born decide your life."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/kids/20261019-224622",
+      "draft": false,
+      "id": "p036"
+    },
+    {
+      "painIds": [
+        "kids-future",
+        "climate"
+      ],
+      "group": "kids",
+      "side": [
+        {
+          "id": "kids-future",
+          "name": "Kids' future",
+          "line": "I think kids will have it worse than we did."
+        },
+        {
+          "id": "climate",
+          "name": "Climate change",
+          "line": "I'm worried about the planet heating up."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Many people who fear kids will have it worse are thinking about money and housing rather than the planet, so folding this into climate would lose them. Climate change is one specific cause; Kids' future also covers costs, jobs, housing and the general sense that things are going backward."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Kids' future",
+        "line": "I think kids will have it worse than we did."
+      },
+      "proposed": {
+        "name": "Climate change",
+        "line": "I'm worried about the planet heating up."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/kids/20261019-224622",
+      "draft": false,
+      "id": "p037"
+    },
+    {
+      "painIds": [
+        "screens-and-kids",
+        "doomscrolling"
+      ],
+      "group": "kids",
+      "side": [
+        {
+          "id": "screens-and-kids",
+          "name": "Screens",
+          "line": "I see phones raising our kids."
+        },
+        {
+          "id": "doomscrolling",
+          "name": "Doomscrolling",
+          "line": "I lose my nights to my phone."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Losing my own nights to my phone is a personal pain while phones shaping a whole generation of kids is a societal one, so each belongs on its own page with a link between them."
+      },
+      "kind": "other-page",
+      "current": {
+        "name": "Screens",
+        "line": "I see phones raising our kids."
+      },
+      "proposed": {
+        "name": "Doomscrolling",
+        "line": "I lose my nights to my phone."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/kids/20261019-224622",
+      "draft": false,
+      "id": "p038"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "gun-violence"
+      ],
+      "group": "safety",
+      "current": null,
+      "proposed": {
+        "name": "Gun violence",
+        "line": "I worry about people getting shot where I live.",
+        "group": "safety",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Gun violence",
+          "line": "I worry about people getting shot where I live.",
+          "group": "safety",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "In early 2025, 48% of U.S. adults called gun violence a very big problem (Pew). 44,447 people died from firearms in the U.S. in the latest year of CDC data.",
+        "sources": [
+          {
+            "url": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/02/PP_2025.2.20_national-problems_topline.pdf",
+            "accessed": "2026-10-19",
+            "passage": "GUN Gun violence Jan 27-Feb 2, 2025 48 29 18 4 *"
+          },
+          {
+            "url": "https://www.cdc.gov/nchs/fastats/injury.htm",
+            "accessed": "2026-10-19",
+            "passage": "All firearm deaths Number of deaths: 44,447 Deaths per 100,000 population: 13.1"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "gun-violence",
+          "name": "Gun violence",
+          "line": "I worry about people getting shot where I live.",
+          "page": "societal",
+          "group": "safety",
+          "aliases": [
+            "Shootings",
+            "Mass shootings"
+          ],
+          "sources": [
+            {
+              "url": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/02/PP_2025.2.20_national-problems_topline.pdf",
+              "accessed": "2026-10-19",
+              "passage": "GUN Gun violence Jan 27-Feb 2, 2025 48 29 18 4 *"
+            },
+            {
+              "url": "https://www.cdc.gov/nchs/fastats/injury.htm",
+              "accessed": "2026-10-19",
+              "passage": "All firearm deaths Number of deaths: 44,447 Deaths per 100,000 population: 13.1"
+            }
+          ],
+          "prevalence": "In early 2025, 48% of U.S. adults called gun violence a very big problem (Pew). 44,447 people died from firearms in the U.S. in the latest year of CDC data.",
+          "covers": [
+            {
+              "list": "gallup-mip",
+              "entry": "guns"
+            },
+            {
+              "list": "pew-national-problems",
+              "entry": "gun-violence"
+            },
+            {
+              "list": "cdc-injury",
+              "entry": "firearm-deaths"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q5618454"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q21480300"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/safety/20261019-230042",
+      "similar": [
+        {
+          "id": "unsafe-near-me",
+          "name": "Safety",
+          "line": "I don't feel safe where I live."
+        }
+      ],
+      "side": [],
+      "id": "p039"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "school-shootings"
+      ],
+      "group": "safety",
+      "current": null,
+      "proposed": {
+        "name": "School shootings",
+        "line": "I worry that a shooting could happen at my kids' school.",
+        "group": "safety",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "School shootings",
+          "line": "I worry that a shooting could happen at my kids' school.",
+          "group": "safety",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "32% of U.S. parents of K-12 students are extremely or very worried about a shooting at their child's school, and 59% of public school teachers are at least somewhat worried (Pew). In 2025, 25% of U.S. adults frequently worried about a child being harmed at school (Gallup).",
+        "sources": [
+          {
+            "url": "https://www.pewresearch.org/short-reads/2024/04/11/about-1-in-4-us-teachers-say-their-school-went-into-a-gun-related-lockdown-in-the-last-school-year/",
+            "accessed": "2026-10-19",
+            "passage": "Roughly a third of parents with K-12 students (32%) said they were extremely or very worried"
+          },
+          {
+            "url": "https://www.pewresearch.org/short-reads/2024/04/11/about-1-in-4-us-teachers-say-their-school-went-into-a-gun-related-lockdown-in-the-last-school-year/",
+            "accessed": "2026-10-19",
+            "passage": "a majority of public K-12 teachers (59%) say they are at least somewhat worried"
+          },
+          {
+            "url": "https://news.gallup.com/poll/1603/crime.aspx",
+            "accessed": "2026-10-19",
+            "passage": "Often Worry Crimes Child Harmed at School Table Frequently Occasionally Rarely Never Does not apply (vol.) No opinion % % % % % % 2025 Oct 1-16 25 18 19 22 15 1"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "school-shootings",
+          "name": "School shootings",
+          "line": "I worry that a shooting could happen at my kids' school.",
+          "page": "societal",
+          "group": "safety",
+          "aliases": [
+            "Safe at school",
+            "Lockdown drills"
+          ],
+          "sources": [
+            {
+              "url": "https://www.pewresearch.org/short-reads/2024/04/11/about-1-in-4-us-teachers-say-their-school-went-into-a-gun-related-lockdown-in-the-last-school-year/",
+              "accessed": "2026-10-19",
+              "passage": "Roughly a third of parents with K-12 students (32%) said they were extremely or very worried"
+            },
+            {
+              "url": "https://www.pewresearch.org/short-reads/2024/04/11/about-1-in-4-us-teachers-say-their-school-went-into-a-gun-related-lockdown-in-the-last-school-year/",
+              "accessed": "2026-10-19",
+              "passage": "a majority of public K-12 teachers (59%) say they are at least somewhat worried"
+            },
+            {
+              "url": "https://news.gallup.com/poll/1603/crime.aspx",
+              "accessed": "2026-10-19",
+              "passage": "Often Worry Crimes Child Harmed at School Table Frequently Occasionally Rarely Never Does not apply (vol.) No opinion % % % % % % 2025 Oct 1-16 25 18 19 22 15 1"
+            }
+          ],
+          "prevalence": "32% of U.S. parents of K-12 students are extremely or very worried about a shooting at their child's school, and 59% of public school teachers are at least somewhat worried (Pew). In 2025, 25% of U.S. adults frequently worried about a child being harmed at school (Gallup).",
+          "covers": [
+            {
+              "list": "gallup-mip",
+              "entry": "school-shootings"
+            },
+            {
+              "list": "gallup-crime",
+              "entry": "child-harmed-at-school"
+            },
+            {
+              "list": "pew-school-shootings",
+              "entry": "teachers-worried"
+            },
+            {
+              "list": "pew-school-shootings",
+              "entry": "parents-worried"
+            },
+            {
+              "list": "pew-school-shootings",
+              "entry": "lockdowns"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q473853"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/safety/20261019-230042",
+      "twins": [
+        {
+          "id": "bullying",
+          "name": "Bullying",
+          "line": "I see kids bullied at school and online, and the adults around them not stopping it.",
+          "origin": "docs/research/pains/sweeps/kids/20261019-230115"
+        },
+        {
+          "id": "guns-and-kids",
+          "name": "Guns and kids",
+          "line": "I'm afraid kids will get shot, at school or anywhere else.",
+          "origin": "docs/research/pains/sweeps/kids/20261019-230115"
+        }
+      ],
+      "similar": [
+        {
+          "id": "schools-fail-kids",
+          "name": "Education",
+          "line": "I see kids not getting what they need at school."
+        }
+      ],
+      "side": [],
+      "id": "p040"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "road-deaths"
+      ],
+      "group": "safety",
+      "current": null,
+      "proposed": {
+        "name": "Traffic deaths",
+        "line": "I worry about people getting killed or badly hurt on the roads around here.",
+        "group": "safety",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Traffic deaths",
+          "line": "I worry about people getting killed or badly hurt on the roads around here.",
+          "group": "safety",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "About 1.16 million people die in road crashes each year (WHO). In 2023, 16% of adults worldwide named road accidents as the biggest risk in their life, the top answer, and 76% were worried about being harmed on the road (World Risk Poll). 41,241 people died in U.S. traffic in the latest year of CDC data.",
+        "sources": [
+          {
+            "url": "https://www.who.int/news-room/fact-sheets/detail/road-traffic-injuries",
+            "accessed": "2026-10-19",
+            "passage": "Approximately 1.16 million people die each year as a result of road traffic crashes."
+          },
+          {
+            "url": "https://news.gallup.com/poll/653084/road-accidents-remain-world-top-perceived-safety-risk.aspx",
+            "accessed": "2026-10-19",
+            "passage": "In 2023, 16% of adults worldwide named road-related accidents as the greatest source of risk in their life"
+          },
+          {
+            "url": "https://news.gallup.com/poll/653084/road-accidents-remain-world-top-perceived-safety-risk.aspx",
+            "accessed": "2026-10-19",
+            "passage": "Over three in four adults worldwide (76%) say they are very or somewhat worried about being harmed in a road accident"
+          },
+          {
+            "url": "https://www.cdc.gov/nchs/fastats/injury.htm",
+            "accessed": "2026-10-19",
+            "passage": "Motor vehicle traffic deaths Number of deaths: 41,241 Deaths per 100,000 population: 12.1"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "road-deaths",
+          "name": "Traffic deaths",
+          "line": "I worry about people getting killed or badly hurt on the roads around here.",
+          "page": "societal",
+          "group": "safety",
+          "aliases": [
+            "Road safety",
+            "Dangerous roads",
+            "Car crashes"
+          ],
+          "sources": [
+            {
+              "url": "https://www.who.int/news-room/fact-sheets/detail/road-traffic-injuries",
+              "accessed": "2026-10-19",
+              "passage": "Approximately 1.16 million people die each year as a result of road traffic crashes."
+            },
+            {
+              "url": "https://news.gallup.com/poll/653084/road-accidents-remain-world-top-perceived-safety-risk.aspx",
+              "accessed": "2026-10-19",
+              "passage": "In 2023, 16% of adults worldwide named road-related accidents as the greatest source of risk in their life"
+            },
+            {
+              "url": "https://news.gallup.com/poll/653084/road-accidents-remain-world-top-perceived-safety-risk.aspx",
+              "accessed": "2026-10-19",
+              "passage": "Over three in four adults worldwide (76%) say they are very or somewhat worried about being harmed in a road accident"
+            },
+            {
+              "url": "https://www.cdc.gov/nchs/fastats/injury.htm",
+              "accessed": "2026-10-19",
+              "passage": "Motor vehicle traffic deaths Number of deaths: 41,241 Deaths per 100,000 population: 12.1"
+            }
+          ],
+          "prevalence": "About 1.16 million people die in road crashes each year (WHO). In 2023, 16% of adults worldwide named road accidents as the biggest risk in their life, the top answer, and 76% were worried about being harmed on the road (World Risk Poll). 41,241 people died in U.S. traffic in the latest year of CDC data.",
+          "covers": [
+            {
+              "list": "world-risk-poll",
+              "entry": "road-accidents"
+            },
+            {
+              "list": "world-risk-poll",
+              "entry": "worry-road"
+            },
+            {
+              "list": "who-injuries",
+              "entry": "road-traffic"
+            },
+            {
+              "list": "cdc-injury",
+              "entry": "motor-vehicle-deaths"
+            },
+            {
+              "list": "sdg-targets",
+              "entry": "3.6"
+            },
+            {
+              "list": "sdg-targets",
+              "entry": "11.2"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q9687"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/safety/20261019-230042",
+      "side": [],
+      "id": "p041"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "terrorism"
+      ],
+      "group": "safety",
+      "current": null,
+      "proposed": {
+        "name": "Terrorism",
+        "line": "I worry about attacks meant to kill and frighten people.",
+        "group": "safety",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Terrorism",
+          "line": "I worry about attacks meant to kill and frighten people.",
+          "group": "safety",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "In early 2025, 36% of U.S. adults called international terrorism and 34% domestic terrorism a very big problem (Pew). Ipsos tracks terrorism and the rise of extremism as national worries.",
+        "sources": [
+          {
+            "url": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/02/PP_2025.2.20_national-problems_topline.pdf",
+            "accessed": "2026-10-19",
+            "passage": "ITERR International terrorism Jan 27-Feb 2, 2025 36 38 22 3 1"
+          },
+          {
+            "url": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/02/PP_2025.2.20_national-problems_topline.pdf",
+            "accessed": "2026-10-19",
+            "passage": "DTERR Domestic terrorism Jan 27-Feb 2, 2025 34 38 24 3 1"
+          },
+          {
+            "url": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-02/What-Worries-the-World-January-2026.pdf",
+            "accessed": "2026-10-19",
+            "passage": "Rise of extremism Terrorism"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "terrorism",
+          "name": "Terrorism",
+          "line": "I worry about attacks meant to kill and frighten people.",
+          "page": "societal",
+          "group": "safety",
+          "aliases": [
+            "Extremism",
+            "Domestic terrorism"
+          ],
+          "sources": [
+            {
+              "url": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/02/PP_2025.2.20_national-problems_topline.pdf",
+              "accessed": "2026-10-19",
+              "passage": "ITERR International terrorism Jan 27-Feb 2, 2025 36 38 22 3 1"
+            },
+            {
+              "url": "https://www.pewresearch.org/wp-content/uploads/sites/20/2025/02/PP_2025.2.20_national-problems_topline.pdf",
+              "accessed": "2026-10-19",
+              "passage": "DTERR Domestic terrorism Jan 27-Feb 2, 2025 34 38 24 3 1"
+            },
+            {
+              "url": "https://www.ipsos.com/sites/default/files/ct/news/documents/2026-02/What-Worries-the-World-January-2026.pdf",
+              "accessed": "2026-10-19",
+              "passage": "Rise of extremism Terrorism"
+            }
+          ],
+          "prevalence": "In early 2025, 36% of U.S. adults called international terrorism and 34% domestic terrorism a very big problem (Pew). Ipsos tracks terrorism and the rise of extremism as national worries.",
+          "covers": [
+            {
+              "list": "gallup-mip",
+              "entry": "terrorism"
+            },
+            {
+              "list": "ipsos-www",
+              "entry": "rise-of-extremism"
+            },
+            {
+              "list": "ipsos-www",
+              "entry": "terrorism"
+            },
+            {
+              "list": "gallup-crime",
+              "entry": "terrorism"
+            },
+            {
+              "list": "pew-national-problems",
+              "entry": "international-terrorism"
+            },
+            {
+              "list": "pew-national-problems",
+              "entry": "domestic-terrorism"
+            },
+            {
+              "list": "sdg-targets",
+              "entry": "16.a"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q7283"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q466439"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/safety/20261019-230042",
+      "side": [],
+      "id": "p042"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "violence-against-women"
+      ],
+      "group": "safety",
+      "current": null,
+      "proposed": {
+        "name": "Violence against women",
+        "line": "I see women and girls hurt by men, often by someone they know.",
+        "group": "safety",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Violence against women",
+          "line": "I see women and girls hurt by men, often by someone they know.",
+          "group": "safety",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "About 1 in 3 women worldwide (31.6%, 840 million) have faced physical or sexual violence; on average 140 women and girls a day were killed by a partner or family member (WHO).",
+        "sources": [
+          {
+            "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women",
+            "accessed": "2026-10-19",
+            "passage": "about 1 in 3 (31.6%) of women worldwide (840 million women and girls) have been subjected to either physical and/or sexual"
+          },
+          {
+            "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women",
+            "accessed": "2026-10-19",
+            "passage": "on average 140 women and girls were killed every day by their partner or other family members globally"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "violence-against-women",
+          "name": "Violence against women",
+          "line": "I see women and girls hurt by men, often by someone they know.",
+          "page": "societal",
+          "group": "safety",
+          "aliases": [
+            "Gender-based violence",
+            "Women's safety"
+          ],
+          "sources": [
+            {
+              "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women",
+              "accessed": "2026-10-19",
+              "passage": "about 1 in 3 (31.6%) of women worldwide (840 million women and girls) have been subjected to either physical and/or sexual"
+            },
+            {
+              "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women",
+              "accessed": "2026-10-19",
+              "passage": "on average 140 women and girls were killed every day by their partner or other family members globally"
+            }
+          ],
+          "prevalence": "About 1 in 3 women worldwide (31.6%, 840 million) have faced physical or sexual violence; on average 140 women and girls a day were killed by a partner or family member (WHO).",
+          "covers": [
+            {
+              "list": "who-violence",
+              "entry": "violence-against-women"
+            },
+            {
+              "list": "who-violence",
+              "entry": "non-partner-sexual-violence"
+            },
+            {
+              "list": "who-violence",
+              "entry": "women-killed-by-partners"
+            },
+            {
+              "list": "sdg-targets",
+              "entry": "5.2"
+            },
+            {
+              "list": "sdg-targets",
+              "entry": "5.3"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q1800556"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/safety/20261019-230042",
+      "similar": [
+        {
+          "id": "learning",
+          "name": "Learning",
+          "line": "I want to learn something, but I don't know how to start."
+        }
+      ],
+      "side": [],
+      "id": "p043"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "elder-abuse"
+      ],
+      "group": "safety",
+      "current": null,
+      "proposed": {
+        "name": "Elder abuse",
+        "line": "I worry about older people being hurt, neglected or cheated by people they trust.",
+        "group": "safety",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Elder abuse",
+          "line": "I worry about older people being hurt, neglected or cheated by people they trust.",
+          "group": "safety",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "Around 1 in 6 people aged 60 and older experienced some form of abuse in the past year (WHO).",
+        "sources": [
+          {
+            "url": "https://www.who.int/news-room/fact-sheets/detail/abuse-of-older-people",
+            "accessed": "2026-10-19",
+            "passage": "Around 1 in 6 people 60 years and older experienced some form of abuse in community settings during the past year."
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "elder-abuse",
+          "name": "Elder abuse",
+          "line": "I worry about older people being hurt, neglected or cheated by people they trust.",
+          "page": "societal",
+          "group": "safety",
+          "aliases": [
+            "Abuse of older people"
+          ],
+          "sources": [
+            {
+              "url": "https://www.who.int/news-room/fact-sheets/detail/abuse-of-older-people",
+              "accessed": "2026-10-19",
+              "passage": "Around 1 in 6 people 60 years and older experienced some form of abuse in community settings during the past year."
+            }
+          ],
+          "prevalence": "Around 1 in 6 people aged 60 and older experienced some form of abuse in the past year (WHO).",
+          "covers": [
+            {
+              "list": "who-violence",
+              "entry": "elder-abuse"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q427883"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/safety/20261019-230042",
+      "side": [],
+      "id": "p044"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "trafficking"
+      ],
+      "group": "safety",
+      "current": null,
+      "proposed": {
+        "name": "Trafficking",
+        "line": "I know people are still being trafficked, forced to work or forced to marry.",
+        "group": "safety",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Trafficking",
+          "line": "I know people are still being trafficked, forced to work or forced to marry.",
+          "group": "safety",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "Fifty million people were living in modern slavery in 2021: 28 million in forced labor and 22 million in forced marriage (ILO, Walk Free, IOM).",
+        "sources": [
+          {
+            "url": "https://www.ilo.org/resource/news/50-million-people-worldwide-modern-slavery-0",
+            "accessed": "2026-10-19",
+            "passage": "Fifty million people were living in modern slavery in 2021"
+          },
+          {
+            "url": "https://www.ilo.org/resource/news/50-million-people-worldwide-modern-slavery-0",
+            "accessed": "2026-10-19",
+            "passage": "28 million were in forced labour"
+          },
+          {
+            "url": "https://www.ilo.org/resource/news/50-million-people-worldwide-modern-slavery-0",
+            "accessed": "2026-10-19",
+            "passage": "An estimated 22 million people were living in forced marriage on any given day in 2021."
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "trafficking",
+          "name": "Trafficking",
+          "line": "I know people are still being trafficked, forced to work or forced to marry.",
+          "page": "societal",
+          "group": "safety",
+          "aliases": [
+            "Human trafficking",
+            "Modern slavery",
+            "Forced labor"
+          ],
+          "sources": [
+            {
+              "url": "https://www.ilo.org/resource/news/50-million-people-worldwide-modern-slavery-0",
+              "accessed": "2026-10-19",
+              "passage": "Fifty million people were living in modern slavery in 2021"
+            },
+            {
+              "url": "https://www.ilo.org/resource/news/50-million-people-worldwide-modern-slavery-0",
+              "accessed": "2026-10-19",
+              "passage": "28 million were in forced labour"
+            },
+            {
+              "url": "https://www.ilo.org/resource/news/50-million-people-worldwide-modern-slavery-0",
+              "accessed": "2026-10-19",
+              "passage": "An estimated 22 million people were living in forced marriage on any given day in 2021."
+            }
+          ],
+          "prevalence": "Fifty million people were living in modern slavery in 2021: 28 million in forced labor and 22 million in forced marriage (ILO, Walk Free, IOM).",
+          "covers": [
+            {
+              "list": "ilo-modern-slavery",
+              "entry": "modern-slavery"
+            },
+            {
+              "list": "ilo-modern-slavery",
+              "entry": "forced-labour"
+            },
+            {
+              "list": "ilo-modern-slavery",
+              "entry": "forced-marriage"
+            },
+            {
+              "list": "sdg-targets",
+              "entry": "8.7"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q181784"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q3369955"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/safety/20261019-230042",
+      "side": [],
+      "id": "p045"
+    },
+    {
+      "kind": "add",
+      "painIds": [
+        "unsafe-food"
+      ],
+      "group": "safety",
+      "current": null,
+      "proposed": {
+        "name": "Unsafe food",
+        "line": "I worry the food I buy could make my family sick.",
+        "group": "safety",
+        "role": "not-shown"
+      },
+      "alternatives": [
+        {
+          "name": "Unsafe food",
+          "line": "I worry the food I buy could make my family sick.",
+          "group": "safety",
+          "role": "shown"
+        }
+      ],
+      "why": {
+        "prompt": "source",
+        "detail": "About 866 million people, almost 1 in 9, fall ill each year from contaminated food (WHO). 59% of adults worldwide were worried that food could seriously harm them (World Risk Poll).",
+        "sources": [
+          {
+            "url": "https://www.who.int/news-room/fact-sheets/detail/food-safety",
+            "accessed": "2026-10-19",
+            "passage": "An estimated 866 million – almost 1 in 9 people in the world – fall ill after eating contaminated food"
+          },
+          {
+            "url": "https://news.gallup.com/poll/653084/road-accidents-remain-world-top-perceived-safety-risk.aspx",
+            "accessed": "2026-10-19",
+            "passage": "Food 21 37 59"
+          }
+        ]
+      },
+      "draft": false,
+      "allowOwn": true,
+      "newEvidence": false,
+      "rejection": null,
+      "payload": {
+        "candidate": {
+          "id": "unsafe-food",
+          "name": "Unsafe food",
+          "line": "I worry the food I buy could make my family sick.",
+          "page": "societal",
+          "group": "safety",
+          "aliases": [
+            "Food safety",
+            "Food poisoning"
+          ],
+          "sources": [
+            {
+              "url": "https://www.who.int/news-room/fact-sheets/detail/food-safety",
+              "accessed": "2026-10-19",
+              "passage": "An estimated 866 million – almost 1 in 9 people in the world – fall ill after eating contaminated food"
+            },
+            {
+              "url": "https://news.gallup.com/poll/653084/road-accidents-remain-world-top-perceived-safety-risk.aspx",
+              "accessed": "2026-10-19",
+              "passage": "Food 21 37 59"
+            }
+          ],
+          "prevalence": "About 866 million people, almost 1 in 9, fall ill each year from contaminated food (WHO). 59% of adults worldwide were worried that food could seriously harm them (World Risk Poll).",
+          "covers": [
+            {
+              "list": "world-risk-poll",
+              "entry": "worry-food"
+            },
+            {
+              "list": "who-food-safety",
+              "entry": "foodborne-illness"
+            },
+            {
+              "list": "wikidata",
+              "entry": "Q909821"
+            }
+          ]
+        },
+        "earlier": null
+      },
+      "origin": "docs/research/pains/sweeps/safety/20261019-230042",
+      "side": [],
+      "id": "p046"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "world-on-fire"
+      ],
+      "group": "safety",
+      "current": {
+        "name": "War",
+        "line": "I see war threatening people and places I care about."
+      },
+      "proposed": {
+        "name": "War",
+        "line": "I'm scared that war will reach people and places I care about."
+      },
+      "alternatives": [
+        {
+          "name": "War and conflict",
+          "line": "I'm afraid the wars and conflicts in the world keep getting closer to home."
+        }
+      ],
+      "why": {
+        "prompt": "lint id-mismatch (note)",
+        "detail": "Keeps the plain name and the people and places I care about, but says the feeling out loud the way a person would, instead of the stiffer \"I see war threatening\"."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/safety/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p047"
+    },
+    {
+      "kind": "reword",
+      "painIds": [
+        "crime-and-violence"
+      ],
+      "group": "safety",
+      "current": {
+        "name": "Crime",
+        "line": "I don't feel safe from crime and violence."
+      },
+      "proposed": {
+        "name": "Crime",
+        "line": "Crime and violence keep hurting people in my community."
+      },
+      "alternatives": [],
+      "why": {
+        "prompt": "refine",
+        "detail": "Makes this the shared, societal pain (people getting hurt around me) so it reads differently from the personal \"I don't feel safe where I live\", using the earlier alias's idea that it keeps happening."
+      },
+      "allowOwn": true,
+      "payload": {},
+      "origin": "docs/research/pains/refine/safety/20261019-224622",
+      "draft": false,
+      "side": [],
+      "id": "p048"
+    },
+    {
+      "painIds": [
+        "crime-and-violence",
+        "world-on-fire"
+      ],
+      "group": "safety",
+      "side": [
+        {
+          "id": "crime-and-violence",
+          "name": "Crime",
+          "line": "I don't feel safe from crime and violence."
+        },
+        {
+          "id": "world-on-fire",
+          "name": "War",
+          "line": "I see war threatening people and places I care about."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Someone worried about break-ins and shootings on their street and someone worried about wars abroad are telling different stories, and nobody would hesitate between the two. Crime is violence between people where I live and in my country; War is armed conflict between countries or groups, often far away but reaching people I care about."
+      },
+      "kind": "keep",
+      "current": {
+        "name": "Crime",
+        "line": "I don't feel safe from crime and violence."
+      },
+      "proposed": {
+        "name": "War",
+        "line": "I see war threatening people and places I care about."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/safety/20261019-224622",
+      "draft": false,
+      "id": "p049"
+    },
+    {
+      "painIds": [
+        "crime-and-violence",
+        "unsafe-near-me"
+      ],
+      "group": "safety",
+      "side": [
+        {
+          "id": "crime-and-violence",
+          "name": "Crime",
+          "line": "I don't feel safe from crime and violence."
+        },
+        {
+          "id": "unsafe-near-me",
+          "name": "Safety",
+          "line": "I don't feel safe where I live."
+        }
+      ],
+      "allowOwn": false,
+      "why": {
+        "prompt": "overlap",
+        "detail": "Feeling unsafe where I live is the personal side of the same worry as crime in society, so both pages should keep their own pain, linked across pages."
+      },
+      "kind": "other-page",
+      "current": {
+        "name": "Crime",
+        "line": "I don't feel safe from crime and violence."
+      },
+      "proposed": {
+        "name": "Safety",
+        "line": "I don't feel safe where I live."
+      },
+      "alternatives": [],
+      "payload": {},
+      "origin": "docs/research/pains/refine/safety/20261019-224622",
+      "draft": false,
+      "id": "p050"
+    }
+  ]
+}

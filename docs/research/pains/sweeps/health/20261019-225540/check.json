@@ -1,0 +1,43 @@
+{
+  "issues": [],
+  "proposed": [
+    {
+      "candidate": "drug-prices"
+    },
+    {
+      "candidate": "short-staffed-care"
+    },
+    {
+      "candidate": "hospital-closing"
+    },
+    {
+      "candidate": "no-health-insurance"
+    },
+    {
+      "candidate": "obesity"
+    },
+    {
+      "candidate": "chronic-disease"
+    },
+    {
+      "candidate": "pandemics"
+    },
+    {
+      "candidate": "dementia"
+    },
+    {
+      "candidate": "care-quality"
+    },
+    {
+      "candidate": "pregnancy-care"
+    }
+  ],
+  "drafts": [
+    {
+      "candidate": "medicine-shortages"
+    }
+  ],
+  "skipped": [],
+  "covered": [],
+  "checkedAt": "2026-10-19"
+}

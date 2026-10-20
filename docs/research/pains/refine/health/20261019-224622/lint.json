@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "scope": "health",
+  "issues": [
+    {
+      "painId": "one-illness-away",
+      "rule": "id-mismatch",
+      "detail": "ID one-illness-away, name \"Medical bills\" and line \"I worry about what healthcare will cost me.\" share no word; propose a rewording only if the wording has drifted from what the ID names",
+      "severity": "note"
+    },
+    {
+      "painId": "addiction-here",
+      "rule": "id-mismatch",
+      "detail": "ID addiction-here, name \"Drugs\" and line \"I'm losing people I know to drugs.\" share no word; propose a rewording only if the wording has drifted from what the ID names",
+      "severity": "note"
+    },
+    {
+      "painId": "*",
+      "group": "health",
+      "rule": "mixed-labels",
+      "severity": "fail",
+      "detail": "Health mixes problem labels and area labels; pick one style for the heading"
+    }
+  ],
+  "failing": [],
+  "checkedAt": "2026-10-19"
+}

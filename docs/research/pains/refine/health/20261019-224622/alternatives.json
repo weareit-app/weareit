@@ -1,0 +1,16 @@
+{
+  "alternatives": {
+    "one-illness-away": [
+      {"name": "Medical bills", "line": "One bad illness could wipe out everything I have.", "why": "Brings back what the ID names, the fear of being one illness from ruin, instead of a general worry about cost, which also keeps it apart from personal Healthcare (getting care at all)."},
+      {"name": "Cost of illness", "line": "Getting sick could ruin me with medical bills.", "why": "Uses the earlier alias people recognized, and a name that says the problem rather than the paperwork."}
+    ],
+    "mental-health-crisis": [
+      {"name": "Mental health crisis", "line": "I see people I care about struggling with their mental health.", "why": "Keeps the line and makes the name a problem label, so the Health heading no longer mixes areas and problems."},
+      {"name": "People not okay", "line": "So many people around me aren't okay.", "why": "The earlier alias, said the way people say it out loud; a problem label that fits the rest of the heading."}
+    ],
+    "older-people-alone": [
+      {"name": "Older people alone", "line": "I see older people left on their own.", "why": "Keeps the line and names the problem the ID describes; \"Aging\" is an area and reads like a personal worry about getting old."},
+      {"name": "Growing old alone", "line": "Older people around me are left to cope on their own.", "why": "The earlier alias as the name, and a line that says plainly who is left and what that means."}
+    ]
+  }
+}

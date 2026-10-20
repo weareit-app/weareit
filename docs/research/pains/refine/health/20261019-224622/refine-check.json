@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "issues": [],
+  "moves": [
+    {
+      "painId": "older-people-alone",
+      "from": "health",
+      "to": "community",
+      "sorts": [
+        "community",
+        "community",
+        "community"
+      ]
+    }
+  ],
+  "disagreements": [
+    {
+      "painId": "older-people-alone",
+      "current": "health",
+      "sorts": [
+        "community",
+        "community",
+        "community"
+      ]
+    }
+  ],
+  "checkedAt": "2026-10-19"
+}

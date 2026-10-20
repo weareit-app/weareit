@@ -1,0 +1,42 @@
+{
+  "issues": [],
+  "proposed": [
+    {
+      "candidate": "kids-mental-health"
+    },
+    {
+      "candidate": "bullying"
+    },
+    {
+      "candidate": "guns-and-kids"
+    },
+    {
+      "candidate": "child-poverty"
+    },
+    {
+      "candidate": "child-abuse"
+    },
+    {
+      "candidate": "foster-care"
+    },
+    {
+      "candidate": "childcare-shortage"
+    },
+    {
+      "candidate": "teens-no-path"
+    },
+    {
+      "candidate": "kids-unsafe-online"
+    },
+    {
+      "candidate": "kids-health"
+    },
+    {
+      "candidate": "moms-and-babies"
+    }
+  ],
+  "drafts": [],
+  "skipped": [],
+  "covered": [],
+  "checkedAt": "2026-10-19"
+}

@@ -1,0 +1,31 @@
+{
+  "pairs": [
+    {
+      "a": "schools-fail-kids",
+      "b": "kids-future",
+      "action": "keep",
+      "distinction": "Education is about what kids get at school today; Kids' future is the broader worry that their whole lives will be harder than ours.",
+      "reason": "Someone upset about their local school and someone dreading the world kids will inherit are naming different things, and a person can pick between them without thinking twice."
+    },
+    {
+      "a": "kids-future",
+      "b": "where-youre-born",
+      "action": "keep",
+      "distinction": "Kids' future compares one generation with the last; Opportunity compares people born in different places or families at the same time.",
+      "reason": "Worrying that every kid will have it worse is not the same complaint as seeing some kids held back by where they started."
+    },
+    {
+      "a": "kids-future",
+      "b": "climate",
+      "action": "keep",
+      "distinction": "Climate change is one specific cause; Kids' future also covers costs, jobs, housing and the general sense that things are going backward.",
+      "reason": "Many people who fear kids will have it worse are thinking about money and housing rather than the planet, so folding this into climate would lose them."
+    },
+    {
+      "a": "screens-and-kids",
+      "b": "doomscrolling",
+      "action": "other-page",
+      "reason": "Losing my own nights to my phone is a personal pain while phones shaping a whole generation of kids is a societal one, so each belongs on its own page with a link between them."
+    }
+  ]
+}
