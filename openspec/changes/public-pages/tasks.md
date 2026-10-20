@@ -33,7 +33,7 @@ Builds after `required-signup-gate` task 5.1 (menu button and Account). Essays p
 - [ ] 4.3 Build the diagram and maths blocks (Mermaid with written description fallback; KaTeX with MathML and self-hosted fonts); verify with VoiceOver that maths is read and nothing loads from a third-party host (network log)
 - [ ] 4.4 Build evidence card, timeline, status board, expandable and table blocks; verify keyboard operation and announced expanded state
   - Evidence card and table: built and tested (#43); timeline, status board and expandable to do.
-- [ ] 4.5 Measure the essay-page bundle, set the budget in design.md, and add a CI check; verify the explorer's bundle is unchanged
+- [ ] 4.5 Measure the essay-page bundle, set the budget in design.md, and add a CI check; verify the drawing libraries stay out of the explorer's bundle
   - Chart chunk measured and recorded in design.md's open question (#43); the budget figure and CI check wait for the diagram and maths measurements.
 
 ## 5. Statuses and roadmap
