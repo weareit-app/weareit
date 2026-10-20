@@ -1,0 +1,19 @@
+# Git hooks, installed by `pnpm install` (lefthook's postinstall runs `lefthook install`).
+# Skip once with `git commit --no-verify`, or `LEFTHOOK=0 git commit`.
+pre-commit:
+  parallel: true
+  jobs:
+    - name: format
+      # Code only: docs, research data and vendored skills are not Prettier-formatted.
+      glob: "*.{ts,tsx,mts,cts,js,jsx,mjs,cjs}"
+      exclude:
+        - ".claude/**"
+        - ".agents/**"
+      run: pnpm exec prettier --write {staged_files}
+      stage_fixed: true
+    - name: typecheck
+      glob: "*.{ts,tsx,mts,cts}"
+      run: pnpm -s typecheck --output-logs=errors-only
+    - name: unit tests
+      glob: "*.{ts,tsx,mts,cts,js,jsx,mjs,cjs,json}"
+      run: pnpm -s test:unit

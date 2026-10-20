@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.64.0",
+    "lefthook": "2.1.17",
     "prettier": "3.9.10",
     "turbo": "2.11.8",
     "typescript": "5.9.3",
