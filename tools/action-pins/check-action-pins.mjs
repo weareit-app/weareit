@@ -1,33 +1,43 @@
 // Fails when an action used by a workflow or a local composite action isn't pinned to a
 // reviewed release.
-// The rules are in the "Continuous integration" section of docs/architecture/dependency-policy.md.
+// The rules and the pins are in docs/architecture/ci-actions.md.
 // Run from the repo root: `node tools/action-pins/check-action-pins.mjs`.
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const POLICY_PATH = "docs/architecture/dependency-policy.md";
+const PINS_PATH = "docs/architecture/ci-actions.md";
 const WORKFLOWS_DIR = ".github/workflows";
 const ACTIONS_DIR = ".github/actions";
-const SECTION_TITLE = "Continuous integration";
 // A block-style `uses:` key, optionally a list item and optionally quoted.
 const USES_LINE = /^\s*(?:-\s+)?(["']?)uses\1:\s*(.*)$/;
 // Any `uses` key, including flow style (`{uses: ...}`), which USES_LINE can't read.
 const ANY_USES_KEY = /(?:^|[\s{,])["']?uses["']?\s*:/;
 const PINNED = /^[\w.-]+\/[\w./-]+@([0-9a-f]{40}) # v\d+\.\d+\.\d+$/;
 const SHA_TOKEN = /(?<![0-9a-f])[0-9a-f]{40}(?![0-9a-f])/g;
+const REVIEW_NOTE = /Reviewed \d{4}-\d{2}-\d{2}:[\s\S]*dist\//;
 // A key whose value is a literal or folded block (`run: |`, `script: >-`).
 const BLOCK_SCALAR_START = /:\s*[|>][-+0-9]*\s*(?:#.*)?$/;
 
-/** The text of the policy section that records action pins, or null when it is missing. */
-function pinsSection(policy) {
-  const lines = policy.split(/\r?\n/);
-  const start = lines.findIndex(
-    (line) => line.trim() === `## ${SECTION_TITLE}`,
-  );
-  if (start === -1) return null;
-  const end = lines.findIndex((line, i) => i > start && line.startsWith("## "));
-  return lines.slice(start + 1, end === -1 ? undefined : end).join("\n");
+/** Each Markdown list item in the pins file, keyed by every full commit SHA it contains. */
+function pinEntries(pins) {
+  const items = [];
+  // The list item an indented line continues, or null outside a list.
+  let current = null;
+  for (const line of pins.split(/\r?\n/)) {
+    if (line.startsWith("- ")) {
+      current = items.push(line) - 1;
+    } else if (current !== null && /^\s+\S/.test(line)) {
+      items[current] += `\n${line}`;
+    } else {
+      current = null;
+    }
+  }
+  const entries = new Map();
+  for (const item of items) {
+    for (const sha of item.match(SHA_TOKEN) ?? []) entries.set(sha, item);
+  }
+  return entries;
 }
 
 /** Removes the quotes around a `uses:` value, keeping any trailing comment. */
@@ -40,17 +50,11 @@ function indentOf(line) {
 }
 
 /**
- * @param {{ files: { path: string, text: string }[], policy: string }} input
+ * @param {{ files: { path: string, text: string }[], pins: string }} input
  * @returns {string[]} one message per problem; empty when every pin is valid.
  */
-export function checkActionPins({ files, policy }) {
-  const section = pinsSection(policy);
-  if (section === null) {
-    return [
-      `${POLICY_PATH} has no "${SECTION_TITLE}" section to record action pins in`,
-    ];
-  }
-  const recorded = new Set(section.match(SHA_TOKEN) ?? []);
+export function checkActionPins({ files, pins }) {
+  const entries = pinEntries(pins);
   const problems = [];
   for (const { path, text } of files) {
     // Indent of the key that opened the block scalar we're inside, if any.
@@ -80,9 +84,13 @@ export function checkActionPins({ files, policy }) {
         problems.push(
           `${where}: "${value}" isn't pinned as owner/repo@<40-char lowercase SHA> # vX.Y.Z`,
         );
-      } else if (!recorded.has(pinned[1])) {
+      } else if (!entries.has(pinned[1])) {
         problems.push(
-          `${where}: ${pinned[1]} isn't recorded under "${SECTION_TITLE}" in ${POLICY_PATH}; review the action and record it there`,
+          `${where}: ${pinned[1]} isn't recorded in ${PINS_PATH}; review the action and record it there`,
+        );
+      } else if (!REVIEW_NOTE.test(entries.get(pinned[1]))) {
+        problems.push(
+          `${where}: the entry for ${pinned[1]} in ${PINS_PATH} has no "Reviewed YYYY-MM-DD:" note saying whether dist/ was compared with the source`,
         );
       }
     });
@@ -99,7 +107,7 @@ function listFiles(root, dir, keep, { recursive = false } = {}) {
     .sort();
 }
 
-/** Reads the workflows, local composite actions and the policy from a repo checkout and checks them. */
+/** Reads the workflows, local composite actions and the pins file from a repo checkout and checks them. */
 export function checkRepo(root) {
   const workflows = listFiles(root, WORKFLOWS_DIR, (path) =>
     /\.ya?ml$/.test(path),
@@ -117,8 +125,11 @@ export function checkRepo(root) {
     path,
     text: readFileSync(join(root, path), "utf8"),
   }));
-  const policy = readFileSync(join(root, POLICY_PATH), "utf8");
-  return checkActionPins({ files, policy });
+  if (!existsSync(join(root, PINS_PATH))) {
+    return [`${PINS_PATH} is missing; it records each action's pin and review`];
+  }
+  const pins = readFileSync(join(root, PINS_PATH), "utf8");
+  return checkActionPins({ files, pins });
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
@@ -128,6 +139,6 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     process.exit(1);
   }
   console.log(
-    "Action pins: every action in the workflows and local actions is pinned and recorded.",
+    "Action pins: every action in the workflows and local actions is pinned, recorded and has a review note.",
   );
 }

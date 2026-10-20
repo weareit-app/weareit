@@ -37,16 +37,7 @@ Cost (checked 2026-10-20 against GitHub's Actions billing docs): GitHub Actions 
 - Keep `timeout-minutes` on every job and keep artifacts short-lived.
 - Keep the organization's Actions budget at $0, so usage that would be billed is blocked rather than charged.
 
-Review an action before you pin it: read its `action.yml` and its source at the commit you pin, and record here whether the bundled `dist/` that actually runs was compared with that source. CI enforces the pin and the record, not the review: `tools/action-pins/check-action-pins.mjs` fails when a `uses:` line in `.github/workflows/` or `.github/actions/` isn't `owner/repo@<40-character SHA> # vX.Y.Z` (local `./` actions are exempt), or when its SHA is missing from this section.
-
-Each third-party action is pinned to a full commit SHA, with the version in a comment. Each is the newest release at least two weeks old on 2026-10-20:
-
-- `actions/checkout` v7.0.1, `3d3c42e5aac5ba805825da76410c181273ba90b1` (released 2026-07-20).
-- `actions/setup-node` v7.0.0, `820762786026740c76f36085b0efc47a31fe5020` (2026-07-14). v7.1.0 (2026-10-08) was too new.
-- `actions/upload-artifact` v7.0.1, `043fb46d1a93c77aae656e7c1c64a875d1fc6a0a` (2026-04-10). v7.0.2 (2026-10-07) was too new.
-- `pnpm/action-setup` v6.1.0, `ea17c68df8912ef543352723c149a84f56e3d413` (2026-09-05), the only action not published by GitHub. It reads pnpm 11.25.0 from `packageManager`. Its `action.yml` and TypeScript `src/` at this commit were read on 2026-10-20: it installs pnpm with `npm ci` from a lockfile committed in the action, which carries the package's integrity hash. Our pnpm version matches that lockfile, so the action runs no self-update. The only network hosts in its bundled `dist/index.js` are the npm registry and GitHub's own services (Actions cache and Azure storage); the 1.4 MB bundle was not otherwise compared with the source.
-
-To update a pin, pick a newer release at least two weeks old, read its changes, resolve the tag to its commit SHA (`gh api repos/<owner>/<repo>/commits/<tag> --jq .sha`), and update both the workflow (or `.github/actions/setup/action.yml`) and this list.
+Action pins and their review notes: `docs/architecture/ci-actions.md`.
 
 ## Spec and agent tooling
 
