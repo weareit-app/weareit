@@ -1,6 +1,6 @@
 # Possibility generator data model
 
-All files are UTF-8 JSON with `schemaVersion: 1`. IDs match `^[a-z0-9]+(?:-[a-z0-9]+)*$`. Enums:
+All files are UTF-8 JSON. Card runs and their files use `schemaVersion: 1`; staged runs use `schemaVersion: 2` in `run.json` and `dreams.json` (see "Staged runs"). IDs match `^[a-z0-9]+(?:-[a-z0-9]+)*$`. Enums:
 
 - **lens**: `individual | relational | community | market | policy | technology | culture`
 - **ambition**: `tonight | this-year | together`
@@ -56,6 +56,34 @@ Rules:
 `{ painId, runId, startedAt, painName, painLine, finishedAt, searches, pagesOpened, tokens?, notes }`
 
 `painName` and `painLine` are the catalog wording the run was written for (added 2026-10-19; older runs lack them, and `stale` falls back to the catalog history at `startedAt`). `painId` is always the surviving ID: a run started for a merged pain is created for the pain it was merged into.
+
+## Staged runs (schemaVersion 2)
+A staged run mirrors the content graph (`packages/content/src/graph-schema.ts`): dreams, fixes, and fix–dream links instead of cards. `new-run <pain-id> --staged` writes `run.json` with `schemaVersion: 2`. The run then gets `exemplars.json` (same shape as above) and `dreams.json`. Files for the plan, fixes, screen, and links are added by later stages. Card runs (v1) still validate and lint as before.
+
+### Stages
+`examples → dreams → dream-review → plan → shared-fixes → kind-pools → screen → assemble → judge → fix-review`. `dream-review` and `fix-review` are founder stops. `status <run>` names the next stage from the files present:
+- `examples` is complete when `exemplars.json` exists;
+- `dreams` is complete when `dreams.json` exists;
+- `dream-review` is complete when every dream in `dreams.json` has a `review` with a `decision`. `dreams-ingest` (#89) writes it from `reviews/dreams-decisions.json`.
+
+`start <run> <stage>` refuses with a usage error (exit 2) while any earlier stage is incomplete, so no fix stage runs before the dream review is ingested. Otherwise it names the stage's brief. Stages after `dream-review` aren't built yet.
+
+### dreams.json (staged run)
+```
+{ schemaVersion: 2, painId, runId, dreams: { <dream-id>: {
+    title, line, lens, ambition,          # title names the outcome; line is one first-person sentence
+    exemplarRefs: [<exemplar-id>…],       # at least one: the examples that show the outcome is reachable
+    provenance: { sourceId, locator, evidenceType, rights, reviewStatus: "unreviewed" },
+    writerNotes?, review? } },            # review: the founder's decision, written by dreams-ingest
+  overlaps: [ { a: <dream-id>, b: <dream-id>, reason } ] }
+```
+Rules:
+- `exemplarRefs` names at least one exemplar, and each resolves to an exemplar in the same run.
+- `schemaVersion` is 2, and `painId` matches `run.json`.
+- Each overlap names two different dreams in the run, with a reason, and each pair is flagged once.
+- `title` and `line` map to the graph dream's `title` and `description`.
+- Lint applies the dream copy rules (`title-vague`, `title-length`, `dream-not-outcome`, `line-length`, `generic-phrase`, `serial-comma`, `exclamation`, `boilerplate-caveat`, `regional-word`, `acronym-in-title`, and `stacked-hedges`), plus lens and ambition coverage across the drafted dreams. Its issues carry `dreamId` in place of `cardId`. Basics and It-led coverage need linked fixes, so they wait for the fix stages.
+- `writerNotes` is never shown to judges or on review pages.
 
 ## Calibration files (`docs/research/possibilities/calibration/`)
 - **baseline.json**: 16 old cards in the `cards.json` card shape, with fixes without exemplars, and `provenance.sourceId` pointing at `founder-review.md` with an anchor locator.

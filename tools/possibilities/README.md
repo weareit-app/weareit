@@ -18,8 +18,8 @@ This file holds the rules they share.
 | `tools/possibilities/tests/` | `python3 -m unittest discover -s tools/possibilities/tests` |
 | `tools/possibilities/data-model.md` | File shapes for runs, judgments, selection and calibration |
 | `tools/possibilities/config/` | `rubric.md`, `banned-phrases.json`, `feature-patterns.md`, `style-guide.md` (the founder's calibration findings), `calibration-page.template.html` |
-| `tools/possibilities/briefs/` | What each isolated agent receives: `writer.md`, `judge.md`, `repair.md`, `classify-kinds.md`, `feature-pitch.md` |
-| `docs/research/possibilities/runs/<pain>/<runId>/` | One run: `run.json`, `exemplars.json`, `cards.json`, `lint.json`, `judgments-<n>.json`, `judgments.json`, `selection.json`, `repair-todo.md` |
+| `tools/possibilities/briefs/` | What each isolated agent receives: `writer.md`, `dreams.md` (staged runs), `judge.md`, `repair.md`, `classify-kinds.md`, `feature-pitch.md` |
+| `docs/research/possibilities/runs/<pain>/<runId>/` | One run: `run.json`, `exemplars.json`, `cards.json` (or `dreams.json` in a staged run), `lint.json`, `judgments-<n>.json`, `judgments.json`, `selection.json`, `repair-todo.md` |
 | `docs/research/possibilities/calibration/` | Blind calibration set, key, ratings, anchors and the published rating page |
 | `docs/research/possibilities/evaluations/` | Audit sets, ratings, `evaluation.md`, `metrics.json` |
 | `docs/style/copy-style-guide.md` | Copy rules for every piece of It copy, including the kinds of fixes |
@@ -33,7 +33,10 @@ Run it from the repository root: `python3 tools/possibilities/cards.py <subcomma
 | Subcommand | Effect |
 | --- | --- |
 | `new-run <pain-id>` | Creates a new run folder and prints its path and the pain line |
-| `validate <run…>` | Checks the shape of exemplars, cards, judgments and selection |
+| `new-run <pain-id> --staged` | Creates a staged run (schemaVersion 2), whose files mirror the content graph |
+| `status <run>` | Names a staged run's next stage from the files present |
+| `start <run> <stage>` | Names the stage's brief, or exits 2 while an earlier stage is incomplete |
+| `validate <run…>` | Checks the shape of exemplars, cards, dreams, judgments, and selection |
 | `lint <run…>` | Applies the copy, sourcing, kind and coverage rules, including the Oxford comma (`serial-comma`, from `tools/style/serial_comma.py`), and writes `lint.json` |
 | `judge-input <run>` | Prints a judge's whole input, with writer notes and provenance removed |
 | `consensus <run>` | Combines `judgments-<n>.json` into `judgments.json` (mean scores, majority honest status, Borda points) |

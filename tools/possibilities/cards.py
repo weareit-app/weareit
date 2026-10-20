@@ -170,6 +170,63 @@ def stale(root):
     return {'checked': checked, 'stale': found}
 
 
+# ---------- staged runs (schemaVersion 2) ----------
+
+# Stage order (design, "Stage is derived from the files present"). dream-review and fix-review are founder stops.
+STAGES = ('examples', 'dreams', 'dream-review', 'plan', 'shared-fixes', 'kind-pools', 'screen', 'assemble', 'judge',
+          'fix-review')
+
+
+def dream_review_ingested(run):
+    """True once every drafted dream carries the founder's review decision (written by dreams-ingest)."""
+    dreams = read(run / 'dreams.json').get('dreams') if (run / 'dreams.json').is_file() else None
+    return bool(dreams) and all(isinstance(d.get('review'), dict) and d['review'].get('decision') for d in dreams.values())
+
+
+# How to tell each stage is complete. Stages after dream review are added with their own subcommands.
+STAGE_DONE = {
+    'examples': lambda run: (run / 'exemplars.json').is_file(),
+    'dreams': lambda run: (run / 'dreams.json').is_file(),
+    'dream-review': dream_review_ingested,
+}
+
+
+STAGE_BRIEFS = {'examples': 'tools/possibilities/briefs/dreams.md', 'dreams': 'tools/possibilities/briefs/dreams.md'}
+
+
+def is_staged(run):
+    meta = run / 'run.json'
+    return meta.is_file() and read(meta).get('schemaVersion') == 2
+
+
+def require_staged(run):
+    if not is_staged(run):
+        raise ValueError('%s is not a staged run (run.json schemaVersion 2); start one with new-run --staged' % run.name)
+
+
+def next_stage(run):
+    return next(s for s in STAGES if not STAGE_DONE.get(s, lambda _: False)(run))
+
+
+def status(run):
+    """The next stage of a staged run, from the files present."""
+    require_staged(run)
+    return {'run': run.name, 'next': next_stage(run)}
+
+
+def start(run, stage):
+    """Refuse a stage until every stage before it is complete (a usage error), then name its brief."""
+    require_staged(run)
+    if stage not in STAGES:
+        raise ValueError('unknown stage %s; stages are %s' % (stage, ', '.join(STAGES)))
+    pending = next_stage(run)
+    if STAGES.index(pending) < STAGES.index(stage):
+        raise ValueError('%s cannot start: %s is not complete' % (stage, pending))
+    if stage not in STAGE_BRIEFS:
+        raise ValueError('%s is not built yet' % stage)
+    return {'run': run.name, 'stage': stage, 'brief': STAGE_BRIEFS[stage]}
+
+
 # ---------- validation ----------
 
 def require(condition, message, issues):
@@ -249,6 +306,38 @@ def validate_cards(doc, exemplars, issues, generated=True):
     return cards
 
 
+def validate_dreams(doc, exemplars, issues, pain=None):
+    require(doc.get('schemaVersion') == 2, 'dreams.json must have schemaVersion 2', issues)
+    require(doc.get('painId') == pain, 'dreams.json painId must match run.json', issues)
+    dreams = doc.get('dreams')
+    require(isinstance(dreams, dict) and dreams, 'dreams must be nonempty keyed records', issues)
+    if not isinstance(dreams, dict):
+        return {}
+    for key, d in dreams.items():
+        where = 'dream ' + key
+        require(ID.fullmatch(key), where + ': bad ID', issues)
+        for field in ('title', 'line'):
+            require(isinstance(d.get(field), str) and d[field].strip(), where + ': missing ' + field, issues)
+        require(d.get('lens') in LENSES, where + ': unknown lens', issues)
+        require(d.get('ambition') in AMBITIONS, where + ': unknown ambition', issues)
+        refs = d.get('exemplarRefs')
+        require(isinstance(refs, list) and refs, where + ': exemplarRefs must name at least one example', issues)
+        require(isinstance(refs, list) and all(r in exemplars for r in refs),
+                where + ': exemplarRefs must resolve to exemplars in this run', issues)
+        prov = d.get('provenance', {})
+        for field in ('sourceId', 'locator', 'evidenceType', 'rights', 'reviewStatus'):
+            require(prov.get(field), where + ': provenance lacks ' + field, issues)
+    pairs = set()
+    for o in doc.get('overlaps', []):
+        pair = frozenset((o.get('a'), o.get('b')))
+        require(o.get('a') in dreams and o.get('b') in dreams and len(pair) == 2,
+                'overlap must name two different dreams in this run', issues)
+        require(isinstance(o.get('reason'), str) and o['reason'].strip(), 'overlap %s/%s needs a reason' % (o.get('a'), o.get('b')), issues)
+        require(pair not in pairs, 'overlap %s/%s is flagged twice' % (o.get('a'), o.get('b')), issues)
+        pairs.add(pair)
+    return dreams
+
+
 def validate_judgments(doc, cards, issues):
     scores = doc.get('scores', {})
     require(str(doc.get('judge', {}).get('context', '')).startswith('isolated'), 'judge context must be isolated', issues)
@@ -273,7 +362,18 @@ def load_run(run):
     return run, exemplars, read(run / 'cards.json')
 
 
+def validate_staged_run(run):
+    issues, exemplars = [], {}
+    if (run / 'exemplars.json').is_file():
+        exemplars = validate_exemplars(read(run / 'exemplars.json'), issues)
+    if (run / 'dreams.json').is_file():
+        validate_dreams(read(run / 'dreams.json'), exemplars, issues, read(run / 'run.json').get('painId'))
+    return issues
+
+
 def validate_run(run):
+    if is_staged(Path(run)):
+        return validate_staged_run(Path(run))
     run, ex_doc, card_doc = load_run(run)
     issues = []
     exemplars = validate_exemplars(ex_doc, issues)
@@ -289,8 +389,22 @@ def phrase_pattern(phrases):
     return re.compile(r'\b(' + '|'.join(re.escape(p) for p in sorted(phrases, key=len, reverse=True)) + r')\b', re.I) if phrases else None
 
 
-def lint_run(run, root):
-    run, ex_doc, card_doc = load_run(run)
+def dream_rules(title, line):
+    """(rule, detail) for a dream's title and line, shared by cards and staged dreams."""
+    words = len(title.split())
+    # Clarity over brevity (copy style guide): a one-word label is too vague; a title past 10 words is a sentence.
+    if words < 2:
+        yield 'title-vague', 'one-word title; say what is different'
+    elif words > 10:
+        yield 'title-length', 'title has %d words; keep it a title, not a sentence' % words
+    if re.match(r'(Telling|Asking|Writing|Calling|Contacting|Emailing|Petitioning|Lobbying|Learning|Reading)\b', title):
+        yield 'dream-not-outcome', 'dream title "%s" is an action; name the outcome, e.g. "I get limits on addictive app design"' % title[:40]
+    if len(SENTENCE.findall(line.strip())) > 1:
+        yield 'line-length', 'dream line should be one sentence'
+
+
+def copy_patterns(root):
+    """The banned-phrase config and its compiled patterns: generic, boilerplate, soft modals, regional, acronyms."""
     banned = read(config_root(root) / 'banned-phrases.json')
     generic = phrase_pattern(banned['generic'] + banned.get('hype', []))
     boilerplate, modals = phrase_pattern(banned.get('boilerplate', [])), phrase_pattern(banned.get('softModals', []))
@@ -298,6 +412,64 @@ def lint_run(run, root):
     acronyms = [w for w in regional_words if w.isupper() or '-' in w]
     regional = re.compile(r'\b(' + '|'.join(re.escape(w) for w in regional_words if w not in acronyms) + r')\b', re.I) if regional_words else None
     acronym_titles = re.compile(r'\b(' + '|'.join(re.escape(w) for w in acronyms) + r')\b') if acronyms else None
+    return {'banned': banned, 'generic': generic, 'boilerplate': boilerplate, 'modals': modals,
+            'regional': regional, 'acronymTitles': acronym_titles}
+
+
+def phrase_rules(field, text, patterns):
+    """(rule, detail) for generic phrases, the serial comma, exclamation marks and boilerplate caveats in one field."""
+    for m in patterns['generic'].finditer(text) if patterns['generic'] else ():
+        yield 'generic-phrase', '%s: "%s"' % (field, m[0])
+    for hit in serial_comma.find(text):
+        yield 'serial-comma', '%s: add the Oxford comma in "%s"' % (field, hit['list'][:80])
+    if '!' in text:
+        yield 'exclamation', field + ': no exclamation marks'
+    for m in patterns['boilerplate'].finditer(text) if patterns['boilerplate'] else ():
+        yield 'boilerplate-caveat', '%s: "%s" (status labels carry this)' % (field, m[0])
+
+
+def lint_staged_run(run, root):
+    issues, dreams = [], read(run / 'dreams.json')['dreams'] if (run / 'dreams.json').is_file() else {}
+
+    def add(dream, rule, detail):
+        issues.append({'dreamId': dream, 'rule': rule, 'detail': detail})
+
+    patterns = copy_patterns(root)
+    modals, regional, acronym_titles = patterns['modals'], patterns['regional'], patterns['acronymTitles']
+    for key, d in dreams.items():
+        copy = {'title': d.get('title', ''), 'line': d.get('line', '')}
+        for rule, detail in dream_rules(copy['title'], copy['line']):
+            add(key, rule, detail)
+        for field, text in copy.items():
+            for rule, detail in phrase_rules(field, text, patterns):
+                add(key, rule, detail)
+            for m in regional.finditer(text) if regional else ():
+                add(key, 'regional-word', '%s: "%s" (use the everyday American word)' % (field, m[0]))
+        for m in acronym_titles.finditer(copy['title']) if acronym_titles else ():
+            add(key, 'acronym-in-title', '"%s" in a title; spell it out or rephrase' % m[0])
+        modal_hits = [m[0] for text in copy.values() for m in (modals.finditer(text) if modals else ())]
+        if len(modal_hits) > 1:
+            add(key, 'stacked-hedges', 'soft modals used %d times (%s); keep at most one plain limit' % (len(modal_hits), ', '.join(modal_hits)))
+    lenses = sorted({d.get('lens') for d in dreams.values()})
+    ambitions = sorted({d.get('ambition') for d in dreams.values()})
+    # Basics and It-led coverage need linked fixes, so they wait for the fix stages.
+    if len(lenses) < 4:
+        add('*', 'lens-coverage', 'only %d lenses: %s' % (len(lenses), ', '.join(lenses)))
+    missing = [a for a in AMBITIONS if a not in ambitions]
+    if missing:
+        add('*', 'ambition-coverage', 'missing ambition levels: ' + ', '.join(missing))
+    result = {'passed': not issues, 'issues': issues, 'coverage': {'lenses': lenses, 'ambitions': ambitions},
+              'dreams': len(dreams), 'checkedAt': now()}
+    write(run / 'lint.json', result)
+    return result
+
+
+def lint_run(run, root):
+    if is_staged(Path(run)):
+        return lint_staged_run(Path(run), root)
+    run, ex_doc, card_doc = load_run(run)
+    patterns = copy_patterns(root)
+    banned, modals, regional, acronym_titles = (patterns[k] for k in ('banned', 'modals', 'regional', 'acronymTitles'))
     it_ideas = basics = 0
     allowed = set(banned.get('allowedTerms', []))
     exemplars = ex_doc.get('exemplars', {})
@@ -311,29 +483,14 @@ def lint_run(run, root):
 
     for key, c in card_doc['cards'].items():
         copy = {'title': c.get('title', ''), 'line': c.get('line', '')}
-        words = len(copy['title'].split())
-        # Clarity over brevity (copy style guide): a one-word label is too vague; a title past 10 words is a sentence.
-        if words < 2:
-            add(key, 'title-vague', 'one-word title; say what is different')
-        elif words > 10:
-            add(key, 'title-length', 'title has %d words; keep it a title, not a sentence' % words)
-        if re.match(r'(Telling|Asking|Writing|Calling|Contacting|Emailing|Petitioning|Lobbying|Learning|Reading)\b', copy['title']):
-            add(key, 'dream-not-outcome', 'dream title "%s" is an action; name the outcome, e.g. "I get limits on addictive app design"' % copy['title'][:40])
-        if len(SENTENCE.findall(copy['line'].strip())) > 1:
-            add(key, 'line-length', 'dream line should be one sentence')
+        for rule, detail in dream_rules(copy['title'], copy['line']):
+            add(key, rule, detail)
         modal_hits = []
         for f in c.get('fixes', []):
             fix_copy = {'fix title': f.get('title', ''), 'whatChanges': f.get('whatChanges', '')}
             for field, text in list(copy.items()) + list(fix_copy.items()) + [('firstStep', f.get('firstStep', ''))]:
-                for m in generic.finditer(text) if generic else ():
-                    add(key, 'generic-phrase', '%s: "%s"' % (field, m[0]), f.get('id'))
-            for field, text in list(copy.items()) + list(fix_copy.items()) + [('firstStep', f.get('firstStep', ''))]:
-                for hit in serial_comma.find(text):
-                    add(key, 'serial-comma', '%s: add the Oxford comma in "%s"' % (field, hit['list'][:80]), f.get('id'))
-                if '!' in text:
-                    add(key, 'exclamation', field + ': no exclamation marks', f.get('id'))
-                for m in boilerplate.finditer(text) if boilerplate else ():
-                    add(key, 'boilerplate-caveat', '%s: "%s" (status labels carry this)' % (field, m[0]), f.get('id'))
+                for rule, detail in phrase_rules(field, text, patterns):
+                    add(key, rule, detail, f.get('id'))
             for text in [f.get('title', ''), f.get('whatChanges', '')]:
                 modal_hits += [m[0] for m in modals.finditer(text)] if modals else []
             if len(SENTENCE.findall(f.get('whatChanges', '').strip())) > 3:
@@ -727,7 +884,7 @@ def report(root, audit_path=None):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', choices=('new-run', 'validate', 'lint', 'judge-input', 'consensus', 'select', 'finish-run',
+    parser.add_argument('command', choices=('new-run', 'status', 'start', 'validate', 'lint', 'judge-input', 'consensus', 'select', 'finish-run',
                                             'calibrate-build', 'calibrate-ingest', 'audit-build', 'report', 'stale'))
     parser.add_argument('targets', nargs='*')
     parser.add_argument('--root', type=Path, default=Path.cwd())
@@ -736,6 +893,7 @@ def main():
     parser.add_argument('--pages', type=int)
     parser.add_argument('--tokens', type=int)
     parser.add_argument('--audit', help='Audit ratings export for report')
+    parser.add_argument('--staged', action='store_true', help='new-run: start a staged run (schemaVersion 2)')
     args = parser.parse_args()
     root = args.root.resolve()
     if not (root / 'openspec/config.yaml').is_file():
@@ -756,12 +914,20 @@ def main():
         stamp = datetime.datetime.now().strftime('%Y%m%d-%H%M%S')
         folder = data_root(root) / 'runs' / pain / stamp
         folder.mkdir(parents=True, exist_ok=False)
-        write(folder / 'run.json', {'schemaVersion': 1, 'painId': pain, 'runId': stamp, 'startedAt': now(),
+        write(folder / 'run.json', {'schemaVersion': 2 if args.staged else 1, 'painId': pain, 'runId': stamp, 'startedAt': now(),
                                     'painName': inventory[pain]['name'], 'painLine': inventory[pain]['line'],
                                     'finishedAt': None, 'searches': None, 'pagesOpened': None, 'tokens': None, 'notes': ''})
         out = {'run': str(folder.relative_to(root)), 'pain': inventory[pain], 'notes': notes}
     elif args.command == 'stale':
         out = stale(root)
+    elif args.command == 'status':
+        if len(args.targets) != 1:
+            parser.error('status needs one run directory')
+        out = status(run_dir(args.targets[0]))
+    elif args.command == 'start':
+        if len(args.targets) != 2:
+            parser.error('start needs a run directory and a stage: ' + ', '.join(STAGES))
+        out = start(run_dir(args.targets[0]), args.targets[1])
     elif args.command in ('validate', 'lint', 'judge-input', 'consensus', 'select', 'finish-run'):
         if not args.targets:
             parser.error(args.command + ' needs a run directory')
