@@ -31,6 +31,8 @@ pnpm run typecheck
 pnpm run lint
 ```
 
+`pnpm install` also installs a git pre-commit hook ([Lefthook](https://lefthook.dev), configured in `lefthook.yml`). When a commit includes code, it formats the staged JavaScript and TypeScript files with Prettier and restages them, then runs the typecheck and the Vitest unit tests. Commits that only touch docs skip it. To skip it once, use `git commit --no-verify`.
+
 ## Components and Storybook
 
 UI components have stories next to them (`*.stories.tsx`). Browse them with `pnpm storybook`. To see what a branch changed in the components, run `pnpm storybook:review`, which compares every story, in light and dark, with `origin/master` and writes a report. See `docs/architecture/storybook.md`.
