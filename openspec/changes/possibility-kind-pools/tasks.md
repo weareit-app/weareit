@@ -18,7 +18,7 @@ Start only after the pain-catalog change (PR #27) and the full pain sweep are me
 ## 3. Plan, shared fixes and kind briefs
 
 - [x] 3.1 Write `briefs/planner.md` (one planner per pain, a ceiling per kind for each dream, zero allowed, with a reason) and add `plan.json` validation. Verify with a test: a plan with no reason for a ceiling of zero fails.
-- [ ] 3.2 Write `briefs/shared-fixes.md` (fixes that serve several dreams, with proposed links). Verify on a fixture that a shared fix is stored once with several proposed dream IDs.
+- [x] 3.2 Write `briefs/shared-fixes.md` (fixes that serve several dreams, with proposed links). Verify on a fixture that a shared fix is stored once with several proposed dream IDs.
 - [ ] 3.3 Write `briefs/kinds/_shared.md` and one brief for each kind in `briefs/kinds/`, from the research note: method fields, boundary tests, and a good and a bad example in It's voice. Fold `feature-pitch.md` into `kinds/feature.md`. Verify that every kind in the validator has a brief, with a test listing the files against the enum.
 - [x] 3.4 Make kind briefs run only for kinds with a ceiling above zero, and accept fewer fixes with a `shortfallReason`. Verify with tests: a pool under its ceiling with a reason passes, and a pool over its ceiling fails.
 

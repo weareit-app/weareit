@@ -66,7 +66,7 @@ A staged run mirrors the content graph (`packages/content/src/graph-schema.ts`):
 - `dreams` is complete when `dreams.json` exists;
 - `dream-review` is complete when every dream in `dreams.json` has a `review` with a `decision`. `dreams-ingest` writes it from the founder's export (see *Dream review files*);
 - `plan` is complete when `plan.json` exists;
-- `shared-fixes` isn't built yet (#95), so it is complete once `plan.json` exists;
+- `shared-fixes` is complete when `fixes.json` has a `shared` record with `draftedAt`, written by the shared pass even when it drafts no fix;
 - `kind-pools` is complete when `fixes.json` has a `pools` entry for every kind the plan gives a ceiling above zero. A kind with only zero ceilings doesn't run;
 - `screen` is complete when `screen.json` exists;
 - `assemble` is complete when `links.json` exists;
@@ -74,11 +74,12 @@ A staged run mirrors the content graph (`packages/content/src/graph-schema.ts`):
 
 `start <run> <stage>` refuses with a usage error (exit 2) while any earlier stage is incomplete, so no fix stage runs before the dream review is ingested. Otherwise it names the stage's brief:
 - for `plan`, `kinds` lists the kinds the planner sets ceilings for, which are the kinds that have a brief (`KIND_BRIEFS` in `cards.py`; only `task` so far);
-- for `kind-pools`, `brief` is the shared kind brief, and `kinds` maps each kind still to draft (a ceiling above zero and no pool yet) to its own brief.
+- for `shared-fixes`, `brief` is `briefs/shared-fixes.md`;
+- for `kind-pools`, `brief` is the shared kind brief, `kinds` maps each kind still to draft (a ceiling above zero and no pool yet) to its own brief, and `shared` lists the IDs of the shared pass's fixes, which kind briefs read so they don't repeat them.
 
 `start <run> judge` names `briefs/judge.md`. `fix-review` isn't built yet. Once `fixes.json` exists, `status` also reports the fix pool: `fixes: {total, screenedOut: [fix-id…], unlinked: [fix-id…] | null}`. `unlinked` is `null` until `links.json` exists.
 
-`validate` checks each file below when it is present, and that each file's stage came after the one before: a plan needs an ingested dream review, `fixes.json` needs `plan.json`, `screen.json` needs `fixes.json`, `links.json` needs `screen.json`, and `judgments.json` needs `links.json`. Each file has `schemaVersion: 2` and the `painId` of `run.json`. Only accepted dreams (`accept` or `edit`) can be planned, drafted for, or linked.
+`validate` checks each file below when it is present, and that each file's stage came after the one before: a plan needs an ingested dream review, `fixes.json` needs `plan.json`, kind pools need the `shared` record, `screen.json` needs `fixes.json`, `links.json` needs `screen.json`, and `judgments.json` needs `links.json`. Each file has `schemaVersion: 2` and the `painId` of `run.json`. Only accepted dreams (`accept` or `edit`) can be planned, drafted for, or linked.
 
 ### dreams.json (staged run)
 ```
@@ -119,18 +120,22 @@ The run's whole fix pool. Fixes that fail the screen or are left unlinked stay i
 { schemaVersion: 2, painId, runId,
   fixes: { <fix-id>: {
     title, whatChanges,                   # graph fix title and description
-    kind, status, origin: "kind:<kind>",  # origin "shared" arrives with the shared-fixes pass (#95)
-    draftedFor: <dream-id>,               # the dream whose ceiling the fix counts against
+    kind, status, origin: "shared" | "kind:<kind>",   # the pass that drafted it
+    draftedFor: <dream-id>,               # kind fixes: the dream whose ceiling the fix counts against
+    proposedLinks: [ { dreamId, how } ],  # shared fixes, in place of draftedFor: every dream the fix helps
     method: { … },                        # the kind's method fields; never copy, never shown to judges
     exemplarRef | null, speculative: bool, speculativeRationale?,
     firstStep, firstStepMinutes,
     provenance: { sourceId, locator, evidenceType, rights, reviewStatus },
     writerNotes? } },
-  pools: { <kind>: { draftedAt, shortfalls: { <dream-id>: <one-line reason> } } } }
+  pools: { <kind>: { draftedAt, shortfalls: { <dream-id>: <one-line reason> } } },
+  shared: { draftedAt, emptyReason? } }     # the shared-fixes pass ran; emptyReason when it drafted no fix
 ```
 Rules:
-- `kind` is a kind that has a brief, and `origin` is `kind:<kind>`. Every kind with fixes has a `pools` entry. A kind brief adds its entry even when it drafted every ceiling in full, because the entry records that the kind ran.
-- `draftedFor` is an accepted dream.
+- `kind` is a kind that has a brief, and `origin` is `shared` or `kind:<kind>`. Every kind with `kind:<kind>` fixes has a `pools` entry. A kind brief adds its entry even when it drafted every ceiling in full, because the entry records that the kind ran.
+- The shared pass writes the `shared` record before any kind pool, so `pools` needs it. With no `origin: shared` fix, `shared.emptyReason` says in one line why no fix serves several dreams.
+- A shared fix has no `draftedFor` and counts against no ceiling. Its `proposedLinks` name two or more different accepted dreams, each with a one-sentence `how`. They are proposals: `links.json` holds the final links, and the assembler may leave some out.
+- A kind fix's `draftedFor` is an accepted dream.
 - For each kind with a pool and each accepted dream, the number of fixes with that `kind` and `draftedFor` is at most the plan's `max`. If it is lower, `shortfalls` gives a one-line reason for that dream.
 - Status rules: `status` is a known status, and kind `feature` goes with status `proposed_it_feature`, and only with it.
 - Sourcing rules: either `exemplarRef` resolves to an exemplar in the run, or `speculative: true` with a rationale. `firstStepMinutes` is 1–20.

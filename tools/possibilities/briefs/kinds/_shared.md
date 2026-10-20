@@ -13,7 +13,7 @@ You draft fixes of one kind for one pain's accepted dreams, in a staged run. Thi
 - The accepted dreams in `dreams.json`: those whose `review.decision` is `accept` or `edit`, with the founder's wording.
 - The run's examples, in `exemplars.json`.
 - Your kind's ceilings in `plan.json`: `ceilings.<dream-id>.<your kind>`.
-- Fixes already in `fixes.json`, from other kinds or the shared pass. Don't repeat them, in your kind or any other.
+- Fixes already in `fixes.json`, from other kinds or the shared pass. Don't repeat them, in your kind or any other. `start <run> kind-pools` lists the shared pass's fixes under `shared`: each has `origin: shared` and `proposedLinks` to the dreams it already serves.
 
 ## Fields first, then copy
 

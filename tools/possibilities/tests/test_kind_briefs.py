@@ -3,7 +3,7 @@ import json
 import unittest
 
 from test_cards import cards
-from test_fix_stages import FixStages, cli, plan_doc, task_fix
+from test_fix_stages import FixStages, cli, fixes_doc, plan_doc, shared_pass_only, task_fix
 
 ROOT = cards.Path(cards.__file__).resolve().parents[2]
 RESERVED = {'path'}  # a kind the copy guide reserves for later; it has no brief
@@ -32,7 +32,7 @@ def kind_fix(kind, method):
 
 def one_fix_doc(kind, method):
     return {'schemaVersion': 2, 'painId': 'burnout', 'fixes': {'burnout-d00-k1': kind_fix(kind, method)},
-            'pools': {kind: {'shortfalls': {}}}}
+            'pools': {kind: {'shortfalls': {}}}, 'shared': fixes_doc()['shared']}
 
 
 def one_fix_plan(kind):
@@ -82,6 +82,7 @@ class KindPools(FixStages):
         for row in list(plan['ceilings'].values())[1:]:
             row['habit']['max'] = 0  # Habit fits one dream only; Learn fits all five
         self.write('plan.json', plan)
+        self.write('fixes.json', fixes_doc(), shared_pass_only)
         ready = cli(self.tmp, 'start', str(self.run_dir), 'kind-pools')
         self.assertEqual(ready.returncode, 0, ready.stderr)
         self.assertEqual(json.loads(ready.stdout)['kinds'], {'habit': 'tools/possibilities/briefs/kinds/habit.md',
