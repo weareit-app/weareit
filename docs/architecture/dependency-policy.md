@@ -24,7 +24,7 @@ The Expo CLI's dependency resolver owns SDK-specific package versions. Re-run `e
 
 ## Storybook
 
-Storybook 10.6.1 (`storybook` and `@storybook/react-native-web-vite`, pinned exactly; chosen 2026-10-20 as the newest release at least two weeks old) with Vite 7.3.6, dev dependencies of `@it/app` only. Telemetry is off in `apps/app/.storybook/main.ts`. Keep `storybook` and its framework package on the same version. After an upgrade, or a NativeWind, react-native-css, Tailwind or Expo update, run `pnpm storybook:review --no-base` and look at the report: styling, fonts and dark mode must still match the app. See `docs/architecture/storybook.md`.
+Storybook 10.6.1 (`storybook` and `@storybook/react-native-web-vite`, pinned exactly) with Vite 7.3.6: each the newest release at least two weeks old on 2026-10-20, from the npm registry's release dates (`npm view <package> time`, checked 2026-10-20). Storybook 10.6.1 came out 2026-09-29 (10.6.2, 2026-10-12, was too new); Vite 7.3.6 came out 2026-06-25 (7.3.7, 2026-10-06, was too new). Vite 7 is within the framework's supported Vite range (`^5 || ^6 || ^7 || ^8`, its peer dependencies, checked the same day). Both are dev dependencies of `@it/app` only. Telemetry is off in `apps/app/.storybook/main.ts`. Keep `storybook` and its framework package on the same version. After an upgrade, or a NativeWind, react-native-css, Tailwind or Expo update, run `pnpm storybook:review --no-base` and look at the report: styling, fonts and dark mode must still match the app. See `docs/architecture/storybook.md`.
 
 ## Continuous integration
 

@@ -4,6 +4,14 @@ Storybook shows the app's components one at a time, on web, in light and dark. S
 
 ## Running it
 
+The review screenshots with Playwright's Chromium. On a new machine, install it once (the same step `pnpm test` needs):
+
+```sh
+pnpm exec playwright install chromium
+```
+
+Then:
+
 ```sh
 pnpm storybook                  # browse stories at http://localhost:6006
 pnpm storybook:review           # what this branch changed, compared with origin/master
@@ -26,9 +34,9 @@ If the compared ref has no Storybook yet, every story is listed as new.
 
 ## How it renders the app's styling
 
-Storybook builds with Vite (`@storybook/react-native-web-vite`), while the app builds with Metro. On web NativeWind 5 needs two things, and both run under Vite:
+Storybook builds with Vite (`@storybook/react-native-web-vite` 10.6.1 depends on `@storybook/builder-vite`; checked 2026-10-20 with `npm view`), while the app builds with Metro. react-native-css, which NativeWind 5 runs on, officially supports only Metro (its README, version 3.1.0-rc.0, read 2026-10-20), so this setup relies on two pieces that work under Vite:
 
-- **NativeWind's Babel preset** (`nativewind/babel`) rewrites `react-native` imports to wrappers that pass `className` through to react-native-web as real CSS classes.
+- **NativeWind's Babel preset** (`nativewind/babel`, which re-exports `react-native-css/babel`) rewrites `react-native` imports to wrappers that, on web, pass `className` through to react-native-web as real CSS classes (react-native-css 3.1.0-rc.0 `src/babel/import-plugin.ts` and `src/web/api.tsx`, read 2026-10-20).
 - **Tailwind**: `global.css` is compiled by `@tailwindcss/postcss` through the app's `postcss.config.mjs`, so the tokens and dark-mode values are the app's own.
 
 Fonts are loaded with `@font-face` in `apps/app/.storybook/storybook.css`, under the family names the `font-*` tokens use; the app loads the same files with expo-font. If you add a face to `src/theme/fonts.ts`, add it there too.

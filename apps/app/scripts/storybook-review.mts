@@ -14,6 +14,7 @@ import {
   mkdirSync,
   readFileSync,
   rmSync,
+  statSync,
   writeFileSync,
 } from "node:fs";
 import { createServer, type Server } from "node:http";
@@ -77,7 +78,12 @@ async function serve(dir: string): Promise<{ server: Server; url: string }> {
       new URL(req.url ?? "/", "http://x").pathname,
     );
     const file = join(dir, path.endsWith("/") ? `${path}index.html` : path);
-    if (!file.startsWith(dir) || !existsSync(file)) {
+    // Files only: a folder asked for without its trailing slash is a 404.
+    if (
+      !file.startsWith(dir) ||
+      !existsSync(file) ||
+      !statSync(file).isFile()
+    ) {
       res.writeHead(404).end();
       return;
     }
@@ -130,7 +136,10 @@ async function shoot(
         `${url}/iframe.html?id=${story.id}&viewMode=story&globals=theme:${theme}`,
       );
       // Settled (rendered and played), failed, or showing Storybook's error
-      // screen.
+      // screen. The preview object and its phase names are Storybook
+      // internals: `__STORYBOOK_PREVIEW__` and `RenderPhase` in storybook
+      // 10.6.1's dist/preview/runtime.js (read 2026-10-20). Recheck them when
+      // upgrading Storybook.
       const phase = await page
         .waitForFunction(
           () => {
@@ -246,8 +255,13 @@ function baseBuild(): { sha: string; staticDir: string } | null {
       return null;
     }
     console.log(`Installing dependencies for ${baseRef} (${sha.slice(0, 7)})…`);
+    // CI=1 stops Lefthook's postinstall from running `lefthook install`, which
+    // would rewrite the git hooks this checkout shares with the temporary one
+    // (lefthook 2.1.17 postinstall.js, read 2026-10-20).
+    const { LEFTHOOK: _lefthook, ...env } = process.env;
     execFileSync("pnpm", ["install", "--frozen-lockfile", "--prefer-offline"], {
       cwd: checkout,
+      env: { ...env, CI: "1" },
       stdio: ["ignore", "ignore", "inherit"],
     });
     buildStorybook(baseApp, staticDir, baseRef);

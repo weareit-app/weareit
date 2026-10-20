@@ -17,7 +17,8 @@ const config: StorybookConfig = {
       ],
       pluginReactOptions: {
         // NativeWind's Babel preset rewrites react-native imports to
-        // className-aware wrappers, as Metro does for the app.
+        // className-aware wrappers, as Metro does for the app (react-native-css
+        // 3.1.0-rc.0 src/babel/import-plugin.ts, read 2026-10-20).
         babel: { presets: ["nativewind/babel"] },
       },
     },

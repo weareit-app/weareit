@@ -132,7 +132,7 @@ Decided 2026-10-19 by the founder (ticket "Pick hosting, email provider and depl
 
 ## Component review
 
-- Storybook (`@storybook/react-native-web-vite`, web only) shows components one at a time for pull-request review, and `pnpm storybook:review` screenshots every story for a branch and its merge base and reports what changed (founder, 2026-10-20). Chosen because Storybook is the tool most teams use. Storybook builds with Vite, not Metro; NativeWind 5's Babel preset and Tailwind's PostCSS plugin both run there, and the stories render the app's tokens, fonts and dark mode. If a NativeWind or Expo update breaks that, fix the Storybook config, or move the stories to an in-app gallery route; don't change the app to suit Storybook. Details: `docs/architecture/storybook.md`.
+- Storybook (`@storybook/react-native-web-vite`, web only) shows components one at a time for pull-request review, and `pnpm storybook:review` screenshots every story for a branch and its merge base and reports what changed (founder, 2026-10-20). The founder chose Storybook over an in-app gallery route, on condition that it render the app faithfully. Storybook builds with Vite, not Metro; NativeWind 5's Babel preset and Tailwind's PostCSS plugin both run there, and the stories render the app's tokens, fonts and dark mode. If a NativeWind or Expo update breaks that, fix the Storybook config, or move the stories to an in-app gallery route; don't change the app to suit Storybook. Details: `docs/architecture/storybook.md`.
 - Review is local for now: screenshots and a report on the reviewer's machine. Publishing Storybook on pull-request previews waits on the Render preview deploys above (weareit-app/weareit#72).
 
 ## Open implementation decisions
