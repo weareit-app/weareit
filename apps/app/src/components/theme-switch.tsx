@@ -1,6 +1,5 @@
 import { Moon, Sun } from "lucide-react-native";
 import { Switch, View } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useIsDark, useThemeStore } from "../state/theme-store";
 import { useTokenColor } from "../theme/use-token-color";
 
@@ -26,21 +25,6 @@ export function ThemeSwitch() {
         {...{ activeThumbColor: "#FFFFFF" }}
       />
       <Moon aria-hidden size={18} strokeWidth={2.2} color={dark ? on : off} />
-    </View>
-  );
-}
-
-// The switch pinned to the window's top-right corner, over every screen.
-export function ThemeSwitchCorner() {
-  const insets = useSafeAreaInsets();
-  return (
-    <View
-      pointerEvents="box-none"
-      className="absolute right-0 top-0 rounded-bl-2xl bg-paper px-4 py-3"
-      // Below the status bar, which has its own frosted backdrop.
-      style={{ top: insets.top, paddingRight: insets.right + 16 }}
-    >
-      <ThemeSwitch />
     </View>
   );
 }
