@@ -21,18 +21,19 @@ NativeWind 5.0.0-rc.0 and react-native-css 3.1.0-rc.0 are an intentional prerele
 
 The Expo CLI's dependency resolver owns SDK-specific package versions. Re-run `expo install --check` after dependency changes. `pnpm outdated` is useful for finding candidates, but its `Latest` column is not an Expo compatibility guarantee. pnpm added exact-version entries to `minimumReleaseAgeExclude` for Expo packages selected by the CLI because those releases were newer than pnpm's release-age window at install time.
 
-
 ## Continuous integration
 
 `.github/workflows/ci.yml` runs lint, typecheck, Vitest, the Expo Jest suite and the Playwright web tests on every pull request and on pushes to `master`.
 
 Cost (checked 2026-10-20 against GitHub's Actions billing docs): GitHub Actions is free for public repositories on standard GitHub-hosted runners, so this workflow costs nothing while `weareit-app/weareit` stays public. Larger runners are billed even on public repositories. If the repository becomes private, the organization's free plan includes 2,000 minutes and 500 MB of artifact storage a month. To keep CI free:
 
-- Use `ubuntu-latest` only. Do not add larger runners, and check the billing docs before adding a macOS job (for example an iOS build).
+- Use `ubuntu-latest` only. Do not add larger runners. The billing docs do not say whether standard macOS runners are free for public repositories, so check them before adding a macOS job (for example an iOS build). On a private repository a macOS minute uses 10 included minutes.
 - Keep `timeout-minutes` on every job and keep artifacts short-lived (failure traces are kept 7 days).
 - Keep the organization's Actions budget at $0, so usage that would be billed is blocked rather than charged.
 
-Actions are pinned to a full commit SHA, with the release tag in a comment. Pick releases at least two weeks old: `actions/checkout` v7.0.1, `actions/setup-node` v7.0.0, `pnpm/action-setup` v6.1.0, `actions/upload-artifact` v7.0.1 (2026-10-20). Node is pinned to the version in `mise.toml`; update both together.
+Actions are pinned to a full commit SHA, with the release tag in a comment. Pick releases at least two weeks old: `actions/checkout` v7.0.1, `actions/setup-node` v7.0.0, `pnpm/action-setup` v6.1.0, `actions/upload-artifact` v7.0.1 (2026-10-20). The shared install steps live in `.github/actions/setup/action.yml`, so each pin and the Node version appear once. Node is pinned to the version in `mise.toml`; update both together.
+
+`pnpm/action-setup` is the only action not published by GitHub. Its source was reviewed at commit `ea17c68df8912ef543352723c149a84f56e3d413` (2026-10-20): `action.yml` and `src/`. It runs `npm ci` against a committed lockfile that pins pnpm 11.25.0 by integrity hash, then self-updates to the `packageManager` version only when that differs. The only network hosts in its bundled `dist/index.js` are the npm registry and GitHub's own services (Actions cache and Azure storage). The 1.4 MB bundle was not read line by line. Review `src/` again before moving the pin.
 
 ## Spec and agent tooling
 
