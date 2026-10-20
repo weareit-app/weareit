@@ -1,0 +1,13 @@
+// Root files and the repo tools without a package of their own. Workspace packages
+// have their own tsconfig. Checked by `pnpm run typecheck:root`.
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowJs": true,
+    "types": ["node"]
+  },
+  "include": ["*.mts", "tools/action-pins/**/*", "tools/typecheck-coverage/**/*"]
+}

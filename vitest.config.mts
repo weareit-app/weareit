@@ -12,6 +12,7 @@ export default defineConfig({
       "packages/watercolor/tests/**/*.test.ts",
       "tools/watercolor-sim/tests/**/*.test.ts",
       "tools/action-pins/tests/**/*.test.ts",
+      "tools/typecheck-coverage/tests/**/*.test.ts",
     ],
     environment: "node",
   },
