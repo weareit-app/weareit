@@ -2,7 +2,7 @@
 
 Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py render`; edit the JSON through the pipeline, not this page. Rules and commands: [tools/pains/README.md](../../../tools/pains/README.md).
 
-161 pains: 120 shown, 13 candidate, 144 accepted, 4 rejected.
+189 pains: 120 shown, 13 candidate, 172 accepted, 4 rejected.
 
 ## Personal
 
@@ -82,36 +82,58 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 
 | ID | Name | Line | Status | Shown | Runs |
 | --- | --- | --- | --- | --- | --- |
-| `bad-job` | Mistreatment | I'm treated badly at work. | accepted | yes |  |
-| `burnout` | Burnout | I've got nothing left. | accepted | yes | 1 |
+| `bad-job` | Mistreated at work | My boss or coworkers treat me badly, and I dread going in. | accepted | yes |  |
+| `burnout` | Burnout | Work has worn me down so much that I dread every morning. | accepted | yes | 1 |
 | `job-could-go` | Layoffs | I could lose my job any day. | accepted | yes |  |
-| `meaningless-work` | Meaning | I don't think my work matters. | accepted | yes | 1 |
+| `meaningless-work` | Pointless work | I spend my days on work that doesn't help anyone. | accepted | yes | 1 |
 | `underpaid` | Underpaid | I'm paid less than my work is worth. | accepted | yes |  |
 | `unemployment` | Unemployment | I can't find work. | accepted | yes |  |
-| `wrong-career` | Career | I'm in the wrong line of work. | accepted | yes |  |
+| `wrong-career` | Wrong career | I'm in the wrong line of work, and I don't know how to switch. | accepted | yes |  |
+| `bad-boss` | Bad boss | My boss makes my job miserable. | accepted | no |  |
+| `dead-end-job` | Dead end | I can't move up at work, however hard I try. | accepted | no |  |
+| `gig-work` | Gig work | I work through apps with no benefits and no steady pay. | accepted | no |  |
+| `long-commute` | Commute | I lose hours every day getting to and from work. | accepted | no |  |
+| `long-hours` | Long hours | I work so many hours that there's barely any of my life left. | accepted | no |  |
+| `no-paid-leave` | Paid leave | I lose pay whenever I'm sick or need to care for someone. | accepted | no |  |
+| `no-say-at-work` | No say at work | I have no say in how things are done at work. | accepted | no |  |
+| `overqualified` | Overqualified | My job doesn't use what I know or what I trained for. | accepted | no |  |
+| `small-business` | My business | I'm struggling to keep my small business going. | accepted | no |  |
+| `two-jobs` | More than one job | I work more than one job just to get by. | accepted | no |  |
+| `unpredictable-schedule` | Schedule | My work hours change so often that I can't plan my life. | accepted | no |  |
+| `unsafe-work` | Unsafe work | I could get badly hurt doing my job. | accepted | no |  |
+| `wage-theft` | Wage theft | My boss doesn't pay me everything I've earned. | accepted | no |  |
 
 ### Home (6 shown)
 
 | ID | Name | Line | Status | Shown | Runs |
 | --- | --- | --- | --- | --- | --- |
-| `cold-home` | Heating | I can't afford to heat my home. | accepted | yes |  |
-| `getting-around` | Transport | I struggle to get where I need to go. | accepted | yes |  |
-| `home-is-hard` | Housing | I live somewhere cramped, broken or noisy. | accepted | yes |  |
+| `cold-home` | Cold home | I can't afford to keep my home warm. | accepted | yes |  |
+| `getting-around` | Can't get around | I can't easily get to where I need to go. | accepted | yes |  |
+| `home-is-hard` | Bad housing | The place I live is in bad shape, and I can't fix it or move. | accepted | yes |  |
 | `homeless` | Homeless | I don't have a reliable place to stay. | accepted · sensitive | yes |  |
 | `might-lose-my-home` | Eviction | I might lose my home. | accepted · sensitive | yes |  |
-| `unsafe-near-me` | Safety | I don't feel safe where I live. | accepted · sensitive | yes |  |
-| `offline` | Internet | I can't get decent internet. | candidate | no |  |
+| `unsafe-near-me` | Unsafe area | I don't feel safe in my neighborhood. | accepted · sensitive | yes |  |
+| `accessible-home` | Accessible home | I have trouble getting into or around my own home. | accepted | no |  |
+| `damp-and-mold` | Damp and mold | My home is damp, and the mold keeps coming back. | accepted | no |  |
+| `landlord-wont-fix` | Repairs | My landlord won't fix what's broken. | accepted | no |  |
+| `living-with-parents` | Living with parents | I want a place of my own, but I still live with my parents. | accepted | no |  |
+| `offline` | Bad internet | I can't get internet that's fast enough and that I can afford. | candidate | no |  |
+| `pests` | Pests | I've got mice, rats or roaches in my home. | accepted | no |  |
+| `tap-water` | Tap water | I don't trust the water that comes out of my tap. | accepted | no |  |
+| `turned-down-for-housing` | Rental applications | I keep getting turned down for places to rent. | accepted | no |  |
 
 ### Time (6 shown)
 
 | ID | Name | Line | Status | Shown | Runs |
 | --- | --- | --- | --- | --- | --- |
-| `chores` | Chores | I spend my days cooking and cleaning. | accepted | yes | 1 |
+| `chores` | Too many chores | I spend my days cooking and cleaning. | accepted | yes | 1 |
 | `doomscrolling` | Doomscrolling | I lose my nights to my phone. | accepted | yes | 1 |
 | `legal-mess` | Legal trouble | I'm stuck in a legal problem I can't afford. | accepted | yes |  |
-| `life-admin` | Paperwork | I lose my week to forms, bills and phone queues. | accepted | yes |  |
+| `life-admin` | Too much paperwork | Forms, bills and calls on hold eat up my week. | accepted | yes |  |
 | `no-free-time` | Busy | I have no time that's mine. | accepted | yes |  |
-| `no-fun` | Fun | I can't remember the last time I played. | accepted | yes |  |
+| `no-fun` | No fun | I can't remember the last time I did something just for fun. | accepted | yes |  |
+| `benefits-runaround` | Benefits | I have to fight to get or keep the benefits I qualify for. | accepted | no |  |
+| `no-time-off` | Time off | I never get a real break from work. | accepted | no |  |
 
 ### People (13 shown)
 
@@ -119,19 +141,25 @@ Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py r
 | --- | --- | --- | --- | --- | --- |
 | `belonging` | Belonging | I don't feel like I belong anywhere. | accepted | yes |  |
 | `caregiving` | Caregiving | I'm looking after someone and it takes everything. | accepted | yes |  |
-| `drifted-apart` | Friends | I've lost touch with people who matter. | accepted | yes |  |
+| `drifted-apart` | Old friends | I've drifted apart from friends who used to matter a lot to me. | accepted | yes |  |
 | `home-tension` | Family | I'm caught in fighting at home. | accepted | yes |  |
 | `intimacy` | Intimacy | I'm missing closeness with someone. | accepted | yes |  |
-| `loneliness` | Loneliness | I feel alone. | accepted | yes | 1 |
-| `no-one-to-lean-on` | Support | I have no one to call when I need help. | accepted | yes |  |
+| `loneliness` | Loneliness | Most days I don't talk to anyone who really knows me. | accepted | yes | 1 |
+| `no-one-to-lean-on` | No support | I have no one to call when I need help. | accepted | yes |  |
 | `nobody-into-my-thing` | Interests | I can't find people who love what I love. | accepted | yes |  |
-| `nobody-to-do-things-with` | Invitations | I'd go out if someone asked. | accepted | yes |  |
+| `nobody-to-do-things-with` | Plans | I'd go out more if I had someone to go with. | accepted | yes |  |
 | `parenting-is-hard` | Parenting | I'm worn out raising my kids. | accepted | yes |  |
 | `relationship-strain` | Relationship | I'm struggling with my partner. | accepted | yes |  |
 | `unsafe-at-home` | Safety at home | I don't feel safe with someone in my life. | accepted · sensitive | yes |  |
 | `want-a-partner` | Dating | I want a partner and it isn't happening. | accepted | yes |  |
-| `lost-faith-community` | Belonging | I've lost the community I belonged to. | candidate | no |  |
-| `new-here` | Moving | I just moved and know nobody. | candidate | no |  |
+| `breakup` | Breakup | I'm going through a breakup or divorce. | accepted | no |  |
+| `close-friends` | Close friends | I don't have a close friend I can really talk to. | accepted | no |  |
+| `estranged-family` | Estrangement | I'm cut off from someone in my family. | accepted | no |  |
+| `harassed-online` | Online harassment | I get harassed or threatened online. | accepted | no |  |
+| `lost-faith-community` | Lost community | I've lost the community I used to be part of. | candidate | no |  |
+| `new-here` | New in town | I just moved here and don't know anyone yet. | candidate | no |  |
+| `single-parent` | Single parent | I'm raising my kids on my own. | accepted | no |  |
+| `trying-for-a-baby` | Trying for a baby | I've been trying to have a baby and it isn't happening. | accepted | no |  |
 
 ### Purpose (6 shown)
 

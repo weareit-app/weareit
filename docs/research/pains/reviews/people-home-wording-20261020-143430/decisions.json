@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "setId": "people-home-wording-20261020-143430",
+  "decisions": {
+    "p007": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T17:31:33.603Z"
+    },
+    "p008": {
+      "decision": "own",
+      "note": "",
+      "decidedAt": "2026-10-20T17:32:15.678Z",
+      "own": {
+        "name": "No support",
+        "line": "I have no one to call when I need help."
+      }
+    },
+    "p009": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T17:32:38.808Z"
+    },
+    "p010": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T17:33:32.727Z"
+    },
+    "p011": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T17:33:41.936Z"
+    },
+    "p012": {
+      "decision": "alternative",
+      "note": "",
+      "decidedAt": "2026-10-20T17:34:07.248Z",
+      "choice": 0
+    },
+    "p020": {
+      "decision": "alternative",
+      "note": "",
+      "decidedAt": "2026-10-20T17:34:32.899Z",
+      "choice": 0
+    },
+    "p021": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T17:35:24.018Z"
+    },
+    "p022": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T17:35:30.398Z"
+    },
+    "p023": {
+      "decision": "own",
+      "note": "",
+      "decidedAt": "2026-10-20T17:36:10.851Z",
+      "own": {
+        "name": "Can't get around",
+        "line": "I can't easily get to where I need to go."
+      }
+    },
+    "p024": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T17:36:37.485Z"
+    },
+    "p001": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:06:04.224Z"
+    },
+    "p002": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T17:38:55.833Z"
+    },
+    "p003": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T17:38:58.183Z"
+    },
+    "p004": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T17:39:02.776Z"
+    },
+    "p005": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T17:39:04.704Z"
+    },
+    "p006": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T17:39:09.948Z"
+    },
+    "p013": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:06:38.597Z"
+    },
+    "p014": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:06:42.068Z"
+    },
+    "p015": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:06:44.310Z"
+    },
+    "p016": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:30:53.627Z"
+    },
+    "p017": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:31:00.140Z"
+    },
+    "p018": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:38:29.467Z"
+    },
+    "p019": {
+      "decision": "accept",
+      "note": "",
+      "decidedAt": "2026-10-20T18:38:35.544Z"
+    }
+  }
+}

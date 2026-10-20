@@ -2954,8 +2954,8 @@
     },
     "bad-job": {
       "id": "bad-job",
-      "name": "Mistreatment",
-      "line": "I'm treated badly at work.",
+      "name": "Mistreated at work",
+      "line": "My boss or coworkers treat me badly, and I dread going in.",
       "page": "personal",
       "group": "work",
       "secondaryGroups": [],
@@ -2991,7 +2991,9 @@
       },
       "aliases": [
         "Bad job",
-        "My job treats me badly."
+        "My job treats me badly.",
+        "Mistreatment",
+        "I'm treated badly at work."
       ],
       "relations": [
         {
@@ -3036,6 +3038,21 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:39+00:00",
+          "prompt": "lint id-mismatch (note) (docs/research/pains/refine/work/20261019-224622, review work-time-wording-20261020-143430 p015)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Mistreatment",
+            "line": "I'm treated badly at work."
+          },
+          "to": {
+            "name": "Mistreated at work",
+            "line": "My boss or coworkers treat me badly, and I dread going in."
+          }
         }
       ]
     },
@@ -3135,8 +3152,8 @@
     },
     "meaningless-work": {
       "id": "meaningless-work",
-      "name": "Meaning",
-      "line": "I don't think my work matters.",
+      "name": "Pointless work",
+      "line": "I spend my days on work that doesn't help anyone.",
       "page": "personal",
       "group": "work",
       "secondaryGroups": [],
@@ -3171,7 +3188,9 @@
       },
       "aliases": [
         "Meaningless work",
-        "My work doesn't matter."
+        "My work doesn't matter.",
+        "Meaning",
+        "I don't think my work matters."
       ],
       "relations": [
         {
@@ -3206,13 +3225,28 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:39+00:00",
+          "prompt": "refine (docs/research/pains/refine/work/20261019-224622, review work-time-wording-20261020-143430 p016)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Meaning",
+            "line": "I don't think my work matters."
+          },
+          "to": {
+            "name": "Pointless work",
+            "line": "I spend my days on work that doesn't help anyone."
+          }
         }
       ]
     },
     "wrong-career": {
       "id": "wrong-career",
-      "name": "Career",
-      "line": "I'm in the wrong line of work.",
+      "name": "Wrong career",
+      "line": "I'm in the wrong line of work, and I don't know how to switch.",
       "page": "personal",
       "group": "work",
       "secondaryGroups": [],
@@ -3246,7 +3280,9 @@
         }
       },
       "aliases": [
-        "Wrong career"
+        "Wrong career",
+        "Career",
+        "I'm in the wrong line of work."
       ],
       "relations": [
         {
@@ -3291,13 +3327,28 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:39+00:00",
+          "prompt": "refine (docs/research/pains/refine/work/20261019-224622, review work-time-wording-20261020-143430 p017)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Career",
+            "line": "I'm in the wrong line of work."
+          },
+          "to": {
+            "name": "Wrong career",
+            "line": "I'm in the wrong line of work, and I don't know how to switch."
+          }
         }
       ]
     },
     "burnout": {
       "id": "burnout",
       "name": "Burnout",
-      "line": "I've got nothing left.",
+      "line": "Work has worn me down so much that I dread every morning.",
       "page": "personal",
       "group": "work",
       "secondaryGroups": [],
@@ -3333,7 +3384,9 @@
           "label": "occupational burnout"
         }
       },
-      "aliases": [],
+      "aliases": [
+        "I've got nothing left."
+      ],
       "relations": [
         {
           "kind": "overlaps",
@@ -3374,6 +3427,21 @@
           "note": "",
           "kind": "keep",
           "detail": "Burnout sits under Work because rest and changes at work help it, while feeling low most days reaches beyond work. Feeling down is low mood across life; Burnout is being worn out, usually by work."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:39+00:00",
+          "prompt": "lint vague-line (fail) (docs/research/pains/refine/work/20261019-224622, review work-time-wording-20261020-143430 p014)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Burnout",
+            "line": "I've got nothing left."
+          },
+          "to": {
+            "name": "Burnout",
+            "line": "Work has worn me down so much that I dread every morning."
+          }
         }
       ]
     },
@@ -3457,8 +3525,8 @@
     },
     "home-is-hard": {
       "id": "home-is-hard",
-      "name": "Housing",
-      "line": "I live somewhere cramped, broken or noisy.",
+      "name": "Bad housing",
+      "line": "The place I live is in bad shape, and I can't fix it or move.",
       "page": "personal",
       "group": "home",
       "secondaryGroups": [],
@@ -3496,7 +3564,9 @@
       },
       "aliases": [
         "Home is hard",
-        "My place is cramped, broken or noisy."
+        "My place is cramped, broken or noisy.",
+        "Housing",
+        "I live somewhere cramped, broken or noisy."
       ],
       "relations": [
         {
@@ -3544,13 +3614,28 @@
           "note": "",
           "kind": "keep",
           "detail": "Paying too much and living somewhere in bad shape are different complaints, and many people have only one of them. Rent is what housing costs; housing on the personal page is the state of the place, cramped, broken or noisy."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:38+00:00",
+          "prompt": "lint id-mismatch (note) (docs/research/pains/refine/home/20261019-224622, review people-home-wording-20261020-143430 p020)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Housing",
+            "line": "I live somewhere cramped, broken or noisy."
+          },
+          "to": {
+            "name": "Bad housing",
+            "line": "The place I live is in bad shape, and I can't fix it or move."
+          }
         }
       ]
     },
     "cold-home": {
       "id": "cold-home",
-      "name": "Heating",
-      "line": "I can't afford to heat my home.",
+      "name": "Cold home",
+      "line": "I can't afford to keep my home warm.",
       "page": "personal",
       "group": "home",
       "secondaryGroups": [],
@@ -3586,7 +3671,9 @@
         }
       },
       "aliases": [
-        "Cold or hot home"
+        "Cold or hot home",
+        "Heating",
+        "I can't afford to heat my home."
       ],
       "relations": [
         {
@@ -3631,13 +3718,28 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:38+00:00",
+          "prompt": "refine (docs/research/pains/refine/home/20261019-224622, review people-home-wording-20261020-143430 p021)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Heating",
+            "line": "I can't afford to heat my home."
+          },
+          "to": {
+            "name": "Cold home",
+            "line": "I can't afford to keep my home warm."
+          }
         }
       ]
     },
     "offline": {
       "id": "offline",
-      "name": "Internet",
-      "line": "I can't get decent internet.",
+      "name": "Bad internet",
+      "line": "I can't get internet that's fast enough and that I can afford.",
       "page": "personal",
       "group": "home",
       "secondaryGroups": [],
@@ -3673,7 +3775,9 @@
       },
       "aliases": [
         "Offline",
-        "My internet is too slow or too expensive."
+        "My internet is too slow or too expensive.",
+        "Internet",
+        "I can't get decent internet."
       ],
       "relations": [
         {
@@ -3708,6 +3812,21 @@
           "kind": "founder-choice",
           "to": "later",
           "note": "batch 5, 2026-10-16"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:38+00:00",
+          "prompt": "lint id-mismatch (note) (docs/research/pains/refine/home/20261019-224622, review people-home-wording-20261020-143430 p024)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Internet",
+            "line": "I can't get decent internet."
+          },
+          "to": {
+            "name": "Bad internet",
+            "line": "I can't get internet that's fast enough and that I can afford."
+          }
         }
       ]
     },
@@ -3829,8 +3948,8 @@
     },
     "unsafe-near-me": {
       "id": "unsafe-near-me",
-      "name": "Safety",
-      "line": "I don't feel safe where I live.",
+      "name": "Unsafe area",
+      "line": "I don't feel safe in my neighborhood.",
       "page": "personal",
       "group": "home",
       "secondaryGroups": [],
@@ -3864,7 +3983,9 @@
         }
       },
       "aliases": [
-        "Not safe here"
+        "Not safe here",
+        "Safety",
+        "I don't feel safe where I live."
       ],
       "relations": [
         {
@@ -3911,13 +4032,28 @@
           "kind": "tag-sensitive",
           "prompt": "agent seed list",
           "note": "founder to review"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:38+00:00",
+          "prompt": "lint id-mismatch (note) (docs/research/pains/refine/home/20261019-224622, review people-home-wording-20261020-143430 p022)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Safety",
+            "line": "I don't feel safe where I live."
+          },
+          "to": {
+            "name": "Unsafe area",
+            "line": "I don't feel safe in my neighborhood."
+          }
         }
       ]
     },
     "getting-around": {
       "id": "getting-around",
-      "name": "Transport",
-      "line": "I struggle to get where I need to go.",
+      "name": "Can't get around",
+      "line": "I can't easily get to where I need to go.",
       "page": "personal",
       "group": "home",
       "secondaryGroups": [],
@@ -3954,7 +4090,9 @@
       },
       "aliases": [
         "Getting around",
-        "Getting places is a struggle."
+        "Getting places is a struggle.",
+        "Transport",
+        "I struggle to get where I need to go."
       ],
       "relations": [
         {
@@ -3995,6 +4133,21 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:38+00:00",
+          "prompt": "lint id-mismatch (note) (docs/research/pains/refine/home/20261019-224622, review people-home-wording-20261020-143430 p023)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Transport",
+            "line": "I struggle to get where I need to go."
+          },
+          "to": {
+            "name": "Can't get around",
+            "line": "I can't easily get to where I need to go."
+          }
         }
       ]
     },
@@ -4084,7 +4237,7 @@
     },
     "chores": {
       "id": "chores",
-      "name": "Chores",
+      "name": "Too many chores",
       "line": "I spend my days cooking and cleaning.",
       "page": "personal",
       "group": "time",
@@ -4119,7 +4272,8 @@
       },
       "aliases": [
         "Chores never end",
-        "Cooking and cleaning eat my day."
+        "Cooking and cleaning eat my day.",
+        "Chores"
       ],
       "relations": [
         {
@@ -4160,13 +4314,28 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:39+00:00",
+          "prompt": "refine (docs/research/pains/refine/time/20261019-224622, review work-time-wording-20261020-143430 p021)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Chores",
+            "line": "I spend my days cooking and cleaning."
+          },
+          "to": {
+            "name": "Too many chores",
+            "line": "I spend my days cooking and cleaning."
+          }
         }
       ]
     },
     "life-admin": {
       "id": "life-admin",
-      "name": "Paperwork",
-      "line": "I lose my week to forms, bills and phone queues.",
+      "name": "Too much paperwork",
+      "line": "Forms, bills and calls on hold eat up my week.",
       "page": "personal",
       "group": "time",
       "secondaryGroups": [],
@@ -4201,7 +4370,9 @@
       },
       "aliases": [
         "Life admin",
-        "Forms, bills and phone queues eat my week."
+        "Forms, bills and phone queues eat my week.",
+        "Paperwork",
+        "I lose my week to forms, bills and phone queues."
       ],
       "relations": [
         {
@@ -4250,6 +4421,21 @@
           "note": "",
           "kind": "keep",
           "detail": "Paperwork is one specific cause with its own fixes, while being overwhelmed can come from work, family or anything else. Stress is the feeling of too much at once from any source; Paperwork is the time lost to forms, bills and phone queues."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:39+00:00",
+          "prompt": "lint id-mismatch (note) (docs/research/pains/refine/time/20261019-224622, review work-time-wording-20261020-143430 p020)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Paperwork",
+            "line": "I lose my week to forms, bills and phone queues."
+          },
+          "to": {
+            "name": "Too much paperwork",
+            "line": "Forms, bills and calls on hold eat up my week."
+          }
         }
       ]
     },
@@ -4408,8 +4594,8 @@
     },
     "no-fun": {
       "id": "no-fun",
-      "name": "Fun",
-      "line": "I can't remember the last time I played.",
+      "name": "No fun",
+      "line": "I can't remember the last time I did something just for fun.",
       "page": "personal",
       "group": "time",
       "secondaryGroups": [],
@@ -4443,7 +4629,9 @@
         }
       },
       "aliases": [
-        "No fun"
+        "No fun",
+        "Fun",
+        "I can't remember the last time I played."
       ],
       "relations": [
         {
@@ -4488,6 +4676,21 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:39+00:00",
+          "prompt": "refine (docs/research/pains/refine/time/20261019-224622, review work-time-wording-20261020-143430 p022)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Fun",
+            "line": "I can't remember the last time I played."
+          },
+          "to": {
+            "name": "No fun",
+            "line": "I can't remember the last time I did something just for fun."
+          }
         }
       ]
     },
@@ -4573,7 +4776,7 @@
     "loneliness": {
       "id": "loneliness",
       "name": "Loneliness",
-      "line": "I feel alone.",
+      "line": "Most days I don't talk to anyone who really knows me.",
       "page": "personal",
       "group": "people",
       "secondaryGroups": [],
@@ -4605,7 +4808,9 @@
           "label": "loneliness"
         }
       },
-      "aliases": [],
+      "aliases": [
+        "I feel alone."
+      ],
       "relations": [
         {
           "kind": "overlaps",
@@ -4638,6 +4843,21 @@
           "note": "",
           "kind": "keep",
           "detail": "A grieving person can be surrounded by family and still miss the one who died, so the two are easy to tell apart. Grief is missing one person I lost; Loneliness is not having people around me now."
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:38+00:00",
+          "prompt": "lint vague-line (fail) (docs/research/pains/refine/people/20261019-224622, review people-home-wording-20261020-143430 p007)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Loneliness",
+            "line": "I feel alone."
+          },
+          "to": {
+            "name": "Loneliness",
+            "line": "Most days I don't talk to anyone who really knows me."
+          }
         }
       ]
     },
@@ -4866,7 +5086,7 @@
     },
     "no-one-to-lean-on": {
       "id": "no-one-to-lean-on",
-      "name": "Support",
+      "name": "No support",
       "line": "I have no one to call when I need help.",
       "page": "personal",
       "group": "people",
@@ -4900,7 +5120,8 @@
       },
       "aliases": [
         "No one to lean on",
-        "If I needed help, I'm not sure who I'd call."
+        "If I needed help, I'm not sure who I'd call.",
+        "Support"
       ],
       "relations": [
         {
@@ -4941,13 +5162,28 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:38+00:00",
+          "prompt": "lint id-mismatch (note) (docs/research/pains/refine/people/20261019-224622, review people-home-wording-20261020-143430 p008)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Support",
+            "line": "I have no one to call when I need help."
+          },
+          "to": {
+            "name": "No support",
+            "line": "I have no one to call when I need help."
+          }
         }
       ]
     },
     "new-here": {
       "id": "new-here",
-      "name": "Moving",
-      "line": "I just moved and know nobody.",
+      "name": "New in town",
+      "line": "I just moved here and don't know anyone yet.",
       "page": "personal",
       "group": "people",
       "secondaryGroups": [],
@@ -4981,7 +5217,9 @@
         }
       },
       "aliases": [
-        "New here"
+        "New here",
+        "Moving",
+        "I just moved and know nobody."
       ],
       "relations": [
         {
@@ -5020,13 +5258,28 @@
           "kind": "founder-choice",
           "to": "later",
           "note": "batch 5, 2026-10-16"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:38+00:00",
+          "prompt": "lint id-mismatch (note) (docs/research/pains/refine/people/20261019-224622, review people-home-wording-20261020-143430 p009)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Moving",
+            "line": "I just moved and know nobody."
+          },
+          "to": {
+            "name": "New in town",
+            "line": "I just moved here and don't know anyone yet."
+          }
         }
       ]
     },
     "lost-faith-community": {
       "id": "lost-faith-community",
-      "name": "Belonging",
-      "line": "I've lost the community I belonged to.",
+      "name": "Lost community",
+      "line": "I've lost the community I used to be part of.",
       "page": "personal",
       "group": "people",
       "secondaryGroups": [],
@@ -5060,7 +5313,9 @@
       },
       "aliases": [
         "Lost my faith or community",
-        "The place I belonged isn't mine any more."
+        "The place I belonged isn't mine any more.",
+        "Belonging",
+        "I've lost the community I belonged to."
       ],
       "relations": [
         {
@@ -5095,13 +5350,28 @@
           "kind": "founder-choice",
           "to": "later",
           "note": "batch 5, 2026-10-16"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:38+00:00",
+          "prompt": "refine (docs/research/pains/refine/people/20261019-224622, review people-home-wording-20261020-143430 p012)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Belonging",
+            "line": "I've lost the community I belonged to."
+          },
+          "to": {
+            "name": "Lost community",
+            "line": "I've lost the community I used to be part of."
+          }
         }
       ]
     },
     "nobody-to-do-things-with": {
       "id": "nobody-to-do-things-with",
-      "name": "Invitations",
-      "line": "I'd go out if someone asked.",
+      "name": "Plans",
+      "line": "I'd go out more if I had someone to go with.",
       "page": "personal",
       "group": "people",
       "secondaryGroups": [],
@@ -5135,7 +5405,9 @@
       },
       "aliases": [
         "Nobody to do things with",
-        "I'd go if someone asked."
+        "I'd go if someone asked.",
+        "Invitations",
+        "I'd go out if someone asked."
       ],
       "relations": [
         {
@@ -5170,6 +5442,21 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:38+00:00",
+          "prompt": "lint id-mismatch (note) (docs/research/pains/refine/people/20261019-224622, review people-home-wording-20261020-143430 p010)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Invitations",
+            "line": "I'd go out if someone asked."
+          },
+          "to": {
+            "name": "Plans",
+            "line": "I'd go out more if I had someone to go with."
+          }
         }
       ]
     },
@@ -5256,8 +5543,8 @@
     },
     "drifted-apart": {
       "id": "drifted-apart",
-      "name": "Friends",
-      "line": "I've lost touch with people who matter.",
+      "name": "Old friends",
+      "line": "I've drifted apart from friends who used to matter a lot to me.",
       "page": "personal",
       "group": "people",
       "secondaryGroups": [],
@@ -5288,7 +5575,9 @@
         }
       },
       "aliases": [
-        "Drifted apart"
+        "Drifted apart",
+        "Friends",
+        "I've lost touch with people who matter."
       ],
       "relations": [
         {
@@ -5323,6 +5612,21 @@
           "kind": "seed",
           "prompt": "in the content editor seed graph",
           "note": "accepted and shown"
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:38+00:00",
+          "prompt": "lint id-mismatch (note) (docs/research/pains/refine/people/20261019-224622, review people-home-wording-20261020-143430 p011)",
+          "note": "",
+          "kind": "reword",
+          "from": {
+            "name": "Friends",
+            "line": "I've lost touch with people who matter."
+          },
+          "to": {
+            "name": "Old friends",
+            "line": "I've drifted apart from friends who used to matter a lot to me."
+          }
         }
       ]
     },
@@ -13635,6 +13939,1724 @@
           },
           "prompt": "pain-catalog design decision 11: placement waits for ranking",
           "note": "Founder, 2026-10-20: all body-mind new pains wait for ranking."
+        }
+      ],
+      "unranked": true
+    },
+    "close-friends": {
+      "id": "close-friends",
+      "name": "Close friends",
+      "line": "I don't have a close friend I can really talk to.",
+      "page": "personal",
+      "group": "people",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [
+        {
+          "url": "https://www.americansurveycenter.org/research/the-state-of-american-friendship/",
+          "accessed": "2026-10-19",
+          "passage": "roughly the same proportion of the public that has no close friends (12 percent)"
+        },
+        {
+          "url": "https://euronews.com/my-europe/2025/11/10/nearly-10-of-europeans-say-they-have-no-close-friends-where-do-people-feel-loneliest",
+          "accessed": "2026-10-19",
+          "passage": "8% of respondents across 22 EU countries say they have no close friends."
+        }
+      ],
+      "leads": [
+        "Founder pool (hierarchy v2): no_close_friends, adult_friend_making_difficulty"
+      ],
+      "maps": {},
+      "aliases": [
+        "No close friends",
+        "Making friends as an adult"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [
+        {
+          "list": "survey-center-friendship-2021",
+          "entry": "no-close-friends"
+        },
+        {
+          "list": "oecd-wellbeing",
+          "entry": "no-close-friends"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q491"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:38+00:00",
+          "prompt": "source (docs/research/pains/sweeps/people/20261019-224656, review people-home-wording-20261020-143430 p001)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "Close friends",
+            "line": "I don't have a close friend I can really talk to.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": false,
+          "noSource": false
+        }
+      ],
+      "unranked": true
+    },
+    "estranged-family": {
+      "id": "estranged-family",
+      "name": "Estrangement",
+      "line": "I'm cut off from someone in my family.",
+      "page": "personal",
+      "group": "people",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [
+        {
+          "url": "https://news.cornell.edu/node/319960",
+          "accessed": "2026-10-19",
+          "passage": "27% of Americans 18 and older had cut off contact with a family member."
+        },
+        {
+          "url": "https://news.cornell.edu/node/319960",
+          "accessed": "2026-10-19",
+          "passage": "10% reported being estranged from a parent or child, 8% from a sibling and 9% from extended family members."
+        }
+      ],
+      "leads": [],
+      "maps": {},
+      "aliases": [
+        "Family estrangement",
+        "Not speaking to my family"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [
+        {
+          "list": "cornell-estrangement",
+          "entry": "any"
+        },
+        {
+          "list": "cornell-estrangement",
+          "entry": "parent-child"
+        },
+        {
+          "list": "cornell-estrangement",
+          "entry": "sibling"
+        },
+        {
+          "list": "cornell-estrangement",
+          "entry": "extended"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q17013143"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:38+00:00",
+          "prompt": "source (docs/research/pains/sweeps/people/20261019-224656, review people-home-wording-20261020-143430 p002)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "Estrangement",
+            "line": "I'm cut off from someone in my family.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": false,
+          "noSource": false
+        }
+      ],
+      "unranked": true
+    },
+    "breakup": {
+      "id": "breakup",
+      "name": "Breakup",
+      "line": "I'm going through a breakup or divorce.",
+      "page": "personal",
+      "group": "people",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [
+        {
+          "url": "https://www.cdc.gov/nchs/fastats/marriage-divorce.htm",
+          "accessed": "2026-10-19",
+          "passage": "Number of divorces: 672,502 (45 reporting States and D.C.)"
+        },
+        {
+          "url": "https://www.cdc.gov/nchs/fastats/marriage-divorce.htm",
+          "accessed": "2026-10-19",
+          "passage": "Divorce rate: 2.4 per 1,000 population (45 reporting States and D.C.)"
+        }
+      ],
+      "leads": [],
+      "maps": {},
+      "aliases": [
+        "Divorce",
+        "Separation"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [
+        {
+          "list": "cdc-nchs-divorce",
+          "entry": "divorces"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q93190"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q100926628"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:38+00:00",
+          "prompt": "source (docs/research/pains/sweeps/people/20261019-224656, review people-home-wording-20261020-143430 p003)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "Breakup",
+            "line": "I'm going through a breakup or divorce.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": false,
+          "noSource": false
+        }
+      ],
+      "unranked": true
+    },
+    "trying-for-a-baby": {
+      "id": "trying-for-a-baby",
+      "name": "Trying for a baby",
+      "line": "I've been trying to have a baby and it isn't happening.",
+      "page": "personal",
+      "group": "people",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [
+        {
+          "url": "https://www.who.int/news/item/04-04-2023-1-in-6-people-globally-affected-by-infertility",
+          "accessed": "2026-10-19",
+          "passage": "Around 17.5% of the adult population – roughly 1 in 6 worldwide – experience infertility"
+        }
+      ],
+      "leads": [
+        "Founder pool (hierarchy v2): fertility_problems_strain_my_relationship"
+      ],
+      "maps": {},
+      "aliases": [
+        "Infertility",
+        "Fertility problems"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [
+        {
+          "list": "who-people",
+          "entry": "infertility"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q179399"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:38+00:00",
+          "prompt": "source (docs/research/pains/sweeps/people/20261019-224656, review people-home-wording-20261020-143430 p004)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "Trying for a baby",
+            "line": "I've been trying to have a baby and it isn't happening.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": false,
+          "noSource": false
+        }
+      ],
+      "unranked": true
+    },
+    "harassed-online": {
+      "id": "harassed-online",
+      "name": "Online harassment",
+      "line": "I get harassed or threatened online.",
+      "page": "personal",
+      "group": "people",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [
+        {
+          "url": "https://www.pewresearch.org/internet/2021/01/13/the-state-of-online-harassment/",
+          "accessed": "2026-10-19",
+          "passage": "41% of U.S. adults have personally experienced online harassment, and 25% have experienced more severe harassment"
+        },
+        {
+          "url": "https://www.pewresearch.org/internet/2021/01/13/the-state-of-online-harassment/",
+          "accessed": "2026-10-19",
+          "passage": "Roughly two-thirds of adults under 30 (64%) have experienced any form of the online harassment"
+        }
+      ],
+      "leads": [],
+      "maps": {},
+      "aliases": [
+        "Cyberbullying",
+        "Trolls"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [
+        {
+          "list": "pew-online-harassment",
+          "entry": "any"
+        },
+        {
+          "list": "pew-online-harassment",
+          "entry": "severe"
+        },
+        {
+          "list": "pew-online-harassment",
+          "entry": "young-adults"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q494348"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q138012324"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:38+00:00",
+          "prompt": "source (docs/research/pains/sweeps/people/20261019-224656, review people-home-wording-20261020-143430 p005)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "Online harassment",
+            "line": "I get harassed or threatened online.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": false,
+          "noSource": false
+        }
+      ],
+      "unranked": true
+    },
+    "single-parent": {
+      "id": "single-parent",
+      "name": "Single parent",
+      "line": "I'm raising my kids on my own.",
+      "page": "personal",
+      "group": "people",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [
+        {
+          "url": "https://www.pewresearch.org/short-reads/2019/12/12/u-s-children-more-likely-than-children-in-other-countries-to-live-with-just-one-parent/",
+          "accessed": "2026-10-19",
+          "passage": "Almost a quarter of U.S. children under the age of 18 live with one parent and no other adults (23%)"
+        }
+      ],
+      "leads": [],
+      "maps": {},
+      "aliases": [
+        "Single parenting",
+        "Doing it alone"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [
+        {
+          "list": "pew-single-parent",
+          "entry": "single-parent"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q1204559"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:38+00:00",
+          "prompt": "source (docs/research/pains/sweeps/people/20261019-224656, review people-home-wording-20261020-143430 p006)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "Single parent",
+            "line": "I'm raising my kids on my own.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": false,
+          "noSource": false
+        }
+      ],
+      "unranked": true
+    },
+    "pests": {
+      "id": "pests",
+      "name": "Pests",
+      "line": "I've got mice, rats or roaches in my home.",
+      "page": "personal",
+      "group": "home",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [
+        {
+          "url": "https://www.census.gov/content/dam/Census/library/visualizations/2021/demo/AHS-Housing%20Quality-FINAL.pdf",
+          "accessed": "2026-10-19",
+          "passage": "Of the 124 million occupied households in the United States: 14.8 million saw signs of mice or rats inside the home in the last 12 months. 14.0 million saw signs of cockroaches inside the home in the last 12 months. Source: U.S. Census Bureau and U.S. Department of Housing and Urban Development, 2019 American Housing Survey."
+        }
+      ],
+      "leads": [
+        "Founder pool: mice_rats_roaches_bedbugs_or_other_pests_are_a_problem_in_my_home; pests_or_rodents_are_a_problem_in_my_home"
+      ],
+      "maps": {},
+      "aliases": [
+        "Mice or roaches",
+        "Bugs and rodents at home"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [
+        {
+          "list": "ahs-2019-quality",
+          "entry": "mice-rats"
+        },
+        {
+          "list": "ahs-2019-quality",
+          "entry": "cockroaches"
+        },
+        {
+          "list": "wikidata",
+          "entry": "pest-control"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:38+00:00",
+          "prompt": "source (docs/research/pains/sweeps/home/20261019-224658, review people-home-wording-20261020-143430 p013)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "Pests",
+            "line": "I've got mice, rats or roaches in my home.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": false,
+          "noSource": false
+        }
+      ],
+      "unranked": true
+    },
+    "damp-and-mold": {
+      "id": "damp-and-mold",
+      "name": "Damp and mold",
+      "line": "My home is damp, and the mold keeps coming back.",
+      "page": "personal",
+      "group": "home",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [
+        {
+          "url": "https://www.census.gov/content/dam/Census/library/visualizations/2021/demo/AHS-Housing%20Quality-FINAL.pdf",
+          "accessed": "2026-10-19",
+          "passage": "Of the 124 million occupied households in the United States: 3.7 million reported mold in the last 12 months. ... 9.4 million reported water leakage from inside the home. Source: U.S. Census Bureau and U.S. Department of Housing and Urban Development, 2019 American Housing Survey."
+        },
+        {
+          "url": "https://tradingeconomics.com/european-union/share-of-total-population-living-in-a-dwelling-with-a-leaking-roof-damp-walls-floors-or-foundation-or-rot-in-window-frames-of-floor-eurostat-data.html",
+          "accessed": "2026-10-19",
+          "passage": "was 15.60% in December of 2024, according to the EUROSTAT."
+        }
+      ],
+      "leads": [
+        "Founder pool: there_is_mold_in_my_home; leaks_or_water_problems_make_my_home_unpleasant_or_unhealthy; water_leaks_are_damaging_or_disrupting_my_home"
+      ],
+      "maps": {},
+      "aliases": [
+        "Mold",
+        "Leaks"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [
+        {
+          "list": "ahs-2019-quality",
+          "entry": "mold"
+        },
+        {
+          "list": "ahs-2019-quality",
+          "entry": "leak-outside"
+        },
+        {
+          "list": "ahs-2019-quality",
+          "entry": "leak-inside"
+        },
+        {
+          "list": "eurostat-housing",
+          "entry": "leaking-roof-damp"
+        },
+        {
+          "list": "wikidata",
+          "entry": "mold-in-structures"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:38+00:00",
+          "prompt": "source (docs/research/pains/sweeps/home/20261019-224658, review people-home-wording-20261020-143430 p014)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "Damp and mold",
+            "line": "My home is damp, and the mold keeps coming back.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": false,
+          "noSource": false
+        }
+      ],
+      "unranked": true
+    },
+    "tap-water": {
+      "id": "tap-water",
+      "name": "Tap water",
+      "line": "I don't trust the water that comes out of my tap.",
+      "page": "personal",
+      "group": "home",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [
+        {
+          "url": "https://news.gallup.com/file/poll/659441/20250416GlobalWarming.pdf",
+          "accessed": "2026-10-19",
+          "passage": "March 3-16, 2025 ... please tell me if you personally worry about this problem a great deal, a fair amount, only a little, or not at all. ... Pollution of drinking water 54 26 20"
+        }
+      ],
+      "leads": [],
+      "maps": {},
+      "aliases": [
+        "Drinking water",
+        "Unsafe water at home"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [
+        {
+          "list": "who-housing-health",
+          "entry": "water-quality"
+        },
+        {
+          "list": "gallup-environment-2025",
+          "entry": "drinking-water"
+        },
+        {
+          "list": "sdg-targets",
+          "entry": "6-1"
+        },
+        {
+          "list": "wikidata",
+          "entry": "drinking-water"
+        },
+        {
+          "list": "wikidata",
+          "entry": "lead-poisoning"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:38+00:00",
+          "prompt": "source (docs/research/pains/sweeps/home/20261019-224658, review people-home-wording-20261020-143430 p015)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "Tap water",
+            "line": "I don't trust the water that comes out of my tap.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": false,
+          "noSource": false
+        }
+      ],
+      "unranked": true
+    },
+    "accessible-home": {
+      "id": "accessible-home",
+      "name": "Accessible home",
+      "line": "I have trouble getting into or around my own home.",
+      "page": "personal",
+      "group": "home",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [
+        {
+          "url": "https://jchs.harvard.edu/sites/default/files/research/files/harvard_jchs_housing_stock_accessibility_scheckler_2022_0.pdf",
+          "accessed": "2026-10-19",
+          "passage": "How Well Does the Housing Stock Meet Accessibility Needs? An Analysis of the 2019 American Housing Survey ... About 5 percent of households reported that they experienced difficulty navigating or using their homes, amounting to a total of 6.8 million households."
+        }
+      ],
+      "leads": [
+        "Founder pool: my_home_is_difficult_for_me_to_use_because_it_isn_t_accessible; my_home_has_stairs_or_other_features_that_are_becoming_difficult_or_unsafe_for_m"
+      ],
+      "maps": {},
+      "aliases": [
+        "My home doesn't fit my body any more",
+        "Stairs at home"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [
+        {
+          "list": "who-housing-health",
+          "entry": "accessibility"
+        },
+        {
+          "list": "jchs-accessibility-2022",
+          "entry": "difficulty-using-home"
+        },
+        {
+          "list": "jchs-accessibility-2022",
+          "entry": "wheelchair-accessible-units"
+        },
+        {
+          "list": "wikidata",
+          "entry": "architectural-accessibility"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:38+00:00",
+          "prompt": "source (docs/research/pains/sweeps/home/20261019-224658, review people-home-wording-20261020-143430 p016)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "Accessible home",
+            "line": "I have trouble getting into or around my own home.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": false,
+          "noSource": false
+        }
+      ],
+      "unranked": true
+    },
+    "living-with-parents": {
+      "id": "living-with-parents",
+      "name": "Living with parents",
+      "line": "I want a place of my own, but I still live with my parents.",
+      "page": "personal",
+      "group": "home",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [
+        {
+          "url": "https://www.pewresearch.org/short-reads/2025/04/17/the-shares-of-young-adults-living-with-parents-vary-widely-across-the-us/",
+          "accessed": "2026-10-19",
+          "passage": "In 2023, 18% of adults ages 25 to 34 were living in a parent’s home."
+        }
+      ],
+      "leads": [],
+      "maps": {},
+      "aliases": [
+        "Can't move out"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [
+        {
+          "list": "pew-living-with-parents",
+          "entry": "adults-25-34-with-parents"
+        },
+        {
+          "list": "wikidata",
+          "entry": "boomerang-generation"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:38+00:00",
+          "prompt": "source (docs/research/pains/sweeps/home/20261019-224658, review people-home-wording-20261020-143430 p017)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "Living with parents",
+            "line": "I want a place of my own, but I still live with my parents.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": false,
+          "noSource": false
+        }
+      ],
+      "unranked": true
+    },
+    "landlord-wont-fix": {
+      "id": "landlord-wont-fix",
+      "name": "Repairs",
+      "line": "My landlord won't fix what's broken.",
+      "page": "personal",
+      "group": "home",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [],
+      "leads": [
+        "Founder pool: repairs_i_need_aren_t_getting_done; a_dispute_with_my_landlord_is_consuming_time_money_or_energy; i_m_struggling_to_get_a_housing_security_deposit_returned"
+      ],
+      "maps": {},
+      "aliases": [
+        "Landlord trouble"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:38+00:00",
+          "prompt": "lead only (docs/research/pains/sweeps/home/20261019-224658, review people-home-wording-20261020-143430 p018)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "Repairs",
+            "line": "My landlord won't fix what's broken.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": true,
+          "noSource": true
+        }
+      ],
+      "unranked": true
+    },
+    "turned-down-for-housing": {
+      "id": "turned-down-for-housing",
+      "name": "Rental applications",
+      "line": "I keep getting turned down for places to rent.",
+      "page": "personal",
+      "group": "home",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [],
+      "leads": [
+        "Founder pool: documentation_deposits_screening_or_application_requirements_keep_me_from_obtain; my_criminal_record_makes_it_difficult_to_find_stable_housing; i_m_being_denied_or_disadvantaged_in_housing_unfairly"
+      ],
+      "maps": {},
+      "aliases": [
+        "Can't get approved for an apartment"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:38+00:00",
+          "prompt": "lead only (docs/research/pains/sweeps/home/20261019-224658, review people-home-wording-20261020-143430 p019)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "Rental applications",
+            "line": "I keep getting turned down for places to rent.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": true,
+          "noSource": true
+        }
+      ],
+      "unranked": true
+    },
+    "long-hours": {
+      "id": "long-hours",
+      "name": "Long hours",
+      "line": "I work so many hours that there's barely any of my life left.",
+      "page": "personal",
+      "group": "work",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [
+        {
+          "url": "https://oecd-better-life-index.truth-and-beauty.net/topics/work-life-balance/",
+          "accessed": "2026-10-19",
+          "passage": "10% of employees in the OECD work 50 hours or more per week in paid work."
+        },
+        {
+          "url": "https://www.who.int/news/item/17-05-2021-long-working-hours-increasing-deaths-from-heart-disease-and-stroke-who-ilo",
+          "accessed": "2026-10-19",
+          "passage": "745 000 deaths from stroke and ischemic heart disease in 2016"
+        },
+        {
+          "url": "https://www.who.int/news/item/17-05-2021-long-working-hours-increasing-deaths-from-heart-disease-and-stroke-who-ilo",
+          "accessed": "2026-10-19",
+          "passage": "currently stands at 9% of the total population globally"
+        }
+      ],
+      "leads": [],
+      "maps": {},
+      "aliases": [
+        "Overwork",
+        "Working all the time"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [
+        {
+          "list": "oecd",
+          "entry": "long-hours"
+        },
+        {
+          "list": "who-ilo",
+          "entry": "long-hours"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q30324008"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q1051107"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q763264"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:39+00:00",
+          "prompt": "source (docs/research/pains/sweeps/work/20261019-224658, review work-time-wording-20261020-143430 p001)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "Long hours",
+            "line": "I work so many hours that there's barely any of my life left.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": false,
+          "noSource": false
+        }
+      ],
+      "unranked": true
+    },
+    "unpredictable-schedule": {
+      "id": "unpredictable-schedule",
+      "name": "Schedule",
+      "line": "My work hours change so often that I can't plan my life.",
+      "page": "personal",
+      "group": "work",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [
+        {
+          "url": "https://shift.hks.harvard.edu/newsroom/boston-service-workers-experience-unstable-unpredictable-work-schedules",
+          "accessed": "2026-10-19",
+          "passage": "60% receive their work schedules less than two weeks in advance; 73% report irregular or variable work schedules; 45% worked consecutive closing/opening shifts (“clopenings”)"
+        },
+        {
+          "url": "https://www.bls.gov/news.release/conemp.nr0.htm",
+          "accessed": "2026-10-19",
+          "passage": "2.8 million on-call workers (1.7 percent of total employment)"
+        }
+      ],
+      "leads": [],
+      "maps": {},
+      "aliases": [
+        "Shifts change every week",
+        "On call"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [
+        {
+          "list": "worker-studies",
+          "entry": "schedule-notice"
+        },
+        {
+          "list": "bls",
+          "entry": "on-call"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q1068683"
+        },
+        {
+          "list": "pew-jobs",
+          "entry": "flexibility"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:39+00:00",
+          "prompt": "source (docs/research/pains/sweeps/work/20261019-224658, review work-time-wording-20261020-143430 p002)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "Schedule",
+            "line": "My work hours change so often that I can't plan my life.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": false,
+          "noSource": false
+        }
+      ],
+      "unranked": true
+    },
+    "unsafe-work": {
+      "id": "unsafe-work",
+      "name": "Unsafe work",
+      "line": "I could get badly hurt doing my job.",
+      "page": "personal",
+      "group": "work",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [
+        {
+          "url": "https://www.bls.gov/news.release/osh.nr0.htm",
+          "accessed": "2026-10-19",
+          "passage": "Private industry employers reported 2.5 million nonfatal workplace injuries and illnesses in 2024"
+        },
+        {
+          "url": "https://www.bls.gov/news.release/cfoi.nr0.htm",
+          "accessed": "2026-10-19",
+          "passage": "There were 5,070 fatal work injuries recorded in the United States in 2024"
+        }
+      ],
+      "leads": [],
+      "maps": {},
+      "aliases": [
+        "Dangerous job",
+        "Injured at work"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [
+        {
+          "list": "sdg",
+          "entry": "8.8"
+        },
+        {
+          "list": "who-ilo",
+          "entry": "occupational-injury"
+        },
+        {
+          "list": "bls",
+          "entry": "fatal-injuries"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q629029"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q2389289"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:39+00:00",
+          "prompt": "source (docs/research/pains/sweeps/work/20261019-224658, review work-time-wording-20261020-143430 p003)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "Unsafe work",
+            "line": "I could get badly hurt doing my job.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": false,
+          "noSource": false
+        }
+      ],
+      "unranked": true
+    },
+    "wage-theft": {
+      "id": "wage-theft",
+      "name": "Wage theft",
+      "line": "My boss doesn't pay me everything I've earned.",
+      "page": "personal",
+      "group": "work",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [
+        {
+          "url": "https://nextcity.org/urbanist-news/minimum-wage-violations-mean-workers-losing-billions",
+          "accessed": "2026-10-19",
+          "passage": "The report says this form of wage theft affects 17 percent of low-wage workers."
+        },
+        {
+          "url": "https://nextcity.org/urbanist-news/minimum-wage-violations-mean-workers-losing-billions",
+          "accessed": "2026-10-19",
+          "passage": "In the 10 most populous U.S. states, 2.4 million workers lose $8 billion annually to minimum wage violations"
+        }
+      ],
+      "leads": [],
+      "maps": {},
+      "aliases": [
+        "Unpaid overtime",
+        "Paid under the minimum wage"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [
+        {
+          "list": "worker-studies",
+          "entry": "wage-theft"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q7959502"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:39+00:00",
+          "prompt": "source (docs/research/pains/sweeps/work/20261019-224658, review work-time-wording-20261020-143430 p004)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "Wage theft",
+            "line": "My boss doesn't pay me everything I've earned.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": false,
+          "noSource": false
+        }
+      ],
+      "unranked": true
+    },
+    "bad-boss": {
+      "id": "bad-boss",
+      "name": "Bad boss",
+      "line": "My boss makes my job miserable.",
+      "page": "personal",
+      "group": "work",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [
+        {
+          "url": "https://www.govexec.com/management/2015/04/half-american-workers-have-left-job-because-they-hated-their-boss/109183/",
+          "accessed": "2026-10-19",
+          "passage": "Gallup surveyed over 7,000 members of the US workforce and found that half of them have left a job at some point in their careers solely because they could no longer put up with their manager."
+        },
+        {
+          "url": "https://www.pewresearch.org/social-trends/2024/12/10/job-satisfaction/",
+          "accessed": "2026-10-19",
+          "passage": "Their relationship with their manager or supervisor (59%)"
+        }
+      ],
+      "leads": [],
+      "maps": {},
+      "aliases": [
+        "Bad manager",
+        "Micromanaged"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [
+        {
+          "list": "gallup-workplace",
+          "entry": "left-for-manager"
+        },
+        {
+          "list": "pew-jobs",
+          "entry": "manager"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q22906141"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:39+00:00",
+          "prompt": "source (docs/research/pains/sweeps/work/20261019-224658, review work-time-wording-20261020-143430 p005)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "Bad boss",
+            "line": "My boss makes my job miserable.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": false,
+          "noSource": false
+        }
+      ],
+      "unranked": true
+    },
+    "no-say-at-work": {
+      "id": "no-say-at-work",
+      "name": "No say at work",
+      "line": "I have no say in how things are done at work.",
+      "page": "personal",
+      "group": "work",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [
+        {
+          "url": "https://www.ilr.cornell.edu/news/research/new-report-analyzes-what-workers-really-want",
+          "accessed": "2026-10-19",
+          "passage": "48% of nonunion workers said they would vote for a union if an election was held at their workplace."
+        }
+      ],
+      "leads": [],
+      "maps": {},
+      "aliases": [
+        "No voice at work",
+        "Want a union"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [
+        {
+          "list": "worker-studies",
+          "entry": "union-voice"
+        },
+        {
+          "list": "maxneef",
+          "entry": "participation"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q178790"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q8035059"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:39+00:00",
+          "prompt": "source (docs/research/pains/sweeps/work/20261019-224658, review work-time-wording-20261020-143430 p006)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "No say at work",
+            "line": "I have no say in how things are done at work.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": false,
+          "noSource": false
+        }
+      ],
+      "unranked": true
+    },
+    "overqualified": {
+      "id": "overqualified",
+      "name": "Overqualified",
+      "line": "My job doesn't use what I know or what I trained for.",
+      "page": "personal",
+      "group": "work",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [
+        {
+          "url": "https://cappsonline.org/more-than-half-of-recent-4-year-college-grads-underemployed/",
+          "accessed": "2026-10-19",
+          "passage": "More than half of recent four-year college graduates, 52 percent, are underemployed a year after they graduate"
+        },
+        {
+          "url": "https://www.americanimmigrationcouncil.org/press-release/billions-of-dollars-in-tax-receipts-forgone-annually-as-nearly-2-million-highly-skilled-immigrants-in-u-s-are-stuck-in-low-skilled-jobs-or-unemployed/",
+          "accessed": "2026-10-19",
+          "passage": "one in four, or 1.9 million individuals, were either underemployed or unemployed."
+        }
+      ],
+      "leads": [],
+      "maps": {},
+      "aliases": [
+        "Underemployed",
+        "My degree doesn't count here"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [
+        {
+          "list": "worker-studies",
+          "entry": "underemployed-grads"
+        },
+        {
+          "list": "worker-studies",
+          "entry": "immigrant-brain-waste"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q1931244"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:39+00:00",
+          "prompt": "source (docs/research/pains/sweeps/work/20261019-224658, review work-time-wording-20261020-143430 p007)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "Overqualified",
+            "line": "My job doesn't use what I know or what I trained for.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": false,
+          "noSource": false
+        }
+      ],
+      "unranked": true
+    },
+    "long-commute": {
+      "id": "long-commute",
+      "name": "Commute",
+      "line": "I lose hours every day getting to and from work.",
+      "page": "personal",
+      "group": "work",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [
+        {
+          "url": "https://www.census.gov/newsroom/archives/2013-pr/cb13-41.html",
+          "accessed": "2026-10-19",
+          "passage": "About 8.1 percent of U.S. workers have commutes of 60 minutes or longer."
+        },
+        {
+          "url": "https://www.ncsl.org/resources/map-monday-get-me-to-the-job-on-time",
+          "accessed": "2026-10-19",
+          "passage": "The average time spent commuting in the U.S. in 2023 was about 27 minutes one-way"
+        }
+      ],
+      "leads": [],
+      "maps": {},
+      "aliases": [
+        "Long commute"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [
+        {
+          "list": "worker-studies",
+          "entry": "commute"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q48442"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:39+00:00",
+          "prompt": "source (docs/research/pains/sweeps/work/20261019-224658, review work-time-wording-20261020-143430 p008)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "Commute",
+            "line": "I lose hours every day getting to and from work.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": false,
+          "noSource": false
+        }
+      ],
+      "unranked": true
+    },
+    "no-paid-leave": {
+      "id": "no-paid-leave",
+      "name": "Paid leave",
+      "line": "I lose pay whenever I'm sick or need to care for someone.",
+      "page": "personal",
+      "group": "work",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [
+        {
+          "url": "https://www.bls.gov/news.release/ebs2.nr0.htm",
+          "accessed": "2026-10-19",
+          "passage": "81 percent had access to paid sick leave"
+        },
+        {
+          "url": "https://www.bls.gov/news.release/ebs2.nr0.htm",
+          "accessed": "2026-10-19",
+          "passage": "49 percent had access to paid family and medical leave"
+        }
+      ],
+      "leads": [],
+      "maps": {},
+      "aliases": [
+        "No sick days",
+        "Can't afford to stay home sick"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [
+        {
+          "list": "bls",
+          "entry": "paid-sick-leave"
+        },
+        {
+          "list": "bls",
+          "entry": "paid-family-leave"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q464163"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:39+00:00",
+          "prompt": "source (docs/research/pains/sweeps/work/20261019-224658, review work-time-wording-20261020-143430 p009)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "Paid leave",
+            "line": "I lose pay whenever I'm sick or need to care for someone.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": false,
+          "noSource": false
+        }
+      ],
+      "unranked": true
+    },
+    "gig-work": {
+      "id": "gig-work",
+      "name": "Gig work",
+      "line": "I work through apps with no benefits and no steady pay.",
+      "page": "personal",
+      "group": "work",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [
+        {
+          "url": "https://www.pewresearch.org/internet/2021/12/08/the-state-of-gig-work-in-2021/",
+          "accessed": "2026-10-19",
+          "passage": "In total, 9% of U.S. adults are current or recent gig workers."
+        },
+        {
+          "url": "https://www.bls.gov/news.release/conemp.nr0.htm",
+          "accessed": "2026-10-19",
+          "passage": "In July 2023, 4.3 percent of workers--6.9 million people--held contingent jobs on their sole or main job"
+        },
+        {
+          "url": "https://www.pewresearch.org/internet/2021/12/08/the-state-of-gig-work-in-2021/",
+          "accessed": "2026-10-19",
+          "passage": "35% say they have often or sometimes felt unsafe while doing these jobs"
+        }
+      ],
+      "leads": [],
+      "maps": {},
+      "aliases": [
+        "Contract work",
+        "No steady job"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [
+        {
+          "list": "worker-studies",
+          "entry": "gig-work"
+        },
+        {
+          "list": "bls",
+          "entry": "contingent"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q51711208"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q17009677"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:39+00:00",
+          "prompt": "source (docs/research/pains/sweeps/work/20261019-224658, review work-time-wording-20261020-143430 p010)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "Gig work",
+            "line": "I work through apps with no benefits and no steady pay.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": false,
+          "noSource": false
+        }
+      ],
+      "unranked": true
+    },
+    "two-jobs": {
+      "id": "two-jobs",
+      "name": "More than one job",
+      "line": "I work more than one job just to get by.",
+      "page": "personal",
+      "group": "work",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [
+        {
+          "url": "https://fred.stlouisfed.org/series/LNS12026620",
+          "accessed": "2026-10-19",
+          "passage": "Multiple Jobholders as a Percent of Employed: Sep 2026: 5.5 | Percent, Seasonally Adjusted"
+        }
+      ],
+      "leads": [],
+      "maps": {},
+      "aliases": [
+        "Side hustle",
+        "Working two jobs"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [
+        {
+          "list": "bls",
+          "entry": "multiple-jobs"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:39+00:00",
+          "prompt": "source (docs/research/pains/sweeps/work/20261019-224658, review work-time-wording-20261020-143430 p011)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "More than one job",
+            "line": "I work more than one job just to get by.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": true,
+          "noSource": false
+        }
+      ],
+      "unranked": true
+    },
+    "small-business": {
+      "id": "small-business",
+      "name": "My business",
+      "line": "I'm struggling to keep my small business going.",
+      "page": "personal",
+      "group": "work",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [
+        {
+          "url": "https://fred.stlouisfed.org/series/SBCSS10B0V0FRB",
+          "accessed": "2026-10-19",
+          "passage": "Small Business Credit Survey: Experienced at Least One Financial Challenge: Employer Firms: 94 percent (2025)"
+        }
+      ],
+      "leads": [],
+      "maps": {},
+      "aliases": [
+        "Small business owner",
+        "Keeping the shop open"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [
+        {
+          "list": "worker-studies",
+          "entry": "small-business"
+        },
+        {
+          "list": "sdg",
+          "entry": "8.3"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q1109680"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:39+00:00",
+          "prompt": "source (docs/research/pains/sweeps/work/20261019-224658, review work-time-wording-20261020-143430 p012)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "My business",
+            "line": "I'm struggling to keep my small business going.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": false,
+          "noSource": false
+        }
+      ],
+      "unranked": true
+    },
+    "dead-end-job": {
+      "id": "dead-end-job",
+      "name": "Dead end",
+      "line": "I can't move up at work, however hard I try.",
+      "page": "personal",
+      "group": "work",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [
+        {
+          "url": "https://www.pewresearch.org/social-trends/2024/12/10/job-satisfaction/",
+          "accessed": "2026-10-19",
+          "passage": "about a quarter (26%) are highly satisfied with their opportunities for promotion at work."
+        }
+      ],
+      "leads": [],
+      "maps": {},
+      "aliases": [
+        "No promotion",
+        "Passed over"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [
+        {
+          "list": "pew-jobs",
+          "entry": "promotion"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:39+00:00",
+          "prompt": "source (docs/research/pains/sweeps/work/20261019-224658, review work-time-wording-20261020-143430 p013)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "Dead end",
+            "line": "I can't move up at work, however hard I try.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": false,
+          "noSource": false
+        }
+      ],
+      "unranked": true
+    },
+    "no-time-off": {
+      "id": "no-time-off",
+      "name": "Time off",
+      "line": "I never get a real break from work.",
+      "page": "personal",
+      "group": "time",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [
+        {
+          "url": "https://www.bls.gov/news.release/ebs2.nr0.htm",
+          "accessed": "2026-10-19",
+          "passage": "Paid vacation leave was available to 80 percent of private industry workers"
+        },
+        {
+          "url": "https://www.pewresearch.org/?p=7896",
+          "accessed": "2026-10-19",
+          "passage": "Some 46% of U.S. workers who receive paid time off from their employer"
+        },
+        {
+          "url": "https://www.pewresearch.org/?p=7896",
+          "accessed": "2026-10-19",
+          "passage": "A similar share (49%) say they'd worry about falling behind at work if they took more time off."
+        }
+      ],
+      "leads": [],
+      "maps": {},
+      "aliases": [
+        "No vacation",
+        "Can't take time off"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [
+        {
+          "list": "bls-ebs-2026",
+          "entry": "paid-vacation"
+        },
+        {
+          "list": "pew-pto-2023",
+          "entry": "take-less-pto"
+        },
+        {
+          "list": "pew-pto-2023",
+          "entry": "worry-falling-behind"
+        },
+        {
+          "list": "pew-pto-2023",
+          "entry": "coworkers-guilt"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q5338673"
+        },
+        {
+          "list": "wikidata",
+          "entry": "Q7124679"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:39+00:00",
+          "prompt": "source (docs/research/pains/sweeps/time/20261019-224657, review work-time-wording-20261020-143430 p018)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "Time off",
+            "line": "I never get a real break from work.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": false,
+          "noSource": false
+        }
+      ],
+      "unranked": true
+    },
+    "benefits-runaround": {
+      "id": "benefits-runaround",
+      "name": "Benefits",
+      "line": "I have to fight to get or keep the benefits I qualify for.",
+      "page": "personal",
+      "group": "time",
+      "secondaryGroups": [],
+      "status": "accepted",
+      "role": "not-shown",
+      "sensitive": false,
+      "evidence": [
+        {
+          "url": "https://justicegap.lsc.gov/resource/section-3-the-prevalence-of-civil-legal-problems/",
+          "accessed": "2026-10-19",
+          "passage": "More than one-third (34%) of all low-income households experienced a problem related to income maintenance"
+        }
+      ],
+      "leads": [],
+      "maps": {},
+      "aliases": [
+        "Benefits red tape",
+        "Cut off from benefits"
+      ],
+      "relations": [],
+      "founderPool": null,
+      "covers": [
+        {
+          "list": "lsc-justice-gap-2022",
+          "entry": "income-maintenance"
+        }
+      ],
+      "history": [
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:43:39+00:00",
+          "prompt": "source (docs/research/pains/sweeps/time/20261019-224657, review work-time-wording-20261020-143430 p019)",
+          "note": "",
+          "kind": "accept",
+          "to": {
+            "name": "Benefits",
+            "line": "I have to fight to get or keep the benefits I qualify for.",
+            "role": "not-shown"
+          },
+          "unranked": true,
+          "own": false,
+          "noSource": false
         }
       ],
       "unranked": true
