@@ -126,6 +126,14 @@ class ValidateTest(Base):
         doc['pains']['debt']['status'] = 'candidate'
         self.assertIn('pain debt: only an accepted pain can be shown', self.issues(doc))
 
+    def test_waiting_for_ranking_only_on_accepted_not_shown_pains(self):
+        doc = small_catalog()
+        doc['pains']['debt']['unranked'] = True  # shown
+        doc['pains']['homeless'].update(unranked=True, role='not-shown')
+        issues = self.issues(doc)
+        self.assertIn('pain debt: only an accepted, not-shown pain can wait for ranking', issues)
+        self.assertNotIn('pain homeless: only an accepted, not-shown pain can wait for ranking', issues)
+
     def test_group_must_be_on_the_same_page(self):
         doc = small_catalog()
         doc['pains']['debt']['group'] = 'economy'
@@ -220,6 +228,10 @@ class DiscoverTest(Base):
         result = self.check(small_catalog(), candidate('scams-and-fraud'))
         self.assertEqual(result['issues'], [])
         self.assertEqual(result['proposed'], [{'candidate': 'scams-and-fraud'}])
+
+    def test_candidate_list_without_the_serial_comma_is_an_issue(self):
+        result = self.check(small_catalog(), candidate('pests', name='Pests', line="I've got mice, rats or roaches in my home."))
+        self.assertTrue(any('serial comma' in i for i in result['issues']), result['issues'])
 
     def test_lead_only_candidate_stays_draft_unless_founders_own(self):
         lead = candidate('insurance-costs', sources=[], leads=['founder pool: insurance'])
@@ -328,6 +340,10 @@ class LintTest(unittest.TestCase):
         self.assertIn('not-first-person', self.rules('Sleep', 'Sleep is hard.'))
         self.assertIn('line-length', self.rules('Sleep', "I don't sleep. It's bad."))
         self.assertIn('line-length', self.rules('Sleep', 'Why am I awake?'))
+
+    def test_list_needs_the_serial_comma(self):
+        self.assertIn('serial-comma', self.rules('Pests', "I've got mice, rats or roaches in my home.", 'pests'))
+        self.assertNotIn('serial-comma', self.rules('Pests', "I've got mice, rats, or roaches in my home.", 'pests'))
 
     def test_vague_line(self):
         self.assertIn('vague-line', self.rules('Stress', "I'm overwhelmed.", 'overwhelmed'))
@@ -463,7 +479,9 @@ class ReviewTest(Base):
         doc = catalog.read(folder / 'proposals.json')
         add = next(p for p in doc['proposals'] if p['painIds'] == ['insurance-costs'])
         self.assertTrue(add['draft'])
-        self.assertEqual([a['role'] for a in [add['proposed']] + add['alternatives']], ['not-shown', 'shown'])
+        # Review doesn't choose shown or not shown for a new pain: ranking places it later.
+        self.assertEqual(add['alternatives'], [])
+        self.assertNotIn('role', add['proposed'])
         html = (folder / 'review.html').read_text()
         self.assertNotIn('/*__DATA__*/', html)
         self.assertIn('I have too much on my plate', html)
@@ -496,23 +514,94 @@ class ReviewTest(Base):
     def test_similar_pain_in_catalog_is_listed(self):
         sweep, refine = fixture_runs(self.tmp)
         doc = catalog.load(self.tmp)
-        doc['pains']['scam-worry'] = pain('scam-worry', name='Scams', line='I lost money to a scam once.')
+        doc['pains']['scam-worry'] = pain('scam-worry', name='Scam worry', line='I lost money to a scam once.')
         catalog.write(self.tmp / catalog.CATALOG, doc)
         out = catalog.review_build(self.tmp, [sweep])
         add = next(p for p in catalog.read(self.tmp / out['set'] / 'proposals.json')['proposals'] if p['painIds'] == ['scams-and-fraud'])
         self.assertEqual([q['id'] for q in add['similar']], ['scam-worry'])
 
-    def test_same_overlap_from_two_runs_is_shown_once(self):
+    def test_same_proposal_from_two_runs_is_shown_once(self):
         sweep, refine = fixture_runs(self.tmp)
         out = catalog.review_build(self.tmp, [refine, refine])
         self.assertEqual(out['byKind']['merge'], 1)
-        self.assertEqual(out['byKind']['reword'], 2)
+        self.assertEqual(out['byKind']['reword'], 1)
+
+    def test_set_builds_from_inputs_only(self):
+        sweep, refine = fixture_runs(self.tmp)
+        for derived in (sweep / 'check.json', refine / 'refine-check.json', refine / 'lint.json', refine / 'balance.json'):
+            derived.unlink()
+        out = catalog.review_build(self.tmp, [sweep, refine], 'fresh')
+        self.assertEqual(out['byKind'], {'add': 2, 'merge': 1, 'move': 1, 'reword': 1})
 
     def test_unchecked_run_is_refused(self):
         sweep, refine = fixture_runs(self.tmp)
-        catalog.write(refine / 'refine-check.json', {'issues': ['x'], 'moves': []})
+        for sort in (refine / 'sorts').glob('*.json'):
+            sort.unlink()  # refine-check now fails: no blind sorts
         with self.assertRaises(catalog.CheckError):
             catalog.review_build(self.tmp, [refine])
+
+
+class StageTest(Base):
+    def setUp(self):
+        super().setUp()
+        self.sweep, self.refine = fixture_runs(self.tmp)
+        # Add a keep pair that touches the pain being reworded, so the structure card shows its wording.
+        overlaps = catalog.read(self.refine / 'overlaps.json')
+        overlaps['pairs'].append({'a': 'overwhelmed', 'b': 'always-tired', 'action': 'keep',
+                                  'distinction': 'Stress is about load, Tired about energy.', 'reason': 'People feel both.'})
+        catalog.write(self.refine / 'overlaps.json', overlaps)
+        assert catalog.refine_check(self.tmp, self.refine)['issues'] == []
+        self.cms = FakeCms(draft_from(catalog.load(self.tmp)))
+
+    def build(self, stage, runs=None):
+        return catalog.review_build(self.tmp, runs or [self.sweep, self.refine], 'set', stage=stage)
+
+    def ingest(self, out, decide):
+        set_dir = self.tmp / out['set']
+        doc = catalog.read(set_dir / 'proposals.json')
+        path = set_dir / 'decisions.json'
+        catalog.write(path, {'schemaVersion': 1, 'setId': doc['setId'],
+                             'decisions': {p['id']: d for p in doc['proposals'] if (d := decide(p))}})
+        return catalog.ingest(self.tmp, set_dir, path, client=self.cms, date='2026-10-21')
+
+    def test_wording_set_holds_new_pains_and_rewords_only(self):
+        self.assertEqual(self.build('wording')['byKind'], {'add': 2, 'reword': 1})
+
+    def test_structure_set_refuses_until_the_wording_set_is_ingested(self):
+        wording = self.build('wording')
+        with self.assertRaises(catalog.CheckError) as caught:
+            self.build('structure')
+        self.assertIn(Path(wording['set']).name, str(caught.exception))
+
+    def test_structure_set_shows_the_founders_own_wording(self):
+        own = {'name': 'Swamped', 'line': 'I have more on my plate than I can carry.'}
+        self.ingest(self.build('wording'), lambda p: {'decision': 'own', 'own': own, 'note': ''} if p['kind'] == 'reword' else None)
+        out = self.build('structure')
+        self.assertEqual(out['byKind'], {'keep': 1, 'merge': 1, 'move': 1})
+        keep = next(p for p in catalog.read(self.tmp / out['set'] / 'proposals.json')['proposals'] if p['kind'] == 'keep')
+        self.assertEqual(keep['current'], own)
+        self.assertIn({'id': 'overwhelmed', **own}, keep['side'])
+
+    def test_later_returns_in_the_next_set_of_the_same_step(self):
+        self.ingest(self.build('wording'), lambda p: {'decision': 'later', 'note': ''} if p['kind'] == 'reword' else None)
+        structure = self.build('structure')
+        self.ingest(structure, lambda p: {'decision': 'accept', 'note': ''} if p['kind'] != 'keep' else None)
+        # Ingesting the next wording set must not drop the structure card left for later.
+        again = self.build('wording', [self.refine])
+        self.assertEqual(again['byKind'], {'add': 2, 'reword': 1})  # the undecided new pains came back too
+        self.ingest(again, lambda p: {'decision': 'own', 'note': '', 'own': {'name': 'Swamped', 'line': 'I have more on my plate than I can carry.'}}
+                    if p['kind'] == 'reword' else None)
+        last = self.build('structure', [self.sweep])
+        cards = catalog.read(self.tmp / last['set'] / 'proposals.json')['proposals']
+        # The merge comes back too: it is held until the editor can retire a shown pain.
+        self.assertEqual(sorted(p['kind'] for p in cards), ['keep', 'merge'])
+        keep = next(p for p in cards if p['kind'] == 'keep')
+        self.assertEqual(keep['current']['name'], 'Swamped')
+
+    def test_cli_needs_a_stage(self):
+        result = self.cli('review-build', str(self.refine))
+        self.assertEqual(result.returncode, 2)
+        self.assertIn('--stage', result.stderr)
 
 
 def draft_from(doc, revision=3):
@@ -608,26 +697,49 @@ class IngestTest(Base):
         self.assertEqual(issues, [])
         self.assertIn({'list': 'gallup-mip', 'entry': 'scams-and-fraud'}, after['pains']['insurance-costs']['covers'])
 
-    def test_new_shown_pain_waits_for_futures(self):
-        out = self.ingest({self.pid('add', 'scams-and-fraud'): {'decision': 'alternative', 'choice': 0}})
-        self.assertEqual(catalog.load(self.tmp)['pains']['scams-and-fraud']['role'], 'shown')
-        self.assertEqual(out['editor']['waiting'], ['scams-and-fraud'])
+    def test_accepted_new_pain_waits_for_ranking(self):
+        out = self.ingest({self.pid('add', 'scams-and-fraud'): {'decision': 'accept'}})
+        p = catalog.load(self.tmp)['pains']['scams-and-fraud']
+        self.assertEqual((p['status'], p['role'], p['unranked']), ('accepted', 'not-shown', True))
+        self.assertEqual(out['editor']['waiting'], [])
         self.assertIsNone(self.cms.saved)
+        self.assertEqual(catalog.validate(catalog.load(self.tmp)), [])
 
-    def test_new_shown_pain_with_approved_futures_is_added(self):
+    def test_shown_choice_from_an_older_set_also_waits_for_ranking(self):
+        doc = catalog.read(self.set_dir / 'proposals.json')
+        add = next(p for p in doc['proposals'] if p['painIds'] == ['scams-and-fraud'])
+        add['alternatives'] = [{**add['proposed'], 'role': 'shown'}]  # how sets were built before 2026-10-20
+        catalog.write(self.set_dir / 'proposals.json', doc)
+        self.ingest({add['id']: {'decision': 'alternative', 'choice': 0}})
+        p = catalog.load(self.tmp)['pains']['scams-and-fraud']
+        self.assertEqual((p['role'], p['unranked']), ('not-shown', True))
+
+    def test_pain_ranked_as_shown_with_approved_futures_is_added(self):
         before = catalog.load(self.tmp)
         after, touched, *_ = catalog.apply_decisions(before, catalog.read(self.set_dir / 'proposals.json'),
-                                                     {'decisions': {self.pid('add', 'scams-and-fraud'): {'decision': 'alternative', 'choice': 0}}})
-        after['pains']['scams-and-fraud']['futures'] = ['scam-proof']
+                                                     {'decisions': {self.pid('add', 'scams-and-fraud'): {'decision': 'accept'}}})
+        ranked = after['pains']['scams-and-fraud']
+        ranked.pop('unranked')
+        ranked['role'], ranked['futures'] = 'shown', ['scam-proof']
         patch = catalog.draft_patch(before, after, touched, self.cms.draft)
         self.assertEqual(patch['changes'][0]['change'], 'add')
         self.assertIn({'painId': 'scams-and-fraud', 'dreamId': 'scam-proof'}, patch['content']['painDreamLinks'])
 
-    def test_draft_only_as_own(self):
+    def test_accepted_draft_is_added_on_the_founders_word(self):
+        self.ingest({self.pid('add', 'insurance-costs'): {'decision': 'accept'}})
+        p = catalog.load(self.tmp)['pains']['insurance-costs']
+        self.assertEqual((p['status'], p['role'], p['unranked'], p['evidence']), ('accepted', 'not-shown', True, []))
+        self.assertEqual((p['name'], p['line']), ('Insurance', "I can't afford insurance."))
+        self.assertEqual((p['history'][0]['own'], p['history'][0]['noSource']), (True, True))
+
+    def test_draft_has_no_alternative_to_pick(self):
         with self.assertRaises(catalog.CheckError):
-            self.ingest({self.pid('add', 'insurance-costs'): {'decision': 'accept'}})
-        self.ingest({self.pid('add', 'insurance-costs'): {'decision': 'own', 'own': {'name': 'Insurance', 'line': "I can't afford insurance.", 'role': 'not-shown'}}})
-        self.assertEqual(catalog.load(self.tmp)['pains']['insurance-costs']['history'][0]['own'], True)
+            self.ingest({self.pid('add', 'insurance-costs'): {'decision': 'alternative', 'choice': 0}})
+
+    def test_draft_in_own_wording_is_also_the_founders(self):
+        self.ingest({self.pid('add', 'insurance-costs'): {'decision': 'own', 'own': {'name': 'Insurance', 'line': "I can't afford my insurance."}}})
+        h = catalog.load(self.tmp)['pains']['insurance-costs']['history'][0]
+        self.assertEqual((h['own'], h['noSource']), (True, True))
 
     def test_merge_of_shown_pain_is_held_until_the_editor_can_retire(self):
         out = self.ingest({self.pid('merge'): {'decision': 'accept'}})
@@ -742,6 +854,69 @@ class CmsClientTest(unittest.TestCase):
         self.assertIn('409', str(raised.exception))
         self.assertEqual(seen[0][:2], ('/rpc/cms/getDraft', 'Bearer test-token'))
         self.assertEqual(seen[1][2], {'json': {'expectedRevision': 7, 'changeNote': 'note', 'content': {}}})
+
+
+class ArchiveTest(Base):
+    def setUp(self):
+        super().setUp()
+        self.sweep, self.refine = fixture_runs(self.tmp)
+        self.cms = FakeCms(draft_from(catalog.load(self.tmp)))
+
+    def build_and_ingest(self, stage):
+        out = catalog.review_build(self.tmp, [self.sweep, self.refine], 'batch', stage=stage)
+        set_dir = self.tmp / out['set']
+        doc = catalog.read(set_dir / 'proposals.json')
+        path = set_dir / 'decisions.json'
+        catalog.write(path, {'schemaVersion': 1, 'setId': doc['setId'], 'decisions': {
+            p['id']: {'decision': 'reject' if p['kind'] == 'add' else 'accept', 'note': ''} for p in doc['proposals']}})
+        catalog.ingest(self.tmp, set_dir, path, client=self.cms, date='2026-10-21')
+        return set_dir
+
+    def test_finished_batch_folds_into_one_file(self):
+        wording = self.build_and_ingest('wording')
+        structure = self.build_and_ingest('structure')
+        out = catalog.archive(self.tmp, [wording])  # finds the structure set that shares the runs
+        archive = self.tmp / out['archive']
+        self.assertEqual(archive.name, 'batch.jsonl')
+        records = [json.loads(line) for line in archive.read_text().splitlines()]
+        paths = {r['path'] for r in records}
+        self.assertIn(str((self.sweep / 'candidates.json').relative_to(self.tmp)), paths)
+        self.assertIn(str((self.refine / 'sorts/1.json').relative_to(self.tmp)), paths)
+        self.assertIn(str((structure / 'decisions.json').relative_to(self.tmp)), paths)
+        self.assertFalse(any(p.endswith(('check.json', 'lint.json', 'review.html')) for p in paths))
+        for folder in (self.sweep, self.refine, wording, structure):
+            self.assertFalse(folder.exists(), folder)
+
+    def test_open_set_is_named_and_nothing_moves(self):
+        wording = self.build_and_ingest('wording')
+        structure = self.tmp / catalog.review_build(self.tmp, [self.sweep, self.refine], 'batch', stage='structure')['set']
+        with self.assertRaises(catalog.CheckError) as caught:
+            catalog.archive(self.tmp, [wording])
+        self.assertIn(structure.name, str(caught.exception))
+        self.assertTrue(self.sweep.exists() and wording.exists())
+        self.assertFalse((self.tmp / catalog.ARCHIVE).exists())
+
+    def test_batch_without_its_structure_step_is_not_archived(self):
+        wording = self.build_and_ingest('wording')
+        with self.assertRaises(catalog.CheckError) as caught:
+            catalog.archive(self.tmp, [wording])
+        self.assertIn('structure', str(caught.exception))
+        self.assertTrue(self.refine.exists())
+
+    def test_coverage_from_an_archive_matches_the_folder(self):
+        catalog.write(self.sweep / 'lists.json', {'lists': {'gallup-mip': {'name': 'Most Important Problem', 'url': 'https://example.org/mip',
+            'accessed': '2026-10-19', 'entries': {'scams-and-fraud': {'name': 'Fraud'}, 'insurance-costs': {'name': 'Insurance'},
+                                                  'debt': {'name': 'Debt'}}}}})
+        catalog.write(self.sweep / 'mapping.json', {'entries': {'gallup-mip/scams-and-fraud': {'candidate': 'scams-and-fraud'},
+            'gallup-mip/insurance-costs': {'candidate': 'insurance-costs'}, 'gallup-mip/debt': {'painId': 'debt', 'why': 'same'}}})
+        wording = self.build_and_ingest('wording')
+        self.build_and_ingest('structure')
+        before = catalog.coverage(self.tmp, self.sweep)['lists']
+        run = str(self.sweep.relative_to(self.tmp))
+        out = catalog.archive(self.tmp, [wording])
+        after = catalog.coverage_archived(self.tmp, out['archive'], run)['lists']
+        self.assertEqual(after, before)
+        self.assertEqual((after['gallup-mip']['covered'], after['gallup-mip']['entries']), (1, 3))
 
 
 if __name__ == '__main__':

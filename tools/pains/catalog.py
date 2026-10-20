@@ -5,6 +5,16 @@ import datetime
 import json
 import re
 from pathlib import Path
+import importlib.util
+import shutil
+import sys
+import tempfile
+
+# The serial-comma check is shared with tools/possibilities (copy style guide, founder 2026-10-20).
+sys.dont_write_bytecode = True
+_spec = importlib.util.spec_from_file_location('serial_comma', Path(__file__).resolve().parents[1] / 'style/serial_comma.py')
+serial_comma = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(serial_comma)
 
 ID = re.compile(r'^[a-z0-9]+(?:-[a-z0-9]+)*$')
 PAGES = ('personal', 'societal')
@@ -99,6 +109,8 @@ def validate(catalog):
         require(p.get('status') in STATUSES, where + ': status must be one of ' + ', '.join(STATUSES), issues)
         require(p.get('role') in ROLES, where + ': role must be shown or not-shown', issues)
         require(p.get('role') != 'shown' or p.get('status') == 'accepted', where + ': only an accepted pain can be shown', issues)
+        require(not p.get('unranked') or (p.get('status') == 'accepted' and p.get('role') == 'not-shown'),
+                where + ': only an accepted, not-shown pain can wait for ranking', issues)
         require(isinstance(p.get('sensitive'), bool), where + ': sensitive must be true/false', issues)
         validate_evidence(p.get('evidence', []), where, issues)
         require(all(isinstance(a, str) and a.strip() for a in p.get('aliases', [])), where + ': aliases must be text', issues)
@@ -298,20 +310,28 @@ def last_rejection(record):
                  and (h.get('kind') == 'reject' or h.get('to') == 'cut')), None)
 
 
-def check_candidates(catalog, doc):
-    """Validate a sweep's candidates and sort them into proposed, drafts and skipped. Never changes the catalog."""
+def check_candidates(catalog, doc, origin=None):
+    """Validate a sweep's candidates and sort them into proposed, drafts and skipped. Never changes the catalog.
+    `origin` is the sweep's run path: a candidate this sweep already brought into the catalog is skipped, not an issue."""
     issues, proposed, drafts, skipped, covered = [], [], [], [], []
     words, entries = pain_index(catalog)
     groups = {g['id']: g for g in catalog['groups']}
     seen = {}
     for key, c in doc.get('candidates', {}).items():
         where = 'candidate ' + key
+        record = catalog['pains'].get(key)
+        if origin and record and any('(%s, review ' % origin in h.get('prompt', '') for h in record['history']):
+            skipped.append({'candidate': key, 'reason': 'already decided from this sweep'})
+            continue
         require(ID.fullmatch(key) and c.get('id', key) == key, where + ': bad ID', issues)
         require(key not in catalog['pains'], where + ': ID already used by a catalog record; IDs are never reused', issues)
         for field in ('name', 'line', 'page', 'group'):
             require(isinstance(c.get(field), str) and c[field].strip(), where + ': missing ' + field, issues)
         group = groups.get(c.get('group'))
         require(group and group['page'] == c.get('page'), where + ': group must be a heading on its page', issues)
+        for field in ('name', 'line'):
+            for hit in serial_comma.find(str(c.get(field, ''))):
+                issues.append('%s: no serial comma in %s "%s"; add the Oxford comma before the last "and" or "or"' % (where, field, hit['list']))
         sources = c.get('sources', [])
         validate_evidence(sources, where, issues)
         passages = ' '.join(str(s.get('passage', '')) for s in sources).replace(',', '')
@@ -345,22 +365,33 @@ def check_candidates(catalog, doc):
     return {'issues': issues, 'proposed': proposed, 'drafts': drafts, 'skipped': skipped, 'covered': covered}
 
 
+def run_path(root, run):
+    """A run folder's path in the repository, as review sets and history entries record it."""
+    return str(Path(run).resolve().relative_to(Path(root).resolve()))
+
+
 def sweep_check(root, run):
     run = Path(run)
-    result = check_candidates(load(root), read(run / 'candidates.json'))
+    origin = run_path(root, run)
+    result = check_candidates(load(root), read(run / 'candidates.json'), origin)
     result['checkedAt'] = today()
     write(run / 'check.json', result)
     return result
 
 
-def coverage(root, run):
-    """Per outside list: covered share and each uncovered entry with its reason. Counted per list, never summed."""
+def coverage(root, run, origin=None):
+    """Per outside list: covered share and each uncovered entry with its reason. Counted per list, never summed.
+    `origin` is the run's path in the repository, when `run` is a copy unpacked from an archive."""
     run = Path(run)
     catalog = load(root)
     lists = read(run / 'lists.json')['lists']
     mapping = read(run / 'mapping.json')['entries'] if (run / 'mapping.json').is_file() else {}
     candidates = read(run / 'candidates.json').get('candidates', {}) if (run / 'candidates.json').is_file() else {}
-    check = read(run / 'check.json') if (run / 'check.json').is_file() else {'proposed': [], 'drafts': [], 'covered': []}
+    if (run / 'check.json').is_file():
+        check = read(run / 'check.json')
+    else:  # derived, so rebuilt rather than read when it isn't there
+        origin = origin or run_path(root, run)
+        check = check_candidates(catalog, {'candidates': candidates}, origin)
     waiting = {c['candidate'] for c in check['proposed'] + check['drafts']}
     by_entry = {}
     for p in catalog['pains'].values():
@@ -468,6 +499,9 @@ def lint_wording(name, line, pain_id, sensitive, config):
                                   ('regional-word', 'regional', name + ' ' + line), ('clinical-term', 'clinical', line)):
         for m in config[key].finditer(field_text) if config[key] else ():
             add(rule, '"%s"' % m[0])
+    for text in (name, line):
+        for hit in serial_comma.find(text):
+            add('serial-comma', 'add the Oxford comma before the last "and" or "or" in "%s"' % hit['list'])
     for m in config['acronyms'].finditer(name + ' ' + line) if config['acronyms'] else ():
         add('regional-word', '"%s"' % m[0])
     if sensitive:
@@ -614,6 +648,12 @@ def refine_check(root, run):
 REVIEWS = DATA_ROOT + '/reviews'
 LATER = DATA_ROOT + '/later.json'
 DECISIONS = ('accept', 'alternative', 'own', 'reject', 'later')
+# A review comes in two steps: wording first, then the structure cards, built once that wording is ingested.
+STAGES = {'wording': ('add', 'reword', 'drift'), 'structure': ('merge', 'split', 'keep', 'other-page', 'move')}
+
+
+def proposal_key(p):
+    return (p['kind'], tuple(sorted(p['painIds'])))
 
 
 def wording(p, **extra):
@@ -628,9 +668,10 @@ def sweep_proposals(catalog, run):
     out = []
     for item, draft in [(c, False) for c in check['proposed']] + [(c, True) for c in check['drafts']]:
         c = cands[item['candidate']]
-        proposed = {'name': c['name'], 'line': c['line'], 'group': c['group'], 'role': 'not-shown'}
+        # Review only asks whether this is a real, well-worded pain; ranking decides where it sits.
+        proposed = {'name': c['name'], 'line': c['line'], 'group': c['group']}
         out.append({'kind': 'add', 'painIds': [c['id']], 'group': c['group'], 'current': None, 'proposed': proposed,
-                    'alternatives': [{**proposed, 'role': 'shown'}],
+                    'alternatives': [],
                     'why': {'prompt': 'source' if c.get('sources') else 'lead only', 'detail': c.get('prevalence', ''),
                             'sources': c.get('sources', [])},
                     'draft': draft, 'allowOwn': True, 'newEvidence': bool(item.get('newEvidence')),
@@ -724,26 +765,92 @@ def flag_duplicates(catalog, proposals):
             p['similar'] = alike
 
 
-def review_build(root, runs, name=None, extra=()):
+def unsettled_rewords(root, runs):
+    """Rewords from these refine runs that no ingested set has decided and that aren't waiting in later.json.
+    Returns {painId: [review sets holding it that aren't ingested yet]}."""
+    origins = {str(Path(r).relative_to(root)) for r in runs if not (Path(r) / 'sweep.json').is_file()}
+    later = read(root / LATER)['proposals'] if (root / LATER).is_file() else []
+    settled = {p['painIds'][0] for p in later if p['kind'] == 'reword'}
+    pending = {}
+    for folder in sorted(p for p in (root / REVIEWS).glob('*') if (p / 'proposals.json').is_file()) if (root / REVIEWS).is_dir() else []:
+        done = (folder / 'ingested.json').is_file()
+        for p in read(folder / 'proposals.json')['proposals']:
+            if p['kind'] == 'reword' and p.get('origin') in origins:
+                if done:
+                    settled.add(p['painIds'][0])
+                else:
+                    pending.setdefault(p['painIds'][0], []).append(folder.name)
+    unsettled = {}
+    for run in runs:
+        run = Path(run)
+        if (run / 'alternatives.json').is_file():
+            for pain_id in read(run / 'alternatives.json')['alternatives']:
+                if pain_id not in settled:
+                    unsettled[pain_id] = sorted(set(pending.get(pain_id, [])))
+    return unsettled
+
+
+def refresh_wording(p, pains):
+    """Structure cards show each pain as the catalog holds it now, including wording ingested since they were made."""
+    def now(pain_id):
+        return pains.get(pain_id)
+    p = dict(p)
+    p['side'] = [({**s, 'name': now(s['id'])['name'], 'line': now(s['id'])['line']} if now(s['id']) else s) for s in p.get('side', [])]
+    ids = p['painIds']
+    if p['kind'] in ('keep', 'other-page') and all(now(i) for i in ids):
+        p['current'], p['proposed'] = wording(now(ids[0])), wording(now(ids[1]))
+    elif p['kind'] == 'merge':
+        survivor, gone = now(p['payload']['survivor']), now(p['payload']['merged'])
+        if survivor and gone:
+            p['current'], p['proposed'], p['alternatives'] = wording(gone), wording(survivor), [wording(gone)]
+    elif p['kind'] == 'split' and now(p['payload']['splitOf']):
+        p['current'] = wording(now(p['payload']['splitOf']))
+    elif p['kind'] == 'move' and now(ids[0]):
+        fresh = wording(now(ids[0]))
+        p['current'], p['proposed'] = {**p['current'], **fresh}, {**p['proposed'], **fresh}
+        p['alternatives'] = [{**a, **fresh} for a in p['alternatives']]
+    return p
+
+
+def review_build(root, runs, name=None, extra=(), stage=None):
+    """Build a review set. `stage` is 'wording' or 'structure' (see STAGES); None keeps every kind."""
     root, catalog = Path(root), load(root)
+    if stage is not None and stage not in STAGES:
+        raise CheckError('stage must be one of %s' % ', '.join(STAGES))
+    if stage == 'structure':
+        waiting = unsettled_rewords(root, runs)
+        if waiting:
+            sets = sorted({s for v in waiting.values() for s in v})
+            where = ('ingest %s first' % ', '.join(sets)) if sets else 'build and ingest a wording set for these runs first (--stage wording)'
+            raise CheckError('rewordings not decided yet (%s): %s' % (', '.join(sorted(waiting)), where))
+    kinds = STAGES[stage] if stage else None
     proposals, covered, flags, sources = list(extra), [], [], []
     for run in runs:
         run = Path(run)
         sources.append(str(run.relative_to(root)))
+        # Derived files aren't committed (design decision 12): rebuild them from the run's inputs every time.
         if (run / 'sweep.json').is_file():
+            sweep_check(root, run)
             found, cover = sweep_proposals(catalog, run)
             covered += cover
         else:
+            refine_lint(root, run)
+            refine_check(root, run)
             found, more = refine_proposals(catalog, run)
             flags += more
         for p in found:
             p['origin'] = str(run.relative_to(root))
         proposals += found
     later = read(root / LATER)['proposals'] if (root / LATER).is_file() else []
+    if kinds:
+        later = [p for p in later if p['kind'] in kinds]
+        proposals = [p for p in proposals if p['kind'] in kinds]
+    if stage == 'structure':
+        later = [refresh_wording(p, catalog['pains']) for p in later]
     found_all, proposals, seen = later + proposals, [], set()
     for p in found_all:
-        # Two refine runs can propose the same overlap action (a pair spanning both scopes); show it once.
-        key = (p['kind'], frozenset(p['painIds'])) if p['kind'] in ('keep', 'other-page', 'merge') else None
+        # The same proposal can come from two refine runs (a pair spanning both scopes) or back from later.json; show it once.
+        key = proposal_key(p) if p['kind'] in ('keep', 'other-page', 'merge', 'reword', 'move') else None
         if key and key in seen:
             continue
         seen.add(key)
@@ -753,7 +860,10 @@ def review_build(root, runs, name=None, extra=()):
         p.setdefault('draft', False)
         p.setdefault('side', [])
         p['id'] = 'p%03d' % n
-    set_id = (name or 'review') + '-' + datetime.datetime.now().strftime('%Y%m%d-%H%M%S')
+    set_id = base = (name or 'review') + '-' + datetime.datetime.now().strftime('%Y%m%d-%H%M%S')
+    n = 2
+    while (root / REVIEWS / set_id).exists():  # two sets built in the same second
+        set_id, n = '%s-%d' % (base, n), n + 1
     folder = root / REVIEWS / set_id
     folder.mkdir(parents=True, exist_ok=False)
     doc = {'schemaVersion': 1, 'setId': set_id, 'builtAt': today(), 'runs': sources, 'flags': flags,
@@ -766,6 +876,81 @@ def review_build(root, runs, name=None, extra=()):
     return {'set': str(folder.relative_to(root)), 'proposals': len(proposals), 'later': len(later),
             'possibleDuplicates': sum(bool(p.get('twins')) for p in proposals),
             'byKind': {k: sum(p['kind'] == k for p in proposals) for k in sorted({p['kind'] for p in proposals})}}
+
+
+# ---------- archive ----------
+
+ARCHIVE = DATA_ROOT + '/archive'
+# Rebuilt from a run's inputs whenever needed, so never committed or archived (design decision 12).
+DERIVED = {'check.json', 'coverage.json', 'coverage.md', 'lint.json', 'balance.json', 'refine-check.json', 'review.html'}
+
+
+def batch_name(set_id):
+    return re.sub(r'-(wording|structure)$', '', re.sub(r'-\d{8}-\d{6}(-\d+)?$', '', set_id))
+
+
+def archive(root, set_dirs, name=None):
+    """Fold closed review sets, and every run and set that shares their runs, into one JSON Lines file, then remove them."""
+    root = Path(root)
+    every = {f.name: read(f / 'proposals.json')['runs'] for f in sorted((root / REVIEWS).glob('*'))
+             if (f / 'proposals.json').is_file()} if (root / REVIEWS).is_dir() else {}
+    sets = {Path(s).name for s in set_dirs}
+    runs = {r for s in sets for r in every.get(s, [])}
+    grew = True
+    while grew:  # a batch is every set drawing on these runs, and every run those sets draw on
+        more = {s for s, rs in every.items() if set(rs) & runs} - sets
+        grew = bool(more)
+        sets |= more
+        runs |= {r for s in more for r in every[s]}
+    open_sets = sorted(s for s in sets if not (root / REVIEWS / s / 'ingested.json').is_file())
+    if open_sets:
+        raise CheckError('not archived: %s still open; ingest it first' % ', '.join(open_sets))
+    refine_runs = [r for r in runs if not (root / r / 'sweep.json').is_file()]
+    kinds = {p['kind'] for s in sets for p in read(root / REVIEWS / s / 'proposals.json')['proposals']}
+    if refine_runs and not kinds & set(STAGES['structure']):
+        raise CheckError('not archived: no structure set was built for %s; build and ingest it first (--stage structure)' % ', '.join(sorted(refine_runs)))
+    out = root / ARCHIVE / ((name or batch_name(sorted(sets)[0])) + '.jsonl')
+    if out.exists():
+        raise CheckError('%s already exists; archives are never overwritten' % out.relative_to(root))
+    folders = [(('sweep' if (root / r / 'sweep.json').is_file() else 'refine'), root / r) for r in sorted(runs)]
+    folders += [('review', root / REVIEWS / s) for s in sorted(sets)]
+    lines = []
+    for kind, folder in folders:
+        # Derived files sit at a run's top level; anything deeper (such as sorts/) is an input.
+        for f in sorted(p for p in folder.rglob('*') if p.is_file() and not (p.parent == folder and p.name in DERIVED)):
+            text = f.read_text()
+            data = json.loads(text) if f.suffix == '.json' else text
+            lines.append(json.dumps({'kind': kind, 'path': str(f.relative_to(root)), 'data': data}, ensure_ascii=False))
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text('\n'.join(lines) + '\n')
+    if [json.loads(line)['path'] for line in out.read_text().splitlines()] != [json.loads(line)['path'] for line in lines]:
+        out.unlink()
+        raise CheckError('the archive did not read back; nothing was removed')
+    for _, folder in folders:
+        if not folder.is_dir():
+            continue
+        shutil.rmtree(folder)
+        if folder.parent != root / REVIEWS and not any(folder.parent.iterdir()):
+            folder.parent.rmdir()  # an empty scope folder, such as sweeps/home
+    return {'archive': str(out.relative_to(root)), 'sets': sorted(sets), 'runs': sorted(runs), 'files': len(lines)}
+
+
+def unpack(root, archive_path, prefix, dest):
+    """Write the archived files under `prefix` (a run or set path) into `dest`, keeping their paths. Returns dest/prefix."""
+    dest = Path(dest)
+    for line in (Path(root) / archive_path).read_text().splitlines():
+        record = json.loads(line)
+        if record['path'].startswith(prefix.rstrip('/') + '/'):
+            target = dest / record['path']
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(json.dumps(record['data'], indent=2, ensure_ascii=False) + '\n' if isinstance(record['data'], (dict, list)) else record['data'])
+    return dest / prefix
+
+
+def coverage_archived(root, archive_path, run):
+    """Coverage for a sweep folded into an archive: the same result as `coverage` on its folder, written nowhere."""
+    with tempfile.TemporaryDirectory() as tmp:
+        return coverage(root, unpack(root, archive_path, run, tmp), origin=run)
 
 
 # ---------- ingest ----------
@@ -808,8 +993,8 @@ def apply_decisions(catalog, proposals_doc, decisions_doc, date=None):
         if decision == 'own' and not p.get('allowOwn'):
             issues.append('%s: own wording is not possible for a %s' % (p['id'], kind))
             continue
-        if p.get('draft') and decision in ('accept', 'alternative'):
-            issues.append('%s: a draft without an opened source can only be added as the founder\'s own' % p['id'])
+        if p.get('draft') and decision == 'alternative':
+            issues.append('%s: a draft without an opened source has no alternatives' % p['id'])
             continue
         entry = {'date': date, 'at': stamp, 'prompt': '%s (%s, review %s %s)' % (p['why'].get('prompt', ''), p.get('origin', ''), set_id, p['id']),
                  'note': d.get('note', '')}
@@ -852,10 +1037,13 @@ def apply_decisions(catalog, proposals_doc, decisions_doc, date=None):
             if c['id'] in pains:
                 issues.append('%s: %s is already in the catalog' % (p['id'], c['id']))
                 continue
-            role = value.get('role') or 'not-shown'
-            pains[c['id']] = new_record(c, value, 'accepted', role)
-            pains[c['id']]['history'] = [{**entry, 'kind': 'accept', 'to': {'name': value['name'], 'line': value['line'], 'role': role},
-                                          'own': decision == 'own'}]
+            no_source = bool(p.get('draft'))
+            # Every accepted new pain waits for ranking, whatever role an older set's alternative offered.
+            pains[c['id']] = new_record(c, value, 'accepted', 'not-shown')
+            pains[c['id']]['unranked'] = True
+            pains[c['id']]['history'] = [{**entry, 'kind': 'accept', 'to': {'name': value['name'], 'line': value['line'], 'role': 'not-shown'},
+                                          # A draft has no opened source, so it is in on the founder's word alone.
+                                          'unranked': True, 'own': decision == 'own' or no_source, 'noSource': no_source}]
             touched[c['id']] = True
         elif kind in ('reword', 'drift'):
             pain_id = p['painIds'][0]
@@ -1072,7 +1260,10 @@ def ingest(root, set_dir, decisions_path, client=None, dry_run=False, date=None)
         summary['editor']['revision'] = client.save_draft(draft['revision'], note[:500], patch['content'])['revision']
     write(root / CATALOG, after)
     (root / DATA_ROOT / 'catalog.md').write_text(render(after, root))
-    write(root / LATER, {'schemaVersion': 1, 'proposals': later})
+    # Keep later proposals this set didn't carry (the other step's), and replace the ones it did.
+    carried = {proposal_key(p) for p in proposals_doc['proposals']}
+    kept = [p for p in (read(root / LATER)['proposals'] if (root / LATER).is_file() else []) if proposal_key(p) not in carried]
+    write(root / LATER, {'schemaVersion': 1, 'proposals': kept + later})
     write(set_dir / 'ingested.json', {**summary, 'log': log, 'ingestedAt': today()})
     return summary
 
@@ -1149,12 +1340,13 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('command', choices=('validate', 'seed', 'render', 'resolve', 'sweep-new', 'sweep-check', 'coverage',
                                             'refine-new', 'refine-lint', 'sort-input', 'refine-check', 'review-build',
-                                            'ingest', 'drift'))
+                                            'ingest', 'drift', 'archive'))
     parser.add_argument('targets', nargs='*')
     parser.add_argument('--root', type=Path, default=Path.cwd())
     parser.add_argument('--force', action='store_true', help='seed: overwrite an existing catalog')
     parser.add_argument('--seed', type=int, default=0, help='sort-input: shuffle seed, one per sorter')
-    parser.add_argument('--name', help='review-build: a short name for the review set, such as money-economy')
+    parser.add_argument('--name', help='review-build: a short name for the review set, such as money-economy; archive: the archive file name')
+    parser.add_argument('--stage', choices=tuple(STAGES), help='review-build: wording (new pains, rewordings) or structure (overlaps, moves), built after the wording set is ingested')
     parser.add_argument('--dry-run', action='store_true', help='ingest: print the catalog and editor changes, write nothing')
     parser.add_argument('--review', action='store_true', help='drift: also build a review set to bring editor wording back')
     args = parser.parse_args()
@@ -1172,6 +1364,14 @@ def main():
         if len(args.targets) != 1:
             parser.error('sweep-new needs one scope: a group ID, personal, societal or all')
         out = sweep_new(root, args.targets[0])
+    elif args.command == 'coverage' and len(args.targets) == 2 and args.targets[0].endswith('.jsonl'):
+        out = coverage_archived(root, inside(args.targets[0], ARCHIVE).relative_to(root), args.targets[1])
+        print(json.dumps(out, indent=2, ensure_ascii=False))
+        return 1 if out['issues'] else 0
+    elif args.command == 'archive':
+        if not args.targets:
+            parser.error('archive needs one or more ingested review set directories')
+        out = archive(root, [inside(t, REVIEWS) for t in args.targets], args.name)
     elif args.command in ('sweep-check', 'coverage'):
         if len(args.targets) != 1:
             parser.error(args.command + ' needs a sweep run directory')
@@ -1201,7 +1401,9 @@ def main():
             if not (path.is_relative_to(root / SWEEPS) or path.is_relative_to(root / REFINE)):
                 parser.error('Run directories must be inside ' + SWEEPS + ' or ' + REFINE)
             runs.append(path)
-        out = review_build(root, runs, args.name)
+        if not args.stage:
+            parser.error('review-build needs --stage wording or --stage structure')
+        out = review_build(root, runs, args.name, stage=args.stage)
     elif args.command == 'ingest':
         if len(args.targets) != 2:
             parser.error('ingest needs the review set directory and the decisions.json path')
@@ -1212,7 +1414,7 @@ def main():
         out = {'drift': found}
         if args.review:
             extra = drift_proposals(catalog, found)
-            out['review'] = review_build(root, [], args.name or 'drift', extra) if extra else None
+            out['review'] = review_build(root, [], args.name or 'drift', extra, stage='wording') if extra else None
     elif args.command == 'validate':
         issues = validate(load(root))
         print(json.dumps({'valid': not issues, 'issues': issues}, indent=2, ensure_ascii=False))

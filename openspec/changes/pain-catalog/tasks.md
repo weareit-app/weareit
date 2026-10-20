@@ -44,6 +44,28 @@
 - [x] 7.1 Run discover and refine on Money and Economy, build the review set, and verify the founder can work through it (target 50 proposals in 20 minutes)
 - [x] 7.2 Ingest the founder's decisions, show the draft patch, and verify nothing is published and `catalog.py validate` and `cards.py stale` run cleanly
 
+## 8. Two review steps
+
+- [x] 8.1 Add `--stage wording|structure` to `review-build`, with the refusal when the wording set isn't ingested yet. Verify with tests that a structure set built after a wording ingest shows the founder's own wording, and that an early build refuses
+- [x] 8.2 Update `/pains-review`, `tools/pains/README.md` and `data-model.md` to describe the two steps, and verify the skill names the commands that exist
+- [x] 8.3 Move the open review sets onto two steps. Build a people-home wording set that carries over the founder's wording decisions already made. Rebuild the five unstarted sets as wording sets. Build each structure set after its wording ingest. Verify each set builds and opens
+
+## 9. Placement waits for ranking
+
+- [x] 9.1 In ingest, add every accepted new pain (accepted or own wording, including an `alternative` from an older set) with role `not-shown` and `unranked: true`, and have `validate` allow `unranked` only on accepted, not-shown pains. Verify with tests for an accepted new pain, an older set's "Alternative 2" and a misplaced mark
+- [x] 9.2 Make the new-pain card offer accept, own wording, reject and later only, with help text saying ranking decides where it sits, and update `README.md`, `data-model.md` and `/pains-review`. Verify by opening a rebuilt set in the browser
+- [x] 9.3 Rewrite body-mind's 16 new pains to `not-shown` and `unranked` with a history entry, then rebuild the six open wording sets, carrying over the founder's decisions. Verify `validate` passes, the editor draft is unchanged, and each set opens with its decisions in place
+- [x] 9.4 Ask the `pain-tiers` session to map `unranked` pains to `secondary` in its role migration, and to rank them. Verify its spec names the mark
+- [x] 9.5 Let the founder accept a draft new pain from its card: the page enables Accept with help text saying it has no opened source, and ingest records it as the founder's own with no evidence. Verify with a test, by opening a rebuilt set, and by carrying the founder's decisions into the rebuilt wording sets
+
+
+## 10. Keep inputs, archive closed batches
+
+- [x] 10.1 Git-ignore derived run files, and make `review-build` rerun `sweep-check` and `refine-check` (which rewrites lint and balance) instead of reading saved results. Verify with a test that a set builds from inputs only
+- [x] 10.2 Add `archive <set…>`: write `archive/<batch>.jsonl` from the sets' runs and review folders, remove them, refuse while a run feeds an un-ingested set, and let `coverage` read an archive. Verify with tests for each scenario
+- [x] 10.3 Archive every closed batch (money-economy, body-mind, the six two-step batches and the two serial-comma sets), and remove committed derived files. Verify `validate`, rerun coverage from one archive and match the old share, and report the line count before and after
+- [x] 10.4 Update `README.md`, `data-model.md`, `/pains-review` and `/pains-ingest` (archive after the structure ingest)
+
 ## Workflow follow-up
 
 - Update the `docs/spec/MIGRATION.md` row for `specs/004-pain-catalog/` once this change is confirmed, then plan the full sweep.

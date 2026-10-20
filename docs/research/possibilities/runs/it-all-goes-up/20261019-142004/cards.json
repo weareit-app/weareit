@@ -148,7 +148,7 @@
         {
           "id": "ineq-credit-cheaply-own-circle",
           "title": "Start a savings circle with people you trust",
-          "whatChanges": "Many families already pool money this way and call it a tanda, susu or chit fund: each person pays in monthly and one person takes the whole pot each turn. Writing down the order and the dates keeps everyone on the same page.",
+          "whatChanges": "Many families already pool money this way and call it a tanda, susu, or chit fund: each person pays in monthly and one person takes the whole pot each turn. Writing down the order and the dates keeps everyone on the same page.",
           "who": "You and friends or family",
           "speculative": true,
           "speculativeRationale": "Rotating savings groups are a long-standing practice in many communities; no specific source was opened for this fix in this run.",
@@ -221,7 +221,7 @@
     },
     "ineq-baby-bonds": {
       "title": "Every child starting adult life with some savings",
-      "line": "Kids born into families like mine turn 18 with real money for school, a home or a business.",
+      "line": "Kids born into families like mine turn 18 with real money for school, a home, or a business.",
       "lens": "policy",
       "ambition": "together",
       "status": "societal_proposal",
@@ -315,7 +315,7 @@
           "id": "ineq-wage-boards-council",
           "title": "Learn how a state council sets wages for one industry",
           "whatChanges": "Since April 2024, fast food restaurants in California that belong to chains with 60 or more locations nationwide have had to pay at least $20 an hour, with a few exceptions such as some bakeries. A state council can raise that by up to 3.5% a year, and the deal came from unions and the industry agreeing to it rather than one side winning outright.",
-          "who": "State lawmakers, unions and employers",
+          "who": "State lawmakers, unions, and employers",
           "exemplarRef": "ca-fast-food-council",
           "speculative": false,
           "firstStep": "Look up whether your state has ever used a wage board for any industry.",
@@ -397,7 +397,7 @@
           "id": "ineq-pay-gap-at-work-cap",
           "title": "Propose a cap on top pay compared with bottom pay",
           "whatChanges": "Mondragon, a federation of worker cooperatives in Spain's Basque Country, caps the gap between its highest- and lowest-paid people at 6 to 1 across nearly 70,000 member-owners. Not every worker there is a member, and its appliance maker Fagor went bankrupt after 2008, so the model isn't without trouble.",
-          "who": "Workers, owners and boards",
+          "who": "Workers, owners, and boards",
           "exemplarRef": "mondragon",
           "speculative": false,
           "firstStep": "If your employer is a public company, find the CEO pay ratio in its latest proxy statement.",
@@ -511,7 +511,7 @@
       }
     },
     "ineq-anchor-buying": {
-      "title": "Hospitals, colleges and city hall buying from local businesses",
+      "title": "Hospitals, colleges, and city hall buying from local businesses",
       "line": "The biggest employers in my area spend their money with local firms and co-ops, so the jobs stay here.",
       "lens": "community",
       "ambition": "together",

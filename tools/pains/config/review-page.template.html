@@ -68,7 +68,7 @@ button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-
 <div class="wrap">
   <header>
     <h1>Pain review</h1>
-    <p class="intro">Keys: <kbd>A</kbd> accept, <kbd>2</kbd>/<kbd>3</kbd> an alternative, <kbd>O</kbd> your own wording, <kbd>R</kbd> reject, <kbd>L</kbd> later, <kbd>U</kbd> undo, <kbd>N</kbd>/<kbd>P</kbd> next and previous. A draft (no opened source) can only be added as your own.</p>
+    <p class="intro">Keys: <kbd>A</kbd> accept, <kbd>2</kbd>/<kbd>3</kbd> an alternative, <kbd>O</kbd> your own wording, <kbd>R</kbd> reject, <kbd>L</kbd> later, <kbd>U</kbd> undo, <kbd>N</kbd>/<kbd>P</kbd> next and previous.</p>
     <p class="intro">One proposal at a time. Choosing a decision saves it and stays on the same proposal; move on with <strong>Next</strong>. Decisions are kept in this browser as you go. When you're done, download them and give the file to <code>/pains-ingest</code>.</p>
     <p class="flags" id="flags"></p>
   </header>
@@ -96,7 +96,6 @@ button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-
   <div class="own" id="own" hidden>
     <label>Name <input type="text" id="own-name"></label>
     <label>Line <input type="text" id="own-line"></label>
-    <label id="own-shown-label"><input type="checkbox" id="own-shown"> Show on the page</label>
     <button id="own-save">Save my wording</button>
   </div>
   <label>Note (optional) <textarea id="note"></textarea></label>
@@ -111,7 +110,7 @@ button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-
 const DATA = /*__DATA__*/;
 const KEY = 'pain-review:' + DATA.setId;
 const HELP = {
-  add: 'Accept adds it to the catalog, not shown on the page. Alternative 2 adds it and shows it. Reject keeps it out; if it duplicates another pain, tick which below, and its sources count for that pain.',
+  add: 'Accept adds it to the catalog. Ranking decides later where it sits on the page, so you only decide whether it is a real pain and worded well. Reject keeps it out; if it duplicates another pain, tick which below, and its sources count for that pain.',
   reword: 'Accept uses the proposed wording. The old wording is kept as another way people say it.',
   merge: 'Accept retires the first pain into the second; old links keep working. Reject keeps both.',
   split: 'Accept splits the pain in two. Reject keeps it as one.',
@@ -152,14 +151,13 @@ function render() {
   const d = decisions[p.id];
   const alts = p.alternatives || [];
   document.querySelectorAll('#decide button[data-d="alternative"]').forEach((b) => { b.hidden = alts.length <= Number(b.dataset.choice); b.disabled = b.hidden || !!p.draft; });
-  document.querySelector('#decide button[data-d="accept"]').disabled = !!p.draft;
   document.querySelector('#decide button[data-d="own"]').disabled = !p.allowOwn;
   document.querySelectorAll('#decide button[data-d]').forEach((b) => b.setAttribute('aria-pressed', String(!!d && d.decision === b.dataset.d && (b.dataset.d !== 'alternative' || d.choice === Number(b.dataset.choice)))));
   const why = p.why || {};
   card.innerHTML =
     '<p class="kind" id="card-title">' + esc(KIND[p.kind] || p.kind) + (p.newEvidence ? ' · new evidence' : '') + (p.draft ? ' · draft: no opened source' : '') + ' · ' + esc(p.painIds.join(', ')) + '</p>' +
     '<p class="state" data-d="' + esc(d ? d.decision : '') + '">' + (d ? 'Decided: ' + esc(d.decision) + (d.decision === 'alternative' ? ' ' + (d.choice + 2) : '') + (d.duplicateOf ? ', duplicate of ' + esc(d.duplicateOf.join(', ')) : '') : 'Not decided yet') + '</p>' +
-    '<p class="help">' + esc(HELP[p.kind] || '') + '</p>' +
+    '<p class="help">' + (p.draft ? 'No opened source: accepting adds it on your word, with no evidence. ' : '') + esc(HELP[p.kind] || '') + '</p>' +
     '<div class="compare"><section aria-label="' + label(p, 0) + '"><h2>' + label(p, 0) + '</h2>' + wording(p.current) + '</section>' +
     '<section aria-label="' + label(p, 1) + '"><h2>' + label(p, 1) + '</h2>' + wording(p.proposed) + '</section>' +
     alts.map((a, i) => { const t = label(p, 2, i + 2) + (label(p, 2, i + 2).endsWith(String(i + 2)) ? '' : ' (key ' + (i + 2) + ')'); return '<section aria-label="' + t + '"><h2>' + t + '</h2>' + wording(a) + '</section>'; }).join('') + '</div>' +
@@ -176,8 +174,6 @@ function render() {
   $('dup-options').innerHTML = twins.map((t) => '<label><input type="checkbox" value="' + esc(t.id) + '"' + (chosen.has(t.id) ? ' checked' : '') + '> <span><code>' + esc(t.id) + '</code> ' + esc(t.name) + '</span></label>').join('') || '<p class="muted">No likely duplicates were found.</p>';
   $('dup-other').value = [...chosen].filter((id) => !twins.some((t) => t.id === id)).join(', ');
   $('own').hidden = !(d && d.decision === 'own');
-  $('own-shown-label').hidden = p.kind !== 'add';
-  $('own-shown').checked = !!(d && d.own && d.own.role === 'shown');
   if (d && d.own) { $('own-name').value = d.own.name || ''; $('own-line').value = d.own.line || ''; }
   else { $('own-name').value = (p.proposed || p.current || {}).name || ''; $('own-line').value = (p.proposed || p.current || {}).line || ''; }
 }
@@ -217,7 +213,6 @@ document.querySelectorAll('#decide button[data-d]').forEach((b) => b.addEventLis
 $('own-save').addEventListener('click', () => {
   const own = { name: $('own-name').value.trim(), line: $('own-line').value.trim() };
   if (!own.name || !own.line) { $('announce').textContent = 'Give both a name and a line.'; return; }
-  if (current() && current().kind === 'add') own.role = $('own-shown').checked ? 'shown' : 'not-shown';
   decide('own', { own: own });
 });
 $('undo').addEventListener('click', undo);
@@ -237,8 +232,8 @@ $('dup').addEventListener('change', syncDuplicates);
 $('download').addEventListener('click', () => {
   const blob = new Blob([JSON.stringify({ schemaVersion: 1, setId: DATA.setId, decisions: decisions }, null, 2)], { type: 'application/json' });
   const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob); a.download = 'decisions.json'; a.click();
-  $('announce').textContent = 'Downloaded decisions.json.';
+  a.href = URL.createObjectURL(blob); a.download = 'decisions-' + DATA.setId + '.json'; a.click();
+  $('announce').textContent = 'Downloaded decisions-' + DATA.setId + '.json.';
 });
 document.addEventListener('keydown', (e) => {
   if (e.target.closest('input, textarea, select') || e.metaKey || e.ctrlKey || e.altKey) return;

@@ -7,7 +7,7 @@ The founder's catalog of every known human pain, shown on It's pages or not, and
 ## ADDED Requirements
 
 ### Requirement: Catalog record
-Each pain in the catalog SHALL have a stable ID, a short name, a first-person line, a page (`personal` or `societal`), one primary group with optional secondary groups, a status (`candidate`, `accepted`, `merged`, `retired` or `rejected`), a role (`shown` or `not-shown`), sourced evidence of how common it is, outside framework references in one shape, aliases, relations, a sensitivity tag and a decision history.
+Each pain in the catalog SHALL have a stable ID, a short name, a first-person line, a page (`personal` or `societal`), one primary group with optional secondary groups, a status (`candidate`, `accepted`, `merged`, `retired` or `rejected`), a role (`shown` or `not-shown`), sourced evidence of how common it is, outside framework references in one shape, aliases, relations, a sensitivity tag, a decision history and, until ranking places it, a mark that a newly accepted pain is waiting for ranking.
 
 #### Scenario: Missing field
 - **WHEN** a pain in the catalog has no line or no page
@@ -42,6 +42,17 @@ Only accepted pains with the role `shown` SHALL be sent toward the pages. The ca
 - **WHEN** an accepted pain has the role `not-shown`
 - **THEN** ingest never adds it to the content editor draft
 
+### Requirement: New pains wait for ranking
+Review SHALL NOT ask the founder whether a new pain is shown. A new pain the founder accepts, as proposed or in their own wording, SHALL be added with the role `not-shown` and marked as waiting for ranking, so it stays out of the editor draft until ranking proposes where it sits. Validation SHALL allow the mark only on accepted pains with the role `not-shown`.
+
+#### Scenario: Accepting a new pain
+- **WHEN** the founder accepts the new pain Pests and ingest runs
+- **THEN** the catalog holds Pests as accepted, not shown and waiting for ranking, and the editor draft is unchanged
+
+#### Scenario: The new-pain card
+- **WHEN** the founder opens a new pain in the review page
+- **THEN** it offers accept, their own wording, reject and later, and no choice between shown and not shown
+
 ### Requirement: Discovery runs on demand
 Discovery SHALL be runnable for one group, one page or the whole catalog, at any time. Each sweep SHALL be saved as its own run without overwriting earlier ones, and SHALL return only candidates.
 
@@ -54,7 +65,7 @@ Every candidate SHALL cite a source that was opened during the sweep, with its U
 
 #### Scenario: Lead without an opened source
 - **WHEN** a candidate comes only from the founder's pool or an AI-generated registry
-- **THEN** it stays in draft and can't be accepted until a source is opened, unless the founder accepts it explicitly as their own
+- **THEN** it stays in draft, and the review page says it has no opened source; the founder can still accept it on their own word, which ingest records as theirs, with no evidence
 
 #### Scenario: A source outside the list
 - **WHEN** an agent finds a national health survey not on the list
@@ -135,6 +146,17 @@ The review page SHALL show one proposal at a time: its kind, the current value n
 - **WHEN** the founder filters by group Money and kind "reword"
 - **THEN** only those proposals are shown, with how many are left
 
+### Requirement: Wording before structure
+A review SHALL come in two steps for the same runs. The wording set SHALL hold new pains, rewordings and drift proposals. The structure set SHALL hold overlap actions (merge, split, keep, other-page) and group moves. It SHALL be built only after the wording set's decisions are ingested, and it SHALL show each pain's wording as the catalog holds it then, including the founder's own wording. A proposal marked "later", or left undecided, SHALL return in the next set of the same step.
+
+#### Scenario: Keep both after a reword
+- **WHEN** the founder rewrites Support as "No support" in the wording set and it is ingested
+- **THEN** the structure set's "keep both" card for `no-one-to-lean-on` shows "No support"
+
+#### Scenario: Structure built too early
+- **WHEN** a structure set is asked for runs whose wording set isn't ingested yet
+- **THEN** the build refuses and names the wording set to ingest first
+
 ### Requirement: Ingesting decisions
 Ingest SHALL apply only accepted decisions (an accepted proposal, an alternative or the founder's own wording). Each change SHALL be added to the pain's history with the date, the founder's note, what prompted it (source, lint rule or card sort) and the previous value. Rejected proposals SHALL be remembered. "Later" SHALL change nothing and return in the next review.
 
@@ -168,10 +190,10 @@ Ingest SHALL write accepted wording and group changes for pains already in the c
 - **THEN** the editor draft has the new description for `poor-sleep`, and the change note lists the decision
 
 ### Requirement: New shown pains wait for futures
-Ingest SHALL add a new pain with the role `shown` to the editor draft only once it has futures the founder approved. Until then the catalog SHALL list it as "accepted, waiting for futures".
+Ingest SHALL add a pain newly given the role `shown`, and not yet in the editor draft, to the draft only once it has futures the founder approved. Until then the catalog SHALL list it as "accepted, waiting for futures".
 
 #### Scenario: No futures yet
-- **WHEN** a newly accepted shown pain has no approved futures
+- **WHEN** a pain newly given the role `shown` has no approved futures
 - **THEN** ingest leaves it out of the draft and lists it as waiting for futures
 
 ### Requirement: Ingest never publishes
@@ -215,3 +237,25 @@ Every review action SHALL be reachable by keyboard. A screen reader SHALL hear e
 #### Scenario: Keyboard only
 - **WHEN** the founder reviews a set using only the keyboard
 - **THEN** they can decide, add a note, undo, filter and move to the next proposal
+
+### Requirement: Derived run files aren't kept
+Sweep checks, coverage reports, lint and balance results, refine checks and the review page SHALL be rebuilt from a run's inputs whenever they're needed, and SHALL NOT be committed. Building a review set SHALL rerun the sweep and refine checks itself, and SHALL refuse a run that has issues.
+
+#### Scenario: Fresh checkout
+- **WHEN** a sweep folder holds only `sweep.json`, `lists.json`, `mapping.json` and `candidates.json`
+- **THEN** `review-build` reruns `sweep-check`, builds the set and writes its page
+
+### Requirement: Closed runs are archived
+Once every review set that draws on a batch's runs is ingested, in both the wording and the structure step, the runs' inputs and those sets' proposals, decisions and ingest summaries SHALL be folded into one archive file per batch, one record per line. Their folders SHALL then be removed. The archive SHALL be enough to rerun coverage for its lists and to audit any decision. A run that still feeds an open set SHALL NOT be archived. `catalog.json` stays one field per line.
+
+#### Scenario: Archiving a finished batch
+- **WHEN** the people-home wording and structure sets are both ingested and the founder archives the batch
+- **THEN** `archive/people-home.jsonl` holds the people and home sweep and refine inputs and both sets, and their folders are gone
+
+#### Scenario: Open set
+- **WHEN** a refine run feeds a structure set that isn't ingested yet
+- **THEN** archiving refuses and names that set
+
+#### Scenario: Coverage from an archive
+- **WHEN** the founder asks for coverage of an archived sweep
+- **THEN** coverage is computed from the archive with the same result as from the folder

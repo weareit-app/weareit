@@ -13,7 +13,7 @@
 
 **Goals:**
 - One catalog file that every pain tool reads, with history kept inside it.
-- Every step can be rerun and leaves a dated run folder behind, like the generator does.
+- Every step can be rerun. While its review is open it leaves a dated run folder behind, like the generator does; once ingested, the batch folds into one archive file.
 - Ingest is the only step that touches the CMS, and it only ever writes the draft.
 
 **Non-Goals:**
@@ -31,6 +31,7 @@
    - `sweeps/<scope>/<runId>/` with `candidates.json`, `coverage.json` and `coverage.md`.
    - `refine/<scope>/<runId>/` with `lint.json`, `alternatives.json`, `overlaps.json`, `labels.json`, `sorts/{1,2,3}.json` and `balance.json`.
    - `reviews/<setId>/` with `proposals.json`, `review.html` and `decisions.json`.
+   - `archive/<batch>.jsonl`: a closed batch's run and review inputs (decision 12). Derived files are git-ignored.
 
    *Why:* the same shape as `docs/research/possibilities/runs`. Runs are never overwritten.
 4. **Pipeline split between agents and helper.** Skills drive agents for the judgement work: searching, wording alternatives, overlap calls and blind sorts, each sort a separate agent that sees only the names and lines plus the page's group names. `tools/pains/catalog.py` does everything mechanical: validate, seed, dedupe (normalized name, line and aliases, plus rejected source entries), coverage counts, lint, sort agreement, balance, building the review page, ingest and the drift check. Lint reuses the copy-guide rules and the banned phrases from `tools/possibilities/config`, imported, not copied.
@@ -47,6 +48,28 @@
 8. **Generator hand-off.** `cards.py pains()` reads `catalog.json`, resolving `merged-into`. New runs write `painName` and `painLine` into `run.json`. `cards.py stale` compares each latest run with the catalog. For old runs without wording, it uses the catalog history at `startedAt`, falling back to the seed wording.
 9. **Founder's pool.** Before copying, the CSVs are checked for names, places or personal notes. Only the generic pain hierarchy goes in, with a README saying it is AI-generated and counts as leads only.
 
+10. **Two review steps.** `review-build --stage wording|structure` builds both steps from the same sweep and refine runs.
+    - The wording set holds `add`, `reword` and `drift`.
+    - The structure set holds `merge`, `split`, `keep`, `other-page` and `move`. It reads each pain's name and line from the catalog at build time, so it shows the ingested wording.
+    - A structure build refuses while any reword from its refine runs is neither ingested nor in `later.json`.
+    - Moves still use the card sorts made on the old wording. Sorts aren't rerun; the founder rejects a move that a reword has made wrong.
+
+    *Why:* a "keep both" decision only makes sense against the final wording, and the catalog is already the one source of wording. *Alternative:* update cards on the page as the founder rewords. Rejected, because the page would have to work out the founder's own wording, duplicate flags and ingest order in the browser, and two separate sets give the same result with no new page logic. Founder decision, 2026-10-20.
+11. **Placement waits for ranking.** A new-pain card no longer offers shown or not shown. Accepting it, as proposed or in the founder's own wording, adds the pain with role `not-shown` and `unranked: true`, so it never reaches the editor draft before ranking. Validation allows `unranked` only on accepted, not-shown pains.
+    - Ranking (the `pain-tiers` change) ranks `unranked` pains with the rest of their heading and clears the mark. Its role migration maps `unranked` pains to `secondary`, not `hidden`, and every other `not-shown` pain to `hidden` as planned.
+    - An `alternative` decision on a new pain from a set built before this (Alternative 2, "shown") is read as accept.
+    - Body-mind's 16 new pains, already ingested as 12 shown and 4 not shown, are rewritten once to `not-shown` and `unranked`, with a history entry. None of them is in the editor draft yet, since all were waiting for futures.
+
+    *Why:* choosing shown or not shown before ranking curates a heading twice, and "not shown" would become `hidden`, which ranking skips. Founder decision, 2026-10-20: every accepted new pain is ranked; there is no separate "catalog only" choice in review. *Alternative:* keep the choice and let ranking revisit shown pains only. Rejected, because rare but serious pains accepted as not shown would never be ranked.
+12. **Keep inputs, rebuild outputs, archive closed batches.** Only inputs are committed:
+    - sweeps: `sweep.json`, `lists.json`, `mapping.json`, `candidates.json`
+    - refine: `refine.json`, `alternatives.json`, `overlaps.json`, `labels.json`, `sorts/`
+    - reviews: `proposals.json`, `decisions.json`, `ingested.json`
+
+    `check.json`, `coverage.json`, `coverage.md`, `lint.json`, `balance.json`, `refine-check.json` and `review.html` are git-ignored and rebuilt. `archive <set…>` writes one JSON Lines file per batch (`{kind, path, data}` per file) and removes the folders.
+
+    *Why:* the full sweep committed about 74,000 lines of data, and most of it was derived or only needed while a set was open. The catalog already holds each pain's evidence, covered entries and decision history. Founder decision, 2026-10-20. *Alternative:* delete closed runs. Rejected, because it would end coverage reruns and auditing.
+
 ## Risks / Trade-offs
 
 - [`pain-pages` hasn't landed, so there's no `retired` field] → Ingest refuses merges of published pains with a clear message until the field exists. Other changes still go through.
@@ -54,6 +77,7 @@
 - [Card sorts by agents reflect model bias, not people] → They only propose moves, and the founder decides. Research questions about real people's sorting stay open.
 - [The catalog and the CMS drift apart] → The drift check runs on every ingest and on demand. The CMS is never overwritten.
 - [The review set gets too big to be bearable] → Review sets are split by group, with a target of 50 proposals in under 20 minutes. The pilot (Money, Economy) checks this.
+- [Two sets per batch means more steps for the founder] → Each set is shorter, and a structure set is mostly quick "keep both" cards.
 - [Coverage numbers hide weak matches] → Each covered entry records the pain that covers it and why, so the founder can spot-check.
 
 ## Migration Plan

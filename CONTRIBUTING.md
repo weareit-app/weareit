@@ -24,6 +24,12 @@ pnpm test
 
 This runs Vitest tests for shared domain and content logic, Jest with `jest-expo` for native components, and Playwright flows against the Expo web app. Install Playwright's browser once on a new machine with `pnpm exec playwright install chromium`. The browser tests start their own app server on port 4173 and fail if that port is taken; set `E2E_PORT` to use another, for example `E2E_PORT=4174 pnpm test:e2e` when another worktree is running its tests.
 
+The research tools under `tools/pains`, `tools/possibilities` and `tools/style` are stdlib Python; CI runs their tests with:
+
+```sh
+pnpm run test:tools
+```
+
 Run the TypeScript and formatting checks with:
 
 ```sh

@@ -7,6 +7,14 @@ import random
 import re
 import statistics
 from pathlib import Path
+import importlib.util
+import sys
+
+# The serial-comma check is shared with tools/pains (copy style guide, founder 2026-10-20).
+sys.dont_write_bytecode = True
+_spec = importlib.util.spec_from_file_location('serial_comma', Path(__file__).resolve().parents[1] / 'style/serial_comma.py')
+serial_comma = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(serial_comma)
 
 ID = re.compile(r'^[a-z0-9]+(?:-[a-z0-9]+)*$')
 LENSES = ('individual', 'relational', 'community', 'market', 'policy', 'technology', 'culture')
@@ -320,6 +328,8 @@ def lint_run(run, root):
                 for m in generic.finditer(text) if generic else ():
                     add(key, 'generic-phrase', '%s: "%s"' % (field, m[0]), f.get('id'))
             for field, text in list(copy.items()) + list(fix_copy.items()) + [('firstStep', f.get('firstStep', ''))]:
+                for hit in serial_comma.find(text):
+                    add(key, 'serial-comma', '%s: add the Oxford comma in "%s"' % (field, hit['list'][:80]), f.get('id'))
                 if '!' in text:
                     add(key, 'exclamation', field + ': no exclamation marks', f.get('id'))
                 for m in boilerplate.finditer(text) if boilerplate else ():

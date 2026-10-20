@@ -159,6 +159,10 @@ class Lint(Base):
         self.mutate(lambda cs: cs['poor-sleep-c00']['fixes'][0].update(whatChanges='It may possibly help Preston workers.'))
         self.assertIn('stacked-hedges', self.rules())
 
+    def test_list_needs_the_serial_comma(self):
+        self.mutate(lambda cs: cs['poor-sleep-c00']['fixes'][0].update(whatChanges='Preston workers swap beef for chicken, beans or lentils.'))
+        self.assertIn('serial-comma', self.rules())
+
     def test_boilerplate_caveat(self):
         self.mutate(lambda cs: cs['poor-sleep-c00']['fixes'][0].update(whatChanges='An AI proposal for Preston workers.'))
         self.assertIn('boilerplate-caveat', self.rules())
@@ -513,7 +517,7 @@ class Cli(Base):
         self.assertEqual(escape.returncode, 2)
         ok = subprocess.run(base + ['new-run', 'burnout', '--root', str(self.tmp)], capture_output=True, text=True)
         self.assertEqual(ok.returncode, 0, ok.stderr)
-        self.assertIn("I've got nothing left.", ok.stdout)
+        self.assertIn(cards.read(self.tmp / cards.PAIN_CATALOG)['pains']['burnout']['line'], ok.stdout)
 
     def test_new_run_records_wording_and_follows_merges(self):
         catalog_path = self.tmp / cards.PAIN_CATALOG

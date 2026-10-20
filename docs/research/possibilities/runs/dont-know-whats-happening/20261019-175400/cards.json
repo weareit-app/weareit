@@ -78,7 +78,7 @@
         {
           "id": "coord-hear-neighbors-forum",
           "title": "Sign up for your neighborhood email list or forum",
-          "whatChanges": "In Vermont, Front Porch Forum started in Burlington in 2006 as a moderated neighborhood bulletin board, and by 2013 every town could have one, with 57,000 members across half the state. Most places have something similar, whether a forum, an email list or a neighborhood association newsletter.",
+          "whatChanges": "In Vermont, Front Porch Forum started in Burlington in 2006 as a moderated neighborhood bulletin board, and by 2013 every town could have one, with 57,000 members across half the state. Most places have something similar, whether a forum, an email list, or a neighborhood association newsletter.",
           "who": "You",
           "exemplarRef": "front-porch-forum",
           "speculative": false,
@@ -167,7 +167,7 @@
         {
           "id": "coord-city-hall-record-summary",
           "title": "Running record of who spoke and voted on your issue",
-          "whatChanges": "Builds a lasting record for your issue from council meeting transcripts and votes: who spoke during public comment, what they asked for and how each council member voted. Council Data Project already publishes searchable transcripts and voting records for 17 cities, which would be the place to start.",
+          "whatChanges": "Builds a lasting record for your issue from council meeting transcripts and votes: who spoke during public comment, what they asked for, and how each council member voted. Council Data Project already publishes searchable transcripts and voting records for 17 cities, which would be the place to start.",
           "who": "You and It",
           "exemplarRef": "council-data-project",
           "speculative": false,
@@ -333,7 +333,7 @@
           "id": "coord-neighbors-same-issue-quiet",
           "title": "Say privately what you care about and meet others once enough do",
           "whatChanges": "Lets you say privately what you care about, and offers to introduce you, with your permission, only when enough people nearby have said the same. Front Porch Forum works the same way in Vermont: each new forum stays in a waiting stage until 100 residents sign up, so nobody posts to an empty room.",
-          "who": "You, your neighbors and It",
+          "who": "You, your neighbors, and It",
           "exemplarRef": "front-porch-forum",
           "speculative": false,
           "firstStep": "Tell us you'd use this, and name the one local issue you would want to meet neighbors about.",
@@ -344,7 +344,7 @@
         {
           "id": "coord-neighbors-same-issue-meeting",
           "title": "Invite neighbors to one meeting about a single issue",
-          "whatChanges": "You don't have to wait for a tool. A short note to a neighborhood list naming one issue, one place and one time is how many neighborhood groups began.",
+          "whatChanges": "You don't have to wait for a tool. A short note to a neighborhood list naming one issue, one place, and one time is how many neighborhood groups began.",
           "who": "You and your neighbors",
           "speculative": true,
           "speculativeRationale": "General organizing practice; no single opened source for this fix.",
@@ -638,7 +638,7 @@
         {
           "id": "coord-check-group-recent",
           "title": "Look for a meeting or post from the last three months",
-          "whatChanges": "Websites outlive the groups that made them. A recent meeting date, newsletter or social media post is the simplest sign that real people are still doing the work.",
+          "whatChanges": "Websites outlive the groups that made them. A recent meeting date, newsletter, or social media post is the simplest sign that real people are still doing the work.",
           "who": "You",
           "speculative": true,
           "speculativeRationale": "Practical check; no single opened source.",
@@ -671,7 +671,7 @@
     },
     "coord-neighborhood-map": {
       "title": "A shared map of what my neighborhood already has",
-      "line": "My neighbors and I can see every group, skill and meeting space we already have on one page.",
+      "line": "My neighbors and I can see every group, skill, and meeting space we already have on one page.",
       "lens": "community",
       "ambition": "together",
       "status": "real_now",
@@ -683,7 +683,7 @@
           "who": "You and your neighbors",
           "exemplarRef": "abcd-asset-mapping",
           "speculative": false,
-          "firstStep": "Ask two neighbors to spend 20 minutes listing the groups, churches and clubs within walking distance.",
+          "firstStep": "Ask two neighbors to spend 20 minutes listing the groups, churches, and clubs within walking distance.",
           "firstStepMinutes": 20,
           "status": "real_now",
           "kind": "project"

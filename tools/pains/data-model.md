@@ -32,9 +32,9 @@ All files are UTF-8 JSON with `schemaVersion: 1` where shown. IDs match `^[a-z0-
     ownPain?: bool } } }                        # only when the founder said it is their own
 ```
 
-**check.json** (written by `sweep-check`): `{ issues, proposed: [{candidate, newEvidence?, earlier?, rejection?}], drafts, skipped: [{candidate, reason}], covered: [{list, entry, painId}] }`
+**check.json** (written by `sweep-check`; derived, not committed): `{ issues, proposed: [{candidate, newEvidence?, earlier?, rejection?}], drafts, skipped: [{candidate, reason}], covered: [{list, entry, painId}] }`
 
-**coverage.json** and **coverage.md** (written by `coverage`): per list `{ name, url, entries, covered, share, meetsTarget, coveredEntries, uncovered: [{entry, name, url, reason}] }`, target 0.9.
+**coverage.json** and **coverage.md** (written by `coverage`; derived, not committed): per list `{ name, url, entries, covered, share, meetsTarget, coveredEntries, uncovered: [{entry, name, url, reason}] }`, target 0.9.
 
 ## Refine run: `docs/research/pains/refine/<scope>/<runId>/`
 
@@ -42,9 +42,9 @@ Made by `refine-new`; never overwritten.
 
 **refine.json**: `{ schemaVersion, scope, runId, startedAt, notes }`
 
-**lint.json** (written by `refine-lint`): `{ issues: [ { painId, rule, detail, severity: fail|note, group? } ], failing: [painId] }`. Rules: `not-first-person`, `line-length`, `vague-line`, `name-length`, `loaded-term`, `generic-phrase`, `regional-word`, `clinical-term`, `mixed-labels` (fail); `id-mismatch`, `graphic-wording` (note; graphic only on sensitive pains). Word lists: `tools/pains/config/pain-lint.json` and `tools/possibilities/config/banned-phrases.json`.
+**lint.json** (written by `refine-lint`; derived, not committed): `{ issues: [ { painId, rule, detail, severity: fail|note, group? } ], failing: [painId] }`. Rules: `not-first-person`, `line-length`, `vague-line`, `name-length`, `loaded-term`, `generic-phrase`, `regional-word`, `clinical-term`, `mixed-labels`, `serial-comma` (fail); `id-mismatch`, `graphic-wording` (note; graphic only on sensitive pains). Word lists: `tools/pains/config/pain-lint.json` and `tools/possibilities/config/banned-phrases.json`.
 
-**balance.json** (written by `refine-lint`): `{ sizes: {group: shown}, flags: [ {group, shown, median, flag: small|large} ] }`. Small is at most half the page's median; large is at least twice it.
+**balance.json** (written by `refine-lint`; derived, not committed): `{ sizes: {group: shown}, flags: [ {group, shown, median, flag: small|large} ] }`. Small is at most half the page's median; large is at least twice it.
 
 **alternatives.json**: `{ alternatives: { <painId>: [ { name, line, why } ] } }`, one or two per pain, each passing lint. Every failing pain needs at least one.
 
@@ -54,7 +54,7 @@ Made by `refine-new`; never overwritten.
 
 **sorts/<n>.json**: `{ sorter: "isolated", placements: { <painId>: <groupId> } }`, at least three, each placing every pain in scope.
 
-**refine-check.json** (written by `refine-check`): `{ issues, moves: [ {painId, from, to, sorts} ], disagreements: [ {painId, current, sorts} ] }`. A move needs two sorts agreeing on a group other than the current one.
+**refine-check.json** (written by `refine-check`; derived, not committed): `{ issues, moves: [ {painId, from, to, sorts} ], disagreements: [ {painId, current, sorts} ] }`. A move needs two sorts agreeing on a group other than the current one.
 
 ## Review set: `docs/research/pains/reviews/<set>/`
 
@@ -62,12 +62,16 @@ Made by `refine-new`; never overwritten.
   id, kind: add|reword|merge|split|keep|other-page|move|drift, painIds, group, current, proposed, alternatives,
   why: { prompt, detail, sources? }, side, draft, allowOwn, newEvidence?, rejection?, twins?, similar?, origin, payload } ] }`.
 `twins` lists new pains from another sweep in the same set that may be the same pain; `similar` lists catalog pains that look alike. Both are found by shared word stems (`similarityStopwords` in `tools/pains/config/pain-lint.json`) or a shared covered list entry, and only inform the founder.
-`payload` holds what ingest applies (the candidate record, the survivor, the split, the move's groups) and is left out of the page. For `add`, `proposed` has role `not-shown` and the first alternative is the same wording, `shown`.
+`payload` holds what ingest applies (the candidate record, the survivor, the split, the move's groups) and is left out of the page. For `add`, `proposed` is the candidate's name, line and group, with no alternatives: review doesn't choose shown or not shown, and ingest adds every accepted new pain as `not-shown` with `unranked: true` for ranking to place.
 
-**decisions.json** (downloaded from the page): `{ schemaVersion, setId, decisions: { <proposal-id>: { decision: accept|alternative|own|reject|later, choice?, own?: { name, line, role? }, duplicateOf?: [painId], note, decidedAt } } }`. `duplicateOf` goes with rejecting a new pain: its covered list entries move to those pains, so coverage counts them. Ingest applies these last, so a twin accepted in the same set exists by then. `choice` 0 is the first alternative. A draft can only be decided `own`, `reject` or `later`.
+**decisions.json** (downloaded from the page as `decisions-<setId>.json`, saved in the set folder as `decisions.json` at ingest): `{ schemaVersion, setId, decisions: { <proposal-id>: { decision: accept|alternative|own|reject|later, choice?, own?: { name, line, role? }, duplicateOf?: [painId], note, decidedAt } } }`. `duplicateOf` goes with rejecting a new pain: its covered list entries move to those pains, so coverage counts them. Ingest applies these last, so a twin accepted in the same set exists by then. `choice` 0 is the first alternative. A draft (no opened source) has no alternatives; accepting it, as proposed or in the founder's own wording, adds it on the founder's word with no evidence, recorded as `own` and `noSource` in its history.
 
 **ingested.json** (written by `ingest`): `{ set, decided, later, held, catalogChanged, editor: { changes, waiting, conflicts, refused, warnings, schemaChecked?, revision? }, log, ingestedAt }`. A set is ingested once.
 
+## Archive: `docs/research/pains/archive/<batch>.jsonl`
+
+Written by `archive` once every set drawing on a batch's runs is ingested. One JSON object per line: `{ kind: sweep|refine|review, path, data }`, where `path` is the file's old path in the repository and `data` its parsed JSON (or text). It holds the batch's input files only, never derived ones. Never overwritten.
+
 ## later.json: `docs/research/pains/later.json`
 
-`{ schemaVersion, proposals: [...] }`: proposals marked "later" or left undecided, with their payloads. `review-build` puts them first in the next set.
+`{ schemaVersion, proposals: [...] }`: proposals marked "later" or left undecided, with their payloads. `review-build` puts them first in the next set of the same step (`wording`: add, reword, drift; `structure`: merge, split, keep, other-page, move), with structure cards' wording refreshed from the catalog. Ingesting a set replaces the later proposals it carried and keeps the other step's.
