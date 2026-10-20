@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "setId": "government-information-change-20261019-231938",
-  "builtAt": "2026-10-19",
+  "setId": "government-information-change-wording-20261020-140153",
+  "builtAt": "2026-10-20",
   "runs": [
     "docs/research/pains/sweeps/government/20261019-224657",
     "docs/research/pains/refine/government/20261019-224622",
@@ -709,348 +709,6 @@
       "id": "p012"
     },
     {
-      "painIds": [
-        "they-dont-listen",
-        "far-away-decisions"
-      ],
-      "group": "government",
-      "side": [
-        {
-          "id": "they-dont-listen",
-          "name": "Representation",
-          "line": "I'm not heard by the people in charge."
-        },
-        {
-          "id": "far-away-decisions",
-          "name": "Local control",
-          "line": "I watch decisions about here get made far away."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "Someone ignored by their own city council and someone whose town is run from the state capital name different problems and would each pick one easily. Not being heard is about my voice being ignored by any official; local control is about where decisions get made, even by people who might listen."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Representation",
-        "line": "I'm not heard by the people in charge."
-      },
-      "proposed": {
-        "name": "Local control",
-        "line": "I watch decisions about here get made far away."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/government/20261019-224622",
-      "draft": false,
-      "id": "p013"
-    },
-    {
-      "painIds": [
-        "freedoms",
-        "democracy-slipping"
-      ],
-      "group": "government",
-      "side": [
-        {
-          "id": "freedoms",
-          "name": "Freedoms",
-          "line": "I'm losing the freedom to make my own choices."
-        },
-        {
-          "id": "democracy-slipping",
-          "name": "Institutions",
-          "line": "I see the institutions we rely on falling apart."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "People who feel personally restricted and people worried about the system as a whole often aren't the same people, so both need a place to say it. Freedoms is my own choices being taken away; democracy slipping is the shared system of courts, elections and press weakening."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Freedoms",
-        "line": "I'm losing the freedom to make my own choices."
-      },
-      "proposed": {
-        "name": "Institutions",
-        "line": "I see the institutions we rely on falling apart."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/government/20261019-224622",
-      "draft": false,
-      "id": "p014"
-    },
-    {
-      "painIds": [
-        "no-accountability",
-        "corruption"
-      ],
-      "group": "government",
-      "side": [
-        {
-          "id": "no-accountability",
-          "name": "Accountability",
-          "line": "I see leaders break promises with no consequences."
-        },
-        {
-          "id": "corruption",
-          "name": "Corruption",
-          "line": "I see the rules bend for people with money."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "A broken campaign promise and a rich donor getting special treatment are different complaints, and the lines already say which is which. Accountability is leaders breaking promises and facing nothing; corruption is the rules bending for people with money."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Accountability",
-        "line": "I see leaders break promises with no consequences."
-      },
-      "proposed": {
-        "name": "Corruption",
-        "line": "I see the rules bend for people with money."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/government/20261019-224622",
-      "draft": false,
-      "id": "p015"
-    },
-    {
-      "painIds": [
-        "taxes-dont-buy-much",
-        "no-accountability"
-      ],
-      "group": "government",
-      "side": [
-        {
-          "id": "taxes-dont-buy-much",
-          "name": "Taxes",
-          "line": "I pay more and get less back."
-        },
-        {
-          "id": "no-accountability",
-          "name": "Accountability",
-          "line": "I see leaders break promises with no consequences."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "Paying more for worse services is a money complaint that someone could have even with honest leaders, so the two don't blur. Taxes is about what I pay and what I get for it; accountability is about leaders getting away with broken promises."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Taxes",
-        "line": "I pay more and get less back."
-      },
-      "proposed": {
-        "name": "Accountability",
-        "line": "I see leaders break promises with no consequences."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/government/20261019-224622",
-      "draft": false,
-      "id": "p016"
-    },
-    {
-      "painIds": [
-        "democracy-slipping",
-        "no-accountability"
-      ],
-      "group": "government",
-      "side": [
-        {
-          "id": "democracy-slipping",
-          "name": "Institutions",
-          "line": "I see the institutions we rely on falling apart."
-        },
-        {
-          "id": "no-accountability",
-          "name": "Accountability",
-          "line": "I see leaders break promises with no consequences."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "One is about people in power and the other about the system that should hold them, and the reworded democracy line makes that clearer. Accountability is individual leaders facing no consequences; democracy slipping is the institutions themselves being worn down."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Institutions",
-        "line": "I see the institutions we rely on falling apart."
-      },
-      "proposed": {
-        "name": "Accountability",
-        "line": "I see leaders break promises with no consequences."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/government/20261019-224622",
-      "draft": false,
-      "id": "p017"
-    },
-    {
-      "painIds": [
-        "democracy-slipping",
-        "they-dont-listen"
-      ],
-      "group": "government",
-      "side": [
-        {
-          "id": "democracy-slipping",
-          "name": "Institutions",
-          "line": "I see the institutions we rely on falling apart."
-        },
-        {
-          "id": "they-dont-listen",
-          "name": "Representation",
-          "line": "I'm not heard by the people in charge."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "Feeling ignored by officials is common even where democracy is stable, so a person can easily tell which of the two they mean. Not being heard is my own voice ignored today; democracy slipping is the system that guarantees that voice weakening over time."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Institutions",
-        "line": "I see the institutions we rely on falling apart."
-      },
-      "proposed": {
-        "name": "Representation",
-        "line": "I'm not heard by the people in charge."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/government/20261019-224622",
-      "draft": false,
-      "id": "p018"
-    },
-    {
-      "painIds": [
-        "infrastructure",
-        "taxes-dont-buy-much"
-      ],
-      "group": "government",
-      "side": [
-        {
-          "id": "infrastructure",
-          "name": "Infrastructure",
-          "line": "I depend on roads, water and power that keep breaking down."
-        },
-        {
-          "id": "taxes-dont-buy-much",
-          "name": "Taxes",
-          "line": "I pay more and get less back."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "Crumbling roads are a concrete daily problem whether or not someone thinks about taxes, and a person can choose between them without thinking twice. Infrastructure is the roads, water and power I depend on breaking down; taxes is the sense of paying more for less across the board."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Infrastructure",
-        "line": "I depend on roads, water and power that keep breaking down."
-      },
-      "proposed": {
-        "name": "Taxes",
-        "line": "I pay more and get less back."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/government/20261019-224622",
-      "draft": false,
-      "id": "p019"
-    },
-    {
-      "painIds": [
-        "infrastructure",
-        "car-or-nothing"
-      ],
-      "group": "government",
-      "side": [
-        {
-          "id": "infrastructure",
-          "name": "Infrastructure",
-          "line": "I depend on roads, water and power that keep breaking down."
-        },
-        {
-          "id": "car-or-nothing",
-          "name": "Cars",
-          "line": "I can't get anywhere without a car."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "Potholes and water main breaks are a different problem from having no bus or sidewalk at all, so they belong in separate pains and groups. Infrastructure is things that exist but keep breaking; car-or-nothing is having no way to get around except driving."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Infrastructure",
-        "line": "I depend on roads, water and power that keep breaking down."
-      },
-      "proposed": {
-        "name": "Cars",
-        "line": "I can't get anywhere without a car."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/government/20261019-224622",
-      "draft": false,
-      "id": "p020"
-    },
-    {
-      "painIds": [
-        "dont-know-who-to-vote-for",
-        "dont-know-whats-true"
-      ],
-      "group": "government",
-      "side": [
-        {
-          "id": "dont-know-who-to-vote-for",
-          "name": "Voting",
-          "line": "I don't know who to vote for."
-        },
-        {
-          "id": "dont-know-whats-true",
-          "name": "Misinformation",
-          "line": "I don't know what's true any more."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "Someone can trust the news and still not know which candidate fits them, so the two pains name different moments. Voting is about the choice in front of me at election time; misinformation is not trusting what I read about anything."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Voting",
-        "line": "I don't know who to vote for."
-      },
-      "proposed": {
-        "name": "Misinformation",
-        "line": "I don't know what's true any more."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/government/20261019-224622",
-      "draft": false,
-      "id": "p021"
-    },
-    {
       "kind": "add",
       "painIds": [
         "cant-trust-the-news"
@@ -1139,7 +797,7 @@
       },
       "origin": "docs/research/pains/sweeps/information/20261019-225848",
       "side": [],
-      "id": "p022"
+      "id": "p013"
     },
     {
       "kind": "add",
@@ -1226,7 +884,7 @@
       },
       "origin": "docs/research/pains/sweeps/information/20261019-225848",
       "side": [],
-      "id": "p023"
+      "id": "p014"
     },
     {
       "kind": "add",
@@ -1298,7 +956,7 @@
       },
       "origin": "docs/research/pains/sweeps/information/20261019-225848",
       "side": [],
-      "id": "p024"
+      "id": "p015"
     },
     {
       "kind": "add",
@@ -1384,7 +1042,7 @@
       },
       "origin": "docs/research/pains/sweeps/information/20261019-225848",
       "side": [],
-      "id": "p025"
+      "id": "p016"
     },
     {
       "kind": "add",
@@ -1475,7 +1133,7 @@
       },
       "origin": "docs/research/pains/sweeps/information/20261019-225848",
       "side": [],
-      "id": "p026"
+      "id": "p017"
     },
     {
       "kind": "add",
@@ -1575,7 +1233,7 @@
       },
       "origin": "docs/research/pains/sweeps/information/20261019-225848",
       "side": [],
-      "id": "p027"
+      "id": "p018"
     },
     {
       "kind": "add",
@@ -1661,10 +1319,15 @@
           "id": "might-lose-my-home",
           "name": "Eviction",
           "line": "I might lose my home."
+        },
+        {
+          "id": "mental-health-care",
+          "name": "Therapy",
+          "line": "I can't get or afford help for my mental health."
         }
       ],
       "side": [],
-      "id": "p028"
+      "id": "p019"
     },
     {
       "kind": "add",
@@ -1742,7 +1405,7 @@
       },
       "origin": "docs/research/pains/sweeps/information/20261019-225848",
       "side": [],
-      "id": "p029"
+      "id": "p020"
     },
     {
       "kind": "reword",
@@ -1773,7 +1436,7 @@
       "origin": "docs/research/pains/refine/information/20261019-224622",
       "draft": false,
       "side": [],
-      "id": "p030"
+      "id": "p021"
     },
     {
       "kind": "reword",
@@ -1799,7 +1462,7 @@
       "origin": "docs/research/pains/refine/information/20261019-224622",
       "draft": false,
       "side": [],
-      "id": "p031"
+      "id": "p022"
     },
     {
       "kind": "reword",
@@ -1825,115 +1488,7 @@
       "origin": "docs/research/pains/refine/information/20261019-224622",
       "draft": false,
       "side": [],
-      "id": "p032"
-    },
-    {
-      "painIds": [
-        "nobody-covers-here",
-        "dont-know-whats-happening"
-      ],
-      "group": "information",
-      "side": [
-        {
-          "id": "nobody-covers-here",
-          "name": "Local news",
-          "line": "I don't know what's happening in my own town."
-        },
-        {
-          "id": "dont-know-whats-happening",
-          "name": "Coordination",
-          "line": "I can't find who's already working on this."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "One is missing news about the town and the other is missing allies for a cause, and the line wording already keeps them apart. Local news is about no one reporting what goes on in town; Coordination is about not finding the people already working on a cause you care about."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Local news",
-        "line": "I don't know what's happening in my own town."
-      },
-      "proposed": {
-        "name": "Coordination",
-        "line": "I can't find who's already working on this."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/information/20261019-224622",
-      "draft": false,
-      "id": "p033"
-    },
-    {
-      "painIds": [
-        "watched-by-companies",
-        "scammed"
-      ],
-      "group": "information",
-      "side": [
-        {
-          "id": "watched-by-companies",
-          "name": "Privacy",
-          "line": "I feel watched by companies that know everything about me."
-        },
-        {
-          "id": "scammed",
-          "name": "Scams",
-          "line": "I lost money to a scam."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "Losing money to a scammer and feeling tracked by companies are different experiences on different pages, and neither is a version of the other. Privacy is the societal worry about companies collecting data on everyone; Scams is a personal loss of money to a fraud."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Privacy",
-        "line": "I feel watched by companies that know everything about me."
-      },
-      "proposed": {
-        "name": "Scams",
-        "line": "I lost money to a scam."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/information/20261019-224622",
-      "draft": false,
-      "id": "p034"
-    },
-    {
-      "kind": "move",
-      "painIds": [
-        "watched-by-companies"
-      ],
-      "group": "information",
-      "current": {
-        "name": "Privacy",
-        "line": "I feel watched by companies that know everything about me.",
-        "group": "Information"
-      },
-      "proposed": {
-        "name": "Privacy",
-        "line": "I feel watched by companies that know everything about me.",
-        "group": "Safety"
-      },
-      "alternatives": [],
-      "why": {
-        "prompt": "card sort",
-        "detail": "the sorts placed it under Information, Safety, Safety"
-      },
-      "allowOwn": false,
-      "payload": {
-        "groups": [
-          "safety"
-        ]
-      },
-      "origin": "docs/research/pains/refine/information/20261019-224622",
-      "draft": false,
-      "side": [],
-      "id": "p035"
+      "id": "p023"
     },
     {
       "kind": "add",
@@ -2020,7 +1575,7 @@
         }
       ],
       "side": [],
-      "id": "p036"
+      "id": "p024"
     },
     {
       "kind": "add",
@@ -2092,7 +1647,7 @@
       },
       "origin": "docs/research/pains/sweeps/making-change/20261019-230150",
       "side": [],
-      "id": "p037"
+      "id": "p025"
     },
     {
       "kind": "add",
@@ -2184,7 +1739,7 @@
       },
       "origin": "docs/research/pains/sweeps/making-change/20261019-230150",
       "side": [],
-      "id": "p038"
+      "id": "p026"
     },
     {
       "kind": "add",
@@ -2274,7 +1829,7 @@
       },
       "origin": "docs/research/pains/sweeps/making-change/20261019-230150",
       "side": [],
-      "id": "p039"
+      "id": "p027"
     },
     {
       "kind": "reword",
@@ -2305,7 +1860,7 @@
       "origin": "docs/research/pains/refine/making-change/20261019-224622",
       "draft": false,
       "side": [],
-      "id": "p040"
+      "id": "p028"
     },
     {
       "kind": "reword",
@@ -2331,7 +1886,7 @@
       "origin": "docs/research/pains/refine/making-change/20261019-224622",
       "draft": false,
       "side": [],
-      "id": "p041"
+      "id": "p029"
     },
     {
       "kind": "reword",
@@ -2362,7 +1917,7 @@
       "origin": "docs/research/pains/refine/making-change/20261019-224622",
       "draft": false,
       "side": [],
-      "id": "p042"
+      "id": "p030"
     },
     {
       "kind": "reword",
@@ -2388,565 +1943,7 @@
       "origin": "docs/research/pains/refine/making-change/20261019-224622",
       "draft": false,
       "side": [],
-      "id": "p043"
-    },
-    {
-      "painIds": [
-        "nothing-ever-changes",
-        "shouting-into-void"
-      ],
-      "group": "making-change",
-      "side": [
-        {
-          "id": "nothing-ever-changes",
-          "name": "Gridlock",
-          "line": "I see the same problems stay year after year."
-        },
-        {
-          "id": "shouting-into-void",
-          "name": "Unheard",
-          "line": "I care and it goes nowhere."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "Someone who has never spoken up can feel stuck problems, and someone who speaks up can feel unheard even on things that are moving. Gridlock is about problems in the world staying put; Unheard is about my own effort getting no response."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Gridlock",
-        "line": "I see the same problems stay year after year."
-      },
-      "proposed": {
-        "name": "Unheard",
-        "line": "I care and it goes nowhere."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/making-change/20261019-224622",
-      "draft": false,
-      "id": "p044"
-    },
-    {
-      "painIds": [
-        "groups-go-nowhere",
-        "nothing-ever-changes"
-      ],
-      "group": "making-change",
-      "side": [
-        {
-          "id": "groups-go-nowhere",
-          "name": "Meetings",
-          "line": "I go to meetings where nothing happens."
-        },
-        {
-          "id": "nothing-ever-changes",
-          "name": "Gridlock",
-          "line": "I see the same problems stay year after year."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "A person stuck in a talk-only committee picks a different card than a person watching the same potholes for ten years. Meetings is about the groups I'm in; Gridlock is about the place I live."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Meetings",
-        "line": "I go to meetings where nothing happens."
-      },
-      "proposed": {
-        "name": "Gridlock",
-        "line": "I see the same problems stay year after year."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/making-change/20261019-224622",
-      "draft": false,
-      "id": "p045"
-    },
-    {
-      "painIds": [
-        "giving-feels-blind",
-        "shouting-into-void"
-      ],
-      "group": "making-change",
-      "side": [
-        {
-          "id": "giving-feels-blind",
-          "name": "Giving",
-          "line": "I'd give if I knew it worked."
-        },
-        {
-          "id": "shouting-into-void",
-          "name": "Unheard",
-          "line": "I care and it goes nowhere."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "Doubting where a donation of money goes and feeling ignored after speaking up are different experiences with different fixes. Giving is about money and not knowing if it works; Unheard is about voice and getting no response."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Giving",
-        "line": "I'd give if I knew it worked."
-      },
-      "proposed": {
-        "name": "Unheard",
-        "line": "I care and it goes nowhere."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/making-change/20261019-224622",
-      "draft": false,
-      "id": "p046"
-    },
-    {
-      "painIds": [
-        "alone-in-caring",
-        "shouting-into-void"
-      ],
-      "group": "making-change",
-      "side": [
-        {
-          "id": "alone-in-caring",
-          "name": "Allies",
-          "line": "I don't know who else cares."
-        },
-        {
-          "id": "shouting-into-void",
-          "name": "Unheard",
-          "line": "I care and it goes nowhere."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "One is about company and the other about results, so a person can tell at a glance which one is theirs. Allies is about not finding others who care; Unheard is about my effort going nowhere."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Allies",
-        "line": "I don't know who else cares."
-      },
-      "proposed": {
-        "name": "Unheard",
-        "line": "I care and it goes nowhere."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/making-change/20261019-224622",
-      "draft": false,
-      "id": "p047"
-    },
-    {
-      "painIds": [
-        "alone-in-caring",
-        "nobody-knows-anybody"
-      ],
-      "group": "making-change",
-      "side": [
-        {
-          "id": "alone-in-caring",
-          "name": "Allies",
-          "line": "I don't know who else cares."
-        },
-        {
-          "id": "nobody-knows-anybody",
-          "name": "Neighbors",
-          "line": "I don't know the people on my street."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "Someone can know every neighbor and still feel alone in caring about an issue, and the other way round. Allies is about finding people who share a cause; Neighbors is about not knowing the people on my street at all."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Allies",
-        "line": "I don't know who else cares."
-      },
-      "proposed": {
-        "name": "Neighbors",
-        "line": "I don't know the people on my street."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/making-change/20261019-224622",
-      "draft": false,
-      "id": "p048"
-    },
-    {
-      "painIds": [
-        "dont-know-whats-happening",
-        "alone-in-caring"
-      ],
-      "group": "making-change",
-      "side": [
-        {
-          "id": "dont-know-whats-happening",
-          "name": "Coordination",
-          "line": "I can't find who's already working on this."
-        },
-        {
-          "id": "alone-in-caring",
-          "name": "Allies",
-          "line": "I don't know who else cares."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "They sit close, but the sharper Allies line (feeling alone) makes the choice easy against Coordination (can't find who's already working on it). Coordination is the practical search for existing efforts and groups; Allies is the feeling of being the only one who cares."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Coordination",
-        "line": "I can't find who's already working on this."
-      },
-      "proposed": {
-        "name": "Allies",
-        "line": "I don't know who else cares."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/making-change/20261019-224622",
-      "draft": false,
-      "id": "p049"
-    },
-    {
-      "painIds": [
-        "want-to-help",
-        "alone-in-caring"
-      ],
-      "group": "making-change",
-      "side": [
-        {
-          "id": "want-to-help",
-          "name": "Helping",
-          "line": "I'd do something if I knew what."
-        },
-        {
-          "id": "alone-in-caring",
-          "name": "Allies",
-          "line": "I don't know who else cares."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "What to do and who to do it with are different gaps, and people usually know which one they have. Helping is not knowing what to do; Allies is not knowing who else cares."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Helping",
-        "line": "I'd do something if I knew what."
-      },
-      "proposed": {
-        "name": "Allies",
-        "line": "I don't know who else cares."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/making-change/20261019-224622",
-      "draft": false,
-      "id": "p050"
-    },
-    {
-      "painIds": [
-        "want-to-help",
-        "shouting-into-void"
-      ],
-      "group": "making-change",
-      "side": [
-        {
-          "id": "want-to-help",
-          "name": "Helping",
-          "line": "I'd do something if I knew what."
-        },
-        {
-          "id": "shouting-into-void",
-          "name": "Unheard",
-          "line": "I care and it goes nowhere."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "A person who hasn't started and a person who tried and got nothing would not mistake one card for the other. Helping is before acting; Unheard is after acting with nothing to show for it."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Helping",
-        "line": "I'd do something if I knew what."
-      },
-      "proposed": {
-        "name": "Unheard",
-        "line": "I care and it goes nowhere."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/making-change/20261019-224622",
-      "draft": false,
-      "id": "p051"
-    },
-    {
-      "painIds": [
-        "want-to-help",
-        "giving-feels-blind"
-      ],
-      "group": "making-change",
-      "side": [
-        {
-          "id": "want-to-help",
-          "name": "Helping",
-          "line": "I'd do something if I knew what."
-        },
-        {
-          "id": "giving-feels-blind",
-          "name": "Giving",
-          "line": "I'd give if I knew it worked."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "Both start with 'I'd', but one is about doing and the other about paying, so they lead to different fixes. Helping is about time and action; Giving is about money and whether it works."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Helping",
-        "line": "I'd do something if I knew what."
-      },
-      "proposed": {
-        "name": "Giving",
-        "line": "I'd give if I knew it worked."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/making-change/20261019-224622",
-      "draft": false,
-      "id": "p052"
-    },
-    {
-      "painIds": [
-        "same-few-people",
-        "want-to-help"
-      ],
-      "group": "making-change",
-      "side": [
-        {
-          "id": "same-few-people",
-          "name": "Volunteers",
-          "line": "I see the same few people doing everything."
-        },
-        {
-          "id": "want-to-help",
-          "name": "Helping",
-          "line": "I'd do something if I knew what."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "They are two sides of the same gap, and each side would pick its own card. Volunteers is the organizer's view of a thin bench; Helping is the would-be helper's view."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Volunteers",
-        "line": "I see the same few people doing everything."
-      },
-      "proposed": {
-        "name": "Helping",
-        "line": "I'd do something if I knew what."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/making-change/20261019-224622",
-      "draft": false,
-      "id": "p053"
-    },
-    {
-      "painIds": [
-        "same-few-people",
-        "groups-go-nowhere"
-      ],
-      "group": "making-change",
-      "side": [
-        {
-          "id": "same-few-people",
-          "name": "Volunteers",
-          "line": "I see the same few people doing everything."
-        },
-        {
-          "id": "groups-go-nowhere",
-          "name": "Meetings",
-          "line": "I go to meetings where nothing happens."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "A group can get plenty done on the backs of three people, or have many members and still do nothing. Volunteers is about too few people carrying the work; Meetings is about groups that don't act."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Volunteers",
-        "line": "I see the same few people doing everything."
-      },
-      "proposed": {
-        "name": "Meetings",
-        "line": "I go to meetings where nothing happens."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/making-change/20261019-224622",
-      "draft": false,
-      "id": "p054"
-    },
-    {
-      "painIds": [
-        "idea-no-team",
-        "alone-in-caring"
-      ],
-      "group": "making-change",
-      "side": [
-        {
-          "id": "idea-no-team",
-          "name": "Collaborators",
-          "line": "I have an idea and nobody to build it with."
-        },
-        {
-          "id": "alone-in-caring",
-          "name": "Allies",
-          "line": "I don't know who else cares."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "Someone with a project in hand is looking for builders, not just company. Collaborators is about having a specific idea and no one to build it with; Allies is about not finding others who care."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Collaborators",
-        "line": "I have an idea and nobody to build it with."
-      },
-      "proposed": {
-        "name": "Allies",
-        "line": "I don't know who else cares."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/making-change/20261019-224622",
-      "draft": false,
-      "id": "p055"
-    },
-    {
-      "painIds": [
-        "idea-no-team",
-        "nothing-i-make"
-      ],
-      "group": "making-change",
-      "side": [
-        {
-          "id": "idea-no-team",
-          "name": "Collaborators",
-          "line": "I have an idea and nobody to build it with."
-        },
-        {
-          "id": "nothing-i-make",
-          "name": "Creativity",
-          "line": "I don't get to make things any more."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "One is about people to build with and the other about room in my own life to make things, so they are different pains, not one pain on two pages. Collaborators is about a shared idea needing a team; Creativity on the personal page is about losing time to make things at all."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Collaborators",
-        "line": "I have an idea and nobody to build it with."
-      },
-      "proposed": {
-        "name": "Creativity",
-        "line": "I don't get to make things any more."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/making-change/20261019-224622",
-      "draft": false,
-      "id": "p056"
-    },
-    {
-      "kind": "move",
-      "painIds": [
-        "alone-in-caring"
-      ],
-      "group": "making-change",
-      "current": {
-        "name": "Allies",
-        "line": "I don't know who else cares.",
-        "group": "Making change"
-      },
-      "proposed": {
-        "name": "Allies",
-        "line": "I don't know who else cares.",
-        "group": "Community"
-      },
-      "alternatives": [],
-      "why": {
-        "prompt": "card sort",
-        "detail": "the sorts placed it under Community, Making change, Community"
-      },
-      "allowOwn": false,
-      "payload": {
-        "groups": [
-          "community"
-        ]
-      },
-      "origin": "docs/research/pains/refine/making-change/20261019-224622",
-      "draft": false,
-      "side": [],
-      "id": "p057"
-    },
-    {
-      "kind": "move",
-      "painIds": [
-        "same-few-people"
-      ],
-      "group": "making-change",
-      "current": {
-        "name": "Volunteers",
-        "line": "I see the same few people doing everything.",
-        "group": "Making change"
-      },
-      "proposed": {
-        "name": "Volunteers",
-        "line": "I see the same few people doing everything.",
-        "group": "Community"
-      },
-      "alternatives": [],
-      "why": {
-        "prompt": "card sort",
-        "detail": "the sorts placed it under Community, Community, Community"
-      },
-      "allowOwn": false,
-      "payload": {
-        "groups": [
-          "community"
-        ]
-      },
-      "origin": "docs/research/pains/refine/making-change/20261019-224622",
-      "draft": false,
-      "side": [],
-      "id": "p058"
+      "id": "p031"
     }
   ]
 }

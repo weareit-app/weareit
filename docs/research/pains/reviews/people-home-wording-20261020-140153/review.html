@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pain Review</title>
+<style>
+/* Layout: one reading column. Filters and progress above, one proposal (current next to proposed), decision bar, note, then navigation. */
+:root {
+  --bg: #f3f5f4; --surface: #ffffff; --fg: #1d2523; --muted: #5d6a66; --line: #d6dddb;
+  --accent: #087e9f; --accept: #1f6b5c; --reject: #8a2f3c; --later: #7a5b12; --focus: #087e9f;
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-ui: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #121716; --surface: #1a2120; --fg: #e4ebe8; --muted: #9aa8a3; --line: #2e3836;
+  --accent: #5cc3df; --accept: #5fbfa9; --reject: #e58a98; --later: #e0b660; --focus: #5cc3df; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #121716; --surface: #1a2120; --fg: #e4ebe8; --muted: #9aa8a3; --line: #2e3836;
+  --accent: #5cc3df; --accept: #5fbfa9; --reject: #e58a98; --later: #e0b660; --focus: #5cc3df; color-scheme: dark }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-ui); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; display: grid; gap: 16px; }
+h1 { font-family: var(--font-display); font-size: 1.5rem; margin: 0; }
+.intro, .muted { color: var(--muted); margin: 0; }
+.filters { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; }
+.filters label { display: grid; gap: 2px; font-size: 0.85rem; color: var(--muted); }
+.filters label.check { display: flex; gap: 6px; align-items: center; }
+select, input[type=text], textarea { font: inherit; color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; }
+textarea { width: 100%; box-sizing: border-box; min-height: 52px; resize: vertical; }
+.count { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 0.9rem; }
+.flags { font-size: 0.85rem; color: var(--muted); }
+article { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 20px; display: grid; gap: 14px; min-width: 0; }
+.kind { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; font-weight: 600; color: var(--accent); margin: 0; }
+.state { font-size: 0.85rem; font-weight: 600; }
+.state[data-d="accept"], .state[data-d="alternative"], .state[data-d="own"] { color: var(--accept); }
+.state[data-d="reject"] { color: var(--reject); }
+.state[data-d="later"] { color: var(--later); }
+.compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.compare section { border: 1px solid var(--line); border-radius: 8px; padding: 12px; min-width: 0; }
+.compare h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 0 0 6px; }
+.name { font-weight: 600; margin: 0; }
+.line { font-family: var(--font-display); font-style: italic; margin: 0; }
+.why { margin: 0; }
+.dup { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; display: grid; gap: 6px; }
+.dup[hidden] { display: none; }
+.dup legend { font-size: 0.85rem; color: var(--muted); padding: 0 4px; }
+.dup label { display: flex; gap: 6px; align-items: baseline; font-size: 0.9rem; }
+.flagged { border-left: 3px solid var(--later); padding-left: 10px; }
+.help { margin: 0; font-size: 0.9rem; background: var(--bg); border-radius: 6px; padding: 8px 10px; }
+.why ul { margin: 4px 0 0; padding-left: 20px; }
+.side { font-size: 0.9rem; }
+.decide { display: flex; flex-wrap: wrap; gap: 8px; }
+button { font: 500 0.92rem var(--font-ui); border: 1.5px solid var(--line); background: var(--surface); color: var(--fg); border-radius: 8px; padding: 8px 12px; cursor: pointer; }
+button kbd { font: 500 0.72rem var(--font-ui); color: var(--muted); margin-left: 4px; }
+button[aria-pressed="true"] { border-color: var(--accept); }
+button[aria-pressed="true"]::before { content: "✓ "; }
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.own { display: grid; gap: 8px; }
+.own[hidden] { display: none; }
+.nav { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.primary { background: var(--accent); border-color: var(--accent); color: var(--surface); font-weight: 600; }
+.primary kbd { color: inherit; opacity: 0.8; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Pain review</h1>
+    <p class="intro">Keys: <kbd>A</kbd> accept, <kbd>2</kbd>/<kbd>3</kbd> an alternative, <kbd>O</kbd> your own wording, <kbd>R</kbd> reject, <kbd>L</kbd> later, <kbd>U</kbd> undo, <kbd>N</kbd>/<kbd>P</kbd> next and previous. A draft (no opened source) can only be added as your own.</p>
+    <p class="intro">One proposal at a time. Choosing a decision saves it and stays on the same proposal; move on with <strong>Next</strong>. Decisions are kept in this browser as you go. When you're done, download them and give the file to <code>/pains-ingest</code>.</p>
+    <p class="flags" id="flags"></p>
+  </header>
+  <div class="filters" role="search" aria-label="Filter proposals">
+    <label>Group <select id="f-group"></select></label>
+    <label>Kind of change <select id="f-kind"></select></label>
+    <label class="check"><input type="checkbox" id="f-open"> Undecided only</label>
+  </div>
+  <div class="count" id="count" role="status" aria-live="polite"></div>
+  <article id="card" aria-labelledby="card-title"></article>
+  <div class="decide" role="group" aria-label="Decision" id="decide">
+    <button data-d="accept">Accept<kbd>A</kbd></button>
+    <button data-d="alternative" data-choice="0">Alternative 2<kbd>2</kbd></button>
+    <button data-d="alternative" data-choice="1">Alternative 3<kbd>3</kbd></button>
+    <button data-d="own">My own wording<kbd>O</kbd></button>
+    <button data-d="reject">Reject<kbd>R</kbd></button>
+    <button data-d="later">Later<kbd>L</kbd></button>
+    <button id="undo">Undo<kbd>U</kbd></button>
+  </div>
+  <fieldset class="dup" id="dup" hidden>
+    <legend>If you reject it because it duplicates another pain, tick which (optional)</legend>
+    <div id="dup-options"></div>
+    <label>Other pain IDs, comma-separated <input type="text" id="dup-other"></label>
+  </fieldset>
+  <div class="own" id="own" hidden>
+    <label>Name <input type="text" id="own-name"></label>
+    <label>Line <input type="text" id="own-line"></label>
+    <label id="own-shown-label"><input type="checkbox" id="own-shown"> Show on the page</label>
+    <button id="own-save">Save my wording</button>
+  </div>
+  <label>Note (optional) <textarea id="note"></textarea></label>
+  <div class="nav">
+    <button id="prev">Previous<kbd>P</kbd></button>
+    <button id="download">Download decisions</button>
+    <button id="next" class="primary">Next<kbd>N</kbd></button>
+  </div>
+  <div class="sr" id="announce" role="status" aria-live="assertive"></div>
+</div>
+<script>
+const DATA = {"setId": "people-home-wording-20261020-140153", "flags": [], "proposals": [{"kind": "add", "painIds": ["close-friends"], "group": "people", "current": null, "proposed": {"name": "Close friends", "line": "I don't have a close friend I can really talk to.", "group": "people", "role": "not-shown"}, "alternatives": [{"name": "Close friends", "line": "I don't have a close friend I can really talk to.", "group": "people", "role": "shown"}], "why": {"prompt": "source", "detail": "12 percent of U.S. adults say they have no close friends (Survey Center on American Life); 8% of respondents across 22 EU countries say the same (OECD, as reported by Euronews).", "sources": [{"url": "https://www.americansurveycenter.org/research/the-state-of-american-friendship/", "accessed": "2026-10-19", "passage": "roughly the same proportion of the public that has no close friends (12 percent)"}, {"url": "https://euronews.com/my-europe/2025/11/10/nearly-10-of-europeans-say-they-have-no-close-friends-where-do-people-feel-loneliest", "accessed": "2026-10-19", "passage": "8% of respondents across 22 EU countries say they have no close friends."}]}, "draft": false, "allowOwn": true, "newEvidence": false, "rejection": null, "origin": "docs/research/pains/sweeps/people/20261019-224656", "side": [], "id": "p001"}, {"kind": "add", "painIds": ["estranged-family"], "group": "people", "current": null, "proposed": {"name": "Estrangement", "line": "I'm cut off from someone in my family.", "group": "people", "role": "not-shown"}, "alternatives": [{"name": "Estrangement", "line": "I'm cut off from someone in my family.", "group": "people", "role": "shown"}], "why": {"prompt": "source", "detail": "27% of U.S. adults have cut off contact with a family member; 10% are estranged from a parent or child (Cornell survey).", "sources": [{"url": "https://news.cornell.edu/node/319960", "accessed": "2026-10-19", "passage": "27% of Americans 18 and older had cut off contact with a family member."}, {"url": "https://news.cornell.edu/node/319960", "accessed": "2026-10-19", "passage": "10% reported being estranged from a parent or child, 8% from a sibling and 9% from extended family members."}]}, "draft": false, "allowOwn": true, "newEvidence": false, "rejection": null, "origin": "docs/research/pains/sweeps/people/20261019-224656", "side": [], "id": "p002"}, {"kind": "add", "painIds": ["breakup"], "group": "people", "current": null, "proposed": {"name": "Breakup", "line": "I'm going through a breakup or divorce.", "group": "people", "role": "not-shown"}, "alternatives": [{"name": "Breakup", "line": "I'm going through a breakup or divorce.", "group": "people", "role": "shown"}], "why": {"prompt": "source", "detail": "672,502 divorces in a year in 45 reporting states and D.C., a rate of 2.4 per 1,000 people (CDC). Breakups outside marriage are not counted.", "sources": [{"url": "https://www.cdc.gov/nchs/fastats/marriage-divorce.htm", "accessed": "2026-10-19", "passage": "Number of divorces: 672,502 (45 reporting States and D.C.)"}, {"url": "https://www.cdc.gov/nchs/fastats/marriage-divorce.htm", "accessed": "2026-10-19", "passage": "Divorce rate: 2.4 per 1,000 population (45 reporting States and D.C.)"}]}, "draft": false, "allowOwn": true, "newEvidence": false, "rejection": null, "origin": "docs/research/pains/sweeps/people/20261019-224656", "side": [], "id": "p003"}, {"kind": "add", "painIds": ["trying-for-a-baby"], "group": "people", "current": null, "proposed": {"name": "Trying for a baby", "line": "I've been trying to have a baby and it isn't happening.", "group": "people", "role": "not-shown"}, "alternatives": [{"name": "Trying for a baby", "line": "I've been trying to have a baby and it isn't happening.", "group": "people", "role": "shown"}], "why": {"prompt": "source", "detail": "About 17.5% of adults, roughly 1 in 6, experience infertility (WHO).", "sources": [{"url": "https://www.who.int/news/item/04-04-2023-1-in-6-people-globally-affected-by-infertility", "accessed": "2026-10-19", "passage": "Around 17.5% of the adult population – roughly 1 in 6 worldwide – experience infertility"}]}, "draft": false, "allowOwn": true, "newEvidence": false, "rejection": null, "origin": "docs/research/pains/sweeps/people/20261019-224656", "similar": [{"id": "fertility", "name": "Fertility", "line": "I've been trying to have a baby, and it isn't happening."}], "side": [], "id": "p004"}, {"kind": "add", "painIds": ["harassed-online"], "group": "people", "current": null, "proposed": {"name": "Online harassment", "line": "I get harassed or threatened online.", "group": "people", "role": "not-shown"}, "alternatives": [{"name": "Online harassment", "line": "I get harassed or threatened online.", "group": "people", "role": "shown"}], "why": {"prompt": "source", "detail": "41% of U.S. adults have been harassed online and 25% more severely; 64% of adults under 30 (Pew).", "sources": [{"url": "https://www.pewresearch.org/internet/2021/01/13/the-state-of-online-harassment/", "accessed": "2026-10-19", "passage": "41% of U.S. adults have personally experienced online harassment, and 25% have experienced more severe harassment"}, {"url": "https://www.pewresearch.org/internet/2021/01/13/the-state-of-online-harassment/", "accessed": "2026-10-19", "passage": "Roughly two-thirds of adults under 30 (64%) have experienced any form of the online harassment"}]}, "draft": false, "allowOwn": true, "newEvidence": false, "rejection": null, "origin": "docs/research/pains/sweeps/people/20261019-224656", "side": [], "id": "p005"}, {"kind": "add", "painIds": ["single-parent"], "group": "people", "current": null, "proposed": {"name": "Single parent", "line": "I'm raising my kids on my own.", "group": "people", "role": "not-shown"}, "alternatives": [{"name": "Single parent", "line": "I'm raising my kids on my own.", "group": "people", "role": "shown"}], "why": {"prompt": "source", "detail": "23% of U.S. children live with one parent and no other adults (Pew).", "sources": [{"url": "https://www.pewresearch.org/short-reads/2019/12/12/u-s-children-more-likely-than-children-in-other-countries-to-live-with-just-one-parent/", "accessed": "2026-10-19", "passage": "Almost a quarter of U.S. children under the age of 18 live with one parent and no other adults (23%)"}]}, "draft": false, "allowOwn": true, "newEvidence": false, "rejection": null, "origin": "docs/research/pains/sweeps/people/20261019-224656", "twins": [{"id": "living-with-parents", "name": "Living with parents", "line": "I want a place of my own, but I still live with my parents.", "origin": "docs/research/pains/sweeps/home/20261019-224658"}], "similar": [{"id": "parenting-is-hard", "name": "Parenting", "line": "I'm worn out raising my kids."}, {"id": "cant-afford-kids", "name": "Can't afford kids", "line": "I want kids but can't afford to raise them."}, {"id": "screens-and-kids", "name": "Screens", "line": "I see phones raising our kids."}, {"id": "supporting-family", "name": "Supporting family", "line": "I'm paying to support my parents or grown kids, and there isn't enough left for me."}], "side": [], "id": "p006"}, {"kind": "reword", "painIds": ["loneliness"], "group": "people", "current": {"name": "Loneliness", "line": "I feel alone."}, "proposed": {"name": "Loneliness", "line": "Most days I don't talk to anyone who really knows me."}, "alternatives": [{"name": "Company", "line": "I go whole days without a real conversation with anyone."}], "why": {"prompt": "lint vague-line (fail)", "detail": "Keeps the plain name and says what being alone looks like in a day, which also sets it apart from having no one to call or no one to go out with."}, "allowOwn": true, "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "side": [], "id": "p007"}, {"kind": "reword", "painIds": ["no-one-to-lean-on"], "group": "people", "current": {"name": "Support", "line": "I have no one to call when I need help."}, "proposed": {"name": "Someone to call", "line": "I have no one to call when I need help."}, "alternatives": [{"name": "No backup", "line": "When something goes wrong, there's no one I can lean on."}], "why": {"prompt": "lint id-mismatch (note)", "detail": "\"Support\" is the name of It's own Support It flow, so a different name avoids confusion; the line already says it well."}, "allowOwn": true, "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "side": [], "id": "p008"}, {"kind": "reword", "painIds": ["new-here"], "group": "people", "current": {"name": "Moving", "line": "I just moved and know nobody."}, "proposed": {"name": "New in town", "line": "I just moved here and don't know anyone yet."}, "alternatives": [], "why": {"prompt": "lint id-mismatch (note)", "detail": "Says the situation rather than the act of moving, which could also mean the stress of packing or paying for a move."}, "allowOwn": true, "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "side": [], "id": "p009"}, {"kind": "reword", "painIds": ["nobody-to-do-things-with"], "group": "people", "current": {"name": "Invitations", "line": "I'd go out if someone asked."}, "proposed": {"name": "Plans", "line": "I'd go out more if I had someone to go with."}, "alternatives": [], "why": {"prompt": "lint id-mismatch (note)", "detail": "Keeps the original wish to go out, and says the missing piece is a companion rather than an invitation, which matches the ID."}, "allowOwn": true, "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "side": [], "id": "p010"}, {"kind": "reword", "painIds": ["drifted-apart"], "group": "people", "current": {"name": "Friends", "line": "I've lost touch with people who matter."}, "proposed": {"name": "Old friends", "line": "I've drifted apart from friends who used to matter a lot to me."}, "alternatives": [], "why": {"prompt": "lint id-mismatch (note)", "detail": "\"Friends\" alone could sit over several pains on this heading; \"old friends\" and \"drifted apart\" name this one."}, "allowOwn": true, "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "side": [], "id": "p011"}, {"kind": "reword", "painIds": ["lost-faith-community"], "group": "people", "current": {"name": "Belonging", "line": "I've lost the community I belonged to."}, "proposed": {"name": "Faith community", "line": "I left my faith community and lost my people with it."}, "alternatives": [{"name": "Lost community", "line": "I've lost the community I used to be part of."}], "why": {"prompt": "refine", "detail": "The ID names a faith community, and the current name \"Belonging\" is the same as another pain's name on this heading."}, "allowOwn": true, "origin": "docs/research/pains/refine/people/20261019-224622", "draft": false, "side": [], "id": "p012"}, {"kind": "add", "painIds": ["pests"], "group": "home", "current": null, "proposed": {"name": "Pests", "line": "I've got mice, rats or roaches in my home.", "group": "home", "role": "not-shown"}, "alternatives": [{"name": "Pests", "line": "I've got mice, rats or roaches in my home.", "group": "home", "role": "shown"}], "why": {"prompt": "source", "detail": "Of 124 million U.S. households in 2019, 14.8 million saw signs of mice or rats inside the home in the last 12 months, and 14.0 million saw signs of cockroaches (American Housing Survey).", "sources": [{"url": "https://www.census.gov/content/dam/Census/library/visualizations/2021/demo/AHS-Housing%20Quality-FINAL.pdf", "accessed": "2026-10-19", "passage": "Of the 124 million occupied households in the United States: 14.8 million saw signs of mice or rats inside the home in the last 12 months. 14.0 million saw signs of cockroaches inside the home in the last 12 months. Source: U.S. Census Bureau and U.S. Department of Housing and Urban Development, 2019 American Housing Survey."}]}, "draft": false, "allowOwn": true, "newEvidence": false, "rejection": null, "origin": "docs/research/pains/sweeps/home/20261019-224658", "side": [], "id": "p013"}, {"kind": "add", "painIds": ["damp-and-mold"], "group": "home", "current": null, "proposed": {"name": "Damp and mold", "line": "My home is damp, and the mold keeps coming back.", "group": "home", "role": "not-shown"}, "alternatives": [{"name": "Damp and mold", "line": "My home is damp, and the mold keeps coming back.", "group": "home", "role": "shown"}], "why": {"prompt": "source", "detail": "In 2019, 3.7 million of 124 million U.S. households reported mold in the last 12 months and 9.4 million reported water leaking inside the home (American Housing Survey). In 2024, 15.6% of people in the EU lived with a leaking roof, damp or rot (Eurostat).", "sources": [{"url": "https://www.census.gov/content/dam/Census/library/visualizations/2021/demo/AHS-Housing%20Quality-FINAL.pdf", "accessed": "2026-10-19", "passage": "Of the 124 million occupied households in the United States: 3.7 million reported mold in the last 12 months. ... 9.4 million reported water leakage from inside the home. Source: U.S. Census Bureau and U.S. Department of Housing and Urban Development, 2019 American Housing Survey."}, {"url": "https://tradingeconomics.com/european-union/share-of-total-population-living-in-a-dwelling-with-a-leaking-roof-damp-walls-floors-or-foundation-or-rot-in-window-frames-of-floor-eurostat-data.html", "accessed": "2026-10-19", "passage": "was 15.60% in December of 2024, according to the EUROSTAT."}]}, "draft": false, "allowOwn": true, "newEvidence": false, "rejection": null, "origin": "docs/research/pains/sweeps/home/20261019-224658", "side": [], "id": "p014"}, {"kind": "add", "painIds": ["tap-water"], "group": "home", "current": null, "proposed": {"name": "Tap water", "line": "I don't trust the water that comes out of my tap.", "group": "home", "role": "not-shown"}, "alternatives": [{"name": "Tap water", "line": "I don't trust the water that comes out of my tap.", "group": "home", "role": "shown"}], "why": {"prompt": "source", "detail": "In March 2025, 54% of U.S. adults said they personally worry a great deal about pollution of drinking water (Gallup).", "sources": [{"url": "https://news.gallup.com/file/poll/659441/20250416GlobalWarming.pdf", "accessed": "2026-10-19", "passage": "March 3-16, 2025 ... please tell me if you personally worry about this problem a great deal, a fair amount, only a little, or not at all. ... Pollution of drinking water 54 26 20"}]}, "draft": false, "allowOwn": true, "newEvidence": false, "rejection": null, "origin": "docs/research/pains/sweeps/home/20261019-224658", "side": [], "id": "p015"}, {"kind": "add", "painIds": ["accessible-home"], "group": "home", "current": null, "proposed": {"name": "Accessible home", "line": "I have trouble getting into or around my own home.", "group": "home", "role": "not-shown"}, "alternatives": [{"name": "Accessible home", "line": "I have trouble getting into or around my own home.", "group": "home", "role": "shown"}], "why": {"prompt": "source", "detail": "In 2019, about 5 percent of U.S. households, 6.8 million, had difficulty getting around or using their own home (Harvard JCHS analysis of the American Housing Survey).", "sources": [{"url": "https://jchs.harvard.edu/sites/default/files/research/files/harvard_jchs_housing_stock_accessibility_scheckler_2022_0.pdf", "accessed": "2026-10-19", "passage": "How Well Does the Housing Stock Meet Accessibility Needs? An Analysis of the 2019 American Housing Survey ... About 5 percent of households reported that they experienced difficulty navigating or using their homes, amounting to a total of 6.8 million households."}]}, "draft": false, "allowOwn": true, "newEvidence": false, "rejection": null, "origin": "docs/research/pains/sweeps/home/20261019-224658", "side": [], "id": "p016"}, {"kind": "add", "painIds": ["living-with-parents"], "group": "home", "current": null, "proposed": {"name": "Living with parents", "line": "I want a place of my own, but I still live with my parents.", "group": "home", "role": "not-shown"}, "alternatives": [{"name": "Living with parents", "line": "I want a place of my own, but I still live with my parents.", "group": "home", "role": "shown"}], "why": {"prompt": "source", "detail": "In 2023, 18% of U.S. adults ages 25 to 34 lived in a parent's home (Pew Research Center).", "sources": [{"url": "https://www.pewresearch.org/short-reads/2025/04/17/the-shares-of-young-adults-living-with-parents-vary-widely-across-the-us/", "accessed": "2026-10-19", "passage": "In 2023, 18% of adults ages 25 to 34 were living in a parent’s home."}]}, "draft": false, "allowOwn": true, "newEvidence": false, "rejection": null, "origin": "docs/research/pains/sweeps/home/20261019-224658", "twins": [{"id": "single-parent", "name": "Single parent", "line": "I'm raising my kids on my own.", "origin": "docs/research/pains/sweeps/people/20261019-224656"}], "side": [], "id": "p017"}, {"kind": "add", "painIds": ["landlord-wont-fix"], "group": "home", "current": null, "proposed": {"name": "Repairs", "line": "My landlord won't fix what's broken.", "group": "home", "role": "not-shown"}, "alternatives": [{"name": "Repairs", "line": "My landlord won't fix what's broken.", "group": "home", "role": "shown"}], "why": {"prompt": "lead only", "detail": "", "sources": []}, "draft": true, "allowOwn": true, "newEvidence": false, "rejection": null, "origin": "docs/research/pains/sweeps/home/20261019-224658", "side": [], "id": "p018"}, {"kind": "add", "painIds": ["turned-down-for-housing"], "group": "home", "current": null, "proposed": {"name": "Rental applications", "line": "I keep getting turned down for places to rent.", "group": "home", "role": "not-shown"}, "alternatives": [{"name": "Rental applications", "line": "I keep getting turned down for places to rent.", "group": "home", "role": "shown"}], "why": {"prompt": "lead only", "detail": "", "sources": []}, "draft": true, "allowOwn": true, "newEvidence": false, "rejection": null, "origin": "docs/research/pains/sweeps/home/20261019-224658", "side": [], "id": "p019"}, {"kind": "reword", "painIds": ["home-is-hard"], "group": "home", "current": {"name": "Housing", "line": "I live somewhere cramped, broken or noisy."}, "proposed": {"name": "Run-down home", "line": "My home is cramped, falling apart or too noisy."}, "alternatives": [{"name": "Bad housing", "line": "The place I live is in bad shape, and I can't fix it or move."}], "why": {"prompt": "lint id-mismatch (note)", "detail": "Names the problem the way Homeless and Eviction do, so the Home heading stops mixing problem and area labels, and keeps the three everyday things people actually complain about."}, "allowOwn": true, "origin": "docs/research/pains/refine/home/20261019-224622", "draft": false, "side": [], "id": "p020"}, {"kind": "reword", "painIds": ["cold-home"], "group": "home", "current": {"name": "Heating", "line": "I can't afford to heat my home."}, "proposed": {"name": "Cold home", "line": "I can't afford to keep my home warm."}, "alternatives": [{"name": "Cold or hot", "line": "I can't afford to keep my home warm in winter or cool in summer."}], "why": {"prompt": "refine", "detail": "A problem name that matches the heading, and 'keep my home warm' is how people say it; it also sets this apart from being behind on the power bill."}, "allowOwn": true, "origin": "docs/research/pains/refine/home/20261019-224622", "draft": false, "side": [], "id": "p021"}, {"kind": "reword", "painIds": ["unsafe-near-me"], "group": "home", "current": {"name": "Safety", "line": "I don't feel safe where I live."}, "proposed": {"name": "Unsafe area", "line": "I don't feel safe in my neighborhood."}, "alternatives": [], "why": {"prompt": "lint id-mismatch (note)", "detail": "Says where the danger is, so nobody mixes it up with Safety at home on the People page, and the name becomes a problem like the rest of the heading."}, "allowOwn": true, "origin": "docs/research/pains/refine/home/20261019-224622", "draft": false, "side": [], "id": "p022"}, {"kind": "reword", "painIds": ["getting-around"], "group": "home", "current": {"name": "Transport", "line": "I struggle to get where I need to go."}, "proposed": {"name": "Can't get around", "line": "I can't easily get to work, the store or the doctor."}, "alternatives": [], "why": {"prompt": "lint id-mismatch (note)", "detail": "Names the places people actually miss, which makes the line concrete, and turns the name into a problem like the rest of the heading."}, "allowOwn": true, "origin": "docs/research/pains/refine/home/20261019-224622", "draft": false, "side": [], "id": "p023"}, {"kind": "reword", "painIds": ["offline"], "group": "home", "current": {"name": "Internet", "line": "I can't get decent internet."}, "proposed": {"name": "Bad internet", "line": "I can't get internet that's fast enough and that I can afford."}, "alternatives": [], "why": {"prompt": "lint id-mismatch (note)", "detail": "Keeps the earlier wording's two causes, speed and price, and makes the name a problem so it fits the heading if it is ever shown."}, "allowOwn": true, "origin": "docs/research/pains/refine/home/20261019-224622", "draft": false, "side": [], "id": "p024"}]};
+const KEY = 'pain-review:' + DATA.setId;
+const HELP = {
+  add: 'Accept adds it to the catalog, not shown on the page. Alternative 2 adds it and shows it. Reject keeps it out; if it duplicates another pain, tick which below, and its sources count for that pain.',
+  reword: 'Accept uses the proposed wording. The old wording is kept as another way people say it.',
+  merge: 'Accept retires the first pain into the second; old links keep working. Reject keeps both.',
+  split: 'Accept splits the pain in two. Reject keeps it as one.',
+  keep: 'Accept keeps these as two separate pains. Reject means they overlap too much, and the next round proposes a merge.',
+  'other-page': 'Accept links these two pains across the personal and societal pages. Both stay.',
+  move: 'Accept moves the pain to the proposed group. Reject leaves it where it is.',
+  drift: 'Accept takes the editor\'s wording into the catalog. Reject leaves the catalog as it is.'
+};
+const LABELS = {
+  keep: ['Pain 1', 'Pain 2', 'Alternative'], 'other-page': ['Pain 1', 'Pain 2', 'Alternative'],
+  merge: ['Retired', 'Kept', 'Or keep this one instead'], split: ['Now', 'Becomes', 'Alternative'],
+  add: ['Now', 'Proposed', 'Alternative'], move: ['Now', 'Proposed', 'Or this group'], reword: ['Now', 'Proposed', 'Alternative'],
+  drift: ['Catalog', 'Editor', 'Alternative']
+};
+const label = (p, i, n) => { const l = LABELS[p.kind] || ['Now', 'Proposed', 'Alternative']; return i < 2 ? l[i] : l[2] + (l[2] === 'Alternative' ? ' ' + n : ''); };
+const KIND = { add: 'New pain', reword: 'Reword', merge: 'Merge', split: 'Split', keep: 'Keep both', 'other-page': 'Link across pages', move: 'Move group', drift: 'Editor wording' };
+let decisions = {};
+try { decisions = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { decisions = {}; }
+const history = [];
+let index = 0;
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+function save() { try { localStorage.setItem(KEY, JSON.stringify(decisions)); } catch (e) { /* kept in memory */ } }
+function visible() {
+  const g = $('f-group').value, k = $('f-kind').value, open = $('f-open').checked;
+  return DATA.proposals.filter((p) => (!g || p.group === g) && (!k || p.kind === k) && (!open || !decisions[p.id]));
+}
+function wording(w) { return w ? '<p class="name">' + esc(w.name) + '</p><p class="line">' + esc(w.line) + '</p>' + (w.group ? '<p class="muted">Group: ' + esc(w.group) + '</p>' : '') + (w.role ? '<p class="muted">' + (w.role === 'shown' ? 'Shown on the page' : 'Not shown') + '</p>' : '') : '<p class="muted">Nothing yet</p>'; }
+function render() {
+  const list = visible();
+  if (index >= list.length) index = Math.max(0, list.length - 1);
+  const decided = DATA.proposals.filter((p) => decisions[p.id]).length;
+  $('count').textContent = list.length ? 'Proposal ' + (index + 1) + ' of ' + list.length + ' shown · ' + (DATA.proposals.length - decided) + ' of ' + DATA.proposals.length + ' left to decide' : 'No proposals match these filters · ' + (DATA.proposals.length - decided) + ' left to decide';
+  const p = list[index];
+  const card = $('card');
+  document.querySelectorAll('#decide button[data-d]').forEach((b) => { b.disabled = !p; b.setAttribute('aria-pressed', 'false'); });
+  if (!p) { card.innerHTML = '<p id="card-title">Nothing to show.</p>'; return; }
+  const d = decisions[p.id];
+  const alts = p.alternatives || [];
+  document.querySelectorAll('#decide button[data-d="alternative"]').forEach((b) => { b.hidden = alts.length <= Number(b.dataset.choice); b.disabled = b.hidden || !!p.draft; });
+  document.querySelector('#decide button[data-d="accept"]').disabled = !!p.draft;
+  document.querySelector('#decide button[data-d="own"]').disabled = !p.allowOwn;
+  document.querySelectorAll('#decide button[data-d]').forEach((b) => b.setAttribute('aria-pressed', String(!!d && d.decision === b.dataset.d && (b.dataset.d !== 'alternative' || d.choice === Number(b.dataset.choice)))));
+  const why = p.why || {};
+  card.innerHTML =
+    '<p class="kind" id="card-title">' + esc(KIND[p.kind] || p.kind) + (p.newEvidence ? ' · new evidence' : '') + (p.draft ? ' · draft: no opened source' : '') + ' · ' + esc(p.painIds.join(', ')) + '</p>' +
+    '<p class="state" data-d="' + esc(d ? d.decision : '') + '">' + (d ? 'Decided: ' + esc(d.decision) + (d.decision === 'alternative' ? ' ' + (d.choice + 2) : '') + (d.duplicateOf ? ', duplicate of ' + esc(d.duplicateOf.join(', ')) : '') : 'Not decided yet') + '</p>' +
+    '<p class="help">' + esc(HELP[p.kind] || '') + '</p>' +
+    '<div class="compare"><section aria-label="' + label(p, 0) + '"><h2>' + label(p, 0) + '</h2>' + wording(p.current) + '</section>' +
+    '<section aria-label="' + label(p, 1) + '"><h2>' + label(p, 1) + '</h2>' + wording(p.proposed) + '</section>' +
+    alts.map((a, i) => { const t = label(p, 2, i + 2) + (label(p, 2, i + 2).endsWith(String(i + 2)) ? '' : ' (key ' + (i + 2) + ')'); return '<section aria-label="' + t + '"><h2>' + t + '</h2>' + wording(a) + '</section>'; }).join('') + '</div>' +
+    '<div class="why"><strong>Why:</strong> ' + esc(why.prompt) + (why.detail ? ': ' + esc(why.detail) : '') +
+    (why.sources && why.sources.length ? '<ul>' + why.sources.map((s) => '<li><a href="' + esc(s.url) + '" rel="noopener noreferrer">' + esc(s.url) + '</a> (' + esc(s.accessed) + '): “' + esc(s.passage) + '”</li>').join('') + '</ul>' : '') +
+    (p.rejection ? '<p class="muted">Rejected earlier on ' + esc(p.rejection.date) + ': ' + esc(p.rejection.note) + '</p>' : '') + '</div>' +
+    (p.twins && p.twins.length ? '<div class="side flagged"><strong>May duplicate a new pain from another sweep:</strong><ul>' + p.twins.map((s) => '<li><code>' + esc(s.id) + '</code> ' + esc(s.name) + ': ' + esc(s.line) + '</li>').join('') + '</ul></div>' : '') +
+    (p.similar && p.similar.length ? '<div class="side"><strong>Similar pains already in the catalog:</strong><ul>' + p.similar.map((s) => '<li><code>' + esc(s.id) + '</code> ' + esc(s.name) + ': ' + esc(s.line) + '</li>').join('') + '</ul></div>' : '') +
+    (p.side && p.side.length ? '<div class="side"><strong>Overlapping pains:</strong><ul>' + p.side.map((s) => '<li><code>' + esc(s.id) + '</code> ' + esc(s.name) + ': ' + esc(s.line) + '</li>').join('') + '</ul></div>' : '');
+  $('note').value = d && d.note ? d.note : '';
+  const twins = (p.twins || []).concat(p.similar || []);
+  $('dup').hidden = p.kind !== 'add';
+  const chosen = new Set((d && d.duplicateOf) || []);
+  $('dup-options').innerHTML = twins.map((t) => '<label><input type="checkbox" value="' + esc(t.id) + '"' + (chosen.has(t.id) ? ' checked' : '') + '> <span><code>' + esc(t.id) + '</code> ' + esc(t.name) + '</span></label>').join('') || '<p class="muted">No likely duplicates were found.</p>';
+  $('dup-other').value = [...chosen].filter((id) => !twins.some((t) => t.id === id)).join(', ');
+  $('own').hidden = !(d && d.decision === 'own');
+  $('own-shown-label').hidden = p.kind !== 'add';
+  $('own-shown').checked = !!(d && d.own && d.own.role === 'shown');
+  if (d && d.own) { $('own-name').value = d.own.name || ''; $('own-line').value = d.own.line || ''; }
+  else { $('own-name').value = (p.proposed || p.current || {}).name || ''; $('own-line').value = (p.proposed || p.current || {}).line || ''; }
+}
+function current() { return visible()[index]; }
+function duplicateOf() {
+  const ids = [...document.querySelectorAll('#dup-options input:checked')].map((i) => i.value)
+    .concat($('dup-other').value.split(',').map((x) => x.trim()).filter(Boolean));
+  return [...new Set(ids)];
+}
+function decide(decision, extra) {
+  const p0 = current();
+  if (decision === 'reject' && p0 && p0.kind === 'add') {
+    const ids = duplicateOf();
+    if (ids.length) extra = Object.assign({}, extra, { duplicateOf: ids });
+  }
+  const p = current();
+  if (!p) return;
+  history.push({ id: p.id, before: decisions[p.id] || null });
+  decisions[p.id] = Object.assign({ decision: decision, note: $('note').value.trim(), decidedAt: new Date().toISOString() }, extra || {});
+  save();
+  render();
+  $('announce').textContent = 'Saved: ' + decision + '. Still on this proposal.';
+}
+function undo() {
+  const last = history.pop();
+  if (!last) { $('announce').textContent = 'Nothing to undo.'; return; }
+  if (last.before) decisions[last.id] = last.before; else delete decisions[last.id];
+  save(); render();
+  $('announce').textContent = 'Undone.';
+}
+function move(step) { const n = visible().length; if (!n) return; index = Math.min(n - 1, Math.max(0, index + step)); render(); $('card').focus(); }
+document.querySelectorAll('#decide button[data-d]').forEach((b) => b.addEventListener('click', () => {
+  if (b.disabled) return;
+  if (b.dataset.d === 'own') { $('own').hidden = false; $('own-name').focus(); return; }
+  decide(b.dataset.d, b.dataset.d === 'alternative' ? { choice: Number(b.dataset.choice) } : {});
+}));
+$('own-save').addEventListener('click', () => {
+  const own = { name: $('own-name').value.trim(), line: $('own-line').value.trim() };
+  if (!own.name || !own.line) { $('announce').textContent = 'Give both a name and a line.'; return; }
+  if (current() && current().kind === 'add') own.role = $('own-shown').checked ? 'shown' : 'not-shown';
+  decide('own', { own: own });
+});
+$('undo').addEventListener('click', undo);
+$('next').addEventListener('click', () => move(1));
+$('prev').addEventListener('click', () => move(-1));
+$('note').addEventListener('change', () => { const p = current(); if (p && decisions[p.id]) { decisions[p.id].note = $('note').value.trim(); save(); } });
+function syncDuplicates() {
+  const p = current();
+  if (!p || !decisions[p.id] || decisions[p.id].decision !== 'reject') return;
+  const ids = duplicateOf();
+  if (ids.length) decisions[p.id].duplicateOf = ids; else delete decisions[p.id].duplicateOf;
+  save();
+  $('announce').textContent = ids.length ? 'Saved: rejected as a duplicate of ' + ids.join(', ') + '.' : 'Saved: rejected, not as a duplicate.';
+}
+$('dup').addEventListener('change', syncDuplicates);
+['f-group', 'f-kind', 'f-open'].forEach((id) => $(id).addEventListener('change', () => { index = 0; render(); }));
+$('download').addEventListener('click', () => {
+  const blob = new Blob([JSON.stringify({ schemaVersion: 1, setId: DATA.setId, decisions: decisions }, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = 'decisions.json'; a.click();
+  $('announce').textContent = 'Downloaded decisions.json.';
+});
+document.addEventListener('keydown', (e) => {
+  if (e.target.closest('input, textarea, select') || e.metaKey || e.ctrlKey || e.altKey) return;
+  const map = { a: 'accept', r: 'reject', l: 'later' };
+  const k = e.key.toLowerCase();
+  if (map[k]) { const b = document.querySelector('#decide button[data-d="' + map[k] + '"]'); if (!b.disabled) decide(map[k]); }
+  else if (k === '2' || k === '3') { const b = document.querySelector('#decide button[data-choice="' + (Number(k) - 2) + '"]'); if (!b.disabled) decide('alternative', { choice: Number(k) - 2 }); }
+  else if (k === 'o') { const b = document.querySelector('#decide button[data-d="own"]'); if (!b.disabled) { e.preventDefault(); $('own').hidden = false; $('own-name').focus(); } }
+  else if (k === 'u') undo();
+  else if (k === 'n') move(1);
+  else if (k === 'p') move(-1);
+  else return;
+  e.preventDefault();
+});
+const groups = [...new Set(DATA.proposals.map((p) => p.group).filter(Boolean))].sort();
+$('f-group').innerHTML = '<option value="">All groups</option>' + groups.map((g) => '<option>' + esc(g) + '</option>').join('');
+const kinds = [...new Set(DATA.proposals.map((p) => p.kind))];
+$('f-kind').innerHTML = '<option value="">All kinds</option>' + kinds.map((k) => '<option value="' + esc(k) + '">' + esc(KIND[k] || k) + '</option>').join('');
+$('card').tabIndex = -1;
+$('flags').textContent = (DATA.flags || []).join(' · ');
+render();
+</script>
+</body>
+</html>

@@ -70,4 +70,4 @@ Made by `refine-new`; never overwritten.
 
 ## later.json: `docs/research/pains/later.json`
 
-`{ schemaVersion, proposals: [...] }`: proposals marked "later" or left undecided, with their payloads. `review-build` puts them first in the next set.
+`{ schemaVersion, proposals: [...] }`: proposals marked "later" or left undecided, with their payloads. `review-build` puts them first in the next set of the same step (`wording`: add, reword, drift; `structure`: merge, split, keep, other-page, move), with structure cards' wording refreshed from the catalog. Ingesting a set replaces the later proposals it carried and keeps the other step's.

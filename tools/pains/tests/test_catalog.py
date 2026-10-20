@@ -502,17 +502,80 @@ class ReviewTest(Base):
         add = next(p for p in catalog.read(self.tmp / out['set'] / 'proposals.json')['proposals'] if p['painIds'] == ['scams-and-fraud'])
         self.assertEqual([q['id'] for q in add['similar']], ['scam-worry'])
 
-    def test_same_overlap_from_two_runs_is_shown_once(self):
+    def test_same_proposal_from_two_runs_is_shown_once(self):
         sweep, refine = fixture_runs(self.tmp)
         out = catalog.review_build(self.tmp, [refine, refine])
         self.assertEqual(out['byKind']['merge'], 1)
-        self.assertEqual(out['byKind']['reword'], 2)
+        self.assertEqual(out['byKind']['reword'], 1)
 
     def test_unchecked_run_is_refused(self):
         sweep, refine = fixture_runs(self.tmp)
         catalog.write(refine / 'refine-check.json', {'issues': ['x'], 'moves': []})
         with self.assertRaises(catalog.CheckError):
             catalog.review_build(self.tmp, [refine])
+
+
+class StageTest(Base):
+    def setUp(self):
+        super().setUp()
+        self.sweep, self.refine = fixture_runs(self.tmp)
+        # Add a keep pair that touches the pain being reworded, so the structure card shows its wording.
+        overlaps = catalog.read(self.refine / 'overlaps.json')
+        overlaps['pairs'].append({'a': 'overwhelmed', 'b': 'always-tired', 'action': 'keep',
+                                  'distinction': 'Stress is about load, Tired about energy.', 'reason': 'People feel both.'})
+        catalog.write(self.refine / 'overlaps.json', overlaps)
+        assert catalog.refine_check(self.tmp, self.refine)['issues'] == []
+        self.cms = FakeCms(draft_from(catalog.load(self.tmp)))
+
+    def build(self, stage, runs=None):
+        return catalog.review_build(self.tmp, runs or [self.sweep, self.refine], 'set', stage=stage)
+
+    def ingest(self, out, decide):
+        set_dir = self.tmp / out['set']
+        doc = catalog.read(set_dir / 'proposals.json')
+        path = set_dir / 'decisions.json'
+        catalog.write(path, {'schemaVersion': 1, 'setId': doc['setId'],
+                             'decisions': {p['id']: d for p in doc['proposals'] if (d := decide(p))}})
+        return catalog.ingest(self.tmp, set_dir, path, client=self.cms, date='2026-10-21')
+
+    def test_wording_set_holds_new_pains_and_rewords_only(self):
+        self.assertEqual(self.build('wording')['byKind'], {'add': 2, 'reword': 1})
+
+    def test_structure_set_refuses_until_the_wording_set_is_ingested(self):
+        wording = self.build('wording')
+        with self.assertRaises(catalog.CheckError) as caught:
+            self.build('structure')
+        self.assertIn(Path(wording['set']).name, str(caught.exception))
+
+    def test_structure_set_shows_the_founders_own_wording(self):
+        own = {'name': 'Swamped', 'line': 'I have more on my plate than I can carry.'}
+        self.ingest(self.build('wording'), lambda p: {'decision': 'own', 'own': own, 'note': ''} if p['kind'] == 'reword' else None)
+        out = self.build('structure')
+        self.assertEqual(out['byKind'], {'keep': 1, 'merge': 1, 'move': 1})
+        keep = next(p for p in catalog.read(self.tmp / out['set'] / 'proposals.json')['proposals'] if p['kind'] == 'keep')
+        self.assertEqual(keep['current'], own)
+        self.assertIn({'id': 'overwhelmed', **own}, keep['side'])
+
+    def test_later_returns_in_the_next_set_of_the_same_step(self):
+        self.ingest(self.build('wording'), lambda p: {'decision': 'later', 'note': ''} if p['kind'] == 'reword' else None)
+        structure = self.build('structure')
+        self.ingest(structure, lambda p: {'decision': 'accept', 'note': ''} if p['kind'] != 'keep' else None)
+        # Ingesting the next wording set must not drop the structure card left for later.
+        again = self.build('wording', [self.refine])
+        self.assertEqual(again['byKind'], {'add': 2, 'reword': 1})  # the undecided new pains came back too
+        self.ingest(again, lambda p: {'decision': 'own', 'note': '', 'own': {'name': 'Swamped', 'line': 'I have more on my plate than I can carry.'}}
+                    if p['kind'] == 'reword' else None)
+        last = self.build('structure', [self.sweep])
+        cards = catalog.read(self.tmp / last['set'] / 'proposals.json')['proposals']
+        # The merge comes back too: it is held until the editor can retire a shown pain.
+        self.assertEqual(sorted(p['kind'] for p in cards), ['keep', 'merge'])
+        keep = next(p for p in cards if p['kind'] == 'keep')
+        self.assertEqual(keep['current']['name'], 'Swamped')
+
+    def test_cli_needs_a_stage(self):
+        result = self.cli('review-build', str(self.refine))
+        self.assertEqual(result.returncode, 2)
+        self.assertIn('--stage', result.stderr)
 
 
 def draft_from(doc, revision=3):

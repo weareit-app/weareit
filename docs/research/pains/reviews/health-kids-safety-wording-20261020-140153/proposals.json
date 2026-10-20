@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "setId": "health-kids-safety-20261019-231937",
-  "builtAt": "2026-10-19",
+  "setId": "health-kids-safety-wording-20261020-140153",
+  "builtAt": "2026-10-20",
   "runs": [
     "docs/research/pains/sweeps/health/20261019-225540",
     "docs/research/pains/refine/health/20261019-224622",
@@ -1057,6 +1057,13 @@
         "earlier": null
       },
       "origin": "docs/research/pains/sweeps/health/20261019-225540",
+      "similar": [
+        {
+          "id": "medicine-costs",
+          "name": "Medicine costs",
+          "line": "I skip or stretch my medicine because I can't afford it."
+        }
+      ],
       "side": [],
       "id": "p011"
     },
@@ -1152,342 +1159,6 @@
       "draft": false,
       "side": [],
       "id": "p014"
-    },
-    {
-      "painIds": [
-        "one-illness-away",
-        "cant-get-care"
-      ],
-      "group": "health",
-      "side": [
-        {
-          "id": "one-illness-away",
-          "name": "Medical bills",
-          "line": "I worry about what healthcare will cost me."
-        },
-        {
-          "id": "cant-get-care",
-          "name": "Healthcare",
-          "line": "I can't see a doctor when I need one."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "Being ruined by medical bills is a shared problem with how care is paid for, while not being able to see a doctor is a personal problem of getting care at all, so both belong, linked across pages."
-      },
-      "kind": "other-page",
-      "current": {
-        "name": "Medical bills",
-        "line": "I worry about what healthcare will cost me."
-      },
-      "proposed": {
-        "name": "Healthcare",
-        "line": "I can't see a doctor when I need one."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/health/20261019-224622",
-      "draft": false,
-      "id": "p015"
-    },
-    {
-      "painIds": [
-        "one-illness-away",
-        "no-cushion"
-      ],
-      "group": "health",
-      "side": [
-        {
-          "id": "one-illness-away",
-          "name": "Medical bills",
-          "line": "I worry about what healthcare will cost me."
-        },
-        {
-          "id": "no-cushion",
-          "name": "No savings",
-          "line": "I couldn't cover a surprise bill if one came."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "Having no savings for any surprise bill is personal, while fearing that illness itself could ruin you points at how healthcare is paid for, so keep both and link them."
-      },
-      "kind": "other-page",
-      "current": {
-        "name": "Medical bills",
-        "line": "I worry about what healthcare will cost me."
-      },
-      "proposed": {
-        "name": "No savings",
-        "line": "I couldn't cover a surprise bill if one came."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/health/20261019-224622",
-      "draft": false,
-      "id": "p016"
-    },
-    {
-      "painIds": [
-        "mental-health-crisis",
-        "feeling-down"
-      ],
-      "group": "health",
-      "side": [
-        {
-          "id": "mental-health-crisis",
-          "name": "Mental health",
-          "line": "I see people I care about struggling with their mental health."
-        },
-        {
-          "id": "feeling-down",
-          "name": "Depression",
-          "line": "I feel low most days."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "Feeling low yourself and seeing people around you struggle are different things to pick, one personal and one shared, so keep both linked across pages."
-      },
-      "kind": "other-page",
-      "current": {
-        "name": "Mental health",
-        "line": "I see people I care about struggling with their mental health."
-      },
-      "proposed": {
-        "name": "Depression",
-        "line": "I feel low most days."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/health/20261019-224622",
-      "draft": false,
-      "id": "p017"
-    },
-    {
-      "painIds": [
-        "mental-health-crisis",
-        "anxiety"
-      ],
-      "group": "health",
-      "side": [
-        {
-          "id": "mental-health-crisis",
-          "name": "Mental health",
-          "line": "I see people I care about struggling with their mental health."
-        },
-        {
-          "id": "anxiety",
-          "name": "Anxiety",
-          "line": "I worry too much."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "Worrying too much yourself is a personal pain, while watching people you care about struggle is a shared one, so keep both linked across pages."
-      },
-      "kind": "other-page",
-      "current": {
-        "name": "Mental health",
-        "line": "I see people I care about struggling with their mental health."
-      },
-      "proposed": {
-        "name": "Anxiety",
-        "line": "I worry too much."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/health/20261019-224622",
-      "draft": false,
-      "id": "p018"
-    },
-    {
-      "painIds": [
-        "addiction-here",
-        "drinking-too-much"
-      ],
-      "group": "health",
-      "side": [
-        {
-          "id": "addiction-here",
-          "name": "Drugs",
-          "line": "I'm losing people I know to drugs."
-        },
-        {
-          "id": "drinking-too-much",
-          "name": "Addiction",
-          "line": "I can't stop something that's hurting me."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "Not being able to stop something yourself is a personal pain, while losing people you know to drugs is a shared one, so keep both linked across pages."
-      },
-      "kind": "other-page",
-      "current": {
-        "name": "Drugs",
-        "line": "I'm losing people I know to drugs."
-      },
-      "proposed": {
-        "name": "Addiction",
-        "line": "I can't stop something that's hurting me."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/health/20261019-224622",
-      "draft": false,
-      "id": "p019"
-    },
-    {
-      "painIds": [
-        "older-people-alone",
-        "loneliness"
-      ],
-      "group": "health",
-      "side": [
-        {
-          "id": "older-people-alone",
-          "name": "Aging",
-          "line": "I see older people left on their own."
-        },
-        {
-          "id": "loneliness",
-          "name": "Loneliness",
-          "line": "I feel alone."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "Feeling alone yourself is personal, while seeing older people left on their own is a shared problem, so keep both linked across pages."
-      },
-      "kind": "other-page",
-      "current": {
-        "name": "Aging",
-        "line": "I see older people left on their own."
-      },
-      "proposed": {
-        "name": "Loneliness",
-        "line": "I feel alone."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/health/20261019-224622",
-      "draft": false,
-      "id": "p020"
-    },
-    {
-      "painIds": [
-        "older-people-alone",
-        "caregiving"
-      ],
-      "group": "health",
-      "side": [
-        {
-          "id": "older-people-alone",
-          "name": "Aging",
-          "line": "I see older people left on their own."
-        },
-        {
-          "id": "caregiving",
-          "name": "Caregiving",
-          "line": "I'm looking after someone and it takes everything."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "Looking after someone yourself is a personal load, while older people left without anyone is a shared problem, so keep both linked across pages."
-      },
-      "kind": "other-page",
-      "current": {
-        "name": "Aging",
-        "line": "I see older people left on their own."
-      },
-      "proposed": {
-        "name": "Caregiving",
-        "line": "I'm looking after someone and it takes everything."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/health/20261019-224622",
-      "draft": false,
-      "id": "p021"
-    },
-    {
-      "painIds": [
-        "mental-health-crisis",
-        "addiction-here"
-      ],
-      "group": "health",
-      "side": [
-        {
-          "id": "mental-health-crisis",
-          "name": "Mental health",
-          "line": "I see people I care about struggling with their mental health."
-        },
-        {
-          "id": "addiction-here",
-          "name": "Drugs",
-          "line": "I'm losing people I know to drugs."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "They often go together, but someone watching friends struggle and someone losing friends to drugs would each know which one is theirs. One is about people struggling with their mental health, the other about losing people to drugs; someone can tell them apart at a glance."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Mental health",
-        "line": "I see people I care about struggling with their mental health."
-      },
-      "proposed": {
-        "name": "Drugs",
-        "line": "I'm losing people I know to drugs."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/health/20261019-224622",
-      "draft": false,
-      "id": "p022"
-    },
-    {
-      "kind": "move",
-      "painIds": [
-        "older-people-alone"
-      ],
-      "group": "health",
-      "current": {
-        "name": "Aging",
-        "line": "I see older people left on their own.",
-        "group": "Health"
-      },
-      "proposed": {
-        "name": "Aging",
-        "line": "I see older people left on their own.",
-        "group": "Community"
-      },
-      "alternatives": [],
-      "why": {
-        "prompt": "card sort",
-        "detail": "the sorts placed it under Community, Community, Community"
-      },
-      "allowOwn": false,
-      "payload": {
-        "groups": [
-          "community"
-        ]
-      },
-      "origin": "docs/research/pains/refine/health/20261019-224622",
-      "draft": false,
-      "side": [],
-      "id": "p023"
     },
     {
       "kind": "add",
@@ -1608,8 +1279,15 @@
         "earlier": null
       },
       "origin": "docs/research/pains/sweeps/kids/20261019-230115",
+      "similar": [
+        {
+          "id": "mental-health-care",
+          "name": "Therapy",
+          "line": "I can't get or afford help for my mental health."
+        }
+      ],
       "side": [],
-      "id": "p024"
+      "id": "p015"
     },
     {
       "kind": "add",
@@ -1707,7 +1385,7 @@
         }
       ],
       "side": [],
-      "id": "p025"
+      "id": "p016"
     },
     {
       "kind": "add",
@@ -1865,7 +1543,7 @@
         }
       ],
       "side": [],
-      "id": "p026"
+      "id": "p017"
     },
     {
       "kind": "add",
@@ -1980,7 +1658,7 @@
         }
       ],
       "side": [],
-      "id": "p027"
+      "id": "p018"
     },
     {
       "kind": "add",
@@ -2096,7 +1774,7 @@
         }
       ],
       "side": [],
-      "id": "p028"
+      "id": "p019"
     },
     {
       "kind": "add",
@@ -2181,7 +1859,7 @@
       },
       "origin": "docs/research/pains/sweeps/kids/20261019-230115",
       "side": [],
-      "id": "p029"
+      "id": "p020"
     },
     {
       "kind": "add",
@@ -2278,7 +1956,7 @@
         }
       ],
       "side": [],
-      "id": "p030"
+      "id": "p021"
     },
     {
       "kind": "add",
@@ -2354,7 +2032,7 @@
       },
       "origin": "docs/research/pains/sweeps/kids/20261019-230115",
       "side": [],
-      "id": "p031"
+      "id": "p022"
     },
     {
       "kind": "add",
@@ -2445,7 +2123,7 @@
       },
       "origin": "docs/research/pains/sweeps/kids/20261019-230115",
       "side": [],
-      "id": "p032"
+      "id": "p023"
     },
     {
       "kind": "add",
@@ -2517,7 +2195,7 @@
       },
       "origin": "docs/research/pains/sweeps/kids/20261019-230115",
       "side": [],
-      "id": "p033"
+      "id": "p024"
     },
     {
       "kind": "add",
@@ -2622,159 +2300,7 @@
         }
       ],
       "side": [],
-      "id": "p034"
-    },
-    {
-      "painIds": [
-        "schools-fail-kids",
-        "kids-future"
-      ],
-      "group": "kids",
-      "side": [
-        {
-          "id": "schools-fail-kids",
-          "name": "Education",
-          "line": "I see kids not getting what they need at school."
-        },
-        {
-          "id": "kids-future",
-          "name": "Kids' future",
-          "line": "I think kids will have it worse than we did."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "Someone upset about their local school and someone dreading the world kids will inherit are naming different things, and a person can pick between them without thinking twice. Education is about what kids get at school today; Kids' future is the broader worry that their whole lives will be harder than ours."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Education",
-        "line": "I see kids not getting what they need at school."
-      },
-      "proposed": {
-        "name": "Kids' future",
-        "line": "I think kids will have it worse than we did."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/kids/20261019-224622",
-      "draft": false,
-      "id": "p035"
-    },
-    {
-      "painIds": [
-        "kids-future",
-        "where-youre-born"
-      ],
-      "group": "kids",
-      "side": [
-        {
-          "id": "kids-future",
-          "name": "Kids' future",
-          "line": "I think kids will have it worse than we did."
-        },
-        {
-          "id": "where-youre-born",
-          "name": "Opportunity",
-          "line": "I see where you're born decide your life."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "Worrying that every kid will have it worse is not the same complaint as seeing some kids held back by where they started. Kids' future compares one generation with the last; Opportunity compares people born in different places or families at the same time."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Kids' future",
-        "line": "I think kids will have it worse than we did."
-      },
-      "proposed": {
-        "name": "Opportunity",
-        "line": "I see where you're born decide your life."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/kids/20261019-224622",
-      "draft": false,
-      "id": "p036"
-    },
-    {
-      "painIds": [
-        "kids-future",
-        "climate"
-      ],
-      "group": "kids",
-      "side": [
-        {
-          "id": "kids-future",
-          "name": "Kids' future",
-          "line": "I think kids will have it worse than we did."
-        },
-        {
-          "id": "climate",
-          "name": "Climate change",
-          "line": "I'm worried about the planet heating up."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "Many people who fear kids will have it worse are thinking about money and housing rather than the planet, so folding this into climate would lose them. Climate change is one specific cause; Kids' future also covers costs, jobs, housing and the general sense that things are going backward."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Kids' future",
-        "line": "I think kids will have it worse than we did."
-      },
-      "proposed": {
-        "name": "Climate change",
-        "line": "I'm worried about the planet heating up."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/kids/20261019-224622",
-      "draft": false,
-      "id": "p037"
-    },
-    {
-      "painIds": [
-        "screens-and-kids",
-        "doomscrolling"
-      ],
-      "group": "kids",
-      "side": [
-        {
-          "id": "screens-and-kids",
-          "name": "Screens",
-          "line": "I see phones raising our kids."
-        },
-        {
-          "id": "doomscrolling",
-          "name": "Doomscrolling",
-          "line": "I lose my nights to my phone."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "Losing my own nights to my phone is a personal pain while phones shaping a whole generation of kids is a societal one, so each belongs on its own page with a link between them."
-      },
-      "kind": "other-page",
-      "current": {
-        "name": "Screens",
-        "line": "I see phones raising our kids."
-      },
-      "proposed": {
-        "name": "Doomscrolling",
-        "line": "I lose my nights to my phone."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/kids/20261019-224622",
-      "draft": false,
-      "id": "p038"
+      "id": "p025"
     },
     {
       "kind": "add",
@@ -2875,7 +2401,7 @@
         }
       ],
       "side": [],
-      "id": "p039"
+      "id": "p026"
     },
     {
       "kind": "add",
@@ -3004,7 +2530,7 @@
         }
       ],
       "side": [],
-      "id": "p040"
+      "id": "p027"
     },
     {
       "kind": "add",
@@ -3127,7 +2653,7 @@
       },
       "origin": "docs/research/pains/sweeps/safety/20261019-230042",
       "side": [],
-      "id": "p041"
+      "id": "p028"
     },
     {
       "kind": "add",
@@ -3247,7 +2773,7 @@
       },
       "origin": "docs/research/pains/sweeps/safety/20261019-230042",
       "side": [],
-      "id": "p042"
+      "id": "p029"
     },
     {
       "kind": "add",
@@ -3352,7 +2878,7 @@
         }
       ],
       "side": [],
-      "id": "p043"
+      "id": "p030"
     },
     {
       "kind": "add",
@@ -3423,7 +2949,7 @@
       },
       "origin": "docs/research/pains/sweeps/safety/20261019-230042",
       "side": [],
-      "id": "p044"
+      "id": "p031"
     },
     {
       "kind": "add",
@@ -3532,7 +3058,7 @@
       },
       "origin": "docs/research/pains/sweeps/safety/20261019-230042",
       "side": [],
-      "id": "p045"
+      "id": "p032"
     },
     {
       "kind": "add",
@@ -3618,7 +3144,7 @@
       },
       "origin": "docs/research/pains/sweeps/safety/20261019-230042",
       "side": [],
-      "id": "p046"
+      "id": "p033"
     },
     {
       "kind": "reword",
@@ -3649,7 +3175,7 @@
       "origin": "docs/research/pains/refine/safety/20261019-224622",
       "draft": false,
       "side": [],
-      "id": "p047"
+      "id": "p034"
     },
     {
       "kind": "reword",
@@ -3675,83 +3201,7 @@
       "origin": "docs/research/pains/refine/safety/20261019-224622",
       "draft": false,
       "side": [],
-      "id": "p048"
-    },
-    {
-      "painIds": [
-        "crime-and-violence",
-        "world-on-fire"
-      ],
-      "group": "safety",
-      "side": [
-        {
-          "id": "crime-and-violence",
-          "name": "Crime",
-          "line": "I don't feel safe from crime and violence."
-        },
-        {
-          "id": "world-on-fire",
-          "name": "War",
-          "line": "I see war threatening people and places I care about."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "Someone worried about break-ins and shootings on their street and someone worried about wars abroad are telling different stories, and nobody would hesitate between the two. Crime is violence between people where I live and in my country; War is armed conflict between countries or groups, often far away but reaching people I care about."
-      },
-      "kind": "keep",
-      "current": {
-        "name": "Crime",
-        "line": "I don't feel safe from crime and violence."
-      },
-      "proposed": {
-        "name": "War",
-        "line": "I see war threatening people and places I care about."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/safety/20261019-224622",
-      "draft": false,
-      "id": "p049"
-    },
-    {
-      "painIds": [
-        "crime-and-violence",
-        "unsafe-near-me"
-      ],
-      "group": "safety",
-      "side": [
-        {
-          "id": "crime-and-violence",
-          "name": "Crime",
-          "line": "I don't feel safe from crime and violence."
-        },
-        {
-          "id": "unsafe-near-me",
-          "name": "Safety",
-          "line": "I don't feel safe where I live."
-        }
-      ],
-      "allowOwn": false,
-      "why": {
-        "prompt": "overlap",
-        "detail": "Feeling unsafe where I live is the personal side of the same worry as crime in society, so both pages should keep their own pain, linked across pages."
-      },
-      "kind": "other-page",
-      "current": {
-        "name": "Crime",
-        "line": "I don't feel safe from crime and violence."
-      },
-      "proposed": {
-        "name": "Safety",
-        "line": "I don't feel safe where I live."
-      },
-      "alternatives": [],
-      "payload": {},
-      "origin": "docs/research/pains/refine/safety/20261019-224622",
-      "draft": false,
-      "id": "p050"
+      "id": "p035"
     }
   ]
 }
