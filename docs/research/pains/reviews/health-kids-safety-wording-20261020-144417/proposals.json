@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "setId": "health-kids-safety-wording-20261020-143430",
+  "setId": "health-kids-safety-wording-20261020-144417",
   "builtAt": "2026-10-20",
   "runs": [
     "docs/research/pains/sweeps/health/20261019-225540",
@@ -2209,13 +2209,6 @@
         "earlier": null
       },
       "origin": "docs/research/pains/sweeps/safety/20261019-230042",
-      "similar": [
-        {
-          "id": "unsafe-near-me",
-          "name": "Safety",
-          "line": "I don't feel safe where I live."
-        }
-      ],
       "side": [],
       "id": "p026"
     },

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "setId": "community-environment-fairness-wording-20261020-143429",
+  "setId": "community-environment-fairness-wording-20261020-144417",
   "builtAt": "2026-10-20",
   "runs": [
     "docs/research/pains/sweeps/community/20261019-225712",
@@ -703,6 +703,13 @@
         "earlier": null
       },
       "origin": "docs/research/pains/sweeps/environment/20261019-230000",
+      "similar": [
+        {
+          "id": "tap-water",
+          "name": "Tap water",
+          "line": "I don't trust the water that comes out of my tap."
+        }
+      ],
       "side": [],
       "id": "p012"
     },
@@ -1057,13 +1064,6 @@
         "earlier": null
       },
       "origin": "docs/research/pains/sweeps/environment/20261019-230000",
-      "similar": [
-        {
-          "id": "unsafe-near-me",
-          "name": "Safety",
-          "line": "I don't feel safe where I live."
-        }
-      ],
       "side": [],
       "id": "p016"
     },
@@ -1619,8 +1619,13 @@
       "origin": "docs/research/pains/sweeps/fairness/20261019-225803",
       "similar": [
         {
+          "id": "meaningless-work",
+          "name": "Pointless work",
+          "line": "I spend my days on work that doesn't help anyone."
+        },
+        {
           "id": "no-one-to-lean-on",
-          "name": "Support",
+          "name": "No support",
           "line": "I have no one to call when I need help."
         },
         {

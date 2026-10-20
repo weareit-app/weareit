@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "setId": "government-information-change-wording-20261020-143429",
+  "setId": "government-information-change-wording-20261020-144417",
   "builtAt": "2026-10-20",
   "runs": [
     "docs/research/pains/sweeps/government/20261019-224657",
@@ -433,6 +433,13 @@
         "earlier": null
       },
       "origin": "docs/research/pains/sweeps/government/20261019-224657",
+      "similar": [
+        {
+          "id": "benefits-runaround",
+          "name": "Benefits",
+          "line": "I have to fight to get or keep the benefits I qualify for."
+        }
+      ],
       "side": [],
       "id": "p005"
     },
@@ -961,6 +968,13 @@
         "earlier": null
       },
       "origin": "docs/research/pains/sweeps/information/20261019-225848",
+      "similar": [
+        {
+          "id": "breakup",
+          "name": "Breakup",
+          "line": "I'm going through a breakup or divorce."
+        }
+      ],
       "side": [],
       "id": "p016"
     },
@@ -1684,6 +1698,13 @@
         "earlier": null
       },
       "origin": "docs/research/pains/sweeps/making-change/20261019-230150",
+      "similar": [
+        {
+          "id": "harassed-online",
+          "name": "Online harassment",
+          "line": "I get harassed or threatened online."
+        }
+      ],
       "side": [],
       "id": "p027"
     },

@@ -232,7 +232,7 @@ $('dup').addEventListener('change', syncDuplicates);
 $('download').addEventListener('click', () => {
   const blob = new Blob([JSON.stringify({ schemaVersion: 1, setId: DATA.setId, decisions: decisions }, null, 2)], { type: 'application/json' });
   const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob); a.download = 'decisions.json'; a.click();
+  a.href = URL.createObjectURL(blob); a.download = 'decisions-' + DATA.setId + '.json'; a.click();
   $('announce').textContent = 'Downloaded decisions.json.';
 });
 document.addEventListener('keydown', (e) => {
