@@ -22,6 +22,18 @@ NativeWind 5.0.0-rc.0 and react-native-css 3.1.0-rc.0 are an intentional prerele
 The Expo CLI's dependency resolver owns SDK-specific package versions. Re-run `expo install --check` after dependency changes. `pnpm outdated` is useful for finding candidates, but its `Latest` column is not an Expo compatibility guarantee. pnpm added exact-version entries to `minimumReleaseAgeExclude` for Expo packages selected by the CLI because those releases were newer than pnpm's release-age window at install time.
 
 
+## Continuous integration
+
+`.github/workflows/ci.yml` runs lint, typecheck, Vitest, the Expo Jest suite and the Playwright web tests on every pull request and on pushes to `master`.
+
+Cost (checked 2026-10-20 against GitHub's Actions billing docs): GitHub Actions is free for public repositories on standard GitHub-hosted runners, so this workflow costs nothing while `weareit-app/weareit` stays public. Larger runners are billed even on public repositories. If the repository becomes private, the organization's free plan includes 2,000 minutes and 500 MB of artifact storage a month. To keep CI free:
+
+- Use `ubuntu-latest` only. Do not add larger runners, and check the billing docs before adding a macOS job (for example an iOS build).
+- Keep `timeout-minutes` on every job and keep artifacts short-lived (failure traces are kept 7 days).
+- Keep the organization's Actions budget at $0, so usage that would be billed is blocked rather than charged.
+
+Actions are pinned to a full commit SHA, with the release tag in a comment. Pick releases at least two weeks old: `actions/checkout` v7.0.1, `actions/setup-node` v7.0.0, `pnpm/action-setup` v6.1.0, `actions/upload-artifact` v7.0.1 (2026-10-20). Node is pinned to the version in `mise.toml`; update both together.
+
 ## Spec and agent tooling
 
 - OpenSpec CLI 1.14.1 (`npm install -g @fission-ai/openspec@1.14.1`; chosen 2026-10-19 as the newest release at least two weeks old). Telemetry off (`openspec config set telemetry.enabled false`). Generated files: `openspec/`, `.claude/skills/openspec-*`, `.claude/commands/opsx/`, `.agents/skills/openspec-*`. Refresh with `openspec update` after upgrading the CLI, and review the diff.
