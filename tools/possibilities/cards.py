@@ -1548,16 +1548,21 @@ def consensus(run):
 
 # ---------- calibration and audit ----------
 
+def is_selected(run):
+    return (run / 'selection.json').is_file() or (run / 'ranking.json').is_file()
+
+
 def latest_run(root, pain, require_selection=True):
     folder = data_root(root) / 'runs' / pain
     runs = sorted(p for p in folder.iterdir() if p.is_dir()) if folder.is_dir() else []
-    runs = [r for r in runs if (r / 'selection.json').is_file()] if require_selection else runs
+    runs = [r for r in runs if is_selected(r)] if require_selection else runs
     if not runs:
         raise FileNotFoundError('No selected run for ' + pain)
     return runs[-1]
 
 
 def item_from(card, exemplars, pain_line, pain_name=''):
+    """A rating item: a dream (a card's title and line, or a staged dream's) with its fixes in order. Holds nothing that names its flow."""
     fixes = []
     for f in card['fixes']:
         e = exemplars.get(f.get('exemplarRef') or '')
@@ -1566,21 +1571,52 @@ def item_from(card, exemplars, pain_line, pain_name=''):
             bits = [e.get('name'), e.get('place'), str(e['year']) if e.get('year') else None, e.get('outcome')]
             example = ' · '.join(b for b in bits if b)
         fixes.append({'title': f['title'], 'whatChanges': f['whatChanges'], 'example': example, 'firstStep': f.get('firstStep'),
-                      'kind': f.get('kind'), 'featureIdea': f.get('featureIdea')})
+                      'kind': f.get('kind'), 'featureIdea': f.get('featureIdea'), 'status': f.get('status')})
     return {'painName': pain_name, 'painLine': pain_line, 'title': card['title'], 'line': card['line'], 'fixes': fixes}
 
 
+def run_entries(run):
+    """A selected run's rateable dreams, best first, as (role, source, dream).
+    A card run gives its finalists, then its audit sample (roles 'finalist' and 'sample'), with source {'sourceCardId'}.
+    A staged run has no finalists or sample (founder, 2026-10-20): it gives every ranked dream that passed honest status
+    (role 'ranked') with its linked fixes in link order, with source {'sourceDreamId'}."""
+    if is_staged(run):
+        fixes = read(run / 'fixes.json')['fixes']
+        judged = judged_dreams(run)
+        return [('ranked', {'sourceDreamId': r['dreamId']},
+                 {**judged[r['dreamId']], 'fixes': [fixes[f['id']] for f in judged[r['dreamId']]['fixes']]})
+                for r in read(run / 'ranking.json')['ranking'] if r['honestStatus']['pass']]
+    selection, card_map = read(run / 'selection.json'), read(run / 'cards.json')['cards']
+    return [('finalist' if k in selection['finalists'] else 'sample', {'sourceCardId': k}, card_map[k])
+            for k in selection['finalists'] + selection['auditSample']]
+
+
+def top_entries(run, n):
+    """The judges' best n: a card run's finalists, or a staged run's top-ranked dreams."""
+    return [(source, dream) for role, source, dream in run_entries(run) if role != 'sample'][:n]
+
+
+def source_id(entry):
+    """The card or dream a key entry points at."""
+    return entry.get('sourceDreamId') or entry.get('sourceCardId')
+
+
+def source_ref(entry):
+    """A key entry's source as a rating row names it: {'dreamId'} for a staged item, {'cardId'} otherwise."""
+    return {'dreamId': entry['sourceDreamId']} if 'sourceDreamId' in entry else {'cardId': entry['sourceCardId']}
+
+
 def build_items(root, entries, seed, prefix):
-    """entries: (origin, painId, cardId, runId|None, card, exemplars, heldOut)."""
+    """entries: (origin, painId, source, runId|None, dream, exemplars, heldOut); source is {'sourceCardId'} or {'sourceDreamId'}."""
     inventory = pains(root)
     order = list(entries)
     random.Random(seed).shuffle(order)
     items, key = [], {}
-    for index, (origin, pain, card_id, run_id, card, exemplars, held) in enumerate(order, 1):
+    for index, (origin, pain, source, run_id, dream, exemplars, held) in enumerate(order, 1):
         item_id = '%s%02d' % (prefix, index)
         info = inventory.get(pain, {})
-        items.append({'id': item_id, **item_from(card, exemplars, info.get('line', pain), info.get('name', pain))})
-        key[item_id] = {'origin': origin, 'painId': pain, 'sourceCardId': card_id, 'runId': run_id, 'heldOut': held}
+        items.append({'id': item_id, **item_from(dream, exemplars, info.get('line', pain), info.get('name', pain))})
+        key[item_id] = {'origin': origin, 'painId': pain, **source, 'runId': run_id, 'heldOut': held}
     return {'schemaVersion': 1, 'seed': seed, 'items': items}, key
 
 
@@ -1596,13 +1632,12 @@ def calibrate_build(root, seed=20261017, per_pain_new=3):
     for pain in KNOWN_PAINS:
         old = sorted(k for k, c in baseline['cards'].items() if c['painId'] == pain)
         run = latest_run(root, pain)
-        selection, cards = read(run / 'selection.json'), read(run / 'cards.json')['cards']
         exemplars = read(run / 'exemplars.json')['exemplars']
-        new = selection['finalists'][:per_pain_new]
+        new = top_entries(run, per_pain_new)
         held_old = set(rng.sample(old, min(1, len(old))))
-        held_new = set(rng.sample(new, min(rng.choice((1, 2)), len(new))))
-        entries += [('old', pain, k, None, baseline['cards'][k], {}, k in held_old) for k in old]
-        entries += [('new', pain, k, run.name, cards[k], exemplars, k in held_new) for k in new]
+        held_new = set(rng.sample(range(len(new)), min(rng.choice((1, 2)), len(new))))
+        entries += [('old', pain, {'sourceCardId': k}, None, baseline['cards'][k], {}, k in held_old) for k in old]
+        entries += [('new', pain, source, run.name, dream, exemplars, i in held_new) for i, (source, dream) in enumerate(new)]
     items, key = build_items(root, entries, seed, 'c')
     write(cal / 'set.json', items)
     write(cal / 'key.json', key)
@@ -1627,7 +1662,8 @@ def calibrate_ingest(root, export_path):
     ratings = validate_ratings(read(export_path), key)
     write(cal / 'ratings.json', {'schemaVersion': 1, 'rater': 'founder', 'context': 'calibration', 'ratings': ratings})
     set_items = {i['id']: i for i in read(cal / 'set.json')['items']}
-    rows = [{'id': k, 'rating': r['rating'], 'reason': r.get('reason'), 'item': set_items[k], 'painId': key[k]['painId']}
+    rows = [{'id': k, 'rating': r['rating'], 'reason': r.get('reason'), 'item': set_items[k], 'painId': key[k]['painId'],
+             **source_ref(key[k])}
             for k, r in sorted(ratings.items()) if r['rating'] != 'skip']
     anchors = [r for r in rows if not key[r['id']]['heldOut']]
     write(cal / 'anchors.json', {'schemaVersion': 1, 'anchors': anchors})
@@ -1641,11 +1677,10 @@ def audit_build(root, runs, seed=20261018):
     entries = []
     for run in runs:
         run = Path(run)
-        cards_doc = read(run / 'cards.json')
-        selection, exemplars = read(run / 'selection.json'), read(run / 'exemplars.json')['exemplars']
-        for k in selection['finalists'] + selection['auditSample']:
-            origin = 'finalist' if k in selection['finalists'] else 'sample'
-            entries.append((origin, cards_doc['painId'], k, run.name, cards_doc['cards'][k], exemplars, False))
+        pain = read(run / ('run.json' if is_staged(run) else 'cards.json'))['painId']
+        exemplars = read(run / 'exemplars.json')['exemplars']
+        for role, source, dream in run_entries(run):
+            entries.append((role, pain, source, run.name, dream, exemplars, False))
     items, key = build_items(root, entries, seed, 'a')
     out = data_root(root) / 'evaluations/generator-2026-10'
     out.mkdir(parents=True, exist_ok=True)
@@ -1680,13 +1715,13 @@ def report(root, audit_path=None):
     # Agreement: per known pain, does the judge's top 3 include a held-out new item the founder loved or kept?
     agreement, judge_kills, judge_total = [], 0, 0
     for pain in KNOWN_PAINS:
-        held = {v['sourceCardId']: ratings.get(k, {}).get('rating') for k, v in key.items()
+        held = {source_id(v): ratings.get(k, {}).get('rating') for k, v in key.items()
                 if v['painId'] == pain and v['origin'] == 'new' and v['heldOut'] and k in ratings}
         held = {c: r for c, r in held.items() if r and r != 'skip'}
         if not held:
             continue
         run = data_root(root) / 'runs' / pain / next(v['runId'] for v in key.values() if v['painId'] == pain and v['origin'] == 'new')
-        top3 = read(run / 'selection.json')['finalists'][:3]
+        top3 = [source_id(source) for source, _ in top_entries(run, 3)]
         agreement.append(any(held.get(c) in ('love', 'keep') for c in top3))
         judge_total += sum(1 for c in top3 if c in held)
         judge_kills += sum(1 for c in top3 if held.get(c) == 'kill')
@@ -1694,7 +1729,7 @@ def report(root, audit_path=None):
     if audit_path:
         audit_key = read(data_root(root) / 'evaluations/generator-2026-10/audit-key.json')
         audit_ratings = validate_ratings(read(audit_path), audit_key)
-        fresh = [r['rating'] for k, r in audit_ratings.items() if audit_key[k]['painId'] in FRESH_PAINS and audit_key[k]['origin'] == 'finalist']
+        fresh = [r['rating'] for k, r in audit_ratings.items() if audit_key[k]['painId'] in FRESH_PAINS and audit_key[k]['origin'] in ('finalist', 'ranked')]
         audit = {'freshFinalists': rates(fresh), 'reviewMinutes': review_minutes(audit_ratings)}
     runs = []
     for folder in sorted((data_root(root) / 'runs').glob('*/*/run.json')):
