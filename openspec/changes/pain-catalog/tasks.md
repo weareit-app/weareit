@@ -64,7 +64,7 @@
 - [x] 10.1 Git-ignore derived run files, and make `review-build` rerun `sweep-check` and `refine-check` (which rewrites lint and balance) instead of reading saved results. Verify with a test that a set builds from inputs only
 - [x] 10.2 Add `archive <set…>`: write `archive/<batch>.jsonl` from the sets' runs and review folders, remove them, refuse while a run feeds an un-ingested set, and let `coverage` read an archive. Verify with tests for each scenario
 - [x] 10.3 Archive every closed batch (money-economy, body-mind, the six two-step batches and the two serial-comma sets), and remove committed derived files. Verify `validate`, rerun coverage from one archive and match the old share, and report the line count before and after
-- [ ] 10.4 Update `README.md`, `data-model.md`, `/pains-review` and `/pains-ingest` (archive after the structure ingest)
+- [x] 10.4 Update `README.md`, `data-model.md`, `/pains-review` and `/pains-ingest` (archive after the structure ingest)
 
 ## Workflow follow-up
 
