@@ -6,17 +6,17 @@
 
 | Dimension | What the page does | Block(s) | First version? |
 | --- | --- | --- | --- |
-| More interactive | One worked example (§3) the reader opens step by step: the goal, the pieces, how they combine, where one step is refused. Hand-authored; no picker, no solver. | `expandable` per step | Yes |
+| More interactive | One worked example (§3) the reader opens step by step: the goal, the pieces, how they combine, where one step is refused. Hand-authored; no picker, no solver. This cuts the atlas sketch ("choose a goal and a few people/software/resources; combine them"); a picker would be a small explorer inside an essay, which the public-pages design rules out. Q13 puts the cut to you. | `expandable` per step | Yes |
 | More beautiful | One diagram in two panels: today's silos, and a proposed composed path (§2). Plain boxes and arrows in the brand palette; no decorative network art. | `diagram` (Mermaid) ×2 with written descriptions | Yes |
 | More meaningful | Says what would have to be represented for composition to work (goals, needs, offers, permissions, constraints, commitments) and why it fails: blocks that don't fit, trust, and computation that grows too fast. | prose + `evidence` cards | Yes |
 | Participatory / MVP link | Three open engineering questions (§5), each naming the skills that help and a contact route; one links to a `/roadmap` item. | prose, links | Yes |
-| More dataful | A status table (implemented / decided, not built / research goal), and the toy example's input/output trace. Runtime, memory and failure data only once something real is measured. | `table` ×2 | Status table yes; trace inside the example |
+| More dataful | A status table (Shipped / planned engineering / open question / speculative direction, as mapped in `research.md`), and the toy example's input/output trace. Runtime, memory and failure data only once something real is measured. | `table` ×2 | Status table yes; trace inside the example |
 
 The page breaks no non-goal in the public-pages design: no explorer inside the essay, no live data, no interest vote.
 
 ## 2. Diagram: today's silos vs a proposed composed path
 
-Two `diagram` blocks, stacked on phones and side by side on wide screens, each with a written description that is also the static fallback. Labels are words, never colour alone. The atlas asks for a toggle; the block list has none, so this design uses two panels (questions.md Q7).
+Two `diagram` blocks, stacked on phones and side by side on wide screens, each with a written description that is also the static fallback. Labels are words, never color alone. The atlas asks for a toggle; the block list has none, so this design uses two panels (questions.md Q7).
 
 **Panel A, "Today: separate places"** (placeholder Mermaid):
 
@@ -87,28 +87,30 @@ Atlas link to It: the goal could be a way under the loneliness pain ("Start a gr
 
 ## 4. Start small (first version)
 
+The atlas's own minimum is smaller: "One diagram with an accessible toggle between 'today's silos' and 'a proposed composed path,' plus three open engineering questions." The list below adds the status table, the toy example and evidence cards, because the atlas guardrail (implemented vs research goal) needs the table and the example is the page's "explore one thing". Q14 offers the atlas minimum instead.
+
 1. About 500 words from `outline.md`.
 2. The two-panel diagram (§2).
-3. The status table: implemented / decided, not built / research goal, filled from `research.md` "What the repo implements". Each row links to the file or decision record that proves it.
+3. The status table, labelled Shipped / planned engineering / open question / speculative direction, filled from `research.md` "What the repo implements". Each row links to the file or decision record that proves it.
 4. The toy example as expandables plus its trace table (§3).
 5. Three open questions (§5), one linked to `/roadmap`, each with "skills that help" and the contact route.
 6. Two or three `evidence` cards: planning complexity (Bylander 1994), object capabilities (Miller 2006), and one interoperability standard.
 
-Not in the first version: an interactive picker, live data, measured performance, maths notation (unless Q11 says otherwise).
+Not in the first version: an interactive picker, live data, measured performance, math notation (unless Q11 says otherwise).
 
 Blocks used: `diagram` ×2, `table` ×2, `expandable` ×7 or one `expandable` holding the whole example, `evidence` ×2–3. All exist in the public-pages block list; nothing new is needed.
 
 ## 5. Three open engineering questions
 
-Each is labelled **open question** on the page.
+Each is labelled **open question** on the page, and each carries one of the atlas's §9 contribution requests as a concrete task a stranger can do without asking the founder.
 
-1. **Permissions that survive composition.** When two blocks combine, the result can reveal what one of them was allowed to keep private ("seven people signed up for Tuesday" reveals that each of them did). How should a permission be represented so a derived result keeps the restrictions of what it came from? Prior work: object capabilities and attenuated delegation (UCAN, Macaroons) handle *who may act*; they say less about *what a result may reveal*. Skills: security, formal methods.
-2. **Knowing when two blocks fit.** Different providers describe the same thing differently ("Tuesday 6pm", an iCalendar event, a free/busy slot). When is an offer close enough to a need, and who decides? The planned Thing / Type / Relation layer (recorded equivalences rather than merges, links as claims with confidence) is one small answer for content. **Candidate `/roadmap` link:** that layer is decided and scheduled after launch. Skills: standards, data modeling, interface design.
-3. **Finding paths within budgets.** Plan-finding from parts is PSPACE-complete in general (Bylander 1994). What restricted shape keeps it useful: curated recipes refined step by step (as in hierarchical task network planning), bounded depth, or partial answers with a reason when no path is found? How should a person see "no path found within this budget" without mistaking it for "impossible"? Skills: distributed systems, algorithms, interface design.
+1. **Permissions that survive composition.** When two blocks combine, the result can reveal what one of them was allowed to keep private ("seven people signed up for Tuesday" reveals that each of them did). How should a permission be represented so a derived result keeps the restrictions of what it came from? Prior work: object capabilities and attenuated delegation (UCAN, Macaroons) handle *who may act*; they say less about *what a result may reveal*. **Task (atlas §9): review a candidate way to represent permissions and resources.** The candidate is the toy example's Permission column (§3): find a combination of its blocks whose output reveals something a permission was meant to keep private. Skills: security, formal methods.
+2. **Knowing when two blocks fit.** Different providers describe the same thing differently ("Tuesday 6pm", an iCalendar event, a free/busy slot). When is an offer close enough to a need, and who decides? The planned Thing / Type / Relation layer (recorded equivalences rather than merges, links as claims with confidence) is one small answer for content. **Candidate `/roadmap` link:** that layer is decided and scheduled after launch. **Task (atlas §9): test an interface edge case.** Take two real descriptions of the same time slot (for example an iCalendar event and a calendar free/busy reply) and show where the toy example's "Tuesday 6–8pm" would fail to match one of them. Skills: standards, data modeling, interface design.
+3. **Finding paths within budgets.** Plan-finding from parts is PSPACE-complete in general (Bylander 1994). What restricted shape keeps it useful: curated recipes refined step by step (as in hierarchical task network planning), bounded depth, or partial answers with a reason when no path is found? How should a person see "no path found within this budget" without mistaking it for "impossible"? **Task (atlas §9): provide a scaling counterexample.** Describe a small family of blocks where the number of combinations to check grows exponentially as blocks are added, or show that a restriction proposed here doesn't prevent that. Skills: distributed systems, algorithms, interface design.
 
 ## 6. Accessibility and honesty checks
 
 - Both diagrams carry a written description that stands alone with scripts off.
 - The toy example is plain text and tables; expandables announce state and work by keyboard (public-essays spec).
-- Every status row is a word label, never colour alone.
+- Every status row is a word label, never color alone.
 - No figures about It. If a reader could mistake the example for a feature, the first sentence of the example rules that out.

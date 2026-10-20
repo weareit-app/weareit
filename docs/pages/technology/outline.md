@@ -6,20 +6,20 @@
 
 ## The question (1 paragraph)
 
-Most of what could help someone reach a goal already exists: a neighbor's skill, a free room, an app, a public program. It sits in separate places that don't know about each other, so the path stays invisible. What if those pieces could be combined like building blocks, with each piece saying what it needs, what it offers and who may use it?
+Most of what could help someone reach a goal already exists: a neighbor's skill, a free room, an app, a public program. Those pieces sit in separate places that don't know about each other, so the path stays invisible. What if those pieces could be combined like building blocks, with each piece saying what it needs, what it offers and who may use it?
 
 **You:** one moment where you saw the pieces existed but couldn't be combined (yours, not a hypothetical).
 
 ## What is known (1–2 paragraphs, sources beside each claim)
 
-- Composition has a mathematics. Category theory studies how parts combine and when the whole behaves predictably (Fong & Spivak, *Seven Sketches*; ologs, Spivak & Kent 2012). Label: established result (the maths), not a claim it solves It's problem.
-- Permissions can travel with the thing they allow: the object-capability tradition (Dennis & Van Horn 1966; Miller 2006) and newer delegated-authority formats (UCAN, ZCAP-LD, Macaroons). Label: established result for software security.
-- Shared formats already let software interoperate: OpenAPI, JSON Schema, ActivityPub, Solid, and agent-tool protocols such as MCP. Label: established practice for OpenAPI, JSON Schema and ActivityPub; Solid is a Community Group draft and MCP changes quickly. Each covers part of the problem.
+- Composition has a mathematics. Category theory studies how parts combine and when the whole behaves predictably (Fong & Spivak, *Seven Sketches*; ologs, Spivak & Kent 2012). Label: established result (the mathematics), not a claim it solves It's problem.
+- Permissions can travel with the thing they allow: the object-capability tradition (Dennis & Van Horn 1966; Miller 2006) and newer delegated-authority formats (UCAN, ZCAP-LD, Macaroons). Label: established result for who may act (a design pattern); open question for what a combined result may reveal.
+- Shared formats already let software interoperate: OpenAPI, JSON Schema, ActivityPub, Solid, and agent-tool protocols such as MCP. Label: replicated finding where interfaces are standard (OpenAPI, JSON Schema, ActivityPub); open question beyond that. Solid is a Community Group draft and MCP changes quickly.
 - The limits are real. Finding a plan from parts is computationally hard in general (Bylander 1994); distributed systems face proven trade-offs (Gilbert & Lynch 2002; Fischer, Lynch & Paterson 1985). Label: established result.
 
 ## Our present view (labelled, two parts)
 
-1. **What It does today** (planned engineering → shipped as it lands): a status table, from `research.md` "What the repo implements". Content is a typed graph (pains, futures, ways) with sources and review status on every record; logic is separate from screens and storage; payments and email sit behind It-owned boundaries so a provider can be swapped.
+1. **What It does today** (each row labelled Shipped, planned engineering, open question or speculative direction; mapping in `research.md`): a status table, from `research.md` "What the repo implements". Content is a typed graph (pains, futures, ways) with sources and review status on every record; logic is separate from screens and storage; payments and email sit behind It-owned boundaries so a provider can be swapped.
 2. **The direction** (speculative direction): people, skills, resources, software, commitments and permissions described in compatible ways, so a path toward a goal can be found by combining them, with permissions kept intact at every step.
 
 **You:** how far you want to state the ambition (questions.md Q4), and in which words (Q5).
@@ -36,8 +36,8 @@ From `design.md`: permissions that survive composition, knowing when two blocks 
 
 ## Where to pick this up
 
-The three questions, each with the skills that help (distributed systems, formal methods, security, standards, interface design) and the contact route (Q10). Link to `/research`, `/roadmap`, `/licensing`, and the repository's architecture notes (Q3, the `/engineering` question).
+The three questions, each with one concrete task from the atlas's §9 (review a candidate way to represent permissions and resources; test an interface edge case; provide a scaling counterexample; details in `design.md` §5), the skills that help (distributed systems, formal methods, security, standards, interface design) and the contact route (Q10). Link to `/research`, `/roadmap`, `/licensing`, and the repository's architecture notes (Q3, the `/engineering` question).
 
-**Blocks:** `diagram` (silos vs composed, design.md §2), `table` (implemented / decided / research goal), `expandable` (toy example and its trace), `evidence` cards for the two or three outside claims that carry the most weight (planning complexity, capability security).
+**Blocks:** `diagram` (silos vs composed, design.md §2), `table` (Shipped / planned engineering / open question / speculative direction), `expandable` (toy example and its trace), `evidence` cards for the two or three outside claims that carry the most weight (planning complexity, capability security).
 
 **Sources to find:** all candidates are in `research.md` with what each published; confirm which two or three the essay actually cites. Nothing about It is measured yet, so the page has no figures.

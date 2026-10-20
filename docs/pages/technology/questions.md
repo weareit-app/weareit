@@ -1,6 +1,6 @@
 # /technology: founder questions
 
-**Status:** ready for a grilling round, 2026-10-20. Twelve questions in three rounds of four (one `AskUserQuestion` call per round). Each option has a short label and what it means; the recommended option is first. Context: `outline.md`, `design.md`, `research.md` in this folder.
+**Status:** ready for a grilling round, 2026-10-20. Fifteen questions in four rounds (four, four, four, three; one `AskUserQuestion` call per round). Each option has a short label and what it means; the recommended option is first. Context: `outline.md`, `design.md`, `research.md` in this folder.
 
 ## Round 1: scope and ownership
 
@@ -58,8 +58,8 @@
 2. **Wait for /help** — The page would not publish until /help can take a topic and skills.
 3. **GitHub issues** — Open to anyone with a GitHub account; puts strangers in the public tracker.
 
-**Q11. Maths** — Should the page show any notation?
-1. **Words only (Recommended)** — Explain composition in plain language; maths lives in `/research` threads.
+**Q11. Math** — Should the page show any notation?
+1. **Words only (Recommended)** — Explain composition in plain language; the math lives in `/research` threads.
 2. **One small formula** — A `math` block showing that combining a step from A to B with one from B to C gives one from A to C, with a plain reading.
 3. **A short typed example** — The toy example's blocks written as a code-like interface; useful to engineers, off-putting to others.
 
@@ -67,3 +67,20 @@
 1. **"Nothing measured yet" (Recommended)** — State it plainly in the dataful row; add runtime, memory and failure data only with reproducible inputs.
 2. **Leave it out** — Say nothing until there is data.
 3. **Describe what we'd measure** — List the planned measures (runtime and memory by problem size, failure modes) as planned engineering.
+
+## Round 4: scope cuts and labels
+
+**Q13. Picker** — The atlas sketched a small demo where the reader picks a goal and a few people, software and resources and sees them combine. Keep it?
+1. **Cut it; fixed steps only (Recommended)** — The reader opens the hand-written example step by step. A picker is a small explorer inside an essay, which the public-pages design rules out, and it would look more like a working solver than it is.
+2. **A few fixed choices** — Two or three preset goals, each with its own hand-written trace; more writing, still no solver, still `expandable` blocks.
+3. **Build the picker later** — Ship fixed steps now and record the picker as a roadmap idea for after the essay pipeline settles.
+
+**Q14. First version size** — How big should the first published version be?
+1. **Design's start-small list (Recommended)** — Essay, two-panel diagram, status table, toy example, three open questions, two or three evidence cards. The table carries the atlas's "implemented vs research goal" guardrail.
+2. **Atlas minimum** — One diagram and three open engineering questions, with the essay around them; the status table and the example come in a revision.
+3. **Minimum plus the status table** — Leave out only the toy example and the evidence cards.
+
+**Q15. Status words** — How should the page label what It has built?
+1. **"Shipped" plus the essay labels (Recommended)** — "Shipped" for what is in the code (the roadmap's word), and planned engineering, open question or speculative direction for the rest, as mapped in `research.md`.
+2. **Essay labels only** — Use "planned engineering" for everything not yet researched, and describe built parts in plain sentences without a label.
+3. **Add "shipped" to the essay label list** — A change to the public-essays spec, so every essay can use it.

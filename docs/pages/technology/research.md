@@ -24,28 +24,28 @@ Limit: ologs give a precise vocabulary, not automatic correctness. They say what
 
 **Spivak, "Functorial Data Migration" (arXiv 1009.1166, v4 2013).** Models a database schema as a small category and an instance as a set-valued functor. A mapping between schemas induces three data migration functors that move data between schemas in canonical ways, covering projections, unions and joins. [arXiv:1009.1166](https://arxiv.org/abs/1009.1166). The arXiv page lists no journal reference. DOI 10.1016/j.ic.2012.05.001 resolves to an *Information and Computation* article. I did not open the journal landing page (publisher blocked access).
 Relevance: a mathematical account of moving information between differently shaped models. This supports the aim *combining heterogeneous information*.
-Limit: this is about structured data with declared schemas. It does not cover informal or contested meaning.
+Limit: this is about structured data with declared schemas. The approach does not cover informal or contested meaning.
 
 **CQL (categoricaldata.net; GitHub CategoricalData/CQL).** An open-source tool and IDE for data tasks based on category theory. The site says it "is being commercialized by Conexus AI". The repository README states: "BSD 3 license for non-commercial use and exploratory/evaluative commercial use; contact us for other licenses." [categoricaldata.net](https://www.categoricaldata.net/), [github.com/CategoricalData/CQL](https://github.com/CategoricalData/CQL)
 Relevance: evidence that functorial data migration has a working implementation.
-Limit: under the stated terms, commercial use beyond evaluation needs a separate licence. That matters if It ever ships or depends on CQL. I did not read the LICENSE file itself, only the README statement.
+Limit: under the stated terms, commercial use beyond evaluation needs a separate license. That matters if It ever ships or depends on CQL. I did not read the LICENSE file itself, only the README statement.
 
-**Fong and Spivak, "Seven Sketches in Compositionality: An Invitation to Applied Category Theory" (arXiv 1803.05316, v3 2018).** A textbook that pairs applications (databases, circuits, dynamical systems and others) with categorical structures. Chapter 1 describes compositionality as cases where "systems or relationships can be combined to form new systems or relationships". It also introduces "generative effects": the less structure an observation preserves, the more surprises appear when systems are combined. [arXiv:1803.05316](https://arxiv.org/abs/1803.05316)
+**Fong and Spivak, "Seven Sketches in Compositionality: An Invitation to Applied Category Theory" (arXiv 1803.05316, v3 2018).** A textbook that pairs applications (databases, circuits, dynamical systems and others) with categorical structures. Chapter 1 describes compositionality as cases where "systems or relationships can be combined to form new systems or relationships". The chapter also introduces "generative effects": the less structure an observation preserves, the more surprises appear when systems are combined. [arXiv:1803.05316](https://arxiv.org/abs/1803.05316)
 Relevance: a precise statement of what "genuinely compose" can mean, and an honest name for when it fails.
-Limit: it is an introductory book with simplified examples, by the authors' own description. It is not evidence that any software system composes.
+Limit: the book is introductory with simplified examples, by the authors' own description, and is not evidence that any software system composes.
 
 **Spivak, "The operad of wiring diagrams: formalizing a graphical language for databases, recursion, and plug-and-play circuits" (arXiv 1305.0297, 2013).** Formalizes nesting wiring diagrams as an operad and applies it to relational database queries, circuits, plug-and-play devices and recursion. [arXiv:1305.0297](https://arxiv.org/abs/1305.0297)
 Relevance: a formal model for "boxes with ports, wired together, nested inside bigger boxes", which is what composable building blocks look like.
-Limit: a mathematical framework. It does not say which real components fit the model.
+Limit: a mathematical framework that does not say which real components fit the model.
 
 **Vagner, Spivak and Lerman, "Algebras of Open Dynamical Systems on the Operad of Wiring Diagrams" (arXiv 1408.1598, v2 2015).** Gives wiring diagrams a meaning as systems of differential equations, so a wired system's behavior follows from its parts and the wiring. [arXiv:1408.1598](https://arxiv.org/abs/1408.1598)
 Relevance and limit: composition is exact here, but only for systems that fit the formalism.
 
 **Caveat: composition fails in practice.**
 
-- **Calder, Kolberg, Magill and Reiff-Marganiec, "Feature interaction: a critical review and considered forecast" (Computer Networks 41(1), 2003, pp. 115–141).** A review of research on feature interactions in telecom services: features that work alone but conflict when combined. It covers software engineering, formal and online detection approaches. [Glasgow eprints record](https://eprints.gla.ac.uk/2874) (abstract opened; full text not read).
+- **Calder, Kolberg, Magill and Reiff-Marganiec, "Feature interaction: a critical review and considered forecast" (Computer Networks 41(1), 2003, pp. 115–141).** A review of research on feature interactions in telecom services: features that work alone but conflict when combined. The review covers software engineering, formal and online detection approaches. [Glasgow eprints record](https://eprints.gla.ac.uk/2874) (abstract opened; full text not read).
   Relevance: the standard record of independently built features interfering once combined.
-  Limit: telecom-specific. It shows the problem is persistent, not that it is unsolvable.
+  Limit: telecom-specific. The review shows the problem is persistent, not that it is unsolvable.
 - **Jones, "Tentative Steps Toward a Development Method for Interfering Programs" (ACM TOPLAS 5(4), 1983, pp. 596–619).** Adds "rely-conditions" (what a component may assume about its environment) and "guarantee-conditions" (what it promises) to specifications of programs that run in parallel and can interfere. [doi:10.1145/69575.69577](https://doi.org/10.1145/69575.69577) (opened a course-hosted copy of the printed paper).
   Relevance: the origin of assume/guarantee thinking. To compose safely, each part must state what it relies on and what it guarantees.
   Limit: designed for program verification. The search results point to Jones's 1981 thesis as the earliest form of the idea.
@@ -63,8 +63,8 @@ Limit: a 1966 operating-system design, not a web or social one.
 Relevance: the principle behind giving each building block only the permissions it needs.
 Limit: a principle, not a mechanism.
 
-**Miller, "Robust Composition: Towards a Unified Approach to Access Control and Concurrency Control" (PhD dissertation, Johns Hopkins University, 2006).** The abstract says separately written programs, once composed, "may instead destructively interfere in unanticipated ways", and that this limits the scale of systems we can compose. It presents a framework, embodied in the E language and the CapDesk desktop, for allowing intended cooperation while minimizing that interference, among possibly malicious components on possibly malicious machines. [Agoric-hosted PDF](https://papers.agoric.com/assets/pdf/papers/robust-composition.pdf)
-Relevance: the closest prior work to It's question, and its title is about composition. It treats authority and composition as one problem.
+**Miller, "Robust Composition: Towards a Unified Approach to Access Control and Concurrency Control" (PhD dissertation, Johns Hopkins University, 2006).** The abstract says separately written programs, once composed, "may instead destructively interfere in unanticipated ways", and that this limits the scale of systems we can compose. The thesis presents a framework, embodied in the E language and the CapDesk desktop, for allowing intended cooperation while minimizing that interference, among possibly malicious components on possibly malicious machines. [Agoric-hosted PDF](https://papers.agoric.com/assets/pdf/papers/robust-composition.pdf)
+Relevance: the closest prior work to It's question, and its title is about composition. The thesis treats authority and composition as one problem.
 Limit: a research language and prototype desktop. E itself did not become widely used, and the thesis does not claim it did.
 
 **Birgisson, Politz, Erlingsson, Taly, Vrable and Lentczner, "Macaroons: Cookies with Contextual Caveats for Decentralized Authorization in the Cloud" (NDSS 2014).** Bearer credentials built on chained HMACs, about as cheap as cookies, that allow decentralized delegation and add caveats limiting how, by whom and in what context authority is used. [NDSS page](https://ndss-symposium.org/?p=2028), doi:10.14722/ndss.2014.23212
@@ -73,11 +73,11 @@ Limit: a bearer token. Whoever holds it can use it within its caveats.
 
 **UCAN (User Controlled Authorization Network), spec v1.0.0 (github.com/ucan-wg/spec).** A decentralized authorization scheme. Agents identified by DIDs delegate capabilities in signed chains, each delegation may only keep or narrow authority, and chains can be verified offline. [github.com/ucan-wg/spec](https://github.com/ucan-wg/spec)
 Relevance: a current, concrete design for composing permissions across services without a central server.
-Limit: the spec itself says chains do not provide confinement, and revocation is a last resort. It is a community spec, not a standards-body standard.
+Limit: the spec itself says chains do not provide confinement, and revocation is a last resort. UCAN is a community spec, not a standards-body standard.
 
 **Authorization Capabilities (ZCAP), W3C CCG draft v0.4.0.** Defines capability documents expressed as Linked Data and signed with Linked Data Proofs, with delegation chains, caveats and invocation over HTTP. [w3c-ccg.github.io/zcap-spec](https://w3c-ccg.github.io/zcap-spec/v0.4.0/)
 Relevance: an alternative to UCAN in the Linked Data world.
-Limit: by its own status note, a draft being prepared for consideration as a Credentials Community Group work item. It is not a W3C standard. No date is given (v0.3 was 2022).
+Limit: by its own status note, a draft being prepared for consideration as a Credentials Community Group work item. ZCAP is not a W3C standard. No date is given (v0.3 was 2022).
 
 ## 3. Interoperability standards and portable data
 
@@ -86,7 +86,7 @@ Relevance: the common way to describe a provider's interface so it can be swappe
 Limit: it describes the shape of calls, not their meaning or side effects.
 
 **JSON Schema 2020-12 (json-schema.org).** The current release (previous: 2019-09). The specification page does not state its publication track. [json-schema.org/specification](https://json-schema.org/specification)
-Relevance: validating data at boundaries. It already underlies Zod-style validation thinking.
+Relevance: validating data at boundaries. JSON Schema already underlies Zod-style validation thinking.
 Limit: structure only, no semantics.
 
 **RDF 1.1 Concepts and Abstract Syntax (W3C Recommendation, 25 February 2014).** Represents information as subject–predicate–object triples in graphs. [w3.org/TR/rdf11-concepts](https://www.w3.org/TR/rdf11-concepts/)
@@ -97,7 +97,7 @@ Limit: the 1.1 page does not mention RDF 1.2. I did not check RDF 1.2's status.
 Relevance: a shared vocabulary that could label goals, actions and events.
 Limit: shaped by search-engine needs. The about page gives no founding date.
 
-**Solid Protocol v0.11.0 (12 May 2024).** Links several specifications that let apps reach data stored elsewhere (pods) with permissions the user grants, which keeps apps separate from data. Status: Draft Community Group Report of the W3C Solid Community Group. It is not a W3C Standard and not on the Standards Track. [solidproject.org/TR/protocol](https://solidproject.org/TR/protocol)
+**Solid Protocol v0.11.0 (12 May 2024).** Links several specifications that let apps reach data stored elsewhere (pods) with permissions the user grants, which keeps apps separate from data. Status: Draft Community Group Report of the W3C Solid Community Group. Solid is not a W3C Standard and not on the Standards Track. [solidproject.org/TR/protocol](https://solidproject.org/TR/protocol)
 Relevance: the clearest published design for "your data stays yours, apps come to it".
 Limit: draft status. The page must not call it a W3C standard.
 
@@ -115,7 +115,7 @@ Limit: a data model. Trust in issuers is outside its scope.
 
 **GDPR Article 20, right to data portability (Regulation (EU) 2016/679).** (not opened; unverified). EUR-Lex returned empty pages to my tools. Check the text before citing.
 
-**Data Transfer Initiative (dtinit.org).** Describes itself as a nonprofit "dedicated to empowering technology users to transfer data from one service to another". It runs the open-source Data Transfer Project, which moves data directly between platforms through existing APIs. [dtinit.org](https://dtinit.org/)
+**Data Transfer Initiative (dtinit.org).** Describes itself as a nonprofit "dedicated to empowering technology users to transfer data from one service to another". The initiative runs the open-source Data Transfer Project, which moves data directly between platforms through existing APIs. [dtinit.org](https://dtinit.org/)
 Relevance: a working precedent for provider-to-provider portability.
 Limit: the site does not say who founded it. Scope is data export, not live composition.
 
@@ -131,7 +131,7 @@ Limit: theory about planning languages, not about human goals.
 
 **Nau et al., "SHOP2: An HTN Planning System" (JAIR 20, 2003).** Describes a hierarchical task network planner that received an award for distinguished performance in the 2002 International Planning Competition. [jair.org](https://www.jair.org/index.php/jair/article/view/10362)
 Relevance: HTN planning builds plans by breaking a goal down through curated methods ("recipes"). That is the practical model for It's ways.
-Limit: performance depends on the quality of hand-written methods. It finds paths within the recipes, not new ones outside them.
+Limit: performance depends on the quality of hand-written methods. The planner finds paths within the recipes, not new ones outside them.
 
 **Martin (ed.) et al., "OWL-S: Semantic Markup for Web Services" (W3C Member Submission, 22 November 2004).** Markup meant to enable automatic discovery, invocation, composition and interoperation of web services, describing each service's inputs, outputs, preconditions and effects. W3C states that publication "indicates no endorsement of its content". [w3.org/submissions/OWL-S](https://www.w3.org/submissions/OWL-S/)
 Relevance: the most direct earlier attempt at "automatically compose services to reach a goal".
@@ -166,22 +166,22 @@ Limit: check the ACM DL page before citing.
 
 ## What the repo implements versus what is conjecture
 
-Checked against the repo on 2026-10-20 (master at `8223eef`). "Decided" means recorded in `docs/architecture/decisions.md` but not found in code.
+Checked against the repo on 2026-10-20 (master at `8223eef`). The status column uses one vocabulary for all three files (outline, design, page): **Shipped** for what is in the code (the roadmap's status word from the five feature statuses, because the essay label list has no word for "built"), and the essay labels **planned engineering**, **open question** and **speculative direction** for the rest. "Planned engineering" here means recorded in `docs/architecture/decisions.md` but not found in code. Confirm this mapping in questions.md Q15.
 
 | Aim | What exists | Where | Status |
 | --- | --- | --- | --- |
-| Separable parts in It's own code | A modular monolith in pnpm workspaces: `packages/content` (Zod content schemas, no Expo or UI imports), `packages/domain` (pure selection and ranking logic), `packages/database` (Kysely, migrations), `packages/api` (oRPC contract kept apart from the router). I found no automated import-boundary check; the rule lives in `AGENTS.md`. | `packages/*`, `AGENTS.md` | Implemented; boundary enforcement not automated |
-| A typed content graph | Domains, pains, futures (dreams), first actions and ways (fixes), with link lists (`painDreamLinks`, `fixDreamLinks`, `actionPainLinks`), validated with Zod and published as versions with rollback. | `packages/content/src/graph-schema.ts`, `docs/architecture/cms.md` | Implemented |
-| Provenance on records | Each record can carry source, locator, evidence type, rights (CC0 or CC BY-SA) and review status. | `contentProvenanceSchema` in `graph-schema.ts` | Implemented |
-| Combining pieces for a person | `rankWays` lists each way once across a person's chosen futures, most-connected first. This is a count over hand-made links, not a search for paths. | `packages/domain/src/onboarding.ts` | Implemented, deliberately simple |
-| Swappable providers | Payments: an It-owned ledger with Stripe and RevenueCat adapters, verified and deduplicated webhooks. Email: SMTP through nodemailer, so the provider is configuration. Database: PostgreSQL through a connection string (Neon today). Images: Cloudflare R2 behind an asset boundary is decided, not found in code. | `docs/architecture/payments.md`, `apps/api-server/src/*-support.ts`, `apps/api-server/src/auth.ts` | Implemented for payments and email; images decided |
-| Shared subjects across records | Thing / Type / Relation layer: stacked levels, links as claims with confidence, recorded equivalences. After launch. | `decisions.md`, `docs/research/thing-type-relation/` | Decided; planned engineering |
-| Skills as references | Help answers stored as ESCO references. | `decisions.md` (Thing / Type / Relation, v0.1 guardrails) | Decided |
-| Permissions that travel with data | Privacy rules are product rules (pre-signup picks stay on the device; contributions go only to a founder review queue). No permission model for algorithms or building blocks. | `AGENTS.md` privacy invariants | Not started; open question |
+| Separable parts in It's own code | A modular monolith in pnpm workspaces: `packages/content` (Zod content schemas, no Expo or UI imports), `packages/domain` (pure selection and ranking logic), `packages/database` (Kysely, migrations), `packages/api` (oRPC contract kept apart from the router). I found no automated import-boundary check; the rule lives in `AGENTS.md`. | `packages/*`, `AGENTS.md` | Shipped (boundary check not automated) |
+| A typed content graph | Domains, pains, futures (dreams), first actions and ways (fixes), with link lists (`painDreamLinks`, `fixDreamLinks`, `actionPainLinks`), validated with Zod and published as versions with rollback. | `packages/content/src/graph-schema.ts`, `docs/architecture/cms.md` | Shipped |
+| Provenance on records | Each record can carry source, locator, evidence type, rights (CC0 or CC BY-SA) and review status. | `contentProvenanceSchema` in `graph-schema.ts` | Shipped |
+| Combining pieces for a person | `rankWays` lists each way once across a person's chosen futures, most-connected first. This is a count over hand-made links, not a search for paths. | `packages/domain/src/onboarding.ts` | Shipped (deliberately simple) |
+| Swappable providers | Payments: an It-owned ledger with Stripe and RevenueCat adapters, verified and deduplicated webhooks. Email: SMTP through nodemailer, so the provider is configuration. Database: PostgreSQL through a connection string (Neon today). Images: Cloudflare R2 behind an asset boundary is decided, not found in code. | `docs/architecture/payments.md`, `apps/api-server/src/*-support.ts`, `apps/api-server/src/auth.ts` | Shipped for payments and email; images: planned engineering |
+| Shared subjects across records | Thing / Type / Relation layer: stacked levels, links as claims with confidence, recorded equivalences. After launch. | `decisions.md`, `docs/research/thing-type-relation/` | Planned engineering |
+| Skills as references | Help answers stored as ESCO references. | `decisions.md` (Thing / Type / Relation, v0.1 guardrails) | Planned engineering |
+| Permissions that travel with data | Privacy rules are product rules (pre-signup picks stay on the device; contributions go only to a founder review queue). No permission model for algorithms or building blocks. | `AGENTS.md` privacy invariants | Open question |
 | People, resources, commitments as blocks | No model of offers, needs, resources or commitments. | none | Speculative direction |
 | Discovering paths | None; ways are curated by hand (and drafted by the possibility generator for review). | `tools/possibilities/` | Speculative direction |
 | Interoperability with outside software for people | No public API for others, no data export format. | none | Speculative direction |
-| Time, memory, failure measurements | Nothing measured. | none | Nothing to report |
+| Time, memory, failure measurements | Nothing measured. | none | Nothing measured (no label) |
 
 The source proposal `docs/source/It_Composable_Architecture_Research_and_MVP_Plan.txt` sets out a five-part replaceability experiment for the onboarding flow (swap a layout, swap a proposal algorithm, run state tests with no database, swap storage, build after each change). The packages above cover parts of it; nobody has run it as a recorded test, so the page should not claim it passed.
 
@@ -191,7 +191,7 @@ For the external knowledge only, not for It.
 
 | Aim | Label | Basis |
 |---|---|---|
-| Fully compositional building blocks | Established result (the maths, for systems that fit the formalism); open question (software at large) | Operads and wiring diagrams give exact composition for systems that fit the formalism. Feature interaction shows real features break it. |
+| Fully compositional building blocks | Established result (the mathematics, for systems that fit the formalism); open question (software at large) | Operads and wiring diagrams give exact composition for systems that fit the formalism. Feature interaction shows real features break it. |
 | Combining heterogeneous information | Established result (structured data with schemas); open question (informal meaning) | Functorial data migration, RDF |
 | Combining skills, software and resources | Open question | OpenAPI, JSON Schema, MCP exist; composing them by meaning is not solved |
 | Combining commitments | Working hypothesis | Rely/guarantee and contract theories give a model; no source applies it to personal commitments |
@@ -206,7 +206,7 @@ For the external knowledge only, not for It.
 
 1. Spivak, D. I., and Kent, R. E. "Ologs: A Categorical Framework for Knowledge Representation." PLOS ONE 7(1), 2012. https://doi.org/10.1371/journal.pone.0024274. Opened.
 2. Spivak, D. I. "Functorial Data Migration." arXiv:1009.1166, v4 2013. https://arxiv.org/abs/1009.1166. Opened. Journal version (Information and Computation, 2012, doi:10.1016/j.ic.2012.05.001): DOI resolves, landing page not opened.
-3. CQL. https://www.categoricaldata.net/ and https://github.com/CategoricalData/CQL. Opened (README licence statement; LICENSE file not read).
+3. CQL. https://www.categoricaldata.net/ and https://github.com/CategoricalData/CQL. Opened (README license statement; LICENSE file not read).
 4. Fong, B., and Spivak, D. I. "Seven Sketches in Compositionality: An Invitation to Applied Category Theory." arXiv:1803.05316, v3 2018. https://arxiv.org/abs/1803.05316. Opened (PDF chapter 1).
 5. Spivak, D. I. "The operad of wiring diagrams." arXiv:1305.0297, 2013. https://arxiv.org/abs/1305.0297. Opened (abstract).
 6. Vagner, D., Spivak, D. I., and Lerman, E. "Algebras of Open Dynamical Systems on the Operad of Wiring Diagrams." arXiv:1408.1598, 2015. https://arxiv.org/abs/1408.1598. Opened (abstract).
