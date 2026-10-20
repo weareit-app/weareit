@@ -1,9 +1,8 @@
 # Runs the typecheck, lint, the Vitest and jest-expo tests, and the Playwright web
-# tests on every pull request, so a commit made with `git commit --no-verify` is
-# still checked.
-# Standard ubuntu-latest runners only: free for public repositories. Larger runners
-# are billed even on public repositories. Before adding a larger or macOS runner,
-# and for the action pins: docs/architecture/dependency-policy.md.
+# tests on every pull request and push to master, so a commit made with
+# `git commit --no-verify` is still checked.
+# Runner costs and action pins: docs/architecture/dependency-policy.md. Read it
+# before changing `runs-on`.
 name: CI
 
 on:
@@ -20,6 +19,7 @@ concurrency:
 
 jobs:
   check:
+    name: Typecheck, lint and unit tests
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:

@@ -33,7 +33,7 @@ The shared install steps (pnpm, Node, `pnpm install`) live in `.github/actions/s
 
 Cost (checked 2026-10-20 against GitHub's Actions billing docs): GitHub Actions is free for public repositories on standard GitHub-hosted runners, so this workflow costs nothing while `weareit-app/weareit` stays public. Larger runners are billed even on public repositories. If the repository becomes private, the organization's free plan includes 2,000 minutes and 500 MB of artifact storage a month. To keep CI free:
 
-- Use `ubuntu-latest` only. Do not add larger runners. The billing docs do not say whether standard macOS runners are free for public repositories, so check them before adding a macOS job (for example an iOS build). On a private repository a macOS minute uses 10 included minutes.
+- Use `ubuntu-latest` only. Do not add larger runners. The billing docs do not say whether standard macOS runners are free for public repositories, so check them before adding a macOS job (for example an iOS build).
 - Keep `timeout-minutes` on every job and keep artifacts short-lived.
 - Keep the organization's Actions budget at $0, so usage that would be billed is blocked rather than charged.
 
