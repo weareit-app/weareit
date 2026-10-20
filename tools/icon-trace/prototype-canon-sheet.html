@@ -1,0 +1,48 @@
+<!doctype html><meta charset=utf-8><title>PROTOTYPE: style canon sheet</title>
+<style>
+:root{--paper:#FFFDF7;--ink:#1F2021;--line:#ddd8cc}
+body{margin:0;padding:16px;background:var(--paper);color:var(--ink);font:14px/1.4 system-ui}
+h1{font-size:18px;margin:0 0 4px}p.note{margin:0 0 16px;color:#666}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.card{border:1px solid var(--line);border-radius:10px;padding:10px;background:#fff}
+.card.canon{outline:3px solid #00A95C}.card.fix{outline:3px solid #FFB511}.card.drop{outline:3px solid #F15060}
+.row{display:flex;gap:10px;align-items:center}
+.small{width:72px;height:72px}.big{width:150px;height:150px}.src{width:60px;height:60px;object-fit:contain;opacity:.7;border:1px dashed var(--line)}
+.name{font-weight:600;margin:6px 0}
+.marks button{border:1px solid var(--line);background:#fafafa;border-radius:6px;padding:4px 10px;cursor:pointer;margin-right:4px}
+.marks button.on{background:var(--ink);color:#fff}
+textarea{width:100%;box-sizing:border-box;margin-top:6px;font:13px system-ui;height:38px}
+.contrast{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 20px}.contrast img{width:110px;height:110px;object-fit:contain;background:#fff;border:1px solid var(--line)}
+.rowstrip{display:flex;gap:18px;flex-wrap:wrap;padding:12px;background:#fff;border:1px solid var(--line);border-radius:10px;margin-bottom:16px}
+.rowstrip img{width:72px;height:72px}
+#count{position:sticky;top:0;background:var(--paper);padding:6px 0;font-weight:600}
+</style>
+<h1>Style canon sheet (prototype, throwaway)</h1>
+<p class=note>Each card: the traced icon at app size (72 px), large, and its source drawing (dashed). Mark each one: <b>canon</b> (a reference for new pain art), <b>fix</b> (on style once fixed; say what), or <b>drop</b> (not a reference). Leave a note on anything.</p>
+<div id=count></div>
+<h2>All icons together at app size</h2><div class=rowstrip id=strip></div>
+<div class=grid id=grid></div>
+<h2>Earlier icon set and the unused planting drawing (raster, not traced)</h2><div class=grid id=grid2></div>
+<script>
+const items=[{"id": "body", "svg": "../../apps/app/assets/brand/group-body.svg", "src": "../../apps/app/assets/brand/drawings/body.webp"}, {"id": "community", "svg": "../../apps/app/assets/brand/group-community.svg", "src": "../../apps/app/assets/brand/drawings/community.webp"}, {"id": "economy", "svg": "../../apps/app/assets/brand/group-economy.svg", "src": "../../apps/app/assets/brand/drawings/economy.webp"}, {"id": "environment", "svg": "../../apps/app/assets/brand/group-environment.svg", "src": "../../apps/app/assets/brand/drawings/environment.webp"}, {"id": "fairness", "svg": "../../apps/app/assets/brand/group-fairness.svg", "src": "../../apps/app/assets/brand/drawings/fairness.webp"}, {"id": "government", "svg": "../../apps/app/assets/brand/group-government.svg", "src": "../../apps/app/assets/brand/drawings/government.webp"}, {"id": "health", "svg": "../../apps/app/assets/brand/group-health.svg", "src": "../../apps/app/assets/brand/drawings/health.webp"}, {"id": "home", "svg": "../../apps/app/assets/brand/group-home.svg", "src": "../../apps/app/assets/brand/drawings/home.png"}, {"id": "information", "svg": "../../apps/app/assets/brand/group-information.svg", "src": "../../apps/app/assets/brand/drawings/information.webp"}, {"id": "kids", "svg": "../../apps/app/assets/brand/group-kids.svg", "src": "../../apps/app/assets/brand/drawings/kids.png"}, {"id": "making-change", "svg": "../../apps/app/assets/brand/group-making-change.svg", "src": "../../apps/app/assets/brand/drawings/making-change.webp"}, {"id": "mind", "svg": "../../apps/app/assets/brand/group-mind.svg", "src": "../../apps/app/assets/brand/drawings/mind.png"}, {"id": "money", "svg": "../../apps/app/assets/brand/group-money.svg", "src": "../../apps/app/assets/brand/drawings/money.webp"}, {"id": "people", "svg": "../../apps/app/assets/brand/group-people.svg", "src": "../../apps/app/assets/brand/drawings/people.png"}, {"id": "purpose", "svg": "../../apps/app/assets/brand/group-purpose.svg", "src": "../../apps/app/assets/brand/drawings/purpose.png"}, {"id": "safety", "svg": "../../apps/app/assets/brand/group-safety.svg", "src": "../../apps/app/assets/brand/drawings/safety.webp"}, {"id": "stage-anxiety", "svg": "../../apps/app/assets/brand/group-stage-anxiety.svg", "src": "../../apps/app/assets/brand/drawings/stage-anxiety.png"}, {"id": "stage-steady-enough-to-plan", "svg": "../../apps/app/assets/brand/group-stage-steady-enough-to-plan.svg", "src": "../../apps/app/assets/brand/drawings/stage-steady-enough-to-plan.png"}, {"id": "time", "svg": "../../apps/app/assets/brand/group-time.svg", "src": "../../apps/app/assets/brand/drawings/time.webp"}, {"id": "work", "svg": "../../apps/app/assets/brand/group-work.svg", "src": "../../apps/app/assets/brand/drawings/work.webp"}], contrast=["../../apps/app/assets/brand/icon-advocacy.jpg", "../../apps/app/assets/brand/icon-ai.jpg", "../../apps/app/assets/brand/icon-anxiety.jpg", "../../apps/app/assets/brand/icon-climate.jpg", "../../apps/app/assets/brand/icon-connection.jpg", "../../apps/app/assets/brand/icon-corruption.jpg", "../../apps/app/assets/brand/icon-loneliness.jpg", "../../apps/app/assets/brand/icon-misinformation.jpg", "../../apps/app/assets/brand/icon-procrastination.jpg", "../../apps/app/assets/brand/drawings/making-change-planting.webp"], state={};
+const grid=document.getElementById('grid');
+for(const it of items){state[it.id]={mark:null,note:''};
+ document.getElementById('strip').insertAdjacentHTML('beforeend',`<img src="${it.svg}" title="${it.id}">`);
+ const c=document.createElement('div');c.className='card';c.innerHTML=`<div class=name>${it.id}</div>
+ <div class=row><img class=small src="${it.svg}"><img class=big src="${it.svg}"><img class=src src="${it.src}" title="source drawing"></div>
+ <div class=marks>${['canon','fix','drop'].map(m=>`<button data-m=${m}>${m}</button>`).join('')}</div>
+ <textarea placeholder="note (optional)"></textarea>`;
+ c.querySelectorAll('button').forEach(b=>b.onclick=()=>{state[it.id].mark=b.dataset.m;c.className='card '+b.dataset.m;c.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));upd()});
+ c.querySelector('textarea').oninput=e=>{state[it.id].note=e.target.value};
+ grid.appendChild(c)}
+for(const s of contrast){const id=s.split('/').pop();state[id]={mark:null,note:''};
+ const c=document.createElement('div');c.className='card';c.innerHTML=`<div class=name>${id}</div>
+ <div class=row><img class=small src="${s}" style="object-fit:contain"><img class=big src="${s}" style="object-fit:contain"></div>
+ <div class=marks>${['canon','fix','drop'].map(m=>`<button data-m=${m}>${m}</button>`).join('')}</div>
+ <textarea placeholder="note (optional)"></textarea>`;
+ c.querySelectorAll('button').forEach(b=>b.onclick=()=>{state[id].mark=b.dataset.m;c.className='card '+b.dataset.m;c.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));upd()});
+ c.querySelector('textarea').oninput=e=>{state[id].note=e.target.value};
+ document.getElementById('grid2').appendChild(c)}
+function upd(){const v=Object.values(state);const n=k=>v.filter(x=>x.mark===k).length;document.getElementById('count').textContent=`canon ${n('canon')} · fix ${n('fix')} · drop ${n('drop')} · unmarked ${n(null)} of ${v.length}`}
+upd();window.canonState=state;
+</script>
