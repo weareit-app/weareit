@@ -25,9 +25,10 @@ const config: StorybookConfig = {
     },
   },
   core: { disableTelemetry: true },
-  // react-native-svg's web code imports `@react-native/assets-registry/registry`,
-  // a package React Native 0.88 no longer installs. Metro maps it for the app;
-  // here it goes to react-native-web's registry, which has the same getAssetByID.
+  // react-native-svg 15.16.0's web code imports `@react-native/assets-registry/registry`,
+  // which react-native 0.88.0 no longer depends on (its package.json, checked
+  // 2026-10-20). Metro resolves it for the app; here it goes to react-native-web's
+  // registry, which has the same getAssetByID.
   viteFinal: (viteConfig) =>
     mergeConfig(viteConfig, {
       resolve: {

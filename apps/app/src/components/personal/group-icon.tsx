@@ -1,18 +1,17 @@
 import {
   Canvas,
   ColorMatrix,
-  FillType,
   FractalNoise,
   Group,
   Mask,
   Paint,
   Path,
   Rect,
-  Skia,
 } from "@shopify/react-native-skia";
 import { useMemo, type ReactNode } from "react";
 import { useNativeVariable as useNativeVariableTyped } from "react-native-css";
 import { groupIcons, spotInks, type IconTone } from "../../content/group-icons";
+import { toSkPath } from "../../watercolor/sk-path";
 import {
   drift,
   grainMatrix,
@@ -59,13 +58,7 @@ export function GroupIcon({
   const parts = useMemo(
     () =>
       (groupIcons[id] ?? []).map((part) => {
-        const parsed = Skia.Path.MakeFromSVGString(part.d)!;
-        const path = part.evenOdd
-          ? Skia.PathBuilder.MakeFromPath(parsed)
-              .setFillType(FillType.EvenOdd)
-              .detach()
-          : parsed;
-        return { ...part, path };
+        return { ...part, path: toSkPath(part.d, part.evenOdd) };
       }),
     [id],
   );

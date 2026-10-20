@@ -44,7 +44,7 @@ Decided 2026-10-16 (founder override of the assessment's weak-evidence gate); co
 
 - Expo Router is the universal app and route system. Revisit a separate Next.js app only if a demonstrated Expo limitation requires it.
 - Use pnpm workspaces. The owner uses mise locally; contributor setup remains tool-agnostic.
-- Use NativeWind 5.0.0-rc.0 with its exact `react-native-css` 3.1.0-rc.0 pairing for the SDK 57 prototype. NativeWind labels v5 a pre-release and says it is not intended for production, so re-evaluate maturity before launch or switch to a stable compatible release.
+- Use NativeWind 5.0.0-rc.0 with its exact `react-native-css` 3.1.0-rc.0 pairing, chosen for the SDK 57 prototype and kept for SDK 58 (2026-10-20, weareit-app/weareit#79). NativeWind labels v5 a pre-release and says it is not intended for production, so re-evaluate maturity before launch or switch to a stable compatible release.
 - Keep `lightningcss` at 1.30.1 as the NativeWind/react-native-css compatibility override. Dependency refresh rules and current intentional version pins are recorded in `docs/architecture/dependency-policy.md`.
 - Use oRPC for typed API contracts and Kysely for SQL access. Keep contracts/framework independent where practical.
 - Use Neon initially through a provider-neutral PostgreSQL connection boundary.
@@ -99,7 +99,7 @@ Decided 2026-10-18; details in `docs/architecture/typography.md`.
 **Approved by the founder 2026-10-17.** Spec: `specs/007-watercolor-dot/spec.md` (being absorbed into `openspec/specs/brand-mark` via change `watercolor-followups`); research in `docs/research/watercolor.md`.
 
 - **Why.** Both candidates in the fidelity proof need GPU shaders: Option B (look-alike shader) draws watercolor marks live, and Option E (dots painted ahead of time by physics) is colored live with Kubelka-Munk pigment optics. Reanimated, already installed, can move, scale and fade existing images but cannot draw new watercolor shapes. Skia gives GPU 2D drawing and custom SkSL RuntimeEffect shaders on iOS and web, driven by Reanimated shared values, and is supported in the Expo SDK 57 docs.
-- **Version.** Install with `expo install` so the version matches SDK 57; record any pin in `docs/architecture/dependency-policy.md`. Not installed yet; the fidelity proof installs it.
+- **Version.** Install with `expo install` so the version matches the app's Expo SDK (SDK 57 when this was decided; SDK 58 since #79); record any pin in `docs/architecture/dependency-policy.md`. Not installed yet; the fidelity proof installs it.
 - **Web cost.** Skia on web loads CanvasKit (WebAssembly), about 2.9 MB gzipped, against the founder's 1 MB extra web budget loaded after the first screen (FR-011). So web will likely use the animated painted orb in all three placements, and Skia is used on iOS, unless the fidelity proof finds a web path for the chosen dot within 1 MB. The proof must report the web download for each approach. *(Superseded the same day: see "Web, updated 2026-10-17" below.)*
 - **Native cost.** Roughly 4–6 MB added to the iOS binary (figures vary between sources; the proof measures it). Targets are iPhone 12 and newer (founder, 2026-10-17).
 - **License.** `@shopify/react-native-skia` is MIT and Skia itself BSD-3-Clause; both are compatible with the AGPL-3.0-or-later app license.
@@ -160,4 +160,5 @@ Decided 2026-10-19 by the founder (ticket "Pick hosting, email provider and depl
 - 2026-10-19: chose Cloudflare R2 for image storage, behind the asset boundary (over S3 with CloudFront: DNS already on Cloudflare, no download fees).
 - 2026-10-20: founder chose Storybook for component review, with a local screenshot comparison per branch; Storybook links on pull-request previews come later.
 - 2026-10-20: founder chose to run the Playwright web tests in CI as their own job (weareit-app/weareit#63), reversing the choice in #66 to leave them out as slow and prone to failing for reasons unrelated to the code. Deploys from master now also wait for them; if they prove flaky, remove the `e2e` job.
+- 2026-10-20: founder asked to move the app to Expo SDK 58 (weareit-app/weareit#79, a draft until after the Oct 26 launch), mainly for per-route web bundles. Expo Router async routes are limited to web production builds, so development keeps one bundle. The stack is unchanged: same Expo Router, NativeWind pair and Skia, at SDK 58's versions (`docs/architecture/dependency-policy.md`).
 - 2026-10-20: recorded the code-only Prettier decision (from #62 and #77), which until then lived only in tool config comments.

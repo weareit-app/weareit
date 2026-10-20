@@ -4,12 +4,13 @@ packages:
   - tools/*
 
 allowBuilds:
-  # Skia 2.14 ships its libraries in the react-native-skia-* packages and has no install script to run.
+  # Skia 2.14.0 publishes no install script (npm view, 2026-10-20); its libraries come in the react-native-skia-* packages.
   "@shopify/react-native-skia": false
   "@tailwindcss/oxide": true
   "esbuild": true
   "lefthook": true
-  # Jest 30 dependencies with prebuilt platform binaries; their source builds are not needed.
+  # Jest 30 dependencies: their prebuilt platform binaries are optional dependencies, so the fallback
+  # install scripts (a source build; napi-postinstall) are not needed (npm view, 2026-10-20).
   "@parcel/watcher": false
   "unrs-resolver": false
 
