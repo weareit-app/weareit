@@ -64,24 +64,25 @@ A staged run mirrors the content graph (`packages/content/src/graph-schema.ts`):
 `examples → dreams → dream-review → plan → shared-fixes → kind-pools → screen → assemble → judge → fix-review`. `dream-review` and `fix-review` are founder stops. `status <run>` names the next stage from the files present:
 - `examples` is complete when `exemplars.json` exists;
 - `dreams` is complete when `dreams.json` exists;
-- `dream-review` is complete when every dream in `dreams.json` has a `review` with a `decision` (written by `dreams-ingest`).
+- `dream-review` is complete when every dream in `dreams.json` has a `review` with a `decision`. `dreams-ingest` (#89) writes it from `reviews/dreams-decisions.json`.
 
-`start <run> <stage>` refuses with a usage error (exit 2) while any earlier stage is incomplete, so no fix stage runs before the dream review is ingested. Otherwise it prints the stage's brief. Stages after `dream-review` aren't built yet.
+`start <run> <stage>` refuses with a usage error (exit 2) while any earlier stage is incomplete, so no fix stage runs before the dream review is ingested. Otherwise it names the stage's brief. Stages after `dream-review` aren't built yet.
 
 ### dreams.json (staged run)
 ```
 { schemaVersion: 2, painId, runId, dreams: { <dream-id>: {
     title, line, lens, ambition,          # title names the outcome; line is one first-person sentence
-    exemplarRefs: [<exemplar-id>…],       # the examples that show the outcome is reachable; may be empty
+    exemplarRefs: [<exemplar-id>…],       # at least one: the examples that show the outcome is reachable
     provenance: { sourceId, locator, evidenceType, rights, reviewStatus: "unreviewed" },
     writerNotes?, review? } },            # review: the founder's decision, written by dreams-ingest
   overlaps: [ { a: <dream-id>, b: <dream-id>, reason } ] }
 ```
 Rules:
-- `exemplarRefs` resolve to exemplars in the same run.
+- `exemplarRefs` names at least one exemplar, and each resolves to an exemplar in the same run.
+- `schemaVersion` is 2, and `painId` matches `run.json`.
 - Each overlap names two different dreams in the run, with a reason, and each pair is flagged once.
 - `title` and `line` map to the graph dream's `title` and `description`.
-- Lint applies the dream copy rules (`title-vague`, `title-length`, `dream-not-outcome`, `line-length`, phrase, comma, and regional-word rules), plus lens and ambition coverage across the drafted dreams. Its issues carry `dreamId` in place of `cardId`. Basics and It-led coverage need linked fixes, so they wait for the fix stages.
+- Lint applies the dream copy rules (`title-vague`, `title-length`, `dream-not-outcome`, `line-length`, `generic-phrase`, `serial-comma`, `exclamation`, `boilerplate-caveat`, `regional-word`, `acronym-in-title`, and `stacked-hedges`), plus lens and ambition coverage across the drafted dreams. Its issues carry `dreamId` in place of `cardId`. Basics and It-led coverage need linked fixes, so they wait for the fix stages.
 - `writerNotes` is never shown to judges or on review pages.
 
 ## Calibration files (`docs/research/possibilities/calibration/`)

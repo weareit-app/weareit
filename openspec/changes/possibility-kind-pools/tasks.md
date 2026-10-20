@@ -6,12 +6,12 @@ Start only after the pain-catalog change (PR #27) and the full pain sweep are me
 
 - [ ] 1.1 Add v2 file shapes (`dreams.json`, `fixes.json`, `plan.json`, `links.json`, `screen.json`, review decisions) to `tools/possibilities/data-model.md`, and add `validate` support for them, with v1 runs still valid. Verify with new validation tests for each file, plus the existing v1 tests unchanged.
 - [ ] 1.2 Add the kind list (adding `ask` and `resource`, keeping `path` reserved, and allowing the trial kinds `leave` and `switch` only when `run.json` has `"pilot": true`) and the method fields required for each kind to `validate`. Verify with tests: an Ask without a decision-maker fails, a trial kind outside a pilot run fails, and a Use a resource fix marked `proposed_it_feature` fails.
-- [x] 1.3 Add `status <run>`, which reports the next stage from the files present, and make each stage subcommand refuse when the stage before it is incomplete. Verify with a test: starting a kind pool before dream review is ingested exits with code 2.
+- [ ] 1.3 Add `status <run>`, which reports the next stage from the files present, and make each stage subcommand refuse when the stage before it is incomplete. Verify with a test: starting a kind pool before dream review is ingested exits with code 2.
 - [ ] 1.4 Make a repair run keep dream and fix IDs and their links. Verify with a repair test on a v2 fixture.
 
 ## 2. Dreams and founder dream review
 
-- [x] 2.1 Write `briefs/dreams.md` (dreams from the opened examples, with lens, ambition and overlap flags with reasons). Verify that a dry run on a fixture pain produces a `dreams.json` that passes `validate` and `lint`.
+- [ ] 2.1 Write `briefs/dreams.md` (dreams from the opened examples, with lens, ambition and overlap flags with reasons). Verify that a dry run on a fixture pain produces a `dreams.json` that passes `validate` and `lint`.
 - [ ] 2.2 Add `dreams-review-build` (writing `reviews/proposals.json` and `review.html` from a template adapted from `tools/pains/config/review-page.template.html`) and a local launch config to serve it. Verify that the page loads, shows each dream once with its overlap flags as text, and exports decisions from the keyboard alone.
 - [ ] 2.3 Add `dreams-ingest <run> <decisions.json>`, which records accept, edit and reject and keeps the original text beside each edit. Verify with tests: an edited line reaches the plan input, and rejected dreams don't.
 

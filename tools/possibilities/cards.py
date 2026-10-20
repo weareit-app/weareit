@@ -306,7 +306,9 @@ def validate_cards(doc, exemplars, issues, generated=True):
     return cards
 
 
-def validate_dreams(doc, exemplars, issues):
+def validate_dreams(doc, exemplars, issues, pain=None):
+    require(doc.get('schemaVersion') == 2, 'dreams.json must have schemaVersion 2', issues)
+    require(doc.get('painId') == pain, 'dreams.json painId must match run.json', issues)
     dreams = doc.get('dreams')
     require(isinstance(dreams, dict) and dreams, 'dreams must be nonempty keyed records', issues)
     if not isinstance(dreams, dict):
@@ -318,7 +320,8 @@ def validate_dreams(doc, exemplars, issues):
             require(isinstance(d.get(field), str) and d[field].strip(), where + ': missing ' + field, issues)
         require(d.get('lens') in LENSES, where + ': unknown lens', issues)
         require(d.get('ambition') in AMBITIONS, where + ': unknown ambition', issues)
-        refs = d.get('exemplarRefs', [])
+        refs = d.get('exemplarRefs')
+        require(isinstance(refs, list) and refs, where + ': exemplarRefs must name at least one example', issues)
         require(isinstance(refs, list) and all(r in exemplars for r in refs),
                 where + ': exemplarRefs must resolve to exemplars in this run', issues)
         prov = d.get('provenance', {})
@@ -364,7 +367,7 @@ def validate_staged_run(run):
     if (run / 'exemplars.json').is_file():
         exemplars = validate_exemplars(read(run / 'exemplars.json'), issues)
     if (run / 'dreams.json').is_file():
-        validate_dreams(read(run / 'dreams.json'), exemplars, issues)
+        validate_dreams(read(run / 'dreams.json'), exemplars, issues, read(run / 'run.json').get('painId'))
     return issues
 
 
@@ -409,7 +412,20 @@ def copy_patterns(root):
     acronyms = [w for w in regional_words if w.isupper() or '-' in w]
     regional = re.compile(r'\b(' + '|'.join(re.escape(w) for w in regional_words if w not in acronyms) + r')\b', re.I) if regional_words else None
     acronym_titles = re.compile(r'\b(' + '|'.join(re.escape(w) for w in acronyms) + r')\b') if acronyms else None
-    return banned, generic, boilerplate, modals, regional, acronym_titles
+    return {'banned': banned, 'generic': generic, 'boilerplate': boilerplate, 'modals': modals,
+            'regional': regional, 'acronymTitles': acronym_titles}
+
+
+def phrase_rules(field, text, patterns):
+    """(rule, detail) for generic phrases, the serial comma, exclamation marks and boilerplate caveats in one field."""
+    for m in patterns['generic'].finditer(text) if patterns['generic'] else ():
+        yield 'generic-phrase', '%s: "%s"' % (field, m[0])
+    for hit in serial_comma.find(text):
+        yield 'serial-comma', '%s: add the Oxford comma in "%s"' % (field, hit['list'][:80])
+    if '!' in text:
+        yield 'exclamation', field + ': no exclamation marks'
+    for m in patterns['boilerplate'].finditer(text) if patterns['boilerplate'] else ():
+        yield 'boilerplate-caveat', '%s: "%s" (status labels carry this)' % (field, m[0])
 
 
 def lint_staged_run(run, root):
@@ -418,20 +434,15 @@ def lint_staged_run(run, root):
     def add(dream, rule, detail):
         issues.append({'dreamId': dream, 'rule': rule, 'detail': detail})
 
-    _, generic, boilerplate, modals, regional, acronym_titles = copy_patterns(root)
+    patterns = copy_patterns(root)
+    modals, regional, acronym_titles = patterns['modals'], patterns['regional'], patterns['acronymTitles']
     for key, d in dreams.items():
         copy = {'title': d.get('title', ''), 'line': d.get('line', '')}
         for rule, detail in dream_rules(copy['title'], copy['line']):
             add(key, rule, detail)
         for field, text in copy.items():
-            for m in generic.finditer(text) if generic else ():
-                add(key, 'generic-phrase', '%s: "%s"' % (field, m[0]))
-            for hit in serial_comma.find(text):
-                add(key, 'serial-comma', '%s: add the Oxford comma in "%s"' % (field, hit['list'][:80]))
-            if '!' in text:
-                add(key, 'exclamation', field + ': no exclamation marks')
-            for m in boilerplate.finditer(text) if boilerplate else ():
-                add(key, 'boilerplate-caveat', '%s: "%s" (status labels carry this)' % (field, m[0]))
+            for rule, detail in phrase_rules(field, text, patterns):
+                add(key, rule, detail)
             for m in regional.finditer(text) if regional else ():
                 add(key, 'regional-word', '%s: "%s" (use the everyday American word)' % (field, m[0]))
         for m in acronym_titles.finditer(copy['title']) if acronym_titles else ():
@@ -457,7 +468,8 @@ def lint_run(run, root):
     if is_staged(Path(run)):
         return lint_staged_run(Path(run), root)
     run, ex_doc, card_doc = load_run(run)
-    banned, generic, boilerplate, modals, regional, acronym_titles = copy_patterns(root)
+    patterns = copy_patterns(root)
+    banned, modals, regional, acronym_titles = (patterns[k] for k in ('banned', 'modals', 'regional', 'acronymTitles'))
     it_ideas = basics = 0
     allowed = set(banned.get('allowedTerms', []))
     exemplars = ex_doc.get('exemplars', {})
@@ -477,15 +489,8 @@ def lint_run(run, root):
         for f in c.get('fixes', []):
             fix_copy = {'fix title': f.get('title', ''), 'whatChanges': f.get('whatChanges', '')}
             for field, text in list(copy.items()) + list(fix_copy.items()) + [('firstStep', f.get('firstStep', ''))]:
-                for m in generic.finditer(text) if generic else ():
-                    add(key, 'generic-phrase', '%s: "%s"' % (field, m[0]), f.get('id'))
-            for field, text in list(copy.items()) + list(fix_copy.items()) + [('firstStep', f.get('firstStep', ''))]:
-                for hit in serial_comma.find(text):
-                    add(key, 'serial-comma', '%s: add the Oxford comma in "%s"' % (field, hit['list'][:80]), f.get('id'))
-                if '!' in text:
-                    add(key, 'exclamation', field + ': no exclamation marks', f.get('id'))
-                for m in boilerplate.finditer(text) if boilerplate else ():
-                    add(key, 'boilerplate-caveat', '%s: "%s" (status labels carry this)' % (field, m[0]), f.get('id'))
+                for rule, detail in phrase_rules(field, text, patterns):
+                    add(key, rule, detail, f.get('id'))
             for text in [f.get('title', ''), f.get('whatChanges', '')]:
                 modal_hits += [m[0] for m in modals.finditer(text)] if modals else []
             if len(SENTENCE.findall(f.get('whatChanges', '').strip())) > 3:

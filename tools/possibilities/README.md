@@ -35,7 +35,7 @@ Run it from the repository root: `python3 tools/possibilities/cards.py <subcomma
 | `new-run <pain-id>` | Creates a new run folder and prints its path and the pain line |
 | `new-run <pain-id> --staged` | Creates a staged run (schemaVersion 2), whose files mirror the content graph |
 | `status <run>` | Names a staged run's next stage from the files present |
-| `start <run> <stage>` | Prints the stage's brief, or exits 2 while an earlier stage is incomplete |
+| `start <run> <stage>` | Names the stage's brief, or exits 2 while an earlier stage is incomplete |
 | `validate <run…>` | Checks the shape of exemplars, cards, dreams, judgments, and selection |
 | `lint <run…>` | Applies the copy, sourcing, kind and coverage rules, including the Oxford comma (`serial-comma`, from `tools/style/serial_comma.py`), and writes `lint.json` |
 | `judge-input <run>` | Prints a judge's whole input, with writer notes and provenance removed |

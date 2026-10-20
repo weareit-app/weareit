@@ -42,7 +42,6 @@ class Staged(Base):
             change(doc)
         cards.write(run / 'dreams.json', doc)
 
-
     def new_staged(self, pain='burnout'):
         result = cli(self.tmp, 'new-run', pain, '--staged')
         self.assertEqual(result.returncode, 0, result.stderr)
@@ -104,6 +103,15 @@ class Staged(Base):
     def test_dream_examples_must_be_in_the_run(self):
         found = self.issues(lambda d: d['dreams']['burnout-d00'].update(exemplarRefs=['ex-missing']))
         self.assertIn('exemplarRefs must resolve', found)
+
+    def test_dream_is_drafted_from_an_example(self):
+        found = self.issues(lambda d: d['dreams']['burnout-d00'].update(exemplarRefs=[]))
+        self.assertIn('dream burnout-d00: exemplarRefs must name at least one example', found)
+
+    def test_dreams_file_belongs_to_the_staged_run(self):
+        found = self.issues(lambda d: d.update(schemaVersion=1, painId='poor-sleep'))
+        self.assertIn('dreams.json must have schemaVersion 2', found)
+        self.assertIn('dreams.json painId must match run.json', found)
 
     def test_card_runs_have_no_stages(self):
         result = cli(self.tmp, 'status', str(self.run))
