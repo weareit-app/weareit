@@ -17,10 +17,10 @@ Start only after the pain-catalog change (PR #27) and the full pain sweep are me
 
 ## 3. Plan, shared fixes and kind briefs
 
-- [ ] 3.1 Write `briefs/planner.md` (one planner per pain, a ceiling per kind for each dream, zero allowed, with a reason) and add `plan.json` validation. Verify with a test: a plan with no reason for a ceiling of zero fails.
+- [x] 3.1 Write `briefs/planner.md` (one planner per pain, a ceiling per kind for each dream, zero allowed, with a reason) and add `plan.json` validation. Verify with a test: a plan with no reason for a ceiling of zero fails.
 - [ ] 3.2 Write `briefs/shared-fixes.md` (fixes that serve several dreams, with proposed links). Verify on a fixture that a shared fix is stored once with several proposed dream IDs.
 - [ ] 3.3 Write `briefs/kinds/_shared.md` and one brief for each kind in `briefs/kinds/`, from the research note: method fields, boundary tests, and a good and a bad example in It's voice. Fold `feature-pitch.md` into `kinds/feature.md`. Verify that every kind in the validator has a brief, with a test listing the files against the enum.
-- [ ] 3.4 Make kind briefs run only for kinds with a ceiling above zero, and accept fewer fixes with a `shortfallReason`. Verify with tests: a pool under its ceiling with a reason passes, and a pool over its ceiling fails.
+- [x] 3.4 Make kind briefs run only for kinds with a ceiling above zero, and accept fewer fixes with a `shortfallReason`. Verify with tests: a pool under its ceiling with a reason passes, and a pool over its ceiling fails.
 
 ## 4. Lint
 
@@ -30,8 +30,8 @@ Start only after the pain-catalog change (PR #27) and the full pain sweep are me
 
 ## 5. Screen, assembly and judging
 
-- [ ] 5.1 Write `briefs/screen.md` (actionable, right kind, honest status) and add `screen.json` handling, so fixes that fail are kept but can't be linked. Verify with a test: linking a screened-out fix fails validation.
-- [ ] 5.2 Write `briefs/assembler.md` (links, order, how each fix helps, 2–5 fixes per dream, path candidates) and add `links.json` validation. Verify with tests: six links on one dream fail, and an unlinked fix stays in `fixes.json`.
+- [x] 5.1 Write `briefs/screen.md` (actionable, right kind, honest status) and add `screen.json` handling, so fixes that fail are kept but can't be linked. Verify with a test: linking a screened-out fix fails validation.
+- [x] 5.2 Write `briefs/assembler.md` (links, order, how each fix helps, 2–5 fixes per dream, path candidates) and add `links.json` validation. Verify with tests: six links on one dream fail, and an unlinked fix stays in `fixes.json`.
 - [ ] 5.3 Change `judge-input` to list each accepted dream with its linked fixes, repeating shared fixes and leaving out method fields, writer notes and provenance. Change `consensus` to key by dream ID, and make `select` write `ranking.json` without finalists. Update `briefs/judge.md` and `config/rubric.md` to match. Verify with tests: a shared fix appears under three dreams, and fix-ID score keys fail validation.
 
 ## 6. Founder fix review

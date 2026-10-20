@@ -183,15 +183,55 @@ def dream_review_ingested(run):
     return bool(dreams) and all(isinstance(d.get('review'), dict) and d['review'].get('decision') for d in dreams.values())
 
 
-# How to tell each stage is complete. Stages after dream review are added with their own subcommands.
+def planned_kinds(run):
+    """Kinds the plan gives a ceiling above zero for some dream: only their briefs run."""
+    ceilings = read(run / 'plan.json').get('ceilings', {}) if (run / 'plan.json').is_file() else {}
+    rows = [row for row in ceilings.values() if isinstance(row, dict)]
+    return [kind for kind in KIND_BRIEFS
+            if any(isinstance(row.get(kind), dict) and (row[kind].get('max') or 0) > 0 for row in rows)]
+
+
+def drafted_pools(run):
+    pools = read(run / 'fixes.json').get('pools', {}) if (run / 'fixes.json').is_file() else {}
+    return set(pools) if isinstance(pools, dict) else set()
+
+
+def kind_pools_done(run):
+    return (run / 'plan.json').is_file() and set(planned_kinds(run)) <= drafted_pools(run)
+
+
+# How to tell each stage is complete, from the files present.
 STAGE_DONE = {
     'examples': lambda run: (run / 'exemplars.json').is_file(),
     'dreams': lambda run: (run / 'dreams.json').is_file(),
     'dream-review': dream_review_ingested,
+    'plan': lambda run: (run / 'plan.json').is_file(),
+    # The shared-fixes pass (#95) isn't built yet, so the stage passes once the plan exists.
+    'shared-fixes': lambda run: (run / 'plan.json').is_file(),
+    'kind-pools': kind_pools_done,
+    'screen': lambda run: (run / 'screen.json').is_file(),
+    'assemble': lambda run: (run / 'links.json').is_file(),
 }
 
 
-STAGE_BRIEFS = {'examples': 'tools/possibilities/briefs/dreams.md', 'dreams': 'tools/possibilities/briefs/dreams.md'}
+BRIEFS = 'tools/possibilities/briefs/'
+STAGE_BRIEFS = {'examples': BRIEFS + 'dreams.md', 'dreams': BRIEFS + 'dreams.md', 'plan': BRIEFS + 'planner.md',
+                'kind-pools': BRIEFS + 'kinds/_shared.md', 'screen': BRIEFS + 'screen.md', 'assemble': BRIEFS + 'assembler.md'}
+
+# One brief per kind, after the shared kind brief (design, "Briefs: a shared header plus one file per kind").
+# The plan sets ceilings only for kinds listed here, so each kind joins the plan when its brief is added.
+KIND_BRIEFS = {'task': BRIEFS + 'kinds/task.md'}
+SCREEN_CHECKS = ('actionable', 'rightKind', 'honestStatus')  # design, "Screen, then panel"
+MAX_LINKS = 5  # the assembler links 2-5 fixes to each dream; founder links may go past it
+LINK_AUTHORS = ('assembler', 'founder')  # founder links are added in the fix review
+# Method fields per kind (spec, "Method fields per kind"; docs/research/fix-kind-ideation/research.md).
+# str: nonempty text; bool: true or false; a tuple: one of its values.
+METHOD_FIELDS = {
+    'task': {'nextAction': str,   # the physical, visible next step (GTD)
+             'doneWhen': str,     # what is true once it's done
+             'keepsWorking': bool,  # a one-time change that keeps working afterward
+             'lever': ('default', 'remove-hassle', 'simplify', 'timing', 'other')},  # EAST: how it makes the change easy
+}
 
 
 def is_staged(run):
@@ -211,7 +251,19 @@ def next_stage(run):
 def status(run):
     """The next stage of a staged run, from the files present."""
     require_staged(run)
-    return {'run': run.name, 'next': next_stage(run)}
+    result = {'run': run.name, 'next': next_stage(run)}
+    if (run / 'fixes.json').is_file():
+        result['fixes'] = fix_pool(run)
+    return result
+
+
+def fix_pool(run):
+    """The run's whole fix pool: nothing is dropped, so screened-out and unlinked fixes are counted and named."""
+    fixes = read(run / 'fixes.json').get('fixes', {})
+    links = read(run / 'links.json').get('links', []) if (run / 'links.json').is_file() else []
+    linked = {entry.get('fixId') for entry in links if isinstance(entry, dict)}
+    return {'total': len(fixes), 'screenedOut': screened_out(run),
+            'unlinked': sorted(set(fixes) - linked) if (run / 'links.json').is_file() else None}
 
 
 def start(run, stage):
@@ -224,7 +276,13 @@ def start(run, stage):
         raise ValueError('%s cannot start: %s is not complete' % (stage, pending))
     if stage not in STAGE_BRIEFS:
         raise ValueError('%s is not built yet' % stage)
-    return {'run': run.name, 'stage': stage, 'brief': STAGE_BRIEFS[stage]}
+    result = {'run': run.name, 'stage': stage, 'brief': STAGE_BRIEFS[stage]}
+    if stage == 'plan':
+        result['kinds'] = list(KIND_BRIEFS)  # the kinds the planner sets ceilings for
+    elif stage == 'kind-pools':
+        # One brief per kind with a ceiling above zero that has no pool yet, each run after the shared kind brief.
+        result['kinds'] = {kind: KIND_BRIEFS[kind] for kind in planned_kinds(run) if kind not in drafted_pools(run)}
+    return result
 
 
 # ---------- founder dream review ----------
@@ -455,6 +513,188 @@ def validate_dreams(doc, exemplars, issues, pain=None):
     return dreams
 
 
+def reviewed_dreams(run):
+    """Accepted dream IDs once the dream review is ingested, else None (the fix files then have nothing to point at)."""
+    if not dream_review_ingested(run):
+        return None
+    return {key for key, d in read(run / 'dreams.json')['dreams'].items() if d['review']['decision'] != 'reject'}
+
+
+def one_line(value):
+    return isinstance(value, str) and value.strip() != '' and '\n' not in value
+
+
+def staged_header(doc, name, pain, issues):
+    require(doc.get('schemaVersion') == 2, name + ' must have schemaVersion 2', issues)
+    require(doc.get('painId') == pain, name + ' painId must match run.json', issues)
+
+
+def validate_plan(doc, accepted, issues, pain=None):
+    """plan.json: for each accepted dream, the most fixes to draft of each kind that has a brief, with a reason."""
+    staged_header(doc, 'plan.json', pain, issues)
+    ceilings = doc.get('ceilings')
+    require(isinstance(ceilings, dict), 'plan ceilings must be keyed by dream ID', issues)
+    if not isinstance(ceilings, dict):
+        return {}
+    require(accepted is not None, 'plan.json needs an ingested dream review', issues)
+    accepted = accepted or set()
+    issues += ['plan: no ceilings for accepted dream ' + key for key in sorted(accepted - set(ceilings))]
+    issues += ['plan: %s is not an accepted dream' % key for key in sorted(set(ceilings) - accepted)]
+    for key, row in sorted(ceilings.items()):
+        if not isinstance(row, dict):
+            issues.append('plan %s: ceilings must be keyed by kind' % key)
+            continue
+        issues += ['plan %s: no ceiling for %s' % (key, kind) for kind in KIND_BRIEFS if kind not in row]
+        for kind, ceiling in sorted(row.items()):
+            where = 'plan %s %s' % (key, kind)
+            if kind not in KIND_BRIEFS:
+                issues.append(where + ': kinds with a brief are ' + ', '.join(KIND_BRIEFS))
+                continue
+            ceiling = ceiling if isinstance(ceiling, dict) else {}
+            limit = ceiling.get('max')
+            require(isinstance(limit, int) and not isinstance(limit, bool) and 0 <= limit <= MAX_LINKS,
+                    where + ': max must be 0-%d' % MAX_LINKS, issues)
+            require(one_line(ceiling.get('reason')), where + ': a ceiling needs a one-line reason', issues)
+    return ceilings
+
+
+def check_method(kind, method, where, issues):
+    """A fix's method fields: filled before the copy, never shown in it (research note, per kind)."""
+    method = method if isinstance(method, dict) else {}
+    for field, rule in METHOD_FIELDS.get(kind, {}).items():
+        value = method.get(field)
+        ok = (isinstance(value, bool) if rule is bool else value in rule if isinstance(rule, tuple)
+              else isinstance(value, str) and value.strip() != '')
+        require(ok, '%s: method needs %s%s' % (where, field, ' (%s)' % ', '.join(rule) if isinstance(rule, tuple) else ''), issues)
+
+
+def validate_fixes(doc, exemplars, ceilings, accepted, issues, pain=None):
+    """fixes.json: the run's whole fix pool, kept whole through screen and assembly, and each kind's pool against the plan."""
+    staged_header(doc, 'fixes.json', pain, issues)
+    fixes, pools = doc.get('fixes'), doc.get('pools')
+    require(isinstance(fixes, dict), 'fixes must be keyed records', issues)
+    require(isinstance(pools, dict), 'pools must be keyed by kind', issues)
+    if not isinstance(fixes, dict) or not isinstance(pools, dict):
+        return {}
+    accepted = accepted or set()
+    for key, f in sorted(fixes.items()):
+        where = 'fix ' + key
+        require(ID.fullmatch(key), where + ': bad ID', issues)
+        for field in ('title', 'whatChanges', 'firstStep'):
+            require(isinstance(f.get(field), str) and f[field].strip(), where + ': missing ' + field, issues)
+        kind = f.get('kind')
+        require(kind in KIND_BRIEFS, where + ': kinds with a brief are ' + ', '.join(KIND_BRIEFS), issues)
+        require(f.get('origin') == 'kind:%s' % kind, where + ': origin must be kind:<its kind>', issues)
+        require(kind in pools, where + ': no %s pool records this fix' % kind, issues)
+        require(f.get('draftedFor') in accepted, where + ': draftedFor must be an accepted dream', issues)
+        require(f.get('status') in STATUSES, where + ': unknown status', issues)
+        require((kind == 'feature') == (f.get('status') == 'proposed_it_feature'),
+                where + ': kind feature goes with status proposed_it_feature, and only with it', issues)
+        check_method(kind, f.get('method'), where, issues)
+        minutes = f.get('firstStepMinutes')
+        require(isinstance(minutes, int) and 0 < minutes <= 20, where + ': firstStepMinutes must be 1-20', issues)
+        if f.get('speculative'):
+            require(f.get('speculativeRationale'), where + ': speculative needs speculativeRationale', issues)
+        else:
+            require(f.get('exemplarRef') in exemplars, where + ': exemplarRef must resolve or mark speculative', issues)
+        prov = f.get('provenance', {})
+        for field in ('sourceId', 'locator', 'evidenceType', 'rights', 'reviewStatus'):
+            require(prov.get(field), where + ': provenance lacks ' + field, issues)
+    for kind, pool in sorted(pools.items()):
+        if kind not in KIND_BRIEFS:
+            issues.append('pool %s: kinds with a brief are %s' % (kind, ', '.join(KIND_BRIEFS)))
+            continue
+        shortfalls = pool.get('shortfalls', {}) if isinstance(pool, dict) else None
+        if not isinstance(shortfalls, dict):
+            issues.append('%s pool: shortfalls must be keyed by dream ID' % kind)
+            continue
+        issues += ['%s pool: shortfall for %s, which is not an accepted dream' % (kind, d) for d in sorted(set(shortfalls) - accepted)]
+        for dream in sorted(accepted):
+            limit = ((ceilings.get(dream) or {}).get(kind) or {}).get('max', 0)
+            limit = limit if isinstance(limit, int) else 0
+            drafted = sum(f.get('kind') == kind and f.get('draftedFor') == dream for f in fixes.values())
+            where = '%s pool for %s' % (kind, dream)
+            if drafted > limit:
+                issues.append('%s: %d fixes, over the ceiling of %d' % (where, drafted, limit))
+            elif drafted < limit:
+                # A ceiling is not a quota: fewer is fine, with a reason (spec, "Briefs per kind").
+                require(one_line(shortfalls.get(dream)), '%s: %d of %d fixes needs a shortfallReason' % (where, drafted, limit), issues)
+    return fixes
+
+
+def validate_screen(doc, fixes, issues, pain=None):
+    """screen.json: one isolated judge's three checks on every fix. Returns the IDs of fixes that passed all three."""
+    staged_header(doc, 'screen.json', pain, issues)
+    require(str(doc.get('judge', {}).get('context', '')).startswith('isolated'), 'screen judge context must be isolated', issues)
+    results = doc.get('results')
+    require(isinstance(results, dict), 'screen results must be keyed by fix ID', issues)
+    if not isinstance(results, dict):
+        return set()
+    missing, gone = sorted(set(fixes) - set(results)), sorted(set(results) - set(fixes))
+    # A fix that fails the screen stays in fixes.json (spec, "Fix screen"), so the two files list the same fixes.
+    require(not missing, 'screen.json must screen every fix exactly once (missing %s)' % ', '.join(missing), issues)
+    require(not gone, 'screen.json names fixes no longer in fixes.json (%s)' % ', '.join(gone), issues)
+    passed = set()
+    for key, result in sorted(results.items()):
+        result = result if isinstance(result, dict) else {}
+        ok = True
+        for check in SCREEN_CHECKS:
+            verdict = result.get(check) if isinstance(result.get(check), dict) else {}
+            valid = isinstance(verdict.get('pass'), bool) and one_line(verdict.get('reason'))
+            require(valid, 'screen %s: %s needs pass and reason' % (key, check), issues)
+            ok = ok and valid and verdict['pass']
+        if ok:
+            passed.add(key)
+    return passed
+
+
+def screened_out(run):
+    """Fix IDs the screen failed: kept in the pool, never linked."""
+    results = read(run / 'screen.json').get('results', {}) if (run / 'screen.json').is_file() else {}
+    return sorted(k for k, r in results.items()
+                  if not all(isinstance(r, dict) and isinstance(r.get(c), dict) and r[c].get('pass') is True for c in SCREEN_CHECKS))
+
+
+def validate_links(doc, fixes, passed, accepted, issues, pain=None):
+    """links.json: the assembler's fix–dream links (graph fixDreamLinks, with order and how) and its path candidates."""
+    staged_header(doc, 'links.json', pain, issues)
+    links = doc.get('links')
+    require(isinstance(links, list), 'links must be a list', issues)
+    if not isinstance(links, list):
+        return []
+    accepted, seen, per_dream = accepted or set(), set(), {}
+    for entry in links:
+        entry = entry if isinstance(entry, dict) else {}
+        fix, dream = entry.get('fixId'), entry.get('dreamId')
+        where = 'link %s → %s' % (fix, dream)
+        require(fix in fixes, '%s: %s is not in fixes.json' % (where, fix), issues)
+        require(fix not in fixes or fix in passed, '%s: %s was screened out' % (where, fix), issues)
+        require(dream in accepted, '%s: %s is not an accepted dream' % (where, dream), issues)
+        require(one_line(entry.get('how')) and len(SENTENCE.findall(entry['how'].strip())) <= 1,
+                where + ': how needs one sentence on how the fix helps', issues)
+        require(entry.get('by') in LINK_AUTHORS, where + ': by must be ' + ' or '.join(LINK_AUTHORS), issues)
+        require((fix, dream) not in seen, where + ' is listed twice', issues)
+        seen.add((fix, dream))
+        per_dream.setdefault(dream, []).append(entry)
+    for dream in sorted(accepted):
+        entries = per_dream.get(dream, [])
+        by_assembler = sum(e.get('by') == 'assembler' for e in entries)
+        # The 2-5 limit is the assembler's; links the founder adds in review may go past 5 (spec, "Founder fix review").
+        require(len(entries) >= 2, 'dream %s: %d linked fix%s; the assembler links 2-%d'
+                % (dream, len(entries), '' if len(entries) == 1 else 'es', MAX_LINKS), issues)
+        require(by_assembler <= MAX_LINKS, 'dream %s: %d assembler links; the assembler links 2-%d' % (dream, by_assembler, MAX_LINKS), issues)
+        orders = [e.get('order') for e in entries]
+        require(all(isinstance(o, int) and not isinstance(o, bool) and o > 0 for o in orders) and len(set(orders)) == len(orders),
+                'dream %s: each link needs its own order, a positive integer' % dream, issues)
+    for index, candidate in enumerate(doc.get('pathCandidates', []), 1):
+        candidate = candidate if isinstance(candidate, dict) else {}
+        chain = candidate.get('fixIds') if isinstance(candidate.get('fixIds'), list) else []
+        require(len(chain) >= 2 and len(set(chain)) == len(chain) and one_line(candidate.get('reason')),
+                'path candidate %d: needs two or more different fixes and a reason' % index, issues)
+        issues += ['path candidate %d: %s is not a screened fix' % (index, f) for f in chain if f not in passed]
+    return links
+
+
 def validate_judgments(doc, cards, issues):
     scores = doc.get('scores', {})
     require(str(doc.get('judge', {}).get('context', '')).startswith('isolated'), 'judge context must be isolated', issues)
@@ -483,8 +723,22 @@ def validate_staged_run(run):
     issues, exemplars = [], {}
     if (run / 'exemplars.json').is_file():
         exemplars = validate_exemplars(read(run / 'exemplars.json'), issues)
+    pain = read(run / 'run.json').get('painId')
     if (run / 'dreams.json').is_file():
-        validate_dreams(read(run / 'dreams.json'), exemplars, issues, read(run / 'run.json').get('painId'))
+        validate_dreams(read(run / 'dreams.json'), exemplars, issues, pain)
+    accepted = reviewed_dreams(run)
+    ceilings = validate_plan(read(run / 'plan.json'), accepted, issues, pain) if (run / 'plan.json').is_file() else {}
+    fixes = {}
+    if (run / 'fixes.json').is_file():
+        require((run / 'plan.json').is_file(), 'fixes.json needs plan.json', issues)
+        fixes = validate_fixes(read(run / 'fixes.json'), exemplars, ceilings, accepted, issues, pain)
+    passed = set()
+    if (run / 'screen.json').is_file():
+        require((run / 'fixes.json').is_file(), 'screen.json needs fixes.json', issues)
+        passed = validate_screen(read(run / 'screen.json'), fixes, issues, pain)
+    if (run / 'links.json').is_file():
+        require((run / 'screen.json').is_file(), 'links.json needs screen.json', issues)
+        validate_links(read(run / 'links.json'), fixes, passed, accepted, issues, pain)
     return issues
 
 
