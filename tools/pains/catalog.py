@@ -99,6 +99,8 @@ def validate(catalog):
         require(p.get('status') in STATUSES, where + ': status must be one of ' + ', '.join(STATUSES), issues)
         require(p.get('role') in ROLES, where + ': role must be shown or not-shown', issues)
         require(p.get('role') != 'shown' or p.get('status') == 'accepted', where + ': only an accepted pain can be shown', issues)
+        require(not p.get('unranked') or (p.get('status') == 'accepted' and p.get('role') == 'not-shown'),
+                where + ': only an accepted, not-shown pain can wait for ranking', issues)
         require(isinstance(p.get('sensitive'), bool), where + ': sensitive must be true/false', issues)
         validate_evidence(p.get('evidence', []), where, issues)
         require(all(isinstance(a, str) and a.strip() for a in p.get('aliases', [])), where + ': aliases must be text', issues)
@@ -634,9 +636,10 @@ def sweep_proposals(catalog, run):
     out = []
     for item, draft in [(c, False) for c in check['proposed']] + [(c, True) for c in check['drafts']]:
         c = cands[item['candidate']]
-        proposed = {'name': c['name'], 'line': c['line'], 'group': c['group'], 'role': 'not-shown'}
+        # Review only asks whether this is a real, well-worded pain; ranking decides where it sits.
+        proposed = {'name': c['name'], 'line': c['line'], 'group': c['group']}
         out.append({'kind': 'add', 'painIds': [c['id']], 'group': c['group'], 'current': None, 'proposed': proposed,
-                    'alternatives': [{**proposed, 'role': 'shown'}],
+                    'alternatives': [],
                     'why': {'prompt': 'source' if c.get('sources') else 'lead only', 'detail': c.get('prevalence', ''),
                             'sources': c.get('sources', [])},
                     'draft': draft, 'allowOwn': True, 'newEvidence': bool(item.get('newEvidence')),
@@ -923,10 +926,11 @@ def apply_decisions(catalog, proposals_doc, decisions_doc, date=None):
             if c['id'] in pains:
                 issues.append('%s: %s is already in the catalog' % (p['id'], c['id']))
                 continue
-            role = value.get('role') or 'not-shown'
-            pains[c['id']] = new_record(c, value, 'accepted', role)
-            pains[c['id']]['history'] = [{**entry, 'kind': 'accept', 'to': {'name': value['name'], 'line': value['line'], 'role': role},
-                                          'own': decision == 'own'}]
+            # Every accepted new pain waits for ranking, whatever role an older set's alternative offered.
+            pains[c['id']] = new_record(c, value, 'accepted', 'not-shown')
+            pains[c['id']]['unranked'] = True
+            pains[c['id']]['history'] = [{**entry, 'kind': 'accept', 'to': {'name': value['name'], 'line': value['line'], 'role': 'not-shown'},
+                                          'unranked': True, 'own': decision == 'own'}]
             touched[c['id']] = True
         elif kind in ('reword', 'drift'):
             pain_id = p['painIds'][0]

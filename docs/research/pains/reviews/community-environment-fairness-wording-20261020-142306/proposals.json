@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "setId": "community-environment-fairness-wording-20261020-140153",
+  "setId": "community-environment-fairness-wording-20261020-142306",
   "builtAt": "2026-10-20",
   "runs": [
     "docs/research/pains/sweeps/community/20261019-225712",
@@ -33,17 +33,9 @@
       "proposed": {
         "name": "Gentrification",
         "line": "I see longtime neighbors priced out as my area gets more expensive.",
-        "group": "community",
-        "role": "not-shown"
+        "group": "community"
       },
-      "alternatives": [
-        {
-          "name": "Gentrification",
-          "line": "I see longtime neighbors priced out as my area gets more expensive.",
-          "group": "community",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "In a Texas Lyceum statewide poll, 25% of Texans saw gentrification as a problem where they live, and 60% of those called it a major problem. No national U.S. figure was found.",
@@ -105,17 +97,9 @@
       "proposed": {
         "name": "Nowhere to gather",
         "line": "I have nowhere nearby where I can just spend time around my neighbors.",
-        "group": "community",
-        "role": "not-shown"
+        "group": "community"
       },
-      "alternatives": [
-        {
-          "name": "Nowhere to gather",
-          "line": "I have nowhere nearby where I can just spend time around my neighbors.",
-          "group": "community",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "21 percent of Americans live in communities with no access to places where neighbors gather (Survey Center on American Life). The share with a third place fell from 67 in 2019 to 56 in 2021, so 44 percent had none.",
@@ -203,17 +187,9 @@
       "proposed": {
         "name": "Extremism",
         "line": "I see people around me pulled toward extreme groups that hate other people.",
-        "group": "community",
-        "role": "not-shown"
+        "group": "community"
       },
-      "alternatives": [
-        {
-          "name": "Extremism",
-          "line": "I see people around me pulled toward extreme groups that hate other people.",
-          "group": "community",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "On average across the countries Ipsos surveyed in May 2026, 9% named the rise of extremism among the three most worrying topics in their country (Ipsos What Worries the World).",
@@ -279,17 +255,9 @@
       "proposed": {
         "name": "Dirty streets",
         "line": "I see trash, rats and dumped junk on my street.",
-        "group": "community",
-        "role": "not-shown"
+        "group": "community"
       },
-      "alternatives": [
-        {
-          "name": "Dirty streets",
-          "line": "I see trash, rats and dumped junk on my street.",
-          "group": "community",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "In 2025 New Yorkers made 61047 311 requests about dirty conditions, 39002 about illegal dumping and 31312 about rodents. In England, 54% of adults unhappy with local green spaces named rubbish and litter (Community Life Survey).",
@@ -389,17 +357,9 @@
       "proposed": {
         "name": "Parking",
         "line": "I can't park near my home, and people keep blocking my driveway.",
-        "group": "community",
-        "role": "not-shown"
+        "group": "community"
       },
-      "alternatives": [
-        {
-          "name": "Parking",
-          "line": "I can't park near my home, and people keep blocking my driveway.",
-          "group": "community",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "Illegal parking was the most common 311 complaint in New York City in 2025, with 577257 requests, and blocked driveways had 172723.",
@@ -626,17 +586,9 @@
       "proposed": {
         "name": "Water pollution",
         "line": "I see our rivers, lakes and drinking water getting polluted.",
-        "group": "environment",
-        "role": "not-shown"
+        "group": "environment"
       },
-      "alternatives": [
-        {
-          "name": "Water pollution",
-          "line": "I see our rivers, lakes and drinking water getting polluted.",
-          "group": "environment",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "Pollution of drinking water is the top environmental worry in the U.S.: 54% worry a great deal, and 51% about rivers, lakes, and reservoirs (Gallup, 2025). 38% of Europeans name pollution of rivers, lakes and ground water among the most important issues (2020). At least 1.7 billion people use a drinking water source contaminated with faeces (WHO, 2022).",
@@ -764,17 +716,9 @@
       "proposed": {
         "name": "Trash and plastic",
         "line": "I see trash and plastic piling up with nowhere for it to go.",
-        "group": "environment",
-        "role": "not-shown"
+        "group": "environment"
       },
-      "alternatives": [
-        {
-          "name": "Trash and plastic",
-          "line": "I see trash and plastic piling up with nowhere for it to go.",
-          "group": "environment",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "41% of Americans worry a great deal about the management of trash and recyclables (Gallup, 2025). 45% of Europeans name the growing amount of waste among the most important environmental issues (2020).",
@@ -867,17 +811,9 @@
       "proposed": {
         "name": "Water shortages",
         "line": "I worry my area is running out of water.",
-        "group": "environment",
-        "role": "not-shown"
+        "group": "environment"
       },
-      "alternatives": [
-        {
-          "name": "Water shortages",
-          "line": "I worry my area is running out of water.",
-          "group": "environment",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "25% of Europeans name shortage of drinking water among the most important environmental issues (2020).",
@@ -947,17 +883,9 @@
       "proposed": {
         "name": "Toxic chemicals",
         "line": "I worry about lead and toxic chemicals in our soil, water and homes.",
-        "group": "environment",
-        "role": "not-shown"
+        "group": "environment"
       },
-      "alternatives": [
-        {
-          "name": "Toxic chemicals",
-          "line": "I worry about lead and toxic chemicals in our soil, water and homes.",
-          "group": "environment",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "Slightly more than half of Americans worry a great deal about soil and water contamination by toxic waste (Gallup, 2024). Lead exposure was linked to more than 3.5 million deaths worldwide in 2023 (WHO). 32% of Europeans name agricultural pollution and soil degradation among the most important issues (2020).",
@@ -1064,17 +992,9 @@
       "proposed": {
         "name": "Noise",
         "line": "I can't get away from traffic and other noise where I live.",
-        "group": "environment",
-        "role": "not-shown"
+        "group": "environment"
       },
-      "alternatives": [
-        {
-          "name": "Noise",
-          "line": "I can't get away from traffic and other noise where I live.",
-          "group": "environment",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "At least one in five people in the EU live with long-term noise levels considered harmful to health; about 92 million are exposed to harmful road traffic noise (European Environment Agency). 8% of Europeans name noise among the most important environmental issues (2020).",
@@ -1245,17 +1165,9 @@
       "proposed": {
         "name": "Modern slavery",
         "line": "I see people forced to work or marry with no way out.",
-        "group": "fairness",
-        "role": "not-shown"
+        "group": "fairness"
       },
-      "alternatives": [
-        {
-          "name": "Modern slavery",
-          "line": "I see people forced to work or marry with no way out.",
-          "group": "fairness",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "Fifty million people were living in modern slavery in 2021: 28 million in forced labor and 22 million in forced marriage; 3.3 million of those in forced labor are children (ILO global estimates).",
@@ -1375,17 +1287,9 @@
       "proposed": {
         "name": "Tax fairness",
         "line": "I see wealthy people and big companies pay too little in taxes.",
-        "group": "fairness",
-        "role": "not-shown"
+        "group": "fairness"
       },
-      "alternatives": [
-        {
-          "name": "Tax fairness",
-          "line": "I see wealthy people and big companies pay too little in taxes.",
-          "group": "fairness",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "58% of U.S. adults say upper-income people pay too little in taxes and 70% say corporations pay too little (Gallup).",
@@ -1475,17 +1379,9 @@
       "proposed": {
         "name": "Pay gap",
         "line": "I see women still paid less than men.",
-        "group": "fairness",
-        "role": "not-shown"
+        "group": "fairness"
       },
-      "alternatives": [
-        {
-          "name": "Pay gap",
-          "line": "I see women still paid less than men.",
-          "group": "fairness",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "In 2024 U.S. women earned 85% of what men earned per hour (Pew); full-time, year-round women earned 83% in 2023 (Census, via Pew); 64% of adults say women face at least some discrimination (Pew).",
@@ -1574,17 +1470,9 @@
       "proposed": {
         "name": "Criminal record",
         "line": "My old record still keeps me out of jobs and housing.",
-        "group": "fairness",
-        "role": "not-shown"
+        "group": "fairness"
       },
-      "alternatives": [
-        {
-          "name": "Criminal record",
-          "line": "My old record still keeps me out of jobs and housing.",
-          "group": "fairness",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "78 million U.S. adults, one in three, have an old legal record; 55% of people with an old conviction had trouble getting a job and 44% trouble getting housing (Alliance for Safety and Justice survey).",
@@ -1665,17 +1553,9 @@
       "proposed": {
         "name": "No ID",
         "line": "I don't have the ID I need to work, vote or get help.",
-        "group": "time",
-        "role": "not-shown"
+        "group": "time"
       },
-      "alternatives": [
-        {
-          "name": "No ID",
-          "line": "I don't have the ID I need to work, vote or get help.",
-          "group": "time",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "Nearly 29 million voting-age U.S. citizens lacked a valid driver's license, and over 7 million had no other non-expired government photo ID (University of Maryland and VoteRiders analysis).",

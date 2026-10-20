@@ -126,6 +126,14 @@ class ValidateTest(Base):
         doc['pains']['debt']['status'] = 'candidate'
         self.assertIn('pain debt: only an accepted pain can be shown', self.issues(doc))
 
+    def test_waiting_for_ranking_only_on_accepted_not_shown_pains(self):
+        doc = small_catalog()
+        doc['pains']['debt']['unranked'] = True  # shown
+        doc['pains']['homeless'].update(unranked=True, role='not-shown')
+        issues = self.issues(doc)
+        self.assertIn('pain debt: only an accepted, not-shown pain can wait for ranking', issues)
+        self.assertNotIn('pain homeless: only an accepted, not-shown pain can wait for ranking', issues)
+
     def test_group_must_be_on_the_same_page(self):
         doc = small_catalog()
         doc['pains']['debt']['group'] = 'economy'
@@ -463,7 +471,9 @@ class ReviewTest(Base):
         doc = catalog.read(folder / 'proposals.json')
         add = next(p for p in doc['proposals'] if p['painIds'] == ['insurance-costs'])
         self.assertTrue(add['draft'])
-        self.assertEqual([a['role'] for a in [add['proposed']] + add['alternatives']], ['not-shown', 'shown'])
+        # Review doesn't choose shown or not shown for a new pain: ranking places it later.
+        self.assertEqual(add['alternatives'], [])
+        self.assertNotIn('role', add['proposed'])
         html = (folder / 'review.html').read_text()
         self.assertNotIn('/*__DATA__*/', html)
         self.assertIn('I have too much on my plate', html)
@@ -671,17 +681,30 @@ class IngestTest(Base):
         self.assertEqual(issues, [])
         self.assertIn({'list': 'gallup-mip', 'entry': 'scams-and-fraud'}, after['pains']['insurance-costs']['covers'])
 
-    def test_new_shown_pain_waits_for_futures(self):
-        out = self.ingest({self.pid('add', 'scams-and-fraud'): {'decision': 'alternative', 'choice': 0}})
-        self.assertEqual(catalog.load(self.tmp)['pains']['scams-and-fraud']['role'], 'shown')
-        self.assertEqual(out['editor']['waiting'], ['scams-and-fraud'])
+    def test_accepted_new_pain_waits_for_ranking(self):
+        out = self.ingest({self.pid('add', 'scams-and-fraud'): {'decision': 'accept'}})
+        p = catalog.load(self.tmp)['pains']['scams-and-fraud']
+        self.assertEqual((p['status'], p['role'], p['unranked']), ('accepted', 'not-shown', True))
+        self.assertEqual(out['editor']['waiting'], [])
         self.assertIsNone(self.cms.saved)
+        self.assertEqual(catalog.validate(catalog.load(self.tmp)), [])
 
-    def test_new_shown_pain_with_approved_futures_is_added(self):
+    def test_shown_choice_from_an_older_set_also_waits_for_ranking(self):
+        doc = catalog.read(self.set_dir / 'proposals.json')
+        add = next(p for p in doc['proposals'] if p['painIds'] == ['scams-and-fraud'])
+        add['alternatives'] = [{**add['proposed'], 'role': 'shown'}]  # how sets were built before 2026-10-20
+        catalog.write(self.set_dir / 'proposals.json', doc)
+        self.ingest({add['id']: {'decision': 'alternative', 'choice': 0}})
+        p = catalog.load(self.tmp)['pains']['scams-and-fraud']
+        self.assertEqual((p['role'], p['unranked']), ('not-shown', True))
+
+    def test_pain_ranked_as_shown_with_approved_futures_is_added(self):
         before = catalog.load(self.tmp)
         after, touched, *_ = catalog.apply_decisions(before, catalog.read(self.set_dir / 'proposals.json'),
-                                                     {'decisions': {self.pid('add', 'scams-and-fraud'): {'decision': 'alternative', 'choice': 0}}})
-        after['pains']['scams-and-fraud']['futures'] = ['scam-proof']
+                                                     {'decisions': {self.pid('add', 'scams-and-fraud'): {'decision': 'accept'}}})
+        ranked = after['pains']['scams-and-fraud']
+        ranked.pop('unranked')
+        ranked['role'], ranked['futures'] = 'shown', ['scam-proof']
         patch = catalog.draft_patch(before, after, touched, self.cms.draft)
         self.assertEqual(patch['changes'][0]['change'], 'add')
         self.assertIn({'painId': 'scams-and-fraud', 'dreamId': 'scam-proof'}, patch['content']['painDreamLinks'])
@@ -689,7 +712,7 @@ class IngestTest(Base):
     def test_draft_only_as_own(self):
         with self.assertRaises(catalog.CheckError):
             self.ingest({self.pid('add', 'insurance-costs'): {'decision': 'accept'}})
-        self.ingest({self.pid('add', 'insurance-costs'): {'decision': 'own', 'own': {'name': 'Insurance', 'line': "I can't afford insurance.", 'role': 'not-shown'}}})
+        self.ingest({self.pid('add', 'insurance-costs'): {'decision': 'own', 'own': {'name': 'Insurance', 'line': "I can't afford insurance."}}})
         self.assertEqual(catalog.load(self.tmp)['pains']['insurance-costs']['history'][0]['own'], True)
 
     def test_merge_of_shown_pain_is_held_until_the_editor_can_retire(self):

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "setId": "people-home-wording-20261020-140153",
+  "setId": "people-home-wording-20261020-142306",
   "builtAt": "2026-10-20",
   "runs": [
     "docs/research/pains/sweeps/people/20261019-224656",
@@ -21,17 +21,9 @@
       "proposed": {
         "name": "Close friends",
         "line": "I don't have a close friend I can really talk to.",
-        "group": "people",
-        "role": "not-shown"
+        "group": "people"
       },
-      "alternatives": [
-        {
-          "name": "Close friends",
-          "line": "I don't have a close friend I can really talk to.",
-          "group": "people",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "12 percent of U.S. adults say they have no close friends (Survey Center on American Life); 8% of respondents across 22 EU countries say the same (OECD, as reported by Euronews).",
@@ -110,17 +102,9 @@
       "proposed": {
         "name": "Estrangement",
         "line": "I'm cut off from someone in my family.",
-        "group": "people",
-        "role": "not-shown"
+        "group": "people"
       },
-      "alternatives": [
-        {
-          "name": "Estrangement",
-          "line": "I'm cut off from someone in my family.",
-          "group": "people",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "27% of U.S. adults have cut off contact with a family member; 10% are estranged from a parent or child (Cornell survey).",
@@ -204,17 +188,9 @@
       "proposed": {
         "name": "Breakup",
         "line": "I'm going through a breakup or divorce.",
-        "group": "people",
-        "role": "not-shown"
+        "group": "people"
       },
-      "alternatives": [
-        {
-          "name": "Breakup",
-          "line": "I'm going through a breakup or divorce.",
-          "group": "people",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "672,502 divorces in a year in 45 reporting states and D.C., a rate of 2.4 per 1,000 people (CDC). Breakups outside marriage are not counted.",
@@ -290,17 +266,9 @@
       "proposed": {
         "name": "Trying for a baby",
         "line": "I've been trying to have a baby and it isn't happening.",
-        "group": "people",
-        "role": "not-shown"
+        "group": "people"
       },
-      "alternatives": [
-        {
-          "name": "Trying for a baby",
-          "line": "I've been trying to have a baby and it isn't happening.",
-          "group": "people",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "About 17.5% of adults, roughly 1 in 6, experience infertility (WHO).",
@@ -372,17 +340,9 @@
       "proposed": {
         "name": "Online harassment",
         "line": "I get harassed or threatened online.",
-        "group": "people",
-        "role": "not-shown"
+        "group": "people"
       },
-      "alternatives": [
-        {
-          "name": "Online harassment",
-          "line": "I get harassed or threatened online.",
-          "group": "people",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "41% of U.S. adults have been harassed online and 25% more severely; 64% of adults under 30 (Pew).",
@@ -466,17 +426,9 @@
       "proposed": {
         "name": "Single parent",
         "line": "I'm raising my kids on my own.",
-        "group": "people",
-        "role": "not-shown"
+        "group": "people"
       },
-      "alternatives": [
-        {
-          "name": "Single parent",
-          "line": "I'm raising my kids on my own.",
-          "group": "people",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "23% of U.S. children live with one parent and no other adults (Pew).",
@@ -739,17 +691,9 @@
       "proposed": {
         "name": "Pests",
         "line": "I've got mice, rats or roaches in my home.",
-        "group": "home",
-        "role": "not-shown"
+        "group": "home"
       },
-      "alternatives": [
-        {
-          "name": "Pests",
-          "line": "I've got mice, rats or roaches in my home.",
-          "group": "home",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "Of 124 million U.S. households in 2019, 14.8 million saw signs of mice or rats inside the home in the last 12 months, and 14.0 million saw signs of cockroaches (American Housing Survey).",
@@ -818,17 +762,9 @@
       "proposed": {
         "name": "Damp and mold",
         "line": "My home is damp, and the mold keeps coming back.",
-        "group": "home",
-        "role": "not-shown"
+        "group": "home"
       },
-      "alternatives": [
-        {
-          "name": "Damp and mold",
-          "line": "My home is damp, and the mold keeps coming back.",
-          "group": "home",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "In 2019, 3.7 million of 124 million U.S. households reported mold in the last 12 months and 9.4 million reported water leaking inside the home (American Housing Survey). In 2024, 15.6% of people in the EU lived with a leaking roof, damp or rot (Eurostat).",
@@ -915,17 +851,9 @@
       "proposed": {
         "name": "Tap water",
         "line": "I don't trust the water that comes out of my tap.",
-        "group": "home",
-        "role": "not-shown"
+        "group": "home"
       },
-      "alternatives": [
-        {
-          "name": "Tap water",
-          "line": "I don't trust the water that comes out of my tap.",
-          "group": "home",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "In March 2025, 54% of U.S. adults said they personally worry a great deal about pollution of drinking water (Gallup).",
@@ -999,17 +927,9 @@
       "proposed": {
         "name": "Accessible home",
         "line": "I have trouble getting into or around my own home.",
-        "group": "home",
-        "role": "not-shown"
+        "group": "home"
       },
-      "alternatives": [
-        {
-          "name": "Accessible home",
-          "line": "I have trouble getting into or around my own home.",
-          "group": "home",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "In 2019, about 5 percent of U.S. households, 6.8 million, had difficulty getting around or using their own home (Harvard JCHS analysis of the American Housing Survey).",
@@ -1082,17 +1002,9 @@
       "proposed": {
         "name": "Living with parents",
         "line": "I want a place of my own, but I still live with my parents.",
-        "group": "home",
-        "role": "not-shown"
+        "group": "home"
       },
-      "alternatives": [
-        {
-          "name": "Living with parents",
-          "line": "I want a place of my own, but I still live with my parents.",
-          "group": "home",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "In 2023, 18% of U.S. adults ages 25 to 34 lived in a parent's home (Pew Research Center).",
@@ -1161,17 +1073,9 @@
       "proposed": {
         "name": "Repairs",
         "line": "My landlord won't fix what's broken.",
-        "group": "home",
-        "role": "not-shown"
+        "group": "home"
       },
-      "alternatives": [
-        {
-          "name": "Repairs",
-          "line": "My landlord won't fix what's broken.",
-          "group": "home",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "lead only",
         "detail": "",
@@ -1213,17 +1117,9 @@
       "proposed": {
         "name": "Rental applications",
         "line": "I keep getting turned down for places to rent.",
-        "group": "home",
-        "role": "not-shown"
+        "group": "home"
       },
-      "alternatives": [
-        {
-          "name": "Rental applications",
-          "line": "I keep getting turned down for places to rent.",
-          "group": "home",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "lead only",
         "detail": "",

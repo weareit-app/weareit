@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "setId": "work-time-wording-20261020-140153",
+  "setId": "work-time-wording-20261020-142307",
   "builtAt": "2026-10-20",
   "runs": [
     "docs/research/pains/sweeps/work/20261019-224658",
@@ -21,17 +21,9 @@
       "proposed": {
         "name": "Long hours",
         "line": "I work so many hours that there's barely any of my life left.",
-        "group": "work",
-        "role": "not-shown"
+        "group": "work"
       },
-      "alternatives": [
-        {
-          "name": "Long hours",
-          "line": "I work so many hours that there's barely any of my life left.",
-          "group": "work",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "10% of employees in OECD countries work 50 hours or more a week; 9% of the world's population works long hours, and long hours caused 745 000 deaths from stroke and heart disease in 2016 (WHO and ILO).",
@@ -125,17 +117,9 @@
       "proposed": {
         "name": "Schedule",
         "line": "My work hours change so often that I can't plan my life.",
-        "group": "work",
-        "role": "not-shown"
+        "group": "work"
       },
-      "alternatives": [
-        {
-          "name": "Schedule",
-          "line": "My work hours change so often that I can't plan my life.",
-          "group": "work",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "Among Boston service workers, 60% get their schedules less than two weeks ahead, 73% have irregular or variable schedules and 45% worked a closing shift followed by an opening shift (Shift Project); 2.8 million U.S. workers are on call (1.7 percent of employment, BLS).",
@@ -215,17 +199,9 @@
       "proposed": {
         "name": "Unsafe work",
         "line": "I could get badly hurt doing my job.",
-        "group": "work",
-        "role": "not-shown"
+        "group": "work"
       },
-      "alternatives": [
-        {
-          "name": "Unsafe work",
-          "line": "I could get badly hurt doing my job.",
-          "group": "work",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "U.S. private employers reported 2.5 million nonfatal workplace injuries and illnesses in 2024, and 5,070 people died from work injuries that year (BLS).",
@@ -321,17 +297,9 @@
       "proposed": {
         "name": "Wage theft",
         "line": "My boss doesn't pay me everything I've earned.",
-        "group": "work",
-        "role": "not-shown"
+        "group": "work"
       },
-      "alternatives": [
-        {
-          "name": "Wage theft",
-          "line": "My boss doesn't pay me everything I've earned.",
-          "group": "work",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "17 percent of low-wage workers are paid less than the minimum wage; in the 10 most populous states that is 2.4 million workers losing $8 billion a year (Economic Policy Institute, via Next City).",
@@ -403,17 +371,9 @@
       "proposed": {
         "name": "Bad boss",
         "line": "My boss makes my job miserable.",
-        "group": "work",
-        "role": "not-shown"
+        "group": "work"
       },
-      "alternatives": [
-        {
-          "name": "Bad boss",
-          "line": "My boss makes my job miserable.",
-          "group": "work",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "Half of more than 7,000 U.S. workers have left a job at some point to get away from their manager (Gallup); 59% are highly satisfied with their relationship with their manager (Pew).",
@@ -496,17 +456,9 @@
       "proposed": {
         "name": "No say at work",
         "line": "I have no say in how things are done at work.",
-        "group": "work",
-        "role": "not-shown"
+        "group": "work"
       },
-      "alternatives": [
-        {
-          "name": "No say at work",
-          "line": "I have no say in how things are done at work.",
-          "group": "work",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "48% of U.S. nonunion workers say they would vote for a union if an election were held at their workplace (MIT Sloan survey, via Cornell ILR).",
@@ -576,17 +528,9 @@
       "proposed": {
         "name": "Overqualified",
         "line": "My job doesn't use what I know or what I trained for.",
-        "group": "work",
-        "role": "not-shown"
+        "group": "work"
       },
-      "alternatives": [
-        {
-          "name": "Overqualified",
-          "line": "My job doesn't use what I know or what I trained for.",
-          "group": "work",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "52 percent of recent four-year college graduates are underemployed a year after graduating (Burning Glass Institute and Strada); one in four college-educated immigrants in the U.S., 1.9 million people, were underemployed or unemployed (Migration Policy Institute).",
@@ -669,17 +613,9 @@
       "proposed": {
         "name": "Commute",
         "line": "I lose hours every day getting to and from work.",
-        "group": "work",
-        "role": "not-shown"
+        "group": "work"
       },
-      "alternatives": [
-        {
-          "name": "Commute",
-          "line": "I lose hours every day getting to and from work.",
-          "group": "work",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "About 8.1 percent of U.S. workers commute 60 minutes or longer each way (Census Bureau); the average one-way commute was about 27 minutes in 2023 (NCSL, from Census data).",
@@ -758,17 +694,9 @@
       "proposed": {
         "name": "Paid leave",
         "line": "I lose pay whenever I'm sick or need to care for someone.",
-        "group": "work",
-        "role": "not-shown"
+        "group": "work"
       },
-      "alternatives": [
-        {
-          "name": "Paid leave",
-          "line": "I lose pay whenever I'm sick or need to care for someone.",
-          "group": "work",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "81 percent of U.S. private industry workers had access to paid sick leave and 49 percent to paid family and medical leave (BLS).",
@@ -851,17 +779,9 @@
       "proposed": {
         "name": "Gig work",
         "line": "I work through apps with no benefits and no steady pay.",
-        "group": "work",
-        "role": "not-shown"
+        "group": "work"
       },
-      "alternatives": [
-        {
-          "name": "Gig work",
-          "line": "I work through apps with no benefits and no steady pay.",
-          "group": "work",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "9% of U.S. adults are current or recent gig platform workers, and 35% of gig workers have often or sometimes felt unsafe on the job (Pew); 4.3 percent of workers, 6.9 million people, hold contingent jobs (BLS, July 2023).",
@@ -951,17 +871,9 @@
       "proposed": {
         "name": "Second job",
         "line": "I work more than one job just to get by.",
-        "group": "work",
-        "role": "not-shown"
+        "group": "work"
       },
-      "alternatives": [
-        {
-          "name": "Second job",
-          "line": "I work more than one job just to get by.",
-          "group": "work",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "5.5 percent of employed Americans hold more than one job (BLS via FRED, Sep 2026).",
@@ -1031,17 +943,9 @@
       "proposed": {
         "name": "My business",
         "line": "I'm struggling to keep my small business going.",
-        "group": "work",
-        "role": "not-shown"
+        "group": "work"
       },
-      "alternatives": [
-        {
-          "name": "My business",
-          "line": "I'm struggling to keep my small business going.",
-          "group": "work",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "94 percent of small employer firms faced at least one financial challenge in the past year (Federal Reserve Small Business Credit Survey, 2025).",
@@ -1107,17 +1011,9 @@
       "proposed": {
         "name": "Dead end",
         "line": "I can't move up at work, however hard I try.",
-        "group": "work",
-        "role": "not-shown"
+        "group": "work"
       },
-      "alternatives": [
-        {
-          "name": "Dead end",
-          "line": "I can't move up at work, however hard I try.",
-          "group": "work",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "Only about a quarter of U.S. workers (26%) are highly satisfied with their opportunities for promotion (Pew).",
@@ -1284,17 +1180,9 @@
       "proposed": {
         "name": "Time off",
         "line": "I never get a real break from work.",
-        "group": "time",
-        "role": "not-shown"
+        "group": "time"
       },
-      "alternatives": [
-        {
-          "name": "Time off",
-          "line": "I never get a real break from work.",
-          "group": "time",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "Paid vacation was available to 80 percent of U.S. private industry workers (BLS). Of workers who get paid time off, 46% take less than they're offered, and 49% of those say they'd worry about falling behind (Pew).",
@@ -1400,17 +1288,9 @@
       "proposed": {
         "name": "Benefits",
         "line": "I have to fight to get or keep the benefits I qualify for.",
-        "group": "time",
-        "role": "not-shown"
+        "group": "time"
       },
-      "alternatives": [
-        {
-          "name": "Benefits",
-          "line": "I have to fight to get or keep the benefits I qualify for.",
-          "group": "time",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "More than one-third (34%) of low-income U.S. households had a civil legal problem with income maintenance, such as benefits, in the past year (Legal Services Corporation).",

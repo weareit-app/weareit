@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "setId": "government-information-change-wording-20261020-140153",
+  "setId": "government-information-change-wording-20261020-142306",
   "builtAt": "2026-10-20",
   "runs": [
     "docs/research/pains/sweeps/government/20261019-224657",
@@ -33,17 +33,9 @@
       "proposed": {
         "name": "Trust in government",
         "line": "I don't trust the government to do what's right.",
-        "group": "government",
-        "role": "not-shown"
+        "group": "government"
       },
-      "alternatives": [
-        {
-          "name": "Trust in government",
-          "line": "I don't trust the government to do what's right.",
-          "group": "government",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "Just 17% of Americans trust the government in Washington to do what is right just about always or most of the time (Pew). Across OECD countries, 44% have low or no trust in their national government. \"The government/Poor leadership\" is the most-named problem in Gallup's open-ended question, at 26%.",
@@ -129,17 +121,9 @@
       "proposed": {
         "name": "Fair elections",
         "line": "I'm not sure our elections are fair and honest.",
-        "group": "government",
-        "role": "not-shown"
+        "group": "government"
       },
-      "alternatives": [
-        {
-          "name": "Fair elections",
-          "line": "I'm not sure our elections are fair and honest.",
-          "group": "government",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "Forty-nine percent of Americans are confident in the honesty of elections and 51% are not (Gallup World Poll).",
@@ -224,17 +208,9 @@
       "proposed": {
         "name": "Political violence",
         "line": "I worry that anger over politics is turning into violence.",
-        "group": "government",
-        "role": "not-shown"
+        "group": "government"
       },
-      "alternatives": [
-        {
-          "name": "Political violence",
-          "line": "I worry that anger over politics is turning into violence.",
-          "group": "government",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "About three-quarters of Americans see political violence as a significant issue, and 30% say people may have to resort to violence to get the country back on track (NPR/PBS News/Marist). Rise of extremism is a top worry for 9% on average across Ipsos's countries.",
@@ -328,17 +304,9 @@
       "proposed": {
         "name": "Government surveillance",
         "line": "I worry the government is watching what I do and say.",
-        "group": "government",
-        "role": "not-shown"
+        "group": "government"
       },
-      "alternatives": [
-        {
-          "name": "Government surveillance",
-          "line": "I worry the government is watching what I do and say.",
-          "group": "government",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "About seven in ten U.S. adults (71%) are very or somewhat concerned about how the government uses the data it collects about them, up from 64% in 2019 (Pew).",
@@ -400,17 +368,9 @@
       "proposed": {
         "name": "Red tape",
         "line": "I see people lose help they qualify for because of paperwork.",
-        "group": "government",
-        "role": "not-shown"
+        "group": "government"
       },
-      "alternatives": [
-        {
-          "name": "Red tape",
-          "line": "I see people lose help they qualify for because of paperwork.",
-          "group": "government",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "At least 25,198,000 Medicaid enrollees were disenrolled during the unwinding, and 69% of them lost coverage for procedural reasons rather than being found ineligible (KFF).",
@@ -486,17 +446,9 @@
       "proposed": {
         "name": "Shutdowns",
         "line": "I see paychecks and food aid stop when the government shuts down.",
-        "group": "government",
-        "role": "not-shown"
+        "group": "government"
       },
-      "alternatives": [
-        {
-          "name": "Shutdowns",
-          "line": "I see paychecks and food aid stop when the government shuts down.",
-          "group": "government",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "When food benefits weren't delivered to about 275,000 West Virginia residents during the shutdown, calls to 211 rose 1,680% over the year before.",
@@ -718,17 +670,9 @@
       "proposed": {
         "name": "Trust in news",
         "line": "I don't trust the news to tell me the whole story fairly.",
-        "group": "information",
-        "role": "not-shown"
+        "group": "information"
       },
-      "alternatives": [
-        {
-          "name": "Trust in news",
-          "line": "I don't trust the news to tell me the whole story fairly.",
-          "group": "information",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "28% of Americans trusted newspapers, television and radio to report the news fully, accurately and fairly, down from 40% five years ago; seven in 10 had not very much (36%) or no (34%) confidence (Gallup). Across markets, trust in the news stands at 40% (Reuters Institute Digital News Report).",
@@ -809,17 +753,9 @@
       "proposed": {
         "name": "News overload",
         "line": "The news wears me down, so I've started tuning it out.",
-        "group": "information",
-        "role": "not-shown"
+        "group": "information"
       },
-      "alternatives": [
-        {
-          "name": "News overload",
-          "line": "The news wears me down, so I've started tuning it out.",
-          "group": "information",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "Across markets, 40% sometimes or often avoid the news, up from 29% in 2017 (Reuters Institute Digital News Report).",
@@ -896,17 +832,9 @@
       "proposed": {
         "name": "AI fakes",
         "line": "I can't tell if a photo, video or voice is real or made by AI.",
-        "group": "information",
-        "role": "not-shown"
+        "group": "information"
       },
-      "alternatives": [
-        {
-          "name": "AI fakes",
-          "line": "I can't tell if a photo, video or voice is real or made by AI.",
-          "group": "information",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "76% of Americans say being able to tell AI-made content from human-made content is extremely or very important, but 53% are not confident they can (Pew Research Center).",
@@ -968,17 +896,9 @@
       "proposed": {
         "name": "Data leaks",
         "line": "My personal information keeps leaking out through hacks and data breaches.",
-        "group": "information",
-        "role": "not-shown"
+        "group": "information"
       },
-      "alternatives": [
-        {
-          "name": "Data leaks",
-          "line": "My personal information keeps leaking out through hacks and data breaches.",
-          "group": "information",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "U.S. data compromises hit a record 3,322 in 2025 (Identity Theft Resource Center). 11% of Americans had an email or social media account taken over in the past year (Pew Research Center).",
@@ -1054,17 +974,9 @@
       "proposed": {
         "name": "Free speech",
         "line": "I'm afraid to say what I really think.",
-        "group": "information",
-        "role": "not-shown"
+        "group": "information"
       },
-      "alternatives": [
-        {
-          "name": "Free speech",
-          "line": "I'm afraid to say what I really think.",
-          "group": "information",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "65% of Americans say they are fearful of consequences for speaking freely, most often a violent response or tension with friends and family (Freedom Forum).",
@@ -1145,17 +1057,9 @@
       "proposed": {
         "name": "Press freedom",
         "line": "I see reporters threatened, jailed or shut down for doing their jobs.",
-        "group": "information",
-        "role": "not-shown"
+        "group": "information"
       },
-      "alternatives": [
-        {
-          "name": "Press freedom",
-          "line": "I see reporters threatened, jailed or shut down for doing their jobs.",
-          "group": "information",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "In 2024 at least 502 killings of human rights defenders, journalists and trade unionists were reported across 44 countries (UN SDG 16.10 progress). RSF classed world press freedom as a \"difficult situation\" for the first time in the history of its index.",
@@ -1245,17 +1149,9 @@
       "proposed": {
         "name": "Finding help",
         "line": "I don't know what help is out there or where to ask for it.",
-        "group": "time",
-        "role": "not-shown"
+        "group": "time"
       },
-      "alternatives": [
-        {
-          "name": "Finding help",
-          "line": "I don't know what help is out there or where to ask for it.",
-          "group": "time",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "211 made 19 million referrals for locally available help in 2025, 1 million more than in 2024 (United Way).",
@@ -1339,17 +1235,9 @@
       "proposed": {
         "name": "Language barriers",
         "line": "I can't get important information or services in a language I understand well.",
-        "group": "time",
-        "role": "not-shown"
+        "group": "time"
       },
-      "alternatives": [
-        {
-          "name": "Language barriers",
-          "line": "I can't get important information or services in a language I understand well.",
-          "group": "time",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "In 2019, 67.8 million people in the U.S. spoke a language other than English at home; 39% of Spanish speakers, 52% of Chinese speakers and 57% of Vietnamese speakers spoke English less than very well (U.S. Census Bureau).",
@@ -1500,17 +1388,9 @@
       "proposed": {
         "name": "Tired of politics",
         "line": "Thinking about politics leaves me worn out and angry.",
-        "group": "making-change",
-        "role": "not-shown"
+        "group": "making-change"
       },
-      "alternatives": [
-        {
-          "name": "Tired of politics",
-          "line": "Thinking about politics leaves me worn out and angry.",
-          "group": "making-change",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "65% of U.S. adults always or often feel exhausted thinking about politics, 55% feel angry, and just 10% feel hopeful (Pew Research Center survey).",
@@ -1587,17 +1467,9 @@
       "proposed": {
         "name": "Time to volunteer",
         "line": "I'd like to get involved, but work and family leave me no time.",
-        "group": "making-change",
-        "role": "not-shown"
+        "group": "making-change"
       },
-      "alternatives": [
-        {
-          "name": "Time to volunteer",
-          "line": "I'd like to get involved, but work and family leave me no time.",
-          "group": "making-change",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "In England, 51% of adults who did not volunteer monthly named work commitments as a barrier and 22% named looking after children (Community Life Survey).",
@@ -1659,17 +1531,9 @@
       "proposed": {
         "name": "Organizer burnout",
         "line": "I've worked for change so long that I'm running on empty.",
-        "group": "making-change",
-        "role": "not-shown"
+        "group": "making-change"
       },
-      "alternatives": [
-        {
-          "name": "Organizer burnout",
-          "line": "I've worked for change so long that I'm running on empty.",
-          "group": "making-change",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "In a re:power poll of 349 U.S. organizers, burnout was a top concern and only 32 percent expected to still be organizing in five years.",
@@ -1751,17 +1615,9 @@
       "proposed": {
         "name": "Harassed for serving",
         "line": "I see people who serve on local boards and councils get threatened and harassed.",
-        "group": "making-change",
-        "role": "not-shown"
+        "group": "making-change"
       },
-      "alternatives": [
-        {
-          "name": "Harassed for serving",
-          "line": "I see people who serve on local boards and councils get threatened and harassed.",
-          "group": "making-change",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "52 percent of U.S. local officeholders faced threats, attacks, insults or harassment, and more than 40 percent were less willing to run again because of abuse (Brennan Center).",

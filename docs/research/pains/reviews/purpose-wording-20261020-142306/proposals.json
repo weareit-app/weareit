@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "setId": "purpose-wording-20261020-140153",
+  "setId": "purpose-wording-20261020-142306",
   "builtAt": "2026-10-20",
   "runs": [
     "docs/research/pains/sweeps/purpose/20261019-224657",
@@ -19,17 +19,9 @@
       "proposed": {
         "name": "Meaning in life",
         "line": "I don't know what my life is for.",
-        "group": "purpose",
-        "role": "not-shown"
+        "group": "purpose"
       },
-      "alternatives": [
-        {
-          "name": "Meaning in life",
-          "line": "I don't know what my life is for.",
-          "group": "purpose",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "58% of U.S. young adults said they lacked meaning or purpose in the previous month (Harvard Making Caring Common). In Great Britain, 9% of adults report low levels of feeling that what they do is worthwhile, 14% among those aged 16 to 29 (ONS).",
@@ -113,17 +105,9 @@
       "proposed": {
         "name": "What I want",
         "line": "I don't know what I want to do with my life.",
-        "group": "purpose",
-        "role": "not-shown"
+        "group": "purpose"
       },
-      "alternatives": [
-        {
-          "name": "What I want",
-          "line": "I don't know what I want to do with my life.",
-          "group": "purpose",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "Half of U.S. young adults said \"not knowing what to do with my life\" hurt their mental health (Harvard Making Caring Common).",
@@ -197,17 +181,9 @@
       "proposed": {
         "name": "Reading",
         "line": "Reading forms, letters and instructions is hard for me.",
-        "group": "purpose",
-        "role": "not-shown"
+        "group": "purpose"
       },
-      "alternatives": [
-        {
-          "name": "Reading",
-          "line": "Reading forms, letters and instructions is hard for me.",
-          "group": "purpose",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "28 percent of U.S. adults read at Level 1 or below, up from 19 percent in 2017 (NCES, PIAAC 2023). The OECD average is 26%.",
@@ -287,17 +263,9 @@
       "proposed": {
         "name": "Math",
         "line": "Everyday math, like working out a bill or a discount, is hard for me.",
-        "group": "purpose",
-        "role": "not-shown"
+        "group": "purpose"
       },
-      "alternatives": [
-        {
-          "name": "Math",
-          "line": "Everyday math, like working out a bill or a discount, is hard for me.",
-          "group": "purpose",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "34 percent of U.S. adults are at Level 1 or below in numeracy, up from 29 percent in 2017 (NCES, PIAAC 2023). The OECD average is 25%.",
@@ -373,17 +341,9 @@
       "proposed": {
         "name": "Computers",
         "line": "I struggle to do things on a computer or phone that everyone now expects.",
-        "group": "purpose",
-        "role": "not-shown"
+        "group": "purpose"
       },
-      "alternatives": [
-        {
-          "name": "Computers",
-          "line": "I struggle to do things on a computer or phone that everyone now expects.",
-          "group": "purpose",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "About 16 percent of U.S. adults are not digitally literate, compared to 23 percent internationally (NCES/AIR, PIAAC).",
@@ -445,17 +405,9 @@
       "proposed": {
         "name": "English",
         "line": "I don't speak English well enough to get by.",
-        "group": "purpose",
-        "role": "not-shown"
+        "group": "purpose"
       },
-      "alternatives": [
-        {
-          "name": "English",
-          "line": "I don't speak English well enough to get by.",
-          "group": "purpose",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "In 2018-2022, 78.3% of U.S. residents age 5 and older spoke only English at home. Among those who spoke another language, 61.0% of Spanish speakers and 48.2% of Chinese speakers spoke English \"very well\" (Census ACS).",
@@ -523,17 +475,9 @@
       "proposed": {
         "name": "Diploma",
         "line": "I never finished high school, and it holds me back.",
-        "group": "purpose",
-        "role": "not-shown"
+        "group": "purpose"
       },
-      "alternatives": [
-        {
-          "name": "Diploma",
-          "line": "I never finished high school, and it holds me back.",
-          "group": "purpose",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "In 2022, 9% of U.S. adults age 25 and older had less than a high school diploma or equivalent (Census Bureau).",
@@ -595,17 +539,9 @@
       "proposed": {
         "name": "Classes",
         "line": "I want to take a class or training, but I can't fit it around work, family or money.",
-        "group": "purpose",
-        "role": "not-shown"
+        "group": "purpose"
       },
-      "alternatives": [
-        {
-          "name": "Classes",
-          "line": "I want to take a class or training, but I can't fit it around work, family or money.",
-          "group": "purpose",
-          "role": "shown"
-        }
-      ],
+      "alternatives": [],
       "why": {
         "prompt": "source",
         "detail": "Among EU adults who wanted more education or training, 25.3% named schedules as the main barrier, 16.0% family reasons and 15.2% costs (European Commission employment and social developments report).",

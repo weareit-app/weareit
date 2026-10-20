@@ -12328,7 +12328,7 @@
       "group": "body",
       "secondaryGroups": [],
       "status": "accepted",
-      "role": "shown",
+      "role": "not-shown",
       "sensitive": false,
       "evidence": [
         {
@@ -12381,8 +12381,23 @@
             "role": "shown"
           },
           "own": false
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:22:21+00:00",
+          "kind": "unranked",
+          "from": {
+            "role": "shown"
+          },
+          "to": {
+            "role": "not-shown",
+            "unranked": true
+          },
+          "prompt": "pain-catalog design decision 11: placement waits for ranking",
+          "note": "Founder, 2026-10-20: all body-mind new pains wait for ranking."
         }
-      ]
+      ],
+      "unranked": true
     },
     "headaches": {
       "id": "headaches",
@@ -12392,7 +12407,7 @@
       "group": "body",
       "secondaryGroups": [],
       "status": "accepted",
-      "role": "shown",
+      "role": "not-shown",
       "sensitive": false,
       "evidence": [
         {
@@ -12444,8 +12459,23 @@
             "role": "shown"
           },
           "own": false
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:22:21+00:00",
+          "kind": "unranked",
+          "from": {
+            "role": "shown"
+          },
+          "to": {
+            "role": "not-shown",
+            "unranked": true
+          },
+          "prompt": "pain-catalog design decision 11: placement waits for ranking",
+          "note": "Founder, 2026-10-20: all body-mind new pains wait for ranking."
         }
-      ]
+      ],
+      "unranked": true
     },
     "injury": {
       "id": "injury",
@@ -12455,7 +12485,7 @@
       "group": "body",
       "secondaryGroups": [],
       "status": "accepted",
-      "role": "shown",
+      "role": "not-shown",
       "sensitive": false,
       "evidence": [
         {
@@ -12516,8 +12546,23 @@
             "role": "shown"
           },
           "own": false
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:22:21+00:00",
+          "kind": "unranked",
+          "from": {
+            "role": "shown"
+          },
+          "to": {
+            "role": "not-shown",
+            "unranked": true
+          },
+          "prompt": "pain-catalog design decision 11: placement waits for ranking",
+          "note": "Founder, 2026-10-20: all body-mind new pains wait for ranking."
         }
-      ]
+      ],
+      "unranked": true
     },
     "body-image": {
       "id": "body-image",
@@ -12527,7 +12572,7 @@
       "group": "body",
       "secondaryGroups": [],
       "status": "accepted",
-      "role": "shown",
+      "role": "not-shown",
       "sensitive": false,
       "evidence": [
         {
@@ -12585,8 +12630,23 @@
             "role": "shown"
           },
           "own": false
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:22:21+00:00",
+          "kind": "unranked",
+          "from": {
+            "role": "shown"
+          },
+          "to": {
+            "role": "not-shown",
+            "unranked": true
+          },
+          "prompt": "pain-catalog design decision 11: placement waits for ranking",
+          "note": "Founder, 2026-10-20: all body-mind new pains wait for ranking."
         }
-      ]
+      ],
+      "unranked": true
     },
     "weight": {
       "id": "weight",
@@ -12596,7 +12656,7 @@
       "group": "body",
       "secondaryGroups": [],
       "status": "accepted",
-      "role": "shown",
+      "role": "not-shown",
       "sensitive": false,
       "evidence": [
         {
@@ -12644,8 +12704,23 @@
             "role": "shown"
           },
           "own": false
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:22:21+00:00",
+          "kind": "unranked",
+          "from": {
+            "role": "shown"
+          },
+          "to": {
+            "role": "not-shown",
+            "unranked": true
+          },
+          "prompt": "pain-catalog design decision 11: placement waits for ranking",
+          "note": "Founder, 2026-10-20: all body-mind new pains wait for ranking."
         }
-      ]
+      ],
+      "unranked": true
     },
     "fertility": {
       "id": "fertility",
@@ -12655,7 +12730,7 @@
       "group": "body",
       "secondaryGroups": [],
       "status": "accepted",
-      "role": "shown",
+      "role": "not-shown",
       "sensitive": false,
       "evidence": [
         {
@@ -12694,8 +12769,23 @@
             "role": "shown"
           },
           "own": false
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:22:21+00:00",
+          "kind": "unranked",
+          "from": {
+            "role": "shown"
+          },
+          "to": {
+            "role": "not-shown",
+            "unranked": true
+          },
+          "prompt": "pain-catalog design decision 11: placement waits for ranking",
+          "note": "Founder, 2026-10-20: all body-mind new pains wait for ranking."
         }
-      ]
+      ],
+      "unranked": true
     },
     "mobility": {
       "id": "mobility",
@@ -12705,7 +12795,7 @@
       "group": "body",
       "secondaryGroups": [],
       "status": "accepted",
-      "role": "shown",
+      "role": "not-shown",
       "sensitive": false,
       "evidence": [
         {
@@ -12754,8 +12844,23 @@
             "role": "shown"
           },
           "own": false
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:22:21+00:00",
+          "kind": "unranked",
+          "from": {
+            "role": "shown"
+          },
+          "to": {
+            "role": "not-shown",
+            "unranked": true
+          },
+          "prompt": "pain-catalog design decision 11: placement waits for ranking",
+          "note": "Founder, 2026-10-20: all body-mind new pains wait for ranking."
         }
-      ]
+      ],
+      "unranked": true
     },
     "daily-tasks": {
       "id": "daily-tasks",
@@ -12765,7 +12870,7 @@
       "group": "body",
       "secondaryGroups": [],
       "status": "accepted",
-      "role": "shown",
+      "role": "not-shown",
       "sensitive": false,
       "evidence": [
         {
@@ -12823,8 +12928,23 @@
             "role": "shown"
           },
           "own": false
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:22:21+00:00",
+          "kind": "unranked",
+          "from": {
+            "role": "shown"
+          },
+          "to": {
+            "role": "not-shown",
+            "unranked": true
+          },
+          "prompt": "pain-catalog design decision 11: placement waits for ranking",
+          "note": "Founder, 2026-10-20: all body-mind new pains wait for ranking."
         }
-      ]
+      ],
+      "unranked": true
     },
     "not-listened-to": {
       "id": "not-listened-to",
@@ -12834,7 +12954,7 @@
       "group": "body",
       "secondaryGroups": [],
       "status": "accepted",
-      "role": "shown",
+      "role": "not-shown",
       "sensitive": false,
       "evidence": [
         {
@@ -12869,8 +12989,23 @@
             "role": "shown"
           },
           "own": false
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:22:21+00:00",
+          "kind": "unranked",
+          "from": {
+            "role": "shown"
+          },
+          "to": {
+            "role": "not-shown",
+            "unranked": true
+          },
+          "prompt": "pain-catalog design decision 11: placement waits for ranking",
+          "note": "Founder, 2026-10-20: all body-mind new pains wait for ranking."
         }
-      ]
+      ],
+      "unranked": true
     },
     "insurance-denials": {
       "id": "insurance-denials",
@@ -12880,7 +13015,7 @@
       "group": "body",
       "secondaryGroups": [],
       "status": "accepted",
-      "role": "shown",
+      "role": "not-shown",
       "sensitive": false,
       "evidence": [
         {
@@ -12925,8 +13060,23 @@
             "role": "shown"
           },
           "own": false
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:22:21+00:00",
+          "kind": "unranked",
+          "from": {
+            "role": "shown"
+          },
+          "to": {
+            "role": "not-shown",
+            "unranked": true
+          },
+          "prompt": "pain-catalog design decision 11: placement waits for ranking",
+          "note": "Founder, 2026-10-20: all body-mind new pains wait for ranking."
         }
-      ]
+      ],
+      "unranked": true
     },
     "health-upkeep": {
       "id": "health-upkeep",
@@ -13068,8 +13218,23 @@
             "role": "not-shown"
           },
           "own": false
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:22:21+00:00",
+          "kind": "unranked",
+          "from": {
+            "role": "not-shown"
+          },
+          "to": {
+            "role": "not-shown",
+            "unranked": true
+          },
+          "prompt": "pain-catalog design decision 11: placement waits for ranking",
+          "note": "Founder, 2026-10-20: all body-mind new pains wait for ranking."
         }
-      ]
+      ],
+      "unranked": true
     },
     "self-harm": {
       "id": "self-harm",
@@ -13119,8 +13284,23 @@
             "role": "not-shown"
           },
           "own": false
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:22:21+00:00",
+          "kind": "unranked",
+          "from": {
+            "role": "not-shown"
+          },
+          "to": {
+            "role": "not-shown",
+            "unranked": true
+          },
+          "prompt": "pain-catalog design decision 11: placement waits for ranking",
+          "note": "Founder, 2026-10-20: all body-mind new pains wait for ranking."
         }
-      ]
+      ],
+      "unranked": true
     },
     "eating-and-body-image": {
       "id": "eating-and-body-image",
@@ -13184,8 +13364,23 @@
             "role": "not-shown"
           },
           "own": false
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:22:21+00:00",
+          "kind": "unranked",
+          "from": {
+            "role": "not-shown"
+          },
+          "to": {
+            "role": "not-shown",
+            "unranked": true
+          },
+          "prompt": "pain-catalog design decision 11: placement waits for ranking",
+          "note": "Founder, 2026-10-20: all body-mind new pains wait for ranking."
         }
-      ]
+      ],
+      "unranked": true
     },
     "serious-mental-illness": {
       "id": "serious-mental-illness",
@@ -13267,8 +13462,23 @@
             "role": "not-shown"
           },
           "own": true
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:22:21+00:00",
+          "kind": "unranked",
+          "from": {
+            "role": "not-shown"
+          },
+          "to": {
+            "role": "not-shown",
+            "unranked": true
+          },
+          "prompt": "pain-catalog design decision 11: placement waits for ranking",
+          "note": "Founder, 2026-10-20: all body-mind new pains wait for ranking."
         }
-      ]
+      ],
+      "unranked": true
     },
     "mental-health-care": {
       "id": "mental-health-care",
@@ -13278,7 +13488,7 @@
       "group": "mind",
       "secondaryGroups": [],
       "status": "accepted",
-      "role": "shown",
+      "role": "not-shown",
       "sensitive": false,
       "evidence": [
         {
@@ -13340,8 +13550,23 @@
             "role": "shown"
           },
           "own": false
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:22:21+00:00",
+          "kind": "unranked",
+          "from": {
+            "role": "shown"
+          },
+          "to": {
+            "role": "not-shown",
+            "unranked": true
+          },
+          "prompt": "pain-catalog design decision 11: placement waits for ranking",
+          "note": "Founder, 2026-10-20: all body-mind new pains wait for ranking."
         }
-      ]
+      ],
+      "unranked": true
     },
     "memory": {
       "id": "memory",
@@ -13351,7 +13576,7 @@
       "group": "mind",
       "secondaryGroups": [],
       "status": "accepted",
-      "role": "shown",
+      "role": "not-shown",
       "sensitive": false,
       "evidence": [
         {
@@ -13396,8 +13621,23 @@
             "role": "shown"
           },
           "own": false
+        },
+        {
+          "date": "2026-10-20",
+          "at": "2026-10-20T18:22:21+00:00",
+          "kind": "unranked",
+          "from": {
+            "role": "shown"
+          },
+          "to": {
+            "role": "not-shown",
+            "unranked": true
+          },
+          "prompt": "pain-catalog design decision 11: placement waits for ranking",
+          "note": "Founder, 2026-10-20: all body-mind new pains wait for ranking."
         }
-      ]
+      ],
+      "unranked": true
     }
   }
 }

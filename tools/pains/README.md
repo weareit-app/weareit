@@ -47,7 +47,7 @@ Each pain has:
 - `id`: stable and never reused or deleted. Merged and retired pains keep their record.
 - `name`, `line`: the short name and first-person line, as shown on screen.
 - `page`: `personal` or `societal`; `group` (one of the page's headings) and optional `secondaryGroups`.
-- `status`: `candidate`, `accepted`, `merged`, `retired` or `rejected`. `role`: `shown` or `not-shown`. Only an accepted pain can be shown. The catalog may hold any number of accepted pains that aren't shown, including narrower child pains under a `broader` relation.
+- `status`: `candidate`, `accepted`, `merged`, `retired` or `rejected`. `role`: `shown` or `not-shown`. Only an accepted pain can be shown. `unranked`: a newly accepted pain waiting for ranking (the `pain-tiers` change) to decide where it sits; it is always `not-shown` until then. The catalog may hold any number of accepted pains that aren't shown, including narrower child pains under a `broader` relation.
 - `sensitive`: the pain can mean someone is in danger or crisis. The tag never hides a pain or blocks its wording ("We're not here to deny reality", founder 2026-10-19). It leaves room for showing crisis resources first, later.
 - `evidence`: how common it is, only from opened sources: `{url, accessed, passage}`. Unchecked claims from older material are `leads`, never evidence.
 - `maps`: outside framework references, one shape for every pain (`oecd`, `whoqol`, `sdg`, `maxneef`, `gallup`, `wikidata`). Key: `docs/spec/pains/pain-inventory.md`.
@@ -67,7 +67,7 @@ Once a pain is accepted into the content editor, the editor owns its published w
 ## Into the content editor
 
 - Accepted wording and group changes to pains already in the editor go into its draft. A pain the editor changed since the catalog's wording is listed as a conflict and left alone.
-- A new shown pain goes into the draft only once it has futures the founder approved: its `futures` lists dream IDs that already exist in the draft. Until then it is "waiting for futures". Importing generated cards (a separate change) will fill `futures`.
+- Review never makes a new pain shown: every accepted new pain is added `not-shown` and `unranked`. A pain that later becomes shown goes into the draft only once it has futures the founder approved: its `futures` lists dream IDs that already exist in the draft. Until then it is "waiting for futures". Importing generated cards (a separate change) will fill `futures`.
 - A merge retires the merged pain with the survivor as its replacement, once the editor has a retired state (`pain-pages` change). Until then ingest holds the merge as "later".
 - Every heading outside 4–8 shown pains is warned about; nothing is cut or added because of it.
 - The founder publishes in `/cms`. Ingest never does.
