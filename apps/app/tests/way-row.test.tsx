@@ -50,10 +50,12 @@ describe("WayRow feature statuses", () => {
   });
 
   const details = {
-    shipped: /available in It now/,
-    "in-progress": /being built now/i,
+    shipped: /^This feature is live, and you can use it in It now\.$/,
+    "in-progress":
+      /^We're building this feature now, but it isn't available yet\.$/,
     planned: /not built yet/,
-    exploring: /looked into/,
+    exploring:
+      /^We're looking into this feature and may decide not to build it\.$/,
     idea: /Nothing is built or scheduled yet/,
   } as const;
 
@@ -75,7 +77,9 @@ describe("WayRow feature statuses", () => {
   it("says a Shipped feature is available in It now", async () => {
     await renderRow(feature("shipped"), "type");
 
-    expect(screen.getByText(/available in It now/)).toBeTruthy();
+    expect(
+      screen.getByText("This is something It offers, and you can use it now."),
+    ).toBeTruthy();
     expect(screen.queryByText(/isn't available yet/)).toBeNull();
     expect(screen.queryByText(/tells us to build it/)).toBeNull();
   });
@@ -83,13 +87,13 @@ describe("WayRow feature statuses", () => {
   it("says a Shipped status is available in It now", async () => {
     await renderRow(feature("shipped"), "status");
 
-    expect(screen.getByText(/available in It now/)).toBeTruthy();
+    expect(screen.getByText(/you can use it in It now/)).toBeTruthy();
   });
 
   it("says an In Progress status is being built and not available yet", async () => {
     await renderRow(feature("in-progress"), "status");
 
-    expect(screen.getByText(/being built/i)).toBeTruthy();
-    expect(screen.getByText(/not available yet/i)).toBeTruthy();
+    expect(screen.getByText(/building this feature now/)).toBeTruthy();
+    expect(screen.getByText(/isn't available yet/)).toBeTruthy();
   });
 });

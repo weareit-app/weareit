@@ -109,6 +109,44 @@ describe("FeatureStatusEditor", () => {
   });
 });
 
+describe("status date", () => {
+  const dateHelp = "Write the status date as year-month-day, like 2026-10-20.";
+
+  it("asks for a real date in year-month-day form", async () => {
+    await render(
+      <FeatureStatusEditor
+        fixes={[{ ...feature, statusChangedOn: "20 Oct" }]}
+        savedFixes={[feature]}
+        onChange={() => {}}
+      />,
+    );
+
+    expect(screen.getByText(dateHelp)).toBeTruthy();
+  });
+
+  it("is quiet for a valid date", async () => {
+    await render(
+      <FeatureStatusEditor
+        fixes={[{ ...feature, statusChangedOn: "2026-10-20" }]}
+        savedFixes={[feature]}
+        onChange={() => {}}
+      />,
+    );
+
+    expect(screen.getByText(feature.title)).toBeTruthy();
+    expect(screen.queryByText(dateHelp)).toBeNull();
+  });
+
+  it("refuses to save a date that isn't a calendar date", () => {
+    expect(
+      refuseStatusChangesWithoutNotes(
+        [feature],
+        [{ ...feature, statusChangedOn: "2026-02-30" }],
+      ),
+    ).toBe(`Not saved. check-ins: ${dateHelp}`);
+  });
+});
+
 describe("refuseStatusChangesWithoutNotes", () => {
   it("refuses to save a status change without a note", () => {
     expect(

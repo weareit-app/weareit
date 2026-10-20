@@ -48,7 +48,8 @@ export const kindCopy: Record<
 
 // A Shipped feature is in It now, so its explanation can't say it isn't.
 // Placeholder wording until the founder approves it.
-const shippedFeatureDetail = "Something It offers. It's available in It now.";
+const shippedFeatureDetail =
+  "This is something It offers, and you can use it now.";
 
 export function typeDetail(fix: ContentFix) {
   return fix.kind === "feature" && fix.featureStatus === "shipped"
@@ -65,12 +66,12 @@ export const statusCopy: Record<
 > = {
   shipped: {
     label: "Shipped",
-    detail: "Live and available in It now.",
+    detail: "This feature is live, and you can use it in It now.",
     icon: CircleCheck,
   },
   "in-progress": {
     label: "In Progress",
-    detail: "Being built now. It's not available yet.",
+    detail: "We're building this feature now, but it isn't available yet.",
     icon: Hammer,
   },
   planned: {
@@ -80,7 +81,7 @@ export const statusCopy: Record<
   },
   exploring: {
     label: "Exploring",
-    detail: "Being looked into. It may not be built.",
+    detail: "We're looking into this feature and may decide not to build it.",
     icon: Telescope,
   },
   idea: {
