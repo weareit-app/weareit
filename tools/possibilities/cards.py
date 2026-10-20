@@ -222,7 +222,17 @@ STAGE_BRIEFS = {'examples': BRIEFS + 'dreams.md', 'dreams': BRIEFS + 'dreams.md'
 
 # One brief per kind, after the shared kind brief (design, "Briefs: a shared header plus one file per kind").
 # The plan sets ceilings only for kinds listed here, so each kind joins the plan when its brief is added.
-KIND_BRIEFS = {'task': BRIEFS + 'kinds/task.md'}
+KIND_BRIEFS = {
+    'feature': BRIEFS + 'kinds/feature.md',
+    'task': BRIEFS + 'kinds/task.md',
+    'schedule': BRIEFS + 'kinds/schedule.md',
+    'habit': BRIEFS + 'kinds/habit.md',
+    'practice': BRIEFS + 'kinds/practice.md',
+    'learn': BRIEFS + 'kinds/learn.md',
+    'project': BRIEFS + 'kinds/project.md',
+    'group': BRIEFS + 'kinds/group.md',
+    'new-group': BRIEFS + 'kinds/new-group.md',
+}
 SCREEN_CHECKS = ('actionable', 'rightKind', 'honestStatus')  # design, "Screen, then panel"
 MAX_CEILING = 5  # the most fixes of one kind the plan asks for, for one dream
 MAX_LINKS = 5  # the assembler links 2-5 fixes to each dream; founder links may go past it
@@ -234,6 +244,18 @@ METHOD_FIELDS = {
              'doneWhen': str,     # what is true once it's done
              'keepsWorking': bool,  # a one-time change that keeps working afterward
              'lever': ('default', 'remove-hassle', 'simplify', 'timing', 'other')},  # EAST: how it makes the change easy
+    'feature': {'when': str, 'want': str, 'soThat': str,  # a job story (Klement), never in the copy
+                'pattern': str,       # a row of config/feature-patterns.md, or new
+                'dataOrTools': str},  # the public data or tools that would make it work
+    'schedule': {'what': str, 'cadence': str},  # what repeats and how often
+    'habit': {'cue': str, 'behavior': str},  # an existing routine and the tiny behavior after it (Tiny Habits)
+    'practice': {'situation': str, 'move': str, 'wentBetterWhen': str},  # deliberate practice; featureIdea sits on the fix
+    'learn': {'ableTo': str, 'useWhen': str},  # what the reader will be able to do, and when (revised Bloom)
+    'project': {'finishedThing': str, 'doneWhen': str},  # the output and its definition of done
+    'group': {'whatMembersDo': str, 'howToFind': str},
+    'new-group': {'whoFor': str, 'whatMembersDo': str,
+                  'firstTest': str,       # the first thing the group does that shows it's real (McAlevey)
+                  'existingFirst': str},  # what to check exists before starting one
 }
 
 
@@ -610,6 +632,9 @@ def validate_fixes(doc, exemplars, ceilings, accepted, issues, pain=None):
         require((kind == 'feature') == (f.get('status') == 'proposed_it_feature'),
                 where + ': kind feature goes with status proposed_it_feature, and only with it', issues)
         check_method(kind, f.get('method'), where, issues)
+        if kind == 'practice':  # shown on hover, so it sits on the fix, not in method
+            require(isinstance(f.get('featureIdea'), str) and f['featureIdea'].strip(),
+                    where + ': practice needs featureIdea, a one-line coaching feature It could build', issues)
         minutes = f.get('firstStepMinutes')
         require(is_count(minutes) and 0 < minutes <= 20, where + ': firstStepMinutes must be 1-20', issues)
         if f.get('speculative'):
