@@ -3,6 +3,7 @@ import { View } from "react-native";
 import {
   applyRoadmapItemStatusChanges,
   featureStatuses,
+  resolveFeatureStatuses,
   type ContentFix,
   type ContentGraph,
   type ContentRoadmapItem,
@@ -12,6 +13,8 @@ import { Text } from "../text";
 import { Button, Field, RelationPicker, SelectField } from "./fields";
 
 export type RoadmapContent = Pick<ContentGraph, "roadmapItems" | "fixes">;
+// The saved draft's roadmap items and fixes.
+type SavedContent = RoadmapContent;
 
 const today = () => new Date().toISOString().slice(0, 10);
 
@@ -45,14 +48,25 @@ function connect(fix: ContentFix, itemId: string): ContentFix {
   return { ...rest, roadmapItemId: itemId };
 }
 
-// A disconnected fix keeps the status it was showing, with its date and note.
-function disconnect(fix: ContentFix, item: ContentRoadmapItem): ContentFix {
+// A disconnected fix keeps the status it was showing in the saved draft. One
+// connected to this item there keeps the item's status, date and note; one
+// connected only in this edit gets back its own saved status.
+function disconnect(
+  fix: ContentFix,
+  item: ContentRoadmapItem,
+  saved: SavedContent,
+): ContentFix {
   const { roadmapItemId: _item, ...rest } = fix;
+  const savedFix = saved.fixes.find(({ id }) => id === fix.id);
+  const shown =
+    savedFix && savedFix.roadmapItemId !== item.id
+      ? resolveFeatureStatuses(saved).find(({ id }) => id === fix.id)
+      : undefined;
   return withoutUndefined({
     ...rest,
-    featureStatus: item.status,
-    statusChangedOn: item.statusChangedOn,
-    statusNote: item.statusNote,
+    featureStatus: shown?.featureStatus ?? item.status,
+    statusChangedOn: shown ? shown.statusChangedOn : item.statusChangedOn,
+    statusNote: shown ? shown.statusNote : item.statusNote,
   });
 }
 
@@ -66,11 +80,11 @@ function renumber(items: ContentRoadmapItem[]) {
 // the draft saves.
 export function RoadmapEditor({
   content,
-  savedItems,
+  saved,
   onChange,
 }: {
   content: RoadmapContent;
-  savedItems: readonly ContentRoadmapItem[];
+  saved: SavedContent;
   onChange: (next: RoadmapContent) => void;
 }) {
   const [selectedId, setSelectedId] = useState("");
@@ -78,6 +92,7 @@ export function RoadmapEditor({
     (a, b) => a.sortOrder - b.sortOrder,
   );
   const selected = items.find(({ id }) => id === selectedId);
+  const savedItems = saved.roadmapItems;
   const isNew = selected && !savedItems.some(({ id }) => id === selected.id);
   const features = content.fixes.filter(({ kind }) => kind === "feature");
   const { issues } = applyRoadmapItemStatusChanges(savedItems, items, today());
@@ -140,7 +155,9 @@ export function RoadmapEditor({
     onChange({
       roadmapItems: renumber(items.filter(({ id }) => id !== selected.id)),
       fixes: content.fixes.map((fix) =>
-        fix.roadmapItemId === selected.id ? disconnect(fix, selected) : fix,
+        fix.roadmapItemId === selected.id
+          ? disconnect(fix, selected, saved)
+          : fix,
       ),
     });
     setSelectedId("");
@@ -153,7 +170,7 @@ export function RoadmapEditor({
       fixes: content.fixes.map((fix) => {
         if (fix.id !== fixId) return fix;
         return fix.roadmapItemId === selected.id
-          ? disconnect(fix, selected)
+          ? disconnect(fix, selected, saved)
           : connect(fix, selected.id);
       }),
     });

@@ -74,7 +74,7 @@ async function renderEditor(start = initial) {
     return (
       <RoadmapEditor
         content={content}
-        savedItems={start.roadmapItems}
+        saved={start}
         onChange={(next) => {
           latest.current = next;
           setContent(next);
@@ -253,6 +253,69 @@ describe("saving after roadmap edits", () => {
     await press("Remove item");
 
     expect(latest.current.fixes[0]?.featureStatus).toBe("planned");
+    expect(refusals(latest.current)).toEqual([null, null]);
+  });
+});
+
+describe("disconnecting a fix connected in this draft", () => {
+  const { statusNote: _note, statusChangedOn: _date, ...noNote } = spanish;
+  const plannedFix: ContentFix = {
+    ...checkIns,
+    featureStatus: "planned",
+    statusNote: undefined,
+  };
+  const ideaFix: ContentFix = {
+    ...checkIns,
+    id: "local-walks",
+    title: "Local walks",
+    featureStatus: "idea",
+    statusNote: undefined,
+    sortOrder: 3,
+  };
+  const saved: RoadmapContent = {
+    roadmapItems: [noNote],
+    fixes: [plannedFix, ideaFix, translatedPages],
+  };
+  const refusals = (next: RoadmapContent) => [
+    refuseStatusChangesWithoutNotes(saved, next.fixes),
+    refuseRoadmapStatusChangesWithoutNotes(
+      saved.roadmapItems,
+      next.roadmapItems,
+    ),
+  ];
+  const fixIn = (content: RoadmapContent, id: string) =>
+    content.fixes.find((fix) => fix.id === id);
+
+  it("gives the fix back its saved status after leaving a new item", async () => {
+    const latest = await renderEditor(saved);
+
+    await press("Add roadmap item");
+    await press(plannedFix.title);
+    await press(plannedFix.title);
+
+    expect(fixIn(latest.current, plannedFix.id)).toEqual(plannedFix);
+    expect(refusals(latest.current)).toEqual([null, null]);
+  });
+
+  it("gives the fix back its saved status when a new item is removed", async () => {
+    const latest = await renderEditor(saved);
+
+    await press("Add roadmap item");
+    await press(plannedFix.title);
+    await press("Remove item");
+
+    expect(fixIn(latest.current, plannedFix.id)).toEqual(plannedFix);
+    expect(refusals(latest.current)).toEqual([null, null]);
+  });
+
+  it("gives the fix back its saved status after leaving a saved item", async () => {
+    const latest = await renderEditor(saved);
+
+    await press("Use It in Spanish");
+    await press(ideaFix.title);
+    await press(ideaFix.title);
+
+    expect(fixIn(latest.current, ideaFix.id)).toEqual(ideaFix);
     expect(refusals(latest.current)).toEqual([null, null]);
   });
 });

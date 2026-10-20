@@ -729,7 +729,7 @@ export default function CmsScreen() {
       </View>
       <RoadmapEditor
         content={graph}
-        savedItems={draftQuery.data.content.roadmapItems}
+        saved={draftQuery.data.content}
         onChange={({ roadmapItems, fixes }) =>
           setGraph({ ...graph, roadmapItems, fixes })
         }
