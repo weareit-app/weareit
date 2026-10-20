@@ -12,7 +12,15 @@
       "output": "static"
     },
     "plugins": [
-      "expo-router",
+      [
+        "expo-router",
+        {
+          "asyncRoutes": {
+            "web": "production",
+            "default": false
+          }
+        }
+      ],
       "expo-sqlite",
       "expo-font",
       "expo-secure-store",

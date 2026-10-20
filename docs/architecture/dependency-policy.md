@@ -8,7 +8,7 @@ The app is on Expo SDK 58.0.16 (expo-router 58.0.24; upgraded from SDK 57.0.30 w
 
 SDK 58 changes that matter here:
 
-- Expo Router async routes are on by default for web, so each route gets its own chunk (see public-pages design, Open Questions).
+- Expo Router async routes are on by default for web, in development and production. `apps/app/app.json` limits them to web production builds (`asyncRoutes: { web: "production", default: false }`), so each route gets its own chunk in the exported site (see public-pages design, Open Questions). In development they made the dev server compile each route the first time a page asked for it, which pushed the web end-to-end tests past their timeout in CI.
 - React Native 0.88's types make `View` and `ScrollView` components, not classes. Type refs with `ViewInstance` and `ScrollViewInstance`.
 - `expo`'s package exports no longer list its `tsconfig.base`. `apps/app/tsconfig.json` extends it by file path so Vitest's resolver finds it.
 - The prebuild template now quotes the path to React Native's Xcode bundle script, so the app's own quoting config plugin (`with-quoted-rn-xcode-script`) was removed.
