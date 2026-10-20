@@ -21,7 +21,9 @@
     "typecheck": "turbo typecheck",
     "lint": "turbo lint",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "storybook": "pnpm --filter @it/app storybook",
+    "storybook:review": "pnpm --filter @it/app storybook:review"
   },
   "devDependencies": {
     "@playwright/test": "^1.64.0",

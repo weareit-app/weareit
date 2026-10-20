@@ -31,6 +31,10 @@ pnpm run typecheck
 pnpm run lint
 ```
 
+## Components and Storybook
+
+Each UI component has stories next to it (`*.stories.tsx`). Browse them with `pnpm storybook`. To see what a branch changed in the components, run `pnpm storybook:review`: it compares every story, in light and dark, with `origin/master` and writes a report. See `docs/architecture/storybook.md`.
+
 ## Project boundaries
 
 - `apps/app` owns routes and platform presentation.
@@ -46,4 +50,4 @@ Working license decisions are recorded in `docs/architecture/licensing.md`. The 
 
 ## Pull requests
 
-Explain the user problem, the change, and any privacy or content implications. Include screenshots for UI changes. Run checks relevant to the changed package and report what you ran. Do not add tests for unrelated code.
+Explain the user problem, the change, and any privacy or content implications. Include screenshots for UI changes, and add or update stories for components you change. Run checks relevant to the changed package and report what you ran. Do not add tests for unrelated code.
