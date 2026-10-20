@@ -83,10 +83,12 @@ describe("WayRow feature statuses", () => {
     },
   );
 
-  it("says a Live feature is available in It now", async () => {
+  it("says a Live feature is available to use", async () => {
     await renderRow(feature("live"), "type");
 
-    expect(screen.getByText(/available in It now/)).toBeTruthy();
+    expect(
+      screen.getByText("Something It offers. Available to use."),
+    ).toBeTruthy();
     expect(screen.queryByText(/isn't available yet/)).toBeNull();
     expect(screen.queryByText(/tells us to build it/)).toBeNull();
   });

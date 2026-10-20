@@ -11,7 +11,7 @@ Once a dream is picked, the open pain SHALL show a "Ways it can be better" secti
 
 #### Scenario: Live feature
 - **WHEN** the person taps the tag of a Live Feature fix
-- **THEN** the explanation says it is available in It now, and nothing says it still needs building
+- **THEN** the explanation says "Something It offers. Available to use.", and nothing says it still needs building
 
 #### Scenario: Status words
 - **WHEN** a Feature fix is In progress
