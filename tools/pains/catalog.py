@@ -882,8 +882,8 @@ def apply_decisions(catalog, proposals_doc, decisions_doc, date=None):
         if decision == 'own' and not p.get('allowOwn'):
             issues.append('%s: own wording is not possible for a %s' % (p['id'], kind))
             continue
-        if p.get('draft') and decision in ('accept', 'alternative'):
-            issues.append('%s: a draft without an opened source can only be added as the founder\'s own' % p['id'])
+        if p.get('draft') and decision == 'alternative':
+            issues.append('%s: a draft without an opened source has no alternatives' % p['id'])
             continue
         entry = {'date': date, 'at': stamp, 'prompt': '%s (%s, review %s %s)' % (p['why'].get('prompt', ''), p.get('origin', ''), set_id, p['id']),
                  'note': d.get('note', '')}
@@ -930,7 +930,9 @@ def apply_decisions(catalog, proposals_doc, decisions_doc, date=None):
             pains[c['id']] = new_record(c, value, 'accepted', 'not-shown')
             pains[c['id']]['unranked'] = True
             pains[c['id']]['history'] = [{**entry, 'kind': 'accept', 'to': {'name': value['name'], 'line': value['line'], 'role': 'not-shown'},
-                                          'unranked': True, 'own': decision == 'own'}]
+                                          # A draft has no opened source, so it is in on the founder's word alone.
+                                          'unranked': True, 'own': decision == 'own' or bool(p.get('draft')),
+                                          'noSource': bool(p.get('draft'))}]
             touched[c['id']] = True
         elif kind in ('reword', 'drift'):
             pain_id = p['painIds'][0]

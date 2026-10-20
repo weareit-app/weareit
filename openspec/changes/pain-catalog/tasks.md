@@ -56,6 +56,7 @@
 - [x] 9.2 Make the new-pain card offer accept, own wording, reject and later only, with help text saying ranking decides where it sits, and update `README.md`, `data-model.md` and `/pains-review`. Verify by opening a rebuilt set in the browser
 - [x] 9.3 Rewrite body-mind's 16 new pains to `not-shown` and `unranked` with a history entry, then rebuild the six open wording sets, carrying over the founder's decisions. Verify `validate` passes, the editor draft is unchanged, and each set opens with its decisions in place
 - [x] 9.4 Ask the `pain-tiers` session to map `unranked` pains to `secondary` in its role migration, and to rank them. Verify its spec names the mark
+- [x] 9.5 Let the founder accept a draft new pain from its card: the page enables Accept with help text saying it has no opened source, and ingest records it as the founder's own with no evidence. Verify with a test, by opening a rebuilt set, and by carrying the founder's decisions into the rebuilt wording sets
 
 
 - Update the `docs/spec/MIGRATION.md` row for `specs/004-pain-catalog/` once this change is confirmed, then plan the full sweep.

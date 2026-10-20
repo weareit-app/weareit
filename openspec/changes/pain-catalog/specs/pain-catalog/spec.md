@@ -65,7 +65,7 @@ Every candidate SHALL cite a source that was opened during the sweep, with its U
 
 #### Scenario: Lead without an opened source
 - **WHEN** a candidate comes only from the founder's pool or an AI-generated registry
-- **THEN** it stays in draft and can't be accepted until a source is opened, unless the founder accepts it explicitly as their own
+- **THEN** it stays in draft, and the review page says it has no opened source; the founder can still accept it on their own word, which ingest records as theirs, with no evidence
 
 #### Scenario: A source outside the list
 - **WHEN** an agent finds a national health survey not on the list

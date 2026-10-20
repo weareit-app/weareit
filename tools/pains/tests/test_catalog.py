@@ -709,11 +709,17 @@ class IngestTest(Base):
         self.assertEqual(patch['changes'][0]['change'], 'add')
         self.assertIn({'painId': 'scams-and-fraud', 'dreamId': 'scam-proof'}, patch['content']['painDreamLinks'])
 
-    def test_draft_only_as_own(self):
-        with self.assertRaises(catalog.CheckError):
-            self.ingest({self.pid('add', 'insurance-costs'): {'decision': 'accept'}})
-        self.ingest({self.pid('add', 'insurance-costs'): {'decision': 'own', 'own': {'name': 'Insurance', 'line': "I can't afford insurance."}}})
-        self.assertEqual(catalog.load(self.tmp)['pains']['insurance-costs']['history'][0]['own'], True)
+    def test_accepted_draft_is_added_on_the_founders_word(self):
+        self.ingest({self.pid('add', 'insurance-costs'): {'decision': 'accept'}})
+        p = catalog.load(self.tmp)['pains']['insurance-costs']
+        self.assertEqual((p['status'], p['role'], p['unranked'], p['evidence']), ('accepted', 'not-shown', True, []))
+        self.assertEqual((p['name'], p['line']), ('Insurance', "I can't afford insurance."))
+        self.assertEqual((p['history'][0]['own'], p['history'][0]['noSource']), (True, True))
+
+    def test_draft_in_own_wording_is_also_the_founders(self):
+        self.ingest({self.pid('add', 'insurance-costs'): {'decision': 'own', 'own': {'name': 'Insurance', 'line': "I can't afford my insurance."}}})
+        h = catalog.load(self.tmp)['pains']['insurance-costs']['history'][0]
+        self.assertEqual((h['own'], h['noSource']), (True, True))
 
     def test_merge_of_shown_pain_is_held_until_the_editor_can_retire(self):
         out = self.ingest({self.pid('merge'): {'decision': 'accept'}})
