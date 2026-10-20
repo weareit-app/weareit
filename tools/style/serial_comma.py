@@ -28,7 +28,7 @@ MAX_ITEM_WORDS = 4
 # "shot, at school or anywhere else" adds a phrase rather than listing; "at work, in stores or by landlords" lists
 # phrases. A part starting with one of these counts as a list item only if the item before it does too.
 PREPOSITIONS = {'at', 'in', 'on', 'by', 'for', 'from', 'to', 'with', 'without', 'over', 'under', 'into', 'through',
-                'about', 'around', 'after', 'before', 'during', 'like', 'never', 'always', 'even', 'just', 'only', 'under',
+                'about', 'around', 'after', 'before', 'during', 'like', 'never', 'always', 'even', 'just', 'only',
                 'often', 'usually', 'sometimes', 'mostly', 'especially', 'maybe', 'perhaps'}
 
 

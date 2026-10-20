@@ -233,7 +233,7 @@ $('download').addEventListener('click', () => {
   const blob = new Blob([JSON.stringify({ schemaVersion: 1, setId: DATA.setId, decisions: decisions }, null, 2)], { type: 'application/json' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob); a.download = 'decisions-' + DATA.setId + '.json'; a.click();
-  $('announce').textContent = 'Downloaded decisions.json.';
+  $('announce').textContent = 'Downloaded decisions-' + DATA.setId + '.json.';
 });
 document.addEventListener('keydown', (e) => {
   if (e.target.closest('input, textarea, select') || e.metaKey || e.ctrlKey || e.altKey) return;

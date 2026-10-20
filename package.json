@@ -18,6 +18,7 @@
     "test:unit": "vitest run",
     "test:expo": "pnpm --filter @it/app test:expo",
     "test:e2e": "playwright test --config apps/app/playwright.config.ts",
+    "test:tools": "python3 -m unittest discover -s tools/pains/tests && python3 -m unittest discover -s tools/possibilities/tests && python3 -m unittest discover -s tools/style/tests",
     "typecheck": "turbo typecheck typecheck:root",
     "typecheck:root": "tsc -p tsconfig.json",
     "lint": "prettier --check .",

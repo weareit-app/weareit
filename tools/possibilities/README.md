@@ -34,7 +34,7 @@ Run it from the repository root: `python3 tools/possibilities/cards.py <subcomma
 | --- | --- |
 | `new-run <pain-id>` | Creates a new run folder and prints its path and the pain line |
 | `validate <run…>` | Checks the shape of exemplars, cards, judgments and selection |
-| `lint <run…>` | Applies the copy, sourcing, kind and coverage rules, and writes `lint.json` |
+| `lint <run…>` | Applies the copy, sourcing, kind and coverage rules, including the Oxford comma (`serial-comma`, from `tools/style/serial_comma.py`), and writes `lint.json` |
 | `judge-input <run>` | Prints a judge's whole input, with writer notes and provenance removed |
 | `consensus <run>` | Combines `judgments-<n>.json` into `judgments.json` (mean scores, majority honest status, Borda points) |
 | `select <run>` | Picks 3–5 finalists (at least 2 lenses and one It-led card) plus 2 audit samples, and writes `selection.json` |
