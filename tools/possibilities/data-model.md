@@ -131,9 +131,9 @@ The run's whole fix pool. Fixes that fail the screen or are left unlinked stay i
   shared: { draftedAt, emptyReason? } }     # the shared-fixes pass ran; emptyReason when it drafted no fix
 ```
 Rules:
-- `kind` is a kind that has a brief, and `origin` is `shared` or `kind:<kind>`. Every kind with `kind:<kind>` fixes has a `pools` entry.
+- `kind` is a kind that has a brief, and `origin` is `shared` or `kind:<kind>`. Every kind with `kind:<kind>` fixes has a `pools` entry. A kind brief adds its entry even when it drafted every ceiling in full, because the entry records that the kind ran.
 - The shared pass writes the `shared` record before any kind pool, so `pools` needs it. With no `origin: shared` fix, `shared.emptyReason` says in one line why no fix serves several dreams.
-- A shared fix has no `draftedFor` and counts against no ceiling. Its `proposedLinks` name two or more different accepted dreams, each with a one-sentence `how`. They are proposals: `links.json` holds the final links, and the assembler may leave some out. A kind brief adds its entry even when it drafted every ceiling in full, because the entry records that the kind ran.
+- A shared fix has no `draftedFor` and counts against no ceiling. Its `proposedLinks` name two or more different accepted dreams, each with a one-sentence `how`. They are proposals: `links.json` holds the final links, and the assembler may leave some out.
 - A kind fix's `draftedFor` is an accepted dream.
 - For each kind with a pool and each accepted dream, the number of fixes with that `kind` and `draftedFor` is at most the plan's `max`. If it is lower, `shortfalls` gives a one-line reason for that dream.
 - Status rules: `status` is a known status, and kind `feature` goes with status `proposed_it_feature`, and only with it.

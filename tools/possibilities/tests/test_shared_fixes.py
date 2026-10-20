@@ -11,8 +11,8 @@ def shared_fix(dreams, n=9):
     """A Task fix from the shared pass, with a proposed link to each dream it helps."""
     fix = task_fix(dreams[0], n)
     del fix['draftedFor']
-    fix.update(title='Join the tenant association', origin='shared',
-               proposedLinks=[{'dreamId': d, 'how': 'Neighbors push back on the rent together.'} for d in dreams])
+    fix.update(title='Ask the team to hold email until morning', origin='shared',
+               proposedLinks=[{'dreamId': d, 'how': 'Evening messages stop, so the day ends when work does.'} for d in dreams])
     return fix
 
 
@@ -46,6 +46,17 @@ class SharedFixes(FixStages):
         self.assertIn('fix burnout-s2: proposed link to burnout-d00 is listed twice', found)
         self.assertIn('fix burnout-s2: proposed link to burnout-d02 needs one sentence on how the fix helps', found)
         self.assertIn('fix burnout-s3: a shared fix proposes links to two or more accepted dreams', found)
+
+    def test_a_malformed_proposed_link_is_reported(self):
+        fix = shared_fix(DREAMS[:2])
+        fix['proposedLinks'].append({'dreamId': [DREAMS[2]], 'how': 'r.'})
+        self.write('fixes.json', shared_doc(fix))
+        self.assertIn("fix burnout-s1: proposed link to ['burnout-d02'], which is not an accepted dream", self.issues())
+
+    def test_only_shared_fixes_propose_links(self):
+        self.write('fixes.json', fixes_doc(), lambda d: d['fixes']['burnout-d00-t1'].update(
+            proposedLinks=shared_fix(DREAMS[:2])['proposedLinks']))
+        self.assertIn('fix burnout-d00-t1: only a shared fix has proposedLinks', self.issues())
 
     def test_a_shared_fix_is_drafted_for_no_single_dream(self):
         self.write('fixes.json', shared_doc(shared_fix(DREAMS[:2]) | {'draftedFor': DREAMS[0]}))

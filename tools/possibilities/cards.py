@@ -196,6 +196,10 @@ def drafted_pools(run):
     return set(pools) if isinstance(pools, dict) else set()
 
 
+def is_shared(fix):
+    return isinstance(fix, dict) and fix.get('origin') == 'shared'
+
+
 def shared_pass_done(run):
     """True once the shared-fixes pass has recorded itself in fixes.json, with or without fixes."""
     shared = read(run / 'fixes.json').get('shared') if (run / 'fixes.json').is_file() else None
@@ -205,7 +209,7 @@ def shared_pass_done(run):
 def shared_fixes(run):
     """IDs of the fixes the shared pass drafted (origin shared): kind briefs see them so they don't repeat them."""
     fixes = read(run / 'fixes.json').get('fixes', {}) if (run / 'fixes.json').is_file() else {}
-    return sorted(k for k, f in fixes.items() if isinstance(f, dict) and f.get('origin') == 'shared')
+    return sorted(k for k, f in fixes.items() if is_shared(f))
 
 
 def kind_pools_done(run):
@@ -295,7 +299,7 @@ def start(run, stage):
     elif stage == 'kind-pools':
         # One brief per kind with a ceiling above zero that has no pool yet, each run after the shared kind brief.
         result['kinds'] = {kind: KIND_BRIEFS[kind] for kind in planned_kinds(run) if kind not in drafted_pools(run)}
-        result['shared'] = shared_fixes(run)  # already drafted for several dreams, so kind briefs don't repeat them
+        result['shared'] = shared_fixes(run)
     return result
 
 
@@ -603,7 +607,8 @@ def check_proposed_links(fix, accepted, where, issues):
     seen = set()
     for entry in proposed:
         entry = entry if isinstance(entry, dict) else {}
-        dream, at = entry.get('dreamId'), '%s: proposed link to %s' % (where, entry.get('dreamId'))
+        dream = entry.get('dreamId') if isinstance(entry.get('dreamId'), str) else repr(entry.get('dreamId'))
+        at = '%s: proposed link to %s' % (where, dream)
         require(dream in accepted, at + ', which is not an accepted dream', issues)
         require(dream not in seen, at + ' is listed twice', issues)
         require(one_line(entry.get('how')) and len(SENTENCE.findall(entry['how'].strip())) <= 1,
@@ -624,11 +629,11 @@ def validate_fixes(doc, exemplars, ceilings, accepted, issues, pain=None):
     shared = doc.get('shared')
     if shared is None:
         require(not pools, 'fixes.json pools need the shared pass first', issues)
-        require(not any(isinstance(f, dict) and f.get('origin') == 'shared' for f in fixes.values()),
+        require(not any(is_shared(f) for f in fixes.values()),
                 'shared fixes need the shared record (shared: {draftedAt})', issues)
     elif not isinstance(shared, dict) or not shared.get('draftedAt'):
         issues.append('shared: the pass records draftedAt')
-    elif not any(isinstance(f, dict) and f.get('origin') == 'shared' for f in fixes.values()):
+    elif not any(is_shared(f) for f in fixes.values()):
         require(one_line(shared.get('emptyReason')), 'shared: no fix serves several dreams, so the pass needs an emptyReason', issues)
     for key, f in sorted(fixes.items()):
         where = 'fix ' + key
@@ -646,6 +651,7 @@ def validate_fixes(doc, exemplars, ceilings, accepted, issues, pain=None):
             require(f.get('origin') == 'kind:%s' % kind, where + ': origin must be shared or kind:<its kind>', issues)
             require(kind in pools, where + ': no %s pool records this fix' % kind, issues)
             require(f.get('draftedFor') in accepted, where + ': draftedFor must be an accepted dream', issues)
+            require('proposedLinks' not in f, where + ': only a shared fix has proposedLinks', issues)
         require(f.get('status') in STATUSES, where + ': unknown status', issues)
         require((kind == 'feature') == (f.get('status') == 'proposed_it_feature'),
                 where + ': kind feature goes with status proposed_it_feature, and only with it', issues)
