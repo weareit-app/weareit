@@ -1,9 +1,12 @@
 import {
   Blocks,
+  CircleCheck,
   CircleDotDashed,
+  Hammer,
   Lightbulb,
   Milestone,
   Repeat,
+  Telescope,
   Users,
   type LucideIcon,
 } from "lucide-react-native";
@@ -43,20 +46,47 @@ export const kindCopy: Record<
   },
 };
 
-// A feature's place on the roadmap, its own tag beside the type.
+// A Shipped feature is in It now, so its explanation can't say it isn't.
+// Placeholder wording until the founder approves it.
+const shippedFeatureDetail = "Something It offers. It's available in It now.";
+
+export function typeDetail(fix: ContentFix) {
+  return fix.kind === "feature" && fix.featureStatus === "shipped"
+    ? shippedFeatureDetail
+    : kindCopy[fix.kind].detail;
+}
+
+// A feature's place on the roadmap, its own tag beside the type, in the
+// roadmap's order. Shipped, In Progress and Exploring use placeholder wording
+// until the founder approves it.
 export const statusCopy: Record<
   NonNullable<ContentFix["featureStatus"]>,
   { label: string; detail: string; icon: LucideIcon }
 > = {
-  idea: {
-    label: "Idea",
-    detail: "An idea for It. Nothing is built or scheduled yet.",
-    icon: Lightbulb,
+  shipped: {
+    label: "Shipped",
+    detail: "Live and available in It now.",
+    icon: CircleCheck,
+  },
+  "in-progress": {
+    label: "In Progress",
+    detail: "Being built now. It's not available yet.",
+    icon: Hammer,
   },
   planned: {
     label: "Planned",
     detail: "On It's roadmap, but not built yet.",
     icon: Milestone,
+  },
+  exploring: {
+    label: "Exploring",
+    detail: "Being looked into. It may not be built.",
+    icon: Telescope,
+  },
+  idea: {
+    label: "Idea",
+    detail: "An idea for It. Nothing is built or scheduled yet.",
+    icon: Lightbulb,
   },
 };
 
@@ -180,7 +210,7 @@ export function WayRow({
             <Text className="text-[13px] leading-5 text-ink">
               {openChip === "status" && status
                 ? status.detail
-                : kindCopy[fix.kind].detail}
+                : typeDetail(fix)}
             </Text>
             <Text className="text-[13px] text-ink-soft">
               Tap again to close.

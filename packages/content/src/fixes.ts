@@ -14,6 +14,8 @@ const fixSchema = z
     description: z.string().trim().min(1),
     kind: z.enum(fixKinds),
     featureStatus: z.enum(featureStatuses).optional(),
+    statusChangedOn: z.iso.date().optional(),
+    statusNote: z.string().trim().min(1).max(500).optional(),
     evidence: z.enum(evidenceLevels),
     evidenceNote: z.string().trim().min(1),
   })

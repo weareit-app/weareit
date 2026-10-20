@@ -43,6 +43,8 @@ Knowledge-graph claims use the current CC0 working decision; authored guides use
 - oRPC exposes published reads and protected draft, validation, preview, publish, version history, and rollback operations.
 - Expo Router screens fetch only published content through TanStack Query. Personal selections and draft answers remain in the on-device store.
 - `/cms` provides structured record and source creation/editing/removal, relationship and provenance controls, preview, publish validation, and rollback. Removing a domain also removes its child pains and related links from the unsaved draft; removing a referenced source is blocked until its provenance references are reassigned.
+- `/cms` has a Feature statuses panel: each Feature fix's roadmap status (Shipped, In Progress, Planned, Exploring or Idea), the date it last changed and a note of what changed. Saving a status change without a new note is refused, by the screen and by the API; the date defaults to the day of the change.
+- Repository tests that need PostgreSQL (`packages/database/tests/feature-statuses.test.ts`) run only when `TEST_DATABASE_URL` points at a disposable database; they drop and recreate its `public` schema.
 - Initial CMS access uses `CMS_ADMIN_TOKEN` as a bootstrap gate. This must move to role-based authentication before multiple or outside editors are invited.
 
 ## Pending content edits
