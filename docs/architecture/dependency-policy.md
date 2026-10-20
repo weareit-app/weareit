@@ -37,6 +37,8 @@ Cost (checked 2026-10-20 against GitHub's Actions billing docs): GitHub Actions 
 - Keep `timeout-minutes` on every job and keep artifacts short-lived.
 - Keep the organization's Actions budget at $0, so usage that would be billed is blocked rather than charged.
 
+Review an action before you pin it: read its `action.yml` and its source at the commit you pin, and record here whether the bundled `dist/` that actually runs was compared with that source. CI enforces the pin and the record, not the review: `tools/action-pins/check-action-pins.mjs` fails when a `uses:` line in `.github/workflows/` or `.github/actions/` isn't `owner/repo@<40-character SHA> # vX.Y.Z` (local `./` actions are exempt), or when its SHA is missing from this section.
+
 Each third-party action is pinned to a full commit SHA, with the version in a comment. Each is the newest release at least two weeks old on 2026-10-20:
 
 - `actions/checkout` v7.0.1, `3d3c42e5aac5ba805825da76410c181273ba90b1` (released 2026-07-20).

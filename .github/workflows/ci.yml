@@ -27,6 +27,10 @@ jobs:
         with:
           persist-credentials: false
 
+      # Every action must be SHA-pinned and recorded in dependency-policy.md. Runs before
+      # the setup action so its pins are checked before they run; the runner's Node is enough.
+      - run: node tools/action-pins/check-action-pins.mjs
+
       - uses: ./.github/actions/setup
 
       - run: pnpm run typecheck
