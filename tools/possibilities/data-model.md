@@ -141,8 +141,29 @@ Rules:
   | | `doneWhen` | what is true once it's done |
   | | `keepsWorking` | `true` or `false`: a one-time change that keeps working afterward |
   | | `lever` | `default`, `remove-hassle`, `simplify`, `timing`, or `other` |
+  | `feature` | `when`, `want`, `soThat` | a job story: the situation, what the person wants, and what that lets them do |
+  | | `pattern` | a row of `config/feature-patterns.md`, or `new` |
+  | | `dataOrTools` | the public data or tools that would make it work |
+  | `schedule` | `what` | what repeats |
+  | | `cadence` | how often |
+  | `habit` | `cue` | something the person already does, with a clear end point |
+  | | `behavior` | the small behavior that follows it |
+  | `practice` | `situation` | when the skill comes up |
+  | | `move` | one concrete thing to try next time |
+  | | `wentBetterWhen` | the sign that it went better |
+  | `learn` | `ableTo` | what the reader will be able to do, starting with a verb |
+  | | `useWhen` | the situation they'll use it in |
+  | `project` | `finishedThing` | what exists at the end |
+  | | `doneWhen` | when it's done |
+  | `group` | `whatMembersDo` | what members do together |
+  | | `howToFind` | how the reader finds theirs |
+  | `new-group` | `whoFor` | the people it's for |
+  | | `whatMembersDo` | what members would do together |
+  | | `firstTest` | the first thing the group does that shows it's working |
+  | | `existingFirst` | what to check exists before starting one |
 
-  Other kinds add their rows with their briefs (#93, #94).
+  Every value is nonempty text, except `keepsWorking` and `lever`. A kind brief may add optional fields, which aren't checked. Ask and Use a resource add their rows with their briefs (#94).
+- A `practice` fix also has `featureIdea`: one line, a coaching feature It could build. It sits on the fix, not in `method`, because the app shows it.
 
 ### screen.json (staged run)
 ```

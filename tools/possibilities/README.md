@@ -66,7 +66,7 @@ After the dream review, each stage is a fresh agent with its own brief. `start <
 
 1. **Plan** (`briefs/planner.md`): one planner sets, for each accepted dream, the most fixes to draft of each kind (from 0 to 5), with a reason for every ceiling. It writes `plan.json`.
 2. **Shared fixes**: fixes that serve several dreams. This pass isn't built yet, so the stage passes once the plan exists.
-3. **Kind pools** (`briefs/kinds/_shared.md`, then `briefs/kinds/<kind>.md`): one brief for each kind with a ceiling above zero. It fills the kind's method fields first, then writes the copy, and adds its fixes to `fixes.json`. It may return fewer than the ceiling, with a `shortfallReason`. Only Task has a brief so far.
+3. **Kind pools** (`briefs/kinds/_shared.md`, then `briefs/kinds/<kind>.md`): one brief for each kind with a ceiling above zero. It fills the kind's method fields first, then writes the copy, and adds its fixes to `fixes.json`. It may return fewer than the ceiling, with a `shortfallReason`. Every kind in the copy guide's table has a brief except Path, which isn't used yet.
 4. **Screen** (`briefs/screen.md`): one isolated judge checks every fix on its own: actionable, the right kind, and honest status. It writes `screen.json`. It reads the copy, not the method fields. A fix that fails stays in the pool but can't be linked.
 5. **Assemble** (`briefs/assembler.md`): an isolated assembler links 2–5 screened fixes to each accepted dream, in order, and says how each one helps. It records chains as path candidates and writes `links.json`. Unlinked fixes stay in the pool.
 
