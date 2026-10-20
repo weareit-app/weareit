@@ -33,6 +33,10 @@ pnpm run lint
 
 `pnpm install` also installs a git pre-commit hook ([Lefthook](https://lefthook.dev), configured in `lefthook.yml`). The hook formats the staged JavaScript and TypeScript files with Prettier and restages them, then, when the commit includes code, runs the typecheck and the Vitest unit tests. `.prettierignore` decides which files Prettier formats, both in the hook and in `pnpm run lint` (which CI runs); docs are not Prettier-formatted. To skip it once, use `git commit --no-verify`.
 
+## Components and Storybook
+
+UI components have stories next to them (`*.stories.tsx`). Browse them with `pnpm storybook`. To see what a branch changed in the components, run `pnpm storybook:review`, which compares every story, in light and dark, with `origin/master` and writes a report. See `docs/architecture/storybook.md`.
+
 ## Project boundaries
 
 - `apps/app` owns routes and platform presentation.
@@ -48,4 +52,4 @@ Working license decisions are recorded in `docs/architecture/licensing.md`. The 
 
 ## Pull requests
 
-Explain the user problem, the change, and any privacy or content implications. Include screenshots for UI changes. Run checks relevant to the changed package and report what you ran. Do not add tests for unrelated code.
+Explain the user problem, the change, and any privacy or content implications. Include screenshots for UI changes, and add or update stories for components you change. Run checks relevant to the changed package and report what you ran. Do not add tests for unrelated code.

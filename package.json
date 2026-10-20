@@ -20,7 +20,9 @@
     "test:e2e": "playwright test --config apps/app/playwright.config.ts",
     "typecheck": "turbo typecheck",
     "lint": "prettier --check .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "storybook": "pnpm --filter @it/app storybook",
+    "storybook:review": "pnpm --filter @it/app storybook:review"
   },
   "devDependencies": {
     "@playwright/test": "^1.64.0",

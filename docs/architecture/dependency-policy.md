@@ -22,6 +22,10 @@ NativeWind 5.0.0-rc.0 and react-native-css 3.1.0-rc.0 are an intentional prerele
 
 The Expo CLI's dependency resolver owns SDK-specific package versions. Re-run `expo install --check` after dependency changes. `pnpm outdated` is useful for finding candidates, but its `Latest` column is not an Expo compatibility guarantee. pnpm added exact-version entries to `minimumReleaseAgeExclude` for Expo packages selected by the CLI because those releases were newer than pnpm's release-age window at install time.
 
+## Storybook
+
+Storybook 10.6.1 (`storybook` and `@storybook/react-native-web-vite`, pinned exactly) with Vite 7.3.6: each the newest release at least two weeks old on 2026-10-20, from the npm registry's release dates (`npm view <package> time`, checked 2026-10-20). Storybook 10.6.1 came out 2026-09-29 (10.6.2, 2026-10-12, was too new); Vite 7.3.6 came out 2026-06-25 (7.3.7, 2026-10-06, was too new). Vite 7 is within the framework's supported Vite range (`^5 || ^6 || ^7 || ^8`, its peer dependencies, checked the same day). Both are dev dependencies of `@it/app` only. Telemetry is off in `apps/app/.storybook/main.ts`. Keep `storybook` and its framework package on the same version. After an upgrade, or a NativeWind, react-native-css, Tailwind or Expo update, run `pnpm storybook:review --no-base` and look at the report: styling, fonts and dark mode must still match the app. See `docs/architecture/storybook.md`.
+
 ## Continuous integration
 
 `.github/workflows/ci.yml` runs on every pull request and on pushes to `master`, so a commit made with `git commit --no-verify` is still checked. It has two jobs that run in parallel:
