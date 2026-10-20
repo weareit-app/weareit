@@ -9,6 +9,7 @@ export default defineConfig({
       "apps/api-server/tests/**/*.test.ts",
       "apps/app/src/payments/**/*.test.ts",
       "apps/app/src/theme/**/*.test.ts",
+      "apps/app/src/essays/**/*.test.ts",
       "packages/watercolor/tests/**/*.test.ts",
       "tools/watercolor-sim/tests/**/*.test.ts",
       "tools/action-pins/tests/**/*.test.ts",

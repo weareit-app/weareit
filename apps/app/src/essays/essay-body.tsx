@@ -9,6 +9,7 @@ import type { ComponentType } from "react";
 import { View } from "react-native";
 import { Text } from "../components/text";
 import { blockComponents } from "./blocks";
+import { InlineMath } from "./blocks/math";
 
 // Renders the typed tree the essay build writes (public-essays). Static: the
 // text, sources and labels are in the pre-rendered HTML, with scripts off.
@@ -72,11 +73,7 @@ function Inline({
           </Text>
         );
       case "math":
-        return (
-          <Text key={index} className="font-ui text-base">
-            {node.tex}
-          </Text>
-        );
+        return <InlineMath key={index} tex={node.tex} />;
     }
   });
 }
