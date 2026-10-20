@@ -97,6 +97,15 @@ class Consensus(Judging):
         self.assertEqual(doc['consensus']['burnout-d00']['ranks'], [1, 1, 5])
         self.assertEqual(self.issues(), '')
 
+    def test_a_new_consensus_drops_the_old_ranking(self):
+        self.write('judgments.json', dream_judgments())
+        cards.select(self.run_dir)
+        self.write('judgments-1.json', dream_judgments())
+        self.write('judgments-2.json', dream_judgments())
+        cards.consensus(self.run_dir)
+        self.assertFalse((self.run_dir / 'ranking.json').exists())
+        self.assertEqual(self.status(self.run_dir)['next'], 'judge')
+
     def test_a_judge_that_scored_fixes_is_rerun(self):
         self.write('judgments-1.json', dream_judgments())
         self.write('judgments-2.json', dream_judgments(keys=ACCEPTED[:4] + ['burnout-d04-t1']))

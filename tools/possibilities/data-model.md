@@ -191,10 +191,10 @@ Rules:
   fixOrder: [<fix-id>…] }
 ```
 Rules:
-- `select <run>` writes it from `judgments.json`. It has no finalists or audit samples (founder, 2026-10-20).
+- `select <run>` writes it from `judgments.json`, with no finalists or audit samples (founder, 2026-10-20). `--seed` doesn't apply. A new `consensus` deletes the old `ranking.json`, so `status` returns to `judge` until `select` runs again.
 - `ranking` lists every accepted dream once. Dreams that pass honest status come first, by Borda points (or pairwise wins from a single judge), then mean score, then ID. Dreams that fail honest status follow in the same order and are marked by `honestStatus.pass: false`.
 - `fixIds` are the dream's linked fixes in link order.
-- `fixOrder` lists each linked fix once, under the best-ranked dream it serves. It orders the founder's fix review. Unlinked fixes aren't in it; the review lists them after the linked ones.
+- `fixOrder` lists each linked fix once, under the best-ranked dream it serves, and this sets the order of the founder's fix review. Unlinked fixes aren't in it; the review lists them after the linked ones.
 
 ### Dream review files (`<run>/reviews/`)
 - **proposals.json**: `{ schemaVersion: 1, setId: "<painId>-<runId>", builtAt, proposals: [ { id, title, line, lens, ambition, examples: [{id, name, place, year, outcome}], overlaps: [{with, title, reason}] } ] }`. Each dream appears once. An overlap is listed under both of its dreams. No `writerNotes`.
