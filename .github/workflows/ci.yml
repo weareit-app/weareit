@@ -32,6 +32,9 @@ jobs:
           node-version: 24
           cache: pnpm
 
+      # Every action must be SHA-pinned and recorded in dependency-policy.md. Needs no install.
+      - run: node tools/action-pins/check-action-pins.mjs
+
       - run: pnpm install --frozen-lockfile
 
       - run: pnpm run typecheck

@@ -11,6 +11,7 @@ export default defineConfig({
       "apps/app/src/theme/**/*.test.ts",
       "packages/watercolor/tests/**/*.test.ts",
       "tools/watercolor-sim/tests/**/*.test.ts",
+      "tools/action-pins/tests/**/*.test.ts",
     ],
     environment: "node",
   },

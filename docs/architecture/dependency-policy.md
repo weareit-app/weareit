@@ -25,6 +25,8 @@ The Expo CLI's dependency resolver owns SDK-specific package versions. Re-run `e
 
 ## GitHub Actions
 
+Review an action before you pin it: read its `action.yml` and its source at the commit you pin, and record here whether the bundled `dist/` that actually runs was compared with that source. CI enforces the pin and the record, not the review: `tools/action-pins/check-action-pins.mjs` fails when a `uses:` line in `.github/workflows/` is not `owner/repo@<40-character SHA> # vX.Y.Z` (local `./` actions are exempt), or when its SHA is missing from this section.
+
 CI (`.github/workflows/ci.yml`) pins each third-party action to a full commit SHA, with the version in a comment. Each is the newest release at least two weeks old on 2026-10-20:
 
 - `actions/checkout` v7.0.1, `3d3c42e5aac5ba805825da76410c181273ba90b1` (released 2026-07-20).
