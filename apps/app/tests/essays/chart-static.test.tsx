@@ -19,6 +19,16 @@ describe("ChartBlock before it is drawn", () => {
     );
   });
 
+  it("ties the description to the figure, so it is heard with the chart", () => {
+    const describedBy = html.match(
+      /<figure[^>]*aria-describedby="([^"]+)"/,
+    )?.[1];
+    expect(describedBy).toBeTruthy();
+    expect(html).toMatch(
+      new RegExp(`<p id="${describedBy}"[^>]*>Reported AI incidents rose`),
+    );
+  });
+
   it("shows the chart's data as a table", () => {
     expect(html).toContain(
       "Reported AI incidents per year, as a table</caption>",
@@ -31,7 +41,7 @@ describe("ChartBlock before it is drawn", () => {
 
   it("shows the data's context", () => {
     expect(html).toMatch(
-      /<a href="https:\/\/incidentdatabase\.ai\/"[^>]*>AI Incident Database<\/a>/,
+      /<a href="https:\/\/example\.org\/placeholder-counts"[^>]*>Placeholder incident counts<\/a>/,
     );
     expect(html).toContain(
       '<time dateTime="2026-09-30">September 30, 2026</time>',

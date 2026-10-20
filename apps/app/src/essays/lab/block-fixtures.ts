@@ -6,14 +6,15 @@ import {
 
 // Sample blocks for the essay-blocks lab and the block tests, parsed by the
 // content schemas as the essay build would, so a fixture that drifts from a
-// schema fails. The figures are placeholders, not sourced facts.
+// schema fails. The chart figures are placeholders with a placeholder source,
+// not sourced facts.
 
 export const sourcesFixture = [
   essaySourceSchema.parse({
-    id: "aiid",
-    title: "AI Incident Database",
-    publisher: "Responsible AI Collaborative",
-    url: "https://incidentdatabase.ai/",
+    id: "placeholder-counts",
+    title: "Placeholder incident counts",
+    publisher: "the essay-blocks lab",
+    url: "https://example.org/placeholder-counts",
   }),
   essaySourceSchema.parse({
     id: "implementation-intentions",
@@ -45,7 +46,7 @@ export const chartFixture: EssayBlockOf<"chart"> = {
     title: "Reported AI incidents per year",
     description:
       "Reported AI incidents rose every year from 2019 to 2023, from 41 to 123.",
-    source: "aiid",
+    source: "placeholder-counts",
     unit: "incidents reported",
     timeframe: "2019–2023",
     population: "Incidents submitted to and accepted by the database",

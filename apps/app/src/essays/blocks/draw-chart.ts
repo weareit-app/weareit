@@ -5,19 +5,20 @@ import embed, { type VisualizationSpec } from "vega-embed";
 // other bundle. The spec carries no data or URLs (the content schema rejects
 // them); the rows come from the data file beside the essay.
 
-function token(element: Element, name: string, fallback: string) {
-  const value = getComputedStyle(element).getPropertyValue(name).trim();
-  return value || fallback;
+// A theme colour from the page's CSS, read when the chart is drawn, so it
+// follows light or dark. `global.css` defines every token on every page.
+function themeColor(element: Element, name: `--color-${string}`) {
+  return getComputedStyle(element).getPropertyValue(name).trim();
 }
 
 export async function drawChart(
   element: HTMLElement,
   chart: EssayBlockOf<"chart">["data"],
 ) {
-  const ink = token(element, "--color-ink", "#1F2021");
-  const soft = token(element, "--color-ink-soft", "#606162");
-  const rule = token(element, "--color-rule", "#D5D6D6");
-  const tide = token(element, "--color-tide", "#087E9F");
+  const ink = themeColor(element, "--color-ink");
+  const soft = themeColor(element, "--color-ink-soft");
+  const rule = themeColor(element, "--color-rule");
+  const tide = themeColor(element, "--color-tide");
   const font = getComputedStyle(element).fontFamily || "sans-serif";
   const result = await embed(
     element,
@@ -39,9 +40,9 @@ export async function drawChart(
         range: {
           category: [
             tide,
-            token(element, "--color-harbor", "#3D5588"),
-            token(element, "--color-sun-deep", "#94620B"),
-            token(element, "--color-mint-deep", "#0D7E45"),
+            themeColor(element, "--color-harbor"),
+            themeColor(element, "--color-sun-deep"),
+            themeColor(element, "--color-mint-deep"),
           ],
         },
         axis: {

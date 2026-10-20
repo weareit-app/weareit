@@ -11,6 +11,9 @@ import type { BlockProps } from "./types";
 export function ChartBlock({ block, sources }: BlockProps<"chart">) {
   const chart = block.data;
   const drawing = useRef<HTMLDivElement>(null);
+  // From the block's ID, not `useId`: Expo's static render and the browser
+  // build different trees, so a generated ID wouldn't match on hydration.
+  const descriptionId = `chart-${block.id}-description`;
 
   useEffect(() => {
     const element = drawing.current;
@@ -35,11 +38,11 @@ export function ChartBlock({ block, sources }: BlockProps<"chart">) {
   }, [chart]);
 
   return (
-    <figure className="my-6">
-      <figcaption className="font-heading text-lg text-ink">
+    <figure className="my-6" aria-describedby={descriptionId}>
+      <figcaption className="font-heading text-xl text-ink">
         {chart.title}
       </figcaption>
-      <p className="mt-1 font-body text-base text-ink-soft">
+      <p id={descriptionId} className="mt-1 font-body text-base text-ink-soft">
         {chart.description}
       </p>
       <div ref={drawing} aria-hidden="true" className="my-4 w-full font-ui" />

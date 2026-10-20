@@ -7,14 +7,12 @@ import {
   text,
 } from "./shared";
 
-// True when any object in the spec has a key named `url` (data, images,
-// projections): a chart may draw only the rows beside it, so it never makes
-// a request.
-function hasUrl(value: unknown): boolean {
-  if (Array.isArray(value)) return value.some(hasUrl);
+// True when any object in the spec, at any depth, has one of these keys.
+function hasKey(value: unknown, keys: readonly string[]): boolean {
+  if (Array.isArray(value)) return value.some((child) => hasKey(child, keys));
   if (value === null || typeof value !== "object") return false;
   return Object.entries(value).some(
-    ([key, child]) => key === "url" || hasUrl(child),
+    ([key, child]) => keys.includes(key) || hasKey(child, keys),
   );
 }
 
@@ -33,13 +31,16 @@ export const chartBlockSchema = z
     ...dataContext,
   })
   .superRefine((chart, ctx) => {
-    if ("data" in chart.spec)
+    // The chart draws only the rows beside it, the same rows the fallback
+    // table shows: no data inside the spec (top level, layers, lookups or
+    // named datasets) and no URL, so it never makes a request either.
+    if (hasKey(chart.spec, ["data", "datasets"]))
       ctx.addIssue({
         code: "custom",
-        path: ["spec", "data"],
+        path: ["spec"],
         message: "put the chart's rows in `data` beside the spec, not in it",
       });
-    if (hasUrl(chart.spec))
+    if (hasKey(chart.spec, ["url"]))
       ctx.addIssue({
         code: "custom",
         path: ["spec"],

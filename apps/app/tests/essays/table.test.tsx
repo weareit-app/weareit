@@ -26,7 +26,7 @@ describe("TableBlock", () => {
     );
 
     expect(html).toMatch(
-      /<a href="https:\/\/incidentdatabase\.ai\/"[^>]*>AI Incident Database<\/a>/,
+      /<a href="https:\/\/example\.org\/placeholder-counts"[^>]*>Placeholder incident counts<\/a>/,
     );
     expect(html).toContain("incidents reported");
     expect(html).toContain("2019–2023");
