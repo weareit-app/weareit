@@ -1,15 +1,13 @@
-import { promises as fs } from "node:fs";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import { FileMigrationProvider, Migrator, sql } from "kysely";
+import { sql, type Migrator } from "kysely";
 import { createDatabase, type ItDatabase } from "../src/database";
+import { createMigrator } from "../src/migrator";
 
 // Each test file gets its own empty database on the disposable server named
 // by TEST_DATABASE_URL, so files can run in parallel.
 export async function createTestDatabase(
   connectionString: string,
   name: string,
-): Promise<{ db: ItDatabase; migrator: Migrator }> {
+): Promise<{ db: ItDatabase; migrator: Migrator; databaseUrl: string }> {
   const server = createDatabase(connectionString);
   await sql`drop database if exists ${sql.id(name)} with (force)`.execute(
     server,
@@ -18,16 +16,8 @@ export async function createTestDatabase(
   await server.destroy();
   const url = new URL(connectionString);
   url.pathname = `/${name}`;
-  const db = createDatabase(url.toString());
-  const migrator = new Migrator({
-    db,
-    provider: new FileMigrationProvider({
-      fs,
-      path,
-      migrationFolder: fileURLToPath(
-        new URL("../src/migrations", import.meta.url),
-      ),
-    }),
-  });
-  return { db, migrator };
+  const databaseUrl = url.toString();
+  const db = createDatabase(databaseUrl);
+  const migrator = createMigrator(db);
+  return { db, migrator, databaseUrl };
 }

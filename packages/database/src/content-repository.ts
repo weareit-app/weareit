@@ -514,6 +514,22 @@ export async function initializeContent(db: ItDatabase, graphInput: unknown) {
   });
 }
 
+// The seed for local setup: imports the graph only into an empty content
+// database, so running it again never touches CMS edits.
+export async function initializeContentIfEmpty(
+  db: ItDatabase,
+  graphInput: unknown,
+): Promise<{ seeded: true; revision: number } | { seeded: false }> {
+  const existing = await db
+    .selectFrom("content_draft_state")
+    .select("id")
+    .where("id", "=", 1)
+    .executeTakeFirst();
+  if (existing) return { seeded: false };
+  const { revision } = await initializeContent(db, graphInput);
+  return { seeded: true, revision };
+}
+
 export async function publishDraftContent(
   db: ItDatabase,
   options: { actor: string; rollbackFrom?: number },
