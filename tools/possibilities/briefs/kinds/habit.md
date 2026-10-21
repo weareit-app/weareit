@@ -45,6 +45,7 @@ Good:
 - **Title:** "When you put your phone on the charger, set tomorrow's alarm and leave it there"
 - **Text:** "Pairing the new step with something you already do every night means you don't have to remember it. Missing a night doesn't undo it."
 - **Method:** `cue` "Putting the phone on the charger at night.", `behavior` "Set tomorrow's alarm, then leave the phone there.", `replaces` "Scrolling in bed."
+- **Lens and ambition:** `individual`, `tonight`.
 
 Bad:
 - **Title:** "Build a better bedtime routine"

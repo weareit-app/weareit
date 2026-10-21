@@ -21,7 +21,7 @@ The stages, their briefs, and their files are in the README's "Staged flow". Eac
 
 1. **Pick the runs.** Pain IDs are checked as in the card run. For each pain, run `new-run <pain-id> --staged`, adding `--pilot` when the founder asked for a pilot run. A run path given instead of a pain picks that run up where it stopped. Done when every pain has a staged run.
 2. **Run the next stage.** Run `status <run>` and act on its `next`:
-   - `examples`, `dreams`, `plan`, `shared-fixes`, `screen`, or `assemble`: run `start <run> <stage>`, then start one fresh, isolated agent, as the README's "Isolation" describes, and give it only this: "Read and follow `<brief>`. Your run: `<run>`. Your stage: `<stage>`." Here `<brief>` is the `brief` that `start` printed.
+   - `examples`, `dreams`, `dream-screen`, `plan`, `shared-fixes`, `screen`, or `assemble`: run `start <run> <stage>`, then start one fresh, isolated agent, as the README's "Isolation" describes, and give it only this: "Read and follow `<brief>`. Your run: `<run>`. Your stage: `<stage>`." Here `<brief>` is the `brief` that `start` printed.
    - `kind-pools`: run `start <run> kind-pools`. Its `kinds` are the kinds with a ceiling above zero and no pool yet. For each one, one at a time, start a fresh agent with only this: "Read and follow `tools/possibilities/briefs/kinds/_shared.md`, then `<kind brief>`. Your run: `<run>`. Your kind: `<kind>`."
    - `dream-review`: stop for the founder, as step 4 says.
    - `judge`: run the staged judging in `/possibilities-judge`: its "Staged run", steps 2 to 4.
@@ -36,5 +36,5 @@ The stages, their briefs, and their files are in the README's "Staged flow". Eac
    - download the decisions and save them as `<run>/reviews/dreams-decisions.json` (or `fixes-decisions.json`);
    - run this skill again with `--staged <run>`, which ingests the decisions and goes on.
 
-   Show the founder the count of dreams and overlap flags, or of fixes and their dreams, from the build's output.
+   Show the founder the count of dreams, the dreams the screen failed, and overlap flags, or of fixes and their dreams, from the build's output.
 5. **Report.** Give the founder one line per pain: the run path, whether it's a pilot run, the accepted dreams and linked fixes, the fixes left unlinked, and the lint result. Show the top three dreams of `ranking.json` inline with their final fixes: dream title and line, then each fix's title, kind, and status. Once every pilot pain's pilot run is `done`, offer the comparison in `/possibilities-calibrate` "Pilot comparison", which pits it against the card flow.

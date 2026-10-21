@@ -49,10 +49,10 @@ Start only after the pain-catalog change (PR #27) and the full pain sweep are me
 
 ## 7b. Dreams as end states (founder, 2026-10-20)
 
-- [ ] 7b.1 Drop `lens`, `ambition` and `exemplarRefs` from staged dreams and require `lens` and `ambition` on staged fixes, with the kind briefs, the shared-fixes brief and the plan updated to set them. Verify with tests: a dream with a lens fails `validate`, and a fix without an ambition fails.
-- [ ] 7b.2 Count coverage (lenses, ambitions, basics tonight) on the fixes linked to accepted dreams. Verify with tests on a fixture whose dreams have no lens or ambition.
-- [ ] 7b.3 Rewrite `briefs/dreams.md` for the end-state rule, both checks, the Sleep ladder, distinctness notes, and no target count. Retire the `dream-not-outcome` lint. Verify that no brief or helper refers to dream lenses, dream ambitions, dream example references, or `dream-not-outcome`.
-- [ ] 7b.4 Add the dream screen stage (`briefs/dream-screen.md`, `dream-screen.json`, the stage gate), and list failed dreams after passing ones, collapsed with the reason, on the dream review page, where they can still be accepted. Verify with tests and by keyboard in the browser preview.
+- [x] 7b.1 Drop `lens`, `ambition` and `exemplarRefs` from staged dreams and require `lens` and `ambition` on staged fixes, with the kind briefs, the shared-fixes brief and the plan updated to set them. Verify with tests: a dream with a lens fails `validate`, and a fix without an ambition fails.
+- [x] 7b.2 Count coverage (lenses, ambitions, basics tonight) on the fixes linked to accepted dreams. Verify with tests on a fixture whose dreams have no lens or ambition.
+- [x] 7b.3 Rewrite `briefs/dreams.md` for the end-state rule, both checks, the Sleep ladder, distinctness notes, and no target count. Retire the `dream-not-outcome` lint. Verify that no brief or helper refers to dream lenses, dream ambitions, dream example references, or `dream-not-outcome`.
+- [x] 7b.4 Add the dream screen stage (`briefs/dream-screen.md`, `dream-screen.json`, the stage gate), and list failed dreams after passing ones, collapsed with the reason, on the dream review page, where they can still be accepted. Verify with tests and by keyboard in the browser preview.
 
 ## 8. Pilot comparison
 

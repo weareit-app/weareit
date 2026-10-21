@@ -42,6 +42,7 @@ Good:
 - **Title:** "Ask your school board for a later start time"
 - **Text:** "Some districts already start high school at 8:30 or later, and boards change start times when parents ask at a public meeting. One clear request with a named date gives them something to vote on."
 - **Method:** `decisionMaker` "your school board", `request` "Start high school classes at 8:30 a.m. or later from next school year."
+- **Lens and ambition:** `policy`, `this-year`.
 
 Bad:
 - **Title:** "Advocate for better sleep policies"

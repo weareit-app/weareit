@@ -1,5 +1,6 @@
 """One brief and validated method fields for each existing kind (#93)."""
 import json
+import re
 import unittest
 
 from test_cards import cards
@@ -51,6 +52,17 @@ class EveryKindHasABrief(unittest.TestCase):
         self.assertEqual(files, set(cards.KIND_BRIEFS) | set(cards.TRIAL_KIND_BRIEFS))
         for kind, brief in {**cards.KIND_BRIEFS, **cards.TRIAL_KIND_BRIEFS}.items():
             self.assertEqual(brief, 'tools/possibilities/briefs/kinds/%s.md' % kind)
+
+
+class EveryKindBriefSetsLensAndAmbition(unittest.TestCase):
+    def test_each_good_example_sets_a_lens_and_an_ambition(self):
+        # Lens and ambition moved from dreams to fixes (founder, 2026-10-20), so each kind's example shows them.
+        for kind, brief in {**cards.KIND_BRIEFS, **cards.TRIAL_KIND_BRIEFS}.items():
+            with self.subTest(kind=kind):
+                found = re.search(r'\*\*Lens and ambition:\*\* `([a-z-]+)`, `([a-z-]+)`', (ROOT / brief).read_text())
+                self.assertTrue(found, brief)
+                self.assertIn(found[1], cards.LENSES)
+                self.assertIn(found[2], cards.AMBITIONS)
 
 
 class MethodFields(FixStages):

@@ -44,6 +44,7 @@ Good:
 - **Title:** "Learn to read your lease for the renewal and rent-increase terms"
 - **Text:** "Two clauses decide how much notice you get and how much the rent can go up. Ten minutes with a highlighter tells you whether you need help before you sign again."
 - **Method:** `ableTo` "Find the renewal and rent-increase clauses in your own lease.", `useWhen` "Before you sign a renewal.", `inMinutes` 10.
+- **Lens and ambition:** `individual`, `tonight`.
 
 Bad:
 - **Title:** "Learn about tenant rights"

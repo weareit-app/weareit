@@ -37,8 +37,12 @@ article:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 .title { font-weight: 600; font-size: 1.1rem; margin: 0; }
 .line { font-family: var(--font-display); font-style: italic; margin: 0; }
 .original { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
-.original h2, .examples h2, .overlaps h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 0 0 6px; }
-.examples ul, .overlaps ul { margin: 0; padding-left: 20px; }
+.original h2, .overlaps h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 0 0 6px; }
+.overlaps ul { margin: 0; padding-left: 20px; }
+.failed { border: 1px solid var(--line); border-left: 3px solid var(--reject); border-radius: 8px; padding: 10px 12px; display: grid; gap: 10px; }
+.failed summary { cursor: pointer; color: var(--muted); }
+.failed summary strong { color: var(--reject); }
+.failed summary:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 .overlaps { border-left: 3px solid var(--flag); padding-left: 10px; }
 .overlaps li { margin-bottom: 6px; }
 .decide { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -64,6 +68,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
     <h1 id="heading">Dream review</h1>
     <p class="intro" id="pain"></p>
     <p class="intro">Keys: <kbd>A</kbd> accept, <kbd>E</kbd> edit, <kbd>R</kbd> reject, <kbd>U</kbd> undo, <kbd>N</kbd>/<kbd>P</kbd> next and previous.</p>
+    <p class="intro">Dreams that passed the screen come first. Dreams it failed come last, collapsed with its reason: open one to read it, and accept it if the screen got it wrong.</p>
     <p class="intro">One dream at a time. Choosing a decision saves it and stays on the same dream; move on with <strong>Next</strong>. An edit accepts the dream with your wording, and the drafted wording is kept beside it. Decisions are kept in this browser until you download them. Save the file as <code>reviews/dreams-decisions.json</code> in the run and give it to <code>dreams-ingest</code>.</p>
   </header>
   <div class="filters" role="search" aria-label="Filter dreams">
@@ -93,15 +98,16 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 <script>
 const DATA = /*__DATA__*/;
 const KEY = 'dream-review:' + DATA.setId;
-const AMBITION = { tonight: 'Tonight', 'this-year': 'This year', together: 'Together' };
+const CHECK = { why: 'why test: it reads as a way to get somewhere in this pain', swap: 'swap test: it would fit another pain' };
 const DECIDED = { accept: 'Accepted', edit: 'Accepted with your edit', reject: 'Rejected' };
 let decisions = {}, drafts = {};
 try { decisions = JSON.parse(localStorage.getItem(KEY) || '{}'); drafts = JSON.parse(localStorage.getItem(KEY + ':notes') || '{}'); } catch (e) { decisions = {}; drafts = {}; }
 const undoStack = [];
+const opened = {}; // failed dreams the founder has opened, kept open while they move around
 let index = 0, pinned = null; // pinned: the dream on screen stays listed under "Undecided only" until you move on
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const cap = (s) => String(s || '').charAt(0).toUpperCase() + String(s || '').slice(1);
+const failed = (p) => !(p.screen && p.screen.pass);
 function save() { try { localStorage.setItem(KEY, JSON.stringify(decisions)); localStorage.setItem(KEY + ':notes', JSON.stringify(drafts)); } catch (e) { /* kept in memory */ } }
 function visible() { const open = $('f-open').checked; return DATA.proposals.filter((p) => !open || !decisions[p.id] || p.id === pinned); }
 function stateText(d) { return d ? 'Decided: ' + DECIDED[d.decision] : 'Not decided yet'; }
@@ -111,8 +117,8 @@ function render() {
   if (index >= list.length) index = Math.max(0, list.length - 1);
   const decided = DATA.proposals.filter((p) => decisions[p.id]).length;
   const left = (DATA.proposals.length - decided) + ' of ' + DATA.proposals.length + ' left to decide';
-  $('count').textContent = list.length ? 'Dream ' + (index + 1) + ' of ' + list.length + ' shown · ' + left : 'No undecided dreams · ' + left;
   const p = list[index];
+  $('count').textContent = list.length ? 'Dream ' + (index + 1) + ' of ' + list.length + ' shown' + (failed(p) ? ' (failed the screen)' : '') + ' · ' + left : 'No undecided dreams · ' + left;
   pinned = p ? p.id : null;
   const card = $('card');
   document.querySelectorAll('#decide button[data-d]').forEach((b) => { b.disabled = !p; b.setAttribute('aria-pressed', 'false'); });
@@ -121,17 +127,19 @@ function render() {
   const d = decisions[p.id];
   document.querySelectorAll('#decide button[data-d]').forEach((b) => b.setAttribute('aria-pressed', String(!!d && d.decision === b.dataset.d)));
   const w = wording(p);
+  const dream = '<p class="title" id="card-title">' + esc(w.title) + '</p><p class="line">' + esc(w.line) + '</p>' +
+    (d && d.decision === 'edit' ? '<section class="original" aria-label="Drafted wording"><h2>Drafted wording</h2><p class="title">' + esc(p.title) + '</p><p class="line">' + esc(p.line) + '</p></section>' : '');
   card.innerHTML =
-    '<p class="kind">' + esc(cap(p.lens)) + ' lens · ' + esc(AMBITION[p.ambition] || p.ambition) + ' · ' + esc(p.id) + '</p>' +
+    '<p class="kind">' + (failed(p) ? 'Failed the screen' : 'Passed the screen') + ' · ' + esc(p.id) + '</p>' +
     '<p class="state" id="card-state" data-d="' + esc(d ? d.decision : '') + '">' + esc(stateText(d)) + '</p>' +
-    '<p class="title" id="card-title">' + esc(w.title) + '</p><p class="line">' + esc(w.line) + '</p>' +
-    (d && d.decision === 'edit' ? '<section class="original" aria-label="Drafted wording"><h2>Drafted wording</h2><p class="title">' + esc(p.title) + '</p><p class="line">' + esc(p.line) + '</p></section>' : '') +
-    '<section class="examples" aria-label="Drafted from"><h2>Drafted from</h2><ul>' +
-    p.examples.map((e) => '<li>' + esc(e.name) + (e.place ? ', ' + esc(e.place) : '') + (e.year ? ' (' + esc(e.year) + ')' : '') + (e.outcome ? ': ' + esc(e.outcome) : '') + '</li>').join('') + '</ul></section>' +
+    // A failed dream stays collapsed with the screen's reason until opened; it can be decided either way.
+    (failed(p) ? '<details class="failed" id="failed"' + (opened[p.id] ? ' open' : '') + '><summary><strong>Failed the ' + esc(CHECK[p.screen.check] || 'screen') + '.</strong> ' +
+      esc(p.screen.reason) + ' Show the dream.</summary>' + dream + '</details>' : dream) +
     (p.overlaps.length ? '<section class="overlaps" aria-label="Possible overlaps"><h2>Possible overlap</h2><ul>' +
       p.overlaps.map((o) => '<li>May overlap with <strong>' + esc(o.title) + '</strong> (' + esc(o.with) + '). Reason: ' + esc(o.reason) +
         ' That dream: ' + esc(stateText(decisions[o.with]).toLowerCase()) + '. <button class="link" data-goto="' + esc(o.with) + '">Show ' + esc(o.title) + '</button></li>').join('') +
       '</ul></section>' : '<p class="muted">No overlap flagged.</p>');
+  if ($('failed')) $('failed').addEventListener('toggle', () => { opened[p.id] = $('failed').open; });
   card.querySelectorAll('button[data-goto]').forEach((b) => b.addEventListener('click', () => goTo(b.dataset.goto)));
   $('note').value = d && d.note ? d.note : (drafts[p.id] || '');
   $('edit-title').value = w.title; $('edit-line').value = w.line;
@@ -160,7 +168,12 @@ function undo() {
   save(); render();
   $('announce').textContent = 'Undone.';
 }
-function move(step) { const list = visible(); if (!list.length) return; show(list[Math.min(list.length - 1, Math.max(0, index + step))].id); }
+function move(step) {
+  const list = visible(); if (!list.length) return;
+  const from = list[index], to = list[Math.min(list.length - 1, Math.max(0, index + step))];
+  show(to.id);
+  if (from && !failed(from) && failed(to)) $('announce').textContent = 'Dreams the screen failed start here. Each is collapsed with its reason.';
+}
 document.querySelectorAll('#decide button[data-d]').forEach((b) => b.addEventListener('click', () => {
   if (b.disabled) return;
   if (b.dataset.d === 'edit') openEdit(); else decide(b.dataset.d);

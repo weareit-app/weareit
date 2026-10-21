@@ -1,4 +1,4 @@
-"""Staged (schemaVersion 2) runs: dreams drafted from the run's examples before any fix."""
+"""Staged (schemaVersion 2) runs: dreams as end states, screened, then reviewed before any fix."""
 import json
 import subprocess
 import sys
@@ -15,16 +15,14 @@ def cli(root, *args):
 
 TITLES = ('Evenings that end at six', 'A boss who protects my weekends', 'Coworkers who cover for each other',
           'A workload I can finish', 'A union that bargains for staffing', 'A city that counts overtime')
-LENS_CYCLE = ('individual', 'relational', 'community', 'market', 'policy', 'technology')
-AMBITION_CYCLE = ('tonight', 'this-year', 'together')
 
 
-def dreams_doc(pain='burnout'):
+def dreams_doc(pain='burnout', count=len(TITLES)):
+    """Drafted dreams: a title, a line, and provenance each. Dreams carry no lens, ambition, or examples (2026-10-20)."""
     dreams = {}
-    for i, title in enumerate(TITLES):
+    for i, title in enumerate(TITLES[:count]):
         dreams['%s-d%02d' % (pain, i)] = {
             'title': title, 'line': 'I stop work while there is still light outside.',
-            'lens': LENS_CYCLE[i], 'ambition': AMBITION_CYCLE[i % 3], 'exemplarRefs': ['ex-%d' % i],
             'provenance': {'sourceId': 'generator-run-x', 'locator': 'dreams.json#%s-d%02d' % (pain, i),
                            'evidenceType': 'ai_generated_from_exemplars', 'rights': 'CC-BY-SA-4.0',
                            'reviewStatus': 'unreviewed'},
@@ -33,16 +31,33 @@ def dreams_doc(pain='burnout'):
             'overlaps': [{'a': pain + '-d00', 'b': pain + '-d03', 'reason': 'Both are about leaving on time.'}]}
 
 
+def dream_screen_doc(failing=None, doc=None, pain='burnout'):
+    """The dream screen's verdict on every dream in `doc` (default dreams_doc()): failing maps a dream ID to the check it fails."""
+    failing, doc = failing or {}, doc or dreams_doc(pain)
+    results = {}
+    for key, d in doc['dreams'].items():
+        result = {'title': d['title'], 'line': d['line'], 'pass': key not in failing,
+                  'reason': 'An end state for this pain that fits no other.'}
+        if key in failing:
+            result.update(check=failing[key], reason='Wanted so I can rest, so it is a means.')
+        results[key] = result
+    return {'schemaVersion': 2, 'painId': pain, 'judge': {'context': 'isolated', 'at': '2026-10-20'}, 'results': results}
+
+
 class StagedBase(Base):
     def write_examples(self, run, n=12):
         cards.write(run / 'exemplars.json', {'schemaVersion': 1, 'painId': 'burnout',
                                              'exemplars': {'ex-%d' % i: exemplar(i) for i in range(n)}})
 
-    def write_dreams(self, run, change=None):
+    def write_dreams(self, run, change=None, screen=True):
+        """dreams.json, and (unless screen=False) a passing dream screen of the drafted wording."""
         doc = dreams_doc()
         if change:
             change(doc)
         cards.write(run / 'dreams.json', doc)
+        if screen:
+            drafted = {'dreams': {k: dict(d, **(d.get('review') or {}).get('original', {})) for k, d in doc['dreams'].items()}}
+            cards.write(run / 'dream-screen.json', dream_screen_doc(doc=drafted))
 
     def new_staged(self, pain='burnout'):
         result = cli(self.tmp, 'new-run', pain, '--staged')
@@ -97,6 +112,8 @@ class Staged(StagedBase):
         run = self.new_staged()
         self.write_examples(run)
         self.assertEqual(self.status(run)['next'], 'dreams')
+        self.write_dreams(run, screen=False)
+        self.assertEqual(self.status(run)['next'], 'dream-screen')
         self.write_dreams(run)
         self.assertEqual(self.status(run)['next'], 'dream-review')
         self.write_dreams(run, lambda d: [x.update(review={'decision': 'accept'}) for x in d['dreams'].values()])
@@ -125,10 +142,21 @@ class Staged(StagedBase):
         self.write_dreams(run, change)
         return ' | '.join(cards.validate_run(run))
 
-    def test_dream_needs_lens_and_ambition(self):
-        found = self.issues(lambda d: d['dreams']['burnout-d00'].update(lens='vibes', ambition='someday'))
-        self.assertIn('dream burnout-d00: unknown lens', found)
-        self.assertIn('dream burnout-d00: unknown ambition', found)
+    def test_dream_with_a_lens_an_ambition_or_examples_fails(self):
+        found = self.issues(lambda d: (d['dreams']['burnout-d00'].update(lens='individual'),
+                                       d['dreams']['burnout-d01'].update(ambition='tonight'),
+                                       d['dreams']['burnout-d02'].update(exemplarRefs=['ex-0'])))
+        self.assertIn('dream burnout-d00: a dream has no lens', found)
+        self.assertIn('dream burnout-d01: a dream has no ambition', found)
+        self.assertIn('dream burnout-d02: a dream has no exemplarRefs', found)
+
+    def test_four_dreams_pass_validate_and_lint(self):
+        run = self.new_staged()
+        self.write_examples(run)
+        cards.write(run / 'dreams.json', dreams_doc(count=4))
+        for command in ('validate', 'lint'):
+            result = cli(self.tmp, command, str(run))
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
     def test_overlap_needs_a_reason_and_two_dreams(self):
         found = self.issues(lambda d: d['overlaps'].extend([{'a': 'burnout-d01', 'b': 'burnout-d02', 'reason': ''},
@@ -143,14 +171,6 @@ class Staged(StagedBase):
         found = self.issues(change)
         self.assertIn('dream burnout-d00: an edit keeps the original title and line', found)
         self.assertIn('dream burnout-d01: unknown review decision', found)
-
-    def test_dream_examples_must_be_in_the_run(self):
-        found = self.issues(lambda d: d['dreams']['burnout-d00'].update(exemplarRefs=['ex-missing']))
-        self.assertIn('exemplarRefs must resolve', found)
-
-    def test_dream_is_drafted_from_an_example(self):
-        found = self.issues(lambda d: d['dreams']['burnout-d00'].update(exemplarRefs=[]))
-        self.assertIn('dream burnout-d00: exemplarRefs must name at least one example', found)
 
     def test_dreams_file_belongs_to_the_staged_run(self):
         found = self.issues(lambda d: d.update(schemaVersion=1, painId='poor-sleep'))
@@ -168,10 +188,11 @@ class Staged(StagedBase):
         self.write_dreams(run, change)
         return {i['rule'] for i in cards.lint_run(run, self.tmp)['issues']}
 
-    def test_dream_written_as_an_action_is_flagged(self):
+    def test_word_level_dream_lint_is_retired(self):
+        # A semantic rule needs a semantic check (founder, 2026-10-20): the dream screen judges means.
         title = 'Telling my legislators I want limits on addictive app design'
         rules = self.lint_rules(lambda d: d['dreams']['burnout-d00'].update(title=title))
-        self.assertIn('dream-not-outcome', rules)
+        self.assertNotIn('dream-not-outcome', rules)
 
     def test_dream_copy_follows_the_copy_guide(self):
         def change(d):
@@ -180,9 +201,10 @@ class Staged(StagedBase):
         rules = self.lint_rules(change)
         self.assertTrue({'generic-phrase', 'regional-word', 'exclamation', 'serial-comma'} <= rules, rules)
 
-    def test_dreams_cover_four_lenses_and_every_ambition(self):
-        rules = self.lint_rules(lambda d: [x.update(lens='individual', ambition='tonight') for x in d['dreams'].values()])
-        self.assertTrue({'lens-coverage', 'ambition-coverage'} <= rules, rules)
+    def test_dreams_alone_have_no_coverage_check(self):
+        # Coverage is counted on linked fixes (spec, "Coverage per pain"), so there is none before links exist.
+        rules = self.lint_rules(None)
+        self.assertFalse({'lens-coverage', 'ambition-coverage'} & rules, rules)
 
     def test_dreams_start_only_after_examples_and_point_to_the_brief(self):
         run = self.new_staged()
@@ -195,6 +217,74 @@ class Staged(StagedBase):
         self.assertEqual(json.loads(ready.stdout)['brief'], 'tools/possibilities/briefs/dreams.md')
 
 
+class DreamScreen(StagedBase):
+    """An isolated judge applies the why test and the swap test to every dream before the founder's review."""
+
+    def setUp(self):
+        super().setUp()
+        self.run_dir = self.new_staged()
+        self.write_examples(self.run_dir)
+        self.write_dreams(self.run_dir, screen=False)
+
+    def screen(self, change=None, failing=None):
+        doc = dream_screen_doc(failing)
+        if change:
+            change(doc)
+        cards.write(self.run_dir / 'dream-screen.json', doc)
+        return ' | '.join(cards.validate_run(self.run_dir))
+
+    def test_screen_starts_after_dreams_and_points_to_its_brief(self):
+        result = cli(self.tmp, 'start', str(self.run_dir), 'dream-screen')
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(json.loads(result.stdout)['brief'], 'tools/possibilities/briefs/dream-screen.md')
+
+    def test_screen_start_names_the_related_pains_for_the_swap_test(self):
+        result = cli(self.tmp, 'start', str(self.run_dir), 'dream-screen')
+        related = {p['id']: p for p in json.loads(result.stdout)['relatedPains']}
+        catalog = cards.pains(self.tmp)
+        self.assertEqual(set(related), {'always-tired', 'no-free-time'})
+        self.assertEqual(related['always-tired'], {**catalog['always-tired'], 'relation': 'overlaps'})
+
+    def test_dream_review_cannot_start_until_the_screen_has_run(self):
+        result = cli(self.tmp, 'dreams-review-build', str(self.run_dir))
+        self.assertEqual(result.returncode, 2)
+        self.assertIn('next stage is dream-screen', result.stderr)
+
+    def test_a_pass_or_a_fail_with_a_reason_for_every_dream_is_valid(self):
+        self.assertEqual(self.screen(failing={'burnout-d00': 'why', 'burnout-d01': 'swap'}), '')
+        self.assertEqual(cards.next_stage(self.run_dir), 'dream-review')
+
+    def test_every_verdict_needs_pass_and_a_one_sentence_reason(self):
+        def change(doc):
+            doc['results']['burnout-d00'].update(reason='')
+            doc['results']['burnout-d01'].update(reason='Too high. It fits Always tired too.')
+            doc['results']['burnout-d02'].pop('pass')
+        found = self.screen(change)
+        for key in ('burnout-d00', 'burnout-d01', 'burnout-d02'):
+            self.assertIn('dream screen %s: needs pass and a one-sentence reason' % key, found)
+
+    def test_a_fail_names_the_check_it_failed(self):
+        found = self.screen(lambda d: d['results']['burnout-d00'].update({'pass': False}))
+        self.assertIn('dream screen burnout-d00: a fail names its check (why or swap)', found)
+
+    def test_a_pass_names_no_failed_check(self):
+        found = self.screen(lambda d: d['results']['burnout-d00'].update(check='why'))
+        self.assertIn('dream screen burnout-d00: a pass names no failed check', found)
+
+    def test_screen_judge_is_isolated(self):
+        self.assertIn('dream screen judge context must be isolated', self.screen(lambda d: d['judge'].update(context='shared')))
+
+    def test_an_unscreened_or_redrafted_dream_sends_the_run_back_to_the_screen(self):
+        self.screen(lambda d: d['results'].pop('burnout-d04'))
+        self.assertEqual(self.status(self.run_dir)['next'], 'dream-screen')
+        self.assertEqual(self.status(self.run_dir)['unscreened'], ['burnout-d04'])
+        self.screen()
+        self.write_dreams(self.run_dir, lambda d: d['dreams']['burnout-d01'].update(line='A redrafted line.'), screen=False)
+        self.assertEqual(self.status(self.run_dir)['unscreened'], ['burnout-d01'])
+        # The dreams stage doesn't own the screen, so a stale screen is a pending stage, not a validation issue.
+        self.assertEqual(cards.validate_run(self.run_dir), [])
+
+
 class DreamReview(StagedBase):
     """The founder's dream review: a local page built from the run, and an ingested decisions export."""
 
@@ -205,6 +295,9 @@ class DreamReview(StagedBase):
         self.run_dir = self.new_staged()
         self.write_examples(self.run_dir)
         self.write_dreams(self.run_dir, lambda d: d['dreams']['burnout-d01'].update(writerNotes='private draft note'))
+
+    def fail_screen(self, failing):
+        cards.write(self.run_dir / 'dream-screen.json', dream_screen_doc(failing))
 
     def build(self):
         result = cli(self.tmp, 'dreams-review-build', str(self.run_dir))
@@ -227,6 +320,29 @@ class DreamReview(StagedBase):
         self.assertNotIn('/*__DATA__*/', page)
         for text in (page, (reviews / 'proposals.json').read_text()):
             self.assertNotIn('private draft note', text)
+
+    def test_failed_dreams_are_listed_last_with_the_screen_reason(self):
+        self.fail_screen({'burnout-d01': 'why', 'burnout-d04': 'swap'})
+        self.build()
+        proposals = cards.read(self.run_dir / 'reviews/proposals.json')['proposals']
+        self.assertEqual([p['id'] for p in proposals],
+                         ['burnout-d00', 'burnout-d02', 'burnout-d03', 'burnout-d05', 'burnout-d01', 'burnout-d04'])
+        failed = proposals[-1]['screen']
+        self.assertEqual((failed['pass'], failed['check'], failed['reason']),
+                         (False, 'swap', 'Wanted so I can rest, so it is a means.'))
+        self.assertIs(proposals[0]['screen']['pass'], True)
+        self.assertFalse({'lens', 'ambition', 'examples'} & set(proposals[0]))
+
+    def test_founder_can_accept_a_failed_dream_and_ingest_keeps_the_reason(self):
+        self.fail_screen({'burnout-d04': 'why'})
+        result = self.ingest(self.export())
+        self.assertEqual(result.returncode, 0, result.stderr)
+        rescued = cards.read(self.run_dir / 'dreams.json')['dreams']['burnout-d04']
+        self.assertEqual(rescued['review']['decision'], 'accept')
+        self.assertEqual(rescued['screen'], {'pass': False, 'check': 'why', 'reason': 'Wanted so I can rest, so it is a means.'})
+        self.assertIn('burnout-d04', cards.accepted_dreams(self.run_dir))
+        self.assertEqual(cards.next_stage(self.run_dir), 'plan')
+        self.assertEqual(cli(self.tmp, 'validate', str(self.run_dir)).returncode, 0)
 
     def export(self, change=None):
         """A decisions export as the page downloads it: d01 edited, d02 rejected, the rest accepted."""
@@ -303,6 +419,13 @@ class DreamReview(StagedBase):
         result = self.ingest(path)
         self.assertEqual(result.returncode, 2)
         self.assertIn('dreams.json changed since the review page was built (burnout-d01)', result.stderr)
+
+    def test_ingest_refuses_once_the_screen_is_gone_or_stale(self):
+        path = self.export()
+        (self.run_dir / 'dream-screen.json').unlink()
+        result = self.ingest(path)
+        self.assertEqual(result.returncode, 2, result.stdout)
+        self.assertIn('the dream screen of %s is missing or out of date' % self.run_dir.name, result.stderr)
 
     def test_review_is_ingested_once(self):
         path = self.export()

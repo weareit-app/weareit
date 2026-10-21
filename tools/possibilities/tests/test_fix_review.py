@@ -17,6 +17,7 @@ FULL = 'burnout-d01'  # the assembler gives it five fixes
 def pool(doc):
     doc['fixes'][SHARED].update(writerNotes='private writer note')
     doc['fixes'][UNLINKED] = shared_fix(['burnout-d01', 'burnout-d02'], 9)
+    doc['fixes'][UNLINKED]['ambition'] = 'tonight'  # a basic tonight once the founder links it
     doc['fixes'][SCREENED_OUT] = shared_fix(['burnout-d03', 'burnout-d04'], 10)
     doc['fixes'][SCREENED_OUT]['title'] = 'Promise to never check email again'
 

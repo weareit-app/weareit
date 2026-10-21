@@ -10,7 +10,7 @@ import unittest
 from test_cards import ROOT, cards
 from test_fix_stages import fixes_doc, links_doc, plan_doc, screen_doc, shared_pass_only
 from test_judging import dream_judgments
-from test_staged import StagedBase, cli, dreams_doc
+from test_staged import StagedBase, cli, dream_screen_doc, dreams_doc
 
 REJECTED = 'burnout-d05'
 
@@ -58,6 +58,8 @@ class StagedFlow(StagedBase):
         self.ok('validate', str(self.run_dir))
         self.assertEqual(self.next(), 'dreams')
         self.agent('dreams', 'dreams.json', dreams_doc())
+        self.assertEqual(self.next(), 'dream-screen')
+        self.agent('dream-screen', 'dream-screen.json', dream_screen_doc({'burnout-d02': 'swap'}))
 
         # The dream review stop: the flow can't go on until the founder's decisions are ingested.
         self.assertEqual(self.next(), 'dream-review')
