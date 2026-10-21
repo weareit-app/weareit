@@ -12,6 +12,8 @@ const QUADRATIC_TEX = "x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}";
 test("draws diagrams and typesets math from this site only", async ({
   page,
 }) => {
+  // The first visit compiles Mermaid's chunk on the dev server.
+  test.slow();
   const hosts = new Set<string>();
   page.on("request", (request) => hosts.add(new URL(request.url()).host));
   // The dev server builds Mermaid's lazy chunk (about 5 MB) on first request,
