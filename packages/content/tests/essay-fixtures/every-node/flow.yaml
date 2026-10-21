@@ -1,0 +1,4 @@
+mermaid: |
+  graph LR
+    Pain --> Future
+description: A pain leads to a future.

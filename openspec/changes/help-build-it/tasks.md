@@ -20,7 +20,7 @@ Builds after `required-signup-gate` (account screen, menu, `/all-set`, moment em
 - [ ] 3.1 `/help` page: background pickers (occupations with work/volunteer, education level and field), optional note with 500-character limit, ESCO and ISCED credits
 - [ ] 3.2 Skill groups: first 8 per group, "Show all", "Keep all", remove, de-duplication
 - [ ] 3.3 Asks: "These fit what you know" then "Other ways to help"; tick and submit; contact line before, honest follow-up line after
-- [ ] 3.4 Route Support's "next" to `/help`, and Help's skip/finish to `/all-set`; add "Help build It" to the signed-in menu
+- [ ] 3.4 Route Support's "next" to `/help`, and Help's skip/finish to `/all-set`; set the Help entry in the shared link list from `public-pages` (`apps/app/src/navigation/site-links.ts`) to published; verify it appears in the footer and menu only when signed in
 - [ ] 3.5 Account screen: "Your background" and "Your offers" sections; withdraw; closed asks marked
 - [ ] 3.6 Founder page behind the admin token: counts per ask, offers with background, skills and note, "followed up" mark
 - [ ] 3.7 Emit the four Help moments and the `help` page view through the existing emitter

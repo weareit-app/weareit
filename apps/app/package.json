@@ -8,6 +8,7 @@
     "start": "expo start",
     "web": "expo start --web",
     "ios": "expo run:ios",
+    "build": "expo export --platform web",
     "test:expo": "jest --config jest.config.cjs --runInBand",
     "typecheck": "tsc --noEmit",
     "skia:web": "setup-skia-web public",
