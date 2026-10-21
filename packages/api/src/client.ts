@@ -1,4 +1,4 @@
-import { createORPCClient } from "@orpc/client";
+import { createORPCClient, ORPCError } from "@orpc/client";
 import { RPCLink } from "@orpc/client/fetch";
 import type { RouterClient } from "@orpc/server";
 import type { ApiRouter } from "./router";
@@ -40,3 +40,12 @@ export function createItApiClient(url: string) {
 const defaultUrl =
   process.env.EXPO_PUBLIC_API_URL ?? "http://localhost:3001/rpc";
 export const apiClient = createItApiClient(defaultUrl);
+
+// For developers only: what went wrong with a call, in a sentence. A call
+// that never reached the API fails with the platform's fetch error instead
+// of an ORPCError.
+export function describeApiFailure(error: unknown, url = defaultUrl) {
+  if (error instanceof ORPCError)
+    return `The API at ${url} answered ${error.status}: ${error.message}`;
+  return `Couldn't reach the API at ${url}. Start it with \`pnpm dev\`, or check EXPO_PUBLIC_API_URL.`;
+}
