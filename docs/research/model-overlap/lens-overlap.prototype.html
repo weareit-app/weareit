@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where the lenses go blank (prototype)</title>
+<style>
+  :root {
+    --ink:#1d2326; --muted:#5f6b71; --line:#dfe3e2; --bg:#fffdf7; --card:#ffffff; --btn:#f4f6f5;
+    --accent:#087e9f; --onaccent:#ffffff; --soft:#e0f2fa;
+    --ok:#007f3d; --okbg:#e3f5e7; --warn:#94620b; --warnbg:#ffeebf; --bad:#c82540; --badbg:#fce8e8;
+    --add:#007f3d; --drop:#c82540;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink:#e6ecef; --muted:#9aa8b0; --line:#2c363c; --bg:#11171a; --card:#182024; --btn:#1f292e;
+      --accent:#69c8eb; --onaccent:#0b1a1f; --soft:#173039;
+      --ok:#4fd585; --okbg:#173322; --warn:#ffc137; --warnbg:#3a2f14; --bad:#ff8e93; --badbg:#3d1d1d;
+      --add:#4fd585; --drop:#ff8e93;
+    }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; font:15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; color:var(--ink); background:var(--bg); }
+  main { max-width:1280px; margin:0 auto; padding:24px 16px 64px; }
+  h1 { font-size:24px; margin:4px 0; } h2 { font-size:17px; margin:0 0 8px; } h3 { font-size:14px; margin:12px 0 4px; color:var(--muted); text-transform:uppercase; letter-spacing:.04em; }
+  .tag { display:inline-block; font-size:12px; padding:1px 8px; border-radius:999px; background:var(--soft); color:var(--accent); margin-right:4px; }
+  .intro { color:var(--muted); max-width:920px; margin:6px 0; } .intro strong { color:var(--ink); }
+  .cols { display:grid; grid-template-columns: 360px 1fr; gap:20px; margin-top:16px; }
+  .cols > div { min-width:0; }
+  @media (max-width:900px) { .cols { grid-template-columns:1fr; } }
+  .panel { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-bottom:14px; overflow-x:auto; }
+  button { font:inherit; font-size:14px; border:1px solid var(--line); background:var(--btn); color:var(--ink); border-radius:8px; padding:5px 10px; margin:0 6px 6px 0; cursor:pointer; text-align:left; }
+  button:hover { border-color:var(--accent); }
+  button.on { background:var(--accent); color:var(--onaccent); border-color:var(--accent); }
+  button.step { display:block; width:100%; }
+  button.step.done { opacity:.5; } button.step.next { border-color:var(--accent); box-shadow:0 0 0 2px var(--soft); }
+  .muted { color:var(--muted); font-size:13px; }
+  .event { background:var(--soft); border-left:3px solid var(--accent); padding:8px 12px; border-radius:6px; margin-bottom:12px; }
+  .event .kind { font-size:12px; font-weight:600; color:var(--accent); text-transform:uppercase; letter-spacing:.04em; }
+  table { border-collapse:collapse; width:100%; font-size:14px; }
+  th, td { text-align:left; vertical-align:top; padding:6px 8px; border-bottom:1px solid var(--line); }
+  th { font-size:12px; color:var(--muted); font-weight:600; }
+  tr.ref td { color:var(--muted); }
+  .fit { font-size:12px; font-weight:600; padding:1px 8px; border-radius:999px; white-space:nowrap; }
+  .f-native { background:var(--okbg); color:var(--ok); } .f-stretched { background:var(--warnbg); color:var(--warn); } .f-blank { background:var(--badbg); color:var(--bad); }
+  .src { color:var(--muted); font-size:12px; }
+  .verdict { margin-top:10px; font-size:14px; padding:8px 10px; border-radius:6px; background:var(--btn); }
+  .state { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px,1fr)); gap:10px; }
+  .comp { border:1px solid var(--line); border-radius:8px; padding:8px 10px; }
+  .comp.hit { border-color:var(--accent); box-shadow:0 0 0 2px var(--soft); }
+  .comp h4 { margin:0 0 4px; font-size:13px; }
+  .comp ul { margin:0; padding-left:16px; font-size:13px; }
+  .add { color:var(--add); font-weight:600; } .drop { color:var(--drop); text-decoration:line-through; }
+  .story td { font-size:13px; } .story td.dash { color:var(--bad); }
+  .bar { display:flex; height:10px; border-radius:5px; overflow:hidden; background:var(--line); min-width:120px; }
+  .bar span { display:block; height:100%; }
+  .b-native { background:var(--ok); } .b-stretched { background:var(--warn); } .b-blank { background:var(--bad); }
+  .ladder span { display:inline-block; font-size:12px; padding:2px 8px; margin:2px 4px 2px 0; border-radius:999px; border:1px solid var(--line); color:var(--muted); }
+  .ladder span.hit { background:var(--accent); color:var(--onaccent); border-color:var(--accent); }
+  details summary { cursor:pointer; color:var(--accent); font-size:14px; }
+</style>
+</head>
+<body>
+<main>
+  <span class="tag">PROTOTYPE · throwaway</span><span class="tag">illustrative episodes, simplified</span><span class="tag">lens readings are our judgement, open to argument</span>
+  <h1>Where the lenses go blank</h1>
+  <p class="intro"><strong>Question:</strong> scientific inquiry, Spivak's compositional program, and accounts of human agency and behavior change all seem to describe the same loop. Is that overlap <strong>structural</strong> (each one has real words for the same steps), or only <strong>shared vocabulary</strong> (they meet on "try, see, update", which a thermostat also does)?</p>
+  <p class="intro"><strong>How it works:</strong> an episode is a list of neutral events. Each event changes a shared state: what's happening, what the actor believes, how they see it, what they can do, what they plan, what matters to them, and who's involved. Each lens then tries to say what happened. Its verdict is worked out from two rules, not written per event: does the lens have a term for <em>this kind of step</em>, and can it represent <em>every part of the state the step changed</em>? The worse of the two wins. Pain → Dream → Fix and the textbook scientific method ride along as comparisons.</p>
+  <p class="intro">The state follows the candidate actor state X = (L, E, V, A, R) plus the world W from the research-program note: concepts, evidence, values, abilities, and relationships. The episodes are its three casebook cases (pulsars, "I can't find work", and suspected drinking-water contamination), plus bad sleep and a thermostat. They are simplified sketches. A real casebook would use original records and consented observations. A <strong>strong decision model</strong> lens rides along so the simple rival is not a strawman: anything anticipated in its state space it can say.</p>
+  <p class="intro">Sources: the Oct 2026 deep-research report, "From Pain to Possibility to Inquiry", and the founder's research-program note (2026-10-21).</p>
+
+  <div class="cols">
+    <div>
+      <div class="panel">
+        <h2>Guided episodes</h2>
+        <div id="tabs"></div>
+        <div id="scenario"></div>
+      </div>
+      <div class="panel">
+        <h2>Free play</h2>
+        <div class="muted" style="margin-bottom:6px">Add a generic step of any kind to the current episode, and see how each lens reads it.</div>
+        <div id="free"></div>
+        <button id="undo">Undo the last step</button><button id="reset">Start over, empty</button>
+      </div>
+    </div>
+    <div>
+      <div class="panel" id="now"></div>
+      <div class="panel"><h2>The shared state</h2><div class="muted" style="margin-bottom:8px">Outlined parts changed in the last step. Green was added, struck through was dropped.</div><div id="state" class="state"></div></div>
+      <div class="panel" id="summary"></div>
+      <div class="panel" id="story"></div>
+    </div>
+  </div>
+</main>
+
+<script>
+// ---------------------------------------------------------------------------
+// Portable logic module. Pure: no DOM. The page below only calls into it.
+// ---------------------------------------------------------------------------
+const Overlap = (() => {
+  const COMPONENTS = [
+    ['world',     'What is happening (W)'],
+    ['beliefs',   'Evidence and beliefs (E)'],
+    ['frame',     'Concepts and distinctions (L)'],
+    ['abilities', 'What they can do or observe (A)'],
+    ['plan',      'What they plan to do next (part of A)'],
+    ['aims',      'What matters to them (V)'],
+    ['others',    'Relationships, permissions, and duties (R)'],
+  ];
+  // The four transformations of inquiry, from the research-program note.
+  const FOUR = [['beliefs', 'knowledge'], ['frame', 'concepts'], ['abilities', 'capabilities'], ['aims', 'valuation']];
+
+  // Neutral step kinds, from the report's common kernel.
+  const KINDS = {
+    notice:      { label: 'Something gets attention', group: 'core' },
+    aim:         { label: 'Names what "better" would be', group: 'framing' },
+    model:       { label: 'Builds a picture of how it works', group: 'framing' },
+    plan:        { label: 'Picks a next step', group: 'core' },
+    ask:         { label: 'Checks something to decide what next', group: 'framing' },
+    act:         { label: 'Does something', group: 'core' },
+    result:      { label: 'Sees what happened', group: 'core' },
+    reviseBelief:{ label: 'Changes their mind about a fact', group: 'core' },
+    reframe:     { label: 'Sees a new distinction', group: 'revision' },
+    gainAbility: { label: 'Gains a new ability', group: 'revision' },
+    reviseAim:   { label: 'Changes what they want', group: 'revision' },
+    recruit:     { label: 'Brings someone in', group: 'social' },
+    disagree:    { label: 'Others see it differently', group: 'social' },
+    refuse:      { label: 'Someone says no', group: 'social' },
+    commit:      { label: 'Agrees together on a step', group: 'social' },
+    wait:        { label: 'Waits on purpose', group: 'framing' },
+  };
+  const GROUPS = {
+    core: 'Core loop (notice, plan, act, see, update)',
+    framing: 'Framing and inquiry (aims, models, checks, waiting)',
+    revision: 'Deeper revision (distinctions, abilities, aims)',
+    social: 'Other people (joining, disagreeing, refusing, agreeing)',
+  };
+
+  const n = (term, src) => ({ fit: 'native', term, src });
+  const s = (term, loses, src) => ({ fit: 'stretched', term, loses, src });
+  const b = (loses) => ({ fit: 'blank', term: null, loses });
+
+  // A kind entry may be a function of the event (for notice, by source).
+  const LENSES = {
+    inquiry: {
+      name: 'Scientific inquiry in practice', main: true,
+      blurb: 'Exploration, models, instruments, concept formation, and communities of inquirers.',
+      kinds: {
+        notice: e => n({ pain: 'Practical demand', curiosity: 'Curiosity', anomaly: 'Anomaly', deviation: 'Unexplained reading' }[e.source] || 'Anomaly', 'Chang; Steinle'),
+        aim: s('Epistemic aim or research question', 'Inquiry aims at knowing. A personal "better" is a different kind of aim.', 'Chang'),
+        model: n('Model building and manipulation', 'Nersessian'),
+        plan: n('Choosing the next experiment by what it would teach', 'Klein; adaptive design'),
+        ask: n('Exploratory measurement', 'Steinle'),
+        act: s('Intervention, read as an experiment', 'Here the person wants the change itself, not the data it yields.', 'Woodward'),
+        result: n('Result, resistance, or surprise', 'Dunbar'),
+        reviseBelief: n('Belief revision', 'Bayesian; Chang'),
+        reframe: n('Concept formation', 'Steinle; Haueis'),
+        gainAbility: n('New instrument or research repertoire', 'Ankeny & Leonelli'),
+        reviseAim: s('Reframing the question', 'What the person cares about, as distinct from what they ask.', 'Chang'),
+        recruit: n('Division of epistemic labor', 'Solomon'),
+        disagree: n('Dissent and criticism', 'Longino; Solomon'),
+        refuse: s('Withheld cooperation', 'The other party\'s own stake and reasons for saying no.'),
+        commit: s('Community consensus', 'Agreeing to act together, as distinct from agreeing on what is true.'),
+        wait: s('Suspending judgement', 'Waiting as a choice about action, not belief.'),
+      },
+      components: {
+        world: n(), beliefs: n(), frame: n(), abilities: n(), plan: n(), others: n(),
+        aims: s(null, 'Aims are epistemic. Personal values sit outside the lens.'),
+      },
+    },
+    spivak: {
+      name: 'Spivak and Topos', main: true,
+      blurb: 'Polynomial interfaces, translation, operadic gap-filling, polynomial trees, answerability, and care.',
+      kinds: {
+        notice: e => e.source === 'deviation'
+          ? n('An input arriving at the current position', 'polynomial dynamics')
+          : s('Attention to a gap between the actual and a possible future', 'Why this gap and not another. Care is named as attention and tending, not modeled.', 'Plausible fiction; Tending (2024)'),
+        aim: n('A plausible future: the far end of a gap', 'Plausible fiction (2024)'),
+        model: n('Translating the problem into another arena, and solutions back', 'Solving problem-solving (2023)'),
+        plan: n('Arranging smaller gaps that compose into the big one', 'operads (2024)'),
+        ask: n('A position whose possible answers are its directions', 'p = Σ y^I(o)'),
+        act: n('An output at the current position', 'polynomial coalgebra'),
+        result: n('An input arrives; the state updates', 'polynomial coalgebra'),
+        reviseBelief: n('Conditioning: Bayesian update as polynomial dynamics', 'Libkind & Spivak (2024)'),
+        reframe: s('Changing the frame', 'Moves between frames already written down. Not where an unforeseen distinction comes from.', 'Patterson (2026)'),
+        gainAbility: n('The interface itself changes through interaction', 'Polynomial trees (2026)'),
+        reviseAim: s('Care: no fixed objective exhausts what matters', 'The essay names this; nothing yet models how an aim changes.', 'Who cares about a computation? (2026)'),
+        recruit: n('Wiring systems together; many fill one gap', 'operads; dynamic organizations'),
+        disagree: b('No account of people disagreeing about what is true or good.'),
+        refuse: b('Composition assumes the parts take part. Wiring two systems together does not create consent.'),
+        commit: s('An arrangement whose parts each fill a gap', 'The agreement itself, and what makes it binding.'),
+        wait: s('A step with no output that changes anything', 'Why holding off can be the right choice.'),
+      },
+      components: {
+        world: n(), beliefs: n(), abilities: n(), plan: n(),
+        frame: s(null, 'Frames are given; their revision is an open problem.'),
+        aims: s(null, 'Answerability and care point here, but there is no formal mechanism yet.'),
+        others: s(null, 'Others appear as composable systems, without stakes, power, or consent.'),
+      },
+    },
+    agency: {
+      name: 'Human agency and behavior change', main: true,
+      blurb: 'Goal setting, beliefs and self-efficacy, capability, opportunity and motivation (COM-B), habits, and shared intention.',
+      kinds: {
+        notice: e => e.source === 'anomaly'
+          ? s('Surprise', 'An observation that matters to understanding, not to a goal.')
+          : n({ pain: 'Discrepancy between how things are and how I want them', curiosity: 'Intrinsic motivation', deviation: 'Discrepancy from a set point' }[e.source] || 'Discrepancy', 'control theory; self-determination theory'),
+        aim: n('Goal setting', 'Locke & Latham'),
+        model: s('Beliefs about consequences', 'Building an explicit model to reason with and revise.', 'COM-B'),
+        plan: n('Action planning and implementation intentions', 'Gollwitzer'),
+        ask: s('Self-monitoring', 'Choosing a check because its answer changes what to do next.'),
+        act: n('Behavior', 'COM-B'),
+        result: n('Feedback on behavior', 'control theory'),
+        reviseBelief: n('Updating outcome expectations or self-efficacy', 'Bandura'),
+        reframe: s('Reappraisal', 'A new distinction about the world, as distinct from a new way to feel about it.', 'cognitive therapy'),
+        gainAbility: n('Building capability', 'COM-B'),
+        reviseAim: n('Goal revision or disengagement', 'Wrosch'),
+        recruit: n('Social support', 'COM-B: social opportunity'),
+        disagree: s('Social norms and pressure', 'Disagreement as a source of knowledge, not just an influence.'),
+        refuse: s('Lost social opportunity', 'The other person\'s own reasons and stake.', 'COM-B'),
+        commit: n('Shared intention', 'Bratman'),
+        wait: s('Deferring', 'Waiting is read as delay, not as a considered move.'),
+      },
+      components: {
+        world: n(), beliefs: n(), abilities: n(), plan: n(), aims: n(), others: n(),
+        frame: s(null, 'The categories the person sees through are assumed, not revised.'),
+      },
+    },
+    pomdp: {
+      name: 'Strong decision model (POMDP, expanded state)', main: false,
+      blurb: 'Hidden states, actions, observations, and rewards, with the state widened to hold anything anticipated: goals, skills, other agents.',
+      kinds: {
+        notice: n('An observation that shifts the belief state'),
+        aim: s('A reward function', 'Only if the aim was written into the rewards in advance; otherwise a new model.'),
+        model: n('The transition and observation model'),
+        plan: n('Choosing an action by expected value'),
+        ask: n('An information-gathering action (value of information)'),
+        act: n('An action'),
+        result: n('An observation'),
+        reviseBelief: n('Belief-state update'),
+        reframe: s('Splitting a state variable', 'Only if the split was already in the state space. An unforeseen distinction needs a new model.'),
+        gainAbility: n('A state variable that unlocks actions'),
+        reviseAim: s('A hidden "true preference" variable', 'Only if the new aim was among the anticipated ones. Changing what counts as good is outside the model.'),
+        recruit: n('Another agent (decentralized POMDP)'),
+        disagree: s('Agents with different observation models', 'Disagreement about what is good, not only about what is true.'),
+        refuse: s('A transition another agent controls', 'The refusal\'s authority. It becomes a cost to route around.'),
+        commit: n('A joint policy'),
+        wait: n('A no-op action with option value'),
+      },
+      components: {
+        world: n(), beliefs: n(), abilities: n(), plan: n(), others: n(),
+        frame: s(null, 'Concepts are fixed when the model is written.'),
+        aims: s(null, 'Values are fixed when the rewards are written.'),
+      },
+    },
+    textbook: {
+      name: 'Textbook scientific method', main: false,
+      blurb: 'Observe, hypothesize, experiment, conclude.',
+      kinds: {
+        notice: e => e.source === 'anomaly' || e.source === 'deviation' ? n('Observation') : s('Observation', 'Why it matters to anyone.'),
+        aim: s('Hypothesis?', 'A hope is not a testable claim.'),
+        model: n('Hypothesis'),
+        plan: n('Experimental design'),
+        ask: s('Preliminary observation', 'The method has no step for checking something to choose what to do next.'),
+        act: n('Experiment'),
+        result: n('Data'),
+        reviseBelief: n('Conclusion'),
+        reframe: b('The method assumes the variables are already known.'),
+        gainAbility: b('Instruments are background, not steps.'),
+        reviseAim: b('The question is fixed before the method starts.'),
+        recruit: b('One investigator, implicitly.'),
+        disagree: s('Peer review', 'Only after the fact.'),
+        refuse: b('No one else is in the picture.'),
+        commit: b('No one else is in the picture.'),
+        wait: b('No step for it.'),
+      },
+      components: {
+        world: n(), beliefs: n(), plan: n(),
+        frame: b('Concepts are fixed.'), abilities: b('Instruments are fixed.'),
+        aims: b('Only the hypothesis matters.'), others: b('One investigator.'),
+      },
+    },
+    pdf: {
+      name: 'Pain → Dream → Fix (It today)', main: false,
+      blurb: 'A pain, a dream for it, fixes with an honest status.',
+      kinds: {
+        notice: e => e.source === 'pain' ? n('Pain') : b('Not a pain, so there is nowhere to start.'),
+        aim: n('Dream'),
+        model: b('No place for the person\'s own picture of how it works.'),
+        plan: n('Choosing a fix'),
+        ask: s('A "learn" fix', 'That it is done to decide what to try, not to help directly.'),
+        act: n('Trying a fix'),
+        result: s('The fix helped or didn\'t', 'Why it did or didn\'t.'),
+        reviseBelief: s('A fix\'s status changes', 'Which belief changed, and how sure.'),
+        reframe: b('Pains and dreams are fixed records. Splitting one is not a step.'),
+        gainAbility: s('A fix that makes other fixes possible', 'That what the person can do has changed.'),
+        reviseAim: s('Choosing a different dream', 'The old dream turning out wrong, not just swapped.'),
+        recruit: n('A group fix'),
+        disagree: b('Nowhere to keep a different view.'),
+        refuse: b('Nowhere to record someone saying no.'),
+        commit: s('A shared fix', 'The agreement among the people involved.'),
+        wait: b('No step for it.'),
+      },
+      components: {
+        world: n(), plan: n(), aims: n(),
+        beliefs: s(null, 'Only as fix statuses.'),
+        frame: b('Categories are fixed by the content.'),
+        abilities: s(null, 'Only as fixes that enable fixes.'),
+        others: s(null, 'Only as group fixes.'),
+      },
+    },
+  };
+  const LENS_ORDER = ['inquiry', 'spivak', 'agency', 'pomdp', 'textbook', 'pdf'];
+  const RANK = { blank: 0, stretched: 1, native: 2 };
+
+  const emptyState = () => Object.fromEntries(COMPONENTS.map(([k]) => [k, []]));
+
+  function changedComponents(ev) {
+    return COMPONENTS.map(([k]) => k).filter(k => ev.changes && ev.changes[k] && ((ev.changes[k].add || []).length || (ev.changes[k].drop || []).length));
+  }
+
+  function reduce(state, ev) {
+    const next = {};
+    for (const [k] of COMPONENTS) {
+      const c = (ev.changes && ev.changes[k]) || {};
+      next[k] = state[k].filter(x => !(c.drop || []).includes(x)).concat((c.add || []).filter(x => !state[k].includes(x)));
+    }
+    return next;
+  }
+
+  function read(lensId, ev) {
+    const L = LENSES[lensId];
+    let k = L.kinds[ev.kind];
+    if (typeof k === 'function') k = k(ev);
+    let out = { fit: k.fit, term: k.term, loses: k.loses || null, src: k.src || null, via: null };
+    for (const c of changedComponents(ev)) {
+      const cf = L.components[c];
+      if (RANK[cf.fit] < RANK[out.fit]) out = { ...out, fit: cf.fit, loses: cf.loses, via: c };
+    }
+    return out;
+  }
+
+  function overlapOf(ev) {
+    const main = LENS_ORDER.filter(id => LENSES[id].main);
+    const native = main.filter(id => read(id, ev).fit === 'native');
+    const blank = main.filter(id => read(id, ev).fit === 'blank');
+    let verdict;
+    if (native.length === main.length) verdict = 'shared';
+    else if (blank.length) verdict = 'broken';
+    else if (native.length) verdict = 'partial';
+    else verdict = 'strained';
+    return { verdict, native, blank };
+  }
+
+  // Answerability, in the note's three senses. Each kind of pressure opens a
+  // window; whatever it changes before the next action counts as a response.
+  //   reality: a result (consequence)    reasons: a disagreement    people: a refusal
+  // Parts are ordered weakest to strongest (the report's ladder).
+  const LADDER = ['beliefs', 'plan', 'abilities', 'frame', 'aims', 'others'];
+  const PRESSURE = { result: 'reality', disagree: 'reasons', refuse: 'people' };
+  const WINDOW = 3; // steps a pressure stays open, unless an action closes it first
+  function answerability(events) {
+    const reached = { reality: new Set(), reasons: new Set(), people: new Set() };
+    const seen = new Set();
+    const open = new Map(); // pressure -> steps left in its window
+    for (const ev of events) {
+      if (ev.kind === 'act') open.clear();
+      for (const [p, left] of open) {
+        changedComponents(ev).forEach(c => LADDER.includes(c) && reached[p].add(c));
+        if (left <= 1) open.delete(p); else open.set(p, left - 1);
+      }
+      if (PRESSURE[ev.kind]) { open.set(PRESSURE[ev.kind], WINDOW); seen.add(PRESSURE[ev.kind]); }
+    }
+    const out = {};
+    for (const p of Object.keys(reached)) out[p] = { pressured: seen.has(p), changed: LADDER.filter(c => reached[p].has(c)) };
+    return out;
+  }
+
+  // Which of the four transformations each step moved, in order, so one can
+  // read what led to what (a capability enabling knowledge, say).
+  function transformations(events) {
+    return events.map((ev, i) => ({ step: i + 1, moved: FOUR.filter(([c]) => changedComponents(ev).includes(c)).map(([, t]) => t) }))
+      .filter(x => x.moved.length);
+  }
+
+  function summarize(events) {
+    const perLens = {};
+    for (const id of LENS_ORDER) {
+      const counts = { native: 0, stretched: 0, blank: 0 };
+      const blankKinds = new Set();
+      for (const ev of events) { const r = read(id, ev); counts[r.fit]++; if (r.fit === 'blank') blankKinds.add(KINDS[ev.kind].label); }
+      perLens[id] = { counts, blankKinds: [...blankKinds] };
+    }
+    const perGroup = {};
+    for (const g of Object.keys(GROUPS)) perGroup[g] = { total: 0, shared: 0 };
+    for (const ev of events) { const g = KINDS[ev.kind].group; perGroup[g].total++; if (overlapOf(ev).verdict === 'shared') perGroup[g].shared++; }
+    return { perLens, perGroup, answerability: answerability(events), transformations: transformations(events) };
+  }
+
+  return { FOUR, COMPONENTS, KINDS, GROUPS, LENSES, LENS_ORDER, LADDER, emptyState, reduce, read, overlapOf, summarize, changedComponents };
+})();
+
+// ---------------------------------------------------------------------------
+// Episodes. Illustrative and simplified; not reviewed copy.
+// ---------------------------------------------------------------------------
+const EPISODES = [
+  {
+    id: 'pulsars', title: 'A. Pulsars', who: 'a graduate student, her supervisor, and a field of astronomers',
+    about: 'Case A, simplified from the 1967–68 discovery at Cambridge. Starts from an anomaly, not a pain. A new instrument changes what can be seen, an "artificial signal" reading is ruled out, a new category of object is formed, theorists disagree, and the question itself turns over. The last step is about credit: answerability to people, inside science.',
+    steps: [
+      { kind: 'notice', source: 'anomaly', text: 'Jocelyn Bell, checking chart recordings from a new radio array, notices a signal that doesn\'t look like anything she\'s searching for.', changes: { world: { add: ['An odd signal on the chart recordings'] } } },
+      { kind: 'aim', text: 'Find out whether the signal is real, and what it is.', changes: { aims: { add: ['Know what the signal is'] } } },
+      { kind: 'ask', text: 'Check whether it comes back at the same time by the stars, not by the clock.', changes: { plan: { add: ['Time the signal\'s return'] } } },
+      { kind: 'result', text: 'It keeps pace with the stars, so it comes from the sky, not from interference on Earth.', changes: { plan: { drop: ['Time the signal\'s return'] }, beliefs: { add: ['The source is in the sky, not local'] } } },
+      { kind: 'gainAbility', text: 'They install a faster chart recorder to see the signal\'s shape.', changes: { abilities: { add: ['Can see structure under a second'] } } },
+      { kind: 'result', text: 'It\'s a train of pulses about 1.3 seconds apart, regular as a clock.', changes: { world: { add: ['Pulses every 1.3 seconds'] } } },
+      { kind: 'model', text: 'Nothing natural was known to pulse so regularly. Half-jokingly, it\'s labeled "LGM-1", for little green men.', changes: { beliefs: { add: ['An artificial signal?'] }, frame: { add: ['Clock-like pulses mean something made'] } } },
+      { kind: 'result', text: 'Bell finds a second pulsing source in a different part of the sky.', changes: { beliefs: { drop: ['An artificial signal?'], add: ['A natural class of objects'] } } },
+      { kind: 'reframe', text: 'A new category: pulsating radio sources, soon called pulsars.', changes: { frame: { drop: ['Clock-like pulses mean something made'], add: ['Pulsars: a new kind of object'] } } },
+      { kind: 'disagree', text: 'Theorists split: vibrating white dwarfs, or spinning neutron stars.', changes: { others: { add: ['White dwarf camp', 'Neutron star camp'] } } },
+      { kind: 'result', text: 'A pulsar in the Crab Nebula spins far too fast for a white dwarf.', changes: { beliefs: { add: ['Pulsars are spinning neutron stars'] }, others: { drop: ['White dwarf camp'] } } },
+      { kind: 'reviseAim', text: 'The question turns over: from "what is this signal?" to "what can pulsars tell us?" They become precise clocks for other questions.', changes: { aims: { drop: ['Know what the signal is'], add: ['Use pulsars to study other things'] }, abilities: { add: ['Pulsars as natural clocks'] } } },
+      { kind: 'disagree', text: 'The 1974 Nobel Prize goes to her supervisor and a colleague, not to Bell. Many argue her part went unrecognized.', changes: { others: { add: ['Critics of how credit was given'] } } },
+    ],
+  },
+  {
+    id: 'work', title: 'B. I can\'t find work', who: 'one person, their family, and a counselor',
+    about: 'Case B. Starts with one dream, a job that pays enough, among It\'s plural ones. A family limit says no, a question changes what they want, "work" splits into separate things, and a new route opens. Watch the refusal, the question that changes preferences, and the change of aim.',
+    steps: [
+      { kind: 'notice', source: 'pain', text: 'I can\'t find work.', changes: { world: { add: ['Out of work for eight months'] } } },
+      { kind: 'aim', text: 'A job that pays enough.', changes: { aims: { add: ['A job that pays enough'] } } },
+      { kind: 'model', text: 'They guess employers want experience they don\'t have.', changes: { beliefs: { add: ['Employers want more experience (a guess)'] } } },
+      { kind: 'plan', text: 'Apply to 30 jobs this month.', changes: { plan: { add: ['Apply to 30 jobs'] } } },
+      { kind: 'act', text: 'They send 30 applications.', changes: { plan: { drop: ['Apply to 30 jobs'] } } },
+      { kind: 'result', text: 'Two replies, both for night warehouse shifts.', changes: { world: { add: ['Two offers, both night shifts'] } } },
+      { kind: 'refuse', text: 'Their mother needs care in the evenings, and their sister says she can\'t cover it.', changes: { others: { add: ['Sister (can\'t cover evenings)'] }, world: { add: ['Mother needs evening care'] } } },
+      { kind: 'reviseBelief', text: 'Experience wasn\'t the main barrier; the hours were.', changes: { beliefs: { drop: ['Employers want more experience (a guess)'], add: ['The hours are the barrier'] } } },
+      { kind: 'recruit', text: 'A librarian connects them with a job counselor.', changes: { others: { add: ['Job counselor'] } } },
+      { kind: 'ask', text: 'The counselor asks what they liked most in past jobs. Answering it, they realize it was training new people.', changes: { beliefs: { add: ['I liked training new people most'] } } },
+      { kind: 'reframe', text: '"Work" splits into three things: income, meaningful work, and time for family.', changes: { frame: { add: ['Income', 'Meaningful work', 'Time for family'] } } },
+      { kind: 'gainAbility', text: 'They learn they qualify for a paid apprenticeship in medical billing, with day hours.', changes: { abilities: { add: ['Eligible for a paid day-hours apprenticeship'] } } },
+      { kind: 'reviseAim', text: 'What matters now: steady daytime income and evenings with their mother, with training others as a later aim.', changes: { aims: { drop: ['A job that pays enough'], add: ['Steady daytime income', 'Evenings with my mother', 'Train others someday'] } } },
+    ],
+  },
+  {
+    id: 'water', title: 'C. Drinking water', who: 'residents, scientists, a utility, and officials',
+    about: 'Case C, loosely after Flint, Michigan (2014–16), simplified. Residents suspect the water; the utility says no; independent testing and a doctor\'s data change the picture; "meets the standard" and "safe" come apart. Watch disagreement, authority, refusal, and the third parties affected.',
+    steps: [
+      { kind: 'notice', source: 'pain', text: 'After the town switches water sources, residents notice brown, bad-smelling tap water.', changes: { world: { add: ['Discolored tap water after the switch'] } } },
+      { kind: 'recruit', text: 'Neighbors compare notes and form a group.', changes: { others: { add: ['Residents\' group'] } } },
+      { kind: 'aim', text: 'Safe tap water, and knowing whether it\'s safe now.', changes: { aims: { add: ['Safe tap water', 'Know whether the water is safe'] } } },
+      { kind: 'refuse', text: 'The utility says the water meets standards and declines more testing.', changes: { others: { add: ['Utility (declines testing)'] } } },
+      { kind: 'disagree', text: 'Some residents trust the utility; others don\'t.', changes: { others: { add: ['Residents who trust the utility'] } } },
+      { kind: 'recruit', text: 'A university engineer offers testing kits and a sampling method.', changes: { others: { add: ['University engineer'] }, abilities: { add: ['Independent lead testing'] } } },
+      { kind: 'act', text: 'Residents collect samples from hundreds of homes, following the method.', changes: { world: { add: ['Hundreds of samples collected'] } } },
+      { kind: 'result', text: 'Many homes show high lead.', changes: { world: { add: ['High lead in many homes'] }, beliefs: { add: ['Lead is getting into the tap water'] } } },
+      { kind: 'model', text: 'Without corrosion control, the new water is dissolving lead from old pipes.', changes: { beliefs: { add: ['The new water corrodes lead pipes'] } } },
+      { kind: 'result', text: 'A pediatrician finds children\'s blood lead rose after the switch.', changes: { beliefs: { add: ['Children\'s blood lead rose'] }, others: { add: ['Pediatrician', 'Children already exposed'], drop: ['Residents who trust the utility'] } } },
+      { kind: 'reframe', text: '"Meets the standard" and "safe at my tap" turn out to be different: the official sampling missed the worst homes.', changes: { frame: { add: ['Meets the sampling standard', 'Safe at my tap'] } } },
+      { kind: 'commit', text: 'Residents, scientists, and officials agree to switch the source back and replace lead pipes.', changes: { plan: { add: ['Switch back and replace lead pipes'] }, others: { drop: ['Utility (declines testing)'], add: ['Officials (now acting)'] } } },
+      { kind: 'reviseAim', text: 'The aim widens: a say in decisions about the water, and care for children already exposed.', changes: { aims: { add: ['A say in water decisions', 'Care for exposed children'] } } },
+    ],
+  },
+  {
+    id: 'sleep', title: 'Bad sleep (a metric that misses)', who: 'one person',
+    about: 'Someone sleeps badly and tries the obvious fix. It doesn\'t work, and the reason turns out to be that "bad sleep" was two problems. Later they realize the hours were never the point. Watch the reframe and the change of aim: which lenses can say them?',
+    steps: [
+      { kind: 'notice', source: 'pain', text: 'I sleep badly and I\'m exhausted at work.', changes: { world: { add: ['Wakes up tired most days'] } } },
+      { kind: 'aim', text: 'I want to wake up rested.', changes: { aims: { add: ['Wake up rested'] } } },
+      { kind: 'model', text: 'They guess that screens before bed keep them up.', changes: { beliefs: { add: ['Screens delay my sleep (a guess)'] }, frame: { add: ['"Bad sleep" is one problem'] } } },
+      { kind: 'plan', text: 'No screens after 10pm for a week.', changes: { plan: { add: ['No screens after 10pm for a week'] } } },
+      { kind: 'act', text: 'They do the no-screens week.', changes: { plan: { drop: ['No screens after 10pm for a week'] }, world: { add: ['A week without late screens'] } } },
+      { kind: 'result', text: 'They fall asleep fine, but still wake at 3am and can\'t get back to sleep.', changes: { world: { add: ['Falls asleep easily', 'Wakes at 3am most nights'] } } },
+      { kind: 'reviseBelief', text: 'Screens weren\'t the problem.', changes: { beliefs: { drop: ['Screens delay my sleep (a guess)'], add: ['Getting to sleep is not the problem'] } } },
+      { kind: 'reframe', text: 'It\'s two problems: falling asleep, and staying asleep.', changes: { frame: { drop: ['"Bad sleep" is one problem'], add: ['Falling asleep', 'Staying asleep (3am waking)'] } } },
+      { kind: 'gainAbility', text: 'They start a sleep log, so they can see their own pattern.', changes: { abilities: { add: ['Can see their own sleep pattern'] } } },
+      { kind: 'ask', text: 'They check two weeks of the log: does 3am waking follow anything?', changes: { plan: { add: ['Look for what comes before 3am waking'] } } },
+      { kind: 'result', text: 'The 3am nights mostly follow an evening drink.', changes: { plan: { drop: ['Look for what comes before 3am waking'] }, beliefs: { add: ['An evening drink brings on 3am waking (likely)'] } } },
+      { kind: 'reviseAim', text: 'They realize what they want is energy for their kids in the evening, not eight hours.', changes: { aims: { drop: ['Wake up rested'], add: ['Have energy for my kids in the evening'] } } },
+    ],
+  },
+  {
+    id: 'thermostat', title: 'Thermostat (vacuity check)', who: 'no one',
+    about: 'A thermostat also notices, acts, sees what happened, and updates. If the lenses all agree here, agreement on the core loop is not evidence of a deep overlap. Compare this tab\'s overlap summary with the others.',
+    steps: [
+      { kind: 'notice', source: 'deviation', text: 'The room falls below 68°F.', changes: { world: { add: ['Room at 66°F'] } } },
+      { kind: 'act', text: 'The heater turns on.', changes: { world: { add: ['Heater on'] } } },
+      { kind: 'result', text: 'The room reaches 68°F.', changes: { world: { drop: ['Room at 66°F', 'Heater on'], add: ['Room at 68°F'] } } },
+      { kind: 'reviseBelief', text: 'The stored reading updates.', changes: { beliefs: { add: ['Reading: 68°F'] } } },
+    ],
+  },
+];
+
+// Free-play steps: generic content, so only the kind and the parts changed matter.
+let freeCount = 0;
+function freeStep(kind) {
+  const i = ++freeCount;
+  const C = {
+    notice: { source: 'curiosity', changes: { world: { add: [`Something new noticed (${i})`] } } },
+    aim: { changes: { aims: { add: [`A new aim (${i})`] } } },
+    model: { changes: { beliefs: { add: [`A guess about how it works (${i})`] } } },
+    plan: { changes: { plan: { add: [`A next step (${i})`] } } },
+    ask: { changes: { plan: { add: [`A check to run (${i})`] } } },
+    act: { changes: { world: { add: [`Something done (${i})`] } } },
+    result: { changes: { world: { add: [`A consequence (${i})`] } } },
+    reviseBelief: { changes: { beliefs: { add: [`A revised belief (${i})`] } } },
+    reframe: { changes: { frame: { add: [`A new distinction (${i})`] } } },
+    gainAbility: { changes: { abilities: { add: [`A new ability (${i})`] } } },
+    reviseAim: { changes: { aims: { add: [`A changed aim (${i})`] } } },
+    recruit: { changes: { others: { add: [`Someone new (${i})`] } } },
+    disagree: { changes: { others: { add: [`Someone who sees it differently (${i})`] } } },
+    refuse: { changes: { others: { add: [`Someone who said no (${i})`] } } },
+    commit: { changes: { plan: { add: [`A step agreed together (${i})`] } } },
+    wait: { changes: {} },
+  }[kind];
+  return { kind, text: `(free play) ${Overlap.KINDS[kind].label}.`, ...C };
+}
+
+// ---------------------------------------------------------------------------
+// Page shell.
+// ---------------------------------------------------------------------------
+let tab = EPISODES[0].id, events = [], stepIndex = 0;
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const FIT_LABEL = { native: 'Has words for it', stretched: 'Says it, loses something', blank: 'No way to say it' };
+const fitTag = f => `<span class="fit f-${f}">${FIT_LABEL[f]}</span>`;
+const compLabel = k => Overlap.COMPONENTS.find(c => c[0] === k)[1].replace(/ \(.*\)$/, '').toLowerCase();
+
+function stateAt(evts) { return evts.reduce(Overlap.reduce, Overlap.emptyState()); }
+
+function startEpisode(id) { tab = id; events = []; stepIndex = 0; freeCount = 0; render(); }
+function push(ev) { events.push(ev); render(); }
+
+function renderTabs() {
+  $('tabs').innerHTML = EPISODES.map(e => `<button class="${e.id === tab ? 'on' : ''}" data-tab="${e.id}">${esc(e.title)}</button>`).join('');
+  const ep = EPISODES.find(e => e.id === tab);
+  $('scenario').innerHTML = `<p class="muted"><strong>${esc(ep.who)}.</strong> ${esc(ep.about)}</p>` +
+    ep.steps.map((st, i) => `<button class="step ${i < stepIndex ? 'done' : ''} ${i === stepIndex ? 'next' : ''}" data-step="${i}" ${i !== stepIndex ? 'disabled' : ''}>${i + 1}. <strong>${esc(Overlap.KINDS[st.kind].label)}:</strong> ${esc(st.text)}</button>`).join('') +
+    (stepIndex >= ep.steps.length ? '<p class="muted">Episode done. Read the overlap summary, or keep going in free play.</p>' : '') +
+    `<button data-tab="${ep.id}">Restart this episode</button><button id="runall">Run every step</button>`;
+}
+
+function renderNow() {
+  if (!events.length) { $('now').innerHTML = '<h2>What just happened</h2><p class="muted">Press the first step of an episode, or a free-play button.</p>'; return; }
+  const ev = events[events.length - 1];
+  const o = Overlap.overlapOf(ev);
+  const changed = Overlap.changedComponents(ev);
+  const rows = Overlap.LENS_ORDER.map(id => {
+    const L = Overlap.LENSES[id], r = Overlap.read(id, ev);
+    return `<tr class="${L.main ? '' : 'ref'}"><td><strong>${esc(L.name)}</strong>${L.main ? '' : '<div class="src">comparison</div>'}</td>
+      <td>${fitTag(r.fit)}</td>
+      <td>${r.term ? esc(r.term) : '<span class="muted">—</span>'}${r.src ? `<div class="src">${esc(r.src)}</div>` : ''}</td>
+      <td>${r.loses ? esc(r.loses) : ''}${r.via ? `<div class="src">because the step changed ${esc(compLabel(r.via))}</div>` : ''}</td></tr>`;
+  }).join('');
+  const name = id => Overlap.LENSES[id].name;
+  const V = {
+    shared: 'All three lenses have real words for this step.',
+    partial: `Only ${o.native.map(name).join(' and ')} ${o.native.length > 1 ? 'have' : 'has'} real words for this step; the others stretch.`,
+    strained: 'All three can only stretch to say this.',
+    broken: `${o.blank.map(name).join(' and ')} cannot say this at all.`,
+  }[o.verdict];
+  $('now').innerHTML = `<h2>What just happened (step ${events.length})</h2>
+    <div class="event"><div class="kind">${esc(Overlap.KINDS[ev.kind].label)}${ev.source ? ` · from ${esc(ev.source)}` : ''}</div>${esc(ev.text)}
+    <div class="muted">Changes ${changed.length ? changed.map(compLabel).map(esc).join(', ') : 'nothing in the state'}.</div></div>
+    <table><thead><tr><th>Lens</th><th>Verdict</th><th>What it calls this</th><th>What it loses</th></tr></thead><tbody>${rows}</tbody></table>
+    <div class="verdict">${esc(V)}</div>`;
+}
+
+function renderState() {
+  const st = stateAt(events);
+  const last = events[events.length - 1];
+  const hit = last ? Overlap.changedComponents(last) : [];
+  $('state').innerHTML = Overlap.COMPONENTS.map(([k, label]) => {
+    const c = (last && last.changes && last.changes[k]) || {};
+    const items = st[k].map(x => `<li class="${(c.add || []).includes(x) ? 'add' : ''}">${esc(x)}</li>`).join('') +
+      (c.drop || []).map(x => `<li class="drop">${esc(x)}</li>`).join('');
+    return `<div class="comp ${hit.includes(k) ? 'hit' : ''}"><h4>${esc(label)}</h4>${items ? `<ul>${items}</ul>` : '<span class="muted">nothing yet</span>'}</div>`;
+  }).join('');
+}
+
+function renderSummary() {
+  if (!events.length) { $('summary').innerHTML = '<h2>Overlap so far</h2><p class="muted">Nothing yet.</p>'; return; }
+  const S = Overlap.summarize(events);
+  const lensRows = Overlap.LENS_ORDER.map(id => {
+    const L = Overlap.LENSES[id], p = S.perLens[id], t = events.length;
+    const bar = ['native', 'stretched', 'blank'].map(f => `<span class="b-${f}" style="width:${100 * p.counts[f] / t}%"></span>`).join('');
+    return `<tr class="${L.main ? '' : 'ref'}"><td><strong>${esc(L.name)}</strong><div class="src">${esc(L.blurb)}</div></td>
+      <td><div class="bar">${bar}</div><div class="src">${p.counts.native} with words · ${p.counts.stretched} stretched · ${p.counts.blank} blank</div></td>
+      <td>${p.blankKinds.length ? esc(p.blankKinds.join('; ')) : '<span class="muted">none</span>'}</td></tr>`;
+  }).join('');
+  const groupRows = Object.entries(Overlap.GROUPS).filter(([g]) => S.perGroup[g].total).map(([g, label]) =>
+    `<tr><td>${esc(label)}</td><td>${S.perGroup[g].shared} of ${S.perGroup[g].total} steps</td></tr>`).join('');
+  const A = S.answerability;
+  const ladderRow = (p, label, none) => `<tr><td><strong>${label}</strong></td><td class="ladder">${
+    A[p].pressured ? Overlap.LADDER.map(c => `<span class="${A[p].changed.includes(c) ? 'hit' : ''}">${esc(compLabel(c))}</span>`).join('') : `<span class="muted">${none}</span>`}</td></tr>`;
+  const ladder = `<table><tbody>
+    ${ladderRow('reality', 'To reality', 'no consequences seen yet')}
+    ${ladderRow('reasons', 'To reasons', 'no disagreement yet')}
+    ${ladderRow('people', 'To people', 'no one has said no yet')}</tbody></table>`;
+  const four = S.transformations.length
+    ? S.transformations.map(x => `<span class="tag">${x.step}. ${esc(x.moved.join(' + '))}</span>`).join(' → ')
+    : '<span class="muted">none of the four has moved yet</span>';
+  $('summary').innerHTML = `<h2>Overlap so far</h2>
+    <h3>Each lens across the episode</h3>
+    <table><thead><tr><th>Lens</th><th>Coverage</th><th>Steps it cannot say</th></tr></thead><tbody>${lensRows}</tbody></table>
+    <h3>Where all three main lenses have real words</h3>
+    <table><tbody>${groupRows}</tbody></table>
+    <p class="muted">If the shared steps are only the core loop, the overlap is no deeper than a thermostat's. The interesting overlap is in deeper revision and other people.</p>
+    <h3>Knowledge, concepts, capabilities, valuation: what moved, in order</h3>
+    <div>${four}</div>
+    <p class="muted">The four transformations from the research-program note. Read the chain for one leading to another, such as a new capability before new knowledge.</p>
+    <h3>Answerability: what each kind of pressure went on to change</h3>
+    ${ladder}
+    <p class="muted">Weakest to strongest, left to right. A result (reality), a disagreement (reasons), or a refusal (people) opens a window; anything changed in the next three steps, before any new action, counts as a response. This only shows that something changed, not that the change was right, which is the harder part of answerability.</p>`;
+}
+
+function renderStory() {
+  if (!events.length) { $('story').innerHTML = ''; return; }
+  const head = Overlap.LENS_ORDER.map(id => `<th>${esc(Overlap.LENSES[id].name)}</th>`).join('');
+  const rows = events.map((ev, i) => `<tr><td>${i + 1}. ${esc(Overlap.KINDS[ev.kind].label)}</td>` + Overlap.LENS_ORDER.map(id => {
+    const r = Overlap.read(id, ev);
+    return r.fit === 'blank' ? '<td class="dash">—</td>' : `<td>${r.fit === 'stretched' ? '~ ' : ''}${esc(r.term)}</td>`;
+  }).join('') + '</tr>').join('');
+  $('story').innerHTML = `<details open><summary>The episode as each lens tells it</summary>
+    <p class="muted">"~" marks a stretch, "—" a blank. Reading down a column shows the story that lens can tell.</p>
+    <table class="story"><thead><tr><th>Step</th>${head}</tr></thead><tbody>${rows}</tbody></table></details>`;
+}
+
+function render() { renderTabs(); renderNow(); renderState(); renderSummary(); renderStory(); }
+
+$('free').innerHTML = Object.entries(Overlap.KINDS).map(([k, v]) => `<button data-free="${k}">${esc(v.label)}</button>`).join('');
+document.addEventListener('click', e => {
+  const t = e.target.closest('button'); if (!t) return;
+  const ep = EPISODES.find(x => x.id === tab);
+  if (t.dataset.tab) startEpisode(t.dataset.tab);
+  else if (t.dataset.step) { push(ep.steps[stepIndex]); stepIndex++; renderTabs(); }
+  else if (t.id === 'runall') { while (stepIndex < ep.steps.length) { events.push(ep.steps[stepIndex]); stepIndex++; } render(); }
+  else if (t.dataset.free) push(freeStep(t.dataset.free));
+  else if (t.id === 'undo') { const last = events.pop(); if (last && ep.steps[stepIndex - 1] === last) stepIndex--; render(); }
+  else if (t.id === 'reset') { events = []; stepIndex = 0; freeCount = 0; render(); }
+});
+render();
+</script>
+</body>
+</html>
