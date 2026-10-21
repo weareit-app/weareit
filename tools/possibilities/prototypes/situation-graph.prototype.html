@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Situation graph (prototype, v3)</title>
+<title>Situation graph (prototype, v3.1)</title>
 <style>
   :root { color-scheme:dark; --ink:#e6ecef; --muted:#9aa8b0; --line:#2c363c; --bg:#11171a; --card:#182024; --btn:#1f292e; --accent:#3fb6d6; --onaccent:#0b1a1f; --soft:#173039; --warn:#f0c46a; --warnbg:#3a2f14; --bad:#ff9a9a; --badbg:#3d1d1d; --ok:#7fd69a; --okbg:#173322; --unk:#c3b6ff; --unkbg:#2a2547; --q:#7fd8ef; --qbg:#123540; --grey:#c9d1d5; --greybg:#2a3236; }
   * { box-sizing:border-box; }
@@ -44,7 +44,7 @@
 </head>
 <body>
 <main>
-  <span class="tag">PROTOTYPE v3 · throwaway</span><span class="tag">hypothetical situations only</span><span class="tag">illustrative content, not reviewed copy</span>
+  <span class="tag">PROTOTYPE v3.1 · throwaway</span><span class="tag">hypothetical situations only</span><span class="tag">illustrative content, not reviewed copy</span>
   <h1>Situation graph</h1>
   <p class="intro"><strong>Question:</strong> can explicit relationships between dreams, fixes, and facts about an imagined person produce dependency explanations, and keep them consistent as information changes, without anyone writing each answer by hand? <strong>What it shows so far:</strong> yes for explaining what's missing and what changed. <strong>What it doesn't show:</strong> that these explanations improve people's decisions enough to justify authoring and maintaining the graph, or anything about complete paths, lasting freedoms, or whether several actions fit together.</p>
   <p class="intro">Rules in this version: <strong>any outcome can establish something</strong>, and whether it was hoped for is separate. A fix <strong>needs some things to start</strong> and may <strong>need others to succeed</strong>: those are necessary, never enough on their own. <strong>History is kept</strong>, and withdrawing something removes only what that source provided. <strong>Help is recorded per dream</strong>, not per fix. Facts are yes, no, or not checked. Nothing here says a dream is reached.</p>
@@ -62,6 +62,8 @@
         <div class="muted" style="margin-top:4px">Facts about this imagined person</div><div id="facts"></div>
         <div class="muted" style="margin-top:8px">Change the graph</div><div id="edits"></div>
         <button id="undo">Undo the last recorded outcome</button> <button id="reset">Start over</button>
+        <div class="muted" style="margin-top:8px">Self-checks: each walkthrough's claims and each fixed bug, tested against the rules.</div>
+        <button id="selfcheck">Run self-checks</button><div id="checks" class="muted"></div>
       </div>
       <div class="panel">
         <h3>Steps shared across fixes or pains</h3>
@@ -91,7 +93,8 @@ const Graph = (() => {
       'partner-snores': { text:"Partner's snoring wakes them" },
       'no-specialist': { text:"Can't afford a sleep specialist" },
       'low-income': { text:'Income is low enough for rent assistance' },
-      'has-docs': { text:'Already has proof of income and ID', provides:['income-proof','id-doc'] },
+      'has-income-proof': { text:'Already has proof of income', provides:['income-proof'] },
+      'has-id': { text:'Already has ID', provides:['id-doc'] },
       'wants-stay': { text:'Wants to stay in this exact home' },
       'cares-local': { text:'Cares for someone nearby, so has to stay close' },
       'knows-neighbors': { text:'Already knows the neighbors', provides:['known-neighbors'] },
@@ -115,7 +118,7 @@ const Graph = (() => {
     },
     pains: {
       sleep: { title:"I don't sleep well.", facts:['lie-awake','infant','second-adult','nights','partner-snores','no-specialist'] },
-      rent: { title:'I pay too much for housing.', facts:['low-income','has-docs','wants-stay','cares-local','knows-neighbors','neighbors-willing'] },
+      rent: { title:'I pay too much for housing.', facts:['low-income','has-income-proof','has-id','wants-stay','cares-local','knows-neighbors','neighbors-willing'] },
       lonely: { title:"Most days I don't talk to anyone who really knows me.", facts:['shallow','far-friends','live-with','always-initiate','knows-neighbors'] },
     },
     dreams: {
@@ -166,7 +169,7 @@ const Graph = (() => {
       'shift-gap': { title:'Ask for at least 11 hours between shifts', kind:'ask', toward:['hours-fit'], actors:[['You','does'],['Your employer','decides']], factEffects:[['nights','eligible','only applies to shift work']], outcomes:{ agreed:{ label:'Employer agreed', kind:'hoped' }, refused:{ label:'Employer said no', kind:'unhoped' }, pending:{ label:'No answer yet', kind:'pending' } } },
       'tag-team': { title:'Take turns on night feeds every night with another adult', kind:'schedule', toward:['back-to-sleep','wake-rested'], startNeeds:['help-nightly'], actors:[['You','does'],['Another adult','joins']], factEffects:[['infant','eligible','this is about night feeds']], outcomes:HELP },
       'tag-team-weekly': { title:'Hand off night feeds one night a week', kind:'schedule', toward:['wake-rested'], startNeeds:['help-weekly-promise'], succeedNeeds:[{ cond:'help-weekly' }], actors:[['You','does'],['Another adult','joins']], factEffects:[['infant','eligible','this is about night feeds']], outcomes:HELP },
-      'relative-stay': { title:'Ask a relative to help one night a week', kind:'ask', toward:[], actors:[['You','does'],['A relative','agrees']], outcomes:{ agreed:{ label:'Relative agreed', kind:'hoped', provides:['help-weekly-promise'] }, started:{ label:'Relative is helping', kind:'hoped', provides:['help-weekly'] }, withdrew:{ label:'Relative can no longer help', kind:'unhoped', withdraws:['help-weekly-promise','help-weekly'] }, refused:{ label:'Relative said no', kind:'unhoped' }, pending:{ label:'No answer yet', kind:'pending' } } },
+      'relative-stay': { title:'Ask a relative to help one night a week', kind:'ask', toward:[], actors:[['You','does'],['A relative','agrees']], outcomes:{ agreed:{ label:'Relative agreed', kind:'hoped', provides:['help-weekly-promise'] }, started:{ label:'Relative is helping', kind:'hoped', provides:['help-weekly'] }, withdrew:{ label:'Relative can no longer help', kind:'unhoped', withdraws:['help-weekly-promise','help-weekly'] }, refused:{ label:'Relative said no', kind:'unhoped', withdraws:['help-weekly-promise','help-weekly'] }, pending:{ label:'No answer yet', kind:'pending' } } },
       'separate-rooms': { title:'Try sleeping apart for two weeks', kind:'task', toward:['both-sleep','sleep-through'], actors:[['You','does'],['Your partner','agrees']], outcomes:{ ...HELP, partnerNo:{ label:'Partner said no', kind:'unhoped' } } },
       'get-paystub': { title:'Get a recent pay stub or benefits letter', kind:'task', toward:[], actors:[['You','does']], outcomes:{ done:{ label:'Got it', kind:'hoped', provides:['income-proof'] } } },
       'get-id': { title:'Find or replace your ID', kind:'task', toward:[], actors:[['You','does']], outcomes:{ done:{ label:'Got it', kind:'hoped', provides:['id-doc'] } } },
@@ -193,12 +196,13 @@ const Graph = (() => {
     'utility-help': { label:'Add: help with utility bills (also needs proof of income and ID)', apply:g => { g.fixes['utility-help'] = { title:'Apply for help with utility bills', kind:'resource', toward:['money-left'], startNeeds:['income-proof','id-doc'], actors:[['You','does'],['The utility program','decides']], factEffects:[['low-income','eligible','eligibility depends on income']], outcomes:{ approved:{ label:'Approved', kind:'hoped' }, denied:{ label:'Denied', kind:'unhoped' } } }; } },
     'employer-letter': { label:'Add: an employer income letter (income only, not ID)', apply:g => { g.fixes['employer-letter'] = { title:'Ask your employer for an income letter', kind:'ask', toward:[], actors:[['You','does'],['Your employer','agrees']], outcomes:{ agreed:{ label:'Got the letter', kind:'hoped', provides:['income-proof'] }, refused:{ label:'Employer said no', kind:'unhoped' } } }; } },
     'relative-stay': { label:'Add: ask a relative to help one night a week', apply:g => { g.fixes['relative-stay'].enabled = true; } },
-    'friend-stay': { label:'Add: ask a friend to help one night a week', apply:g => { g.fixes['friend-stay'] = { title:'Ask a friend to help one night a week', kind:'ask', toward:[], actors:[['You','does'],['A friend','agrees']], outcomes:{ agreed:{ label:'Friend agreed', kind:'hoped', provides:['help-weekly-promise'] }, started:{ label:'Friend is helping', kind:'hoped', provides:['help-weekly'] }, withdrew:{ label:'Friend can no longer help', kind:'unhoped', withdraws:['help-weekly-promise','help-weekly'] }, refused:{ label:'Friend said no', kind:'unhoped' } } }; } },
+    'friend-stay': { label:'Add: ask a friend to help one night a week', apply:g => { g.fixes['friend-stay'] = { title:'Ask a friend to help one night a week', kind:'ask', toward:[], actors:[['You','does'],['A friend','agrees']], outcomes:{ agreed:{ label:'Friend agreed', kind:'hoped', provides:['help-weekly-promise'] }, started:{ label:'Friend is helping', kind:'hoped', provides:['help-weekly'] }, withdrew:{ label:'Friend can no longer help', kind:'unhoped', withdraws:['help-weekly-promise','help-weekly'] }, refused:{ label:'Friend said no', kind:'unhoped', withdraws:['help-weekly-promise','help-weekly'] } } }; } },
     'needs-loop': { label:'Add a loop: the caseworker letter needs an application on file, and filing needs the letter', apply:g => {
       g.conditions['caseworker-letter'] = { label:'a caseworker letter' }; g.conditions['application-on-file'] = { label:'an application on file' };
       g.fixes['caseworker'] = { title:'Get a letter from a caseworker', kind:'ask', toward:[], startNeeds:['application-on-file'], actors:[['You','does'],['A caseworker','agrees']], outcomes:{ done:{ label:'Got the letter', kind:'hoped', provides:['caseworker-letter'] } } };
       g.fixes['file-application'] = { title:'File an application with the housing office', kind:'task', toward:[], startNeeds:['caseworker-letter'], actors:[['You','does']], outcomes:{ done:{ label:'Filed', kind:'hoped', provides:['application-on-file'] } } };
       g.fixes['rent-help'].startNeeds = [...g.fixes['rent-help'].startNeeds, 'caseworker-letter']; } },
+    'friend-slip': { label:'Authoring slip: the friend\'s "said no" forgets to withdraw the promise', apply:g => { if (g.fixes['friend-stay']) g.fixes['friend-stay'].outcomes.refused.withdraws = []; } },
     'parts-loop': { label:'Add a loop in parts: "Find out what\'s disrupting your sleep" lists itself as a step', apply:g => { g.fixes['find-cause'].parts = [...g.fixes['find-cause'].parts, 'find-cause']; } },
   };
   // The relative ask exists only once that edit is on, so the gap is visible before it.
@@ -242,10 +246,29 @@ const Graph = (() => {
   }
   const srcText = (g, s) => s.startsWith('fact:') ? `fact: ${g.facts[s.slice(5)].text.toLowerCase()}` : `"${title(g, s)}"`;
 
-  // Conflicts: a fact says "no" to something an outcome established. There's no timeline here to say which is current.
+  // Conflicts: a fact says "no" to something an outcome established. Only facts that provide exactly one thing can
+  // conflict: a "no" to a fact that provides several means "not all of them", not "none of them".
+  // There's no timeline here to say which is current, so a conflict qualifies conclusions rather than deciding them.
+  function disputedConds(g, sit) {
+    const held = conditions(g, sit); const out = new Set();
+    for (const [fid, f] of Object.entries(g.facts)) if (fact(sit, fid) === 'no' && (f.provides || []).length === 1) {
+      const p = f.provides[0]; if ([...(held[p] || [])].some(s => !s.startsWith('fact:'))) out.add(p); }
+    return out;
+  }
+  // Warnings for authors: an earlier outcome of a fix still counts after a later, unhoped outcome that didn't withdraw it.
+  function staleWarnings(g, sit) {
+    const held = conditions(g, sit); const out = [];
+    for (const id of new Set(sit.history.map(r => r.fix))) {
+      const f = g.fixes[id]; if (!f) continue; const recs = sit.history.filter(r => r.fix === id); const last = f.outcomes[recs[recs.length - 1].outcome];
+      if (!last || last.kind === 'hoped') continue;
+      for (const r of recs.slice(0, -1)) for (const p of (f.outcomes[r.outcome].provides || []))
+        if ((held[p] || new Set()).has(id)) out.push(`"${f.outcomes[r.outcome].label}" established ${g.conditions[p].label}, and the later "${last.label}" doesn't withdraw it, so it still counts. A later outcome doesn't undo earlier ones unless it says so. Check whether it should.`);
+    }
+    return [...new Set(out)];
+  }
   function conflicts(g, sit) {
     const held = conditions(g, sit); const out = [];
-    for (const [fid, f] of Object.entries(g.facts)) if (fact(sit, fid) === 'no') for (const p of (f.provides || [])) {
+    for (const [fid, f] of Object.entries(g.facts)) if (fact(sit, fid) === 'no' && (f.provides || []).length === 1) for (const p of f.provides) {
       const from = [...(held[p] || [])].filter(s => !s.startsWith('fact:'));
       if (from.length) out.push(`"${f.text}" is recorded as no, but ${from.map(s => srcText(g, s)).join(' and ')} established ${g.conditions[p].label}. With no timeline, this prototype can't say which is current, so it flags it rather than choosing.`);
     }
@@ -270,7 +293,7 @@ const Graph = (() => {
       if (outcome.provides) reasons.push(`Established: ${outcome.provides.map(p => g.conditions[p].label).join(', ')}`);
       return { avail, block: avail === 'failed' ? (f.kind === 'ask' ? 'refusal' : 'tried') : null, reasons, ways:[], parts, outcome };
     }
-    let avail = 'open'; const reasons = []; const ways = []; let block = null; let cycle;
+    let avail = 'open'; const reasons = []; const ways = []; let block = null; let cycle; let disputed = false;
     const worsen = (s, b) => { if (RANK[s] > RANK[avail]) { avail = s; if (b) block = b; } };
     for (const [fid, effect, why] of (f.factEffects || [])) {
       const v = fact(sit, fid); const t = g.facts[fid].text.toLowerCase();
@@ -283,7 +306,10 @@ const Graph = (() => {
     }
     for (const c of (f.startNeeds || [])) {
       const label = g.conditions[c].label;
-      if (held[c]) { reasons.push(`Has ${label} (from ${[...held[c]].map(s => srcText(g, s)).join(', ')})`); continue; }
+      if (held[c]) {
+        if (disputedConds(g, sit).has(c)) { disputed = true; reasons.push(`Has ${label} according to the recorded outcomes, but a fact says no. Available as recorded; current possession is disputed.`); }
+        else reasons.push(`Has ${label} (from ${[...held[c]].map(s => srcText(g, s)).join(', ')})`);
+        continue; }
       const askable = factProvidersOf(g, sit, c).filter(fid => fact(sit, fid) === 'unknown' && Object.values(g.pains).some(p => p.facts.includes(fid)));
       if (askable.length) { worsen('check'); reasons.push(`Not checked yet: does the person already have ${label}? ("${g.facts[askable[0]].text}")`); }
       const provs = providersOf(g, c).filter(p => p !== id);
@@ -312,7 +338,7 @@ const Graph = (() => {
       else if (f.checklist && ['blocked','failed'].includes(p.avail)) { worsen('blocked', 'dependency'); reasons.push(`A required step is blocked or didn't go as hoped: "${title(g, p.id)}"`); }
     }
     if (parts.length && !f.checklist && parts.every(p => p.avail === 'done')) reasons.push("All its listed steps are done. That doesn't settle the result: record what happened.");
-    return { avail, block, cycle, reasons, ways: avail === 'blocked' ? [] : ways, parts, outcome:null };
+    return { avail, block, cycle, disputed, reasons, ways: avail === 'blocked' ? [] : ways, parts, outcome:null };
   }
 
   const dreamNotes = (g, sit, d) => g.dreamNotes.filter(n => n.dream === d && fact(sit, n.fact) === 'yes');
@@ -327,13 +353,17 @@ const Graph = (() => {
     const failed = fixes.filter(f => f.avail === 'failed');
     const blocked = fixes.filter(f => f.avail === 'blocked');
     const gaps = fixes.filter(f => f.avail === 'unknown');
-    let head;
-    if (tryNow.length) head = { type:'try', text:`${tryNow.length} approach${tryNow.length > 1 ? 'es' : ''} to try` };
+    let head; const notReached = " Whether this dream is reached isn't assessed here.";
+    if (!fixes.length) head = { type:'gap', text:'No approaches are modeled for this dream yet. A knowledge gap, not a dead end.' };
+    else if (tryNow.length) head = { type:'try', text:`${tryNow.length} approach${tryNow.length > 1 ? 'es' : ''} to try` };
     else if (waiting.length) head = { type:'wait', text:'Waiting on an answer; nothing else modeled is open right now' };
     else if (gaps.length) head = { type:'gap', text:'A gap to fill: no modeled way yet to get what the remaining approaches need' };
-    else if (worked.length) head = { type:'tried', text:"Everything modeled here has been tried. Whether this dream is reached isn't assessed here." };
+    else if (worked.length && !blocked.length && !failed.length) head = { type:'tried', text:'Every modeled approach has been tried and went as hoped.' + notReached };
+    else if (worked.length && !blocked.length) head = { type:'tried', text:"Every modeled approach has been tried; some went as hoped and some didn't." + notReached };
+    else if (worked.length) head = { type:'tried', text:"Nothing modeled is open now. Some approaches went as hoped; others are blocked as modeled and haven't been tried." + notReached };
     else head = { type:'blocked', text:"All approaches modeled here are blocked or didn't go as hoped. That isn't proof it's impossible: there may be approaches nobody has added yet." };
     const notes = [];
+    if (tryNow.some(f => f.disputed)) notes.push('Some of these rest on disputed observations (see the conflict above): available as recorded, but possession is in question.');
     const helped = worked.filter(f => effectOf(sit, f.id, d) === 'helped');
     const notHelped = worked.filter(f => effectOf(sit, f.id, d) === 'not');
     const unassessed = worked.filter(f => effectOf(sit, f.id, d) === 'unassessed');
@@ -376,7 +406,7 @@ const Graph = (() => {
       default: return s;
     }
   }
-  return { base, edits, buildGraph, conditions, conflicts, outcomeOf, standing, dreamNotes, dreamSummary, sharedSteps, effectOf, initial, reduce };
+  return { base, edits, buildGraph, conditions, conflicts, staleWarnings, disputedConds, outcomeOf, standing, dreamNotes, dreamSummary, sharedSteps, effectOf, initial, reduce };
 })();
 
 // ===== Throwaway page shell =====
@@ -400,6 +430,7 @@ function render() {
   const known = Object.entries(state.facts).filter(([f]) => g.pains[state.pain].facts.includes(f));
   let h = `<h2>${g.pains[state.pain].title}</h2><div class="muted">Imagined situation: ${known.length ? known.map(([f, v]) => `${g.facts[f].text}: ${v}`).join('; ') : 'nothing checked yet'}${state.history.length ? '<br>Recorded, in order: ' + state.history.map(r => `${title(g, r.fix)}: ${g.fixes[r.fix] ? g.fixes[r.fix].outcomes[r.outcome].label : r.outcome}`).join(' → ') : ''}</div>`;
   for (const c of G.conflicts(g, state)) h += `<div class="conflict"><strong>Conflicting observations:</strong> ${c}</div>`;
+  for (const w of G.staleWarnings(g, state)) h += `<div class="conflict"><strong>Check this (authoring):</strong> ${w}</div>`;
   for (const d of Object.keys(g.dreams).filter(d => g.dreams[d].pains.includes(state.pain))) h += renderDream(g, d);
   $('view').innerHTML = h;
   $('shared').innerHTML = G.sharedSteps(g).map(s => `<div style="margin-bottom:8px"><strong>${g.fixes[s.id].title}</strong><div class="muted">${s.down.length ? 'Its results feed: ' + s.down.map(o => g.fixes[o].title).join('; ') + '. ' : ''}Pains: ${s.pains.map(p => g.pains[p].title).join(' / ') || 'none directly'}</div></div>`).join('') || '<div class="muted">None.</div>';
@@ -421,7 +452,7 @@ function renderFix(g, r, d) {
   const f = g.fixes[r.id];
   let h = `<div class="fix"><div>${badge(r.avail)} <strong>${f.title}</strong> <span class="muted">· ${f.kind} · may help, no promise</span></div>`;
   h += `<ul class="r"><li>Who takes part: ${f.actors.map(([w, role]) => `${w} ${ROLE[role]}`).join('; ')}</li>${r.block ? `<li>Kind of block: ${BLOCK[r.block]}</li>` : ''}${r.reasons.map(x => `<li>${x}</li>`).join('')}</ul>`;
-  if (r.avail === 'done' && d) { const e = G.effectOf(state, r.id, d); h += `<div class="sub">Did it help with <em>${g.dreams[d].title.toLowerCase()}</em>? ${[['helped','Yes'],['not','No'],['unassessed','Not recorded']].map(([v, l]) => `<button class="small ${e === v ? 'on' : ''}" data-effect="${v}" data-fix="${r.id}" data-dream="${d}">${l}</button>`).join('')}</div>`; }
+  if (r.avail === 'done' && d) { const e = G.effectOf(state, r.id, d); h += `<div class="sub">Did it help with <em>${g.dreams[d].title.toLowerCase()}</em>, across all attempts so far? ${[['helped','Yes'],['not','No'],['unassessed','Not recorded']].map(([v, l]) => `<button class="small ${e === v ? 'on' : ''}" data-effect="${v}" data-fix="${r.id}" data-dream="${d}">${l}</button>`).join('')}</div>`; }
   if (r.parts.length) h += `<div class="sub muted">${f.checklist ? 'Made of (a checklist: all going as hoped completes it):' : "Steps that usually go into it (doing them doesn't settle the result):"} ${r.parts.map(p => `<div>${badge(p.avail)} ${title(g, p.id)} ${p.block === 'circular' ? '' : outcomeButtons(g, p.id)}</div>`).join('')}</div>`;
   for (const w of r.ways) {
     h += `<div class="sub">↳ Needs ${g.conditions[w.cond].label} first. Any of these, listed alphabetically, not ranked:`;
@@ -442,15 +473,17 @@ const scenarios = [
     P('rent', 'Open High rent', 'Rent assistance: "A question to check first". Income isn\'t checked, and neither is whether they already have documents.'),
     F('low-income', 'no', 'Income: confirmed not low enough', 'Blocked, because a confirmed fact rules it out as written. That\'s different from "not checked".'),
   ]},
-  { name:'Already have it?', text:'Rent assistance needs proof of income and ID. The person may already have them.', should:'"Do they already have it?" is a question. Only a confirmed "no" makes it a step to take.', mustNot:'Treat "not known whether they have it" as "they don\'t have it".', steps:[
+  { name:'Already have it?', text:'Rent assistance needs proof of income and ID. The person may already have either.', should:'Each document is its own question. Only a confirmed "no" for both makes the documents a step to take.', mustNot:'Treat "not known whether they have it" as "they don\'t have it", or a "no" for one document as a "no" for the other.', steps:[
     P('rent', 'Open High rent', 'Switched to High rent.'),
-    F('low-income', 'yes', 'Income is low enough', 'Still a question to check first: does the person already have proof of income and ID? The ways to get them are listed too.'),
-    F('has-docs', 'no', "Doesn't have the documents: confirmed", 'Now it\'s a step to take first: gather the documents. Each need lists its ways, unranked.'),
+    F('low-income', 'yes', 'Income is low enough', 'Still a question to check first: do they already have proof of income? ID? The ways to get each are listed too.'),
+    F('has-income-proof', 'no', 'No proof of income: confirmed', 'Proof of income is now a step to take; ID is still a question.'),
+    F('has-id', 'no', 'No ID: confirmed', 'Both are steps to take first. Each need lists its ways, unranked.'),
   ]},
   { name:'Missing prerequisite', text:'"Gather proof of income and ID" is a true checklist: getting both pieces completes it.', should:'Getting both pieces completes the checklist, and rent assistance can start.', mustNot:'Complete the checklist when only one piece is in hand.', steps:[
     P('rent', 'Open High rent', 'Switched to High rent.'),
     F('low-income', 'yes', 'Income is low enough', 'A question first: do they already have the documents?'),
-    F('has-docs', 'no', "Doesn't have them", 'Needs a step first.'),
+    F('has-income-proof', 'no', 'No proof of income', 'ID is still a question.'),
+    F('has-id', 'no', 'No ID', 'Needs a step first.'),
     O('get-paystub', 'done', 'Record: got a pay stub', 'Proof of income is in hand. ID is still missing, so the checklist isn\'t complete.'),
     O('get-id', 'done', 'Record: got ID', 'Both pieces done, so the checklist completes itself, and rent assistance can start now.'),
   ]},
@@ -504,11 +537,34 @@ const scenarios = [
     O('tenant-group', 'formed', 'Record: association formed', 'The campaign can start.'),
     O('rent-limits', 'passed', 'Record: limits passed', '"Staying in my home": everything modeled has been tried, and whether it\'s reached isn\'t assessed. Effects per dream are still unrecorded.'),
   ]},
-  { name:'Conflicting observations', text:'The documents are recorded as gathered, but the fact says the person doesn\'t have them.', should:'Flag the conflict, saying there\'s no timeline to pick a winner.', mustNot:'Silently accept one side.', steps:[
+  { name:'Conflicting observations', text:'ID is recorded as obtained, but a fact says the person has no ID.', should:'Flag a conflict about ID only, and qualify rent assistance: available as recorded, possession disputed.', mustNot:'Silently accept one side, or treat a "no" about ID as a "no" about income.', steps:[
     P('rent', 'Open High rent', 'Switched to High rent.'),
+    F('low-income', 'yes', 'Income is low enough', 'Questions about documents first.'),
     O('get-paystub', 'done', 'Record: got a pay stub', 'Proof of income established.'),
-    O('get-id', 'done', 'Record: got ID', 'The documents checklist is complete.'),
-    F('has-docs', 'no', '"Already has documents": no', 'A conflict is flagged at the top: a "no" against an outcome that established the same thing.'),
+    O('get-id', 'done', 'Record: got ID', 'Rent assistance can start.'),
+    F('has-id', 'no', '"Already has ID": no', 'A conflict about ID is flagged at the top, and rent assistance now says possession is disputed. There\'s no conflict about income.'),
+  ]},
+  { name:'A later "no" withdraws', text:'A relative agrees, then later says no.', should:'The "no" withdraws the earlier promise, so the hand-off is blocked again.', mustNot:'Keep counting the old promise after the refusal.', steps:[
+    P('sleep', 'Open Sleep', 'Switched to Sleep.'),
+    F('infant', 'yes', 'Wakes to care for a baby', 'Night-feed fixes apply.'),
+    F('second-adult', 'no', 'No second adult every night', 'Gaps for both night-feed fixes.'),
+    E('relative-stay', 'Add: ask a relative', 'The ask is a first step.'),
+    O('relative-stay', 'agreed', 'Record: relative agreed', 'A promise exists; the hand-off can start.'),
+    O('relative-stay', 'refused', 'Record: relative said no', 'The refusal withdraws the promise, so the hand-off is blocked again. The history is kept.'),
+  ]},
+  { name:'Authoring slip caught', text:'Same sequence with a friend, but the graph has a slip: the friend\'s "said no" forgets to withdraw the promise.', should:'Flag the slip for the author: an earlier promise still counts after a later "no".', mustNot:'Silently keep the hand-off open as if nothing were wrong.', steps:[
+    P('sleep', 'Open Sleep', 'Switched to Sleep.'),
+    F('infant', 'yes', 'Wakes to care for a baby', 'Night-feed fixes apply.'),
+    F('second-adult', 'no', 'No second adult every night', 'Gaps for both night-feed fixes.'),
+    E('friend-stay', 'Add: ask a friend', 'The ask is a first step.'),
+    E('friend-slip', 'Introduce the authoring slip', 'The friend\'s "said no" no longer withdraws anything.'),
+    O('friend-stay', 'agreed', 'Record: friend agreed', 'A promise exists.'),
+    O('friend-stay', 'refused', 'Record: friend said no', 'The hand-off still shows as startable, because of the slip, and a "Check this" warning at the top says why: the earlier promise still counts.'),
+  ]},
+  { name:'Mixed results', text:'The landlord agrees, but neighbors are confirmed unwilling, so the organizing routes are blocked and untried.', should:'"Nothing modeled is open now. Some went as hoped; others are blocked and haven\'t been tried."', mustNot:'Say everything was tried, or that the dream is reached.', steps:[
+    P('rent', 'Open High rent', 'Switched to High rent. "Living near what matters" has no modeled approaches, so it says so: a knowledge gap, not a dead end.'),
+    O('long-lease', 'agreed', 'Record: landlord agreed', 'Went as hoped.'),
+    F('neighbors-willing', 'no', 'Neighbors willing: no', 'For "Staying in my home": nothing modeled is open, one approach went as hoped, and the organizing routes are blocked and untried.'),
   ]},
   { name:'Two options, one budget', text:'Insomnia therapy and an apnea check can each start, but both cost money.', should:'Flag that they compete for the same resource.', mustNot:'Imply you can do both.', steps:[
     P('sleep', 'Open Sleep', 'Switched to Sleep.'),
@@ -559,6 +615,62 @@ document.addEventListener('click', e => {
   else if (b.id === 'reset') { stepAt = 0; dispatch({ type:'reset' }, 'Started over: nothing checked, original graph.'); }
 });
 startTab(0);
+
+// ===== Self-checks: claims the walkthroughs make, tested directly against the rules. =====
+function selfChecks() {
+  const S = (facts = {}, hist = [], edits = [], effects = {}) => ({ pain:'x', facts, history:hist.map(([fix, outcome]) => ({ fix, outcome })), edits, effects, matters:[] });
+  const R = (s, id) => G.standing(G.buildGraph(s.edits), s, id); const D = (s, d) => G.dreamSummary(G.buildGraph(s.edits), s, d);
+  const out = []; const ok = (name, cond, detail) => out.push({ name, pass: !!cond, detail });
+  let r, s;
+  r = R(S(), 'rent-help'); ok('Unknown eligibility asks a question', r.avail === 'check', r.avail);
+  r = R(S({ 'low-income':'no' }), 'rent-help'); ok('Confirmed ineligibility blocks, as a confirmed fact', r.avail === 'blocked' && r.block === 'confirmed', r.avail);
+  r = R(S({ 'low-income':'yes' }), 'rent-help'); ok('Unknown documents are questions, with ways listed', r.avail === 'check' && r.ways.length === 2, r.avail);
+  r = R(S({ 'low-income':'yes', 'has-income-proof':'no' }), 'rent-help'); ok('A "no" for income leaves ID a question', r.avail === 'check', r.avail);
+  r = R(S({ 'low-income':'yes', 'has-income-proof':'no', 'has-id':'no' }), 'rent-help'); ok('Confirmed missing documents need a step first', r.avail === 'first', r.avail);
+  ok('One piece does not complete the checklist', !G.outcomeOf(G.buildGraph([]), S({}, [['get-paystub','done']]), 'gather-docs'), '');
+  r = R(S({ 'low-income':'yes', 'has-income-proof':'no', 'has-id':'no' }, [['get-paystub','done'],['get-id','done']]), 'rent-help'); ok('Both pieces open rent assistance', r.avail === 'open', r.avail);
+  r = R(S({}, [['meet-neighbors','met']]), 'tenant-group'); ok('Known neighbors let the association start, with a note about succeeding', r.avail === 'open' && r.reasons.some(x => x.includes('For it to work')), r.avail);
+  r = R(S({ 'neighbors-willing':'yes' }, [['meet-neighbors','met']]), 'tenant-group'); ok('Willing neighbors do not establish that it formed', r.avail === 'open' && !r.outcome, r.avail);
+  r = R(S({ 'neighbors-willing':'yes' }, [['meet-neighbors','met']]), 'rent-limits'); ok('The campaign waits for the association to form', r.avail !== 'open', r.avail);
+  r = R(S({}, [['sleep-diary','done'],['talk-doctor','done']]), 'cbti'); ok('Doing the steps does not establish the cause', r.avail !== 'open', r.avail);
+  s = S({}, [['find-cause','found'],['cbti','helped']], [], { 'cbti|fall-asleep':'helped', 'cbti|wake-rested':'not' });
+  ok('Partial benefit: helped with falling asleep', D(s, 'fall-asleep').notes.some(n => n.startsWith('Recorded as helping')), '');
+  ok('Partial benefit: no progress claimed for waking rested', !D(s, 'wake-rested').notes.some(n => n.startsWith('Recorded as helping')), '');
+  ok('Partial benefit: other dreams unassessed', D(s, 'sleep-through').notes.some(n => n.includes("isn't recorded yet")), '');
+  const inf = { infant:'yes', 'second-adult':'no' };
+  ok('No helper modeled is a gap', R(S(inf), 'tag-team-weekly').avail === 'unknown', '');
+  ok('Help one night a week does not cover every night', R(S(inf, [['relative-stay','agreed'],['relative-stay','started']], ['relative-stay']), 'tag-team').avail === 'unknown', '');
+  ok('A refusal blocks the hand-off', R(S(inf, [['relative-stay','refused']], ['relative-stay']), 'tag-team-weekly').avail === 'blocked', '');
+  ok('A later "no" withdraws an earlier promise', R(S(inf, [['relative-stay','agreed'],['relative-stay','refused']], ['relative-stay']), 'tag-team-weekly').avail === 'blocked', '');
+  const cc = [['relative-stay','agreed'],['relative-stay','started'],['friend-stay','agreed'],['relative-stay','withdrew']];
+  const held = G.conditions(G.buildGraph(['relative-stay','friend-stay']), S(inf, cc, ['relative-stay','friend-stay']));
+  ok("Withdrawal keeps the friend's promise", held['help-weekly-promise'] && [...held['help-weekly-promise']].join() === 'friend-stay', '');
+  ok("Withdrawal removes the relative's help in place", !held['help-weekly'], '');
+  ok('History is kept', R(S(inf, cc, ['relative-stay','friend-stay']), 'relative-stay').reasons.some(x => x.startsWith('History:')), '');
+  ok('A negative test opens the next investigation', R(S({}, [['find-cause','found'],['apnea-check','negative']]), 'other-causes').avail === 'open', '');
+  ok('A negative test is not called a success', R(S({}, [['find-cause','found'],['apnea-check','negative']]), 'apnea-check').avail === 'failed', '');
+  ok('Nothing says apnea is ruled out', !JSON.stringify(G.base).includes('ruled out'), '');
+  r = D(S({ 'neighbors-willing':'yes' }, [['long-lease','agreed'],['meet-neighbors','met'],['tenant-group','formed'],['rent-limits','passed']]), 'stay-home');
+  ok('All went as hoped: "tried", not "blocked"', r.head.type === 'tried' && r.head.text.startsWith('Every modeled approach'), r.head.text);
+  r = D(S({ 'neighbors-willing':'no' }, [['long-lease','agreed']]), 'stay-home');
+  ok('Mixed results: does not claim everything was tried', r.head.type === 'tried' && r.head.text.startsWith('Nothing modeled is open now'), r.head.text);
+  ok('A dream with no approaches is a knowledge gap', D(S(), 'near-family').head.type === 'gap', '');
+  s = S({ 'has-income-proof':'no' }, [['get-id','done']]); ok('A "no" about income is no conflict with having ID', G.conflicts(G.buildGraph([]), s).length === 0, '');
+  s = S({ 'low-income':'yes', 'has-id':'no' }, [['get-paystub','done'],['get-id','done']]);
+  ok('A genuine conflict is flagged', G.conflicts(G.buildGraph([]), s).length === 1, '');
+  ok('A conflict qualifies the conclusion that relies on it', R(s, 'rent-help').disputed && R(s, 'rent-help').reasons.some(x => x.includes('disputed')), '');
+  ok('Coverage chains (every night → weekly → promise)', !!G.conditions(G.buildGraph([]), S({ 'second-adult':'yes' }))['help-weekly-promise'], '');
+  ok('Competing for one budget is flagged', D(S({}, [['find-cause','found']]), 'wake-rested').notes.some(n => n.includes('spare money')), '');
+  r = R(S({ 'low-income':'yes', 'has-income-proof':'yes', 'has-id':'yes' }, [], ['needs-loop']), 'rent-help'); ok('A loop in needs is named', r.block === 'circular', r.avail);
+  ok('A loop in parts is named', R(S({}, [], ['parts-loop']), 'cbti').block === 'circular', '');
+  const sh = G.sharedSteps(G.buildGraph(['utility-help'])).map(x => x.id); ok('Shared steps followed downstream', sh.includes('meet-neighbors') && sh.includes('gather-docs'), sh.join());
+  ok('An authoring slip is flagged', G.staleWarnings(G.buildGraph(['friend-stay','friend-slip']), S(inf, [['friend-stay','agreed'],['friend-stay','refused']], ['friend-stay','friend-slip'])).length === 1, '');
+  return out;
+}
+document.getElementById('selfcheck').addEventListener('click', () => {
+  const res = selfChecks(); const passed = res.filter(r => r.pass).length;
+  document.getElementById('checks').innerHTML = `<p><strong>${passed} of ${res.length} passed.</strong></p>` + res.map(r => `<div>${r.pass ? '✓' : '✗ FAILED:'} ${r.name}${r.pass ? '' : ' (' + r.detail + ')'}</div>`).join('');
+});
 </script>
 </body>
 </html>
