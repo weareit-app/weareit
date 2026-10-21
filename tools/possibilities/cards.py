@@ -239,7 +239,8 @@ STAGE_DONE = {
     'judge': lambda run: (run / 'ranking.json').is_file(),  # select writes it after the panel's consensus
     'fix-review': lambda run: fix_review_ingested(run),  # defined with the fix review, below
 }
-FOUNDER_STOPS = ('dream-review', 'fix-review')
+FOUNDER_STOPS = {'dream-review': ('dreams-review-build', 'dreams-ingest'),  # each stop's page build, then its ingest
+                 'fix-review': ('fixes-review-build', 'fixes-ingest')}
 
 
 BRIEFS = 'tools/possibilities/briefs/'
@@ -353,8 +354,7 @@ def start(run, stage):
     if pending == 'done':
         raise ValueError('%s cannot start: the fix review of %s is ingested, so the run is done' % (stage, run.name))
     if stage in FOUNDER_STOPS:
-        build, ingest = ('dreams-review-build', 'dreams-ingest') if stage == 'dream-review' else ('fixes-review-build', 'fixes-ingest')
-        raise ValueError('%s is a founder stop: run %s, then %s' % (stage, build, ingest))
+        raise ValueError('%s is a founder stop: run %s, then %s' % (stage, *FOUNDER_STOPS[stage]))
     if stage not in STAGE_BRIEFS:
         raise ValueError('%s is not built yet' % stage)
     result = {'run': run.name, 'stage': stage, 'brief': STAGE_BRIEFS[stage]}

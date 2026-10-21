@@ -73,13 +73,19 @@ class StagedFlow(StagedBase):
         self.assertEqual(self.next(), 'plan')
         kinds = self.ok('start', str(self.run_dir), 'plan')['kinds']
         self.assertTrue({'leave', 'switch'} <= set(kinds))
-        self.agent('plan', 'plan.json', plan_doc(kinds=kinds))
+        self.agent('plan', 'plan.json', plan_doc(kinds=kinds, leave=1))
         shared = fixes_doc()
         shared_pass_only(shared)
         self.agent('shared-fixes', 'fixes.json', shared)
         self.assertEqual(self.next(), 'kind-pools')
-        self.assertEqual(list(self.ok('start', str(self.run_dir), 'kind-pools')['kinds']), ['task'])
-        self.agent('kind-pools', 'fixes.json', fixes_doc())
+        # One agent per kind with a ceiling above zero, one at a time, until start lists no kind.
+        self.assertEqual(list(self.ok('start', str(self.run_dir), 'kind-pools')['kinds']), ['task', 'leave'])
+        pools = fixes_doc()
+        self.agent('kind-pools', 'fixes.json', pools)
+        self.assertEqual(list(self.ok('start', str(self.run_dir), 'kind-pools')['kinds']), ['leave'])
+        pools['pools']['leave'] = {'draftedAt': '2026-10-20', 'shortfalls': {
+            dream: 'Nothing here is worth leaving without a replacement.' for dream in plan_doc()['ceilings']}}
+        self.agent('kind-pools', 'fixes.json', pools)
         self.agent('screen', 'screen.json', screen_doc())
         self.agent('assemble', 'links.json', links_doc())
 

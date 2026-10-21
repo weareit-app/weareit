@@ -21,17 +21,17 @@ The stages, their briefs, and their files are in the README's "Staged flow". Eac
 
 1. **Pick the runs.** Pain IDs are checked as in the card run. For each pain, run `new-run <pain-id> --staged`, adding `--pilot` when the founder asked for a pilot run. A run path given instead of a pain picks that run up where it stopped. Done when every pain has a staged run.
 2. **Run the next stage.** Run `status <run>` and act on its `next`:
-   - `examples`, `dreams`, `plan`, `shared-fixes`, `screen`, or `assemble`: run `start <run> <stage>`, then start one fresh, isolated agent (an Agent tool subagent in Claude Code, a new thread in Codex) and give it only this: "Read and follow `<brief>`. Your run: `<run>`. Your stage: `<stage>`." Here `<brief>` is the `brief` that `start` printed.
+   - `examples`, `dreams`, `plan`, `shared-fixes`, `screen`, or `assemble`: run `start <run> <stage>`, then start one fresh, isolated agent, as the README's "Isolation" describes, and give it only this: "Read and follow `<brief>`. Your run: `<run>`. Your stage: `<stage>`." Here `<brief>` is the `brief` that `start` printed.
    - `kind-pools`: run `start <run> kind-pools`. Its `kinds` are the kinds with a ceiling above zero and no pool yet. For each one, one at a time, start a fresh agent with only this: "Read and follow `tools/possibilities/briefs/kinds/_shared.md`, then `<kind brief>`. Your run: `<run>`. Your kind: `<kind>`."
    - `dream-review`: stop for the founder, as step 4 says.
    - `judge`: run the staged judging in `/possibilities-judge`: its "Staged run", steps 2 to 4.
    - `fix-review`: stop for the founder, as step 4 says.
    - `done`: go to step 5.
 
-   Done when the agent has replied.
+   Done when the stage's agent has replied, or the run has reached a founder stop or `done`.
 3. **Check the stage yourself.** Run `validate <run>`, and after `dreams`, `lint <run>` too. A stage with issues goes back to its agent with the issue list. Done when it reports zero issues and `status` names a later stage (for a kind pool, when `start <run> kind-pools` no longer lists that kind). Then go back to step 2.
 4. **Founder stops.** At `dream-review`, if `reviews/dreams-decisions.json` is in the run, run `dreams-ingest <run> <run>/reviews/dreams-decisions.json` and go back to step 2. At `fix-review`, do the same with `reviews/fixes-decisions.json` and `fixes-ingest`. If ingest refuses, show the founder its error and stop. Otherwise build the page (`dreams-review-build <run>` or `fixes-review-build <run>`), start the `dream-review` or `fix-review` launch config (in Codex, give the founder its command from `.claude/launch.json`), and end your turn with what the founder does, written out:
-   - open the page URL, which is `http://127.0.0.1:<port>/<page>` for the `page` the build printed (4175 for dreams, 4176 for fixes);
+   - open the page URL, which is `http://127.0.0.1:<port>/<page>`, with the launch config's port and the `page` the build printed;
    - accept, edit, or reject every dream (or every fix, and change its linked dreams), from the keyboard;
    - download the decisions and save them as `<run>/reviews/dreams-decisions.json` (or `fixes-decisions.json`);
    - run this skill again with `--staged <run>`, which ingests the decisions and goes on.
