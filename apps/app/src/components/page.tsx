@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { ScrollView, View } from "react-native";
 import { BrandMark } from "../watercolor/brand-mark";
+import { SiteFooter } from "./site-footer";
 import { Text } from "./text";
 
 export function Page({
@@ -25,7 +26,7 @@ export function Page({
       contentContainerStyle={{ flexGrow: 1 }}
       contentInsetAdjustmentBehavior="automatic"
     >
-      <View className="mx-auto w-full max-w-3xl gap-7 px-5 py-8 md:px-10 md:py-14">
+      <View className="mx-auto w-full max-w-3xl flex-1 gap-7 px-5 py-8 md:px-10 md:py-14">
         {brand ? (
           <View className="self-start">
             {/* Sized as in the onboarding design (76 × 54, left-aligned). */}
@@ -58,6 +59,7 @@ export function Page({
         </View>
         {children}
       </View>
+      <SiteFooter />
     </ScrollView>
   );
 }

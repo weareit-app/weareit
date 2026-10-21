@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { useReducedMotion } from "react-native-reanimated";
 import { resolveFeatureStatuses } from "@it/content/graph-schema";
+import { SiteFooter } from "../site-footer";
 import { Text } from "../text";
 import { ClearDraftControl } from "../clear-draft-control";
 import { ContentQueryState } from "../content-query-state";
@@ -394,6 +395,7 @@ export function PainExplorer({
           {footer}
         </View>
       </View>
+      <SiteFooter />
     </ScrollView>
   );
 }

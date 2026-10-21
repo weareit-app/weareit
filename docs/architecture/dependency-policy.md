@@ -61,6 +61,19 @@ Cost (checked 2026-10-20 against GitHub's Actions billing docs): GitHub Actions 
 
 Action pins and their review notes: `docs/architecture/ci-actions.md`.
 
+## Essay build (build time only)
+
+The essay build script (`packages/content/scripts/build-essays.ts`, public-pages task 2.2) parses Markdown with the micromark/mdast packages from the unified collective. They are `devDependencies` of `@it/content`, imported only by `packages/content/essay-build/` and its script, never by the package's runtime exports or the app, so no Markdown parser ships. Chosen 2026-10-20 as the newest releases at least two weeks old; all MIT except `yaml` (ISC), with no install scripts:
+
+- `mdast-util-from-markdown` 2.1.0 (the parser) and `@types/mdast` 4.0.4
+- `micromark-extension-directive` 4.0.0 and `mdast-util-directive` 3.1.1 (`::block{…}`, `:::expandable`, `:status[…]`)
+- `micromark-extension-gfm-table` 2.1.2 and `mdast-util-gfm-table` 2.0.0 (Markdown tables)
+- `micromark-extension-gfm-footnote` 2.1.0 and `mdast-util-gfm-footnote` 2.1.0 (`[^source]` references)
+- `micromark-extension-math` 3.1.0 and `mdast-util-math` 3.0.0 (inline `$…$`)
+- `yaml` 2.9.1 (front matter and block data files; no dependencies)
+
+The script runs with `tsx` (the range the database package already uses) and formats its output with the workspace's Prettier. To update, pick newer releases at least two weeks old, read their changelogs, and run the essay fixture tests.
+
 ## Generator pages
 
 - Lucide 0.469.0 (ISC), loaded from `https://cdn.jsdelivr.net/npm/lucide@0.469.0/dist/umd/lucide.min.js` by the calibration page (`tools/possibilities/config/calibration-page.template.html`, since 2026-10-19) and the fix review page (`fix-review-page.template.html`, since 2026-10-20). It was published on 2024-12-20 (`npm view lucide time`, checked 2026-10-20). It draws the icons for fix kinds and statuses named in `docs/style/copy-style-guide.md`. The icons are decorative: both pages always show the kind or status as text, so a page that can't reach the CDN still works. Keep both pages on the same version. Before an upgrade, check that every icon name in the copy guide's "Kinds of fixes" table still exists.

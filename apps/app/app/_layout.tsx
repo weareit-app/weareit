@@ -12,7 +12,8 @@ import { appFonts } from "../src/theme/fonts";
 import { useIsDark, useThemeStore } from "../src/state/theme-store";
 import { applyColorScheme } from "../src/theme/apply-color-scheme";
 import { StatusBarBackdrop } from "../src/components/status-bar-backdrop";
-import { ThemeSwitchCorner } from "../src/components/theme-switch";
+import { CornerControls } from "../src/components/corner-controls";
+import { SignedInProvider } from "../src/navigation/signed-in-provider";
 
 export default function RootLayout() {
   // Loaded synchronously here so static web rendering embeds the fonts in
@@ -45,11 +46,13 @@ export default function RootLayout() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Follows the app's own light/dark choice, not only the system's. */}
-      <StatusBar style={isDark ? "light" : "dark"} />
-      <Stack screenOptions={{ headerShown: false, animation: "fade" }} />
-      <StatusBarBackdrop />
-      <ThemeSwitchCorner />
+      <SignedInProvider>
+        {/* Follows the app's own light/dark choice, not only the system's. */}
+        <StatusBar style={isDark ? "light" : "dark"} />
+        <Stack screenOptions={{ headerShown: false, animation: "fade" }} />
+        <StatusBarBackdrop />
+        <CornerControls />
+      </SignedInProvider>
     </QueryClientProvider>
   );
 }
