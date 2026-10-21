@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 2,
+  "painId": "loneliness",
+  "runId": "20261020-202910",
+  "startedAt": "2026-10-21T00:29:10+00:00",
+  "painName": "Loneliness",
+  "painLine": "Most days I don't talk to anyone who really knows me.",
+  "finishedAt": "2026-10-21T00:34:51+00:00",
+  "searches": 17,
+  "pagesOpened": 23,
+  "tokens": 215138,
+  "notes": "",
+  "pilot": true,
+  "tokensByStage": {
+    "examples": 118026,
+    "dreams": 97112
+  }
+}

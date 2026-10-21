@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "painId": "rent-eats-everything",
+  "runId": "20261020-202952",
+  "startedAt": "2026-10-21T00:29:52+00:00",
+  "painName": "High rent",
+  "painLine": "I pay too much for housing.",
+  "finishedAt": "2026-10-21T00:37:44+00:00",
+  "searches": 21,
+  "pagesOpened": 23,
+  "tokens": 171612,
+  "notes": ""
+}

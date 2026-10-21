@@ -1,0 +1,301 @@
+{
+  "schemaVersion": 2,
+  "painId": "loneliness",
+  "runId": "20261020-202910",
+  "dreams": {
+    "someone-glad-to-hear-from-me-tonight": {
+      "title": "Someone glad to hear from me tonight",
+      "line": "Even on a night when nobody comes to mind, I can call a line where a person is glad to talk with me for as long as I need.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "exemplarRefs": [
+        "friendship-line",
+        "lifeline-988",
+        "seoul-goodbye-loneliness-120"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202910",
+        "locator": "dreams.json#someone-glad-to-hear-from-me-tonight",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Talklines exist now: the Friendship Line for older adults, 988 for anyone in distress, and Seoul's city line. The basic, reachable outcome for the worst evenings."
+    },
+    "small-talk-with-strangers-that-lifts-my-day": {
+      "title": "Small talk with strangers that lifts my day",
+      "line": "On the bus or in line at the store, I trade a few real sentences with someone new and walk away in a better mood than I expected.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "exemplarRefs": [
+        "epley-talking-to-strangers"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202910",
+        "locator": "dreams.json#small-talk-with-strangers-that-lifts-my-day",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Epley's commuter studies: people predict talking to strangers will be worse, and it turns out better. Surprising and doable today."
+    },
+    "back-in-touch-with-an-old-friend": {
+      "title": "Back in touch with a friend I'd drifted from",
+      "line": "I called a friend I hadn't spoken to in years, and we talked long enough to catch up on what actually matters in our lives.",
+      "lens": "relational",
+      "ambition": "tonight",
+      "exemplarRefs": [
+        "surgeon-general-advisory",
+        "harvard-adult-development"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202910",
+        "locator": "dreams.json#back-in-touch-with-an-old-friend",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "The advisory urges picking up calls from friends; Harvard's study ties close ties to lasting happiness. Reconnecting is the fastest route to someone who already knows you."
+    },
+    "a-friend-i-talk-with-every-week": {
+      "title": "A close friend I talk with every week",
+      "line": "There's at least one person I see or call every week who knows what's going on in my life, and I know what's going on in theirs.",
+      "lens": "relational",
+      "ambition": "this-year",
+      "exemplarRefs": [
+        "hall-friendship-hours",
+        "harvard-adult-development"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202910",
+        "locator": "dreams.json#a-friend-i-talk-with-every-week",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Hall's numbers (about 200 hours to a close friend) make a weekly habit the realistic path; the dream is the outcome, the weekly friend."
+    },
+    "a-weekly-group-that-notices-when-im-missing": {
+      "title": "A weekly group that notices when I'm missing",
+      "line": "Every Saturday I show up to the same free 5k, and the people there ask where I was if I skip a week.",
+      "lens": "community",
+      "ambition": "this-year",
+      "exemplarRefs": [
+        "parkrun-ireland-men",
+        "mens-sheds-australia"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202910",
+        "locator": "dreams.json#a-weekly-group-that-notices-when-im-missing",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "parkrun study: friendships formed through repeated attendance. Being missed is the concrete sign of belonging."
+    },
+    "a-workshop-where-i-build-things-with-others": {
+      "title": "A workshop where I build and fix things with others",
+      "line": "A couple of mornings a week I work on a project at a shared workshop, and the talk comes easily because our hands are busy.",
+      "lens": "community",
+      "ambition": "this-year",
+      "exemplarRefs": [
+        "mens-sheds-australia"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202910",
+        "locator": "dreams.json#a-workshop-where-i-build-things-with-others",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Men's Sheds: more than 1,300 in Australia. Side-by-side work suits people who don't like face-to-face small talk."
+    },
+    "neighbors-i-eat-dinner-with-every-week": {
+      "title": "Neighbors I eat dinner with a few nights a week",
+      "line": "I live in a building where neighbors take turns cooking shared dinners, so I'm never more than a day or two from a real conversation.",
+      "lens": "community",
+      "ambition": "together",
+      "exemplarRefs": [
+        "capitol-hill-cohousing"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202910",
+        "locator": "dreams.json#neighbors-i-eat-dinner-with-every-week",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Capitol Hill Urban Cohousing: 21 residents, shared dinners three or four nights a week (rechecked on the KUOW page). Needs others to build it, so together."
+    },
+    "living-alongside-people-of-a-different-age": {
+      "title": "Living alongside neighbors of a very different age",
+      "line": "I share a home with people decades older or younger than me, and we drop in on each other without needing a reason.",
+      "lens": "culture",
+      "ambition": "together",
+      "exemplarRefs": [
+        "humanitas-deventer",
+        "capitol-hill-cohousing"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202910",
+        "locator": "dreams.json#living-alongside-people-of-a-different-age",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Humanitas in Deventer housed students rent-free among residents mostly over 80. Culture lens: changes who we expect to live with."
+    },
+    "a-town-where-eating-with-strangers-is-normal": {
+      "title": "A town where sharing meals with strangers is normal",
+      "line": "A couple of times a year my whole town sets out tables for shared meals, and I sit down with neighbors I'd never met.",
+      "lens": "culture",
+      "ambition": "together",
+      "exemplarRefs": [
+        "danmark-spiser-sammen",
+        "big-lunch"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202910",
+        "locator": "dreams.json#a-town-where-eating-with-strangers-is-normal",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Denmark Eats Together (weeks 17 and 45) and the Big Lunch each June show a whole country can make shared meals ordinary."
+    },
+    "a-checkout-where-nobody-rushes-me": {
+      "title": "A checkout line where the cashier has time to chat",
+      "line": "At my supermarket there's a lane where the cashier is glad to talk, so I don't feel like I'm holding anyone up.",
+      "lens": "market",
+      "ambition": "together",
+      "exemplarRefs": [
+        "jumbo-kletskassa"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202910",
+        "locator": "dreams.json#a-checkout-where-nobody-rushes-me",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Jumbo's chat checkouts, part of a Dutch health ministry program. Needs a business to change, so together."
+    },
+    "someone-checking-on-my-parent-every-week": {
+      "title": "A familiar visitor checking on my parent every week",
+      "line": "Someone my mom knows stops by her place every week, and I hear how she's doing even though I live far away.",
+      "lens": "market",
+      "ambition": "this-year",
+      "exemplarRefs": [
+        "la-poste-facteur-visits",
+        "friendship-line"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202910",
+        "locator": "dreams.json#someone-checking-on-my-parent-every-week",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "La Poste's mail carrier visits, plus the Friendship Line's regular check-in calls. For people whose loneliness worry is a parent's, or who are the parent."
+    },
+    "a-dinner-with-new-people-on-my-calendar": {
+      "title": "A dinner with new people already on my calendar",
+      "line": "This week I have a dinner booked with a small group of people I haven't met, matched to me, and I'm looking forward to it.",
+      "lens": "technology",
+      "ambition": "tonight",
+      "exemplarRefs": [
+        "timeleft-dinners",
+        "bumble-for-friends"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202910",
+        "locator": "dreams.json#a-dinner-with-new-people-on-my-calendar",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Timeleft books a table of six strangers; Bumble For Friends matches by interests. Booking is a tonight action; the dinner is days away."
+    },
+    "a-doctor-who-can-refer-me-to-groups": {
+      "title": "A doctor who refers me to local groups, not pills",
+      "line": "When I tell my doctor I'm lonely, she connects me with someone who finds me a gardening club or a music group nearby.",
+      "lens": "policy",
+      "ambition": "together",
+      "exemplarRefs": [
+        "england-social-prescribing",
+        "friendship-bench-zimbabwe"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202910",
+        "locator": "dreams.json#a-doctor-who-can-refer-me-to-groups",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "England's social prescribing, with more than 3,300 link workers. Friendship Bench shows lay listeners and peer groups through care systems. A policy change for most places."
+    },
+    "a-city-that-answers-when-i-call-about-loneliness": {
+      "title": "A city that answers when I call about loneliness",
+      "line": "My city runs a loneliness line I can call at any hour, and a local council of support groups follows up so I don't fall through the cracks.",
+      "lens": "policy",
+      "ambition": "together",
+      "exemplarRefs": [
+        "seoul-goodbye-loneliness-120",
+        "japan-loneliness-act"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202910",
+        "locator": "dreams.json#a-city-that-answers-when-i-call-about-loneliness",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Seoul's 120 line beat its yearly goal in six weeks; Japan's 2023 Act asks local governments to set up councils on loneliness."
+    },
+    "a-bench-where-saying-hello-is-expected": {
+      "title": "A park bench where saying hello is expected",
+      "line": "There's a bench near me with a sign saying it's fine to sit and chat, so I can start a conversation without feeling strange.",
+      "lens": "community",
+      "ambition": "together",
+      "exemplarRefs": [
+        "happy-to-chat-benches",
+        "friendship-bench-zimbabwe"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202910",
+        "locator": "dreams.json#a-bench-where-saying-hello-is-expected",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Avon and Somerset Police chat benches. A small public change that gives people permission to talk."
+    }
+  },
+  "overlaps": [
+    {
+      "a": "a-weekly-group-that-notices-when-im-missing",
+      "b": "a-workshop-where-i-build-things-with-others",
+      "reason": "Both are a regular group where you get to know people over repeated weeks; the workshop could read as one example of the weekly group."
+    },
+    {
+      "a": "neighbors-i-eat-dinner-with-every-week",
+      "b": "living-alongside-people-of-a-different-age",
+      "reason": "Both are about sharing a home with neighbors you see often, and both cite the Seattle cohousing building."
+    },
+    {
+      "a": "back-in-touch-with-an-old-friend",
+      "b": "a-friend-i-talk-with-every-week",
+      "reason": "Reconnecting with an old friend can be the start of having a close friend you talk with every week."
+    },
+    {
+      "a": "neighbors-i-eat-dinner-with-every-week",
+      "b": "a-town-where-eating-with-strangers-is-normal",
+      "reason": "Both make shared meals the way people meet; one in a building every week, the other across a town a few times a year."
+    },
+    {
+      "a": "someone-glad-to-hear-from-me-tonight",
+      "b": "a-city-that-answers-when-i-call-about-loneliness",
+      "reason": "Both are a line you can call when lonely; the city one adds a local council that follows up."
+    }
+  ]
+}

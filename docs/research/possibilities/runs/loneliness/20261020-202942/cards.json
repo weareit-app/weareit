@@ -1,0 +1,742 @@
+{
+  "schemaVersion": 1,
+  "painId": "loneliness",
+  "runId": "20261020-202942",
+  "cards": {
+    "lonely-old-friends-back": {
+      "title": "Old friends back in touch after years of quiet",
+      "line": "I sent the message I kept putting off, and an old friend wrote back glad to hear from me.",
+      "lens": "relational",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "lonely-old-friends-text",
+          "title": "Send a short note to one friend you’ve lost touch with",
+          "whatChanges": "In 2022, researchers at the University of Pittsburgh found that people sending a short message to someone they hadn’t talked with in a while badly underestimated how much it would be appreciated. The more out of the blue the message was, the more it meant to the person getting it.",
+          "who": "You",
+          "exemplarRef": "liu-reaching-out",
+          "speculative": false,
+          "firstStep": "Scroll back through your messages, pick one person you haven’t talked to in a year, and send them two lines about something that reminded you of them.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "lonely-old-friends-call",
+          "title": "Set up a standing phone call with one friend",
+          "whatChanges": "A call on the same day each week or every other week means nobody has to decide when to talk again. Pick a time when you’re usually alone anyway, such as your drive home.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Text one friend and ask whether a call every other Sunday morning would suit them.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "schedule",
+          "speculativeRationale": "A common basic; no study of standing calls was opened in this run."
+        },
+        {
+          "id": "lonely-old-friends-nudges",
+          "title": "Reminders to get back in touch with people you miss",
+          "whatChanges": "Keeps a private list of the people you’d like to stay close to, notices when it’s been a while since you talked, and suggests a short note to send. Most people are gladder to hear from you than you’d guess, and a nudge at the right moment makes it easy to act on that.",
+          "who": "You and It",
+          "exemplarRef": "liu-reaching-out",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down three people you miss.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202942",
+        "locator": "cards.json#lonely-old-friends-back",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Relational, tonight. Liu 2022 is the surprise hook. Standing call is the obvious basic. Feature: tracking and nudges."
+    },
+    "lonely-chats-with-strangers": {
+      "title": "Friendly little chats with strangers during my day",
+      "line": "On the bus or at the coffee counter I talk with someone for a minute, and I walk away feeling less invisible.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "lonely-strangers-commute",
+          "title": "Say a few words to the person next to you on your commute",
+          "whatChanges": "In a 2014 study, bus and train commuters in Chicago who were asked to talk with a stranger had a happier ride than those who kept to themselves. Other commuters had predicted the opposite, which is why most of us stay quiet.",
+          "who": "You",
+          "exemplarRef": "epley-commuters",
+          "speculative": false,
+          "firstStep": "Tomorrow, when you sit down on the bus or train, ask the person beside you one easy question about the route or the weather.",
+          "firstStepMinutes": 2,
+          "status": "real_now",
+          "kind": "habit"
+        },
+        {
+          "id": "lonely-strangers-barista",
+          "title": "Chat with the cashier or barista instead of rushing through",
+          "whatChanges": "In a 2014 study, coffee shop customers who smiled, made eye contact, and chatted briefly with the barista felt better and more like they belonged than customers who kept it quick. These small exchanges with near-strangers add up over a day.",
+          "who": "You",
+          "exemplarRef": "sandstrom-weak-ties",
+          "speculative": false,
+          "firstStep": "Next time you pay for something, ask the person at the register how their day is going and wait for the answer.",
+          "firstStepMinutes": 2,
+          "status": "real_now",
+          "kind": "habit"
+        },
+        {
+          "id": "lonely-strangers-practice",
+          "title": "Get comfortable starting short conversations",
+          "whatChanges": "Opening a conversation with a stranger is a skill, and it gets easier with repetition. Researchers who studied this in 2014 found people expect strangers to be less interested in talking than they really are.",
+          "who": "You",
+          "exemplarRef": "epley-commuters",
+          "speculative": false,
+          "firstStep": "Pick one opener you’d be comfortable saying, like “Is this the line for coffee?”, and use it once today.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "practice",
+          "featureIdea": "Suggests one easy opener before your day starts and asks that evening how it went."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202942",
+        "locator": "cards.json#lonely-chats-with-strangers",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Individual, tonight. Epley commuters and Sandstrom barista are both surprising and doable today. Practice carries the coaching feature idea."
+    },
+    "lonely-adult-friend": {
+      "title": "A close friend I made as an adult",
+      "line": "I’ve spent enough evenings with someone I met this year that we both call each other a friend now.",
+      "lens": "individual",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "lonely-adult-friend-hours",
+          "title": "Know how much time it takes to turn an acquaintance into a friend",
+          "whatChanges": "A 2018 University of Kansas study estimated about 50 hours together to become casual friends, 90 hours to become friends, and more than 200 hours to become good friends. Hanging out counts much more than working side by side, so a coworker you only see at meetings stays a coworker.",
+          "who": "You",
+          "exemplarRef": "hall-hours",
+          "speculative": false,
+          "firstStep": "Think of one person you like but only see in passing, and count roughly how many hours you’ve actually spent together.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "learn"
+        },
+        {
+          "id": "lonely-adult-friend-weekly-run",
+          "title": "Go to the same free weekly run or walk in a park",
+          "whatChanges": "parkrun holds free, timed 5 km events in parks every week, and you can walk it or help out as a volunteer instead. In a 2018 survey in the United Kingdom, 83.5% of people who only volunteered said it made them feel more part of a community.",
+          "who": "You",
+          "exemplarRef": "parkrun-volunteers",
+          "speculative": false,
+          "firstStep": "Look up whether there’s a parkrun near you and put the next one on your calendar.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "schedule"
+        },
+        {
+          "id": "lonely-adult-friend-matching",
+          "title": "Small-group introductions to nearby people who also want friends",
+          "whatChanges": "Lets you say privately that you’d like new friends and what you enjoy doing, then introduces small groups of nearby people only once enough of them want the same thing. Timeleft already seats six strangers together for dinner every Wednesday in more than 200 cities, which shows people will show up when someone else does the arranging.",
+          "who": "You and It",
+          "exemplarRef": "timeleft",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down two things you’d happily do with new people.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "lonely-adult-friend-followup",
+          "title": "Follow-up after you meet someone you liked",
+          "whatChanges": "Asks a few days after you meet someone whether you’d like to see them again, and suggests a simple next plan to propose. Friendships grow from repeated time together, and the second invitation is the one most people never send.",
+          "who": "You and It",
+          "exemplarRef": "hall-hours",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and think of one person you met recently and would see again.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202942",
+        "locator": "cards.json#lonely-adult-friend",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Individual, this year. Hall 2018 hour counts are the surprising frame; parkrun gives repeated time. Two features: threshold match (Timeleft as demand evidence), and clarifying follow-up."
+    },
+    "lonely-neighbors-know-me": {
+      "title": "Neighbors who know my name and notice me",
+      "line": "I know the people on my street by name, and a few of them would knock if they hadn’t seen me in a while.",
+      "lens": "community",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "lonely-neighbors-giving",
+          "title": "Sign up for a free giving group for your neighborhood",
+          "whatChanges": "Buy Nothing groups let neighbors give, lend, and borrow things for free, with no selling, and more than 4.27 million people belong to one. In Lansdowne, Pennsylvania, neighbors on one block who met this way started their own group chat.",
+          "who": "You",
+          "exemplarRef": "buy-nothing",
+          "speculative": false,
+          "firstStep": "Search for a Buy Nothing group for your neighborhood and post one thing you’d give away.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "group"
+        },
+        {
+          "id": "lonely-neighbors-street-lunch",
+          "title": "Host a shared lunch on your street",
+          "whatChanges": "In the United Kingdom, some 6 million people take part in the Big Lunch each June, when neighbors bring food out to the street or a shared yard. Bringing a dish is a low-pressure way to meet the people you’ve only nodded to.",
+          "who": "You",
+          "exemplarRef": "big-lunch",
+          "speculative": false,
+          "firstStep": "Pick a Saturday next month and slip a note under five neighbors’ doors asking whether they’d bring a dish.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "project"
+        },
+        {
+          "id": "lonely-neighbors-signup",
+          "title": "Shared signup for a neighborhood meal",
+          "whatChanges": "Lets one neighbor propose a date for a street meal, shows who has said yes, and splits who brings tables, chairs, and food, so the host isn’t doing it alone. The Big Lunch shows how far the idea can go when the planning is easy.",
+          "who": "You, your neighbors, and It",
+          "exemplarRef": "big-lunch",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and pick a date that would work for a meal on your street.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202942",
+        "locator": "cards.json#lonely-neighbors-know-me",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Community, this year. Buy Nothing (low effort) plus Big Lunch (project). Feature: pooled signup."
+    },
+    "lonely-weekly-table": {
+      "title": "A weekly dinner where people expect me",
+      "line": "One night a week I eat at a long table with the same faces, and they’d ask where I was if I missed it.",
+      "lens": "culture",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "lonely-table-strangers",
+          "title": "Sign up for a dinner with five strangers",
+          "whatChanges": "Timeleft, an app, seats six strangers together at a restaurant every Wednesday in more than 200 cities. The app charges a monthly fee, so try one month before deciding whether it’s for you.",
+          "who": "You",
+          "exemplarRef": "timeleft",
+          "speculative": false,
+          "firstStep": "Check whether Timeleft runs dinners in your city and look at the next Wednesday’s date.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "group"
+        },
+        {
+          "id": "lonely-table-start",
+          "title": "Start a weekly community dinner at a church or community center",
+          "whatChanges": "In Copenhagen, community houses like Absalon serve dinner at long tables, and the host seats people who come alone beside friendly regulars. Meals there usually cost between 30 and 100 Danish kroner, so cost isn’t what keeps people away.",
+          "who": "You",
+          "exemplarRef": "absalon",
+          "speculative": false,
+          "firstStep": "Ask a local church or community center whether their kitchen sits empty one weeknight a month.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "new-group"
+        },
+        {
+          "id": "lonely-table-two-friends",
+          "title": "Invite the same two people over for dinner every other week",
+          "whatChanges": "Having the same people back on a regular schedule turns a nice evening into a habit nobody has to plan. Keep the meal simple enough that you’d never cancel over it.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Text two people you like and suggest a simple dinner at your place on the same night every other week.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "schedule",
+          "speculativeRationale": "A common basic; no source on repeated dinners was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202942",
+        "locator": "cards.json#lonely-weekly-table",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Culture, this year. Absalon / fællesspisning is the surprising precedent; Timeleft is the existing route; repeated home dinner is the basic."
+    },
+    "lonely-shared-roof": {
+      "title": "Sharing my home with someone I get along with",
+      "line": "Someone I like lives under the same roof, and we have dinner together a few nights a week.",
+      "lens": "market",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "lonely-roof-homeshare",
+          "title": "Rent your spare room to a younger person who helps around the house",
+          "whatChanges": "Nesterly connects older people who have rooms to spare with younger renters, who help out around the house in exchange for lower rent. The service launched in 2016 in partnership with the city of Boston.",
+          "who": "You",
+          "exemplarRef": "nesterly",
+          "speculative": false,
+          "firstStep": "Walk through your home and decide which room you’d be comfortable offering, and what help would make the rent worth lowering.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "resource"
+        },
+        {
+          "id": "lonely-roof-cohousing",
+          "title": "Visit a cohousing community near you",
+          "whatChanges": "In cohousing, households have their own homes around a shared common house, and residents regularly share meals. Muir Commons in Davis, California, opened in 1991, and more than 160 communities in 25 states have followed.",
+          "who": "You",
+          "exemplarRef": "cohousing",
+          "speculative": false,
+          "firstStep": "Search for cohousing communities in your state and sign up for the next public tour or open meal.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202942",
+        "locator": "cards.json#lonely-shared-roof",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Market, this year. Living arrangements are a real lever on daily contact. Nesterly (homeshare) and cohousing."
+    },
+    "lonely-checked-on": {
+      "title": "A friendly call every week when I live alone",
+      "line": "Someone calls to ask how I’m doing, and if I don’t pick up, they try again.",
+      "lens": "community",
+      "ambition": "tonight",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "lonely-checked-on-friendship-line",
+          "title": "Sign up for free check-in calls for older adults",
+          "whatChanges": "In California, the Institute on Aging’s Friendship Line answers 24/7 at 888-670-1360 for people 60 and older, adults with disabilities, and caregivers. If you fill out its intake form, the line will call you on a regular schedule.",
+          "who": "You",
+          "exemplarRef": "friendship-line",
+          "speculative": false,
+          "firstStep": "Call 888-670-1360 and ask how to sign up for regular outreach calls.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "resource"
+        },
+        {
+          "id": "lonely-checked-on-eldercare",
+          "title": "Call a free national line to find programs for older adults near you",
+          "whatChanges": "The Eldercare Locator, a public service of the federal Administration for Community Living, points you to local programs, including your Area Agency on Aging. Call or text 1-800-677-1116, or search by location online.",
+          "who": "You",
+          "exemplarRef": "eldercare-locator",
+          "speculative": false,
+          "firstStep": "Call or text 1-800-677-1116 and ask what visiting or phone programs run in your area.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "resource"
+        },
+        {
+          "id": "lonely-checked-on-daily-text",
+          "title": "Daily check-in text that alerts someone you chose",
+          "whatChanges": "Sends a short good-morning text each day and, if you haven’t answered by a time you set, lets a neighbor or friend you picked know to check on you. In England, a pilot had postal workers check on lonely people during their usual delivery rounds.",
+          "who": "You, someone you trust, and It",
+          "exemplarRef": "uk-strategy",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and think of one neighbor or friend you’d trust to check on you.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202942",
+        "locator": "cards.json#lonely-checked-on",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Community, tonight. Basics for people living alone: Friendship Line (California only, stated by place) and Eldercare Locator nationally. Feature: tracking/check-in, with the England postal pilot as precedent."
+    },
+    "lonely-heavy-nights": {
+      "title": "Someone to talk to on the heaviest nights",
+      "line": "On the nights when the quiet gets to me, I can talk to a real person within a few minutes.",
+      "lens": "policy",
+      "ambition": "tonight",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "lonely-heavy-988",
+          "title": "Call or text 988 when loneliness turns into despair",
+          "whatChanges": "The 988 Lifeline is free, confidential, and open 24/7 by call, text, or chat. The line says it’s for everyone, including people who simply want someone to talk to, not only people in crisis.",
+          "who": "You",
+          "exemplarRef": "lifeline-988",
+          "speculative": false,
+          "firstStep": "Save 988 in your phone’s contacts under a name you’ll recognize on a hard night.",
+          "firstStepMinutes": 2,
+          "status": "existing_resource",
+          "kind": "resource"
+        },
+        {
+          "id": "lonely-heavy-call-not-scroll",
+          "title": "Call one person instead of scrolling",
+          "whatChanges": "Americans spent about 20 minutes a day with friends in person in 2020, down from 60 minutes nearly two decades earlier, according to the Surgeon General’s 2023 advisory. A phone call is the closest thing to that time when nobody can come over.",
+          "who": "You",
+          "exemplarRef": "surgeon-general-2023",
+          "speculative": false,
+          "firstStep": "Before you open an app tonight, call one person and ask how their week went.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "lonely-heavy-directory",
+          "title": "List of free talk lines that serve where you live",
+          "whatChanges": "Finds the free phone and text lines that serve your area and your age, including peer-run lines for people who want to talk without a crisis, so you know whom to call before a hard night comes.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you’d use this, and save 988 in your phone today.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Directory pattern; no listing of local talk lines was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202942",
+        "locator": "cards.json#lonely-heavy-nights",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Policy (public crisis line), tonight. Sensitive: 988 as existing_resource; no clinical advice. Feature: directory."
+    },
+    "lonely-same-crew": {
+      "title": "Volunteering next to the same people every week",
+      "line": "Every week I work alongside the same crew, and some of them have become people I’d call.",
+      "lens": "community",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "lonely-crew-shift",
+          "title": "Pick a weekly volunteer shift near you, with the same team each time",
+          "whatChanges": "Idealist, which VolunteerMatch merged into in 2025, lists over 100,000 volunteer opportunities you can search within 5 miles of home. Choose one that repeats on the same day each week, since seeing the same people is what turns into friendship.",
+          "who": "You",
+          "exemplarRef": "idealist-volunteer",
+          "speculative": false,
+          "firstStep": "Search Idealist for volunteer opportunities within 5 miles and save one that meets weekly.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "lonely-crew-workshop",
+          "title": "Join a community workshop where people build and fix things together",
+          "whatChanges": "In Australia, Men’s Sheds are community workshops where members build furniture, fix lawn mowers, and restore bicycles for a local school, with a spot to sit and talk afterward. You don’t need to be handy to start, since members teach each other.",
+          "who": "You",
+          "exemplarRef": "mens-shed",
+          "speculative": false,
+          "firstStep": "Search for a community workshop, makerspace, or repair night near you and note when it next meets.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "group"
+        },
+        {
+          "id": "lonely-crew-matching",
+          "title": "Matching your skills to local groups that need regular help",
+          "whatChanges": "Matches what you’re good at and when you’re free to nearby groups that need help on a regular schedule, drawing on public volunteer listings like Idealist’s, so you end up seeing the same people each week.",
+          "who": "You and It",
+          "exemplarRef": "idealist-volunteer",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down one skill and one free evening.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202942",
+        "locator": "cards.json#lonely-same-crew",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Community, this year. Volunteering is a basic made specific (weekly, same team). Mens Shed as precedent. Feature: match people to needs."
+    },
+    "lonely-talking-welcome": {
+      "title": "Stores and parks where talking to strangers is welcome",
+      "line": "At my grocery store there’s a slow checkout lane where the cashier has time to talk, and nobody behind me is in a hurry.",
+      "lens": "market",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "lonely-talking-checkout",
+          "title": "Ask your grocery store manager to open a slow checkout lane for people who want to chat",
+          "whatChanges": "In 2019 the Dutch supermarket chain Jumbo opened its first chat checkout in Vlijmen, and in 2021 it planned chat checkouts in some 200 stores. A store manager can try one lane on a quiet weekday morning without changing anything else.",
+          "who": "You and your store manager",
+          "exemplarRef": "jumbo-kletskassa",
+          "speculative": false,
+          "firstStep": "Next time you shop, ask for the store manager and ask whether they’d try one chatting lane on a weekday morning.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "ask"
+        },
+        {
+          "id": "lonely-talking-bench",
+          "title": "Ask your parks department for benches that invite people to say hello",
+          "whatChanges": "In 2019, police in Burnham and Taunton, in England, put signs on benches that read “Sit here if you don’t mind someone stopping to say hello.” Police there said 17% of older people talk with family, friends, or neighbors less than once a week.",
+          "who": "You and your parks department",
+          "exemplarRef": "chat-bench",
+          "speculative": false,
+          "firstStep": "Find your parks department’s email address and suggest one bench in a busy park for a sign like this.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "ask"
+        },
+        {
+          "id": "lonely-talking-campaign",
+          "title": "Shared request to local stores for a chatting lane",
+          "whatChanges": "Gathers shoppers behind one request to a local store or chain, such as a weekly slow lane for people who want to talk, tracks who has signed on, and delivers it together. Jumbo’s chat checkouts started with one store before the chain planned some 200.",
+          "who": "You, other shoppers, and It",
+          "exemplarRef": "jumbo-kletskassa",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and note which store you’d want to ask.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202942",
+        "locator": "cards.json#lonely-talking-welcome",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Market, together. Jumbo and chat benches are the surprises. Feature: campaign organizing."
+    },
+    "lonely-county-health": {
+      "title": "My county treating loneliness as a health problem",
+      "line": "My county counts loneliness like any other health problem and pays for the things that bring people together.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "lonely-county-declare",
+          "title": "Ask your county board to make loneliness a public health priority",
+          "whatChanges": "In 2024, San Mateo County in California became the first U.S. county to declare loneliness a public health emergency, after a county survey found 45% of residents struggling with loneliness and isolation. The declaration came with no money, so ask for a budget line along with the vote.",
+          "who": "You and your county board",
+          "exemplarRef": "san-mateo",
+          "speculative": false,
+          "firstStep": "Find the public comment form for your county board and write two sentences asking for a vote and a budget line on loneliness.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "ask"
+        },
+        {
+          "id": "lonely-county-referral",
+          "title": "Ask your doctor whether they can refer you to local groups and activities",
+          "whatChanges": "Since 2018, England has planned for doctors to refer lonely patients to community activities and volunteer groups, which is called social prescribing. Your doctor can tell you what’s on offer near you even where no formal program exists.",
+          "who": "You and your doctor",
+          "exemplarRef": "uk-strategy",
+          "speculative": false,
+          "firstStep": "At your next appointment, tell your doctor you’ve been lonely and ask whether they know any local groups or activities.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "ask"
+        },
+        {
+          "id": "lonely-county-campaign",
+          "title": "Campaign for a local loneliness plan",
+          "whatChanges": "Gathers neighbors behind one request to your county, such as money for community dinners or chat benches, tracks who has signed on, and sends it together. San Mateo County’s 2024 vote shows a county board will take up the issue.",
+          "who": "You, your neighbors, and It",
+          "exemplarRef": "san-mateo",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and look up who represents you on your county board.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202942",
+        "locator": "cards.json#lonely-county-health",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Policy, together. San Mateo is the US precedent; England social prescribing via the doctor ask. Feature: campaign organizing."
+    },
+    "lonely-friends-like-health": {
+      "title": "Time with friends counted as seriously as exercise",
+      "line": "I plan time with friends the way I plan workouts, because it matters as much for my health.",
+      "lens": "culture",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "lonely-health-risk",
+          "title": "Know how loneliness compares with other health risks",
+          "whatChanges": "In 2023, the Surgeon General warned that being socially disconnected carries a risk of early death similar to smoking up to 15 cigarettes daily. About half of U.S. adults say they have felt lonely, so you’re far from the only one.",
+          "who": "You",
+          "exemplarRef": "surgeon-general-2023",
+          "speculative": false,
+          "firstStep": "Write down how many hours you spent with friends in person last week, so you have a starting number.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "learn"
+        },
+        {
+          "id": "lonely-health-calendar",
+          "title": "Put time with friends on your calendar like a standing appointment",
+          "whatChanges": "A 2018 University of Kansas study found that hanging out builds friendships far faster than working together does. Blocking the same evening each week for friends, and treating it like a doctor’s appointment, protects those hours.",
+          "who": "You",
+          "exemplarRef": "hall-hours",
+          "speculative": false,
+          "firstStep": "Open your calendar and block one evening next week for time with a friend, then invite someone.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "schedule"
+        },
+        {
+          "id": "lonely-health-tracker",
+          "title": "Private weekly count of time spent with people you like",
+          "whatChanges": "Tracks privately how many hours you spent with friends each week and nudges you when it slips, measured against the roughly 50 hours a University of Kansas study found it takes to become casual friends.",
+          "who": "You and It",
+          "exemplarRef": "hall-hours",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and jot down this week’s hours with friends.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202942",
+        "locator": "cards.json#lonely-friends-like-health",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Culture, this year. Reframes the obvious (see friends) as health, with the advisory. Feature: tracking and nudges."
+    },
+    "lonely-meet-neighbors": {
+      "title": "Meeting neighbors who also want to meet",
+      "line": "I said privately that I’d like to meet people nearby, and once enough neighbors said the same, we met for coffee.",
+      "lens": "technology",
+      "ambition": "this-year",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "lonely-meet-threshold",
+          "title": "Private signup to meet neighbors that opens once enough join",
+          "whatChanges": "Lets you say privately that you’d like to meet neighbors, and introduces you only once enough people nearby have said the same, so nobody risks being the only one. Front Porch Forum in Vermont works on a similar rule: a new neighborhood forum opens fully once 100 residents sign up.",
+          "who": "You, your neighbors, and It",
+          "exemplarRef": "front-porch-forum",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and think of a nearby spot where you’d meet for coffee.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "lonely-meet-forum",
+          "title": "Real-name forum for your neighborhood",
+          "whatChanges": "Starts a moderated, real-name forum for your neighborhood, where people post about lost cats, spare tomatoes, and street meals. In Vermont, Front Porch Forum is available in all 251 towns, and nearly 60,000 households take part.",
+          "who": "You, your neighbors, and It",
+          "exemplarRef": "front-porch-forum",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and ask one neighbor whether they’d sign up too.",
+          "firstStepMinutes": 10,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "lonely-meet-directory",
+          "title": "List of regular local activities that welcome newcomers",
+          "whatChanges": "Lists the free groups near you that meet on a regular schedule, such as volunteer shifts, community dinners, and walking groups, drawing on public listings like Idealist’s, so you can pick one and keep showing up.",
+          "who": "You and It",
+          "exemplarRef": "idealist-volunteer",
+          "speculative": false,
+          "firstStep": "Tell us you’d use this, and write down one activity you’d try if you knew where it met.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202942",
+        "locator": "cards.json#lonely-meet-neighbors",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "It-led card. Threshold match, neighborhood forum (FPF), and a directory."
+    },
+    "lonely-regular-place": {
+      "title": "A place I go where people know me by sight",
+      "line": "There’s a café or library where the staff and regulars know my face and notice when I’ve been away.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "lonely-regular-same-time",
+          "title": "Go to the same café at the same time each week",
+          "whatChanges": "Showing up at the same time means you see the same staff and regulars, and small talk with near-strangers counts. In a 2014 study, coffee shop customers who chatted briefly with the barista felt a greater sense of belonging than those who kept it quick.",
+          "who": "You",
+          "exemplarRef": "sandstrom-weak-ties",
+          "speculative": false,
+          "firstStep": "Pick one café, library, or diner you like and decide on a regular day and hour to go.",
+          "firstStepMinutes": 5,
+          "status": "real_now",
+          "kind": "habit"
+        },
+        {
+          "id": "lonely-regular-library",
+          "title": "Go to a free weekly event at your library",
+          "whatChanges": "Most public libraries run free events that repeat each week, like book clubs, craft hours, and language conversation groups. Repeating the same event is what turns faces into names.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Look up your library’s events calendar and pick one that repeats weekly.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "schedule",
+          "speculativeRationale": "A common basic; no particular library calendar was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202942",
+        "locator": "cards.json#lonely-regular-place",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Individual, tonight. The third-place basic, made specific with Sandstrom. Library is a speculative basic."
+    }
+  }
+}

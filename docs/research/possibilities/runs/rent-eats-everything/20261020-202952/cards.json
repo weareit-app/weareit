@@ -1,0 +1,815 @@
+{
+  "schemaVersion": 1,
+  "painId": "rent-eats-everything",
+  "runId": "20261020-202952",
+  "cards": {
+    "rent-tax-credit": {
+      "title": "Getting some of my rent back at tax time",
+      "line": "Every year I claim the renter's credits and rebates my state offers, so part of what I paid in rent comes back to me.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "rent-tax-credit-claim",
+          "title": "Claim your state's renter's tax credit",
+          "whatChanges": "Minnesota gives renters a refundable credit of up to $2,720 for 2025 when household income is under $77,570. Landlords there must hand every tenant a Certificate of Rent Paid by January 31, and you file it with your state tax return.",
+          "who": "You",
+          "exemplarRef": "mn-renters-credit",
+          "speculative": false,
+          "firstStep": "Search your state revenue department's site for \"renter's credit\" and note whether it asks for a form from your landlord.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "resource",
+          "method": {
+            "provider": "State revenue department",
+            "eligibility": "Renters under the state's income limit",
+            "access": "State tax return",
+            "bring": "Rent paid last year and any landlord rent form"
+          }
+        },
+        {
+          "id": "rent-tax-credit-rebate",
+          "title": "Apply for a rent rebate if you're older or have a disability",
+          "whatChanges": "Pennsylvania's Property Tax/Rent Rebate pays renters up to $1,000 for rent paid in 2025 if they're 65 or older, widowed and 50 or older, or have a disability, with income up to $48,110. Most people get a few hundred dollars, and applications for that year stay open until December 31, 2026.",
+          "who": "You",
+          "exemplarRef": "pa-rent-rebate",
+          "speculative": false,
+          "firstStep": "Write down last year's total rent and income, then check whether your state has a rebate for older or disabled renters.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "resource"
+        },
+        {
+          "id": "rent-tax-credit-lookup",
+          "title": "Lookup of renter credits and rebates in your state",
+          "whatChanges": "Checks your state and city for renter's tax credits, rent rebates, and utility help you qualify for, from state revenue and benefits pages. Reminds you in January which form to ask your landlord for, like the Certificate of Rent Paid that Minnesota landlords must provide.",
+          "who": "You and It",
+          "exemplarRef": "mn-renters-credit",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and save last year's rent receipts or bank records in one folder.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202952",
+        "locator": "cards.json#rent-tax-credit",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Basic but little known: many renters never claim state credits. Feature pattern: directory or lookup plus tracking/nudge."
+    },
+    "rent-short-month": {
+      "title": "Covering the rent and power bill in a short month",
+      "line": "When a month comes up short, I know who to call for help with rent or utilities before I fall behind.",
+      "lens": "community",
+      "ambition": "tonight",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "rent-short-month-211",
+          "title": "Call 211 to find rent and utility help near you",
+          "whatChanges": "Dial 211 and you reach a person who knows the local programs that help pay rent, mortgage, and utility bills, and who can connect you with your housing authority. United Way runs the national 211 site, and what's available depends on what local programs have that month.",
+          "who": "You",
+          "exemplarRef": "united-way-211",
+          "speculative": false,
+          "firstStep": "Call 211 today and ask which programs near you help with rent this month.",
+          "firstStepMinutes": 15,
+          "status": "existing_resource",
+          "kind": "resource"
+        },
+        {
+          "id": "rent-short-month-energy",
+          "title": "Apply for help with your heating or cooling bill",
+          "whatChanges": "Each state runs the federal Low Income Home Energy Assistance Program to help pay heating or cooling bills and cover emergencies like a shutoff. Money that doesn't go to the power company is money you can put toward rent.",
+          "who": "You",
+          "exemplarRef": "liheap",
+          "speculative": false,
+          "firstStep": "Look up your state's energy assistance office on usa.gov and check its income limit.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "resource"
+        },
+        {
+          "id": "rent-short-month-open-now",
+          "title": "List of rent help programs open this month",
+          "whatChanges": "Shows which rent and utility help programs near you are taking applications right now, from 211 listings and state program pages, and what papers each one asks for. Checks back a week later to ask whether the help came through and what to try next.",
+          "who": "You and It",
+          "exemplarRef": "united-way-211",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and put your lease, ID, and last pay stub in one place.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202952",
+        "locator": "cards.json#rent-short-month",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Basics tonight: 211 and energy aid. Feature: directory plus clarifying follow-up."
+    },
+    "rent-renewal": {
+      "title": "Renewing my lease without a big rent jump",
+      "line": "When my lease comes up, I ask for a better deal and walk in knowing what similar places nearby cost.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "rent-renewal-negotiate",
+          "title": "Negotiate your rent before you sign the renewal",
+          "whatChanges": "In a 2023 survey by Avail, a rental platform, only 28% of renters tried to negotiate at their last renewal, and about 1 in 4 who tried got a lower price. Offering a longer lease or pointing to years of on-time payments gives your landlord a reason to say yes.",
+          "who": "You",
+          "exemplarRef": "avail-negotiation",
+          "speculative": false,
+          "firstStep": "Write down how long you've lived there and how many times you've paid late, so you have your case in two lines.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "practice",
+          "featureIdea": "Helps you rehearse the renewal conversation with your landlord and checks in afterward on what they offered."
+        },
+        {
+          "id": "rent-renewal-concessions",
+          "title": "Screenshot nearby listings that offer free rent or waived fees",
+          "whatChanges": "Nearly 40% of rental listings on Zillow in April 2026 offered a deal like a free month of rent or waived fees, and in Denver it was more than two in three. A nearby unit's deal gives you something concrete to ask your landlord to match.",
+          "who": "You",
+          "exemplarRef": "zillow-concessions",
+          "speculative": false,
+          "firstStep": "Search listings within a mile of you with the same number of bedrooms and save three that offer a deal.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "rent-renewal-compare",
+          "title": "Comparison of your rent with nearby rents",
+          "whatChanges": "Compares your rent with the government's fair market rent for your ZIP code and bedroom count, from HUD's Small Area Fair Market Rents, and with current listings nearby. Tells you whether your rent is high, typical, or low before you talk to your landlord.",
+          "who": "You and It",
+          "exemplarRef": "fair-market-rent-map",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and write down your rent, bedrooms, and ZIP code.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202952",
+        "locator": "cards.json#rent-renewal",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Basic made useful with the 28% / 1 in 4 numbers. Practice needs featureIdea. Feature uses public SAFMR data."
+    },
+    "rent-legal-limit": {
+      "title": "Knowing the legal limit on my rent increase",
+      "line": "I know the most my landlord is allowed to raise my rent this year, and I push back when a notice goes over it.",
+      "lens": "policy",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "rent-legal-limit-learn",
+          "title": "Know your state's cap on yearly rent increases",
+          "whatChanges": "California caps most yearly increases at 5% plus local inflation, or 10%, whichever is lower; in Alameda the cap is 6.3% through July 2026. Buildings in their first 15 years are exempt, so check your building's age.",
+          "who": "You",
+          "exemplarRef": "ca-ab1482",
+          "speculative": false,
+          "firstStep": "Search your state or city name with \"rent increase limit\" and note the current percentage.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "learn",
+          "method": {
+            "ableTo": "Tell whether a rent increase notice is legal",
+            "useWhen": "A rent increase notice arrives"
+          }
+        },
+        {
+          "id": "rent-legal-limit-report",
+          "title": "Report an illegal rent increase to your state attorney general",
+          "whatChanges": "In 2023 California's attorney general settled with a Silicon Valley property manager accused of raising rents an average of 151%, far over the cap. More than $300,000 was expected to go back to tenants.",
+          "who": "You",
+          "exemplarRef": "ca-ag-enforcement",
+          "speculative": false,
+          "firstStep": "Find the consumer complaint form on your attorney general's website and save the link with your lease.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "resource"
+        },
+        {
+          "id": "rent-legal-limit-checker",
+          "title": "Rent increase notice checker",
+          "whatChanges": "Checks a rent increase notice against your state and city limits, including which buildings are exempt, and drafts a letter to your landlord if the increase is over the legal cap.",
+          "who": "You and It",
+          "exemplarRef": "ca-ab1482",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and photograph your last rent increase notice.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202952",
+        "locator": "cards.json#rent-legal-limit",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Uses existing caps; the 'together' card on getting a cap is separate."
+    },
+    "rent-no-junk-fees": {
+      "title": "Paying the rent I was quoted, without fees on top",
+      "line": "The price on the listing is what I actually pay each month, with no surprise fees for parking, trash, or paying online.",
+      "lens": "market",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "rent-no-junk-fees-total",
+          "title": "Get every required monthly fee in writing before you sign",
+          "whatChanges": "Parking, amenity, trash, and payment fees can add a lot to an advertised rent. Ask for a written list of every required monthly charge and compare apartments by the total, not the base rent.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Email the leasing office and ask for a list of every required monthly charge.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task",
+          "speculativeRationale": "Common renter advice; no single source with numbers was opened for this fix."
+        },
+        {
+          "id": "rent-no-junk-fees-learn",
+          "title": "Know whether your state requires the full price in rent ads",
+          "whatChanges": "Since January 1, 2026, Colorado landlords must show the total price in ads, say what any extra fee is for, and keep renters' fee increases to 2% a year. If your state has a similar rule, a fee left out of the ad is worth questioning.",
+          "who": "You",
+          "exemplarRef": "colorado-junk-fees",
+          "speculative": false,
+          "firstStep": "Search your state attorney general's site for \"junk fees\" and \"rent\".",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "learn",
+          "method": {
+            "ableTo": "Spot a rental fee that your state's law doesn't allow",
+            "useWhen": "Comparing listings or reading a new lease"
+          }
+        },
+        {
+          "id": "rent-no-junk-fees-ask",
+          "title": "Ask your state representative to back an all-in rent price law",
+          "whatChanges": "Colorado now requires the full price in rent ads. The law's sponsor, Naquetta Ricks, said junk fees often aren't disclosed until a consumer is ready to check out.",
+          "who": "You",
+          "exemplarRef": "colorado-junk-fees",
+          "speculative": false,
+          "firstStep": "Find your state representative's email and send two sentences about one fee you didn't see coming.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "ask",
+          "method": {
+            "decisionMaker": "Your state representative",
+            "request": "Will you sponsor or co-sponsor a bill requiring rent listings to show the full monthly price?"
+          }
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202952",
+        "locator": "cards.json#rent-no-junk-fees",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Market lens. Proposal framed as an ask."
+    },
+    "rent-who-owns": {
+      "title": "Knowing who really owns my building",
+      "line": "I can see who owns my building behind the company name, what else they own, and how they treat tenants there.",
+      "lens": "technology",
+      "ambition": "this-year",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "rent-who-owns-lookup",
+          "title": "Landlord lookup that lists every building they own",
+          "whatChanges": "Finds who owns your building behind the company name, lists their other buildings, and shows code violations and eviction filings from public property and court records. New York's Who Owns What does this from city registration data covering more than 170,000 buildings.",
+          "who": "You and It",
+          "exemplarRef": "who-owns-what",
+          "speculative": false,
+          "firstStep": "Tell us you'd use this, and look up your building's owner on your county's property records site.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature"
+        },
+        {
+          "id": "rent-who-owns-match",
+          "title": "Private match with other tenants of your landlord",
+          "whatChanges": "Lets you say privately that you'd talk with other tenants of the same landlord, and introduces you only once enough people in your building or their other buildings say the same.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this, and write down one thing you'd want to ask other tenants of your landlord.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Private match at a threshold pattern; no precedent for matching tenants by landlord was opened in this run."
+        },
+        {
+          "id": "rent-who-owns-records",
+          "title": "Look up your building's owner in county property records",
+          "whatChanges": "Most counties post property owners online. When the owner is a company, your state's business registry often lists the person or firm behind it, which tells you whether you're dealing with a neighbor or a large investor.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Search your county assessor's site for your address and write down the owner's name.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task",
+          "speculativeRationale": "General public-records practice; county sites vary and none was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202952",
+        "locator": "cards.json#rent-who-owns",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "It-led card. Feature patterns: directory/lookup and private match at a threshold."
+    },
+    "rent-bargain-together": {
+      "title": "Bargaining over rent as a whole building",
+      "line": "My neighbors and I negotiate with our landlord together, and the deal we win covers all of us.",
+      "lens": "community",
+      "ambition": "this-year",
+      "status": "real_now",
+      "fixes": [
+        {
+          "id": "rent-bargain-together-union",
+          "title": "Join your city's tenant union",
+          "whatChanges": "In Kansas City, tenants at Independence Towers withheld rent for eight months. In June 2025 the new owner agreed to keep most rents where they were for a year, fix the heating and cooling by November, and take $75 a month off until it was done.",
+          "who": "You",
+          "exemplarRef": "kc-independence-towers",
+          "speculative": false,
+          "firstStep": "Search your city's name with \"tenant union\" and sign up for their next meeting.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "group",
+          "method": {
+            "whatMembersDo": "Meet, document problems, and negotiate with landlords together",
+            "howToFind": "Search your city with \"tenant union\" or ask your local legal aid office"
+          }
+        },
+        {
+          "id": "rent-bargain-together-start",
+          "title": "Start a tenant association in your building",
+          "whatChanges": "Knock on a few doors and ask one question: what repair or rent increase bothers people most? A group that can say it speaks for most of the building is much harder for a landlord to ignore than one tenant.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Write a one-line note with your name and unit inviting neighbors to talk about the rent, and slip it under three doors.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "new-group",
+          "speculativeRationale": "Standard organizing advice; the Kansas City example is cited on the sibling fix.",
+          "method": {
+            "whoFor": "Tenants of one building",
+            "whatMembersDo": "Agree on shared requests and meet the landlord together",
+            "firstTest": "Half the units sign one shared letter",
+            "existingFirst": "A citywide tenant union that already organizes buildings"
+          }
+        },
+        {
+          "id": "rent-bargain-together-campaign",
+          "title": "Shared building request that tracks who has signed",
+          "whatChanges": "Gathers your building's tenants behind one written request to the landlord, keeps a private count of who has signed, and sends it together once most units are on board.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this, and write the one request your building would most likely agree on.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Campaign organizing pattern; no tool for building-level petitions was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202952",
+        "locator": "cards.json#rent-bargain-together",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Community lens, power. Rent strike risk lives in exemplar limits."
+    },
+    "rent-home-share": {
+      "title": "Renting a room in a shared home for far less",
+      "line": "I rent a room from someone who has space to spare, and we both come out ahead on money and company.",
+      "lens": "relational",
+      "ambition": "this-year",
+      "status": "existing_resource",
+      "fixes": [
+        {
+          "id": "rent-home-share-match",
+          "title": "Rent a room from an older homeowner through a home-share service",
+          "whatChanges": "Nesterly, in Boston, pairs older homeowners who have spare rooms with younger renters. One graduate student paid $650 a month, less than half the cost of a studio, and took out the trash and shoveled snow as part of the deal.",
+          "who": "You",
+          "exemplarRef": "nesterly",
+          "speculative": false,
+          "firstStep": "Search your city's name with \"home sharing program\" and see whether one screens both sides.",
+          "firstStepMinutes": 10,
+          "status": "existing_resource",
+          "kind": "resource"
+        },
+        {
+          "id": "rent-home-share-ask",
+          "title": "Ask someone you know about renting their spare room",
+          "whatChanges": "A relative, a friend's parent, or a neighbor with an empty bedroom often hasn't thought of renting it out. Offering help around the house in exchange for lower rent makes the request easier to say yes to.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Write down two people you know who have a spare room.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "ask",
+          "speculativeRationale": "Common arrangement; no source with numbers was opened for informal room rentals.",
+          "method": {
+            "decisionMaker": "A relative, friend, or neighbor with a spare room",
+            "request": "Would you rent me your spare room for a set monthly amount, with help around the house?"
+          }
+        },
+        {
+          "id": "rent-home-share-trade",
+          "title": "Match with homeowners who'd trade a room for help",
+          "whatChanges": "Matches you with homeowners nearby who'd lower the rent on a spare room in exchange for help like shoveling, groceries, or rides, and asks both sides what a fair trade looks like before you meet.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this, and list the chores you'd happily do each week.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Match people to needs pattern; the Boston service is cited on the sibling fix."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202952",
+        "locator": "cards.json#rent-home-share",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Relational lens."
+    },
+    "rent-more-homes": {
+      "title": "Enough new apartments nearby that rents come down",
+      "line": "My city builds enough apartments that landlords compete for tenants like me, not the other way around.",
+      "lens": "market",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "rent-more-homes-zoning",
+          "title": "Ask your city council to allow more apartments near you",
+          "whatChanges": "From 2017 to 2022, after a run of zoning changes, Minneapolis grew its housing stock 12% while its rents rose 1%; rents in the rest of Minnesota rose 14%. Some neighbors worry about traffic and parking, so a council member hears from both sides.",
+          "who": "You",
+          "exemplarRef": "minneapolis-zoning",
+          "speculative": false,
+          "firstStep": "Find your council member's email and send three sentences saying you're a renter who wants more apartments allowed.",
+          "firstStepMinutes": 15,
+          "status": "societal_proposal",
+          "kind": "ask",
+          "method": {
+            "decisionMaker": "Your city council member",
+            "request": "Will you vote to allow apartment buildings on more of the city's residential land?"
+          }
+        },
+        {
+          "id": "rent-more-homes-hearing",
+          "title": "Speak up for a proposed apartment building near you",
+          "whatChanges": "Austin built so many apartments that its median rent fell from $1,546 at the end of 2021 to $1,296 at the start of 2026, according to Pew. Comments at a planning hearing go on the record, and a renter who wants the homes is a voice many hearings lack.",
+          "who": "You",
+          "exemplarRef": "austin-rents",
+          "speculative": false,
+          "firstStep": "Look up your city's planning commission agenda and note the next hearing for an apartment project.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "rent-more-homes-votes",
+          "title": "Record of how your council members vote on housing",
+          "whatChanges": "Keeps a plain record of each council member's votes on new apartments, zoning changes, and tenant rules, from public meeting minutes, so you can see who said yes before the next election.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this, and look up when your city council meets next.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Accountability record pattern; no vote-tracking tool was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202952",
+        "locator": "cards.json#rent-more-homes",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Contested: supply-side framing; noted neighbors' worries. Pew is in the Austin record via Governing."
+    },
+    "rent-software-pricing": {
+      "title": "Rents set by competition, not shared pricing software",
+      "line": "My landlord sets my rent on their own, not with software that pools what competing landlords charge.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "rent-software-pricing-ban",
+          "title": "Ask your city council to ban rent-setting software",
+          "whatChanges": "On September 3, 2024, San Francisco became the first city in America to ban software that pools competitors' private data to set rents, with penalties up to $1,000 per violation. Supporters call it price fixing, and the software makers say they follow the law.",
+          "who": "You",
+          "exemplarRef": "sf-algorithm-ban",
+          "speculative": false,
+          "firstStep": "Email your council member and ask whether they'd support a ban like San Francisco's.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "ask",
+          "method": {
+            "decisionMaker": "Your city council member",
+            "request": "Will you introduce or support an ordinance banning algorithmic rent-setting software?"
+          }
+        },
+        {
+          "id": "rent-software-pricing-settlement",
+          "title": "Check whether your landlord settled a rent-software lawsuit",
+          "whatChanges": "Greystar, the nation's largest landlord, agreed to pay $50 million in a class action over its use of RealPage software, and the Justice Department reached a proposed settlement that limits the data RealPage can use. If your landlord was part of a class action, you could be owed money.",
+          "who": "You",
+          "exemplarRef": "realpage-settlement",
+          "speculative": false,
+          "firstStep": "Search your property manager's name with \"RealPage settlement\" and see whether a claim form comes up.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "rent-software-pricing-campaign",
+          "title": "Campaign signup for a local ban on rent-setting software",
+          "whatChanges": "Gathers renters in your city behind one ordinance banning shared pricing software, tracks who has signed on by council district, and sends the list to each council member together.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this, and find out which council district you live in.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Campaign organizing pattern; no petition tool was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202952",
+        "locator": "cards.json#rent-software-pricing",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Surprising angle. Contested: both sides named in text."
+    },
+    "rent-public-builder": {
+      "title": "Good public apartments that ordinary workers rent",
+      "line": "I can rent a well-built apartment from a public builder that charges what it costs, not whatever the market will bear.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "rent-public-builder-fund",
+          "title": "Ask your county to start a fund that builds mixed-income apartments",
+          "whatChanges": "In 2021, Montgomery County, Maryland, set up a $100 million revolving fund for its housing agency to build mixed-income apartments, with at least 30% of units income-restricted. The first building, The Laureate, has 268 homes next to a Metro station.",
+          "who": "You",
+          "exemplarRef": "montgomery-hpf",
+          "speculative": false,
+          "firstStep": "Find your county executive's or council's contact page and save it with a note about this fund.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "ask",
+          "method": {
+            "decisionMaker": "Your county council or county executive",
+            "request": "Will you set up a revolving fund for the housing authority to build mixed-income apartments?"
+          }
+        },
+        {
+          "id": "rent-public-builder-candidates",
+          "title": "Ask candidates whether your city should build and own homes",
+          "whatChanges": "Over 40% of homes in Vienna are social housing, about 400,000 units, and limited-profit rents there average 23% below the private market. Some people want US cities to do the same, and others think public money should go to vouchers instead.",
+          "who": "You",
+          "exemplarRef": "vienna-social-housing",
+          "speculative": false,
+          "firstStep": "Write the question down and bring it to the next candidate forum or town hall.",
+          "firstStepMinutes": 5,
+          "status": "societal_proposal",
+          "kind": "ask",
+          "method": {
+            "decisionMaker": "Candidates for mayor or city council",
+            "request": "Should our city build and own mixed-income rental homes?"
+          }
+        },
+        {
+          "id": "rent-public-builder-campaign",
+          "title": "Campaign signup for a public housing fund in your county",
+          "whatChanges": "Gathers residents behind one request for a county housing fund, shows privately how many people in each district have signed, and delivers it to county officials together.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this, and find out who represents you on your county council.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Campaign organizing pattern; no petition tool was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202952",
+        "locator": "cards.json#rent-public-builder",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Social housing as proposal with dissent named. 'Vouchers instead' is a general framing, no institution named."
+    },
+    "rent-free-lawyer": {
+      "title": "A free lawyer if my landlord takes me to court",
+      "line": "If rent ever gets me taken to housing court, I have a lawyer beside me who costs me nothing.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "rent-free-lawyer-ask",
+          "title": "Ask your city council for a right to a lawyer in eviction cases",
+          "whatChanges": "New York City passed a right-to-counsel law in 2017. In its first full year, 21,955 people in 7,847 households kept their homes after getting lawyers paid by the city.",
+          "who": "You",
+          "exemplarRef": "nyc-right-to-counsel",
+          "speculative": false,
+          "firstStep": "Email your council member and ask whether your city guarantees tenants a lawyer in eviction court.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "ask",
+          "method": {
+            "decisionMaker": "Your city council member",
+            "request": "Will you sponsor a right to counsel for tenants facing eviction?"
+          }
+        },
+        {
+          "id": "rent-free-lawyer-legal-aid",
+          "title": "Call legal aid the day you get court papers",
+          "whatChanges": "Free civil legal aid offices help tenants with eviction cases, and they can do far more before your court date than on the day. Save their number now so you aren't searching for it later.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Search your county's name with \"legal aid eviction\" and save the number in your phone.",
+          "firstStepMinutes": 5,
+          "status": "existing_resource",
+          "kind": "resource",
+          "speculativeRationale": "Legal aid exists nearly everywhere but varies by county; no single office's page was opened in this run.",
+          "method": {
+            "provider": "Local civil legal aid office",
+            "eligibility": "Usually lower-income tenants",
+            "access": "Phone or walk-in",
+            "bring": "Court papers, lease, and rent receipts"
+          }
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202952",
+        "locator": "cards.json#rent-free-lawyer",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Sensitive (legal): no legal advice stated as fact; legal aid named as existing resource."
+    },
+    "rent-share-of-pay": {
+      "title": "Knowing how much of my pay goes to rent",
+      "line": "I know what share of my take-home pay goes to rent and utilities, and which of my costs is pushing it up.",
+      "lens": "technology",
+      "ambition": "tonight",
+      "status": "proposed_it_feature",
+      "fixes": [
+        {
+          "id": "rent-share-of-pay-math",
+          "title": "Add up rent and utilities as a share of your pay",
+          "whatChanges": "In 2023 a record 22.6 million renter households spent 30% or more of their income on rent and utilities, which was half of all renters. Renters earning under $30,000 who were over that line had about $250 a month left for everything else.",
+          "who": "You",
+          "exemplarRef": "jchs-cost-burden",
+          "speculative": false,
+          "firstStep": "Add last month's rent and utility bills, divide by your monthly take-home pay, and write the percentage down.",
+          "firstStepMinutes": 10,
+          "status": "real_now",
+          "kind": "task"
+        },
+        {
+          "id": "rent-share-of-pay-sort",
+          "title": "Questions that sort out what's driving your housing cost",
+          "whatChanges": "Asks whether the problem is the rent itself, fees and utilities, a recent increase, or paying for a place alone, then puts the suggestions that match your answer first.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this, and note which of those four feels most true for you.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Clarifying follow-up pattern; no comparable tool was opened in this run."
+        },
+        {
+          "id": "rent-share-of-pay-track",
+          "title": "Private tracker for your rent's share of your pay",
+          "whatChanges": "Keeps a private record of your rent, utilities, and pay on your device, and nudges you two months before your lease ends to check whether the share went up and what to ask for.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this, and put a reminder in your calendar 60 days before your lease ends.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Tracking and nudges pattern; no comparable tool was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202952",
+        "locator": "cards.json#rent-share-of-pay",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "It-led card. Uses JCHS record for the 30% line."
+    },
+    "rent-increase-cap": {
+      "title": "Rent increases with a limit I can plan around",
+      "line": "Each year I know the most my rent can go up, so a renewal never forces me to move.",
+      "lens": "policy",
+      "ambition": "together",
+      "status": "societal_proposal",
+      "fixes": [
+        {
+          "id": "rent-increase-cap-ask",
+          "title": "Ask your state legislators for a cap on yearly rent increases",
+          "whatChanges": "Washington passed a cap in 2025: rent can rise at most 7% plus inflation, or 10%, whichever is lower, with new buildings exempt for 12 years. Landlords there said they were exploring a legal challenge, and economists still argue over whether caps slow building.",
+          "who": "You",
+          "exemplarRef": "wa-rent-cap",
+          "speculative": false,
+          "firstStep": "Find your state senator and representative and save their emails in one note.",
+          "firstStepMinutes": 10,
+          "status": "societal_proposal",
+          "kind": "ask",
+          "method": {
+            "decisionMaker": "Your state senator and representative",
+            "request": "Will you support a cap on yearly rent increases for existing buildings?"
+          }
+        },
+        {
+          "id": "rent-increase-cap-campaign",
+          "title": "Campaign signup behind a state rent cap bill",
+          "whatChanges": "Gathers renters across your state behind one rent cap bill, shows lawmakers how many constituents in their district have signed, and sends updates when it moves to a vote.",
+          "who": "You and It",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Tell us you'd use this, and write one sentence about your last rent increase.",
+          "firstStepMinutes": 5,
+          "status": "proposed_it_feature",
+          "kind": "feature",
+          "speculativeRationale": "Campaign organizing pattern; no petition tool was opened in this run."
+        },
+        {
+          "id": "rent-increase-cap-testify",
+          "title": "Send written testimony when a rent bill gets a hearing",
+          "whatChanges": "Most state legislatures accept written comments on bills before a committee hearing. A short note with your last increase in dollars puts a real number in the record next to the industry's.",
+          "who": "You",
+          "exemplarRef": null,
+          "speculative": true,
+          "firstStep": "Check your legislature's website for a rent or housing bill with an upcoming hearing.",
+          "firstStepMinutes": 15,
+          "status": "real_now",
+          "kind": "task",
+          "speculativeRationale": "General legislative practice; no specific legislature's testimony page was opened in this run."
+        }
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202952",
+        "locator": "cards.json#rent-increase-cap",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Contested: both sides named. Washington exemption sourced."
+    }
+  }
+}

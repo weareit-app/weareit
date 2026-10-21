@@ -1,0 +1,602 @@
+{
+  "schemaVersion": 1,
+  "painId": "loneliness",
+  "runId": "20261020-202942",
+  "judge": {
+    "context": "isolated",
+    "at": "2026-10-20"
+  },
+  "scores": {
+    "lonely-old-friends-back": {
+      "actionable": {
+        "score": 5,
+        "reason": "\"pick one person you haven't talked to in a year, and send them two lines\" is a ten-minute step that obviously moves something."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Reframes a familiar idea: people \"badly underestimated how much it would be appreciated\", which turns a nagging chore into a likely gift."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "University of Pittsburgh, 2022, with a clear finding, but no number from the 5,900-person studies."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "\"The more out of the blue the message was, the more it meant\" is the kind of fact you'd repeat to a friend."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "\"an old friend wrote back glad to hear from me\" is warm and plain; \"badly\" overstates the study a touch."
+      },
+      "power": {
+        "score": 3,
+        "reason": "Changes my own relationships rather than conditions around me, though rekindling a friendship is meaningful enough to count."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Study is stated as what was found; the standing call is a plain basic and the reminder feature is written as a pitch."
+      }
+    },
+    "lonely-chats-with-strangers": {
+      "actionable": {
+        "score": 5,
+        "reason": "\"ask the person beside you one easy question about the route or the weather\" takes two minutes tomorrow."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "The twist that \"Other commuters had predicted the opposite\" makes small talk feel newly worth trying."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "Chicago commuters, 2014, and a barista study, but no numbers for either result."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "Learning that strangers are more willing to talk than we predict is a genuine surprise."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "\"I walk away feeling less invisible\" is honest and warm; \"which is why most of us stay quiet\" edges toward a punchline."
+      },
+      "power": {
+        "score": 2,
+        "reason": "Small moments inside unchanged conditions; the practice fix repeats the commuter study rather than adding a new angle."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Both studies are described as short-term mood findings without overclaiming loneliness effects."
+      }
+    },
+    "lonely-adult-friend": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"put the next one on your calendar\" for parkrun is concrete; counting hours with someone is a useful reflection rather than a move."
+      },
+      "nonObvious": {
+        "score": 5,
+        "reason": "\"about 50 hours together to become casual friends, 90 hours to become friends\" reframes adult friendship as time you can plan for."
+      },
+      "namedExample": {
+        "score": 5,
+        "reason": "University of Kansas 2018 with 50/90/200 hours, plus parkrun's \"83.5% of people who only volunteered\"."
+      },
+      "surprise": {
+        "score": 5,
+        "reason": "The hour counts, and that \"Hanging out counts much more than working side by side\", are facts people repeat."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Plain and specific; \"so a coworker you only see at meetings stays a coworker\" is a little wry but close to a punchline."
+      },
+      "power": {
+        "score": 3,
+        "reason": "Changes my own social life with a concrete plan; the matching and follow-up features add a way to keep it going."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Hour counts are stated as estimates from a study; \"the second invitation is the one most people never send\" is unsourced but modest, and features are pitched, not claimed."
+      }
+    },
+    "lonely-neighbors-know-me": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Search for a Buy Nothing group ... and post one thing you'd give away\" is a ten-minute step that starts contact."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Using a free giving group to meet neighbors is a fresh angle on \"get to know your neighbors\"."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "\"more than 4.27 million people\" and the Lansdowne block chat, though the Lansdowne detail is thin."
+      },
+      "surprise": {
+        "score": 3,
+        "reason": "The Big Lunch's \"some 6 million people\" is striking, but the rest is familiar."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "\"a few of them would knock if they hadn't seen me in a while\" is a vivid, plain dream line."
+      },
+      "power": {
+        "score": 3,
+        "reason": "Builds ties on my street; the signup feature mostly repeats the street-lunch fix."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Membership and participation counts are presented as the organizers' figures; the feature is a pitch."
+      }
+    },
+    "lonely-weekly-table": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Text two people you like and suggest a simple dinner at your place\" is quick and clear."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Absalon's host who \"seats people who come alone beside friendly regulars\" is a useful detail on a familiar idea."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "Absalon in Copenhagen with \"30 and 100 Danish kroner\", and Timeleft in \"more than 200 cities\"."
+      },
+      "surprise": {
+        "score": 3,
+        "reason": "Communal long-table dinners in Copenhagen may be new to an American reader; the rest is expected."
+      },
+      "voice": {
+        "score": 3,
+        "reason": "\"so cost isn't what keeps people away\" is a non sequitur, and the first step's \"one weeknight a month\" undercuts the weekly title."
+      },
+      "power": {
+        "score": 3,
+        "reason": "Starting a community dinner changes local conditions, but Timeleft's rotating strangers don't deliver \"the same faces\"."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Timeleft's fee is disclosed plainly and Absalon's prices are stated as typical, not promised."
+      }
+    },
+    "lonely-shared-roof": {
+      "actionable": {
+        "score": 3,
+        "reason": "\"decide which room you'd be comfortable offering\" assumes a home with a spare room; the cohousing tour is a real but slower step."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Home sharing between older owners and younger renters is a less obvious answer to loneliness."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "\"Muir Commons in Davis, California, opened in 1991, and more than 160 communities in 25 states\"; Nesterly has thinner detail."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "Cohousing's shared meals and Nesterly's help-for-lower-rent trade would surprise many readers."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "\"we have dinner together a few nights a week\" is concrete and warm; the Nesterly title reads a little long."
+      },
+      "power": {
+        "score": 4,
+        "reason": "Changes the housing arrangement itself, and with it who pays what rent."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Nesterly is described as launched in 2016 without claiming it serves the reader's city; counts carry no inflation."
+      }
+    },
+    "lonely-checked-on": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Call 888-670-1360 and ask how to sign up\" is immediate, but only for Californians over 60 or with disabilities."
+      },
+      "nonObvious": {
+        "score": 3,
+        "reason": "Check-in phone lines are a useful basic made concrete with real numbers."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "Friendship Line and Eldercare Locator with phone numbers; the postal-worker pilot is thin."
+      },
+      "surprise": {
+        "score": 3,
+        "reason": "That a line will call you on a schedule is a mild surprise; the rest is expected."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "\"if I don't pick up, they try again\" is calm and specific, but the title \"when I live alone\" is broader than the older-adult resources underneath."
+      },
+      "power": {
+        "score": 3,
+        "reason": "Puts a safety net under my own week rather than changing wider conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Fixes say \"In California\" and name eligibility plainly; the daily-text feature is a pitch and the postal pilot is described without outcome claims."
+      }
+    },
+    "lonely-heavy-nights": {
+      "actionable": {
+        "score": 5,
+        "reason": "\"Save 988 in your phone's contacts under a name you'll recognize\" takes two minutes."
+      },
+      "nonObvious": {
+        "score": 3,
+        "reason": "988 is a known basic made useful by noting it's \"for everyone, including people who simply want someone to talk to\"."
+      },
+      "namedExample": {
+        "score": 3,
+        "reason": "988 is named with little detail; the Surgeon General's \"20 minutes a day ... down from 60\" is a solid number on a weaker fix."
+      },
+      "surprise": {
+        "score": 3,
+        "reason": "That 988 welcomes people who just want to talk is one surprising element."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "\"On the nights when the quiet gets to me\" is gentle and unhurried; the 20-versus-60 fix reads a bit clinical."
+      },
+      "power": {
+        "score": 2,
+        "reason": "Coping on a hard night inside unchanged conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "988 is described within what the line itself says; the talk-line directory is a speculative feature written as a pitch."
+      }
+    },
+    "lonely-same-crew": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Search Idealist for volunteer opportunities within 5 miles and save one that meets weekly\" is concrete."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "The twist of choosing a shift that repeats \"since seeing the same people is what turns into friendship\" makes a basic useful."
+      },
+      "namedExample": {
+        "score": 3,
+        "reason": "Idealist's \"over 100,000 volunteer opportunities\" and Men's Sheds, both with thin outcome detail."
+      },
+      "surprise": {
+        "score": 3,
+        "reason": "Men's Sheds fixing bicycles for a local school is a nice surprise; the rest is familiar."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "\"some of them have become people I'd call\" is warm and plain."
+      },
+      "power": {
+        "score": 3,
+        "reason": "Changes my own weekly routine and gives something to the community."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Volunteer counts are the organization's own figures and the matching feature is a pitch."
+      }
+    },
+    "lonely-talking-welcome": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"ask for the store manager and ask whether they'd try one chatting lane on a weekday morning\" is doable on the next shopping trip."
+      },
+      "nonObvious": {
+        "score": 5,
+        "reason": "Asking a grocery store for a slow checkout lane is an idea I had not thought of."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "Jumbo's first chat checkout in Vlijmen in 2019 and \"some 200 stores\", plus the Somerset bench with \"17% of older people\"."
+      },
+      "surprise": {
+        "score": 5,
+        "reason": "A supermarket chat lane and a \"Sit here if you don't mind someone stopping to say hello\" bench are things you'd tell a friend."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Clear and calm; the checkout title is long but makes sense without the example."
+      },
+      "power": {
+        "score": 4,
+        "reason": "Asks a store and a parks department to change how shared spaces work."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Jumbo's plan is described as planned, not proven, and the bench is stated as what police did, without outcome claims."
+      }
+    },
+    "lonely-county-health": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"write two sentences asking for a vote and a budget line on loneliness\" on the county comment form takes fifteen minutes."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Treating loneliness as a county health issue, and asking for money with the vote, is a useful twist."
+      },
+      "namedExample": {
+        "score": 5,
+        "reason": "San Mateo County 2024, first U.S. county, \"45% of residents\", and \"The declaration came with no money\"."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "That a U.S. county has declared loneliness a public health emergency would stop many readers."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "\"so ask for a budget line along with the vote\" is candid, mentor-like advice."
+      },
+      "power": {
+        "score": 5,
+        "reason": "Changes who decides and who pays for the things that bring people together."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "States that the declaration funded nothing and that England only \"planned\" social prescribing; the ask is offered, not presented as settled policy."
+      }
+    },
+    "lonely-friends-like-health": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"block one evening next week for time with a friend, then invite someone\" is concrete."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Planning friends \"the way I plan workouts\" reframes a familiar idea around health."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "Surgeon General 2023 with \"up to 15 cigarettes daily\" and \"About half of U.S. adults\"."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "The cigarette comparison is memorable, though widely circulated."
+      },
+      "voice": {
+        "score": 3,
+        "reason": "Kind and plain, but the tracker measuring weekly hours \"against the roughly 50 hours\" is muddled, and Kansas study repeats across two fixes."
+      },
+      "power": {
+        "score": 3,
+        "reason": "Changes my own priorities rather than wider conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "The smoking comparison is stated as the advisory's warning about early-death risk; the exercise equivalence is a personal framing, not a cited claim."
+      }
+    },
+    "lonely-meet-neighbors": {
+      "actionable": {
+        "score": 3,
+        "reason": "Every fix is a feature whose first step is \"Tell us you'd use this\"; \"ask one neighbor whether they'd sign up too\" is the only real move."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Meeting only \"once enough people nearby have said the same, so nobody risks being the only one\" is a smart twist."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "Front Porch Forum with \"all 251 towns\", \"nearly 60,000 households\", and the 100-resident rule."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "The opening threshold idea, borrowed from Vermont, is a fresh angle."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Plain and specific (\"lost cats, spare tomatoes, and street meals\"); the directory fix drifts from meeting neighbors."
+      },
+      "power": {
+        "score": 4,
+        "reason": "Builds shared neighborhood infrastructure rather than a private coping step."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Every fix is pitched as a feature, and Front Porch Forum is cited as a similar rule elsewhere, not as proof."
+      }
+    },
+    "lonely-regular-place": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"decide on a regular day and hour to go\" is quick and clear."
+      },
+      "nonObvious": {
+        "score": 3,
+        "reason": "Becoming a regular is a known basic made a little more useful by \"same time\"."
+      },
+      "namedExample": {
+        "score": 3,
+        "reason": "Only the 2014 barista study, with no numbers; the library fix has no example."
+      },
+      "surprise": {
+        "score": 2,
+        "reason": "Predictable from the title, and the barista study repeats from another card."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "\"notice when I've been away\" is warm and specific."
+      },
+      "power": {
+        "score": 2,
+        "reason": "Coping inside unchanged conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "The study is described as a sense of belonging, and the library fix is a plain basic."
+      }
+    }
+  },
+  "pairwise": [
+    {
+      "a": "lonely-adult-friend",
+      "b": "lonely-talking-welcome",
+      "winner": "lonely-talking-welcome",
+      "reason": "lonely-talking-welcome wins: the chat checkout lane and hello bench are surprising, concrete asks with a real precedent, which a lonely reader would rather see than lonely-adult-friend."
+    },
+    {
+      "a": "lonely-adult-friend",
+      "b": "lonely-county-health",
+      "winner": "lonely-adult-friend",
+      "reason": "lonely-adult-friend wins: the 50/90/200-hour finding gives a lonely reader a plan they can actually count toward, which a lonely reader would rather see than lonely-county-health."
+    },
+    {
+      "a": "lonely-adult-friend",
+      "b": "lonely-old-friends-back",
+      "winner": "lonely-adult-friend",
+      "reason": "lonely-adult-friend wins: the 50/90/200-hour finding gives a lonely reader a plan they can actually count toward, which a lonely reader would rather see than lonely-old-friends-back."
+    },
+    {
+      "a": "lonely-adult-friend",
+      "b": "lonely-chats-with-strangers",
+      "winner": "lonely-adult-friend",
+      "reason": "lonely-adult-friend wins: the 50/90/200-hour finding gives a lonely reader a plan they can actually count toward, which a lonely reader would rather see than lonely-chats-with-strangers."
+    },
+    {
+      "a": "lonely-adult-friend",
+      "b": "lonely-shared-roof",
+      "winner": "lonely-adult-friend",
+      "reason": "lonely-adult-friend wins: the 50/90/200-hour finding gives a lonely reader a plan they can actually count toward, which a lonely reader would rather see than lonely-shared-roof."
+    },
+    {
+      "a": "lonely-adult-friend",
+      "b": "lonely-meet-neighbors",
+      "winner": "lonely-adult-friend",
+      "reason": "lonely-adult-friend wins: the 50/90/200-hour finding gives a lonely reader a plan they can actually count toward, which a lonely reader would rather see than lonely-meet-neighbors."
+    },
+    {
+      "a": "lonely-adult-friend",
+      "b": "lonely-neighbors-know-me",
+      "winner": "lonely-adult-friend",
+      "reason": "lonely-adult-friend wins: the 50/90/200-hour finding gives a lonely reader a plan they can actually count toward, which a lonely reader would rather see than lonely-neighbors-know-me."
+    },
+    {
+      "a": "lonely-talking-welcome",
+      "b": "lonely-county-health",
+      "winner": "lonely-talking-welcome",
+      "reason": "lonely-talking-welcome wins: the chat checkout lane and hello bench are surprising, concrete asks with a real precedent, which a lonely reader would rather see than lonely-county-health."
+    },
+    {
+      "a": "lonely-talking-welcome",
+      "b": "lonely-old-friends-back",
+      "winner": "lonely-talking-welcome",
+      "reason": "lonely-talking-welcome wins: the chat checkout lane and hello bench are surprising, concrete asks with a real precedent, which a lonely reader would rather see than lonely-old-friends-back."
+    },
+    {
+      "a": "lonely-talking-welcome",
+      "b": "lonely-chats-with-strangers",
+      "winner": "lonely-talking-welcome",
+      "reason": "lonely-talking-welcome wins: the chat checkout lane and hello bench are surprising, concrete asks with a real precedent, which a lonely reader would rather see than lonely-chats-with-strangers."
+    },
+    {
+      "a": "lonely-talking-welcome",
+      "b": "lonely-shared-roof",
+      "winner": "lonely-talking-welcome",
+      "reason": "lonely-talking-welcome wins: the chat checkout lane and hello bench are surprising, concrete asks with a real precedent, which a lonely reader would rather see than lonely-shared-roof."
+    },
+    {
+      "a": "lonely-talking-welcome",
+      "b": "lonely-meet-neighbors",
+      "winner": "lonely-talking-welcome",
+      "reason": "lonely-talking-welcome wins: the chat checkout lane and hello bench are surprising, concrete asks with a real precedent, which a lonely reader would rather see than lonely-meet-neighbors."
+    },
+    {
+      "a": "lonely-talking-welcome",
+      "b": "lonely-neighbors-know-me",
+      "winner": "lonely-talking-welcome",
+      "reason": "lonely-talking-welcome wins: the chat checkout lane and hello bench are surprising, concrete asks with a real precedent, which a lonely reader would rather see than lonely-neighbors-know-me."
+    },
+    {
+      "a": "lonely-county-health",
+      "b": "lonely-old-friends-back",
+      "winner": "lonely-old-friends-back",
+      "reason": "lonely-old-friends-back wins: a ten-minute message tonight, backed by the finding that people underestimate how welcome it is, which a lonely reader would rather see than lonely-county-health."
+    },
+    {
+      "a": "lonely-county-health",
+      "b": "lonely-chats-with-strangers",
+      "winner": "lonely-county-health",
+      "reason": "lonely-county-health wins: San Mateo's first-in-the-nation declaration and the candid push for a budget line give it real power, which a lonely reader would rather see than lonely-chats-with-strangers."
+    },
+    {
+      "a": "lonely-county-health",
+      "b": "lonely-shared-roof",
+      "winner": "lonely-county-health",
+      "reason": "lonely-county-health wins: San Mateo's first-in-the-nation declaration and the candid push for a budget line give it real power, which a lonely reader would rather see than lonely-shared-roof."
+    },
+    {
+      "a": "lonely-county-health",
+      "b": "lonely-meet-neighbors",
+      "winner": "lonely-county-health",
+      "reason": "lonely-county-health wins: San Mateo's first-in-the-nation declaration and the candid push for a budget line give it real power, which a lonely reader would rather see than lonely-meet-neighbors."
+    },
+    {
+      "a": "lonely-county-health",
+      "b": "lonely-neighbors-know-me",
+      "winner": "lonely-county-health",
+      "reason": "lonely-county-health wins: San Mateo's first-in-the-nation declaration and the candid push for a budget line give it real power, which a lonely reader would rather see than lonely-neighbors-know-me."
+    },
+    {
+      "a": "lonely-old-friends-back",
+      "b": "lonely-chats-with-strangers",
+      "winner": "lonely-old-friends-back",
+      "reason": "lonely-old-friends-back wins: a ten-minute message tonight, backed by the finding that people underestimate how welcome it is, which a lonely reader would rather see than lonely-chats-with-strangers."
+    },
+    {
+      "a": "lonely-old-friends-back",
+      "b": "lonely-shared-roof",
+      "winner": "lonely-old-friends-back",
+      "reason": "lonely-old-friends-back wins: a ten-minute message tonight, backed by the finding that people underestimate how welcome it is, which a lonely reader would rather see than lonely-shared-roof."
+    },
+    {
+      "a": "lonely-old-friends-back",
+      "b": "lonely-meet-neighbors",
+      "winner": "lonely-old-friends-back",
+      "reason": "lonely-old-friends-back wins: a ten-minute message tonight, backed by the finding that people underestimate how welcome it is, which a lonely reader would rather see than lonely-meet-neighbors."
+    },
+    {
+      "a": "lonely-old-friends-back",
+      "b": "lonely-neighbors-know-me",
+      "winner": "lonely-old-friends-back",
+      "reason": "lonely-old-friends-back wins: a ten-minute message tonight, backed by the finding that people underestimate how welcome it is, which a lonely reader would rather see than lonely-neighbors-know-me."
+    },
+    {
+      "a": "lonely-chats-with-strangers",
+      "b": "lonely-shared-roof",
+      "winner": "lonely-chats-with-strangers",
+      "reason": "lonely-chats-with-strangers wins: two-minute steps tomorrow, backed by the surprise that strangers want to talk more than we think, which a lonely reader would rather see than lonely-shared-roof."
+    },
+    {
+      "a": "lonely-chats-with-strangers",
+      "b": "lonely-meet-neighbors",
+      "winner": "lonely-chats-with-strangers",
+      "reason": "lonely-chats-with-strangers wins: two-minute steps tomorrow, backed by the surprise that strangers want to talk more than we think, which a lonely reader would rather see than lonely-meet-neighbors."
+    },
+    {
+      "a": "lonely-chats-with-strangers",
+      "b": "lonely-neighbors-know-me",
+      "winner": "lonely-chats-with-strangers",
+      "reason": "lonely-chats-with-strangers wins: two-minute steps tomorrow, backed by the surprise that strangers want to talk more than we think, which a lonely reader would rather see than lonely-neighbors-know-me."
+    },
+    {
+      "a": "lonely-shared-roof",
+      "b": "lonely-meet-neighbors",
+      "winner": "lonely-shared-roof",
+      "reason": "lonely-shared-roof wins: home sharing and cohousing change the living arrangement itself, which a lonely reader would rather see than lonely-meet-neighbors."
+    },
+    {
+      "a": "lonely-shared-roof",
+      "b": "lonely-neighbors-know-me",
+      "winner": "lonely-neighbors-know-me",
+      "reason": "lonely-neighbors-know-me wins: Buy Nothing and a street lunch are easy, real ways to learn neighbors' names, which a lonely reader would rather see than lonely-shared-roof."
+    },
+    {
+      "a": "lonely-meet-neighbors",
+      "b": "lonely-neighbors-know-me",
+      "winner": "lonely-neighbors-know-me",
+      "reason": "lonely-neighbors-know-me wins: Buy Nothing and a street lunch are easy, real ways to learn neighbors' names, which a lonely reader would rather see than lonely-meet-neighbors."
+    }
+  ],
+  "seed": 17
+}

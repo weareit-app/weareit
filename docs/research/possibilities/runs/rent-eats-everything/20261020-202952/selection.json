@@ -1,0 +1,89 @@
+{
+  "finalists": [
+    "rent-tax-credit",
+    "rent-software-pricing",
+    "rent-more-homes",
+    "rent-renewal",
+    "rent-who-owns"
+  ],
+  "auditSample": [
+    "rent-public-builder",
+    "rent-short-month"
+  ],
+  "seed": 17,
+  "itLedGuaranteed": "rent-who-owns",
+  "itLedMissing": false,
+  "ranking": [
+    {
+      "cardId": "rent-tax-credit",
+      "wins": 41,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "rent-software-pricing",
+      "wins": 40,
+      "meanScore": 4.67
+    },
+    {
+      "cardId": "rent-more-homes",
+      "wins": 34,
+      "meanScore": 4.5
+    },
+    {
+      "cardId": "rent-renewal",
+      "wins": 33,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "rent-free-lawyer",
+      "wins": 30,
+      "meanScore": 4.33
+    },
+    {
+      "cardId": "rent-public-builder",
+      "wins": 24,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "rent-bargain-together",
+      "wins": 21,
+      "meanScore": 4.33
+    },
+    {
+      "cardId": "rent-who-owns",
+      "wins": 18,
+      "meanScore": 4
+    },
+    {
+      "cardId": "rent-legal-limit",
+      "wins": 17,
+      "meanScore": 4.17
+    },
+    {
+      "cardId": "rent-home-share",
+      "wins": 16,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "rent-increase-cap",
+      "wins": 15,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "rent-no-junk-fees",
+      "wins": 13,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "rent-share-of-pay",
+      "wins": 7,
+      "meanScore": 3.17
+    },
+    {
+      "cardId": "rent-short-month",
+      "wins": 6,
+      "meanScore": 3.17
+    }
+  ],
+  "excluded": []
+}

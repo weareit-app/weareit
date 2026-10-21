@@ -1,0 +1,89 @@
+{
+  "finalists": [
+    "lonely-adult-friend",
+    "lonely-talking-welcome",
+    "lonely-old-friends-back",
+    "lonely-county-health",
+    "lonely-meet-neighbors"
+  ],
+  "auditSample": [
+    "lonely-same-crew",
+    "lonely-weekly-table"
+  ],
+  "seed": 17,
+  "itLedGuaranteed": "lonely-meet-neighbors",
+  "itLedMissing": false,
+  "ranking": [
+    {
+      "cardId": "lonely-adult-friend",
+      "wins": 40,
+      "meanScore": 4.33
+    },
+    {
+      "cardId": "lonely-talking-welcome",
+      "wins": 40,
+      "meanScore": 4.33
+    },
+    {
+      "cardId": "lonely-old-friends-back",
+      "wins": 35,
+      "meanScore": 4
+    },
+    {
+      "cardId": "lonely-county-health",
+      "wins": 33,
+      "meanScore": 4.33
+    },
+    {
+      "cardId": "lonely-neighbors-know-me",
+      "wins": 29,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "lonely-chats-with-strangers",
+      "wins": 26,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "lonely-shared-roof",
+      "wins": 23,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "lonely-meet-neighbors",
+      "wins": 18,
+      "meanScore": 3.67
+    },
+    {
+      "cardId": "lonely-weekly-table",
+      "wins": 16,
+      "meanScore": 3.83
+    },
+    {
+      "cardId": "lonely-checked-on",
+      "wins": 16,
+      "meanScore": 3.5
+    },
+    {
+      "cardId": "lonely-heavy-nights",
+      "wins": 14,
+      "meanScore": 3.33
+    },
+    {
+      "cardId": "lonely-friends-like-health",
+      "wins": 10,
+      "meanScore": 3.5
+    },
+    {
+      "cardId": "lonely-same-crew",
+      "wins": 10,
+      "meanScore": 3.33
+    },
+    {
+      "cardId": "lonely-regular-place",
+      "wins": 5,
+      "meanScore": 3
+    }
+  ],
+  "excluded": []
+}

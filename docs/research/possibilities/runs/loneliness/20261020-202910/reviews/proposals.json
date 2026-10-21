@@ -1,0 +1,405 @@
+{
+  "schemaVersion": 1,
+  "setId": "loneliness-20261020-202910",
+  "builtAt": "2026-10-21T00:34:57+00:00",
+  "proposals": [
+    {
+      "id": "a-bench-where-saying-hello-is-expected",
+      "title": "A park bench where saying hello is expected",
+      "line": "There's a bench near me with a sign saying it's fine to sit and chat, so I can start a conversation without feeling strange.",
+      "lens": "community",
+      "ambition": "together",
+      "examples": [
+        {
+          "id": "happy-to-chat-benches",
+          "name": "Avon and Somerset Police chat benches",
+          "place": "Burnham and Taunton, Somerset, England",
+          "year": 2019,
+          "outcome": "Police put benches in two parks with a sign inviting strangers to sit and say hello, aimed at older people at risk of isolation and scams"
+        },
+        {
+          "id": "friendship-bench-zimbabwe",
+          "name": "Friendship Bench",
+          "place": "Zimbabwe",
+          "year": null,
+          "outcome": "Trained grandmothers and community health workers talk with people on park benches; 1,290,861 clients seen and 985 active peer support groups, per the program"
+        }
+      ],
+      "overlaps": []
+    },
+    {
+      "id": "a-checkout-where-nobody-rushes-me",
+      "title": "A checkout line where the cashier has time to chat",
+      "line": "At my supermarket there's a lane where the cashier is glad to talk, so I don't feel like I'm holding anyone up.",
+      "lens": "market",
+      "ambition": "together",
+      "examples": [
+        {
+          "id": "jumbo-kletskassa",
+          "name": "Jumbo supermarket chat checkouts (Kletskassa)",
+          "place": "Netherlands",
+          "year": 2019,
+          "outcome": "First chat checkout opened in 2019 in Vlijmen; its success led Jumbo to plan another 200, as part of a health ministry program against loneliness"
+        }
+      ],
+      "overlaps": []
+    },
+    {
+      "id": "a-city-that-answers-when-i-call-about-loneliness",
+      "title": "A city that answers when I call about loneliness",
+      "line": "My city runs a loneliness line I can call at any hour, and a local council of support groups follows up so I don't fall through the cracks.",
+      "lens": "policy",
+      "ambition": "together",
+      "examples": [
+        {
+          "id": "seoul-goodbye-loneliness-120",
+          "name": "Seoul's Goodbye Loneliness 120 helpline",
+          "place": "Seoul, South Korea",
+          "year": 2025,
+          "outcome": "A city helpline open at any hour (dial 02-120, then 5) handled 3,088 calls in about six weeks from April 1, passing its goal of 3,000 for the whole year; 59% of callers were middle-aged"
+        },
+        {
+          "id": "japan-loneliness-act",
+          "name": "Japan's Act on loneliness and isolation",
+          "place": "Japan",
+          "year": 2023,
+          "outcome": "Act No. 45 of 2023 asks local governments to set up local councils on loneliness and isolation that bring together support groups and professionals"
+        }
+      ],
+      "overlaps": [
+        {
+          "with": "someone-glad-to-hear-from-me-tonight",
+          "title": "Someone glad to hear from me tonight",
+          "reason": "Both are a line you can call when lonely; the city one adds a local council that follows up."
+        }
+      ]
+    },
+    {
+      "id": "a-dinner-with-new-people-on-my-calendar",
+      "title": "A dinner with new people already on my calendar",
+      "line": "This week I have a dinner booked with a small group of people I haven't met, matched to me, and I'm looking forward to it.",
+      "lens": "technology",
+      "ambition": "tonight",
+      "examples": [
+        {
+          "id": "timeleft-dinners",
+          "name": "Timeleft dinners with strangers",
+          "place": "52 countries",
+          "year": null,
+          "outcome": "An app books you a group dinner or other outing with five new people, mixed by age range, personality, and language, in more than 200 cities"
+        },
+        {
+          "id": "bumble-for-friends",
+          "name": "Bumble For Friends app",
+          "place": "Australia, Canada, Ireland, New Zealand, the Philippines, the UK, and the US",
+          "year": 2023,
+          "outcome": "A separate app, launched in 2023 from the BFF mode Bumble began in 2016, where people swipe through profiles with similar interests to find friends"
+        }
+      ],
+      "overlaps": []
+    },
+    {
+      "id": "a-doctor-who-can-refer-me-to-groups",
+      "title": "A doctor who refers me to local groups, not pills",
+      "line": "When I tell my doctor I'm lonely, she connects me with someone who finds me a gardening club or a music group nearby.",
+      "lens": "policy",
+      "ambition": "together",
+      "examples": [
+        {
+          "id": "england-social-prescribing",
+          "name": "Social prescribing in England's health service",
+          "place": "England",
+          "year": 2019,
+          "outcome": "Since 2019, doctors can refer patients to link workers who connect them to gardening clubs, music groups, and other non-medical help; more than 3,300 link workers are employed"
+        },
+        {
+          "id": "friendship-bench-zimbabwe",
+          "name": "Friendship Bench",
+          "place": "Zimbabwe",
+          "year": null,
+          "outcome": "Trained grandmothers and community health workers talk with people on park benches; 1,290,861 clients seen and 985 active peer support groups, per the program"
+        }
+      ],
+      "overlaps": []
+    },
+    {
+      "id": "a-friend-i-talk-with-every-week",
+      "title": "A close friend I talk with every week",
+      "line": "There's at least one person I see or call every week who knows what's going on in my life, and I know what's going on in theirs.",
+      "lens": "relational",
+      "ambition": "this-year",
+      "examples": [
+        {
+          "id": "hall-friendship-hours",
+          "name": "Jeffrey Hall's study of hours it takes to make a friend",
+          "place": "Lawrence, Kansas, United States",
+          "year": 2018,
+          "outcome": "About 50 hours together to go from acquaintance to casual friend, 90 hours to friend, and more than 200 hours to close friend; based on 355 adults who had recently moved and 112 University of Kansas freshmen"
+        },
+        {
+          "id": "harvard-adult-development",
+          "name": "Harvard Study of Adult Development",
+          "place": "Boston, Massachusetts, United States",
+          "year": 1938,
+          "outcome": "Followed 268 Harvard sophomores (later their children and other groups) for nearly 80 years; close relationships, more than money or fame, predicted lasting happiness"
+        }
+      ],
+      "overlaps": [
+        {
+          "with": "back-in-touch-with-an-old-friend",
+          "title": "Back in touch with a friend I'd drifted from",
+          "reason": "Reconnecting with an old friend can be the start of having a close friend you talk with every week."
+        }
+      ]
+    },
+    {
+      "id": "a-town-where-eating-with-strangers-is-normal",
+      "title": "A town where sharing meals with strangers is normal",
+      "line": "A couple of times a year my whole town sets out tables for shared meals, and I sit down with neighbors I'd never met.",
+      "lens": "culture",
+      "ambition": "together",
+      "examples": [
+        {
+          "id": "danmark-spiser-sammen",
+          "name": "Denmark Eats Together (Danmark Spiser Sammen)",
+          "place": "Denmark",
+          "year": 2014,
+          "outcome": "Twice a year, in weeks 17 and 45, clubs, libraries, homes, and local groups host shared meals, organized by the People's Movement Against Loneliness that Ældre Sagen helped start in 2014; Ældre Sagen says just over 600,000 Danes feel lonely"
+        },
+        {
+          "id": "big-lunch",
+          "name": "The Big Lunch",
+          "place": "United Kingdom",
+          "year": null,
+          "outcome": "Each June, neighbors across the UK share food on their streets and in gardens and community spaces; the organizer says millions have joined in"
+        }
+      ],
+      "overlaps": [
+        {
+          "with": "neighbors-i-eat-dinner-with-every-week",
+          "title": "Neighbors I eat dinner with a few nights a week",
+          "reason": "Both make shared meals the way people meet; one in a building every week, the other across a town a few times a year."
+        }
+      ]
+    },
+    {
+      "id": "a-weekly-group-that-notices-when-im-missing",
+      "title": "A weekly group that notices when I'm missing",
+      "line": "Every Saturday I show up to the same free 5k, and the people there ask where I was if I skip a week.",
+      "lens": "community",
+      "ambition": "this-year",
+      "examples": [
+        {
+          "id": "parkrun-ireland-men",
+          "name": "parkrun friendships among middle-aged men in Ireland",
+          "place": "Ireland",
+          "year": 2024,
+          "outcome": "Interviews with 39 men aged 45 to 64 who ran, walked, or volunteered at the free weekly 5k found friendships formed through repeated attendance and improved wellbeing"
+        },
+        {
+          "id": "mens-sheds-australia",
+          "name": "Men's Sheds in Australia",
+          "place": "Australia",
+          "year": 2007,
+          "outcome": "The Australian Men's Shed Association, set up in 2007, supports more than 1,300 Men's and Community Sheds where men work on projects together"
+        }
+      ],
+      "overlaps": [
+        {
+          "with": "a-workshop-where-i-build-things-with-others",
+          "title": "A workshop where I build and fix things with others",
+          "reason": "Both are a regular group where you get to know people over repeated weeks; the workshop could read as one example of the weekly group."
+        }
+      ]
+    },
+    {
+      "id": "a-workshop-where-i-build-things-with-others",
+      "title": "A workshop where I build and fix things with others",
+      "line": "A couple of mornings a week I work on a project at a shared workshop, and the talk comes easily because our hands are busy.",
+      "lens": "community",
+      "ambition": "this-year",
+      "examples": [
+        {
+          "id": "mens-sheds-australia",
+          "name": "Men's Sheds in Australia",
+          "place": "Australia",
+          "year": 2007,
+          "outcome": "The Australian Men's Shed Association, set up in 2007, supports more than 1,300 Men's and Community Sheds where men work on projects together"
+        }
+      ],
+      "overlaps": [
+        {
+          "with": "a-weekly-group-that-notices-when-im-missing",
+          "title": "A weekly group that notices when I'm missing",
+          "reason": "Both are a regular group where you get to know people over repeated weeks; the workshop could read as one example of the weekly group."
+        }
+      ]
+    },
+    {
+      "id": "back-in-touch-with-an-old-friend",
+      "title": "Back in touch with a friend I'd drifted from",
+      "line": "I called a friend I hadn't spoken to in years, and we talked long enough to catch up on what actually matters in our lives.",
+      "lens": "relational",
+      "ambition": "tonight",
+      "examples": [
+        {
+          "id": "surgeon-general-advisory",
+          "name": "US Surgeon General advisory on loneliness and isolation",
+          "place": "United States",
+          "year": 2023,
+          "outcome": "About half of US adults report loneliness; lacking social connection carries a risk compared to smoking up to 15 cigarettes a day; it urges people to pick up calls from friends, eat together, and put phones away in conversation"
+        },
+        {
+          "id": "harvard-adult-development",
+          "name": "Harvard Study of Adult Development",
+          "place": "Boston, Massachusetts, United States",
+          "year": 1938,
+          "outcome": "Followed 268 Harvard sophomores (later their children and other groups) for nearly 80 years; close relationships, more than money or fame, predicted lasting happiness"
+        }
+      ],
+      "overlaps": [
+        {
+          "with": "a-friend-i-talk-with-every-week",
+          "title": "A close friend I talk with every week",
+          "reason": "Reconnecting with an old friend can be the start of having a close friend you talk with every week."
+        }
+      ]
+    },
+    {
+      "id": "living-alongside-people-of-a-different-age",
+      "title": "Living alongside neighbors of a very different age",
+      "line": "I share a home with people decades older or younger than me, and we drop in on each other without needing a reason.",
+      "lens": "culture",
+      "ambition": "together",
+      "examples": [
+        {
+          "id": "humanitas-deventer",
+          "name": "Humanitas retirement home housing students rent-free",
+          "place": "Deventer, Netherlands",
+          "year": 2015,
+          "outcome": "Six university students lived rent-free among residents mostly over 80, in exchange for 30 hours a month as good neighbors"
+        },
+        {
+          "id": "capitol-hill-cohousing",
+          "name": "Capitol Hill Urban Cohousing",
+          "place": "Seattle, Washington, United States",
+          "year": 2025,
+          "outcome": "Nine apartments and 21 residents share a building and cook shared dinners on rotating teams, three or four nights a week"
+        }
+      ],
+      "overlaps": [
+        {
+          "with": "neighbors-i-eat-dinner-with-every-week",
+          "title": "Neighbors I eat dinner with a few nights a week",
+          "reason": "Both are about sharing a home with neighbors you see often, and both cite the Seattle cohousing building."
+        }
+      ]
+    },
+    {
+      "id": "neighbors-i-eat-dinner-with-every-week",
+      "title": "Neighbors I eat dinner with a few nights a week",
+      "line": "I live in a building where neighbors take turns cooking shared dinners, so I'm never more than a day or two from a real conversation.",
+      "lens": "community",
+      "ambition": "together",
+      "examples": [
+        {
+          "id": "capitol-hill-cohousing",
+          "name": "Capitol Hill Urban Cohousing",
+          "place": "Seattle, Washington, United States",
+          "year": 2025,
+          "outcome": "Nine apartments and 21 residents share a building and cook shared dinners on rotating teams, three or four nights a week"
+        }
+      ],
+      "overlaps": [
+        {
+          "with": "living-alongside-people-of-a-different-age",
+          "title": "Living alongside neighbors of a very different age",
+          "reason": "Both are about sharing a home with neighbors you see often, and both cite the Seattle cohousing building."
+        },
+        {
+          "with": "a-town-where-eating-with-strangers-is-normal",
+          "title": "A town where sharing meals with strangers is normal",
+          "reason": "Both make shared meals the way people meet; one in a building every week, the other across a town a few times a year."
+        }
+      ]
+    },
+    {
+      "id": "small-talk-with-strangers-that-lifts-my-day",
+      "title": "Small talk with strangers that lifts my day",
+      "line": "On the bus or in line at the store, I trade a few real sentences with someone new and walk away in a better mood than I expected.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "examples": [
+        {
+          "id": "epley-talking-to-strangers",
+          "name": "Epley and Schroeder's commuter study on talking to strangers",
+          "place": "Chicago, Illinois, United States",
+          "year": 2014,
+          "outcome": "In nine field and lab experiments, train and bus commuters who talked with a stranger reported a more positive commute than those who sat alone, though people predicted the opposite"
+        }
+      ],
+      "overlaps": []
+    },
+    {
+      "id": "someone-checking-on-my-parent-every-week",
+      "title": "A familiar visitor checking on my parent every week",
+      "line": "Someone my mom knows stops by her place every week, and I hear how she's doing even though I live far away.",
+      "lens": "market",
+      "ambition": "this-year",
+      "examples": [
+        {
+          "id": "la-poste-facteur-visits",
+          "name": "La Poste's mail carrier visits (Veiller sur mes parents)",
+          "place": "France",
+          "year": 2017,
+          "outcome": "The mail carrier visits an older person at home once a week on a chosen day and passes news to named relatives; from €23.90 a month, €11.95 after the tax credit"
+        },
+        {
+          "id": "friendship-line",
+          "name": "Institute on Aging Friendship Line",
+          "place": "California, United States",
+          "year": null,
+          "outcome": "A 24/7 talkline for adults 60 and older and adults with disabilities (888.670.1360), with ongoing outreach calls to people who ask for regular check-ins"
+        }
+      ],
+      "overlaps": []
+    },
+    {
+      "id": "someone-glad-to-hear-from-me-tonight",
+      "title": "Someone glad to hear from me tonight",
+      "line": "Even on a night when nobody comes to mind, I can call a line where a person is glad to talk with me for as long as I need.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "examples": [
+        {
+          "id": "friendship-line",
+          "name": "Institute on Aging Friendship Line",
+          "place": "California, United States",
+          "year": null,
+          "outcome": "A 24/7 talkline for adults 60 and older and adults with disabilities (888.670.1360), with ongoing outreach calls to people who ask for regular check-ins"
+        },
+        {
+          "id": "lifeline-988",
+          "name": "988 Suicide and Crisis Lifeline",
+          "place": "United States",
+          "year": 2022,
+          "outcome": "Call, text, or chat 988 any hour; the site lists emotional distress and needing someone to talk to as reasons to reach out"
+        },
+        {
+          "id": "seoul-goodbye-loneliness-120",
+          "name": "Seoul's Goodbye Loneliness 120 helpline",
+          "place": "Seoul, South Korea",
+          "year": 2025,
+          "outcome": "A city helpline open at any hour (dial 02-120, then 5) handled 3,088 calls in about six weeks from April 1, passing its goal of 3,000 for the whole year; 59% of callers were middle-aged"
+        }
+      ],
+      "overlaps": [
+        {
+          "with": "a-city-that-answers-when-i-call-about-loneliness",
+          "title": "A city that answers when I call about loneliness",
+          "reason": "Both are a line you can call when lonely; the city one adds a local council that follows up."
+        }
+      ]
+    }
+  ]
+}

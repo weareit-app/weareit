@@ -1,0 +1,299 @@
+{
+  "schemaVersion": 2,
+  "painId": "rent-eats-everything",
+  "runId": "20261020-202909",
+  "dreams": {
+    "rent-paid-this-month": {
+      "title": "This month's rent paid while I catch up",
+      "line": "I found local rental assistance through 211, and this month's rent is covered while I get back on my feet.",
+      "lens": "individual",
+      "ambition": "tonight",
+      "exemplarRefs": [
+        "cfpb-renthelp"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202909",
+        "locator": "dreams.json#rent-paid-this-month",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Obvious basic: emergency rent help exists in most places, though funds run out. Tonight-level because the call can happen now."
+    },
+    "rent-at-a-third-of-income": {
+      "title": "Paying about a third of my income on rent",
+      "line": "My rent is set at about 30% of what I earn, so the rest of my paycheck goes to food, bills, and savings.",
+      "lens": "policy",
+      "ambition": "this-year",
+      "exemplarRefs": [
+        "hud-vouchers",
+        "brooke-amendment"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202909",
+        "locator": "dreams.json#rent-at-a-third-of-income",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Vouchers and public housing already work this way; waiting lists are long, so this-year rather than tonight."
+    },
+    "lower-rent-at-renewal": {
+      "title": "A lower rent at my next lease renewal",
+      "line": "When my lease came up, I showed my landlord similar listings and my record of paying on time, and we settled on less than they first asked.",
+      "lens": "individual",
+      "ambition": "this-year",
+      "exemplarRefs": [
+        "rent-negotiation-avail"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202909",
+        "locator": "dreams.json#lower-rent-at-renewal",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "About one in four renters who tried succeeded in 2023; makes an ordinary step feel worth trying."
+    },
+    "rent-increases-capped": {
+      "title": "Yearly rent increases capped by law",
+      "line": "My rent can only go up by a set amount each year, so I never open a renewal letter to a jump I can't pay.",
+      "lens": "policy",
+      "ambition": "together",
+      "exemplarRefs": [
+        "oregon-rent-cap",
+        "sf-rent-control-study"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202909",
+        "locator": "dreams.json#rent-increases-capped",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Named plainly as rent control/stabilization; contested (Stanford study shows supply effects), so fixes should present it as a proposal with more than one direction."
+    },
+    "overpaid-rent-returned": {
+      "title": "Getting back rent I was overcharged",
+      "line": "I checked my apartment's legal rent and rent history, and my landlord had to lower my rent and pay back part of what I'd overpaid.",
+      "lens": "technology",
+      "ambition": "this-year",
+      "exemplarRefs": [
+        "germany-rent-brake",
+        "justfix"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202909",
+        "locator": "dreams.json#overpaid-rent-returned",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Conny and JustFix both make rent-history and overcharge checks easy; outcome depends on local law."
+    },
+    "knowing-fair-rent-before-signing": {
+      "title": "Knowing what my rent should be before I sign",
+      "line": "Before I sign a lease, I can see what similar apartments nearby rent for and who owns the building, so I know whether the price is fair.",
+      "lens": "technology",
+      "ambition": "tonight",
+      "exemplarRefs": [
+        "justfix",
+        "germany-rent-brake"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202909",
+        "locator": "dreams.json#knowing-fair-rent-before-signing",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Germany's rent index and Who Owns What show the data can exist; a likely place for an It feature."
+    },
+    "splitting-rent-with-a-chosen-housemate": {
+      "title": "Splitting rent with a housemate I chose",
+      "line": "I share a home with someone I met and picked, and we each pay a fraction of what living alone cost me.",
+      "lens": "relational",
+      "ambition": "this-year",
+      "exemplarRefs": [
+        "nesterly",
+        "homeshare-vermont",
+        "aarp-golden-girls"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202909",
+        "locator": "dreams.json#splitting-rent-with-a-chosen-housemate",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Home-sharing services screen and match; AARP shows wide willingness among older women to live with a friend."
+    },
+    "less-rent-for-help-around-the-house": {
+      "title": "Paying less rent in exchange for help around the house",
+      "line": "I rent a spare room from an older homeowner and pay less because I help with groceries, chores, and yard work.",
+      "lens": "market",
+      "ambition": "this-year",
+      "exemplarRefs": [
+        "nesterly",
+        "homeshare-vermont"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202909",
+        "locator": "dreams.json#less-rent-for-help-around-the-house",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Nesterly lets guests trade help for lower rent; HomeShare Vermont matches older hosts with younger guests."
+    },
+    "saving-while-living-with-family": {
+      "title": "Saving money while I live with family for a while",
+      "line": "I moved back in with my parents for now, and the money I'd have spent on rent is going into savings for a place of my own.",
+      "lens": "relational",
+      "ambition": "this-year",
+      "exemplarRefs": [
+        "pew-multigenerational"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202909",
+        "locator": "dreams.json#saving-while-living-with-family",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Common and obvious; Pew shows finances are the main reason for younger adults. Not possible or safe for everyone."
+    },
+    "a-house-for-the-cost-of-a-room": {
+      "title": "A whole house for what one room cost",
+      "line": "I moved to a cheaper city with my remote job, and my payment on a three-bedroom house is about what I paid for one room before.",
+      "lens": "individual",
+      "ambition": "this-year",
+      "exemplarRefs": [
+        "tulsa-remote"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202909",
+        "locator": "dreams.json#a-house-for-the-cost-of-a-room",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Tulsa Remote participant quote supports this; only for people with remote jobs, and moving away has real costs."
+    },
+    "tenants-holding-rents-steady-together": {
+      "title": "My building's tenants keeping our rent steady together",
+      "line": "My neighbors and I formed a tenants union, and now our rent holds steady and repairs get done by a set deadline.",
+      "lens": "community",
+      "ambition": "together",
+      "exemplarRefs": [
+        "kc-tenants-independence-towers"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202909",
+        "locator": "dreams.json#tenants-holding-rents-steady-together",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "KC Tenants won a contract freezing rent and setting repair deadlines after an eight-month rent strike; risky, best with numbers and legal backing."
+    },
+    "owning-through-a-land-trust": {
+      "title": "Owning an affordable home through a land trust",
+      "line": "I bought a home through a community land trust at a price I could afford, and when I sell I keep part of the gain.",
+      "lens": "community",
+      "ambition": "together",
+      "exemplarRefs": [
+        "champlain-housing-trust"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202909",
+        "locator": "dreams.json#owning-through-a-land-trust",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Champlain Housing Trust sellers left about $14,000 richer and most bought again; builds less wealth than market homes."
+    },
+    "city-owned-apartments-for-working-people": {
+      "title": "Good city-owned apartments for people with ordinary incomes",
+      "line": "My city builds and owns well-kept apartments where people like me pay rent we can afford, the way Vienna has for about a century.",
+      "lens": "policy",
+      "ambition": "together",
+      "exemplarRefs": [
+        "vienna-city-flats",
+        "montgomery-hoc"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202909",
+        "locator": "dreams.json#city-owned-apartments-for-working-people",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Social housing named plainly; Montgomery County shows a U.S. version is starting. Contested and slow."
+    },
+    "more-homes-so-rents-stop-climbing": {
+      "title": "Enough new homes nearby that rents stop climbing",
+      "line": "My city allowed more apartments and duplexes to be built, and rents near me rose much less than in the rest of the state.",
+      "lens": "policy",
+      "ambition": "together",
+      "exemplarRefs": [
+        "minneapolis-reforms",
+        "la-adus"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202909",
+        "locator": "dreams.json#more-homes-so-rents-stop-climbing",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Minneapolis supply reforms are the strongest evidence; LA backyard homes show another way to add supply. Contested in some neighborhoods."
+    },
+    "sharing-a-home-with-friends-as-we-age": {
+      "title": "Sharing a house with friends as we get older",
+      "line": "A few friends and I share one house as we age, and splitting the costs means none of us is stretched thin.",
+      "lens": "culture",
+      "ambition": "together",
+      "exemplarRefs": [
+        "aarp-golden-girls",
+        "homeshare-vermont"
+      ],
+      "provenance": {
+        "sourceId": "generator-run-20261020-202909",
+        "locator": "dreams.json#sharing-a-home-with-friends-as-we-age",
+        "evidenceType": "ai_generated_from_exemplars",
+        "rights": "CC-BY-SA-4.0",
+        "reviewStatus": "unreviewed"
+      },
+      "writerNotes": "Culture lens: AARP shows 57% of women 50+ would consider it, and Colorado removed local caps on unrelated housemates. Willingness, not practice yet."
+    }
+  },
+  "overlaps": [
+    {
+      "a": "splitting-rent-with-a-chosen-housemate",
+      "b": "less-rent-for-help-around-the-house",
+      "reason": "Both are home-sharing, and trading help for lower rent is one form of sharing with a chosen housemate."
+    },
+    {
+      "a": "splitting-rent-with-a-chosen-housemate",
+      "b": "sharing-a-home-with-friends-as-we-age",
+      "reason": "Sharing a house with friends is a version of splitting rent with a chosen housemate."
+    },
+    {
+      "a": "rent-increases-capped",
+      "b": "tenants-holding-rents-steady-together",
+      "reason": "Both end with rent that holds steady; one gets there by law and one by tenants negotiating together."
+    },
+    {
+      "a": "overpaid-rent-returned",
+      "b": "knowing-fair-rent-before-signing",
+      "reason": "Both rest on knowing a home's legal or comparable rent, before and after signing."
+    },
+    {
+      "a": "rent-paid-this-month",
+      "b": "rent-at-a-third-of-income",
+      "reason": "Both are rent paid partly by an assistance program; one is short-term help, the other a lasting subsidy."
+    }
+  ]
+}

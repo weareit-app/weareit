@@ -1,0 +1,602 @@
+{
+  "schemaVersion": 1,
+  "painId": "rent-eats-everything",
+  "runId": "20261020-202952",
+  "judge": {
+    "context": "isolated",
+    "at": "2026-10-20"
+  },
+  "scores": {
+    "rent-tax-credit": {
+      "actionable": {
+        "score": 5,
+        "reason": "\"Search your state revenue department's site for 'renter's credit'\" is a 10-minute step that can return real money."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Most renters don't know a renter's credit exists; \"Landlords there must hand every tenant a Certificate of Rent Paid\" makes it usable."
+      },
+      "namedExample": {
+        "score": 5,
+        "reason": "Minnesota, 2025, \"up to $2,720\" under \"$77,570\", plus Pennsylvania's \"up to $1,000\" with the honest \"Most people get a few hundred dollars\"."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "\"part of what I paid in rent comes back to me\" is a fact many renters would repeat to a friend."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Plain and calm, but the feature title \"Lookup of renter credits and rebates in your state\" reads like a label."
+      },
+      "power": {
+        "score": 3,
+        "reason": "\"comes back to me\" changes my own money, not who sets the rent."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Minnesota and Pennsylvania figures match the exemplars, the rebate's eligibility and typical amount are stated, and the lookup is pitched as a feature."
+      }
+    },
+    "rent-short-month": {
+      "actionable": {
+        "score": 5,
+        "reason": "\"Call 211 today and ask which programs near you help with rent this month\" is immediate and specific."
+      },
+      "nonObvious": {
+        "score": 3,
+        "reason": "211 is a known basic; \"Money that doesn't go to the power company is money you can put toward rent\" adds a useful twist."
+      },
+      "namedExample": {
+        "score": 3,
+        "reason": "211 and LIHEAP are named, but no place, year, or result number appears."
+      },
+      "surprise": {
+        "score": 2,
+        "reason": "\"I know who to call for help with rent\" is close to what the pain title predicts."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Calm and honest: \"what's available depends on what local programs have that month.\""
+      },
+      "power": {
+        "score": 2,
+        "reason": "\"before I fall behind\" is coping inside unchanged rent."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "\"what's available depends on what local programs have that month\" keeps 211 from being oversold; the feature is pitched, not claimed."
+      }
+    },
+    "rent-renewal": {
+      "actionable": {
+        "score": 5,
+        "reason": "\"Search listings within a mile of you with the same number of bedrooms and save three that offer a deal\" fits in 20 minutes."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Negotiating is familiar, but using a nearby unit's \"free month of rent\" as leverage is a fresh angle."
+      },
+      "namedExample": {
+        "score": 5,
+        "reason": "Avail 2023: \"only 28% ... about 1 in 4 who tried got a lower price\"; Zillow April 2026: \"Nearly 40%\", Denver \"more than two in three\"."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "\"Nearly 40% of rental listings on Zillow in April 2026 offered a deal\" would stop most renters."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Mentor-like and practical: \"so you have your case in two lines.\""
+      },
+      "power": {
+        "score": 3,
+        "reason": "\"I ask for a better deal\" changes my own rent, not who decides it."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Survey and Zillow numbers are stated as what happened; the comparison tool is pitched as a feature."
+      }
+    },
+    "rent-legal-limit": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Search your state or city name with 'rent increase limit' and note the current percentage\" is quick, though many will find no limit."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Most renters don't know a cap or a state attorney general complaint route exists."
+      },
+      "namedExample": {
+        "score": 5,
+        "reason": "California AB 1482 with Alameda's \"6.3% through July 2026\" and the attorney general's 2023 settlement over \"151%\" increases with \"$300,000\" refunded."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "\"an average of 151%\" and money going back to tenants is repeatable."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Plain, but \"Know your state's cap\" talks as if every reader has one."
+      },
+      "power": {
+        "score": 4,
+        "reason": "\"I push back when a notice goes over it\" uses enforcement to shift power toward the tenant."
+      },
+      "honestStatus": {
+        "pass": false,
+        "reason": "\"Know your state's cap\" and \"the most my landlord is allowed to raise my rent\" imply every state has a cap, when the only example is California; \"far over the cap\" also states as fact what the exemplar calls settled allegations."
+      }
+    },
+    "rent-no-junk-fees": {
+      "actionable": {
+        "score": 5,
+        "reason": "\"Email the leasing office and ask for a list of every required monthly charge\" is a two-minute step."
+      },
+      "nonObvious": {
+        "score": 3,
+        "reason": "Asking for fees in writing is a known basic, made useful by \"compare apartments by the total, not the base rent\"."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "Colorado, \"Since January 1, 2026\", fee increases capped at \"2% a year\", sponsor Naquetta Ricks named; no dollar result."
+      },
+      "surprise": {
+        "score": 3,
+        "reason": "A state law requiring all-in rent prices is one surprising element."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Clear and direct; \"a fee left out of the ad is worth questioning\" is the mentor's tone."
+      },
+      "power": {
+        "score": 4,
+        "reason": "The ask to \"back an all-in rent price law\" changes the rules landlords advertise under."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "The speculative fee advice is generic and claims no numbers; Colorado's law is stated as the exemplar supports."
+      }
+    },
+    "rent-who-owns": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Search your county assessor's site for your address and write down the owner's name\" is concrete, though county sites vary."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Looking behind the LLC to see \"whether you're dealing with a neighbor or a large investor\" is new to most renters."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "New York's Who Owns What \"covering more than 170,000 buildings\" is named, without a year or outcome."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "The \"Private match with other tenants of your landlord\" is an unexpected angle."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Feature pitches are plain and verb-first: \"Finds who owns your building behind the company name\"."
+      },
+      "power": {
+        "score": 4,
+        "reason": "Knowing every building a landlord owns is the groundwork for tenants acting together."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Both features are pitched with the Feature status, and the records task claims no specific result."
+      }
+    },
+    "rent-bargain-together": {
+      "actionable": {
+        "score": 5,
+        "reason": "\"slip it under three doors\" and \"sign up for their next meeting\" are specific steps for tonight."
+      },
+      "nonObvious": {
+        "score": 3,
+        "reason": "Tenant unions are a known idea, made useful by \"ask one question: what repair or rent increase bothers people most?\""
+      },
+      "namedExample": {
+        "score": 5,
+        "reason": "Kansas City's Independence Towers, June 2025, eight months, rents held a year, \"$75 a month off\"."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "\"withheld rent for eight months\" and won concessions is a story people repeat."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Warm and direct, though the rent strike appears without the eviction risk a mentor would mention once."
+      },
+      "power": {
+        "score": 5,
+        "reason": "\"the deal we win covers all of us\" changes who decides the rent."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Kansas City terms match the exemplar; the copy reports the strike rather than advising one, though naming its eviction risk once would be fairer."
+      }
+    },
+    "rent-home-share": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"Search your city's name with 'home sharing program'\" is real; \"Write down two people you know who have a spare room\" is weak."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Renting from an older homeowner in exchange for chores is new to many readers."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "Nesterly, Boston, \"$650 a month, less than half the cost of a studio\"; no year in the copy."
+      },
+      "surprise": {
+        "score": 3,
+        "reason": "Trading snow shoveling for cheaper rent is one surprising element."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Kind and plain: \"we both come out ahead on money and company.\""
+      },
+      "power": {
+        "score": 3,
+        "reason": "Lowers my own costs without changing who sets rents."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Nesterly's example matches the exemplar; the informal ask and trade feature claim nothing specific."
+      }
+    },
+    "rent-more-homes": {
+      "actionable": {
+        "score": 4,
+        "reason": "\"send three sentences saying you're a renter who wants more apartments allowed\" is quick, but its effect is slow."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "Speaking up as a renter at a planning hearing, \"a voice many hearings lack\", reframes a policy fight as personal."
+      },
+      "namedExample": {
+        "score": 5,
+        "reason": "Minneapolis 2017 to 2022, housing \"12%\", rents \"1%\" versus \"14%\"; Austin median rent \"$1,546\" to \"$1,296\"."
+      },
+      "surprise": {
+        "score": 5,
+        "reason": "Austin's rents actually falling is a fact people repeat."
+      },
+      "voice": {
+        "score": 3,
+        "reason": "Plain fixes, but \"landlords compete for tenants like me, not the other way around\" is a contrast punchline."
+      },
+      "power": {
+        "score": 5,
+        "reason": "Changes what gets built and who has the bargaining power."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Minneapolis is stated as a sequence, not proof, and neighbors' concerns are named; Austin's \"built so many apartments that\" is causal but Pew-attributed."
+      }
+    },
+    "rent-software-pricing": {
+      "actionable": {
+        "score": 5,
+        "reason": "\"Search your property manager's name with 'RealPage settlement' and see whether a claim form comes up\" could pay out in 20 minutes."
+      },
+      "nonObvious": {
+        "score": 5,
+        "reason": "Most renters have never heard that landlords pool pricing through software."
+      },
+      "namedExample": {
+        "score": 5,
+        "reason": "San Francisco, \"September 3, 2024\", \"up to $1,000 per violation\"; Greystar \"$50 million\" class action."
+      },
+      "surprise": {
+        "score": 5,
+        "reason": "\"you could be owed money\" from the nation's largest landlord is a stop-and-tell-a-friend fact."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Even-handed: \"Supporters call it price fixing, and the software makers say they follow the law.\""
+      },
+      "power": {
+        "score": 5,
+        "reason": "A city ban changes how rents are set for everyone."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Both sides of the ban are named, the RealPage deal is called \"proposed\", and \"could be owed\" doesn't overclaim."
+      }
+    },
+    "rent-public-builder": {
+      "actionable": {
+        "score": 3,
+        "reason": "\"save it with a note about this fund\" is a weak first step; the candidate-forum question is better but waits for an event."
+      },
+      "nonObvious": {
+        "score": 4,
+        "reason": "A county revolving fund that builds mixed-income apartments is new to most renters."
+      },
+      "namedExample": {
+        "score": 5,
+        "reason": "Montgomery County 2021, \"$100 million\", \"268 homes\"; Vienna \"about 400,000 units\" at \"23% below\"."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "Vienna's 40% social housing is a fact people repeat."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Balanced and plain, with a slight contrast in \"not whatever the market will bear\"."
+      },
+      "power": {
+        "score": 5,
+        "reason": "Changes who owns and builds the homes."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "Vienna is offered as something \"Some people want\" with the voucher view named; Montgomery's figures match the exemplar."
+      }
+    },
+    "rent-free-lawyer": {
+      "actionable": {
+        "score": 5,
+        "reason": "\"save the number in your phone\" takes five minutes and matters on the worst day."
+      },
+      "nonObvious": {
+        "score": 3,
+        "reason": "Right to counsel is known to advocates but not most renters; \"far more before your court date than on the day\" is useful."
+      },
+      "namedExample": {
+        "score": 5,
+        "reason": "New York City 2017 law, \"21,955 people in 7,847 households\"."
+      },
+      "surprise": {
+        "score": 4,
+        "reason": "A city paying for tenants' lawyers is one surprising fact."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Calm and protective: \"so you aren't searching for it later.\""
+      },
+      "power": {
+        "score": 4,
+        "reason": "A right to a lawyer shifts power in eviction court."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "New York numbers are stated as program outcomes, and the legal aid fix gives practical guidance rather than legal advice."
+      }
+    },
+    "rent-share-of-pay": {
+      "actionable": {
+        "score": 5,
+        "reason": "\"divide by your monthly take-home pay, and write the percentage down\" is quick and concrete."
+      },
+      "nonObvious": {
+        "score": 2,
+        "reason": "Knowing your rent share is close to restating the pain; two of three fixes are features."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "2023, \"22.6 million renter households\", \"about $250 a month left\"."
+      },
+      "surprise": {
+        "score": 3,
+        "reason": "\"half of all renters\" is one surprising fact."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Plain and non-judging, but the dream title reads like a budgeting label."
+      },
+      "power": {
+        "score": 2,
+        "reason": "Pure awareness inside unchanged conditions."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "National numbers match the exemplar; both tools are pitched as features."
+      }
+    },
+    "rent-increase-cap": {
+      "actionable": {
+        "score": 3,
+        "reason": "\"save their emails in one note\" is a step, but generic and slow to matter."
+      },
+      "nonObvious": {
+        "score": 3,
+        "reason": "Rent caps are the first policy most people name; the written-testimony fix adds a useful twist."
+      },
+      "namedExample": {
+        "score": 4,
+        "reason": "Washington 2025, \"7% plus inflation, or 10%\", new buildings exempt \"12 years\"; no result yet."
+      },
+      "surprise": {
+        "score": 3,
+        "reason": "Mostly predictable from the pain, and it overlaps the legal-limit card."
+      },
+      "voice": {
+        "score": 4,
+        "reason": "Honest about dispute: \"economists still argue over whether caps slow building.\""
+      },
+      "power": {
+        "score": 5,
+        "reason": "A statewide cap changes who decides how much rent can rise."
+      },
+      "honestStatus": {
+        "pass": true,
+        "reason": "The cap is presented as contested, with landlords' legal challenge and economists' disagreement named."
+      }
+    }
+  },
+  "pairwise": [
+    {
+      "a": "rent-software-pricing",
+      "b": "rent-tax-credit",
+      "winner": "rent-software-pricing",
+      "reason": "Both can put money back; the RealPage settlement check adds a surprise and a city ban the credit lacks."
+    },
+    {
+      "a": "rent-software-pricing",
+      "b": "rent-renewal",
+      "winner": "rent-software-pricing",
+      "reason": "The software card pairs a possible payout with a systemic fix; renewal stays a solo negotiation."
+    },
+    {
+      "a": "rent-software-pricing",
+      "b": "rent-bargain-together",
+      "winner": "rent-software-pricing",
+      "reason": "Both shift power, but the settlement check gives money tonight without organizing first."
+    },
+    {
+      "a": "rent-software-pricing",
+      "b": "rent-more-homes",
+      "winner": "rent-software-pricing",
+      "reason": "Both are strong policy cards; software adds a 20-minute check that could pay out."
+    },
+    {
+      "a": "rent-software-pricing",
+      "b": "rent-free-lawyer",
+      "winner": "rent-software-pricing",
+      "reason": "Software's surprise and immediate payout beat a lawyer most readers hope never to need."
+    },
+    {
+      "a": "rent-software-pricing",
+      "b": "rent-legal-limit",
+      "winner": "rent-software-pricing",
+      "reason": "Software is fully honest and broadly relevant; legal-limit assumes a state cap most readers lack."
+    },
+    {
+      "a": "rent-software-pricing",
+      "b": "rent-public-builder",
+      "winner": "rent-software-pricing",
+      "reason": "Software has a stronger first step than saving a county contact page."
+    },
+    {
+      "a": "rent-tax-credit",
+      "b": "rent-renewal",
+      "winner": "rent-tax-credit",
+      "reason": "Money back at tax time is a surer win than a negotiation one in four people win."
+    },
+    {
+      "a": "rent-tax-credit",
+      "b": "rent-bargain-together",
+      "winner": "rent-tax-credit",
+      "reason": "The credit pays this year with one search; the building deal needs months of organizing."
+    },
+    {
+      "a": "rent-tax-credit",
+      "b": "rent-more-homes",
+      "winner": "rent-tax-credit",
+      "reason": "A reader with this pain would rather see money coming back than a zoning fight."
+    },
+    {
+      "a": "rent-tax-credit",
+      "b": "rent-free-lawyer",
+      "winner": "rent-tax-credit",
+      "reason": "The credit helps every eligible renter now; the lawyer card helps only in court."
+    },
+    {
+      "a": "rent-tax-credit",
+      "b": "rent-legal-limit",
+      "winner": "rent-tax-credit",
+      "reason": "Both are state-dependent, but the credit card hedges honestly with \"my state offers\"."
+    },
+    {
+      "a": "rent-tax-credit",
+      "b": "rent-public-builder",
+      "winner": "rent-tax-credit",
+      "reason": "Concrete money now beats a county fund years away."
+    },
+    {
+      "a": "rent-renewal",
+      "b": "rent-bargain-together",
+      "winner": "rent-renewal",
+      "reason": "Renewal is usable alone this week; the Zillow concession numbers give real leverage."
+    },
+    {
+      "a": "rent-renewal",
+      "b": "rent-more-homes",
+      "winner": "rent-renewal",
+      "reason": "Renewal moves my own rent at the next lease; zoning moves rents slowly."
+    },
+    {
+      "a": "rent-renewal",
+      "b": "rent-free-lawyer",
+      "winner": "rent-renewal",
+      "reason": "Renewal applies to every renter each year; the lawyer card is for a crisis."
+    },
+    {
+      "a": "rent-renewal",
+      "b": "rent-legal-limit",
+      "winner": "rent-renewal",
+      "reason": "Renewal works in every state; legal-limit leans on a California-only cap."
+    },
+    {
+      "a": "rent-renewal",
+      "b": "rent-public-builder",
+      "winner": "rent-renewal",
+      "reason": "Renewal gives a 20-minute step that moves my rent; public builder's steps are weak."
+    },
+    {
+      "a": "rent-bargain-together",
+      "b": "rent-more-homes",
+      "winner": "rent-bargain-together",
+      "reason": "The Kansas City win is closer to home than citywide zoning, and the door-note step is concrete."
+    },
+    {
+      "a": "rent-bargain-together",
+      "b": "rent-free-lawyer",
+      "winner": "rent-bargain-together",
+      "reason": "Bargaining together changes the rent itself; the lawyer card defends against the worst case."
+    },
+    {
+      "a": "rent-bargain-together",
+      "b": "rent-legal-limit",
+      "winner": "rent-bargain-together",
+      "reason": "Bargaining works anywhere; legal-limit fails honest status."
+    },
+    {
+      "a": "rent-bargain-together",
+      "b": "rent-public-builder",
+      "winner": "rent-bargain-together",
+      "reason": "A building-level win is nearer and more actionable than a county fund."
+    },
+    {
+      "a": "rent-more-homes",
+      "b": "rent-free-lawyer",
+      "winner": "rent-more-homes",
+      "reason": "Minneapolis and Austin rent numbers are more surprising, and they speak to the cause of high rent."
+    },
+    {
+      "a": "rent-more-homes",
+      "b": "rent-legal-limit",
+      "winner": "rent-more-homes",
+      "reason": "More homes is honest and national; legal-limit overstates who has a cap."
+    },
+    {
+      "a": "rent-more-homes",
+      "b": "rent-public-builder",
+      "winner": "rent-more-homes",
+      "reason": "More homes has better first steps and two results showing rents dropping."
+    },
+    {
+      "a": "rent-free-lawyer",
+      "b": "rent-legal-limit",
+      "winner": "rent-free-lawyer",
+      "reason": "The lawyer card's legal aid step works everywhere; legal-limit assumes a cap."
+    },
+    {
+      "a": "rent-free-lawyer",
+      "b": "rent-public-builder",
+      "winner": "rent-free-lawyer",
+      "reason": "Saving a legal aid number is a stronger first step than saving a county contact page."
+    },
+    {
+      "a": "rent-legal-limit",
+      "b": "rent-public-builder",
+      "winner": "rent-legal-limit",
+      "reason": "Despite the honesty issue, the cap checker and attorney general route are more usable today than a county fund."
+    }
+  ],
+  "seed": 17
+}
