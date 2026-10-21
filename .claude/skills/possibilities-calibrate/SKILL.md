@@ -30,3 +30,11 @@ Shared rules, layout and helper commands: `tools/possibilities/README.md`. Read 
    - cost per pain, times the number of pains.
 
    Report a failing gate as failing. Include the founder's structural notes, the ones ratings can't measure, as their own section.
+
+## Pilot comparison
+
+Before the old flow is retired, compare it with the staged flow on the founder's pilot pains (Sleep, High rent, and Loneliness: `poor-sleep`, `rent-eats-everything`, and `loneliness`).
+
+1. **Build the set.** Each pilot pain needs a selected card run and a ranked staged run whose dream and fix reviews are ingested. Run `compare-build <pain…>`. If it refuses a stale run, rerun that flow on the current wording first. Done when `compare-set.json` and `compare-key.json` exist.
+2. **Publish and rate** as in steps 2–4 above, with `compare-set.json` as the items. The key stays local.
+3. **Report.** Run `compare-report <export>` and write `evaluation.md` in `evaluations/pilot-2026-10/`, starting with the result (`scale-up` or `iterate`) and the checks that failed. Then cover the mean rating per flow, kinds per pain, review minutes, fill rate, and tokens per stage.

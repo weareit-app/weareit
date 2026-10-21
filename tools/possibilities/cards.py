@@ -303,6 +303,9 @@ METHOD_FIELDS = {
 }
 # Statuses a kind is limited to (spec, "Honest status"). Other kinds take any status: kind and status stay separate.
 KIND_STATUSES = {'resource': ('existing_resource', 'real_now')}
+# A Feature's roadmap status (featureStatus in the content graph: idea, planned) is set only in the app, never by the
+# generator; a generated fix carries only its honest status (founder, 2026-10-20).
+NO_ROADMAP_STATUS = ': the generator never sets a roadmap status (featureStatus)'
 
 
 def is_staged(run):
@@ -365,6 +368,20 @@ def start(run, stage):
         result['kinds'] = {kind: kinds[kind] for kind in planned_kinds(run) if kind not in drafted_pools(run)}
         result['shared'] = shared_fixes(run)
     return result
+
+
+def record_stage_tokens(run, stage, tokens):
+    """finish-run --stage: one stage's tokens in tokensByStage (a rerun replaces them); tokens becomes their sum."""
+    require_staged(run)
+    if stage not in STAGES:
+        raise ValueError('unknown stage %s; stages are %s' % (stage, ', '.join(STAGES)))
+    if tokens is None:
+        raise ValueError('finish-run --stage needs --tokens')
+    meta = read(run / 'run.json')
+    meta['tokensByStage'] = {**(meta.get('tokensByStage') or {}), stage: tokens}
+    meta['tokens'] = sum(meta['tokensByStage'].values())
+    write(run / 'run.json', meta)
+    return meta
 
 
 # ---------- founder dream review ----------
@@ -714,6 +731,7 @@ def validate_cards(doc, exemplars, issues, generated=True):
                 require(f.get(field), fw + ': missing ' + field, issues)
             if generated:
                 require(f.get('status') in STATUSES, fw + ': unknown status', issues)
+                require('featureStatus' not in f, fw + NO_ROADMAP_STATUS, issues)
                 require(f.get('kind') in KINDS, fw + ': kind must be one of ' + ', '.join(KINDS), issues)
                 require((f.get('kind') == 'feature') == (f.get('status') == 'proposed_it_feature'),
                         fw + ': kind feature goes with status proposed_it_feature, and only with it', issues)
@@ -894,6 +912,7 @@ def validate_fixes(doc, exemplars, ceilings, accepted, issues, pain=None, kinds=
             require(f.get('draftedFor') in accepted, where + ': draftedFor must be an accepted dream', issues)
             require('proposedLinks' not in f, where + ': only a shared fix has proposedLinks', issues)
         require(f.get('status') in STATUSES, where + ': unknown status', issues)
+        require('featureStatus' not in f, where + NO_ROADMAP_STATUS, issues)
         require((kind == 'feature') == (f.get('status') == 'proposed_it_feature'),
                 where + ': kind feature goes with status proposed_it_feature, and only with it', issues)
         if kind in KIND_STATUSES:
@@ -1598,12 +1617,13 @@ def is_selected(run):
     return (run / 'selection.json').is_file() or (run / 'ranking.json').is_file()
 
 
-def latest_run(root, pain, require_selection=True):
+def latest_run(root, pain, require_selection=True, staged=None):
+    """A pain's newest run; staged=True or False keeps only staged runs or only card runs."""
     folder = data_root(root) / 'runs' / pain
     runs = sorted(p for p in folder.iterdir() if p.is_dir()) if folder.is_dir() else []
-    runs = [r for r in runs if is_selected(r)] if require_selection else runs
+    runs = [r for r in runs if (not require_selection or is_selected(r)) and (staged is None or is_staged(r) == staged)]
     if not runs:
-        raise FileNotFoundError('No selected run for ' + pain)
+        raise FileNotFoundError('No selected %srun for %s' % ({True: 'staged ', False: 'card '}.get(staged, ''), pain))
     return runs[-1]
 
 
@@ -1735,6 +1755,187 @@ def audit_build(root, runs, seed=20261018):
     return {'items': len(items['items'])}
 
 
+# ---------- pilot comparison ----------
+
+PILOT_OUT = 'evaluations/pilot-2026-10'
+
+
+def assembler_links(run):
+    """links.json as the assembler left it, before the founder's fix review: the assembler's links in their first order.
+    fixes-ingest renumbers the links it keeps and moves the others, with their first order, to review.removed."""
+    doc = read(run / 'links.json')
+    removed = [e for e in (doc.get('review') or {}).get('removed', []) if e.get('by') == 'assembler']
+    kept = [e for e in doc['links'] if e.get('by') == 'assembler']
+    links = []
+    for dream in sorted({e['dreamId'] for e in kept + removed}):
+        gone = {e['order']: e for e in removed if e['dreamId'] == dream}
+        stay = sorted((e for e in kept if e['dreamId'] == dream), key=lambda e: e['order'])
+        slots = range(1, len(gone) + len(stay) + 1)
+        if len(gone) != sum(e['dreamId'] == dream for e in removed) or not set(gone) <= set(slots):
+            raise ValueError('cannot rebuild the assembler\'s links for %s: review.removed orders clash or run past %d'
+                             % (dream, len(slots)))
+        stay = iter(stay)
+        for n in slots:
+            entry = gone[n] if n in gone else next(stay)
+            links.append({**{k: v for k, v in entry.items() if k != 'reason'}, 'order': n})
+    return links
+
+
+def drafted(record):
+    """A dream or fix in its drafted wording: a founder's edit is undone from review.original."""
+    return {**record, **((record.get('review') or {}).get('original') or {})}
+
+
+def machine_entries(run):
+    """What a run's own flow shows before any founder fix review, best first, as (source, dream).
+    A card run gives its finalists. A staged run gives each ranked dream that passed honest status, in its drafted
+    wording, with the assembler's links and the drafted fix wording (founder, 2026-10-20: both sides are machine output).
+    The dream review still decides which dreams are in, as selection does for cards."""
+    if not is_staged(run):
+        selection, card_map = read(run / 'selection.json'), read(run / 'cards.json')['cards']
+        return [({'sourceCardId': k}, card_map[k]) for k in selection['finalists']]
+    fixes, dreams = read(run / 'fixes.json')['fixes'], accepted_dreams(run)
+    links = assembler_links(run)
+    return [({'sourceDreamId': r['dreamId']},
+             {**drafted(dreams[r['dreamId']]), 'fixes': [drafted(fixes[e['fixId']]) for e in
+                                                 sorted((e for e in links if e['dreamId'] == r['dreamId']), key=lambda e: e['order'])]})
+            for r in read(run / 'ranking.json')['ranking'] if r['honestStatus']['pass']]
+
+
+def compare_build(root, pilot_pains, seed=20261020):
+    """A blind set pairing each pilot pain's newest card run (old) with its newest staged run (new); the key is kept apart."""
+    stale_runs = {s['run']: s for s in stale(root)['stale']}
+    entries = []
+    for pain in pilot_pains:
+        for origin, staged in (('old', False), ('new', True)):
+            run = latest_run(root, pain, staged=staged)
+            found = stale_runs.get(str(run.relative_to(root)))
+            if found:
+                # Both sides must answer the same pain text (design, "Pilot comparison"): rerun the old flow first.
+                raise ValueError('%s is stale: %s%s; rerun it on the current wording first' % (
+                    found['run'], found['reason'], ' (%r, now %r)' % (found['old']['line'], found['new']['line']) if 'old' in found else ''))
+            exemplars = read(run / 'exemplars.json')['exemplars']
+            entries += [(origin, pain, source, run.name, dream, exemplars, False) for source, dream in machine_entries(run)]
+    items, key = build_items(root, entries, seed, 'p')
+    out = data_root(root) / PILOT_OUT
+    out.mkdir(parents=True, exist_ok=True)
+    write(out / 'compare-set.json', items)
+    write(out / 'compare-key.json', key)
+    return {'items': len(items['items']), 'old': sum(v['origin'] == 'old' for v in key.values()),
+            'new': sum(v['origin'] == 'new' for v in key.values())}
+
+
+RATING_POINTS = {'love': 2, 'keep': 1, 'kill': 0}  # skip has no points and is left out of the mean
+PAUSE_MINUTES = 10  # a longer gap between two decisions is a break, not review time
+
+
+def moment(stamp):
+    return datetime.datetime.fromisoformat(stamp.replace('Z', '+00:00'))
+
+
+def gaps(stamps):
+    """Minutes before each decision after the first, in time order; a break counts as nothing."""
+    times = sorted(moment(t) for t in stamps)
+    minutes = [(b - a).total_seconds() / 60 for a, b in zip(times, times[1:])]
+    return [m if m <= PAUSE_MINUTES else 0 for m in minutes]
+
+
+def page_minutes(stamps):
+    """Review time on one page from its decidedAt stamps, or None when the page has none to time."""
+    stamps = [t for t in stamps if t]
+    return round(sum(gaps(stamps)), 1) if len(stamps) >= 2 else None
+
+
+def staged_review_minutes(run):
+    """The founder's time on a staged run's dream review and fix review, or None if either can't be timed."""
+    dreams = [(d.get('review') or {}).get('decidedAt') for d in read(run / 'dreams.json')['dreams'].values()]
+    fixes = [(f.get('review') or {}).get('decidedAt') for f in read(run / 'fixes.json')['fixes'].values()]
+    pages = [page_minutes(dreams), page_minutes(fixes)]
+    return None if None in pages else sum(pages)
+
+
+def item_minutes(ratings):
+    """Time spent on each rated item: the gap since the rating before it on the page (the first item counts nothing)."""
+    order = sorted((moment(r['ratedAt']), k) for k, r in ratings.items() if r.get('ratedAt'))
+    spent = gaps([r['ratedAt'] for r in ratings.values() if r.get('ratedAt')])
+    return {k: m for (_, k), m in zip(order[1:], spent)}
+
+
+def fill_rate(run):
+    """Kind fixes drafted against the plan's ceilings, as the mean share of each ceiling above zero that was filled
+    (design, "Risks": the report shows it so ceilings creeping into quotas are visible). Shared fixes count against none."""
+    fixes = read(run / 'fixes.json')['fixes'].values()
+    cells = {}
+    for dream, row in read(run / 'plan.json')['ceilings'].items():
+        for kind, ceiling in row.items():
+            if ceiling['max'] > 0:
+                drafted = sum(f.get('origin') == 'kind:' + kind and f.get('draftedFor') == dream for f in fixes)
+                cells.setdefault(kind, []).append(min(drafted, ceiling['max']) / ceiling['max'])
+    return cells
+
+
+def run_tokens(run):
+    meta = read(run / 'run.json') if (run / 'run.json').is_file() else {}
+    return meta.get('tokens'), meta.get('tokensByStage')
+
+
+def compare_report(root, export_path):
+    """The pilot's gate: the staged flow passes only if it rates at least as well, its linked fixes span more kinds,
+    and the founder's review is no longer (spec, "Pilot comparison")."""
+    out = data_root(root) / PILOT_OUT
+    key, items = read(out / 'compare-key.json'), {i['id']: i for i in read(out / 'compare-set.json')['items']}
+    ratings = validate_ratings(read(export_path), key)
+    flows = ('old', 'new')
+    pilot = sorted({v['painId'] for v in key.values()})
+    runs = {o: sorted({(v['painId'], v['runId']) for v in key.values() if v['origin'] == o}) for o in flows}
+
+    def mean(values):
+        return round(statistics.mean(values), 2) if values else None
+
+    points = {o: [RATING_POINTS[r['rating']] for k, r in ratings.items() if key[k]['origin'] == o and r['rating'] in RATING_POINTS]
+              for o in flows}
+    kinds = {o: mean([len({f.get('kind') for k, v in key.items() if v['origin'] == o and v['painId'] == pain
+                           for f in items[k]['fixes'] if f.get('kind')}) for pain in pilot]) for o in flows}
+    spent = item_minutes(ratings)
+    staged = [staged_review_minutes(data_root(root) / 'runs' / pain / run) for pain, run in runs['new']]
+    old_spent = [m for k, m in spent.items() if key[k]['origin'] == 'old']
+    minutes = {'old': round(sum(old_spent), 1) if old_spent else None,
+               'new': None if None in staged or not staged else round(sum(staged), 1)}
+    mean_rating = {o: mean(points[o]) for o in flows}
+    cells = {}
+    for pain, run in runs['new']:
+        for kind, filled in fill_rate(data_root(root) / 'runs' / pain / run).items():
+            cells.setdefault(kind, []).extend(filled)
+    tokens = {}
+    for o in flows:
+        found = [run_tokens(data_root(root) / 'runs' / pain / run) for pain, run in runs[o]]
+        by_stage = {}
+        for _, stages in found:
+            for stage, n in (stages or {}).items():
+                by_stage[stage] = by_stage.get(stage, 0) + n
+        totals = [total for total, _ in found if total is not None]
+        tokens[o] = {'total': sum(totals) if totals else None, 'byStage': by_stage or None}
+
+    def measured(*values):  # a missing measure fails its check
+        return None not in values
+    checks = {
+        'newMeanRating>=oldMeanRating': measured(*mean_rating.values()) and mean_rating['new'] >= mean_rating['old'],
+        'newKindsPerPain>oldKindsPerPain': measured(*kinds.values()) and kinds['new'] > kinds['old'],
+        'newReviewMinutes<=oldReviewMinutes': measured(*minutes.values()) and minutes['new'] <= minutes['old'],
+    }
+    result = {
+        'schemaVersion': 1, 'generatedAt': now(), 'pains': pilot,
+        'rates': {o: rates([r['rating'] for k, r in ratings.items() if key[k]['origin'] == o]) for o in flows},
+        'meanRating': mean_rating, 'kindsPerPain': kinds, 'reviewMinutes': minutes,
+        'fillRate': {'old': None, 'new': {'overall': mean([x for v in cells.values() for x in v]),
+                                          'byKind': {k: mean(v) for k, v in sorted(cells.items())}} if cells else None},
+        'tokens': tokens,
+        'gate': gate(checks),
+    }
+    write(out / 'compare-metrics.json', result)
+    return result
+
+
 # ---------- report ----------
 
 def rates(values):
@@ -1746,11 +1947,16 @@ def rates(values):
             'kill': round(values.count('kill') / n, 3), 'loveKeep': round((values.count('love') + values.count('keep')) / n, 3)}
 
 
+def gate(checks):
+    return {'result': 'scale-up' if all(checks.values()) else 'iterate', 'checks': checks,
+            'failing': [k for k, v in checks.items() if not v]}
+
+
 def review_minutes(ratings):
     times = sorted(r['ratedAt'] for r in ratings.values() if r.get('ratedAt'))
     if len(times) < 2:
         return None
-    start, end = (datetime.datetime.fromisoformat(t.replace('Z', '+00:00')) for t in (times[0], times[-1]))
+    start, end = (moment(t) for t in (times[0], times[-1]))
     return round((end - start).total_seconds() / 60, 1)
 
 
@@ -1806,8 +2012,7 @@ def report(root, audit_path=None):
         'agreement': {'pains': len(agreement), 'top3HitRate': round(sum(agreement) / len(agreement), 3) if agreement else None,
                       'founderKillsAmongJudgeTop3': judge_kills, 'heldOutJudgeTop3Rated': judge_total},
         'cost': cost,
-        'gate': {'result': 'scale-up' if all(checks.values()) else 'iterate', 'checks': checks,
-                 'failing': [k for k, v in checks.items() if not v]},
+        'gate': gate(checks),
         'notes': ['Origin may be guessable in the blind round: old items have no named example.',
                   'Cost is approximate: wall-clock and any token counts the agent environment exposed.'],
     }
@@ -1823,7 +2028,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('command', choices=('new-run', 'status', 'start', 'dreams-review-build', 'dreams-ingest',
                                             'fixes-review-build', 'fixes-ingest', 'validate', 'lint', 'judge-input', 'consensus', 'select', 'finish-run',
-                                            'calibrate-build', 'calibrate-ingest', 'audit-build', 'report', 'stale'))
+                                            'calibrate-build', 'calibrate-ingest', 'audit-build', 'report', 'stale',
+                                            'compare-build', 'compare-report'))
     parser.add_argument('targets', nargs='*')
     parser.add_argument('--root', type=Path, default=Path.cwd())
     parser.add_argument('--seed', type=int)
@@ -1832,6 +2038,7 @@ def main():
     parser.add_argument('--tokens', type=int)
     parser.add_argument('--audit', help='Audit ratings export for report')
     parser.add_argument('--staged', action='store_true', help='new-run: start a staged run (schemaVersion 2)')
+    parser.add_argument('--stage', help='finish-run: record --tokens for one stage of a staged run')
     args = parser.parse_args()
     root = args.root.resolve()
     if not (root / 'openspec/config.yaml').is_file():
@@ -1899,6 +2106,8 @@ def main():
                 results[target] = consensus(folder)
             elif args.command == 'select':
                 results[target] = select(folder, args.seed)
+            elif args.stage:
+                results[target] = record_stage_tokens(folder, args.stage, args.tokens)
             else:
                 run = read(folder / 'run.json')
                 run.update({'finishedAt': now(), 'searches': args.searches, 'pagesOpened': args.pages, 'tokens': args.tokens})
@@ -1920,6 +2129,16 @@ def main():
         out = report(root, args.audit)
         print(json.dumps(out, indent=2, ensure_ascii=False))
         return 0 if out['gate']['result'] == 'scale-up' else 1
+    elif args.command == 'compare-report':
+        if len(args.targets) != 1:
+            parser.error('compare-report needs the comparison ratings export path')
+        out = compare_report(root, args.targets[0])
+        print(json.dumps(out, indent=2, ensure_ascii=False))
+        return 0 if out['gate']['result'] == 'scale-up' else 1
+    elif args.command == 'compare-build':
+        if not args.targets:
+            parser.error('compare-build needs the pilot pain IDs')
+        out = compare_build(root, args.targets, args.seed or 20261020)
     print(json.dumps(out, indent=2, ensure_ascii=False))
     return 0
 
