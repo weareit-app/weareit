@@ -79,6 +79,14 @@ describe("diagram and math in an essay", () => {
 
   it("draws the diagram and typesets the math, keeping the description", async () => {
     const { container, root } = await renderEssay();
+    // The math waits for KaTeX's stylesheet; jsdom doesn't load it, so the
+    // test reports it loaded.
+    await act(async () => {
+      document
+        .querySelector('link[href="/katex/katex.min.css"]')!
+        .dispatchEvent(new Event("load"));
+      await new Promise((resolve) => setTimeout(resolve, 0));
+    });
 
     expect(mockRender).toHaveBeenCalledWith(
       expect.stringMatching(/^diagram-/),

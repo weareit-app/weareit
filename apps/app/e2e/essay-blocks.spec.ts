@@ -7,13 +7,16 @@ const FLOW_DESCRIPTION = /^A flow from left to right: a pain you name/;
 // The app's own API (EXPO_PUBLIC_API_URL in playwright.config.ts), which
 // the site menu asks whether someone is signed in.
 const API_HOST = "localhost:3001";
+// Every test here opens the lab page, which loads Mermaid's chunk. Whichever
+// test runs first makes the dev server compile it, which takes longer than the
+// 30-second default in CI; a release serves the chunk prebuilt.
+test.describe.configure({ timeout: 90_000 });
+
 const QUADRATIC_TEX = "x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}";
 
 test("draws diagrams and typesets math from this site only", async ({
   page,
 }) => {
-  // The first visit compiles Mermaid's chunk on the dev server.
-  test.slow();
   const hosts = new Set<string>();
   page.on("request", (request) => hosts.add(new URL(request.url()).host));
   // The dev server builds Mermaid's lazy chunk (about 5 MB) on first request,
@@ -40,6 +43,54 @@ test("draws diagrams and typesets math from this site only", async ({
 
   const own = new Set([new URL(page.url()).host, API_HOST]);
   expect([...hosts].filter((host) => !own.has(host))).toEqual([]);
+});
+
+test("keeps the TeX until KaTeX's stylesheet has loaded", async ({ page }) => {
+  // Without the stylesheet, KaTeX's typeset HTML and its MathML both show.
+  let release = () => {};
+  const held = new Promise<void>((resolve) => (release = resolve));
+  let requested = () => {};
+  const stylesheetRequested = new Promise<void>(
+    (resolve) => (requested = resolve),
+  );
+  await page.route("**/katex/katex.min.css", async (route) => {
+    requested();
+    await held;
+    await route.continue();
+  });
+  await page.goto(LAB);
+  await stylesheetRequested;
+  // Long enough for KaTeX to have typeset, were it not waiting.
+  await page.waitForTimeout(500);
+
+  await expect(page.getByText(QUADRATIC_TEX, { exact: true })).toBeVisible();
+  await expect(page.locator(".katex-mathml")).toHaveCount(0);
+
+  release();
+  await expect(page.locator("math")).toHaveCount(2);
+  // The stylesheet visually hides the MathML (a 1px clip, which Playwright
+  // still counts as visible), so check it applied.
+  await expect(page.locator(".katex-mathml").first()).toHaveCSS(
+    "position",
+    "absolute",
+  );
+});
+
+test("keeps the TeX when KaTeX's stylesheet fails to load", async ({
+  page,
+}) => {
+  let failed = () => {};
+  const stylesheetFailed = new Promise<void>((resolve) => (failed = resolve));
+  await page.route("**/katex/katex.min.css", async (route) => {
+    await route.abort();
+    failed();
+  });
+  await page.goto(LAB);
+  await stylesheetFailed;
+  await page.waitForTimeout(500);
+
+  await expect(page.getByText(QUADRATIC_TEX, { exact: true })).toBeVisible();
+  await expect(page.locator(".katex")).toHaveCount(0);
 });
 
 test.describe("with scripts off", () => {
