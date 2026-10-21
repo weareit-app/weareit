@@ -7,7 +7,7 @@ import {
   saveDraftContent,
 } from "../src/content-repository";
 import { checkDatabaseReadiness } from "../src/readiness";
-import { buildTier1ContentGraph } from "../src/tier1-import";
+import { buildTier1ContentGraph } from "@it/content/tier-1-graph";
 import { createTestDatabase } from "./test-database";
 
 describe("database readiness", () => {

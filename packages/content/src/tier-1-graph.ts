@@ -1,10 +1,6 @@
-import {
-  getAllPains,
-  personalPainDomains,
-  worldPainDomains,
-} from "@it/content/tier-1";
-import { firstActions } from "@it/content/first-actions";
-import { fixes } from "@it/content/fixes";
+import { getAllPains, personalPainDomains, worldPainDomains } from "./tier-1";
+import { firstActions } from "./first-actions";
+import { fixes } from "./fixes";
 import { contentGraphSchema, type ContentGraph } from "@it/domain/content";
 
 const researchRights = "CC0-1.0" as const;

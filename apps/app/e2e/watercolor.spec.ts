@@ -1,5 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
-import { buildTier1ContentGraph } from "../../../packages/database/src/tier1-import";
+import { buildTier1ContentGraph } from "@it/content/tier-1-graph";
 
 const DOT = '[data-testid="watercolor-dot"]';
 
