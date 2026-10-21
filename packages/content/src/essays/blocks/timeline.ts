@@ -1,5 +1,15 @@
 import { z } from "zod";
-import { text } from "./shared";
+import { isoDate, text } from "./shared";
+
+// A year ("2026"), a month ("2026-10") or a day ("2026-10-26") that exists.
+const timelineDate = z.union(
+  [
+    z.string().regex(/^\d{4}$/),
+    z.string().regex(/^\d{4}-(0[1-9]|1[0-2])$/),
+    isoDate,
+  ],
+  { error: "use a real year (2026), month (2026-10) or day (2026-10-26)" },
+);
 
 // The data file of a `::timeline{id="…"}` block.
 export const timelineBlockSchema = z.strictObject({
@@ -7,7 +17,7 @@ export const timelineBlockSchema = z.strictObject({
   entries: z
     .array(
       z.strictObject({
-        date: z.string().regex(/^\d{4}(-\d{2}(-\d{2})?)?$/),
+        date: timelineDate,
         title: text,
         note: text.optional(),
       }),

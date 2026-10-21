@@ -28,6 +28,10 @@ const chart = {
   title: "Reported incidents per year",
   description: "Incidents rose each year from 2020 to 2024.",
   spec: { mark: "line" },
+  columns: [
+    { key: "year", label: "Year" },
+    { key: "count", label: "Incidents" },
+  ],
   data: [{ year: 2020, count: 3 }],
   source: "plan",
   unit: "incidents",
@@ -91,13 +95,48 @@ describe("block data", () => {
     expect(blockSchemas.chart.safeParse(chart).success).toBe(true);
   });
 
-  it.each(["unit", "source", "timeframe", "updated", "population"])(
+  it.each(["unit", "source", "timeframe", "updated", "population", "columns"])(
     "rejects a chart without %s",
     (field) => {
       const { [field as keyof typeof chart]: _, ...rest } = chart;
       expect(blockSchemas.chart.safeParse(rest).success).toBe(false);
     },
   );
+
+  it("rejects a chart spec that brings its own data, so nothing is fetched", () => {
+    const spec = { ...chart.spec, data: { url: "https://example.com/d.csv" } };
+    expect(blockSchemas.chart.safeParse({ ...chart, spec }).success).toBe(
+      false,
+    );
+  });
+
+  it.each([
+    ["a layer", { layer: [{ mark: "bar", data: { values: [{ count: 9 }] } }] }],
+    ["named datasets", { mark: "bar", datasets: { extra: [{ count: 9 }] } }],
+  ])(
+    "rejects chart data in %s, which the fallback table would not show",
+    (_, spec) => {
+      expect(blockSchemas.chart.safeParse({ ...chart, spec }).success).toBe(
+        false,
+      );
+    },
+  );
+
+  it("rejects a URL anywhere in a chart spec", () => {
+    const spec = {
+      layer: [{ mark: { type: "image", url: "https://example.com/a.png" } }],
+    };
+    expect(blockSchemas.chart.safeParse({ ...chart, spec }).success).toBe(
+      false,
+    );
+  });
+
+  it("rejects chart rows with columns it doesn't declare", () => {
+    const data = [...chart.data, { year: 2021, incidents: 5 }];
+    expect(blockSchemas.chart.safeParse({ ...chart, data }).success).toBe(
+      false,
+    );
+  });
 
   it("labels evidence with a status from the fixed list", () => {
     const evidence = {
@@ -133,6 +172,25 @@ describe("block data", () => {
         rows: [{ town: "Seattle" }],
       }).success,
     ).toBe(false);
+  });
+
+  it("takes timeline dates as a year, a month or a day", () => {
+    const timeline = (date: string) =>
+      blockSchemas.timeline.safeParse({ entries: [{ date, title: "Launch" }] })
+        .success;
+    expect(
+      ["2026", "2026-10", "2026-10-26", "2028-02-29"].map(timeline),
+    ).toEqual([true, true, true, true]);
+    expect(
+      [
+        "2026-13",
+        "2026-00",
+        "2026-00-10",
+        "2026-02-30",
+        "2027-02-29",
+        "26",
+      ].map(timeline),
+    ).toEqual([false, false, false, false, false, false]);
   });
 
   it("has the spec's seven status labels, written as words", () => {

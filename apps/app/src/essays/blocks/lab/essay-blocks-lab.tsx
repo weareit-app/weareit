@@ -3,7 +3,7 @@ import { ScrollView, View } from "react-native";
 import { EssayBody } from "../../essay-body";
 
 // Fixtures for the diagram and math blocks, rendered by the essay body and
-// shown by app/lab/essay-blocks.
+// shown by app/lab/diagram-math.
 const nodes: EssayNode[] = [
   {
     type: "heading",

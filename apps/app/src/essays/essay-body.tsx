@@ -6,9 +6,10 @@ import type {
 } from "@it/content/essay-schema";
 import { Link, type Href } from "expo-router";
 import type { ComponentType } from "react";
-import { View } from "react-native";
+import { Platform, View } from "react-native";
 import { Text } from "../components/text";
 import { blockComponents } from "./blocks";
+import { BlockFallback } from "./blocks/block-fallback";
 import { InlineMath } from "./blocks/math";
 
 // Renders the typed tree the essay build writes (public-essays). Static: the
@@ -85,6 +86,9 @@ function Block({
   block: EssayBlock;
   sources: EssaySource[];
 }) {
+  // Essays are web-only and blocks render HTML elements, which React Native
+  // can't draw, so anywhere else a block shows its plain fallback.
+  if (Platform.OS !== "web") return <BlockFallback type={block.type} />;
   const Component = blockComponents[block.type] as ComponentType<{
     block: EssayBlock;
     sources: EssaySource[];

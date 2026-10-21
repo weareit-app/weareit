@@ -1,8 +1,9 @@
 import {
+  applyFeatureStatusChanges,
   contentGraphSchema,
   type ContentGraph,
 } from "@it/content/graph-schema";
-import type { Kysely } from "kysely";
+import { sql, type Kysely } from "kysely";
 import type { Database } from "./types";
 import type { ItDatabase } from "./database";
 
@@ -248,7 +249,16 @@ export async function readDraftContent(db: ItDatabase): Promise<{
       .orderBy("sort_order")
       .execute(),
     db.selectFrom("action_pain_links").selectAll().execute(),
-    db.selectFrom("content_fixes").selectAll().orderBy("sort_order").execute(),
+    db
+      .selectFrom("content_fixes")
+      .selectAll()
+      .select(
+        sql<string | null>`to_char(status_changed_on, 'YYYY-MM-DD')`.as(
+          "status_changed_on_text",
+        ),
+      )
+      .orderBy("sort_order")
+      .execute(),
     db.selectFrom("fix_dream_links").selectAll().execute(),
     db.selectFrom("content_sources").selectAll().execute(),
     db.selectFrom("content_provenance").selectAll().execute(),
@@ -312,6 +322,8 @@ export async function readDraftContent(db: ItDatabase): Promise<{
           description,
           kind,
           feature_status,
+          status_changed_on_text,
+          status_note,
           evidence,
           evidence_note,
           sort_order,
@@ -321,6 +333,10 @@ export async function readDraftContent(db: ItDatabase): Promise<{
           description,
           kind,
           ...(feature_status ? { featureStatus: feature_status } : {}),
+          ...(status_changed_on_text
+            ? { statusChangedOn: status_changed_on_text }
+            : {}),
+          ...(status_note ? { statusNote: status_note } : {}),
           evidence,
           evidenceNote: evidence_note,
           sortOrder: sort_order,
@@ -362,12 +378,25 @@ export async function readDraftContent(db: ItDatabase): Promise<{
   };
 }
 
+export class FeatureStatusNoteError extends Error {
+  constructor(readonly issues: ContentValidationIssue[]) {
+    super(issues.map((issue) => issue.message).join(" "));
+    this.name = "FeatureStatusNoteError";
+  }
+}
+
 export async function saveDraftContent(
   db: ItDatabase,
   graphInput: unknown,
-  options: { expectedRevision: number; actor: string; changeNote: string },
+  options: {
+    expectedRevision: number;
+    actor: string;
+    changeNote: string;
+    // The date recorded with a status change; defaults to today in UTC.
+    today?: string;
+  },
 ) {
-  const graph = contentGraphSchema.parse(graphInput);
+  const parsed = contentGraphSchema.parse(graphInput);
   return db.transaction().execute(async (trx) => {
     const state = await trx
       .selectFrom("content_draft_state")
@@ -381,6 +410,14 @@ export async function saveDraftContent(
         `Draft changed since revision ${options.expectedRevision}; reload before saving.`,
       );
     }
+    const previous = await readDraftContent(trx);
+    const { fixes, issues } = applyFeatureStatusChanges(
+      previous.content.fixes,
+      parsed.fixes,
+      options.today ?? new Date().toISOString().slice(0, 10),
+    );
+    if (issues.length) throw new FeatureStatusNoteError(issues);
+    const graph = { ...parsed, fixes };
     return saveDraftInTransaction(trx, graph, options, state.revision);
   });
 }
@@ -675,6 +712,8 @@ async function replaceNormalizedContent(db: ItDatabase, graph: ContentGraph) {
           description: item.description,
           kind: item.kind,
           feature_status: item.featureStatus ?? null,
+          status_changed_on: item.statusChangedOn ?? null,
+          status_note: item.statusNote ?? null,
           evidence: item.evidence,
           evidence_note: item.evidenceNote,
           sort_order: item.sortOrder,

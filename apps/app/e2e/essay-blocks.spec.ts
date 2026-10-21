@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 
 // The diagram and math blocks on the development lab page, until essays
 // render them (public-essays: Named blocks, Text without scripts).
-const LAB = "/lab/essay-blocks";
+const LAB = "/lab/diagram-math";
 const FLOW_DESCRIPTION = /^A flow from left to right: a pain you name/;
 // The app's own API (EXPO_PUBLIC_API_URL in playwright.config.ts), which
 // the site menu asks whether someone is signed in.
@@ -14,7 +14,14 @@ test("draws diagrams and typesets math from this site only", async ({
 }) => {
   const hosts = new Set<string>();
   page.on("request", (request) => hosts.add(new URL(request.url()).host));
+  // The dev server builds Mermaid's lazy chunk (about 5 MB) on first request,
+  // which can take longer than an assertion's wait on a cold or busy machine;
+  // a release serves it prebuilt. Wait for it to arrive, then for the drawing.
+  const mermaidChunk = page.waitForResponse((response) =>
+    /\/mermaid\/dist\/mermaid\.core\.bundle/.test(response.url()),
+  );
   await page.goto(LAB);
+  await mermaidChunk;
 
   await expect(page.locator("svg[aria-roledescription]")).toHaveCount(2);
   // The description stays as the diagram's text equivalent.

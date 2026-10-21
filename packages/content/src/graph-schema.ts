@@ -2,9 +2,17 @@ import { z } from "zod";
 
 const idSchema = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
 const copySchema = z.string().trim().min(1).max(4000);
+const calendarDateSchema = z.iso.date();
 
 export const fixKinds = ["once", "habit", "group", "feature"] as const;
-export const featureStatuses = ["planned", "idea"] as const;
+// Roadmap order: live, being built, decided, being looked into, undecided.
+export const featureStatuses = [
+  "shipped",
+  "in-progress",
+  "planned",
+  "exploring",
+  "idea",
+] as const;
 export const evidenceLevels = [
   "strong",
   "some",
@@ -63,6 +71,10 @@ export const contentFixSchema = z
     description: copySchema,
     kind: z.enum(fixKinds),
     featureStatus: z.enum(featureStatuses).optional(),
+    // When the status last changed and a short note of what changed. Content
+    // from before five statuses has neither.
+    statusChangedOn: calendarDateSchema.optional(),
+    statusNote: copySchema.max(500).optional(),
     evidence: z.enum(evidenceLevels),
     evidenceNote: copySchema,
     sortOrder: z.number().int().nonnegative(),
@@ -234,6 +246,15 @@ export const contentGraphSchema = z
           path: ["fixes", index, "featureStatus"],
           message: "Features, and only features, carry a roadmap status.",
         });
+      if (
+        fix.kind !== "feature" &&
+        (fix.statusChangedOn !== undefined || fix.statusNote !== undefined)
+      )
+        context.addIssue({
+          code: "custom",
+          path: ["fixes", index, "statusNote"],
+          message: "Only features carry a status date and note.",
+        });
     });
     graph.provenance.forEach((reference, index) => {
       const entityIds = {
@@ -260,3 +281,30 @@ export const contentGraphSchema = z
 
 export type ContentGraph = z.infer<typeof contentGraphSchema>;
 export type ContentFix = z.infer<typeof contentFixSchema>;
+
+// A saved status change needs a new note saying what changed, and records the
+// date: today, unless the founder set a different date with the change.
+export function applyFeatureStatusChanges(
+  previous: readonly ContentFix[],
+  next: readonly ContentFix[],
+  today: string,
+): { fixes: ContentFix[]; issues: { path: string; message: string }[] } {
+  const before = new Map(previous.map((fix) => [fix.id, fix]));
+  const issues: { path: string; message: string }[] = [];
+  const fixes = next.map((fix) => {
+    const old = before.get(fix.id);
+    if (!fix.featureStatus || old?.featureStatus === fix.featureStatus)
+      return fix;
+    if (!fix.statusNote?.trim() || fix.statusNote === old?.statusNote) {
+      issues.push({
+        path: `fix.${fix.id}.statusNote`,
+        message: "Add a note saying what changed before changing the status.",
+      });
+      return fix;
+    }
+    return fix.statusChangedOn && fix.statusChangedOn !== old?.statusChangedOn
+      ? fix
+      : { ...fix, statusChangedOn: today };
+  });
+  return { fixes, issues };
+}
