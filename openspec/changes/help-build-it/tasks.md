@@ -4,7 +4,7 @@ Builds after `required-signup-gate` (account screen, menu, `/all-set`, moment em
 
 ## 1. Licences and reference data
 
-- [ ] 1.1 Write the ESCO credit and "modified" notice to CC BY 4.0's terms (ESCO is CC BY 4.0, founder 2026-10-19: modification allowed with attribution, a licence link and an indication of changes); verify ISCED 2011 reuse terms
+- [ ] 1.1 Write the ESCO credit and "modified" notice to CC BY 4.0's terms (ESCO is CC BY 4.0, founder 2026-10-19: modification allowed with attribution, a licence link and an indication of changes); verify ISCED 2011 reuse terms. The credit text lives in one place, `escoCredit` and `iscedCredit` in `packages/content/src/credits.ts` (`@it/content/credits`), shared with the `/licensing` essay; a test checks the essay repeats it word for word. Update `iscedCredit` there once the ISCED terms are verified.
 - [ ] 1.2 Script to import ESCO occupations, skills, the essential-skill relation and Spanish labels, and ISCED levels and broad fields, recording source versions
 - [ ] 1.3 Label override table per language, keyed by URI
 
