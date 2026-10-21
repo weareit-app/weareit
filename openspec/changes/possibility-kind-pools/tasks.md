@@ -49,7 +49,7 @@ Start only after the pain-catalog change (PR #27) and the full pain sweep are me
 
 ## 8. Pilot comparison
 
-- [ ] 8.1 Add `compare-build <pain…>` (pairs each pilot pain's newest v1 and v2 runs, builds a blind set with a separate key, and refuses if the v1 run is stale) and `compare-report <export>` (mean rating per flow, distinct kinds among linked fixes, founder review time, fill rate against ceilings, and tokens per stage, with a `scale-up` or `iterate` result). Verify with tests: the set has no origin information, and a slower review gives `iterate` and names that check.
+- [x] 8.1 Add `compare-build <pain…>` (pairs each pilot pain's newest v1 and v2 runs, builds a blind set with a separate key, and refuses if the v1 run is stale) and `compare-report <export>` (mean rating per flow, distinct kinds among linked fixes, founder review time, fill rate against ceilings, and tokens per stage, with a `scale-up` or `iterate` result). Verify with tests: the set has no origin information, and a slower review gives `iterate` and names that check.
 - [ ] 8.2 Run the pilot on the founder's chosen pains: rerun the old flow if its run is stale, run the staged flow with both founder reviews, build the comparison set, and ingest the founder's ratings. Verify that `compare-report` prints a result and that the run folders pass `validate` and `lint`.
 
 ## 9. Switch over (only if the pilot says `scale-up`)
