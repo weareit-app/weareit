@@ -4,7 +4,7 @@ Rules that `/code-review` applies to a diff. They are judgement calls that no au
 
 ## Vendor claims carry their source
 
-Every claim in the diff about an outside vendor's price, limit, default or behaviour (GitHub, Expo, Stripe, Render, Neon, Resend and so on) names its source and the date it was checked, for example "(checked 2026-10-20 against GitHub's Actions billing docs)". A claim with no source is a finding, and so is one that the cited source does not actually say. This includes claims passed on by another agent or reviewer: check them against the source before they go in. Check a claim against the section of its source that it cites; for a web page, ask WebFetch about that section by name.
+Every claim in the diff about an outside vendor's price, limit, default, or behavior (GitHub, Expo, Stripe, Render, Neon, Resend, and so on) names its source and the date it was checked, for example "(checked 2026-10-20 against GitHub's Actions billing docs)". A claim with no source is a finding, and so is one that the cited source does not actually say. This includes claims passed on by another agent or reviewer: check them against the source before they go in. Check a claim against the section of its source that it cites; for a web page, ask WebFetch about that section by name.
 
 ## UI copy in stories, tests and fixtures is real
 
