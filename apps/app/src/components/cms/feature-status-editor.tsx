@@ -1,13 +1,15 @@
 import { View } from "react-native";
 import {
   applyFeatureStatusChanges,
-  contentFixSchema,
   featureStatuses,
+  resolveFeatureStatuses,
   type ContentFix,
+  type ContentGraph,
 } from "@it/content/graph-schema";
 import { statusCopy } from "../personal/way-row";
 import { Text } from "../text";
 import { Field, SelectField } from "./fields";
+import { badStatusDateIds, statusDateHelp } from "./status-date";
 
 type StatusFields = Pick<
   ContentFix,
@@ -16,32 +18,22 @@ type StatusFields = Pick<
 
 const today = () => new Date().toISOString().slice(0, 10);
 
-const dateHelp = "Write the status date as year-month-day, like 2026-10-20.";
-
-// Free text in the form, so a mistyped date gets a plain message here rather
-// than a schema error from the API.
-function dateIssues(fixes: readonly ContentFix[]) {
-  return fixes
-    .filter(
-      ({ statusChangedOn }) =>
-        statusChangedOn !== undefined &&
-        !contentFixSchema.shape.statusChangedOn.safeParse(statusChangedOn)
-          .success,
-    )
-    .map(({ id }) => ({
-      path: `fix.${id}.statusChangedOn`,
-      message: dateHelp,
-    }));
-}
+// The saved draft's fixes and roadmap items. A fix is compared with the status
+// it was showing, so one disconnected from its item keeps that status freely.
+type SavedContent = Pick<ContentGraph, "fixes" | "roadmapItems">;
 
 // The save is refused here before it reaches the API, which refuses it too.
 export function refuseStatusChangesWithoutNotes(
-  savedFixes: readonly ContentFix[],
+  saved: SavedContent,
   fixes: readonly ContentFix[],
 ) {
   const issues = [
-    ...dateIssues(fixes),
-    ...applyFeatureStatusChanges(savedFixes, fixes, today()).issues,
+    ...badStatusDateIds(fixes).map((id) => ({
+      path: `fix.${id}.statusChangedOn`,
+      message: statusDateHelp,
+    })),
+    ...applyFeatureStatusChanges(resolveFeatureStatuses(saved), fixes, today())
+      .issues,
   ];
   if (!issues.length) return null;
   return `Not saved. ${issues
@@ -53,23 +45,30 @@ export function refuseStatusChangesWithoutNotes(
 // what changed. A changed status needs a new note before the draft saves.
 export function FeatureStatusEditor({
   fixes,
-  savedFixes,
+  saved,
   onChange,
 }: {
   fixes: readonly ContentFix[];
-  savedFixes: readonly ContentFix[];
+  saved: SavedContent;
   onChange: (fixId: string, patch: StatusFields) => void;
 }) {
-  const features = fixes.filter(({ kind }) => kind === "feature");
-  const { issues } = applyFeatureStatusChanges(savedFixes, features, today());
-  const badDates = new Set(
-    dateIssues(features).map(({ path }) => path.split(".")[1]),
+  // A fix connected to a roadmap item takes its status from the Roadmap section.
+  const features = fixes.filter(
+    ({ kind, roadmapItemId }) => kind === "feature" && !roadmapItemId,
   );
+  const { issues } = applyFeatureStatusChanges(
+    resolveFeatureStatuses(saved),
+    features,
+    today(),
+  );
+  const badDates = new Set(badStatusDateIds(features));
   return (
     <View className="gap-3 rounded-2xl bg-paper-raised p-5">
       <Text className="font-ui-semibold text-ink">Feature statuses</Text>
       {features.length ? null : (
-        <Text className="text-ink-soft">This draft has no Feature fixes.</Text>
+        <Text className="text-ink-soft">
+          This draft has no Feature fixes outside roadmap items.
+        </Text>
       )}
       {features.map((fix) => {
         const issue = issues.find(
@@ -104,7 +103,7 @@ export function FeatureStatusEditor({
             />
             {badDates.has(fix.id) ? (
               <Text accessibilityRole="alert" className="text-ink">
-                {dateHelp}
+                {statusDateHelp}
               </Text>
             ) : null}
             <Field

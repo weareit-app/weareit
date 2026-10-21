@@ -32,7 +32,7 @@ describe("FeatureStatusEditor", () => {
     await render(
       <FeatureStatusEditor
         fixes={[feature, habit]}
-        savedFixes={[feature, habit]}
+        saved={{ fixes: [feature, habit], roadmapItems: [] }}
         onChange={() => {}}
       />,
     );
@@ -46,17 +46,37 @@ describe("FeatureStatusEditor", () => {
     ).toBeTruthy();
   });
 
+  it("leaves out fixes connected to a roadmap item", async () => {
+    const connected: ContentFix = {
+      ...habit,
+      id: "translated-pages",
+      title: "Pages in your language",
+      kind: "feature",
+      roadmapItemId: "use-it-in-spanish",
+    };
+    await render(
+      <FeatureStatusEditor
+        fixes={[feature, connected]}
+        saved={{ fixes: [feature, connected], roadmapItems: [] }}
+        onChange={() => {}}
+      />,
+    );
+
+    expect(screen.getByText(feature.title)).toBeTruthy();
+    expect(screen.queryByText(connected.title)).toBeNull();
+  });
+
   it("edits the status, date and note", async () => {
     const onChange = jest.fn();
     await render(
       <FeatureStatusEditor
         fixes={[feature]}
-        savedFixes={[feature]}
+        saved={{ fixes: [feature], roadmapItems: [] }}
         onChange={onChange}
       />,
     );
 
-    await fireEvent.press(screen.getByRole("button", { name: "In Progress" }));
+    await fireEvent.press(screen.getByRole("button", { name: "In progress" }));
     await fireEvent.changeText(
       screen.getByLabelText("Status date"),
       "2026-10-20",
@@ -77,7 +97,7 @@ describe("FeatureStatusEditor", () => {
     await render(
       <FeatureStatusEditor
         fixes={[{ ...feature, featureStatus: "in-progress" }]}
-        savedFixes={[feature]}
+        saved={{ fixes: [feature], roadmapItems: [] }}
         onChange={() => {}}
       />,
     );
@@ -99,7 +119,7 @@ describe("FeatureStatusEditor", () => {
             statusNote: "Building it.",
           },
         ]}
-        savedFixes={[feature]}
+        saved={{ fixes: [feature], roadmapItems: [] }}
         onChange={() => {}}
       />,
     );
@@ -116,7 +136,7 @@ describe("status date", () => {
     await render(
       <FeatureStatusEditor
         fixes={[{ ...feature, statusChangedOn: "20 Oct" }]}
-        savedFixes={[feature]}
+        saved={{ fixes: [feature], roadmapItems: [] }}
         onChange={() => {}}
       />,
     );
@@ -128,7 +148,7 @@ describe("status date", () => {
     await render(
       <FeatureStatusEditor
         fixes={[{ ...feature, statusChangedOn: "2026-10-20" }]}
-        savedFixes={[feature]}
+        saved={{ fixes: [feature], roadmapItems: [] }}
         onChange={() => {}}
       />,
     );
@@ -139,10 +159,9 @@ describe("status date", () => {
 
   it("refuses to save a date that isn't a calendar date", () => {
     expect(
-      refuseStatusChangesWithoutNotes(
-        [feature],
-        [{ ...feature, statusChangedOn: "2026-02-30" }],
-      ),
+      refuseStatusChangesWithoutNotes({ fixes: [feature], roadmapItems: [] }, [
+        { ...feature, statusChangedOn: "2026-02-30" },
+      ]),
     ).toBe(`Not saved. check-ins: ${dateHelp}`);
   });
 });
@@ -150,18 +169,16 @@ describe("status date", () => {
 describe("refuseStatusChangesWithoutNotes", () => {
   it("refuses to save a status change without a note", () => {
     expect(
-      refuseStatusChangesWithoutNotes(
-        [feature],
-        [{ ...feature, featureStatus: "shipped" }],
-      ),
+      refuseStatusChangesWithoutNotes({ fixes: [feature], roadmapItems: [] }, [
+        { ...feature, featureStatus: "live" },
+      ]),
     ).toBe(
       "Not saved. check-ins: Add a note saying what changed before changing the status.",
     );
     expect(
-      refuseStatusChangesWithoutNotes(
-        [feature],
-        [{ ...feature, featureStatus: "shipped", statusNote: "Live." }],
-      ),
+      refuseStatusChangesWithoutNotes({ fixes: [feature], roadmapItems: [] }, [
+        { ...feature, featureStatus: "live", statusNote: "Live." },
+      ]),
     ).toBeNull();
   });
 });

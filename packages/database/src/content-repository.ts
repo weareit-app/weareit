@@ -1,6 +1,8 @@
 import {
   applyFeatureStatusChanges,
+  applyRoadmapItemStatusChanges,
   contentGraphSchema,
+  resolveFeatureStatuses,
   type ContentGraph,
 } from "@it/content/graph-schema";
 import { sql, type Kysely } from "kysely";
@@ -231,6 +233,7 @@ export async function readDraftContent(db: ItDatabase): Promise<{
     actionPainLinks,
     fixes,
     fixDreamLinks,
+    roadmapItems,
     sources,
     provenance,
   ] = await Promise.all([
@@ -260,6 +263,16 @@ export async function readDraftContent(db: ItDatabase): Promise<{
       .orderBy("sort_order")
       .execute(),
     db.selectFrom("fix_dream_links").selectAll().execute(),
+    db
+      .selectFrom("roadmap_items")
+      .selectAll()
+      .select(
+        sql<string | null>`to_char(status_changed_on, 'YYYY-MM-DD')`.as(
+          "status_changed_on_text",
+        ),
+      )
+      .orderBy("sort_order")
+      .execute(),
     db.selectFrom("content_sources").selectAll().execute(),
     db.selectFrom("content_provenance").selectAll().execute(),
   ]);
@@ -324,6 +337,7 @@ export async function readDraftContent(db: ItDatabase): Promise<{
           feature_status,
           status_changed_on_text,
           status_note,
+          roadmap_item_id,
           evidence,
           evidence_note,
           sort_order,
@@ -337,6 +351,7 @@ export async function readDraftContent(db: ItDatabase): Promise<{
             ? { statusChangedOn: status_changed_on_text }
             : {}),
           ...(status_note ? { statusNote: status_note } : {}),
+          ...(roadmap_item_id ? { roadmapItemId: roadmap_item_id } : {}),
           evidence,
           evidenceNote: evidence_note,
           sortOrder: sort_order,
@@ -346,6 +361,27 @@ export async function readDraftContent(db: ItDatabase): Promise<{
         fixId: fix_id,
         dreamId: dream_id,
       })),
+      roadmapItems: roadmapItems.map(
+        ({
+          id,
+          title,
+          line,
+          status,
+          status_changed_on_text,
+          status_note,
+          sort_order,
+        }) => ({
+          id,
+          title,
+          line,
+          status,
+          ...(status_changed_on_text
+            ? { statusChangedOn: status_changed_on_text }
+            : {}),
+          ...(status_note ? { statusNote: status_note } : {}),
+          sortOrder: sort_order,
+        }),
+      ),
       sources: sources.map(
         ({ id, title, document_path, source_type, rights }) => ({
           id,
@@ -411,13 +447,21 @@ export async function saveDraftContent(
       );
     }
     const previous = await readDraftContent(trx);
+    const today = options.today ?? new Date().toISOString().slice(0, 10);
     const { fixes, issues } = applyFeatureStatusChanges(
-      previous.content.fixes,
+      resolveFeatureStatuses(previous.content),
       parsed.fixes,
-      options.today ?? new Date().toISOString().slice(0, 10),
+      today,
     );
-    if (issues.length) throw new FeatureStatusNoteError(issues);
-    const graph = { ...parsed, fixes };
+    const { items: roadmapItems, issues: itemIssues } =
+      applyRoadmapItemStatusChanges(
+        previous.content.roadmapItems,
+        parsed.roadmapItems,
+        today,
+      );
+    if (issues.length || itemIssues.length)
+      throw new FeatureStatusNoteError([...issues, ...itemIssues]);
+    const graph = { ...parsed, fixes, roadmapItems };
     return saveDraftInTransaction(trx, graph, options, state.revision);
   });
 }
@@ -616,6 +660,7 @@ async function replaceNormalizedContent(db: ItDatabase, graph: ContentGraph) {
     "content_sources",
     "fix_dream_links",
     "content_fixes",
+    "roadmap_items",
     "action_pain_links",
     "content_first_actions",
     "pain_dream_links",
@@ -702,6 +747,22 @@ async function replaceNormalizedContent(db: ItDatabase, graph: ContentGraph) {
         })),
       )
       .execute();
+  if (graph.roadmapItems.length)
+    await db
+      .insertInto("roadmap_items")
+      .values(
+        graph.roadmapItems.map((item) => ({
+          id: item.id,
+          title: item.title,
+          line: item.line,
+          status: item.status,
+          status_changed_on: item.statusChangedOn ?? null,
+          status_note: item.statusNote ?? null,
+          sort_order: item.sortOrder,
+          updated_at: new Date(),
+        })),
+      )
+      .execute();
   if (graph.fixes.length)
     await db
       .insertInto("content_fixes")
@@ -714,6 +775,7 @@ async function replaceNormalizedContent(db: ItDatabase, graph: ContentGraph) {
           feature_status: item.featureStatus ?? null,
           status_changed_on: item.statusChangedOn ?? null,
           status_note: item.statusNote ?? null,
+          roadmap_item_id: item.roadmapItemId ?? null,
           evidence: item.evidence,
           evidence_note: item.evidenceNote,
           sort_order: item.sortOrder,

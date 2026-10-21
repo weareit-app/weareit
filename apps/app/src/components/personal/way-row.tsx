@@ -2,11 +2,11 @@ import {
   Blocks,
   CircleCheck,
   CircleDotDashed,
+  Compass,
   Hammer,
   Lightbulb,
-  Milestone,
+  ListTodo,
   Repeat,
-  Telescope,
   Users,
   type LucideIcon,
 } from "lucide-react-native";
@@ -46,47 +46,44 @@ export const kindCopy: Record<
   },
 };
 
-// A Shipped feature is in It now, so its explanation can't say it isn't.
-// Placeholder wording until the founder approves it.
-const shippedFeatureDetail =
-  "This is something It offers, and you can use it now.";
+// A Live feature is in It now, so its explanation can't say it isn't.
+const liveFeatureDetail = "Available to use.";
 
 export function typeDetail(fix: ContentFix) {
-  return fix.kind === "feature" && fix.featureStatus === "shipped"
-    ? shippedFeatureDetail
+  return fix.kind === "feature" && fix.featureStatus === "live"
+    ? liveFeatureDetail
     : kindCopy[fix.kind].detail;
 }
 
 // A feature's place on the roadmap, its own tag beside the type, in the
-// roadmap's order. Shipped, In Progress and Exploring use placeholder wording
-// until the founder approves it.
+// roadmap's order.
 export const statusCopy: Record<
   NonNullable<ContentFix["featureStatus"]>,
   { label: string; detail: string; icon: LucideIcon }
 > = {
-  shipped: {
-    label: "Shipped",
-    detail: "This feature is live, and you can use it in It now.",
+  live: {
+    label: "Live",
+    detail: "Available to use.",
     icon: CircleCheck,
   },
   "in-progress": {
-    label: "In Progress",
-    detail: "We're building this feature now, but it isn't available yet.",
+    label: "In progress",
+    detail: "Being built right now.",
     icon: Hammer,
   },
   planned: {
     label: "Planned",
-    detail: "On It's roadmap, but not built yet.",
-    icon: Milestone,
+    detail: "A decision has been made to build it.",
+    icon: ListTodo,
   },
   exploring: {
     label: "Exploring",
-    detail: "We're looking into this feature and may decide not to build it.",
-    icon: Telescope,
+    detail: "Investigating what might work, without committing yet.",
+    icon: Compass,
   },
   idea: {
     label: "Idea",
-    detail: "An idea for It. Nothing is built or scheduled yet.",
+    detail: "A possibility someone has proposed.",
     icon: Lightbulb,
   },
 };

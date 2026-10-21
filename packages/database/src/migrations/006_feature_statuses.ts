@@ -16,7 +16,7 @@ export async function up(db: Kysely<unknown>) {
     .alterTable("content_fixes")
     .addCheckConstraint(
       "content_fixes_feature_status_check",
-      sql`(kind = 'feature') = (feature_status in ('shipped', 'in-progress', 'planned', 'exploring', 'idea'))`,
+      sql`(kind = 'feature') = (feature_status in ('live', 'in-progress', 'planned', 'exploring', 'idea'))`,
     )
     .execute();
   await db.schema
