@@ -117,6 +117,15 @@ Decided 2026-10-18; details in `docs/architecture/typography.md`.
 - Fixes are brainstormed per kind, not by one writer who tags kinds afterwards (founder, 2026-10-20; grilling and `docs/research/fix-kind-ideation/research.md`). The single writer drafted 44% Tasks and 36% Features across 17 pains, leaving every other kind thin. The order is research, then dreams, which the founder reviews before any fix is drafted, then one planner per pain that sets a ceiling per kind for each dream, a pass for fixes that serve several dreams, one brief per kind, a cheap screen, an assembler that links fixes to dreams, the judge panel, and founder review of each fix once. Ceilings rather than quotas, because LLM brainstorms collapse into duplicates and quotas invite filler. Each kind's method (job story, if-then plan, named decision-maker) is stored as fields and never written into copy.
 - Generator output is dreams, fixes and fix–dream links, matching the content graph, not cards; a fix can serve several dreams (founder, 2026-10-20). This replaces the card shape.
 - Ask and Use a resource join the kinds; Leave and Switch are separate trial kinds until the pilot decides; there is no Give kind, because "support" is reserved for paying It (founder, 2026-10-20). Growing the app's own kinds (today once, habit, group, feature) is a separate change.
+- A dream is a desired end state for one pain, not a means of reaching it (founder, 2026-10-20, after the pilot's first dream drafts). The pilot's first drafts were mostly means: one example rewritten as "I…" (a free weekly 5k, a chat bench, rental help through 211, a law capping rent). That left the per-kind fix stages nothing to add. Two checks define a dream:
+  - **Why test (not too low):** asking "why do you want that?" doesn't lead to something else inside the same pain. "No planes over my house at night" fails, because the answer is "so I can sleep".
+  - **Swap test (not too high):** it wouldn't fit a different pain unchanged. "I'm happy" and "I have energy all day" fail.
+  Anything that produces the end state is a fix, however large: a law, a program, a quieter street. A dream describes the world only when the pain itself is about the world.
+- Following from that (founder, 2026-10-20):
+  - Dreams cite no examples; examples feed the fix stages.
+  - Lens and ambition move from dreams to fixes, and coverage is counted on a pain's linked fixes.
+  - There is no set number of dreams per pain: as many as are genuinely distinct, with overlaps flagged.
+  - An isolated dream screen applies both checks, with reasons, before the founder's review. Dreams it fails stay visible, collapsed, so the founder can rescue one. This replaces the word-level `dream-not-outcome` lint.
 
 ## Rendering
 
