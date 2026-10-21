@@ -6,7 +6,7 @@ import {
   STILL_DOT_FILL,
   WE_ARE_IT_MARK,
   type Mark,
-} from "./marks";
+} from "@it/watercolor/marks";
 import { WatercolorDot } from "./watercolor-dot";
 
 // The seed of the dot's painted pattern; seed 1 has the cleanest bloom and

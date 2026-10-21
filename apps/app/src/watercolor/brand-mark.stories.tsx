@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-native-web-vite";
 import { BrandMark } from "./brand-mark";
-import { IT_MARK, WE_ARE_IT_MARK } from "./marks";
+import { IT_MARK, WE_ARE_IT_MARK } from "@it/watercolor/marks";
 
 const meta = {
   component: BrandMark,

@@ -3,16 +3,13 @@
 //
 //   node --experimental-strip-types tools/watercolor-sim/preview.ts --seed 1729 --palette it-orb --out /tmp/orb.png
 import { writeFileSync } from "node:fs";
-import { mix } from "../../packages/watercolor/src/mix.ts";
+import { mix } from "@it/watercolor/mix";
 import {
   PALETTES,
   paletteOptics,
   type PaletteId,
-} from "../../packages/watercolor/src/palettes.ts";
-import {
-  hexToLinear,
-  linearToSrgb,
-} from "../../packages/watercolor/src/pigment.ts";
+} from "@it/watercolor/palettes";
+import { hexToLinear, linearToSrgb } from "@it/watercolor/pigment";
 import { captureSteps } from "./paint.ts";
 import { encodeRgbPng } from "./png.ts";
 import { DEFAULT_SETTINGS, simulate } from "./sim.ts";
