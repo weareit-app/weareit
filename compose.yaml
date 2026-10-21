@@ -2,7 +2,8 @@ name: weareit
 
 services:
   postgres:
-    image: postgres:17-alpine
+    # Image pin: docs/architecture/ci-actions.md ("Images"); CI runs the same one.
+    image: postgres:17.11-alpine@sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24
     environment:
       POSTGRES_USER: it
       POSTGRES_PASSWORD: it

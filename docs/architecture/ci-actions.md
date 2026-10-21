@@ -6,7 +6,7 @@ Every third-party action used in `.github/workflows/` and `.github/actions/` is 
 
 Review an action before you pin it: read its `action.yml` and its source at the commit you pin, and check whether the bundled `dist/` that actually runs was compared with that source. Record it as one list item under "Pins": the action, version, full commit SHA, release date, and a note starting `Reviewed YYYY-MM-DD:` that says what you read, what the action does with the runner, and whether `dist/` was compared.
 
-CI fails when a `uses:` line isn't `owner/repo@<40-character SHA> # vX.Y.Z` (local `./` actions are exempt), when its SHA isn't in this file, or when the SHA's list item has no `Reviewed YYYY-MM-DD:` note that mentions `dist/`. Whether the review was done well is for the code reviewer.
+CI fails when a `uses:` line isn't `owner/repo@<40-character SHA> # vX.Y.Z` (local `./` actions are exempt), when its SHA isn't in this file, or when the SHA's list item has no `Reviewed YYYY-MM-DD:` note that mentions `dist/`. Whether the review was done well is for the code reviewer. The image rule is under "Images".
 
 To update a pin, pick a newer release at least two weeks old, read its changes, resolve the tag to its commit SHA (`gh api repos/<owner>/<repo>/commits/<tag> --jq .sha`), review it, and update both the workflow (or `.github/actions/setup/action.yml`) and its list item.
 
@@ -21,6 +21,6 @@ Each is the newest release at least two weeks old on 2026-10-20.
 
 ## Images
 
-A workflow's `services:` or `container:` image is pinned by tag and digest, `name:<exact version tag>@sha256:<digest>`, using a release at least two weeks old. Resolve the digest from the registry, not a mirror, and record it here. `check-action-pins.mjs` checks only `uses:` lines, so this rule is for the code reviewer.
+Every `image:` (or single-image `container:`) in `.github/workflows/`, `.github/actions/` and `compose.yaml` is pinned by tag and digest, `name:<version tag>@sha256:<digest>`, using a release at least two weeks old. Resolve the digest from the registry, not a mirror, and record it here. `check-action-pins.mjs` fails when the tag has no `major.minor` version, when the digest isn't in a list item below, or when that item has no `Checked YYYY-MM-DD` note.
 
-- `postgres` 17.11-alpine, `sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24` (pushed 2026-09-21), the multi-platform image index that Docker Hub's `library/postgres` returned for `17.11-alpine`. Checked 2026-10-21 against the Docker Hub tags API and the registry's manifest endpoint, which agreed. It is the major version `compose.yaml` runs locally. The "Typecheck, lint and unit tests" job runs it as a service container, so the Postgres tests in `packages/database/tests` run in CI. Its password is a fixed test value, since the server is disposable and holds only test data.
+- `postgres` 17.11-alpine, `sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24` (pushed 2026-09-21), the multi-platform image index that Docker Hub's `library/postgres` returned for `17.11-alpine`. Checked 2026-10-21 against the Docker Hub tags API and the registry's manifest endpoint, which agreed. It is the major version `compose.yaml` runs locally. The "Typecheck, lint and unit tests" job runs it as a service container, so the Postgres tests in `packages/database/tests` run in CI, and `compose.yaml` runs it for local development. Its password is a fixed test value, since the server is disposable and holds only test data.

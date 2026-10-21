@@ -1,8 +1,9 @@
 # Runs the typecheck, lint, the Vitest and jest-expo tests, the Playwright web
 # tests and a render of every Storybook story on every pull request and push to
 # master, so a commit made with `git commit --no-verify` is still checked.
-# Runner costs: docs/architecture/dependency-policy.md. Read it before changing `runs-on`.
-# Action pins and their reviews: docs/architecture/ci-actions.md.
+# What each job runs and what it costs: docs/architecture/dependency-policy.md
+# ("Continuous integration"). Update it when a job's steps, services or runner change.
+# Action and image pins and their reviews: docs/architecture/ci-actions.md.
 name: CI
 
 on:
