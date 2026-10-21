@@ -131,16 +131,27 @@ type UserOnboardingDraft = {
   worldPainIds: string[];
   personalDreamIds: string[];
   worldDreamIds: string[];
+  personalPaths: OnboardingPath[];
+  worldPaths: OnboardingPath[];
   helpInterests: string[];
   draftUpdatedAt: number;
 };
+
+type OnboardingPath = { painId: string; dreamIds: string[]; fixIds: string[] };
+
+// Drafts saved before paths existed have none.
+type StoredUserOnboardingDraft = Omit<
+  UserOnboardingDraft,
+  "personalPaths" | "worldPaths"
+> &
+  Partial<Pick<UserOnboardingDraft, "personalPaths" | "worldPaths">>;
 
 export interface UserOnboardingDraftsTable {
   id: Generated<number>;
   user_id: string;
   content_version: number;
   draft: JSONColumnType<
-    UserOnboardingDraft,
+    StoredUserOnboardingDraft,
     UserOnboardingDraft,
     UserOnboardingDraft
   >;
