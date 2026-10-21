@@ -1,4 +1,4 @@
-import { calendarDateSchema } from "@it/content/graph-schema";
+import { isoDateSchema } from "@it/domain/primitives";
 
 export const statusDateHelp =
   "Write the status date as year-month-day, like 2026-10-20.";
@@ -13,7 +13,7 @@ export function badStatusDateIds(
     .filter(
       ({ statusChangedOn }) =>
         statusChangedOn !== undefined &&
-        !calendarDateSchema.safeParse(statusChangedOn).success,
+        !isoDateSchema.safeParse(statusChangedOn).success,
     )
     .map(({ id }) => id);
 }

@@ -4,6 +4,10 @@ import { useState } from "react";
 import { Platform, Pressable, TextInput, View } from "react-native";
 import { Text } from "../src/components/text";
 import { apiClient } from "@it/api/client";
+import {
+  supportFrequencySchema,
+  type SupportFrequency,
+} from "@it/domain/support";
 import { Page } from "../src/components/page";
 import { purchaseStoreSupport } from "../src/payments/store-purchases";
 
@@ -25,7 +29,7 @@ export default function SupportItScreen() {
   const params = useLocalSearchParams<{ status?: string; ref?: string }>();
   const [amount, setAmount] = useState("$15");
   const [customAmount, setCustomAmount] = useState("");
-  const [frequency, setFrequency] = useState<"once" | "monthly">("once");
+  const [frequency, setFrequency] = useState<SupportFrequency>("once");
   const [notice, setNotice] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const isWebSuccess = !iosStore && params.status === "success";
@@ -222,7 +226,7 @@ export default function SupportItScreen() {
                 How often?
               </Text>
               <View className="flex-row gap-3">
-                {(["once", "monthly"] as const).map((value) => (
+                {supportFrequencySchema.options.map((value) => (
                   <Pressable
                     key={value}
                     onPress={() => setFrequency(value)}

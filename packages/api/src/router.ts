@@ -1,5 +1,6 @@
 import { ORPCError, implement } from "@orpc/server";
 import type { ItDatabase } from "@it/database/database";
+import type { ContributionStatus, SupportFrequency } from "@it/domain/support";
 import {
   FeatureStatusNoteError,
   listPublishedVersions,
@@ -21,24 +22,15 @@ export interface ApiContext {
   supportPayments: {
     createCheckout(input: {
       amountMinor: number;
-      frequency: "once" | "monthly";
+      frequency: SupportFrequency;
       userId: string;
     }): Promise<{ url: string; reference: string }>;
     getStatus(
       reference: string,
       userId: string,
     ): Promise<{
-      frequency: "once" | "monthly";
-      status:
-        | "pending"
-        | "active"
-        | "succeeded"
-        | "past_due"
-        | "cancel_scheduled"
-        | "canceled"
-        | "expired"
-        | "failed"
-        | "refunded";
+      frequency: SupportFrequency;
+      status: ContributionStatus;
     }>;
     createPortal(reference: string, userId: string): Promise<{ url: string }>;
   };

@@ -1,8 +1,11 @@
 import { z } from "zod";
+import {
+  isoDateSchema,
+  nonEmptyTextSchema,
+  slugIdSchema,
+} from "@it/domain/primitives";
 
-const idSchema = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
-const copySchema = z.string().trim().min(1).max(4000);
-export const calendarDateSchema = z.iso.date();
+const copySchema = nonEmptyTextSchema.max(4000);
 
 export const fixKinds = ["once", "habit", "group", "feature"] as const;
 // Roadmap order: live, being built, decided, being looked into, undecided.
@@ -25,7 +28,7 @@ export type EvidenceLevel = (typeof evidenceLevels)[number];
 
 export const contentDomainSchema = z
   .object({
-    id: idSchema,
+    id: slugIdSchema,
     scope: z.enum(["personal", "world"]),
     title: copySchema,
     sortOrder: z.number().int().nonnegative(),
@@ -34,8 +37,8 @@ export const contentDomainSchema = z
 
 export const contentPainSchema = z
   .object({
-    id: idSchema,
-    domainId: idSchema,
+    id: slugIdSchema,
+    domainId: slugIdSchema,
     title: copySchema,
     description: copySchema,
     sortOrder: z.number().int().nonnegative(),
@@ -44,7 +47,7 @@ export const contentPainSchema = z
 
 export const contentDreamSchema = z
   .object({
-    id: idSchema,
+    id: slugIdSchema,
     title: copySchema,
     description: copySchema,
     sortOrder: z.number().int().nonnegative(),
@@ -53,7 +56,7 @@ export const contentDreamSchema = z
 
 export const contentFirstActionSchema = z
   .object({
-    id: idSchema,
+    id: slugIdSchema,
     title: copySchema,
     description: copySchema,
     firstStep: copySchema,
@@ -66,18 +69,18 @@ export const contentFirstActionSchema = z
 
 export const contentFixSchema = z
   .object({
-    id: idSchema,
+    id: slugIdSchema,
     title: copySchema,
     description: copySchema,
     kind: z.enum(fixKinds),
     featureStatus: z.enum(featureStatuses).optional(),
     // When the status last changed and a short note of what changed. Content
     // from before five statuses has neither.
-    statusChangedOn: calendarDateSchema.optional(),
+    statusChangedOn: isoDateSchema.optional(),
     statusNote: copySchema.max(500).optional(),
     // A Feature fix connected to a roadmap item takes the item's status and
     // has none of its own.
-    roadmapItemId: idSchema.optional(),
+    roadmapItemId: slugIdSchema.optional(),
     evidence: z.enum(evidenceLevels),
     evidenceNote: copySchema,
     sortOrder: z.number().int().nonnegative(),
@@ -88,11 +91,11 @@ export const contentFixSchema = z
 // ID stays the same when the title changes.
 export const contentRoadmapItemSchema = z
   .object({
-    id: idSchema,
+    id: slugIdSchema,
     title: copySchema.max(200),
     line: copySchema.max(300),
     status: z.enum(featureStatuses),
-    statusChangedOn: calendarDateSchema.optional(),
+    statusChangedOn: isoDateSchema.optional(),
     statusNote: copySchema.max(500).optional(),
     sortOrder: z.number().int().nonnegative(),
   })
@@ -100,7 +103,7 @@ export const contentRoadmapItemSchema = z
 
 export const contentSourceSchema = z
   .object({
-    id: idSchema,
+    id: slugIdSchema,
     title: copySchema,
     documentPath: copySchema,
     sourceType: z.enum(["research_registry", "content_spec", "fix_corpus"]),
@@ -111,8 +114,8 @@ export const contentSourceSchema = z
 export const contentProvenanceSchema = z
   .object({
     entityType: z.enum(["domain", "pain", "dream", "first_action", "fix"]),
-    entityId: idSchema,
-    sourceId: idSchema,
+    entityId: slugIdSchema,
+    sourceId: slugIdSchema,
     locator: copySchema,
     evidenceType: copySchema,
     rights: z.enum(["CC0-1.0", "CC-BY-SA-4.0"]),
@@ -126,16 +129,16 @@ export const contentGraphSchema = z
     pains: z.array(contentPainSchema),
     dreams: z.array(contentDreamSchema),
     painDreamLinks: z.array(
-      z.object({ painId: idSchema, dreamId: idSchema }).strict(),
+      z.object({ painId: slugIdSchema, dreamId: slugIdSchema }).strict(),
     ),
     firstActions: z.array(contentFirstActionSchema),
     actionPainLinks: z.array(
-      z.object({ actionId: idSchema, painId: idSchema }).strict(),
+      z.object({ actionId: slugIdSchema, painId: slugIdSchema }).strict(),
     ),
     // Defaults keep content versions published before fixes existed readable.
     fixes: z.array(contentFixSchema).default([]),
     fixDreamLinks: z
-      .array(z.object({ fixId: idSchema, dreamId: idSchema }).strict())
+      .array(z.object({ fixId: slugIdSchema, dreamId: slugIdSchema }).strict())
       .default([]),
     roadmapItems: z.array(contentRoadmapItemSchema).default([]),
     sources: z.array(contentSourceSchema),

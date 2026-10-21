@@ -15,6 +15,7 @@
     "./credits": "./src/credits.ts"
   },
   "dependencies": {
+    "@it/domain": "workspace:*",
     "zod": "4.6.7"
   },
   "scripts": {

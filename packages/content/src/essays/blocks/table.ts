@@ -1,17 +1,12 @@
 import { z } from "zod";
-import {
-  checkRowKeys,
-  dataColumns,
-  dataContext,
-  dataRow,
-  text,
-} from "./shared";
+import { nonEmptyTextSchema } from "@it/domain/primitives";
+import { checkRowKeys, dataColumns, dataContext, dataRow } from "./shared";
 
 // The data file of a `::table{id="…"}` block. (A Markdown table in the text
 // needs no block.)
 export const tableBlockSchema = z
   .strictObject({
-    caption: text,
+    caption: nonEmptyTextSchema,
     columns: dataColumns,
     rows: z.array(dataRow).min(1),
     // A table of outside data names its source and then needs the rest of

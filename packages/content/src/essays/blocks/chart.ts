@@ -1,11 +1,6 @@
 import { z } from "zod";
-import {
-  checkRowKeys,
-  dataColumns,
-  dataContext,
-  dataRow,
-  text,
-} from "./shared";
+import { nonEmptyTextSchema } from "@it/domain/primitives";
+import { checkRowKeys, dataColumns, dataContext, dataRow } from "./shared";
 
 // True when any object in the spec, at any depth, has one of these keys.
 function hasKey(value: unknown, keys: readonly string[]): boolean {
@@ -21,9 +16,9 @@ function hasKey(value: unknown, keys: readonly string[]): boolean {
 // off), headed by `columns`.
 export const chartBlockSchema = z
   .strictObject({
-    title: text,
+    title: nonEmptyTextSchema,
     /** Written description, read by screen readers and shown without scripts. */
-    description: text,
+    description: nonEmptyTextSchema,
     /** A Vega-Lite spec without its data; the data comes from `data`. */
     spec: z.record(z.string(), z.unknown()),
     columns: dataColumns,

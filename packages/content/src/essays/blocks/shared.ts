@@ -1,4 +1,9 @@
 import { z } from "zod";
+import {
+  isoDateSchema,
+  nonEmptyTextSchema,
+  slugIdSchema,
+} from "@it/domain/primitives";
 
 // Field types shared by the essay front matter and the block schemas.
 
@@ -15,12 +20,6 @@ export const essayStatusLabels = [
 
 export const essayStatusLabelSchema = z.enum(essayStatusLabels);
 
-export const isoDate = z.iso.date();
-export const text = z.string().trim().min(1);
-export const slugId = z
-  .string()
-  .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, "use lowercase words joined by hyphens");
-
 const cell = z.union([z.string(), z.number(), z.boolean(), z.null()]);
 export const dataRow = z.record(z.string(), cell);
 export type DataRow = z.infer<typeof dataRow>;
@@ -30,21 +29,21 @@ export type DataRow = z.infer<typeof dataRow>;
  * source ID from the essay's front matter.
  */
 export const dataContext = {
-  source: slugId,
-  unit: text,
-  timeframe: text,
+  source: slugIdSchema,
+  unit: nonEmptyTextSchema,
+  timeframe: nonEmptyTextSchema,
   /** The population or denominator the numbers describe. */
-  population: text,
+  population: nonEmptyTextSchema,
   /** Uncertainty, where it is known. */
-  uncertainty: text.optional(),
-  updated: isoDate,
+  uncertainty: nonEmptyTextSchema.optional(),
+  updated: isoDateSchema,
 };
 const dataContextSchema = z.strictObject(dataContext);
 export type DataContext = z.infer<typeof dataContextSchema>;
 
 /** A table or chart column: the row key and its heading. */
 export const dataColumns = z
-  .array(z.strictObject({ key: text, label: text }))
+  .array(z.strictObject({ key: nonEmptyTextSchema, label: nonEmptyTextSchema }))
   .min(1);
 export type DataColumn = z.infer<typeof dataColumns>[number];
 

@@ -1,7 +1,9 @@
+import type {
+  ContributionStatus,
+  SupportFrequency,
+  TransactionStatus,
+} from "@it/domain/support";
 import type { ItDatabase } from "./database";
-
-export type SupportFrequency = "once" | "monthly";
-export type PaymentProcessor = "stripe" | "app_store" | "play_store";
 
 export interface StripeEventRecord {
   eventId: string;
@@ -16,18 +18,8 @@ export interface StripeEventRecord {
   transactionId?: string | undefined;
   amountMinor?: number | undefined;
   currency?: string | undefined;
-  transactionStatus?: "succeeded" | "failed" | "refunded" | undefined;
-  contributionStatus?:
-    | "pending"
-    | "active"
-    | "cancel_scheduled"
-    | "succeeded"
-    | "past_due"
-    | "canceled"
-    | "expired"
-    | "failed"
-    | "refunded"
-    | undefined;
+  transactionStatus?: TransactionStatus | undefined;
+  contributionStatus?: ContributionStatus | undefined;
 }
 
 export interface RevenueCatSupportEvent {
