@@ -237,7 +237,9 @@ STAGE_DONE = {
     'screen': lambda run: (run / 'screen.json').is_file(),
     'assemble': lambda run: (run / 'links.json').is_file(),
     'judge': lambda run: (run / 'ranking.json').is_file(),  # select writes it after the panel's consensus
+    'fix-review': lambda run: fix_review_ingested(run),  # defined with the fix review, below
 }
+FOUNDER_STOPS = ('dream-review', 'fix-review')
 
 
 BRIEFS = 'tools/possibilities/briefs/'
@@ -314,7 +316,12 @@ def require_staged(run):
 
 
 def next_stage(run):
-    return next(s for s in STAGES if not STAGE_DONE.get(s, lambda _: False)(run))
+    """The first incomplete stage, or done once the fix review is ingested."""
+    return next((s for s in STAGES if not STAGE_DONE.get(s, lambda _: False)(run)), 'done')
+
+
+def stage_index(stage):
+    return len(STAGES) if stage == 'done' else STAGES.index(stage)
 
 
 def status(run):
@@ -341,8 +348,12 @@ def start(run, stage):
     if stage not in STAGES:
         raise ValueError('unknown stage %s; stages are %s' % (stage, ', '.join(STAGES)))
     pending = next_stage(run)
-    if STAGES.index(pending) < STAGES.index(stage):
+    if stage_index(pending) < STAGES.index(stage):
         raise ValueError('%s cannot start: %s is not complete' % (stage, pending))
+    if pending == 'done':
+        raise ValueError('%s cannot start: the fix review of %s is ingested, so the run is done' % (stage, run.name))
+    if stage == 'fix-review':
+        raise ValueError('fix-review is a founder stop: run fixes-review-build, then fixes-ingest')
     if stage not in STAGE_BRIEFS:
         raise ValueError('%s is not built yet' % stage)
     result = {'run': run.name, 'stage': stage, 'brief': STAGE_BRIEFS[stage]}
@@ -468,6 +479,180 @@ def accepted_dreams(run):
         raise ValueError('dream-review is not complete for %s' % run.name)
     keys = reviewed_dreams(run)
     return {key: d for key, d in read(run / 'dreams.json')['dreams'].items() if key in keys}
+
+
+# ---------- founder fix review ----------
+
+# The words the review page shows (docs/style/copy-style-guide.md, "Kinds of fixes" and status labels).
+KIND_LABELS = {'feature': 'Feature', 'task': 'Task', 'schedule': 'Schedule', 'habit': 'Habit', 'practice': 'Practice',
+               'learn': 'Learn', 'project': 'Project', 'group': 'Group', 'new-group': 'New group', 'ask': 'Ask',
+               'resource': 'Use a resource', 'leave': 'Leave', 'switch': 'Switch', 'path': 'Path'}
+STATUS_LABELS = {'real_now': 'Real now', 'existing_resource': 'Existing resource',
+                 'proposed_it_feature': 'Something It could build', 'societal_proposal': "A change we'd make together"}
+FIX_DECISIONS = DREAM_DECISIONS  # an edit accepts the fix with the founder's wording
+FIX_WORDING = ('title', 'whatChanges', 'firstStep')  # the copy an edit may change; the drafted copy is kept beside it
+FIX_WORDING_TEXT = '%s, %s, and %s' % FIX_WORDING
+
+
+def has_fix_wording(value):
+    return isinstance(value, dict) and all(isinstance(value.get(f), str) and value[f].strip() for f in FIX_WORDING)
+
+
+def fix_review_ingested(run):
+    """True once fixes-ingest has made links.json the founder's final links."""
+    review = read(run / 'links.json').get('review') if (run / 'links.json').is_file() else None
+    return isinstance(review, dict) and bool(review.get('ingestedAt'))
+
+
+def rejected_fixes(fixes):
+    return {k for k, f in fixes.items() if isinstance(f, dict) and isinstance(f.get('review'), dict)
+            and f['review'].get('decision') == 'reject'}
+
+
+def reviewed_fix_order(run):
+    """Fixes on the founder's review: linked ones in ranking order (ranking.json fixOrder), then unlinked ones that
+    passed the screen. Screened-out fixes stay in the pool but aren't reviewed, because they can't be linked."""
+    fixes, links = read(run / 'fixes.json')['fixes'], read(run / 'links.json')['links']
+    order = read(run / 'ranking.json').get('fixOrder', [])
+    linked = {e['fixId'] for e in links}
+    if len(set(order)) != len(order) or set(order) != linked:
+        raise ValueError('ranking.json does not match links.json; run select again')
+    out = set(screened_out(run))
+    return order + sorted(k for k in fixes if k not in linked and k not in out)
+
+
+def fixes_review_build(run, root):
+    """Write reviews/fix-proposals.json and a static fix-review.html: one list in ranking order, each fix once."""
+    require_staged(run)
+    pending = next_stage(run)
+    if pending != 'fix-review':
+        raise ValueError('fix review cannot be built: next stage is %s' % pending)
+    issues = validate_run(run)
+    if issues:
+        raise ValueError('fix validation first: ' + '; '.join(issues))
+    meta, exemplars = read(run / 'run.json'), read(run / 'exemplars.json')['exemplars']
+    fixes, links, ranking = read(run / 'fixes.json')['fixes'], read(run / 'links.json')['links'], read(run / 'ranking.json')
+    accepted = accepted_dreams(run)
+    rank_of = {r['dreamId']: i for i, r in enumerate(ranking['ranking'])}
+    if set(rank_of) != set(accepted):
+        raise ValueError('ranking.json does not rank the accepted dreams; run select again')
+    dreams = [{'id': r['dreamId'], 'title': accepted[r['dreamId']]['title'], 'line': accepted[r['dreamId']]['line'],
+               'ambition': accepted[r['dreamId']]['ambition'], 'honestStatus': r['honestStatus']['pass']}
+              for r in ranking['ranking']]
+
+    def proposal(key):
+        f = fixes[key]
+        ref = f.get('exemplarRef')
+        example = {'id': ref, **{k: exemplars[ref].get(k) for k in ('name', 'place', 'year', 'outcome', 'limits')}} if ref in exemplars else None
+        own = sorted((e for e in links if e['fixId'] == key), key=lambda e: rank_of[e['dreamId']])
+        # writerNotes and provenance stay out; method and origin go in the collapsed note (spec, "Method fields per kind").
+        return {'id': key, **{k: f[k] for k in ('title', 'whatChanges', 'firstStep', 'firstStepMinutes', 'kind', 'status')},
+                'kindLabel': KIND_LABELS[f['kind']], 'statusLabel': STATUS_LABELS[f['status']],
+                'example': example, 'speculative': bool(f.get('speculative')),
+                'speculativeRationale': f.get('speculativeRationale'), 'featureIdea': f.get('featureIdea'),
+                'links': [{k: e.get(k) for k in ('dreamId', 'order', 'how', 'by')} for e in own],
+                'method': f.get('method', {}), 'origin': f['origin']}
+
+    proposals = [proposal(key) for key in reviewed_fix_order(run)]
+    set_id = review_set_id(run)
+    folder = run / 'reviews'
+    folder.mkdir(exist_ok=True)
+    write(folder / 'fix-proposals.json', {'schemaVersion': 1, 'setId': set_id, 'builtAt': now(), 'dreams': dreams,
+                                          'proposals': proposals})
+    page = {'setId': set_id, 'painName': meta.get('painName', meta['painId']), 'painLine': meta.get('painLine', ''),
+            'maxLinks': MAX_LINKS, 'dreams': dreams, 'proposals': proposals}
+    data = json.dumps(page, ensure_ascii=False).replace('</', '<\\/')
+    template = (config_root(root) / 'fix-review-page.template.html').read_text()
+    (folder / 'fix-review.html').write_text(template.replace('/*__DATA__*/', data))
+    return {'set': set_id, 'page': str((folder / 'fix-review.html').relative_to(data_root(root) / 'runs')),
+            'fixes': len(proposals), 'unlinked': sum(not p['links'] for p in proposals)}
+
+
+def fixes_ingest(run, decisions_path):
+    """Apply the founder's exported fix decisions: one decision per fix, edits beside the drafted copy, and the final
+    links, which replace the assembler's in links.json (removed links are kept under review.removed)."""
+    require_staged(run)
+    if fix_review_ingested(run):
+        raise ValueError('the fix review of %s was already ingested' % run.name)
+    if not (run / 'reviews/fix-proposals.json').is_file():
+        raise ValueError('no fix review was built for %s; run fixes-review-build first' % run.name)
+    export, fix_doc, link_doc = read(decisions_path), read(run / 'fixes.json'), read(run / 'links.json')
+    set_id, fixes, links = review_set_id(run), fix_doc['fixes'], link_doc['links']
+    if not isinstance(export, dict) or export.get('setId') != set_id:
+        raise ValueError('decisions are for %s, not %s' % (export.get('setId') if isinstance(export, dict) else None, set_id))
+    shown = {p['id']: p for p in read(run / 'reviews/fix-proposals.json')['proposals']}
+    order = reviewed_fix_order(run)
+
+    def drifted(key):
+        proposed = sorted((e['dreamId'], e['by']) for e in shown[key]['links'])
+        return (any(shown[key][f] != fixes[key][f] for f in FIX_WORDING)
+                or proposed != sorted((e['dreamId'], e['by']) for e in links if e['fixId'] == key))
+    changed = sorted(k for k in set(shown) | set(order) if k not in shown or k not in order or drifted(k))
+    if changed:
+        raise ValueError('fixes.json or links.json changed since the fix review page was built (%s); rebuild it with '
+                         'fixes-review-build' % ', '.join(changed))
+    decisions, issues = export.get('decisions'), []
+    if not isinstance(decisions, dict):
+        raise ValueError('decisions must be keyed by fix ID')
+    accepted = set(accepted_dreams(run))
+    issues += ['unknown fix %s' % key for key in sorted(set(decisions) - set(order))]
+    undecided = sorted(set(order) - set(decisions))
+    if undecided:
+        issues.append('undecided: ' + ', '.join(undecided))
+    for key, d in sorted(decisions.items()):
+        if not isinstance(d, dict) or d.get('decision') not in FIX_DECISIONS:
+            issues.append('%s: unknown decision %s' % (key, d.get('decision') if isinstance(d, dict) else d))
+            continue
+        if d['decision'] == 'edit' and not has_fix_wording(d.get('edit')):
+            issues.append('%s: an edit needs a %s' % (key, FIX_WORDING_TEXT))
+        chosen = d.get('links')
+        if not isinstance(chosen, list) or not all(isinstance(dream, str) for dream in chosen):
+            issues.append('%s: links must be a list of dream IDs' % key)
+            continue
+        issues += ['%s: %s is linked twice' % (key, dream) for dream in sorted({x for x in chosen if chosen.count(x) > 1})]
+        issues += ['%s: %s is not an accepted dream' % (key, dream) for dream in sorted(set(chosen) - accepted)]
+    if issues:
+        raise ValueError('; '.join(issues))
+    ingested = now()
+    for key, d in decisions.items():
+        fix = fixes[key]
+        review = {'decision': d['decision'], 'note': d.get('note', ''), 'decidedAt': d.get('decidedAt'), 'ingestedAt': ingested}
+        if d['decision'] == 'edit':
+            review['original'] = {f: fix[f] for f in FIX_WORDING}
+            fix.update({f: d['edit'][f].strip() for f in FIX_WORDING})
+        fix['review'] = review
+        fix['provenance']['reviewStatus'] = 'reviewed'
+    # Final links: a rejected fix keeps none. Within a dream, kept links stay in their order, and the founder's
+    # links follow in review order. The founder's links may take a dream past the assembler's 5.
+    wanted = {(key, dream) for key, d in decisions.items() if d['decision'] in ACCEPTED for dream in d['links']}
+    kept = [dict(e) for e in links if (e['fixId'], e['dreamId']) in wanted]
+    removed = [{**e, 'reason': 'rejected' if decisions[e['fixId']]['decision'] == 'reject' else 'unlinked'}
+               for e in links if (e['fixId'], e['dreamId']) not in wanted]
+    known = {(e['fixId'], e['dreamId']) for e in links}
+    added = [{'fixId': key, 'dreamId': dream, 'by': 'founder'}
+             for key in order for dream in decisions[key]['links'] if (key, dream) in wanted - known]
+    final = []
+    for dream in sorted({e['dreamId'] for e in kept + added}):
+        entries = sorted((e for e in kept if e['dreamId'] == dream), key=lambda e: e['order'])
+        entries += [e for e in added if e['dreamId'] == dream]
+        for n, entry in enumerate(entries, 1):
+            entry['order'] = n
+        final += entries
+    link_doc.update(links=final, review={'ingestedAt': ingested, 'removed': removed})
+    before = {name: (run / name).read_text() for name in ('fixes.json', 'links.json')}
+    write(run / 'fixes.json', fix_doc)
+    write(run / 'links.json', link_doc)
+    issues = validate_run(run)
+    if issues:
+        for name, text in before.items():
+            (run / name).write_text(text)
+        raise ValueError('the reviewed fixes do not validate: ' + '; '.join(issues))
+    # The export is kept in the run, so the decisions are committed with it, as with the dream review.
+    write(run / 'reviews/fixes-decisions.json', export)
+    counts = {dream: sum(e['dreamId'] == dream for e in final) for dream in sorted(accepted)}
+    return {'run': run.name, 'decisions': {k: sum(d['decision'] == k for d in decisions.values()) for k in FIX_DECISIONS},
+            'links': {'kept': len(kept), 'added': len(added), 'removed': len(removed)},
+            'dreamsUnderTwoFixes': [dream for dream, n in counts.items() if n < 2], 'next': next_stage(run)}
 
 
 # ---------- validation ----------
@@ -726,6 +911,11 @@ def validate_fixes(doc, exemplars, ceilings, accepted, issues, pain=None, kinds=
         prov = f.get('provenance') if isinstance(f.get('provenance'), dict) else {}
         for field in ('sourceId', 'locator', 'evidenceType', 'rights', 'reviewStatus'):
             require(prov.get(field), where + ': provenance lacks ' + field, issues)
+        review = f.get('review')
+        if review is not None:
+            require(isinstance(review, dict) and review.get('decision') in FIX_DECISIONS, where + ': unknown review decision', issues)
+            if isinstance(review, dict) and review.get('decision') == 'edit':
+                require(has_fix_wording(review.get('original')), where + ': an edit keeps the original ' + FIX_WORDING_TEXT, issues)
     for kind, pool in sorted(pools.items()):
         if kind not in kinds:
             issues.append('pool %s: %s' % (kind, refused_kind(kind, kinds)))
@@ -794,6 +984,8 @@ def validate_links(doc, fixes, passed, accepted, issues, pain=None):
     if not isinstance(links, list):
         return []
     accepted, seen, per_dream = accepted or set(), set(), {}
+    reviewed = isinstance(doc.get('review'), dict)  # fixes-ingest made these the founder's final links
+    rejected = rejected_fixes(fixes)
     for entry in links:
         entry = entry if isinstance(entry, dict) else {}
         fix, dream = entry.get('fixId'), entry.get('dreamId')
@@ -801,8 +993,11 @@ def validate_links(doc, fixes, passed, accepted, issues, pain=None):
         require(fix in fixes, '%s: %s is not in fixes.json' % (where, fix), issues)
         require(passed is None or fix not in fixes or fix in passed, '%s: %s was screened out' % (where, fix), issues)
         require(dream in accepted, '%s: %s is not an accepted dream' % (where, dream), issues)
-        require(one_line(entry.get('how')) and len(SENTENCE.findall(entry['how'].strip())) <= 1,
-                where + ': how needs one sentence on how the fix helps', issues)
+        require(fix not in rejected, '%s: %s was rejected in the fix review' % (where, fix), issues)
+        # A link the founder adds in review may leave out how; the assembler always says it.
+        if entry.get('by') != 'founder' or entry.get('how') is not None:
+            require(one_line(entry.get('how')) and len(SENTENCE.findall(entry['how'].strip())) <= 1,
+                    where + ': how needs one sentence on how the fix helps', issues)
         require(entry.get('by') in LINK_AUTHORS, where + ': by must be ' + ' or '.join(LINK_AUTHORS), issues)
         require((fix, dream) not in seen, where + ' is listed twice', issues)
         seen.add((fix, dream))
@@ -810,8 +1005,9 @@ def validate_links(doc, fixes, passed, accepted, issues, pain=None):
     for dream in sorted(accepted):
         entries = per_dream.get(dream, [])
         by_assembler = sum(e.get('by') == 'assembler' for e in entries)
-        # The 2-5 limit is the assembler's; links the founder adds in review may go past 5 (spec, "Founder fix review").
-        require(len(entries) >= 2, 'dream %s: %d linked fix%s; the assembler links 2-%d'
+        # The 2-5 limit is the assembler's; links the founder adds in review may go past 5 (spec, "Founder fix review"),
+        # and once the review is ingested, the founder's final links may leave a dream with fewer than 2.
+        require(reviewed or len(entries) >= 2, 'dream %s: %d linked fix%s; the assembler links 2-%d'
                 % (dream, len(entries), '' if len(entries) == 1 else 'es', MAX_LINKS), issues)
         require(by_assembler <= MAX_LINKS, 'dream %s: %d assembler links; the assembler links 2-%d' % (dream, by_assembler, MAX_LINKS), issues)
         orders = [e.get('order') for e in entries]
@@ -879,7 +1075,12 @@ def validate_staged_run(run, judgments=True):
         passed = validate_screen(read(run / 'screen.json'), fixes, issues, pain)
     if (run / 'links.json').is_file():
         require((run / 'screen.json').is_file(), 'links.json needs screen.json', issues)
-        validate_links(read(run / 'links.json'), fixes, passed, accepted, issues, pain)
+        links = read(run / 'links.json')
+        validate_links(links, fixes, passed, accepted, issues, pain)
+        if isinstance(links.get('review'), dict):
+            require((run / 'ranking.json').is_file(), 'the fix review needs ranking.json', issues)
+            undecided = sorted(k for k in fixes if k in (passed or ()) and not isinstance(fixes[k].get('review'), dict))
+            require(not undecided, 'the fix review left fixes undecided (%s)' % ', '.join(undecided), issues)
     if judgments and (run / 'judgments.json').is_file():
         require((run / 'links.json').is_file(), 'judgments.json needs links.json', issues)
         validate_dream_judgments(read(run / 'judgments.json'), accepted or set(), fixes, issues, pain)
@@ -1043,7 +1244,8 @@ def lint_staged_run(run, root):
     # Basics and It-led coverage need linked fixes, so they wait for the assembler. No kind has a minimum.
     if (run / 'links.json').is_file():
         # A link to a screened-out fix fails validate; coverage leaves it out too.
-        linkable = set(fixes) - set(screened_out(run))
+        # After the fix review, links.json holds the founder's final links, and rejected fixes lose theirs.
+        linkable = set(fixes) - set(screened_out(run)) - rejected_fixes(fixes)
         links = [e for e in read(run / 'links.json').get('links', []) if isinstance(e, dict)
                  and isinstance(e.get('dreamId'), str) and e['dreamId'] in covered
                  and isinstance(e.get('fixId'), str) and e['fixId'] in linkable]
@@ -1193,8 +1395,10 @@ JUDGED_DREAM_FIELDS = ('title', 'line', 'lens', 'ambition', 'exemplarRefs')
 def judged_dreams(run):
     """Each accepted dream with its linked fixes in link order. A fix linked to several dreams is repeated under each."""
     pending = next_stage(run)
-    if STAGES.index(pending) < STAGES.index('judge'):
+    if stage_index(pending) < STAGES.index('judge'):
         raise ValueError('judging cannot start: %s is not complete' % pending)
+    if pending == 'done':
+        raise ValueError('judging cannot start: the fix review of %s is ingested, so the run is done' % run.name)
     issues = validate_staged_run(run, judgments=False)  # judgments.json is what the panel is about to replace
     if issues:
         raise ValueError('fix validation first: ' + '; '.join(issues))
@@ -1205,7 +1409,8 @@ def judged_dreams(run):
         judged[key]['fixes'] = []
         for entry in sorted((e for e in links if e['dreamId'] == key), key=lambda e: e['order']):
             fix = fixes[entry['fixId']]
-            judged[key]['fixes'].append({'id': entry['fixId'], **{f: fix[f] for f in JUDGED_FIX_FIELDS if f in fix}, 'how': entry['how']})
+            judged[key]['fixes'].append({'id': entry['fixId'], **{f: fix[f] for f in JUDGED_FIX_FIELDS if f in fix},
+                                         'how': entry.get('how', '')})
     return judged
 
 
@@ -1616,7 +1821,8 @@ def report(root, audit_path=None):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', choices=('new-run', 'status', 'start', 'dreams-review-build', 'dreams-ingest', 'validate', 'lint', 'judge-input', 'consensus', 'select', 'finish-run',
+    parser.add_argument('command', choices=('new-run', 'status', 'start', 'dreams-review-build', 'dreams-ingest',
+                                            'fixes-review-build', 'fixes-ingest', 'validate', 'lint', 'judge-input', 'consensus', 'select', 'finish-run',
                                             'calibrate-build', 'calibrate-ingest', 'audit-build', 'report', 'stale'))
     parser.add_argument('targets', nargs='*')
     parser.add_argument('--root', type=Path, default=Path.cwd())
@@ -1668,6 +1874,14 @@ def main():
         if len(args.targets) != 2:
             parser.error('dreams-ingest needs a run directory and the decisions export')
         out = dreams_ingest(run_dir(args.targets[0]), Path(args.targets[1]))
+    elif args.command == 'fixes-review-build':
+        if len(args.targets) != 1:
+            parser.error('fixes-review-build needs one run directory')
+        out = fixes_review_build(run_dir(args.targets[0]), root)
+    elif args.command == 'fixes-ingest':
+        if len(args.targets) != 2:
+            parser.error('fixes-ingest needs a run directory and the decisions export')
+        out = fixes_ingest(run_dir(args.targets[0]), Path(args.targets[1]))
     elif args.command in ('validate', 'lint', 'judge-input', 'consensus', 'select', 'finish-run'):
         if not args.targets:
             parser.error(args.command + ' needs a run directory')
