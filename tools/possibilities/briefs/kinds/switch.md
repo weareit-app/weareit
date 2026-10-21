@@ -39,6 +39,7 @@ Good:
 - **Title:** "Move your checking account to a credit union"
 - **Text:** "Many credit unions charge lower fees than big banks, and some charge no overdraft fees at all. Moving takes about a week of updating automatic payments."
 - **Method:** `switchFrom` "a bank that charges overdraft fees", `switchTo` "a credit union with no overdraft fees", `tradeOff` "Fewer branches, and a week of moving automatic payments."
+- **Lens and ambition:** `market`, `this-year`.
 
 Bad:
 - **Title:** "Find a better bank"

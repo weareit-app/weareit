@@ -63,12 +63,13 @@ Rules:
 `painName` and `painLine` are the catalog wording the run was written for (added 2026-10-19; older runs lack them, and `stale` falls back to the catalog history at `startedAt`). `painId` is always the surviving ID: a run started for a merged pain is created for the pain it was merged into.
 
 ## Staged runs (schemaVersion 2)
-A staged run mirrors the content graph (`packages/content/src/graph-schema.ts`): dreams, fixes, and fix–dream links instead of cards. `new-run <pain-id> --staged` writes `run.json` with `schemaVersion: 2`. The run then gets `exemplars.json` (same shape as above) and `dreams.json`. The plan, fixes, screen, and links files are added by later stages. Card runs (v1) still validate and lint as before.
+A staged run mirrors the content graph (`packages/content/src/graph-schema.ts`): dreams, fixes, and fix–dream links instead of cards. `new-run <pain-id> --staged` writes `run.json` with `schemaVersion: 2`. The run then gets `exemplars.json` (same shape as above), `dreams.json`, and `dream-screen.json`. The plan, fixes, screen, and links files are added by later stages. Card runs (v1) still validate and lint as before, except that lint no longer checks dream titles for action words, in either kind of run: the dream screen judges that (founder, 2026-10-20).
 
 ### Stages
-`examples → dreams → dream-review → plan → shared-fixes → kind-pools → screen → assemble → judge → fix-review`. `dream-review` and `fix-review` are founder stops. `status <run>` names the next stage from the files present:
+`examples → dreams → dream-screen → dream-review → plan → shared-fixes → kind-pools → screen → assemble → judge → fix-review`. `dream-review` and `fix-review` are founder stops. `status <run>` names the next stage from the files present:
 - `examples` is complete when `exemplars.json` exists;
 - `dreams` is complete when `dreams.json` exists;
+- `dream-screen` is complete when `dream-screen.json` has a verdict on every dream, for the title and line it was drafted with (the `original` beside a founder's edit). A new or redrafted dream sends the run back to it, and `status` then lists those dreams under `unscreened`;
 - `dream-review` is complete when every dream in `dreams.json` has a `review` with a `decision`. `dreams-ingest` writes it from the founder's export (see *Dream review files*);
 - `plan` is complete when `plan.json` exists;
 - `shared-fixes` is complete when `fixes.json` has a `shared` record with `draftedAt`, written by the shared pass even when it drafts no fix;
@@ -79,34 +80,52 @@ A staged run mirrors the content graph (`packages/content/src/graph-schema.ts`):
 - `fix-review` is complete when `links.json` has a `review` record, written by `fixes-ingest` (see *Fix review files*). `status` then names `done`.
 
 `start <run> <stage>` refuses with a usage error (exit 2) while any earlier stage is incomplete, so no fix stage runs before the dream review is ingested. Otherwise it names the stage's brief:
+- for `dream-screen`, `relatedPains` lists the catalog's related pains (`relations` in `catalog.json`) as `{id, name, line, relation}`, the screen's first candidates for the swap test;
 - for `plan`, `kinds` lists the kinds the planner sets ceilings for, which are the kinds that have a brief (`KIND_BRIEFS` in `cards.py`: every kind except `path`), plus the trial kinds `leave` and `switch` (`TRIAL_KIND_BRIEFS`) in a pilot run;
 - for `shared-fixes`, `brief` is `briefs/shared-fixes.md`;
 - for `kind-pools`, `brief` is the shared kind brief, `kinds` maps each kind still to draft (a ceiling above zero and no pool yet) to its own brief, and `shared` lists the IDs of the shared pass's fixes, which kind briefs read so they don't repeat them.
 
 `start <run> judge` names `briefs/judge.md`. `start <run> fix-review` exits 2, because the fix review is a founder stop: run `fixes-review-build`, then `fixes-ingest`. Once `fixes.json` exists, `status` also reports the fix pool: `fixes: {total, screenedOut: [fix-id…], unlinked: [fix-id…] | null}`. `unlinked` is `null` until `links.json` exists.
 
-`validate` checks each file below when it is present, and that each file's stage came after the one before: a plan needs an ingested dream review, `fixes.json` needs `plan.json`, kind pools need the `shared` record, `screen.json` needs `fixes.json`, `links.json` needs `screen.json`, and `judgments.json` needs `links.json`. Each file has `schemaVersion: 2` and the `painId` of `run.json`. Only accepted dreams (`accept` or `edit`) can be planned, drafted for, or linked.
+`validate` checks each file below when it is present, and that each file's stage came after the one before: `dream-screen.json` needs `dreams.json`, an ingested dream review needs a dream screen of every dream, a plan needs an ingested dream review, `fixes.json` needs `plan.json`, kind pools need the `shared` record, `screen.json` needs `fixes.json`, `links.json` needs `screen.json`, and `judgments.json` needs `links.json`. Each file has `schemaVersion: 2` and the `painId` of `run.json`. Only accepted dreams (`accept` or `edit`) can be planned, drafted for, or linked.
 
 ### dreams.json (staged run)
 ```
 { schemaVersion: 2, painId, runId, dreams: { <dream-id>: {
-    title, line, lens, ambition,          # title names the outcome; line is one first-person sentence
-    exemplarRefs: [<exemplar-id>…],       # at least one: the examples that show the outcome is reachable
+    title, line,                          # the end state for this pain; line is one first-person sentence
     provenance: { sourceId, locator, evidenceType, rights, reviewStatus: "unreviewed" },
-    writerNotes?, review? } },            # review: the founder's decision, written by dreams-ingest
+    writerNotes?,                         # including what makes the dream distinct
+    screen?,                              # the dream screen's verdict, copied by dreams-ingest: { pass, check?, reason }
+    review? } },                          # review: the founder's decision, written by dreams-ingest
                                           #   { decision: accept|edit|reject, note, decidedAt, ingestedAt,
                                           #     original?: { title, line } }   # original: the drafted wording, on an edit
   overlaps: [ { a: <dream-id>, b: <dream-id>, reason } ] }
 ```
 Rules:
-- `exemplarRefs` names at least one exemplar, and each resolves to an exemplar in the same run.
+- A dream is a desired end state for one pain (`GLOSSARY.md`, **Dream**). It has no `lens`, `ambition`, or `exemplarRefs`: lens and ambition are on fixes, and examples feed only the fix stages (founder, 2026-10-20). A dream with any of them fails validation.
+- There is no set number of dreams per pain.
 - `schemaVersion` is 2, and `painId` matches `run.json`.
 - Each overlap names two different dreams in the run, with a reason, and each pair is flagged once.
 - `title` and `line` map to the graph dream's `title` and `description`.
-- Lint applies the dream copy rules (`title-vague`, `title-length`, `dream-not-outcome`, `line-length`, `generic-phrase`, `serial-comma`, `exclamation`, `boilerplate-caveat`, `regional-word`, `acronym-in-title`, and `stacked-hedges`). Its issues carry `dreamId` in place of `cardId`. Coverage is in "lint.json (staged run)".
+- Lint applies the dream copy rules (`title-vague`, `title-length`, `line-length`, `generic-phrase`, `serial-comma`, `exclamation`, `boilerplate-caveat`, `regional-word`, `acronym-in-title`, and `stacked-hedges`). Its issues carry `dreamId` in place of `cardId`. Whether a dream is an end state is the dream screen's call, not lint's. Coverage is in "lint.json (staged run)".
 - `writerNotes` is never shown to judges or on review pages.
+- A `screen` has `pass`, a one-sentence `reason`, and, when `pass` is false, `check`: `why` or `swap`. Ingest copies it from `dream-screen.json`, so a dream the founder rescued keeps the reason it failed.
 - A `review` has a known `decision`. An `edit` keeps the drafted `title` and `line` in `original`, and `title` and `line` hold the founder's wording. Ingest sets `provenance.reviewStatus` to `reviewed`.
 - Later stages read only accepted dreams (`accept` or `edit`), through `accepted_dreams(run)`, and the validators check against the same set.
+
+### dream-screen.json (staged run)
+```
+{ schemaVersion: 2, painId, runId, judge: { context: "isolated", model?, at },
+  results: { <dream-id>: { title, line,          # the wording judged, copied exactly
+                           pass: bool,
+                           check?: "why" | "swap",   # on a fail: the check it failed
+                           reason } } }          # one sentence
+```
+Rules:
+- `judge.context` is `isolated`. One judge applies both checks to every dream: the why test (not a means to something else within the pain) and the swap test (it wouldn't fit a different pain unchanged). A dream passes only when it passes both.
+- Every result is for a dream in `dreams.json`, with `pass`, a one-sentence `reason`, the `title` and `line` it judged, and on a fail its `check`.
+- A dream with no result for its drafted wording leaves the stage pending rather than failing validation, because redrafting a dream is the dreams stage's work, not an error in it.
+- A dream that fails stays in `dreams.json`. The dream review lists it after the passing ones, collapsed with its reason, and the founder can still accept it.
 
 ### plan.json (staged run)
 ```
@@ -127,6 +146,7 @@ The run's whole fix pool. Fixes that fail the screen or are left unlinked stay i
   fixes: { <fix-id>: {
     title, whatChanges,                   # graph fix title and description
     kind, status, origin: "shared" | "kind:<kind>",   # the pass that drafted it
+    lens, ambition,                       # where the change happens; how far it reaches (tonight | this-year | together)
     draftedFor: <dream-id>,               # kind fixes: the dream whose ceiling the fix counts against
     proposedLinks: [ { dreamId, how } ],  # shared fixes, in place of draftedFor: every dream the fix helps
     method: { … },                        # the kind's method fields; never copy, never shown to judges
@@ -145,6 +165,7 @@ Rules:
 - A shared fix has no `draftedFor` and counts against no ceiling. Its `proposedLinks` name two or more different accepted dreams, each with a one-sentence `how`. They are proposals: `links.json` holds the final links, and the assembler may leave some out.
 - A kind fix's `draftedFor` is an accepted dream.
 - For each kind with a pool and each accepted dream, the number of fixes with that `kind` and `draftedFor` is at most the plan's `max`. If it is lower, `shortfalls` gives a one-line reason for that dream.
+- `lens` is a known lens and `ambition` is `tonight`, `this-year`, or `together`. Both are required on every fix (founder, 2026-10-20), and coverage is counted on them.
 - Status rules: `status` is a known status, and kind `feature` goes with status `proposed_it_feature`, and only with it. A `resource` fix has status `existing_resource` or `real_now`.
 - Trial kinds: a `leave` or `switch` fix, or its pool, fails validation unless `run.json` has `"pilot": true`.
 - Sourcing rules: either `exemplarRef` resolves to an exemplar in the run, or `speculative: true` with a rationale. `firstStepMinutes` is 1–20.
@@ -224,13 +245,13 @@ Rules:
 ### judgments.json (staged run)
 The panel's judgments, in the card-run shape above but keyed by accepted dream ID: each judge scores a dream together with its linked fixes. `judge-input <run>` gives each judge the run's accepted dreams, each with its linked fixes in link order:
 ```
-dreams: { <dream-id>: { title, line, lens, ambition, exemplarRefs,
-                        fixes: [ { id, title, whatChanges, kind, status, exemplarRef, speculative, speculativeRationale?,
+dreams: { <dream-id>: { title, line,
+                        fixes: [ { id, title, whatChanges, kind, status, lens, ambition, exemplarRef, speculative, speculativeRationale?,
                                    firstStep, firstStepMinutes, how } ] } }
 ```
 Rules:
 - `judge-input` refuses until `links.json` exists and the run validates.
-- A fix linked to several dreams appears under each one. Its `method`, `origin`, `draftedFor`, `provenance`, and `writerNotes`, and the dream's `provenance`, `writerNotes`, and `review`, are left out.
+- A fix linked to several dreams appears under each one. Its `method`, `origin`, `draftedFor`, `provenance`, and `writerNotes`, and the dream's `provenance`, `writerNotes`, `screen`, and `review`, are left out.
 - `schemaVersion` is 2, and `painId` matches `run.json`. `scores` has exactly one key for each accepted dream. A score key that is a fix ID fails validation, and that judge is rerun. Pairwise entries name two dreams.
 - `judgments-<n>.json` from each judge have the same shape. `consensus` combines them into `judgments.json` with mean scores, a majority vote on honest status, and Borda points, as in a card run.
 
@@ -247,25 +268,25 @@ Rules:
 - `fixOrder` lists each linked fix once, under the best-ranked dream it serves, and this sets the order of the founder's fix review. Unlinked fixes aren't in it; the review lists them after the linked ones.
 
 ### lint.json (staged run)
-`{ passed: bool, issues: [ { dreamId | fixId, rule, detail } ], coverage: { lenses, ambitions, basicsTonight?, itLed? }, dreams, checkedAt }`
+`{ passed: bool, issues: [ { dreamId | fixId, rule, detail } ], coverage: { lenses?, ambitions?, basicsTonight?, itLed? }, dreams, checkedAt }`
 
 Rules:
 - Each fix gets the card fix rules, checked on its own: `generic-phrase`, `serial-comma`, `exclamation`, `boilerplate-caveat`, `fix-text-length`, `regional-word`, `acronym-in-title`, `not-an-action`, `learn-about-others`, `unsourced-detail` (against the record of the exemplar it cites, or any proper noun in a speculative fix), `title-assumes-example`, `unverified-example`, `not-specific`, `ambiguous-it`, `feature-pitch`, and `built-claim`. `stacked-hedges` counts soft modals in one fix's title and `whatChanges`, where a card counted them across all its fixes.
 - Fix copy rules for staged runs only: `template-copy` flags a method written into a title, `whatChanges`, or `firstStep`, such as "When I…, I want…, so I can…", "After I…, I will…", or "If…, then I will…". `near-duplicate-fix` flags two fixes in the pool whose titles share at least 80% of their words, ignoring small words like "the" and "in". The issue names the first fix by ID and the second in `detail`, so the screen can drop one.
-- Coverage counts the accepted dreams once the dream review is in, and the drafted dreams before it. Links to screened-out or rejected fixes don't count. After the fix review, `links.json` holds the founder's final links, so coverage checks those, not the assembler's. A coverage issue has `dreamId: "*"`.
-  - `lens-coverage`: at least 4 lenses.
-  - `ambition-coverage`: all three ambitions.
-  - `basics-coverage`, once `links.json` exists: at least 3 distinct fixes with status `real_now` or `existing_resource` linked to a tonight dream.
-  - `it-led-coverage`, once `links.json` exists: at least one dream led by It, which means a Feature linked to it anywhere among its fixes (founder, 2026-10-20).
+- Coverage is counted on the fixes linked to accepted dreams, using each fix's `lens`, `ambition`, `status`, and `kind`; dreams have no lens or ambition (founder, 2026-10-20). So coverage waits for `links.json`, and `coverage` is empty before it. Before the dream review is ingested, links to drafted dreams count. Links to screened-out or rejected fixes don't count. After the fix review, `links.json` holds the founder's final links, so coverage checks those, not the assembler's. A coverage issue has `dreamId: "*"`.
+  - `lens-coverage`: at least 4 lenses among linked fixes.
+  - `ambition-coverage`: all three ambitions among linked fixes.
+  - `basics-coverage`: at least 3 distinct linked fixes with ambition `tonight` and status `real_now` or `existing_resource`.
+  - `it-led-coverage`: at least one dream led by It, which means a Feature linked to it anywhere among its fixes (founder, 2026-10-20).
 - No kind has a minimum.
 
 ### Dream review files (`<run>/reviews/`)
-- **proposals.json**: `{ schemaVersion: 1, setId: "<painId>-<runId>", builtAt, proposals: [ { id, title, line, lens, ambition, examples: [{id, name, place, year, outcome}], overlaps: [{with, title, reason}] } ] }`. Each dream appears once. An overlap is listed under both of its dreams. No `writerNotes`.
+- **proposals.json**: `{ schemaVersion: 1, setId: "<painId>-<runId>", builtAt, proposals: [ { id, title, line, screen: {pass, check?, reason}, overlaps: [{with, title, reason}] } ] }`. Each dream appears once: those that passed the dream screen by ID, then those that failed it by ID. `dreams-review-build` reports the count that failed as `failedScreen`. An overlap is listed under both of its dreams. No `writerNotes`.
 - **review.html**: the static page, built from `config/dream-review-page.template.html`. It is derived, so it isn't committed.
 - **dreams-decisions.json**: the founder's export, `{ schemaVersion: 1, setId, exportedAt, decisions: { <dream-id>: { decision: accept|edit|reject, note, decidedAt, edit?: { title, line } } } }`. Ingest refuses an export for another run, a page built before `dreams.json` last changed, an unknown dream, an unknown decision, an edit without a title and a line, or any dream left undecided.
 
 ### Fix review files (`<run>/reviews/`)
-- **fix-proposals.json**: `{ schemaVersion: 1, setId: "<painId>-<runId>", builtAt, dreams: [ { id, title, line, ambition, honestStatus } ], proposals: [ { id, title, whatChanges, firstStep, firstStepMinutes, kind, kindLabel, status, statusLabel, example: {id, name, place, year, outcome, limits} | null, speculative, speculativeRationale, featureIdea, links: [ {dreamId, order, how, by} ], method, origin } ] }`. `dreams` are the accepted dreams in ranking order, and `honestStatus` is the panel's pass or fail. `proposals` lists each fix that passed the screen once: linked fixes in `ranking.json` `fixOrder`, then unlinked fixes by ID. A fix's `links` follow the ranking. No `writerNotes` or `provenance`.
+- **fix-proposals.json**: `{ schemaVersion: 1, setId: "<painId>-<runId>", builtAt, dreams: [ { id, title, line, honestStatus } ], proposals: [ { id, title, whatChanges, firstStep, firstStepMinutes, kind, kindLabel, status, statusLabel, example: {id, name, place, year, outcome, limits} | null, speculative, speculativeRationale, featureIdea, links: [ {dreamId, order, how, by} ], method, origin } ] }`. `dreams` are the accepted dreams in ranking order, and `honestStatus` is the panel's pass or fail. `proposals` lists each fix that passed the screen once: linked fixes in `ranking.json` `fixOrder`, then unlinked fixes by ID. A fix's `links` follow the ranking. No `writerNotes` or `provenance`.
 - **fix-review.html**: the static page, built from `config/fix-review-page.template.html`. It is derived, so it isn't committed.
 - **fixes-decisions.json**: the founder's export, `{ schemaVersion: 1, setId, exportedAt, decisions: { <fix-id>: { decision: accept|edit|reject, note, decidedAt, edit?: { title, whatChanges, firstStep }, links: [<dream-id>…] } } }`. `links` are the fix's final dreams. Ingest refuses an export for another run, a page built before `fixes.json` or `links.json` last changed, an unknown or screened-out fix, an unknown decision, an edit without all three fields, a link to a dream that isn't accepted or is listed twice, or any fix left undecided.
 - Ingest keeps the assembler's links that the founder kept, with their `how` and `by`, and adds the founder's as `by: founder` with no `how`. Within a dream, kept links keep their order, and the founder's follow in review order. A rejected fix keeps no link.

@@ -173,14 +173,42 @@ def stale(root):
 # ---------- staged runs (schemaVersion 2) ----------
 
 # Stage order (design, "Stage is derived from the files present"). dream-review and fix-review are founder stops.
-STAGES = ('examples', 'dreams', 'dream-review', 'plan', 'shared-fixes', 'kind-pools', 'screen', 'assemble', 'judge',
-          'fix-review')
+STAGES = ('examples', 'dreams', 'dream-screen', 'dream-review', 'plan', 'shared-fixes', 'kind-pools', 'screen', 'assemble',
+          'judge', 'fix-review')
+# A dream passes the screen's why test (not a means to something else within the pain) and swap test (it wouldn't fit a
+# different pain unchanged); a fail names the check (founder, 2026-10-20).
+DREAM_CHECKS = ('why', 'swap')
+# Fields a dream no longer has: lens and ambition moved to fixes, and examples feed only the fix stages (2026-10-20).
+NOT_ON_DREAMS = ('lens', 'ambition', 'exemplarRefs')
 
 
 def dream_review_ingested(run):
     """True once every drafted dream carries the founder's review decision (written by dreams-ingest)."""
     dreams = read(run / 'dreams.json').get('dreams') if (run / 'dreams.json').is_file() else None
     return bool(dreams) and all(isinstance(d.get('review'), dict) and d['review'].get('decision') for d in dreams.values())
+
+
+def drafted_wording(dream):
+    """The wording the dream was drafted and screened with: the original beside a founder's edit, else its own."""
+    review = dream.get('review') if isinstance(dream.get('review'), dict) else {}
+    source = review['original'] if review.get('decision') == 'edit' and has_wording(review.get('original')) else dream
+    return {f: source.get(f) for f in ('title', 'line')}
+
+
+def unscreened_dreams(run):
+    """Dreams the dream screen has no verdict on for their drafted wording: new, redrafted, or missing from the file.
+    The screen records the title and line it judged, so a redraft sends the run back to it."""
+    dreams = read(run / 'dreams.json').get('dreams') if (run / 'dreams.json').is_file() else None
+    if not isinstance(dreams, dict):
+        return []
+    doc = read(run / 'dream-screen.json') if (run / 'dream-screen.json').is_file() else {}
+    results = doc.get('results') if isinstance(doc.get('results'), dict) else {}
+    return sorted(key for key, d in dreams.items() if not isinstance(d, dict) or not isinstance(results.get(key), dict)
+                  or {f: results[key].get(f) for f in ('title', 'line')} != drafted_wording(d))
+
+
+def dream_screen_done(run):
+    return (run / 'dream-screen.json').is_file() and not unscreened_dreams(run)
 
 
 def is_pilot(run):
@@ -230,6 +258,7 @@ def kind_pools_done(run):
 STAGE_DONE = {
     'examples': lambda run: (run / 'exemplars.json').is_file(),
     'dreams': lambda run: (run / 'dreams.json').is_file(),
+    'dream-screen': dream_screen_done,
     'dream-review': dream_review_ingested,
     'plan': lambda run: (run / 'plan.json').is_file(),
     'shared-fixes': shared_pass_done,
@@ -244,7 +273,8 @@ FOUNDER_STOPS = {'dream-review': ('dreams-review-build', 'dreams-ingest'),  # ea
 
 
 BRIEFS = 'tools/possibilities/briefs/'
-STAGE_BRIEFS = {'examples': BRIEFS + 'dreams.md', 'dreams': BRIEFS + 'dreams.md', 'plan': BRIEFS + 'planner.md',
+STAGE_BRIEFS = {'examples': BRIEFS + 'dreams.md', 'dreams': BRIEFS + 'dreams.md', 'dream-screen': BRIEFS + 'dream-screen.md',
+                'plan': BRIEFS + 'planner.md',
                 'shared-fixes': BRIEFS + 'shared-fixes.md',
                 'kind-pools': BRIEFS + 'kinds/_shared.md', 'screen': BRIEFS + 'screen.md', 'assemble': BRIEFS + 'assembler.md',
                 'judge': BRIEFS + 'judge.md'}
@@ -332,6 +362,8 @@ def status(run):
     """The next stage of a staged run, from the files present."""
     require_staged(run)
     result = {'run': run.name, 'next': next_stage(run)}
+    if result['next'] == 'dream-screen' and (run / 'dream-screen.json').is_file():
+        result['unscreened'] = unscreened_dreams(run)
     if (run / 'fixes.json').is_file():
         result['fixes'] = fix_pool(run)
     return result
@@ -346,7 +378,14 @@ def fix_pool(run):
             'unlinked': sorted(set(fixes) - linked) if (run / 'links.json').is_file() else None}
 
 
-def start(run, stage):
+def related_pains(root, pain_id):
+    """The catalog's related pains for one pain, with their wording: the dream screen's candidates for the swap test."""
+    records, wording = pain_records(root), pains(root)
+    relations = (records.get(pain_id) or {}).get('relations', [])
+    return [{**wording[r['id']], 'relation': r['kind']} for r in relations if r.get('id') in wording]
+
+
+def start(run, stage, root=None):
     """Refuse a stage until every stage before it is complete (a usage error), then name its brief."""
     require_staged(run)
     if stage not in STAGES:
@@ -361,7 +400,9 @@ def start(run, stage):
     if stage not in STAGE_BRIEFS:
         raise ValueError('%s is not built yet' % stage)
     result = {'run': run.name, 'stage': stage, 'brief': STAGE_BRIEFS[stage]}
-    if stage == 'plan':
+    if stage == 'dream-screen' and root is not None:
+        result['relatedPains'] = related_pains(root, read(run / 'run.json')['painId'])
+    elif stage == 'plan':
         result['kinds'] = list(run_kinds(run))  # the kinds the planner sets ceilings for
     elif stage == 'kind-pools':
         # One brief per kind with a ceiling above zero that has no pool yet, each run after the shared kind brief.
@@ -402,7 +443,7 @@ def dreams_review_build(run, root):
     if issues:
         raise ValueError('fix validation first: ' + '; '.join(issues))
     meta, doc = read(run / 'run.json'), read(run / 'dreams.json')
-    dreams, exemplars = doc['dreams'], read(run / 'exemplars.json')['exemplars']
+    dreams, verdicts = doc['dreams'], read(run / 'dream-screen.json')['results']
 
     def overlaps(key):
         found = []
@@ -412,11 +453,11 @@ def dreams_review_build(run, root):
                 found.append({'with': other, 'title': dreams[other]['title'], 'reason': o['reason']})
         return found
 
-    # writerNotes stay out: they are never shown on review pages (data-model.md).
-    proposals = [{'id': key, 'title': d['title'], 'line': d['line'], 'lens': d['lens'], 'ambition': d['ambition'],
-                  'examples': [{'id': r, **{f: exemplars[r].get(f) for f in ('name', 'place', 'year', 'outcome')}}
-                               for r in d['exemplarRefs']],
-                  'overlaps': overlaps(key)} for key, d in sorted(dreams.items())]
+    # writerNotes stay out: they are never shown on review pages (data-model.md). Dreams the screen failed come last,
+    # collapsed on the page with the reason, and can still be accepted (spec, "Dream screen").
+    proposals = [{'id': key, 'title': d['title'], 'line': d['line'], 'screen': screen_verdict(verdicts[key]),
+                  'overlaps': overlaps(key)}
+                 for key, d in sorted(dreams.items(), key=lambda item: (verdicts[item[0]]['pass'] is not True, item[0]))]
     set_id = review_set_id(run)
     folder = run / 'reviews'
     folder.mkdir(exist_ok=True)
@@ -427,7 +468,13 @@ def dreams_review_build(run, root):
     template = (config_root(root) / 'dream-review-page.template.html').read_text()
     (folder / 'review.html').write_text(template.replace('/*__DATA__*/', data))
     return {'set': set_id, 'page': str((folder / 'review.html').relative_to(data_root(root) / 'runs')),
-            'dreams': len(proposals), 'overlaps': len(doc.get('overlaps', []))}
+            'dreams': len(proposals), 'failedScreen': sum(not p['screen']['pass'] for p in proposals),
+            'overlaps': len(doc.get('overlaps', []))}
+
+
+def screen_verdict(result):
+    """What a dream keeps of its screen result: pass, the failed check, and the reason (not the wording it judged)."""
+    return {f: result[f] for f in ('pass', 'check', 'reason') if f in result}
 
 
 DREAM_DECISIONS = ('accept', 'edit', 'reject')  # an edit accepts the dream with the founder's wording
@@ -470,7 +517,7 @@ def dreams_ingest(run, decisions_path):
             issues.append('%s: an edit needs a title and a line' % key)
     if issues:
         raise ValueError('; '.join(issues))
-    ingested = now()
+    ingested, verdicts = now(), read(run / 'dream-screen.json')['results']
     for key, d in decisions.items():
         dream = dreams[key]
         review = {'decision': d['decision'], 'note': d.get('note', ''), 'decidedAt': d.get('decidedAt'), 'ingestedAt': ingested}
@@ -478,9 +525,11 @@ def dreams_ingest(run, decisions_path):
             review['original'] = {'title': dream['title'], 'line': dream['line']}
             dream['title'], dream['line'] = d['edit']['title'].strip(), d['edit']['line'].strip()
         dream['review'] = review
+        # The screen's verdict stays with the dream, so a rescued dream keeps the reason it failed.
+        dream['screen'] = screen_verdict(verdicts[key])
         dream['provenance']['reviewStatus'] = 'reviewed'
     issues = []
-    validate_dreams(doc, read(run / 'exemplars.json')['exemplars'], issues, read(run / 'run.json').get('painId'))
+    validate_dreams(doc, issues, read(run / 'run.json').get('painId'))
     if issues:
         raise ValueError('the reviewed dreams do not validate: ' + '; '.join(issues))
     # The export is kept in the run, so the decisions are committed with it (design: reviews/dreams-decisions.json).
@@ -555,7 +604,7 @@ def fixes_review_build(run, root):
     if set(rank_of) != set(accepted):
         raise ValueError('ranking.json does not rank the accepted dreams; run select again')
     dreams = [{'id': r['dreamId'], 'title': accepted[r['dreamId']]['title'], 'line': accepted[r['dreamId']]['line'],
-               'ambition': accepted[r['dreamId']]['ambition'], 'honestStatus': r['honestStatus']['pass']}
+               'honestStatus': r['honestStatus']['pass']}
               for r in ranking['ranking']]
 
     def proposal(key):
@@ -753,7 +802,16 @@ def validate_cards(doc, exemplars, issues, generated=True):
     return cards
 
 
-def validate_dreams(doc, exemplars, issues, pain=None):
+def check_verdict(result, where, issues):
+    """A dream screen verdict: pass, a one-sentence reason, and, for a fail, the check it failed."""
+    result = result if isinstance(result, dict) else {}
+    require(isinstance(result.get('pass'), bool) and one_line(result.get('reason'))
+            and len(SENTENCE.findall(result['reason'].strip())) <= 1, where + ': needs pass and a one-sentence reason', issues)
+    if result.get('pass') is False:
+        require(result.get('check') in DREAM_CHECKS, where + ': a fail names its check (%s)' % ' or '.join(DREAM_CHECKS), issues)
+
+
+def validate_dreams(doc, issues, pain=None):
     require(doc.get('schemaVersion') == 2, 'dreams.json must have schemaVersion 2', issues)
     require(doc.get('painId') == pain, 'dreams.json painId must match run.json', issues)
     dreams = doc.get('dreams')
@@ -765,12 +823,9 @@ def validate_dreams(doc, exemplars, issues, pain=None):
         require(ID.fullmatch(key), where + ': bad ID', issues)
         for field in ('title', 'line'):
             require(isinstance(d.get(field), str) and d[field].strip(), where + ': missing ' + field, issues)
-        require(d.get('lens') in LENSES, where + ': unknown lens', issues)
-        require(d.get('ambition') in AMBITIONS, where + ': unknown ambition', issues)
-        refs = d.get('exemplarRefs')
-        require(isinstance(refs, list) and refs, where + ': exemplarRefs must name at least one example', issues)
-        require(isinstance(refs, list) and all(r in exemplars for r in refs),
-                where + ': exemplarRefs must resolve to exemplars in this run', issues)
+        issues += ['%s: a dream has no %s' % (where, field) for field in NOT_ON_DREAMS if field in d]
+        if 'screen' in d:
+            check_verdict(d['screen'], where + ' screen', issues)
         prov = d.get('provenance', {})
         for field in ('sourceId', 'locator', 'evidenceType', 'rights', 'reviewStatus'):
             require(prov.get(field), where + ': provenance lacks ' + field, issues)
@@ -788,6 +843,20 @@ def validate_dreams(doc, exemplars, issues, pain=None):
         require(pair not in pairs, 'overlap %s/%s is flagged twice' % (o.get('a'), o.get('b')), issues)
         pairs.add(pair)
     return dreams
+
+
+def validate_dream_screen(doc, dreams, issues, pain=None):
+    """dream-screen.json: one isolated judge's verdict on each dream. A dream it has no verdict on for its drafted wording
+    leaves the stage pending (unscreened_dreams), since a redraft by the dreams stage isn't an error in that stage."""
+    staged_header(doc, 'dream-screen.json', pain, issues)
+    require(isolated(doc, 'judge'), 'dream screen judge context must be isolated', issues)
+    results = doc.get('results')
+    require(isinstance(results, dict), 'dream screen results must be keyed by dream ID', issues)
+    for key, result in sorted(results.items() if isinstance(results, dict) else ()):
+        where = 'dream screen ' + key
+        require(key in dreams, where + ': not a dream in dreams.json', issues)
+        check_verdict(result, where, issues)
+        require(has_wording(result), where + ': records the title and line it judged', issues)
 
 
 def reviewed_dreams(run):
@@ -913,6 +982,9 @@ def validate_fixes(doc, exemplars, ceilings, accepted, issues, pain=None, kinds=
             require(f.get('draftedFor') in accepted, where + ': draftedFor must be an accepted dream', issues)
             require('proposedLinks' not in f, where + ': only a shared fix has proposedLinks', issues)
         require(f.get('status') in STATUSES, where + ': unknown status', issues)
+        # Lens is where the change happens; ambition is how far it reaches (spec, "Fix lens and ambition").
+        require(f.get('lens') in LENSES, where + ': lens must be one of ' + ', '.join(LENSES), issues)
+        require(f.get('ambition') in AMBITIONS, where + ': ambition must be one of ' + ', '.join(AMBITIONS), issues)
         require('featureStatus' not in f, where + NO_ROADMAP_STATUS, issues)
         require((kind == 'feature') == (f.get('status') == 'proposed_it_feature'),
                 where + ': kind feature goes with status proposed_it_feature, and only with it', issues)
@@ -1079,8 +1151,13 @@ def validate_staged_run(run, judgments=True):
     if (run / 'exemplars.json').is_file():
         exemplars = validate_exemplars(read(run / 'exemplars.json'), issues)
     pain = read(run / 'run.json').get('painId')
-    if (run / 'dreams.json').is_file():
-        validate_dreams(read(run / 'dreams.json'), exemplars, issues, pain)
+    dreams = validate_dreams(read(run / 'dreams.json'), issues, pain) if (run / 'dreams.json').is_file() else {}
+    if (run / 'dream-screen.json').is_file():
+        require((run / 'dreams.json').is_file(), 'dream-screen.json needs dreams.json', issues)
+        validate_dream_screen(read(run / 'dream-screen.json'), dreams, issues, pain)
+    if dream_review_ingested(run):
+        require(dream_screen_done(run), 'the dream review needs a dream screen of every dream (unscreened %s)'
+                % ', '.join(unscreened_dreams(run)), issues)
     accepted = reviewed_dreams(run)
     kinds = run_kinds(run)
     ceilings = validate_plan(read(run / 'plan.json'), accepted, issues, pain, kinds) if (run / 'plan.json').is_file() else {}
@@ -1133,8 +1210,6 @@ def dream_rules(title, line):
         yield 'title-vague', 'one-word title; say what is different'
     elif words > 10:
         yield 'title-length', 'title has %d words; keep it a title, not a sentence' % words
-    if re.match(r'(Telling|Asking|Writing|Calling|Contacting|Emailing|Petitioning|Lobbying|Learning|Reading)\b', title):
-        yield 'dream-not-outcome', 'dream title "%s" is an action; name the outcome, e.g. "I get limits on addictive app design"' % title[:40]
     if len(SENTENCE.findall(line.strip())) > 1:
         yield 'line-length', 'dream line should be one sentence'
 
@@ -1250,18 +1325,11 @@ def lint_staged_run(run, root):
     exemplars = read(run / 'exemplars.json').get('exemplars') if (run / 'exemplars.json').is_file() else {}
     exemplars = {key: e for key, e in exemplars.items() if isinstance(e, dict)} if isinstance(exemplars, dict) else {}
     lint_staged_fixes(fixes, add_fix, exemplars, patterns)
-    # Coverage is across accepted dreams once the review is in (spec, "Coverage per pain"); before it, the drafted ones.
+    # Coverage is counted on the fixes linked to accepted dreams (spec, "Coverage per pain"), so it waits for the
+    # assembler; dreams have no lens or ambition. Before the review is in, the drafted dreams count. No kind has a minimum.
     accepted = reviewed_dreams(run)
     covered = {key: d for key, d in dreams.items() if accepted is None or key in accepted}
-    lenses = sorted({d['lens'] for d in covered.values() if isinstance(d.get('lens'), str)})
-    ambitions = sorted({d['ambition'] for d in covered.values() if isinstance(d.get('ambition'), str)})
-    coverage = {'lenses': lenses, 'ambitions': ambitions}
-    if len(lenses) < 4:
-        add('*', 'lens-coverage', 'only %d lenses: %s' % (len(lenses), ', '.join(lenses)))
-    missing = [a for a in AMBITIONS if a not in ambitions]
-    if missing:
-        add('*', 'ambition-coverage', 'missing ambition levels: ' + ', '.join(missing))
-    # Basics and It-led coverage need linked fixes, so they wait for the assembler. No kind has a minimum.
+    coverage = {}
     if (run / 'links.json').is_file():
         # A link to a screened-out fix fails validate; coverage leaves it out too.
         # After the fix review, links.json holds the founder's final links, and rejected fixes lose theirs.
@@ -1269,11 +1337,20 @@ def lint_staged_run(run, root):
         links = [e for e in read(run / 'links.json').get('links', []) if isinstance(e, dict)
                  and isinstance(e.get('dreamId'), str) and e['dreamId'] in covered
                  and isinstance(e.get('fixId'), str) and e['fixId'] in linkable]
-        basics = sorted({e['fixId'] for e in links if covered[e['dreamId']].get('ambition') == 'tonight'
+        linked = [fixes[key] for key in sorted({e['fixId'] for e in links})]
+        lenses = sorted({f['lens'] for f in linked if isinstance(f.get('lens'), str)})
+        ambitions = sorted({f['ambition'] for f in linked if isinstance(f.get('ambition'), str)})
+        coverage.update(lenses=lenses, ambitions=ambitions)
+        if len(lenses) < 4:
+            add('*', 'lens-coverage', 'only %d lenses among linked fixes: %s' % (len(lenses), ', '.join(lenses)))
+        missing = [a for a in AMBITIONS if a not in ambitions]
+        if missing:
+            add('*', 'ambition-coverage', 'no linked fix with ambition ' + ', '.join(missing))
+        basics = sorted({e['fixId'] for e in links if fixes[e['fixId']].get('ambition') == 'tonight'
                          and fixes[e['fixId']].get('status') in ('real_now', 'existing_resource')})
         coverage['basicsTonight'] = len(basics)
         if len(basics) < 3:
-            add('*', 'basics-coverage', 'only %d basic tonight fixes linked; link at least 3 common practical fixes to tonight dreams' % len(basics))
+            add('*', 'basics-coverage', 'only %d basic tonight fixes linked; link at least 3 common practical fixes that work tonight' % len(basics))
         # Led by It: a dream with any Feature linked, anywhere among its fixes (founder, 2026-10-20).
         it_led = sorted({e['dreamId'] for e in links if fixes[e['fixId']].get('kind') == 'feature'})
         coverage['itLed'] = it_led
@@ -1407,9 +1484,9 @@ def lint_run(run, root):
 # ---------- judging and selection ----------
 
 # Fix fields a judge sees: copy, kind, status, and sourcing. method, origin, draftedFor, provenance, and writerNotes stay out.
-JUDGED_FIX_FIELDS = ('title', 'whatChanges', 'kind', 'status', 'exemplarRef', 'speculative', 'speculativeRationale',
-                     'firstStep', 'firstStepMinutes')
-JUDGED_DREAM_FIELDS = ('title', 'line', 'lens', 'ambition', 'exemplarRefs')
+JUDGED_FIX_FIELDS = ('title', 'whatChanges', 'kind', 'status', 'lens', 'ambition', 'exemplarRef', 'speculative',
+                     'speculativeRationale', 'firstStep', 'firstStepMinutes')
+JUDGED_DREAM_FIELDS = ('title', 'line')
 
 
 def judged_dreams(run):
@@ -2078,7 +2155,7 @@ def main():
     elif args.command == 'start':
         if len(args.targets) != 2:
             parser.error('start needs a run directory and a stage: ' + ', '.join(STAGES))
-        out = start(run_dir(args.targets[0]), args.targets[1])
+        out = start(run_dir(args.targets[0]), args.targets[1], root)
     elif args.command == 'dreams-review-build':
         if len(args.targets) != 1:
             parser.error('dreams-review-build needs one run directory')

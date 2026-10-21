@@ -40,6 +40,7 @@ Good:
 - **Title:** "Call 211 for help with rent this month"
 - **Text:** "211 connects you with local rent, utility, and food programs, free and by phone or text. Have your lease and last pay stub nearby, since most programs ask for them."
 - **Method:** `provider` "local nonprofits, through 211", `eligibility` "anyone in the United States", `access` "call or text 211", `bring` "your lease and a recent pay stub".
+- **Lens and ambition:** `community`, `tonight`.
 
 Bad:
 - **Title:** "Look into what help is available"

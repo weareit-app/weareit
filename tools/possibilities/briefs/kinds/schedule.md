@@ -45,6 +45,7 @@ Good:
 - **Title:** "Set up a standing Sunday call with one old friend"
 - **Text:** "A fixed time takes away the 'we should catch up' back-and-forth. If one of you can't make it, move it to the next evening rather than skipping the week."
 - **Method:** `what` "A phone call with one old friend.", `cadence` "Every Sunday.", `slot` "Sunday at 4pm", `likelyObstacle` "One of you has plans.", `ifThen` "Move it to Monday evening."
+- **Lens and ambition:** `relational`, `tonight`.
 
 Bad:
 - **Title:** "Stay in touch more"

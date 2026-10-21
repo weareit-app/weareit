@@ -44,6 +44,7 @@ Good:
 - **Title:** "Move your phone charger out of the bedroom"
 - **Text:** "If the phone charges in the kitchen, the late-night scroll needs a walk, and most nights you won't bother. A cheap alarm clock covers the one thing the phone was doing there."
 - **Method:** `nextAction` "Plug the charger in on the kitchen counter.", `doneWhen` "The phone spends the night in the kitchen.", `keepsWorking` true, `lever` `remove-hassle`.
+- **Lens and ambition:** `individual`, `tonight`.
 
 Bad:
 - **Title:** "Reduce screen time"

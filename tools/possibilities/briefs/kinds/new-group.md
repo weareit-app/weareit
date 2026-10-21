@@ -45,6 +45,7 @@ Good:
 - **Title:** "Start a tenant association in your building"
 - **Text:** "Start with a knock on five doors about one shared problem, like the broken heat. If most of the building will sign one letter to the landlord, you have a group."
 - **Method:** `whoFor` "The tenants in your building.", `whatMembersDo` "Raise repairs together and negotiate with the landlord as one.", `firstTest` "Most of the building signs one letter about the heat.", `existingFirst` "Whether the building already has a tenant association."
+- **Lens and ambition:** `community`, `together`.
 
 Bad:
 - **Title:** "Start a community group"

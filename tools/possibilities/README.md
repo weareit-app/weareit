@@ -34,13 +34,13 @@ Run it from the repository root: `python3 tools/possibilities/cards.py <subcomma
 | --- | --- |
 | `new-run <pain-id>` | Creates a new run folder and prints its path and the pain line |
 | `new-run <pain-id> --staged [--pilot]` | Creates a staged run (schemaVersion 2), whose files mirror the content graph. `--pilot` marks it as a pilot run (`"pilot": true` in `run.json`), which also plans and drafts the trial kinds |
-| `status <run>` | Names a staged run's next stage from the files present, and once fixes exist, the pool's total, screened-out, and unlinked fixes |
-| `start <run> <stage>` | Names the stage's brief (and, for `plan` and `kind-pools`, the kinds to plan or draft; for `kind-pools`, also the shared fixes already drafted), or exits 2 while an earlier stage is incomplete or the stage is a founder stop |
-| `dreams-review-build <run>` | Writes `reviews/proposals.json` and the dream review page, `reviews/review.html`, while the dream review is pending |
-| `dreams-ingest <run> <decisions.json>` | Records the founder's decision on every dream, keeps the drafted wording beside each edit, and copies the export to `reviews/dreams-decisions.json` |
+| `status <run>` | Names a staged run's next stage from the files present, the dreams the dream screen hasn't judged in their current wording (`unscreened`), and once fixes exist, the pool's total, screened-out, and unlinked fixes |
+| `start <run> <stage>` | Names the stage's brief (for `dream-screen`, also the catalog's related pains; for `plan` and `kind-pools`, the kinds to plan or draft; for `kind-pools`, also the shared fixes already drafted), or exits 2 while an earlier stage is incomplete or the stage is a founder stop |
+| `dreams-review-build <run>` | Writes `reviews/proposals.json` and the dream review page, `reviews/review.html`, once the dream screen has judged every dream and while the dream review is pending |
+| `dreams-ingest <run> <decisions.json>` | Records the founder's decision on every dream, keeps the drafted wording beside each edit and the dream screen's verdict on each dream, and copies the export to `reviews/dreams-decisions.json` |
 | `fixes-review-build <run>` | Writes `reviews/fix-proposals.json` and the fix review page, `reviews/fix-review.html`, once `ranking.json` exists |
 | `fixes-ingest <run> <decisions.json>` | Records one decision per fix, keeps the drafted copy beside each edit, makes `links.json` the founder's final links, and copies the export to `reviews/fixes-decisions.json` |
-| `validate <run…>` | Checks the shape of exemplars, cards, dreams, the plan, fixes, screen, links, judgments, and selection |
+| `validate <run…>` | Checks the shape of exemplars, cards, dreams, the dream screen, the plan, fixes, screen, links, judgments, and selection |
 | `lint <run…>` | Applies the copy, sourcing, kind and coverage rules, including the Oxford comma (`serial-comma`, from `tools/style/serial_comma.py`), and writes `lint.json` |
 | `judge-input <run>` | Prints a judge's whole input, with writer notes and provenance removed. In a staged run, it lists each accepted dream with its linked fixes in order, repeating a shared fix under each dream, and leaves out method fields |
 | `consensus <run>` | Combines `judgments-<n>.json` into `judgments.json` (mean scores, majority honest status, Borda points) |
@@ -56,12 +56,13 @@ Run it from the repository root: `python3 tools/possibilities/cards.py <subcomma
 
 ## Staged flow
 
-A staged run drafts the pain's dreams first, lets the founder review them, then drafts fixes one kind at a time and links them to the dreams. `/possibilities-generate --staged` runs it, and stops at each founder review. `status <run>` names the next stage from the files present, and `start <run> <stage>` names the stage's brief or refuses while an earlier stage is incomplete. So a run can be picked up again at any point.
+A staged run drafts the pain's dreams first, screens them, lets the founder review them, then drafts fixes one kind at a time and links them to the dreams. `/possibilities-generate --staged` runs it, and stops at each founder review. `status <run>` names the next stage from the files present, and `start <run> <stage>` names the stage's brief or refuses while an earlier stage is incomplete. So a run can be picked up again at any point.
 
 | Stage | Who | Brief | Done when the run has |
 | --- | --- | --- | --- |
 | `examples` | One agent | `dreams.md`, examples stage | `exemplars.json` |
 | `dreams` | One agent | `dreams.md`, dreams stage | `dreams.json` |
+| `dream-screen` | One judge | `dream-screen.md` | `dream-screen.json`, with a verdict on every dream in its current wording |
 | `dream-review` | The founder | "Founder dream review" | a decision on every dream |
 | `plan` | One agent | `planner.md` | `plan.json` |
 | `shared-fixes` | One agent | `shared-fixes.md` | `fixes.json` with its `shared` record |
@@ -73,20 +74,28 @@ A staged run drafts the pain's dreams first, lets the founder review them, then 
 
 Every agent stage is a fresh, isolated agent that gets only its brief, the run path, and for a kind pool its kind. Agents on the same model tend to write alike, so each kind brief is narrow, every brief sees the fixes already drafted so it doesn't repeat them, and lint flags near-duplicate fixes (`near-duplicate-fix`) for the screen. Kind pools run one after another because each adds to `fixes.json`.
 
-The run's files, in the order they appear: `run.json`, `exemplars.json`, `dreams.json`, `reviews/` (the dream review's files, and later the fix review's), `plan.json`, `fixes.json`, `screen.json`, `links.json`, `judgments-<n>.json`, `judgments.json`, `ranking.json`, and `lint.json` whenever lint runs. `data-model.md` gives their shapes.
+The run's files, in the order they appear: `run.json`, `exemplars.json`, `dreams.json`, `dream-screen.json`, `reviews/` (the dream review's files, and later the fix review's), `plan.json`, `fixes.json`, `screen.json`, `links.json`, `judgments-<n>.json`, `judgments.json`, `ranking.json`, and `lint.json` whenever lint runs. `data-model.md` gives their shapes.
 
 A pilot run (`new-run <pain-id> --staged --pilot`) also plans and drafts the trial kinds Leave and Switch. Any other run refuses them. Once the pilot pains' runs are done, `compare-build` and `compare-report` compare the staged flow with the card flow, as `/possibilities-calibrate` describes under "Pilot comparison". The skill records each stage's tokens with `finish-run --stage` for that report.
 
+## Dream screen
+
+A dream is the end state a person wants for one pain (`GLOSSARY.md`, **Dream**); anything that produces it is a fix. Before the founder sees the dreams, one isolated judge (`briefs/dream-screen.md`) applies two checks to each one:
+- the why test (not too low): asking "why do you want that?" doesn't lead to something else inside the same pain;
+- the swap test (not too high): it wouldn't fit a different pain unchanged. `start <run> dream-screen` lists the catalog's related pains to try it against.
+
+It writes `dream-screen.json`, with pass or fail, the failed check, and a one-sentence reason for every dream, and the title and line it judged. Redrafting a dream sends the run back to the screen. A dream that fails stays in the run. There is no word-level lint for this: a semantic rule needs a semantic check (founder, 2026-10-20).
+
 ## Founder dream review
 
-In a staged run, the founder reviews the drafted dreams before any fix is drafted. The page works like the pain review page (`tools/pains/`).
+In a staged run, the founder reviews the screened dreams before any fix is drafted. The page works like the pain review page (`tools/pains/`).
 
 1. Run `dreams-review-build <run>`.
 2. Start the `dream-review` launch config (`.claude/launch.json`). It serves `docs/research/possibilities/runs` on `127.0.0.1:4175` only. Open `http://127.0.0.1:4175/<pain>/<runId>/reviews/review.html`.
-3. The founder accepts, edits, or rejects each dream from the keyboard. Overlap flags and their reasons are shown as text beside both dreams. Decisions stay in that browser until the founder downloads them.
+3. The founder accepts, edits, or rejects each dream from the keyboard. Dreams that passed the screen come first. Dreams it failed come last, collapsed with the screen's reason, and the founder can open and still accept one. Overlap flags and their reasons are shown as text beside both dreams. Decisions stay in that browser until the founder downloads them.
 4. Save the download as `reviews/dreams-decisions.json` in the run, and run `dreams-ingest <run> <run>/reviews/dreams-decisions.json`. Ingest refuses an export that leaves a dream undecided.
 
-After ingest, `status` names `plan` as the next stage. Later stages read only accepted dreams, with the founder's edits applied. `review.html` is rebuilt from the run and isn't committed; the decisions are committed with the run.
+After ingest, `status` names `plan` as the next stage. Each dream keeps the screen's verdict under `screen`, so a dream the founder rescued still shows why it failed. Later stages read only accepted dreams, with the founder's edits applied. `review.html` is rebuilt from the run and isn't committed; the decisions are committed with the run.
 
 ## Fix stages
 
@@ -115,7 +124,7 @@ Ingest records one decision per fix, so a shared fix is decided once and keeps e
 **The bar** (founder, 2026-10-17): a card is actionable and not obvious, or makes the obvious feel more meaningful. It uses real named examples, has some surprise, and gives people power over their situation.
 
 **Voice.** Follow `docs/style/copy-style-guide.md`. The voice is a trusted mentor or a hometown doctor: plain American English, full sentences, clarity before brevity.
-- **Dream**: a title naming the outcome, usually 3–8 words, and a line that is one first-person sentence.
+- **Dream**: the end state a person wants for this pain, never a way to get there. A title, usually 3–8 words, and a line that is one first-person sentence. A dream has no lens, ambition, or example: those belong to fixes.
 - **Fix text**: 1–3 sentences, with one idea per fix.
 - **Fix titles**: they make sense without the example. Names like Seattle or Portugal go in the text, not the title.
 
@@ -141,8 +150,8 @@ Ingest records one decision per fix, so a shared fix is decided once and keeps e
 - at least 4 lenses;
 - all three ambition levels;
 - at least 3 basics tonight (`real_now` or `existing_resource`);
-- in a card run, at least 3 features and at least one card led by It;
-- in a staged run, at least one dream led by It, meaning a Feature linked anywhere among its fixes, and no minimum for any kind. Coverage there counts accepted dreams and their linked fixes.
+- in a card run, at least 3 features and at least one card led by It. Lenses and ambitions are the cards', and basics are fixes on `tonight` cards;
+- in a staged run, at least one dream led by It, meaning a Feature linked anywhere among its fixes, and no minimum for any kind. Coverage there is counted on the fixes linked to accepted dreams, using each fix's `lens` and `ambition`; basics are `tonight` fixes. Dreams have neither, so lint checks coverage only once `links.json` exists.
 
 Run the feature-pattern check in `config/feature-patterns.md` on every card.
 
@@ -150,7 +159,7 @@ Run the feature-pattern check in `config/feature-patterns.md` on every card.
 
 ## Isolation
 
-No agent judges what it drafted: the writer never judges its own cards, and in a staged run the screen and the judges are agents of their own. Each is a fresh agent:
+No agent judges what it drafted: the writer never judges its own cards, and in a staged run the dream screen, the fix screen, and the judges are agents of their own. Each is a fresh agent:
 - in Claude Code, an Agent tool subagent;
 - in Codex, a new thread.
 

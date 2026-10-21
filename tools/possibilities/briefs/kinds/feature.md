@@ -54,6 +54,7 @@ Good:
 - **Title:** "See tenant groups and rent rules for your address"
 - **Text:** "Shows the tenant association, rent rules, and free legal help that apply to your building, drawn from city rental registries and court self-help directories, so you know who to call before your lease renewal arrives."
 - **Method:** `when` "My lease renewal is coming and the rent is going up.", `want` "Find out what rules and help apply to my building.", `soThat` "I can push back before I sign.", `pattern` "Directory or lookup", `dataOrTools` "city rental registries and court self-help directories".
+- **Lens and ambition:** `technology`, `this-year`.
 
 Bad:
 - **Title:** "Organize your building"

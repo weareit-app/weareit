@@ -14,6 +14,7 @@ Then plan:
    - A ceiling is a limit, not a target. Kind briefs may return fewer, and a weak fix written to fill a number is worse than none. Set the number that the dream and the examples could support at their best.
    - Use 0 when the kind doesn't fit the dream. For example, a one-time Task rarely delivers a `together` dream about changing a law. Say why in the reason.
    - Don't plan around what other dreams already have. Fixes that serve several dreams are handled in their own pass.
+   - Plan for the pain's coverage, which is counted on the fixes linked to accepted dreams, since dreams have no lens or ambition: at least four lenses, all three ambitions (`tonight`, `this-year`, and `together`), at least three basics that work tonight, and at least one Feature. Leave room for kinds that reach each one. Every fix sets its own lens and ambition, so the plan doesn't.
 4. Write `plan.json`: `{schemaVersion: 2, painId, runId, plannedAt, ceilings: {<dream-id>: {<kind>: {max, reason}}}}`.
 5. Run `validate <run>` and fix every issue until it reports none.
 6. Run `status <run>`. It should name the next stage after the plan.

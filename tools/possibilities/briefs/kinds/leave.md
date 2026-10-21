@@ -37,6 +37,7 @@ Good:
 - **Title:** "Leave the work chat on your phone"
 - **Text:** "If work messages can only reach you on the laptop, the evening stays yours. You may hear about some changes the next morning, and most can wait that long."
 - **Method:** `leaving` "the work chat app on the phone", `tradeOff` "Messages sent after hours wait until the morning."
+- **Lens and ambition:** `individual`, `tonight`.
 
 Bad:
 - **Title:** "Cut toxic things out of your life"

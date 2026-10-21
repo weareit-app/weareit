@@ -45,6 +45,7 @@ Good:
 - **Text:** "Asking 'Could you text me if you'll be home after nine?' gets a yes far more often than a list of what's been bothering you. Try it in the next small disagreement, not the biggest one."
 - **Method:** `situation` "A small disagreement with your partner.", `move` "Ask for one specific change you want.", `wentBetterWhen` "You got a yes, and the talk stayed on one thing."
 - **featureIdea:** "Helps you plan the one request you want to make before a hard conversation, then checks in afterward on how it went."
+- **Lens and ambition:** `relational`, `this-year`.
 
 Bad:
 - **Title:** "Communicate better with your partner"
