@@ -6,7 +6,7 @@ How the engineering skills should consume this repo's domain documentation when 
 
 - **`GLOSSARY.md`** at the repo root, or
 - **`GLOSSARY-MAP.md`** at the repo root if it exists: it points at one `GLOSSARY.md` per context. Read each one relevant to the topic.
-- **`docs/architecture/decisions.md`**: this repo's decision records (ADRs). Read the decisions that touch the area you're about to work in. Add new decisions there, in the same style, rather than creating `docs/adr/`.
+- **`docs/architecture/decisions.md`**: this repo's decision records. Read the decisions that touch the area you're about to work in. Add new decisions there, in the same style, rather than creating `docs/adr/`.
 - **`AGENTS.md`**: privacy invariants and binding decisions; they win over everything else.
 - **`openspec/specs/`**: what the app does today, one capability per folder.
 
@@ -14,31 +14,18 @@ If any of these files don't exist, **proceed silently**. Don't flag their absenc
 
 ## File structure
 
-Single-context repo (most repos):
+This repo has one context:
 
 ```
 /
 ├── GLOSSARY.md
-├── docs/adr/
-│   ├── 0001-event-sourced-orders.md
-│   └── 0002-postgres-for-write-model.md
-└── src/
+├── AGENTS.md                          ← privacy invariants and binding stack lines
+└── docs/
+    └── architecture/
+        └── decisions.md               ← every decision record, by topic, plus a change log
 ```
 
-Multi-context repo (presence of `GLOSSARY-MAP.md` at the root):
-
-```
-/
-├── GLOSSARY-MAP.md
-├── docs/adr/                          ← system-wide decisions
-└── src/
-    ├── ordering/
-    │   ├── GLOSSARY.md
-    │   └── docs/adr/                  ← context-specific decisions
-    └── billing/
-        ├── GLOSSARY.md
-        └── docs/adr/
-```
+Decision records never go in a `docs/adr/` folder (a check for this comes with the `repo-conventions` change). When a skill says to write an ADR, add or edit the topic in `docs/architecture/decisions.md` and add a dated line to its change log.
 
 ## Use the glossary's vocabulary
 
@@ -46,8 +33,8 @@ When your output names a domain concept (in an issue title, a refactor proposal,
 
 If the concept you need isn't in the glossary yet, that's a signal: either you're inventing language the project doesn't use (reconsider) or there's a real gap (note it for `/domain-modeling`).
 
-## Flag ADR conflicts
+## Flag decision conflicts
 
-If your output contradicts an existing ADR, surface it explicitly rather than silently overriding:
+If your output contradicts an existing decision in `docs/architecture/decisions.md`, surface it explicitly rather than silently overriding:
 
-> _Contradicts ADR-0007 (event-sourced orders), but worth reopening because…_
+> _Contradicts the hosting decision (Render, master deploys after CI), but worth reopening because…_
