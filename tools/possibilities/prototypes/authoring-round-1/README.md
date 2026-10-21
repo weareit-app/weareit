@@ -11,7 +11,7 @@
 ## Caveats
 
 - **Agents, not people.** Agreement between models is weak evidence, because similar models can share assumptions. A round with people should follow.
-- **One of the questions was faulty.** Question 2 ("Does Tuesday care cover the other three workdays?") assumes Tuesday is a workday. The notes never say so. The evaluator caught this, and it's an error in the question, not in the drafts.
+- **Two of the questions were faulty.** Question 2 ("Does Tuesday care cover the other three workdays?") assumes Tuesday is a workday, and question 9 assumes the other days "remain uncovered". The notes support neither. These are errors in the questions, not in the drafts, and both are marked not assessed in the corrections.
 
 ## Drafts
 
