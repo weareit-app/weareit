@@ -278,12 +278,12 @@ Rules:
 - **anchors.json** / **heldout.json**: lists of item IDs with rating and reason, each keyed to the `dreamId` (staged) or `cardId` it rates. Only anchors are passed to the judge.
 
 ## Pilot comparison files (`docs/research/possibilities/evaluations/pilot-2026-10/`)
-- **compare-set.json**: the calibration `set.json` shape. Each item is a dream with its fixes: a card run's finalist, or a staged dream that passed honest status with the assembler's links in their first order and each fix's drafted wording (`review.original` undoes a founder edit). Holds no origin or flow information.
+- **compare-set.json**: the calibration `set.json` shape. Each item is a dream with its fixes: a card run's finalist, or a staged dream that passed honest status, with the assembler's links in their first order. Dreams and fixes keep their drafted wording: `review.original` undoes a founder edit. The dream review still decides which dreams are in. Holds no origin or flow information.
 - **compare-key.json**: the `key.json` shape, with origin `old` (card run) or `new` (staged run), `runId`, and `heldOut: false`.
 - **compare-metrics.json**: written by `compare-report`: `{ pains, rates, meanRating, kindsPerPain, reviewMinutes, fillRate, tokens, gate: { result, checks, failing } }`, each by flow (`old`, `new`).
   - `meanRating` scores Love 2, Keep 1, and Kill 0, leaving out Skip.
   - `kindsPerPain` is the mean, across pilot pains, of the distinct kinds among the fixes in that flow's items.
-  - `reviewMinutes.new` is the founder's time on each staged run's dream review and fix review, from the `decidedAt` stamps that `dreams-ingest` and `fixes-ingest` record. `reviewMinutes.old` is the time on the old items in the comparison export, from its `ratedAt` stamps. Both count the gap before each decision. The first decision on a page counts nothing, and a gap over 10 minutes is a break that counts nothing. A run whose reviews have no stamps gives `null`, which fails the check.
+  - `reviewMinutes.new` is the founder's time on each staged run's dream review and fix review, from the `decidedAt` stamps that `dreams-ingest` and `fixes-ingest` record. `reviewMinutes.old` is the time on the old items in the comparison export, from its `ratedAt` stamps. Both count the gap before each decision. The first decision on a page counts nothing, and a gap over 10 minutes is a break that counts nothing. A flow with nothing to time (a staged run whose reviews have no stamps, or no timed old item) gives `null`, which fails the check.
   - `fillRate.new` is the mean share of each ceiling above zero that its kind filled, overall and by kind. Shared fixes count against no ceiling.
   - `tokens` is each flow's total and, for staged runs, `byStage`.
   - The gate's checks are `newMeanRating>=oldMeanRating`, `newKindsPerPain>oldKindsPerPain`, and `newReviewMinutes<=oldReviewMinutes`.

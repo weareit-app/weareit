@@ -1617,12 +1617,13 @@ def is_selected(run):
     return (run / 'selection.json').is_file() or (run / 'ranking.json').is_file()
 
 
-def latest_run(root, pain, require_selection=True):
+def latest_run(root, pain, require_selection=True, staged=None):
+    """A pain's newest run; staged=True or False keeps only staged runs or only card runs."""
     folder = data_root(root) / 'runs' / pain
     runs = sorted(p for p in folder.iterdir() if p.is_dir()) if folder.is_dir() else []
-    runs = [r for r in runs if is_selected(r)] if require_selection else runs
+    runs = [r for r in runs if (not require_selection or is_selected(r)) and (staged is None or is_staged(r) == staged)]
     if not runs:
-        raise FileNotFoundError('No selected run for ' + pain)
+        raise FileNotFoundError('No selected %srun for %s' % ({True: 'staged ', False: 'card '}.get(staged, ''), pain))
     return runs[-1]
 
 
@@ -1759,46 +1760,44 @@ def audit_build(root, runs, seed=20261018):
 PILOT_OUT = 'evaluations/pilot-2026-10'
 
 
-def newest_run(root, pain, staged):
-    """A pain's newest selected card run (staged=False) or newest ranked staged run (staged=True)."""
-    folder = data_root(root) / 'runs' / pain
-    runs = [r for r in sorted(p for p in folder.iterdir() if p.is_dir()) if is_staged(r) == staged and is_selected(r)] \
-        if folder.is_dir() else []
-    if not runs:
-        raise FileNotFoundError('no %s run for %s' % ('ranked staged' if staged else 'selected card', pain))
-    return runs[-1]
-
-
 def assembler_links(run):
     """links.json as the assembler left it, before the founder's fix review: the assembler's links in their first order.
-    After fixes-ingest, kept links are renumbered and removed ones sit in review.removed with their first order."""
+    fixes-ingest renumbers the links it keeps and moves the others, with their first order, to review.removed."""
     doc = read(run / 'links.json')
     removed = [e for e in (doc.get('review') or {}).get('removed', []) if e.get('by') == 'assembler']
     kept = [e for e in doc['links'] if e.get('by') == 'assembler']
     links = []
     for dream in sorted({e['dreamId'] for e in kept + removed}):
         gone = {e['order']: e for e in removed if e['dreamId'] == dream}
-        stay = iter(sorted((e for e in kept if e['dreamId'] == dream), key=lambda e: e['order']))
-        links += [{**(gone[n] if n in gone else next(stay)), 'order': n} for n in range(1, len(gone) + sum(e['dreamId'] == dream for e in kept) + 1)]
+        stay = sorted((e for e in kept if e['dreamId'] == dream), key=lambda e: e['order'])
+        slots = range(1, len(gone) + len(stay) + 1)
+        if len(gone) != sum(e['dreamId'] == dream for e in removed) or not set(gone) <= set(slots):
+            raise ValueError('cannot rebuild the assembler\'s links for %s: review.removed orders clash or run past %d'
+                             % (dream, len(slots)))
+        stay = iter(stay)
+        for n in slots:
+            entry = gone[n] if n in gone else next(stay)
+            links.append({**{k: v for k, v in entry.items() if k != 'reason'}, 'order': n})
     return links
 
 
-def drafted_fix(fix):
-    """A fix as drafted: the founder's edit is undone from review.original."""
-    return {**fix, **((fix.get('review') or {}).get('original') or {})}
+def drafted(record):
+    """A dream or fix in its drafted wording: a founder's edit is undone from review.original."""
+    return {**record, **((record.get('review') or {}).get('original') or {})}
 
 
 def machine_entries(run):
     """What a run's own flow shows before any founder fix review, best first, as (source, dream).
-    A card run gives its finalists. A staged run gives each ranked dream that passed honest status with the
-    assembler's links and drafted fix wording (founder, 2026-10-20: both sides of the pilot are machine output)."""
+    A card run gives its finalists. A staged run gives each ranked dream that passed honest status, in its drafted
+    wording, with the assembler's links and the drafted fix wording (founder, 2026-10-20: both sides are machine output).
+    The dream review still decides which dreams are in, as selection does for cards."""
     if not is_staged(run):
         selection, card_map = read(run / 'selection.json'), read(run / 'cards.json')['cards']
         return [({'sourceCardId': k}, card_map[k]) for k in selection['finalists']]
     fixes, dreams = read(run / 'fixes.json')['fixes'], accepted_dreams(run)
     links = assembler_links(run)
     return [({'sourceDreamId': r['dreamId']},
-             {**dreams[r['dreamId']], 'fixes': [drafted_fix(fixes[e['fixId']]) for e in
+             {**drafted(dreams[r['dreamId']]), 'fixes': [drafted(fixes[e['fixId']]) for e in
                                                  sorted((e for e in links if e['dreamId'] == r['dreamId']), key=lambda e: e['order'])]})
             for r in read(run / 'ranking.json')['ranking'] if r['honestStatus']['pass']]
 
@@ -1809,7 +1808,7 @@ def compare_build(root, pilot_pains, seed=20261020):
     entries = []
     for pain in pilot_pains:
         for origin, staged in (('old', False), ('new', True)):
-            run = newest_run(root, pain, staged)
+            run = latest_run(root, pain, staged=staged)
             found = stale_runs.get(str(run.relative_to(root)))
             if found:
                 # Both sides must answer the same pain text (design, "Pilot comparison"): rerun the old flow first.
@@ -1899,7 +1898,8 @@ def compare_report(root, export_path):
                            for f in items[k]['fixes'] if f.get('kind')}) for pain in pilot]) for o in flows}
     spent = item_minutes(ratings)
     staged = [staged_review_minutes(data_root(root) / 'runs' / pain / run) for pain, run in runs['new']]
-    minutes = {'old': round(sum(m for k, m in spent.items() if key[k]['origin'] == 'old'), 1),
+    old_spent = [m for k, m in spent.items() if key[k]['origin'] == 'old']
+    minutes = {'old': round(sum(old_spent), 1) if old_spent else None,
                'new': None if None in staged or not staged else round(sum(staged), 1)}
     mean_rating = {o: mean(points[o]) for o in flows}
     cells = {}
@@ -1916,12 +1916,12 @@ def compare_report(root, export_path):
         totals = [total for total, _ in found if total is not None]
         tokens[o] = {'total': sum(totals) if totals else None, 'byStage': by_stage or None}
 
-    def at_least(a, b, strict=False):
-        return a is not None and b is not None and (a > b if strict else a >= b)
+    def measured(*values):  # a missing measure fails its check
+        return None not in values
     checks = {
-        'newMeanRating>=oldMeanRating': at_least(mean_rating['new'], mean_rating['old']),
-        'newKindsPerPain>oldKindsPerPain': at_least(kinds['new'], kinds['old'], strict=True),
-        'newReviewMinutes<=oldReviewMinutes': at_least(minutes['old'], minutes['new']),
+        'newMeanRating>=oldMeanRating': measured(*mean_rating.values()) and mean_rating['new'] >= mean_rating['old'],
+        'newKindsPerPain>oldKindsPerPain': measured(*kinds.values()) and kinds['new'] > kinds['old'],
+        'newReviewMinutes<=oldReviewMinutes': measured(*minutes.values()) and minutes['new'] <= minutes['old'],
     }
     result = {
         'schemaVersion': 1, 'generatedAt': now(), 'pains': pilot,
@@ -1930,8 +1930,7 @@ def compare_report(root, export_path):
         'fillRate': {'old': None, 'new': {'overall': mean([x for v in cells.values() for x in v]),
                                           'byKind': {k: mean(v) for k, v in sorted(cells.items())}} if cells else None},
         'tokens': tokens,
-        'gate': {'result': 'scale-up' if all(checks.values()) else 'iterate', 'checks': checks,
-                 'failing': [k for k, v in checks.items() if not v]},
+        'gate': gate(checks),
     }
     write(out / 'compare-metrics.json', result)
     return result
@@ -1948,11 +1947,16 @@ def rates(values):
             'kill': round(values.count('kill') / n, 3), 'loveKeep': round((values.count('love') + values.count('keep')) / n, 3)}
 
 
+def gate(checks):
+    return {'result': 'scale-up' if all(checks.values()) else 'iterate', 'checks': checks,
+            'failing': [k for k, v in checks.items() if not v]}
+
+
 def review_minutes(ratings):
     times = sorted(r['ratedAt'] for r in ratings.values() if r.get('ratedAt'))
     if len(times) < 2:
         return None
-    start, end = (datetime.datetime.fromisoformat(t.replace('Z', '+00:00')) for t in (times[0], times[-1]))
+    start, end = (moment(t) for t in (times[0], times[-1]))
     return round((end - start).total_seconds() / 60, 1)
 
 
@@ -2008,8 +2012,7 @@ def report(root, audit_path=None):
         'agreement': {'pains': len(agreement), 'top3HitRate': round(sum(agreement) / len(agreement), 3) if agreement else None,
                       'founderKillsAmongJudgeTop3': judge_kills, 'heldOutJudgeTop3Rated': judge_total},
         'cost': cost,
-        'gate': {'result': 'scale-up' if all(checks.values()) else 'iterate', 'checks': checks,
-                 'failing': [k for k, v in checks.items() if not v]},
+        'gate': gate(checks),
         'notes': ['Origin may be guessable in the blind round: old items have no named example.',
                   'Cost is approximate: wall-clock and any token counts the agent environment exposed.'],
     }
@@ -2122,10 +2125,14 @@ def main():
         out = calibrate_ingest(root, args.targets[0])
     elif args.command == 'audit-build':
         out = audit_build(root, [run_dir(t) for t in args.targets], args.seed or 20261018)
-    elif args.command in ('report', 'compare-report'):
-        if args.command == 'compare-report' and len(args.targets) != 1:
+    elif args.command == 'report':
+        out = report(root, args.audit)
+        print(json.dumps(out, indent=2, ensure_ascii=False))
+        return 0 if out['gate']['result'] == 'scale-up' else 1
+    elif args.command == 'compare-report':
+        if len(args.targets) != 1:
             parser.error('compare-report needs the comparison ratings export path')
-        out = report(root, args.audit) if args.command == 'report' else compare_report(root, args.targets[0])
+        out = compare_report(root, args.targets[0])
         print(json.dumps(out, indent=2, ensure_ascii=False))
         return 0 if out['gate']['result'] == 'scale-up' else 1
     elif args.command == 'compare-build':

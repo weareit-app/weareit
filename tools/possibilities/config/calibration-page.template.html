@@ -117,10 +117,11 @@ const KINDS = {
   ask: ['message-circle-question', 'Ask'], resource: ['life-buoy', 'Use a resource'],
   leave: ['door-open', 'Leave'], switch: ['arrow-left-right', 'Switch'],
 };
-// Honest status, in the copy guide's words (founder, 2026-10-20). Generated fixes carry no roadmap status.
+// Honest status, in the copy guide's words (founder, 2026-10-20), with the fix review page's icons.
+// Generated fixes carry no roadmap status.
 const STATUSES = {
-  real_now: ['circle-check', "Real now"], existing_resource: ['life-buoy', "Existing resource"],
-  proposed_it_feature: ['hammer', "Something It could build"], societal_proposal: ['users', "A change we'd make together"],
+  real_now: ['circle-check', "Real now"], existing_resource: ['building-2', "Existing resource"],
+  proposed_it_feature: ['lightbulb', "Something It could build"], societal_proposal: ['landmark', "A change we'd make together"],
 };
 function setStatus(text, tone) { statusEl.textContent = text; statusEl.dataset.tone = tone || ''; }
 

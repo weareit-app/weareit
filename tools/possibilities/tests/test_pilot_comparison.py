@@ -2,6 +2,7 @@
 import datetime
 import json
 import re
+import shutil
 import unittest
 
 from test_cards import ROOT, cards, judgments
@@ -63,31 +64,43 @@ class BlindSet(Pilot):
                          ['burnout-d01', 'burnout-d02', 'burnout-d03', 'burnout-d04'])
         self.assertTrue(all(v['runId'] == self.run_dir.name for v in key.values() if v['origin'] == 'new'))
 
-    def fix_reviewed(self):
-        """The run as fixes-ingest leaves it (#92): on burnout-d02 the founder unlinked t1, edited t2, and added d03-t1."""
-        links = cards.read(self.run_dir / 'links.json')
-        how = 'Work stops at the door, so the evening starts there.'
-        removed = [dict(e, reason='unlinked') for e in links['links'] if (e['fixId'], e['dreamId']) == ('burnout-d02-t1', 'burnout-d02')]
-        kept = [e for e in links['links'] if e not in [{k: v for k, v in r.items() if k != 'reason'} for r in removed]]
-        for e in kept:
-            if e['dreamId'] == 'burnout-d02':
-                e['order'] -= 1
-        kept.append({'fixId': 'burnout-d03-t1', 'dreamId': 'burnout-d02', 'order': 3, 'how': how, 'by': 'founder'})
-        links.update(links=kept, review={'ingestedAt': '2026-10-21T10:00:00Z', 'removed': removed})
-        cards.write(self.run_dir / 'links.json', links)
-        fixes = cards.read(self.run_dir / 'fixes.json')
-        fix = fixes['fixes']['burnout-d02-t2']
-        fix['review'] = {'decision': 'edit', 'note': '', 'decidedAt': '2026-10-21T09:59:00Z', 'ingestedAt': '2026-10-21T10:00:00Z',
-                         'original': {f: fix[f] for f in ('title', 'whatChanges', 'firstStep')}}
-        fix['title'] = 'The founder wording'
-        cards.write(self.run_dir / 'fixes.json', fixes)
+    def reviewed(self):
+        """The founder's reviews: the dream review edited burnout-d02's wording, and fixes-ingest (#92) applied a fix
+        review that rejected burnout-d02-t1, edited burnout-d02-t2, and linked burnout-d03-t1 to burnout-d02."""
+        dreams = cards.read(self.run_dir / 'dreams.json')
+        dream = dreams['dreams']['burnout-d02']
+        dream['review'] = {'decision': 'edit', 'note': '', 'original': {'title': dream['title'], 'line': dream['line']}}
+        dream.update(title='The founder dream title', line='The founder wrote this line.')
+        cards.write(self.run_dir / 'dreams.json', dreams)
+        template = 'tools/possibilities/config/fix-review-page.template.html'
+        shutil.copy(ROOT / template, self.tmp / template)
+        cards.fixes_review_build(self.run_dir, self.tmp)
+        decisions = {p['id']: {'decision': 'accept', 'note': '', 'decidedAt': '2026-10-21T10:00:00Z',
+                               'links': [e['dreamId'] for e in p['links']]}
+                     for p in cards.read(self.run_dir / 'reviews/fix-proposals.json')['proposals']}
+        decisions['burnout-d02-t1'].update(decision='reject', links=[])
+        decisions['burnout-d02-t2'].update(decision='edit', edit={'title': 'The founder fix title', 'whatChanges': 'Founder text.',
+                                                                  'firstStep': 'A founder step.'})
+        decisions['burnout-d03-t1']['links'].append('burnout-d02')
+        path = self.tmp / 'fixes-decisions.json'
+        cards.write(path, {'schemaVersion': 1, 'setId': 'burnout-' + self.run_dir.name, 'decisions': decisions})
+        cards.fixes_ingest(self.run_dir, path)
 
     def test_staged_items_use_the_assemblers_links_from_before_the_fix_review(self):
-        self.fix_reviewed()
+        self.reviewed()
         item = self.item_for_dream('burnout-d02')
+        self.assertEqual((item['title'], item['line']), ('Coworkers who cover for each other', 'I stop work while there is still light outside.'))
         self.assertEqual([f['whatChanges'] for f in item['fixes']],
                          [drafted_text(k) for k in ('burnout-d02-t1', 'burnout-d02-t2', SHARED)])
         self.assertEqual(item['fixes'][1]['title'], 'Move the work laptop out of the bedroom')
+
+    def test_a_fix_review_record_that_does_not_add_up_is_refused(self):
+        self.reviewed()
+        links = cards.read(self.run_dir / 'links.json')
+        links['review']['removed'][0]['order'] = 9
+        cards.write(self.run_dir / 'links.json', links)
+        with self.assertRaisesRegex(ValueError, 'cannot rebuild the assembler.s links for burnout-d02'):
+            cards.compare_build(self.tmp, ['burnout'], seed=1)
 
     def test_a_stale_card_run_is_refused_with_the_reason(self):
         cards.write(self.card_run / 'run.json', {'schemaVersion': 1, 'painId': 'burnout', 'runId': self.card_run.name,
@@ -159,6 +172,14 @@ class Report(Pilot):
         self.assertIn('newReviewMinutes<=oldReviewMinutes', result['gate']['failing'])
 
 
+    def test_an_untimed_old_flow_fails_the_review_time_check(self):
+        self.review(gap=10)
+        path = self.tmp / 'compare-export.json'
+        cards.write(path, {'ratings': {k: {'rating': 'keep'} for k in self.key}})
+        result = cards.compare_report(self.tmp, path)
+        self.assertIsNone(result['reviewMinutes']['old'])
+        self.assertEqual(result['gate']['failing'], ['newReviewMinutes<=oldReviewMinutes'])
+
     def test_fill_rate_is_measured_against_the_plan_ceilings(self):
         plan = cards.read(self.run_dir / 'plan.json')
         plan['ceilings']['burnout-d00']['task']['max'] = 4  # two of four drafted; every other dream drafted two of two
@@ -202,7 +223,7 @@ class Cli(Pilot):
         self.assertEqual(cli(self.tmp, 'compare-build').returncode, 2)
         missing = cli(self.tmp, 'compare-build', 'loneliness')
         self.assertEqual(missing.returncode, 2)
-        self.assertIn('no selected card run for loneliness', missing.stderr)
+        self.assertIn('No selected card run for loneliness', missing.stderr)
 
 
 
@@ -213,8 +234,13 @@ class Statuses(Pilot):
         words = re.findall(r'\*\*([^*]+)\*\*', rule.split('Every idea shows one of:')[1])
         page = (ROOT / 'tools/possibilities/config/calibration-page.template.html').read_text()
         table = page[page.index('const STATUSES = {'):page.index('};', page.index('const STATUSES = {'))]
-        labels = dict(re.findall(r"(\w+): \['[a-z-]+', \"([^\"]+)\"\]", table))
-        self.assertEqual(labels, dict(zip(cards.STATUSES, words)))
+        found = re.findall(r"(\w+): \['([a-z0-9-]+)', \"([^\"]+)\"\]", table)
+        self.assertEqual({k: label for k, _, label in found}, dict(zip(cards.STATUSES, words)))
+        self.assertEqual({k: label for k, _, label in found}, cards.STATUS_LABELS)
+        # The same icons as the fix review page, none shared with a kind: kind and status stay separate.
+        review = (ROOT / 'tools/possibilities/config/fix-review-page.template.html').read_text()
+        icons = dict(re.findall(r"(\w+): '([a-z0-9-]+)'", review[review.index('const STATUS_ICONS'):].split('};')[0]))
+        self.assertEqual({k: icon for k, icon, _ in found}, icons)
         self.assertEqual(words, ['Real now', 'Existing resource', 'Something It could build', "A change we'd make together"])
         self.assertIn('STATUSES[f.status]', page)
 
