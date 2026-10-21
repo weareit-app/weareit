@@ -1,4 +1,4 @@
-import { oc } from "@orpc/contract";
+import { oc, type OpenAPI } from "@orpc/contract";
 import { z } from "zod";
 import { contentGraphSchema } from "@it/content/graph-schema";
 import { onboardingDraftSchema } from "@it/domain/onboarding";
@@ -55,12 +55,46 @@ const versionSchema = z
   })
   .strict();
 
+// Developer docs text (docs/architecture/decisions.md, 2026-10-21). No route
+// sets a path, so the OpenAPI generator and handler both use
+// `route.path ?? toHttpPath(path)`, POST /<group>/<name> (@orpc/openapi 1.15.6
+// source, checked 2026-10-21).
+function route(tag: string, summary: string, description: string) {
+  return { summary, description, tags: [tag] };
+}
+
+// CMS operations need the admin token as a Bearer header.
+function cmsRoute(summary: string, description: string) {
+  return {
+    ...route("cms", summary, description),
+    spec: (current: OpenAPI.OperationObject) => ({
+      ...current,
+      security: [{ cmsAdminToken: [] }],
+    }),
+  };
+}
+
 export const apiContract = {
   content: {
-    getPublished: oc.output(publishedContentSchema),
+    getPublished: oc
+      .route(
+        route(
+          "content",
+          "Get the published content",
+          "Returns the newest published content snapshot: its version, the content graph, a checksum, and when it was published. Anyone may call it.",
+        ),
+      )
+      .output(publishedContentSchema),
   },
   account: {
     saveOnboarding: oc
+      .route(
+        route(
+          "account",
+          "Save onboarding answers",
+          "Saves the signed-in person's onboarding draft against a content version. Needs a signed-in session.",
+        ),
+      )
       .input(
         z
           .object({
@@ -80,6 +114,13 @@ export const apiContract = {
   },
   support: {
     createCheckout: oc
+      .route(
+        route(
+          "support",
+          "Start a support checkout",
+          "Creates a Stripe Checkout for a one-time or monthly support amount, in minor units, and returns its URL and reference. Needs a signed-in session.",
+        ),
+      )
       .input(
         z
           .object({
@@ -94,6 +135,13 @@ export const apiContract = {
           .strict(),
       ),
     getStatus: oc
+      .route(
+        route(
+          "support",
+          "Get a support's status",
+          "Returns the frequency and status of a support by its reference. Needs the session of the account that made it; any other reference reads as not found.",
+        ),
+      )
       .input(z.object({ reference: z.string().uuid() }).strict())
       .output(
         z
@@ -114,12 +162,32 @@ export const apiContract = {
           .strict(),
       ),
     createPortal: oc
+      .route(
+        route(
+          "support",
+          "Open subscription management",
+          "Returns a Stripe billing portal URL for a monthly support. Needs the session of the account that made it.",
+        ),
+      )
       .input(z.object({ reference: z.string().uuid() }).strict())
       .output(z.object({ url: z.string().url() }).strict()),
   },
   cms: {
-    getDraft: oc.output(draftSchema),
+    getDraft: oc
+      .route(
+        cmsRoute(
+          "Get the CMS draft",
+          "Returns the current draft content graph and its revision.",
+        ),
+      )
+      .output(draftSchema),
     saveDraft: oc
+      .route(
+        cmsRoute(
+          "Save the CMS draft",
+          "Replaces the draft content graph with a change note. Fails if expectedRevision is not the current revision.",
+        ),
+      )
       .input(
         z
           .object({
@@ -130,13 +198,46 @@ export const apiContract = {
           .strict(),
       )
       .output(z.object({ revision: z.number().int().positive() }).strict()),
-    validateDraft: oc.output(validationSchema),
+    validateDraft: oc
+      .route(
+        cmsRoute(
+          "Check the CMS draft",
+          "Reports whether the draft could be published, with each problem and its path.",
+        ),
+      )
+      .output(validationSchema),
     previewDraft: oc
+      .route(
+        cmsRoute(
+          "Preview the CMS draft",
+          "Returns the draft as it would be published. Pass content to preview unsaved changes.",
+        ),
+      )
       .input(z.object({ content: contentGraphSchema.optional() }).strict())
       .output(draftSchema),
-    publishDraft: oc.output(publishSchema),
-    listVersions: oc.output(z.array(versionSchema)),
+    publishDraft: oc
+      .route(
+        cmsRoute(
+          "Publish the CMS draft",
+          "Publishes the draft as a new content version, or returns the problems that stop it.",
+        ),
+      )
+      .output(publishSchema),
+    listVersions: oc
+      .route(
+        cmsRoute(
+          "List published versions",
+          "Lists every published content version, who published it, and when.",
+        ),
+      )
+      .output(z.array(versionSchema)),
     rollback: oc
+      .route(
+        cmsRoute(
+          "Roll back to a version",
+          "Publishes an earlier version's content again as a new version.",
+        ),
+      )
       .input(z.object({ version: z.number().int().positive() }).strict())
       .output(
         z

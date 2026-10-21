@@ -13,6 +13,10 @@ allowBuilds:
   # install scripts (a source build; napi-postinstall) are not needed (npm view, 2026-10-20).
   "@parcel/watcher": false
   "unrs-resolver": false
+  # Scalar's dependency. Its only install script is a postinstall that picks a Vue 2 or 3 build
+  # (npm view vue-demi@0.14.10 scripts, 2026-10-21); the API docs serve Scalar's prebuilt browser
+  # bundle, so it is not needed.
+  "vue-demi": false
 
 minimumReleaseAgeExclude:
   - '@better-auth/core@1.7.8'
@@ -24,6 +28,17 @@ minimumReleaseAgeExclude:
   - '@better-auth/prisma-adapter@1.7.8'
   - '@better-auth/telemetry@1.7.8'
   - better-auth@1.7.8
+  - '@scalar/agent-chat@0.12.45'
+  - '@scalar/api-client@3.23.2'
+  - '@scalar/api-reference@1.75.1'
+  - '@scalar/blocks@0.5.4'
+  - '@scalar/components@0.32.1'
+  - '@scalar/json-magic@0.16.1'
+  - '@scalar/oas-utils@0.20.14'
+  - '@scalar/openapi-to-markdown@1.6.1'
+  - '@scalar/sidebar@0.12.2'
+  - '@scalar/snippetz@0.10.10'
+  - '@scalar/workspace-store@0.68.5'
 
 overrides:
   lightningcss: 1.30.1
