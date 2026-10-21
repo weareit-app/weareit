@@ -134,7 +134,7 @@
         {
           "id": "nbr-welcome-useful",
           "title": "Tell new neighbors the three things you wish you'd known",
-          "whatChanges": "Trash pickup day, a plumber you trust and which neighbor has a snowblower are worth more than cookies. Useful information gives them a reason to come back to you with a question.",
+          "whatChanges": "Trash pickup day, a plumber you trust, and which neighbor has a snowblower are worth more than cookies. Useful information gives them a reason to come back to you with a question.",
           "who": "You",
           "exemplarRef": null,
           "speculative": true,
@@ -200,7 +200,7 @@
         {
           "id": "nbr-book-box-where-needed",
           "title": "Put a book box where books are hard to come by",
-          "whatChanges": "Critics point out that most boxes sit in wealthier neighborhoods that already have good libraries. A box near a bus stop, laundromat or school in a neighborhood with fewer bookstores does more.",
+          "whatChanges": "Critics point out that most boxes sit in wealthier neighborhoods that already have good libraries. A box near a bus stop, laundromat, or school in a neighborhood with fewer bookstores does more.",
           "who": "You and a local business or school",
           "exemplarRef": "little-free-library",
           "speculative": false,
@@ -529,7 +529,7 @@
           "id": "nbr-play-street-campaign",
           "title": "Group request to your city for play street permits",
           "whatChanges": "Gathers parents and neighbors behind one request to your city council for a free play street permit like Seattle's, shows who has signed on, and sends it together once enough people have joined. A request from many households on many blocks is harder to set aside than one email.",
-          "who": "You, other parents and your city council",
+          "who": "You, other parents, and your city council",
           "exemplarRef": "kuow-play-streets",
           "speculative": false,
           "firstStep": "Ask two other parents on your street whether they'd sign a request for play streets.",
@@ -549,7 +549,7 @@
     },
     "nbr-city-rules": {
       "title": "Knowing what my city lets neighbors do together",
-      "line": "I know exactly what it takes to close my street, hold a party or start a play street where I live.",
+      "line": "I know exactly what it takes to close my street, hold a party, or start a play street where I live.",
       "lens": "technology",
       "ambition": "this-year",
       "status": "proposed_it_feature",
@@ -634,7 +634,7 @@
         {
           "id": "nbr-grant-finder",
           "title": "Find grants your block could apply for",
-          "whatChanges": "Keeps track of city neighborhood grant programs like Seattle's and tells you which ones your street qualifies for, how much they give and how the match works.",
+          "whatChanges": "Keeps track of city neighborhood grant programs like Seattle's and tells you which ones your street qualifies for, how much they give, and how the match works.",
           "who": "You and It",
           "exemplarRef": "seattle-nmf",
           "speculative": false,
@@ -715,7 +715,7 @@
         {
           "id": "nbr-health-budget",
           "title": "Ask your city to fund places where neighbors meet",
-          "whatChanges": "Community centers, library programs and street events are what the Surgeon General's advisory means by social infrastructure. Some people would rather spend that money elsewhere, so a budget hearing is where the case gets made.",
+          "whatChanges": "Community centers, library programs, and street events are what the Surgeon General's advisory means by social infrastructure. Some people would rather spend that money elsewhere, so a budget hearing is where the case gets made.",
           "who": "You and your city council",
           "exemplarRef": "surgeon-general-2023",
           "speculative": false,
@@ -728,7 +728,7 @@
           "id": "nbr-public-health-budget-comment",
           "title": "Joint comment for your city's budget hearing",
           "whatChanges": "Gathers neighbors behind one public comment asking your city to fund places where neighbors meet, like community centers and library programs, citing the Surgeon General's 2023 advisory on loneliness. Shows who has signed on and reminds everyone before the hearing date.",
-          "who": "You, your neighbors and your city",
+          "who": "You, your neighbors, and your city",
           "exemplarRef": "surgeon-general-2023",
           "speculative": false,
           "firstStep": "Tell us you'd use this, and find the date of your city's next budget hearing.",
