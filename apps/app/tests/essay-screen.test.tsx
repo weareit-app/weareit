@@ -136,6 +136,12 @@ describe("essay page", () => {
     ).toBeTruthy();
   });
 
+  it("shows each block's plain fallback outside the web, where blocks render HTML", async () => {
+    await render(<EssayPage essay={essay} />);
+
+    expect(screen.getByText("This timeline can't be shown yet.")).toBeTruthy();
+  });
+
   it("lists the changes newest first, with dates", async () => {
     await render(<EssayPage essay={essay} />);
 
@@ -146,12 +152,6 @@ describe("essay page", () => {
       "October 1, 2026",
       "First version.",
     ]);
-  });
-
-  it("shows a plain fallback for blocks that aren't drawn yet", async () => {
-    await render(<EssayPage essay={essay} />);
-
-    expect(screen.getByText("This timeline can't be shown yet.")).toBeTruthy();
   });
 });
 
