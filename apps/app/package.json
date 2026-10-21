@@ -14,7 +14,8 @@
     "skia:web": "setup-skia-web public",
     "storybook": "storybook dev -p 6006 --no-open",
     "build-storybook": "storybook build -o storybook-static",
-    "storybook:review": "node scripts/storybook-review.mts"
+    "storybook:review": "node scripts/storybook-review.mts",
+    "katex:web": "node scripts/katex-assets.mjs"
   },
   "dependencies": {
     "@better-auth/expo": "1.7.8",
@@ -38,7 +39,9 @@
     "expo-sqlite": "~58.0.13",
     "expo-status-bar": "~58.0.3",
     "expo-system-ui": "~58.0.6",
+    "katex": "0.19.0",
     "lucide-react-native": "^1.59.0",
+    "mermaid": "12.1.0",
     "nativewind": "5.0.0-rc.0",
     "react": "19.3.0",
     "react-dom": "19.3.0",

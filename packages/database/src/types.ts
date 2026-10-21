@@ -59,8 +59,21 @@ export interface ContentFixesTable {
   // A calendar date; read it as YYYY-MM-DD text (see content-repository).
   status_changed_on: ColumnType<Date | null, string | null, string | null>;
   status_note: string | null;
+  roadmap_item_id: string | null;
   evidence: "strong" | "some" | "limited" | "untested";
   evidence_note: string;
+  sort_order: number;
+  updated_at: Timestamp;
+}
+
+export interface RoadmapItemsTable {
+  id: string;
+  title: string;
+  line: string;
+  status: FeatureStatus;
+  // A calendar date; read it as YYYY-MM-DD text (see content-repository).
+  status_changed_on: ColumnType<Date | null, string | null, string | null>;
+  status_note: string | null;
   sort_order: number;
   updated_at: Timestamp;
 }
@@ -191,6 +204,7 @@ export interface Database {
   content_first_actions: ContentFirstActionsTable;
   action_pain_links: ActionPainLinksTable;
   content_fixes: ContentFixesTable;
+  roadmap_items: RoadmapItemsTable;
   fix_dream_links: FixDreamLinksTable;
   content_sources: ContentSourcesTable;
   content_provenance: ContentProvenanceTable;

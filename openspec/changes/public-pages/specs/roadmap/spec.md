@@ -28,19 +28,19 @@ The roadmap SHALL list every published roadmap item and every published Feature 
 A Feature fix connected to a roadmap item SHALL be shown inside that item, with links to its pains, and not listed again on its own. Its status SHALL be the item's status, so the roadmap and the explorer never disagree. A Feature fix SHALL be connected to at most one item.
 
 #### Scenario: Status follows the item
-- **WHEN** the founder moves an item connected to two Feature fixes from Planned to In Progress
-- **THEN** both fixes show In Progress on `/roadmap` and in the explorer
+- **WHEN** the founder moves an item connected to two Feature fixes from Planned to In progress
+- **THEN** both fixes show In progress on `/roadmap` and in the explorer
 
 #### Scenario: Connected fix not repeated
 - **WHEN** a Feature fix is connected to an item
 - **THEN** `/roadmap` shows it only under that item
 
 ### Requirement: Five statuses
-Every roadmap item and Feature fix SHALL have exactly one status: Shipped, In Progress, Planned, Exploring or Idea. The roadmap SHALL group items by status in that order.
+Every roadmap item and Feature fix SHALL have exactly one status: Live, In progress, Planned, Exploring or Idea. The roadmap SHALL group items by status in that order.
 
 #### Scenario: Grouping
-- **WHEN** the roadmap has one Shipped and two Idea items
-- **THEN** the Shipped item is listed first under Shipped, and the two under Idea after any other groups
+- **WHEN** the roadmap has one Live and two Idea items
+- **THEN** the Live item is listed first under Live, and the two under Idea after any other groups
 
 ### Requirement: Item contents
 Each entry SHALL show its title, a one-line description, its status, the date its status last changed and a short note of what changed. A Feature fix, whether its own entry or inside an item, SHALL also link to the pains it is a fix for.
@@ -53,7 +53,7 @@ Each entry SHALL show its title, a one-line description, its status, the date it
 The founder SHALL create, edit, reorder and remove roadmap items, connect and disconnect Feature fixes, and change any status, in the CMS. Changing a status SHALL require a change note and record the date. Roadmap changes SHALL be published and rolled back with the rest of the content.
 
 #### Scenario: Status change
-- **WHEN** the founder moves an item from Planned to In Progress without a note
+- **WHEN** the founder moves an item from Planned to In progress without a note
 - **THEN** the CMS refuses until a note is entered
 
 ### Requirement: Stable item IDs
@@ -71,11 +71,11 @@ The roadmap SHALL show no counts of interest, picks or selected fixes in this re
 - **THEN** the roadmap shows no number or ranking based on that
 
 ### Requirement: Roadmap honest status
-Only work that is live SHALL be Shipped; only work actually being built SHALL be In Progress. Planned SHALL mean decided but not started; Exploring, being looked into; Idea, not decided. No item SHALL carry a promised date. Each status SHALL be explained in words on the page.
+Only work available to use SHALL be Live; only work being built right now SHALL be In progress. Planned SHALL mean a decision has been made to build it; Exploring, investigating what might work without committing yet; Idea, a possibility someone has proposed. No item SHALL carry a promised date. Each status SHALL be explained in words on the page.
 
 #### Scenario: Status explanation
 - **WHEN** someone reads the Exploring group
-- **THEN** a line says these are being looked into and may not be built
+- **THEN** a line says It is investigating what might work, without committing yet
 
 ### Requirement: Roadmap accessibility
 Status groups SHALL be headings, each item's status SHALL be written in words (never colour or icon alone), and the page SHALL be readable by keyboard and screen reader in status order.

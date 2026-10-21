@@ -27,24 +27,25 @@ Builds after `required-signup-gate` task 5.1 (menu button and Account). Essays p
 
 ## 4. Rich blocks (web)
 
-- [ ] 4.1 Review and pin Vega-Lite/`vega-embed`, Mermaid and KaTeX (dependency trees, licences, two-week release age) and record them in `dependency-policy.md`; verify `expo install --check` passes
-  - Vega, Vega-Lite and vega-embed: reviewed, pinned and recorded (#43); Mermaid and KaTeX: #44.
+- [x] 4.1 Review and pin Vega-Lite/`vega-embed`, Mermaid and KaTeX (dependency trees, licences, two-week release age) and record them in `dependency-policy.md`; verify `expo install --check` passes
+  - Vega, Vega-Lite and vega-embed: reviewed, pinned and recorded (#43). Mermaid and KaTeX: reviewed, pinned and recorded (#44).
 - [x] 4.2 Build the chart block with lazy loading and a generated data-table fallback; verify the fallback in the HTML with scripts off and the drawn chart in the web preview
 - [ ] 4.3 Build the diagram and maths blocks (Mermaid with written description fallback; KaTeX with MathML and self-hosted fonts); verify with VoiceOver that maths is read and nothing loads from a third-party host (network log)
+  - Built (#44) and checked through the essay body in the dev lab (`/lab/diagram-math`). Network log: this site and its API only. Open: the VoiceOver pass. The MathML is exposed to the accessibility tree and the visual layer is hidden from it.
 - [x] 4.4 Build evidence card, timeline, status board, expandable and table blocks; verify keyboard operation and announced expanded state
   - Evidence card and table: built and tested (#43). Timeline, status board and expandable: built and tested (#45); expandable is a native `<details>` disclosure, so it opens by keyboard and announces its state with scripts off.
 - [ ] 4.5 Measure the essay-page bundle, set the budget in design.md, and add a CI check; verify the drawing libraries stay out of the explorer's bundle
-  - Chart chunk measured and recorded in design.md's open question (#43); the budget figure and CI check wait for the diagram and maths measurements.
+  - Chart chunk measured and recorded in design.md's open question (#43). Diagram and math chunks measured (#44): Mermaid about 5.0 MB minified and KaTeX 272 KB, both lazy and recorded in `dependency-policy.md`. The budget figure and CI check are still to do.
 
 ## 5. Statuses and roadmap
 
 - [x] 5.1 Widen `featureStatuses` to five values in `graph-schema.ts` and `fixes.ts` and add `statusChangedOn` and `statusNote`; verify schema tests and that existing content still validates (#46; `roadmapItemId` and the connected-fix rule moved to 5.2)
-- [ ] 5.2 Add `roadmapItemId` to fixes in the graph schema, rejecting a connected fix that has its own status, and the migration (`roadmap_items` table, nullable `roadmap_item_id` on fixes) and the import/publish path; verify with migration and repository tests, including rollback of a content version (the widened status check and the status date and note on fixes landed in migration 006 with #46)
-- [x] 5.3 Update `statusCopy` and the Feature explanation in `way-row.tsx` and `pain-row.tsx` (Shipped says available); verify with component tests for all five statuses
+- [x] 5.2 Add `roadmapItemId` to fixes in the graph schema, rejecting a connected fix that has its own status, and the migration (`roadmap_items` table, nullable `roadmap_item_id` on fixes) and the import/publish path; verify with migration and repository tests, including rollback of a content version (the widened status check and the status date and note on fixes landed in migration 006 with #46)
+- [x] 5.3 Update `statusCopy` and the Feature explanation in `way-row.tsx` and `pain-row.tsx` (Live says available); verify with component tests for all five statuses
 - [ ] 5.4 Add `roadmap.getPublished` to the oRPC contract and router (items with connected fixes, then unconnected Feature fixes, grouped by status, with pain slugs; connected fixes take the item's status); verify with an API test against a seeded published version
-- [ ] 5.5 Add a Roadmap section to the CMS: full editing of items, including connecting Feature fixes; a status change requires a note; verify with a CMS test that a connected fix shows the item's status in the explorer (Feature fix status, date and note, with a status change refused without a note, landed with #46 as the CMS "Feature statuses" panel)
+- [x] 5.5 Add a Roadmap section to the CMS: full editing of items, including connecting Feature fixes; a status change requires a note; verify with a CMS test that a connected fix shows the item's status in the explorer (Feature fix status, date and note, with a status change refused without a note, landed with #46 as the CMS "Feature statuses" panel)
 - [ ] 5.6 Build `/roadmap` (intro essay, status groups with explanations, items with date, note and pain links) via TanStack Query; verify in the web preview and with a screen-reader pass
-- [x] 5.7 Update `fix-evidence-levels`' "Feature honesty kept" scenario for the five statuses and the Shipped exception; verify with `openspec validate --all`
+- [x] 5.7 Update `fix-evidence-levels`' "Feature honesty kept" scenario for the five statuses and the Live exception; verify with `openspec validate --all`
 
 ## 6. Measurement, privacy and docs
 
