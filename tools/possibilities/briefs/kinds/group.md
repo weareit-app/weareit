@@ -42,6 +42,7 @@ Good:
 - **Title:** "Join your building's tenant association"
 - **Text:** "Members compare notes on repairs and rent increases and sometimes negotiate as one. Your city's tenant union usually keeps a list of building groups."
 - **Method:** `whatMembersDo` "Compare notes on repairs and rent, and sometimes negotiate with the landlord as one.", `howToFind` "The city's tenant union keeps a list of building groups."
+- **Lens and ambition:** `community`, `together`.
 
 Bad:
 - **Title:** "Connect with your community"

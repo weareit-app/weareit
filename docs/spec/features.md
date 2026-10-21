@@ -90,6 +90,17 @@ Decided 2026-10-19 (founder go on the full flow, override of the weak-evidence r
 - ✔ **core** Contact: hello@weareit.app (privacy@ alias), in the footer or menu.
 - ✗ Deferred past v0.1: the safety floor (crisis resources, keyword prompt, "not monitored" notice, report button).
 
+## 9. Public pages (no account)
+
+Decided 2026-10-19 (founder; change `openspec/changes/public-pages/`, issue #39). Cut from the Oct 26 launch.
+
+- ✔ **core** Footer on large screens with four groups (About It, Research & building, The possibilities, Take part) and Privacy · FAQ · Licensing · contact; on phones a menu for everyone. A link appears only once its page is published.
+- ✔ **core** Essays at `/why`, `/principles`, `/ai` and `/risks`: about 500 words to start, sources beside claims, status labels, "last updated" and a change list; charts, diagrams, maths and other blocks drawn from data beside the text.
+- ✔ **core** `/roadmap` from the database: roadmap items (some connected to Feature fixes) with five statuses (Shipped, In Progress, Planned, Exploring, Idea), dates and change notes.
+- ✔ **core** `/licensing`: what is open today and under which license, what is planned, and credits.
+- ✔ **core** Essays in English at launch of the pages, with a short Spanish note when the app is in Spanish (after Spanish ships).
+- ✗ Not in this change: `/research`, `/technology`, `/possibility`, `/future`, the atlas's idea bank, per-page "help move it forward" asks, roadmap interest counts.
+
 ## Stages
 
 v0.1 is staged: **core** must ship; **optional** ships if time allows; **soon** isn't built yet but the early build must not get in its way.

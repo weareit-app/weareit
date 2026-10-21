@@ -6,6 +6,9 @@ from test_cards import cards
 from test_staged import StagedBase, cli, dreams_doc
 
 DREAMS = sorted(dreams_doc()['dreams'])  # burnout-d00 … burnout-d05; d05 is rejected in review
+# Each dream's fixes take one lens and one ambition, so the linked fixes cover 5 lenses and all three ambitions.
+LENS_CYCLE = ('individual', 'relational', 'community', 'market', 'policy', 'technology')
+AMBITION_CYCLE = ('tonight', 'this-year', 'together')
 
 
 def reviewed(doc):
@@ -26,6 +29,7 @@ def plan_doc(task=2, kinds=None, **others):
 def task_fix(dream, n):
     return {'title': 'Move the work laptop out of the bedroom', 'whatChanges': 'The laptop stays by the door, so work ends there.',
             'kind': 'task', 'status': 'real_now', 'origin': 'kind:task', 'draftedFor': dream,
+            'lens': LENS_CYCLE[DREAMS.index(dream)], 'ambition': AMBITION_CYCLE[DREAMS.index(dream) % 3],
             'method': {'nextAction': 'Carry the laptop charger to the hall shelf.', 'doneWhen': 'The laptop sleeps in the hall.',
                        'keepsWorking': True, 'lever': 'remove-hassle'},
             'exemplarRef': 'ex-%d' % n, 'speculative': False,
@@ -105,6 +109,17 @@ class TaskPool(FixStages):
     def test_full_pool_is_valid(self):
         self.write('fixes.json', fixes_doc())
         self.assertEqual(self.issues(), '')
+
+    def test_fix_needs_a_lens_and_an_ambition(self):
+        def change(doc):
+            del doc['fixes']['burnout-d00-t1']['ambition']
+            doc['fixes']['burnout-d00-t2'].update(lens='vibes')
+            del doc['fixes']['burnout-d01-t1']['lens']
+        self.write('fixes.json', fixes_doc(), change)
+        found = self.issues()
+        self.assertIn('fix burnout-d00-t1: ambition must be one of tonight, this-year, together', found)
+        self.assertIn('fix burnout-d00-t2: lens must be one of individual, relational', found)
+        self.assertIn('fix burnout-d01-t1: lens must be one of', found)
 
     def test_pool_under_its_ceiling_with_a_shortfall_reason_passes(self):
         def short(doc):

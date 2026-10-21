@@ -93,16 +93,35 @@ Rating and review pages SHALL meet these rules:
 
 ## ADDED Requirements
 
-### Requirement: Dreams drafted from opened examples
-After the run's examples are gathered, the generator SHALL draft the pain's dreams from them, before any fix. Each dream SHALL have a title naming the outcome, a first-person line, a lens and an ambition (`tonight`, `this-year` or `together`). Drafting SHALL flag pairs of dreams that may overlap, with a reason.
+### Requirement: Dreams are end states
+After the examples are gathered and before any fix, the generator SHALL draft the pain's dreams. Each dream SHALL be a desired end state for this pain, with a title and a first-person line, and SHALL pass the why test (not a means to something else within the pain) and the swap test (it would not fit a different pain unchanged). Dreams SHALL carry no lens, ambition or example citation. There SHALL be no set number per pain. Possible overlaps SHALL be flagged with a reason.
 
 #### Scenario: Fixes before dreams
 - **WHEN** a fix brief is started for a run with no ingested dream review
 - **THEN** the helper refuses with a usage error
 
-#### Scenario: Dream written as an action
-- **WHEN** a dream title reads "Telling my legislators I want limits on addictive app design"
-- **THEN** lint reports `dream-not-outcome`
+#### Scenario: Dream with a lens
+- **WHEN** a staged dream carries a lens, an ambition or example references
+- **THEN** validation fails
+
+#### Scenario: No count to reach
+- **WHEN** a pain has four genuinely distinct end states
+- **THEN** a run with four dreams passes validation and lint
+
+### Requirement: Dream screen
+Before the founder's dream review, one isolated judge SHALL apply the why test and the swap test to each drafted dream, recording pass or fail with a one-sentence reason. Dreams that fail SHALL stay in the run and SHALL appear after the passing ones on the dream review page, collapsed, with the reason, where the founder can still accept one.
+
+#### Scenario: A means drafted as a dream
+- **WHEN** the pain is "I don't sleep well." and a dream reads "No planes over my house at night"
+- **THEN** the screen fails it as a means, with a reason such as "wanted so I can sleep"
+
+#### Scenario: A dream that climbed too high
+- **WHEN** the pain is "I don't sleep well." and a dream reads "I have energy all day"
+- **THEN** the screen fails it on the swap test, naming a pain it would also fit, such as "Always tired"
+
+#### Scenario: Founder rescues a dream
+- **WHEN** the founder accepts a dream the screen failed
+- **THEN** ingest records the acceptance, keeps the screen's reason, and the dream goes on to the fix stages
 
 ### Requirement: Founder dream review
 The founder SHALL review each drafted dream once, with one wording, and accept, edit or reject it. Possible overlaps SHALL be shown beside the dreams they involve. Ingesting the review SHALL record each decision, apply edits as written, and leave only accepted dreams for the fix stages.
@@ -151,6 +170,13 @@ Each fix SHALL have exactly one kind: feature, task, schedule, habit, practice, 
 - **WHEN** a learn fix is titled "Learn how one city became a large landlord"
 - **THEN** lint reports `learn-about-others`, and a repair rewrites it as something the reader does, with the example in the text
 
+### Requirement: Fix lens and ambition
+Each staged fix SHALL carry a lens (where the change happens) and an ambition (`tonight`, `this-year` or `together`: how far it reaches).
+
+#### Scenario: Fix without an ambition
+- **WHEN** a staged fix has no ambition
+- **THEN** validation fails
+
 ### Requirement: Method fields per kind
 Each kind SHALL carry fields for its method: Feature a job story; Task a next physical action; Schedule what repeats and how often; Habit a cue and a tiny behavior; Practice a situation, a move, a sign it went better and a `featureIdea`; Learn what the reader will be able to do; Project a finished thing and when it is done; Group and New group what members do; Ask a decision-maker and one request; Use a resource who runs it, who qualifies, how to reach it and what to bring.
 
@@ -177,7 +203,7 @@ An isolated assembler, which drafts and judges nothing, SHALL propose links from
 - **THEN** validation fails
 
 ### Requirement: Coverage per pain
-Across a pain's accepted dreams and linked fixes, lint SHALL check that there are at least 4 lenses, all three ambitions, at least 3 basics tonight (`real_now` or `existing_resource`), and at least one dream with a Feature linked. Lint SHALL set no minimum for any kind.
+Across the fixes linked to a pain's accepted dreams, lint SHALL check that there are at least 4 lenses, all three ambitions, at least 3 basics tonight (`tonight` fixes with status `real_now` or `existing_resource`), and at least one dream with a Feature linked. Lint SHALL set no minimum for any kind, and no lens or ambition check on dreams.
 
 #### Scenario: One Feature is enough
 - **WHEN** a pain's linked fixes include exactly one Feature and meet every other coverage check
@@ -213,4 +239,4 @@ Before the old single-writer flow is retired, the helper SHALL build a blind set
 
 ### Requirement: Cards and fixes
 **Reason**: Cards are replaced by dreams, fixes and fix–dream links, matching the content graph, so one fix can serve several dreams (founder, 2026-10-20). The "at least 3 features" minimum is dropped in favour of the kind plan's ceilings.
-**Migration**: Dream fields and checks move to "Dreams drafted from opened examples"; fix fields and kinds move to "Fix kinds" and "Method fields per kind"; coverage moves to "Coverage per pain". Old card runs stay as history and are regenerated after the pilot passes.
+**Migration**: Dreams move to "Dreams are end states" and "Dream screen"; fix fields and kinds move to "Fix kinds", "Fix lens and ambition" and "Method fields per kind"; coverage moves to "Coverage per pain". Old card runs stay as history and are regenerated after the pilot passes.

@@ -12,14 +12,18 @@ _Avoid_: weareit, WeAreIt
 The short name for We Are It, the organization or the app.
 _Avoid_: the It app, it (lowercase)
 
-### Pains, dreams and fixes
+### Pains, dreams, and fixes
 
 **Pain**:
 Something wrong in a person's life or in society, named in the first person.
 
 **Dream**:
-One possible better outcome for a pain, described in the first person.
-_Avoid_: future, possible future
+A desired end state for one pain: what it's like when that pain is resolved, said in the first person. It is not a means to something else within the pain, and it would not fit a different pain unchanged.
+_Avoid_: future, possible future, goal, outcome
+
+**Means**:
+A specific way of reaching a dream, such as a program, product, service, organization, or single action. A means is written as a fix, never as a dream.
+_Avoid_: solution
 
 **Fix**:
 One concrete thing that could help reach a dream, labelled with its kind and its honest status.

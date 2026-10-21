@@ -12,7 +12,7 @@ Builds after `required-signup-gate`; sections for other features ship with those
 ## 2. Contact and FAQ
 
 - [ ] 2.1 Set up `hello@weareit.app` with the `privacy@weareit.app` alias
-- [ ] 2.2 Footer (large screens) and menu (small screens, signed in) links: privacy, FAQ, contact
+- [ ] 2.2 Set Privacy and FAQ to published in the shared link list from `public-pages` (`apps/app/src/navigation/site-links.ts`) when `/privacy` and `/faq` ship; verify they appear in the footer and the menu (Contact is already there)
 - [ ] 2.3 Build `/faq` with founder-approved answers
 
 ## 3. Operations

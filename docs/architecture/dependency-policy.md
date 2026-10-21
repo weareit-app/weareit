@@ -29,6 +29,8 @@ NativeWind 5.0.0-rc.0 and react-native-css 3.1.0-rc.0 are an intentional prerele
 
 `expo-font` was added with `expo install`. The `@expo-google-fonts/bitter` and `@expo-google-fonts/inter` font packages are pinned at 0.4.2; changing them changes the font files the app ships, so check the type on web and iOS after a refresh (see `docs/architecture/typography.md`).
 
+`vega` 6.4.0, `vega-lite` 6.4.3 and `vega-embed` 7.3.0 draw essay charts on the web (public-pages, design decision 3; reviewed 2026-10-20). Each is the newest release at least two weeks old (vega-lite 6.5.0, 2026-10-08, was too new). The tree adds 73 packages: the `vega-*` modules (BSD-3-Clause), d3 modules, `internmap`, `delaunator` and `topojson-client` (ISC), `robust-predicates` (Unlicense), `rw` (BSD-3-Clause), and `fast-json-patch`, `json-stringify-pretty-compact` and vega-lite's CLI-only `yargs` chain (MIT/ISC). None has an install script. They load no fonts (charts use the page's system fonts) and fetch nothing when the spec and its data are passed inline; the only outside address is the Vega editor link in vega-embed's actions menu, which the chart block turns off. They are imported lazily, only when a chart renders on the web, so the explorer's bundle does not include them. `expo install --check` passes with them. `@types/react-dom` (dev, selected by `expo install`) types the block tests, which render essays with `react-dom/server`.
+
 ## Other toolchain pins
 
 - Prettier 3.9.10 and Turborepo 2.11.8 are current releases within their existing major versions.
@@ -61,6 +63,19 @@ Cost (checked 2026-10-20 against GitHub's Actions billing docs): GitHub Actions 
 
 Action pins and their review notes: `docs/architecture/ci-actions.md`.
 
+## Essay build (build time only)
+
+The essay build script (`packages/content/scripts/build-essays.ts`, public-pages task 2.2) parses Markdown with the micromark/mdast packages from the unified collective. They are `devDependencies` of `@it/content`, imported only by `packages/content/essay-build/` and its script, never by the package's runtime exports or the app, so no Markdown parser ships. Chosen 2026-10-20 as the newest releases at least two weeks old; all MIT except `yaml` (ISC), with no install scripts:
+
+- `mdast-util-from-markdown` 2.1.0 (the parser) and `@types/mdast` 4.0.4
+- `micromark-extension-directive` 4.0.0 and `mdast-util-directive` 3.1.1 (`::block{…}`, `:::expandable`, `:status[…]`)
+- `micromark-extension-gfm-table` 2.1.2 and `mdast-util-gfm-table` 2.0.0 (Markdown tables)
+- `micromark-extension-gfm-footnote` 2.1.0 and `mdast-util-gfm-footnote` 2.1.0 (`[^source]` references)
+- `micromark-extension-math` 3.1.0 and `mdast-util-math` 3.0.0 (inline `$…$`)
+- `yaml` 2.9.1 (front matter and block data files; no dependencies)
+
+The script runs with `tsx` (the range the database package already uses) and formats its output with the workspace's Prettier. To update, pick newer releases at least two weeks old, read their changelogs, and run the essay fixture tests.
+
 ## Generator pages
 
 - Lucide 0.469.0 (ISC), loaded from `https://cdn.jsdelivr.net/npm/lucide@0.469.0/dist/umd/lucide.min.js` by the calibration page (`tools/possibilities/config/calibration-page.template.html`, since 2026-10-19) and the fix review page (`fix-review-page.template.html`, since 2026-10-20). It was published on 2024-12-20 (`npm view lucide time`, checked 2026-10-20). It draws the icons for fix kinds and statuses named in `docs/style/copy-style-guide.md`. The icons are decorative: both pages always show the kind or status as text, so a page that can't reach the CDN still works. Keep both pages on the same version. Before an upgrade, check that every icon name in the copy guide's "Kinds of fixes" table still exists.
@@ -69,3 +84,13 @@ Action pins and their review notes: `docs/architecture/ci-actions.md`.
 
 - OpenSpec CLI 1.14.1 (`npm install -g @fission-ai/openspec@1.14.1`; chosen 2026-10-19 as the newest release at least two weeks old). Telemetry off (`openspec config set telemetry.enabled false`). Generated files: `openspec/`, `.claude/skills/openspec-*`, `.claude/commands/opsx/`, `.agents/skills/openspec-*`. Refresh with `openspec update` after upgrading the CLI, and review the diff.
 - Matt Pocock's skills (MIT), vendored from `github.com/mattpocock/skills` at commit `5beb35b040e3de97e54fa9e386d7e42d15c295c2` (2026-10-19), copied unmodified into `.claude/skills/` and `.agents/skills/`: every skill in the repo's published engineering and productivity catalogs (27), including `to-spec`, `triage`, `wayfinder`, `implement-spec`, `prototype`, `diagnosing-bugs`, `pr`, `wizard`, `teach` and the rest (all 27 added on 2026-10-19; the first 12 earlier the same day). Not vendored: the repo's `misc/` and `in-progress/` folders (git guardrails, pre-commit setup, shoehorn migration, exercise scaffolding, and unfinished skills). Two contain shell templates that run only when invoked: `diagnosing-bugs/scripts/hitl-loop.template.sh` (prompts the founder through reproduction steps) and `wizard/template.sh` (a setup guide that can write `.env` values and GitHub secrets). To update, check out a newer reviewed commit, read the diff of these folders, and copy them again.
+
+## Essay blocks: diagrams and math
+
+Reviewed 2026-10-20 for the public-pages change (design decision 3, task 4.1). Both load lazily, only when an essay shows that block, and only on the web. `expo install --check` passes with both.
+
+- **KaTeX 0.19.0** (MIT; released 2026-10-01, the newest release at least two weeks old). Its only dependency, `commander`, is for the command line and is not bundled. 0.19's breaking change only affects warnings in `strict` mode. The math block uses `htmlAndMathml` output, so screen readers get MathML. KaTeX's stylesheet and its 20 woff2 fonts (MIT, under KaTeX's license) are copied into `apps/app/public/katex` and served from the site. After changing the version, run `pnpm --filter @it/app katex:web`; a unit test fails while the copies differ from the installed package.
+- **Mermaid 12.1.0** (MIT; released 2026-10-02; 12.2.0 is under two weeks old). The tree is large: about 117 packages, including d3, cytoscape, dagre-d3-es, chevrotain, DOMPurify and a nested KaTeX 0.16.47 for math inside diagrams (unused: the diagram schema rejects `$$` math, since that KaTeX's stylesheet is not loaded). Licenses: mostly MIT and ISC, plus Apache-2.0, BSD-3-Clause, DOMPurify (MPL-2.0 or Apache-2.0), `robust-predicates` (Unlicense) and `elkjs` (EPL-2.0).
+  - `elkjs` is EPL-2.0 without the notice that makes it available under the GPL, so it is left out of the bundle. `apps/app/metro.config.js` resolves `elkjs` to an empty module. Mermaid 12 makes ELK its default layout, so the diagram block sets `dagre`. The diagram schema rejects `flowchart-elk`, `%%{init}%%` directives and front matter.
+  - Expo's web export moves any module shared by two lazy chunks into `__common.js`, which every page loads. Mermaid splits itself into about 60 chunks with `import()`, which grew `__common.js` from 60 KB to 3.1 MB. `apps/app/babel.config.js` turns Mermaid's own `import()` calls into requires, so all of Mermaid is one lazy chunk, and `__common.js` and the entry bundle stay the same size.
+  - Weight: the diagram chunk is about 5.0 MB minified (about 1.2 MB gzipped), fetched only on an essay with a diagram. This is heavy for a few diagrams. The design's fallback (pre-render diagrams to SVG at build time, behind the same block schema) would remove it from readers' downloads and drop the ELK and bundling workarounds. This needs a headless browser in the build, because Mermaid measures text in a DOM.

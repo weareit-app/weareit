@@ -18,7 +18,8 @@ def distinct_titles(doc):
 
 
 class GraphLint(FixStages):
-    """A full staged run through assembly: five accepted dreams, each linked to two Task fixes, and no Feature."""
+    """A full staged run through assembly: five accepted dreams, each linked to two Task fixes, and no Feature.
+    Each dream's fixes share one lens and one ambition (test_fix_stages.task_fix)."""
 
     def setUp(self):
         super().setUp()
@@ -115,7 +116,31 @@ class Coverage(GraphLint):
         self.write_dreams(self.run_dir, lambda d: (reviewed_doc(d), reject(d)))
         self.assertIn('lens-coverage', self.rules())
 
-    def test_basics_tonight_are_linked_fixes_on_tonight_dreams(self):
+    def test_coverage_counts_the_lenses_and_ambitions_of_linked_fixes(self):
+        # The fixture's dreams have no lens or ambition; their linked fixes cover them.
+        self.assertFalse(any('lens' in d or 'ambition' in d for d in cards.read(self.run_dir / 'dreams.json')['dreams'].values()))
+        self.assertEqual(self.rules(one_feature_three_habits) & COVERAGE, set())
+        coverage = cards.read(self.run_dir / 'lint.json')['coverage']
+        self.assertEqual(coverage['lenses'], ['community', 'individual', 'market', 'policy', 'relational'])
+        self.assertEqual(coverage['ambitions'], ['this-year', 'together', 'tonight'])
+
+    def test_linked_fixes_in_one_lens_and_one_ambition_fail_coverage(self):
+        def narrow(doc):
+            one_feature_three_habits(doc)
+            for f in doc['fixes'].values():
+                f.update(lens='individual', ambition='tonight')
+        self.assertTrue({'lens-coverage', 'ambition-coverage'} <= self.rules(narrow))
+
+    def test_unlinked_fixes_do_not_count_toward_coverage(self):
+        def unlinked_policy(doc):
+            one_feature_three_habits(doc)
+            for f in doc['fixes'].values():
+                f.update(lens='individual')
+            doc['fixes']['burnout-d04-t3'] = dict(doc['fixes']['burnout-d04-t2'], title='Ask the council to count overtime',
+                                                 lens='policy', ambition='together')
+        self.assertIn('lens-coverage', self.rules(unlinked_policy))
+
+    def test_basics_tonight_are_linked_tonight_fixes(self):
         def proposals(doc):
             for key in ('burnout-d00-t1', 'burnout-d00-t2', 'burnout-d03-t1'):
                 doc['fixes'][key]['status'] = 'societal_proposal'

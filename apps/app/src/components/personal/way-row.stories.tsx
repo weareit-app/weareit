@@ -35,6 +35,24 @@ export const PlannedFeature: Story = {
   args: { fix: fixOfKind("feature", "planned") },
 };
 
+// The content package has no Live, In progress or Exploring fix yet.
+const withStatus = (featureStatus: "live" | "in-progress" | "exploring") => ({
+  ...fixOfKind("feature", "planned"),
+  featureStatus,
+});
+
+export const LiveFeature: Story = {
+  args: { fix: withStatus("live"), openChip: "type" },
+};
+
+export const InProgressFeature: Story = {
+  args: { fix: withStatus("in-progress"), openChip: "status" },
+};
+
+export const ExploringFeature: Story = {
+  args: { fix: withStatus("exploring") },
+};
+
 export const IdeaFeature: Story = {
   args: { fix: fixOfKind("feature", "idea") },
 };

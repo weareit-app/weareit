@@ -48,8 +48,8 @@ These don't sound like that person, so avoid them:
 | Piece | What it is | Guidance | Example |
 | --- | --- | --- | --- |
 | **Pain line** | What someone would say out loud | First person, everyday words, one issue. No diagnosis. | I don't sleep well. |
-| **Dream title** | A better future, named the way a person would describe their own life | Clear before short. Say what is different, in plain words, usually 3–8. Test: could this title belong to another pain, or would someone ask "meaning what?" If so, it's too vague. Not a slogan. | Evenings free from work messages |
-| **Dream line** | What that future is like, for me | First person, one sentence, concrete enough to picture without staging a scene. | When I finish work, I'm actually finished. |
+| **Dream title** | The end state a person wants for this pain, named the way they would describe their own life, never a way to get there | Clear before short. Say what is different, in plain words, usually 3–8. Two tests: could this title belong to another pain (too high), or do you want it only as a way to something else in this pain (too low, so make it a fix)? Would someone ask "meaning what?" Then it's too vague. Not a slogan. | Sleeping through the night |
+| **Dream line** | What that end state is like, for me | First person, one sentence, concrete enough to picture without staging a scene. Name no program, product, place, or action that gets you there. | Most nights I sleep straight through until morning. |
 | **Fix title** | Something someone can do | Plain imperative, saying who does what. It must make sense to someone who has never heard of the example; names of examples go in the fix text, not the title. | Ask your school board for a later start time |
 | **Fix text** | What it is and why it might help *you* | 1–3 sentences: the idea, the real example said plainly, and any one limit worth knowing. | Portugal made it the law in 2022: outside working hours, employers aren't supposed to contact staff except in a real emergency. Your team doesn't need a law to agree on the same thing. |
 | **First step** | The smallest real action | One sentence, starts with a verb, doable in 20 minutes. | Suggest a simple rule, like no work messages between 8pm and 8am, and see who's in. |
@@ -57,7 +57,7 @@ These don't sound like that person, so avoid them:
 
 Never shorten a title or line in a way that loses clarity. If the clear version is longer, use the longer one.
 
-There is **no separate "scene" line**. Concreteness lives in the dream line and the real example.
+There is **no separate "scene" line**. Concreteness lives in the dream line and in the fixes' real examples.
 
 ## Kinds of fixes
 
@@ -102,19 +102,22 @@ Obvious, practical fixes (blackout curtains, a white noise machine, earplugs) ar
 - Sentence case for titles and headings.
 - Use the Oxford (serial) comma in every list: "forms, bills, and calls", "rivers, lakes, or drinking water". The pain and possibility lints flag a list without it (founder, 2026-10-20).
 
-## Before and after (Sleep)
+## Dreams and fixes (Sleep)
 
-**Before:** *Boss can't text at 11*. "My evenings belong to me." Fix: "Write Portugal's no-contact rule into your team agreement. After-hours messages become a breach, not a test of loyalty."
-**After (round 2):** *Evenings free from work messages*. "When I finish work, I'm actually finished, and my phone stays quiet until morning." Fix: **Agree on quiet hours with your team**. "Portugal made it the law in 2022: outside working hours, employers aren't supposed to contact staff except in a real emergency. Your team doesn't need a law to agree on the same thing." First step: "Suggest a simple rule, like no work messages between 8pm and 8am, and see who's in."
+A dream is the end state a person wants for this pain. A fix is a way to get there (founder, 2026-10-20). Two checks keep a dream at the right height:
 
-**Before:** *Asleep in six weeks*. "I fall asleep without pills or dread." Fix: "Four short sessions reset your sleep window instead of another prescription."
-**After:** *Falling asleep without pills or dread*. "I go to bed expecting to sleep, and most nights I do." Fix: **Ask your doctor about short, drug-free insomnia therapy**. "In a large trial in England's health service, four short sessions with a practice nurse helped people with insomnia more than the usual advice leaflet, without pills. It isn't right for everyone, so the nurse checks first." First step: "Jot down when you went to bed and got up for the next week, so you have something to bring."
+- **Why test (not too low):** ask "why do you want that?" If the answer is still about this pain, you've written a means, so make it a fix. "No planes over my house at night" fails: you want it so you can sleep.
+- **Swap test (not too high):** if the dream would fit a different pain unchanged, it has climbed too far. "I have energy all day" fails: it fits Always tired just as well. "I'm happy" fits everything.
 
-**Before:** *Silent sky, 11 to 5*. "The planes stop when I sleep."
-**After:** *No planes over my house at night*. "Nothing flies overhead between when I go to bed and when I get up." Fix: **Organize with neighbors to limit night flights**. "In Frankfurt, neighbors took the airport to court and won a ban on flights from 11pm to 5am." First step: "Look up whether there's a noise group for your nearest airport, and read their latest update."
+The earlier "after" dreams in this guide (quiet evenings, no night flights, separate rooms) were means. Here they are as fixes, under the end states they serve.
 
-**Before:** *Two beds, one marriage*. "We sleep apart and wake up closer."
-**After:** *Sleeping in separate rooms so we both rest*. "My partner and I both sleep through the night, even if that means separate rooms some nights." Fix: **Try sleeping apart for two weeks**. "More than a third of American adults sleep in a different room from their partner at least sometimes. It's common, and it doesn't have to mean anything is wrong." First step: "Pick a start date together and decide who gets which room."
+**Dream:** *Falling asleep easily*. "I go to bed expecting to sleep, and most nights I do."
+- Fix: **Ask your doctor about short, drug-free insomnia therapy**. "In a large trial in England's health service, four short sessions with a practice nurse helped people with insomnia more than the usual advice leaflet, without pills. It isn't right for everyone, so the nurse checks first." First step: "Jot down when you went to bed and got up for the next week, so you have something to bring."
+- Fix: **Agree on quiet hours with your team**. "Portugal made it the law in 2022: outside working hours, employers aren't supposed to contact staff except in a real emergency. Your team doesn't need a law to agree on the same thing." First step: "Suggest a simple rule, like no work messages between 8pm and 8am, and see who's in."
+
+**Dream:** *Sleeping through the night*. "Most nights I sleep straight through until morning."
+- Fix: **Organize with neighbors to limit night flights**. "In Frankfurt, neighbors took the airport to court and won a ban on flights from 11pm to 5am." First step: "Look up whether there's a noise group for your nearest airport, and read their latest update."
+- Fix: **Try sleeping apart for two weeks**. "More than a third of American adults sleep in a different room from their partner at least sometimes. It's common, and it doesn't have to mean anything is wrong." First step: "Pick a start date together and decide who gets which room."
 
 ## Open questions for the founder
 

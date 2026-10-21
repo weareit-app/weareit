@@ -1,4 +1,6 @@
 import type { StorybookConfig } from "@storybook/react-native-web-vite";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { mergeConfig } from "vite";
 
 // Component previews on web, for reviewing component changes without
@@ -35,6 +37,11 @@ const config: StorybookConfig = {
         alias: {
           "@react-native/assets-registry/registry":
             "react-native-web/dist/modules/AssetRegistry",
+          // Vite can't load expo-router; links render as plain anchors.
+          "expo-router": join(
+            dirname(fileURLToPath(import.meta.url)),
+            "expo-router-stub.tsx",
+          ),
         },
       },
     }),

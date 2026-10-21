@@ -1,8 +1,11 @@
 import {
   Blocks,
+  CircleCheck,
   CircleDotDashed,
+  Compass,
+  Hammer,
   Lightbulb,
-  Milestone,
+  ListTodo,
   Repeat,
   Users,
   type LucideIcon,
@@ -43,20 +46,45 @@ export const kindCopy: Record<
   },
 };
 
-// A feature's place on the roadmap, its own tag beside the type.
+// A Live feature is in It now, so its explanation can't say it isn't.
+const liveFeatureDetail = "Available to use.";
+
+export function typeDetail(fix: ContentFix) {
+  return fix.kind === "feature" && fix.featureStatus === "live"
+    ? liveFeatureDetail
+    : kindCopy[fix.kind].detail;
+}
+
+// A feature's place on the roadmap, its own tag beside the type, in the
+// roadmap's order.
 export const statusCopy: Record<
   NonNullable<ContentFix["featureStatus"]>,
   { label: string; detail: string; icon: LucideIcon }
 > = {
-  idea: {
-    label: "Idea",
-    detail: "An idea for It. Nothing is built or scheduled yet.",
-    icon: Lightbulb,
+  live: {
+    label: "Live",
+    detail: "Available to use.",
+    icon: CircleCheck,
+  },
+  "in-progress": {
+    label: "In progress",
+    detail: "Being built right now.",
+    icon: Hammer,
   },
   planned: {
     label: "Planned",
-    detail: "On It's roadmap, but not built yet.",
-    icon: Milestone,
+    detail: "A decision has been made to build it.",
+    icon: ListTodo,
+  },
+  exploring: {
+    label: "Exploring",
+    detail: "Investigating what might work, without committing yet.",
+    icon: Compass,
+  },
+  idea: {
+    label: "Idea",
+    detail: "A possibility someone has proposed.",
+    icon: Lightbulb,
   },
 };
 
@@ -180,7 +208,7 @@ export function WayRow({
             <Text className="text-[13px] leading-5 text-ink">
               {openChip === "status" && status
                 ? status.detail
-                : kindCopy[fix.kind].detail}
+                : typeDetail(fix)}
             </Text>
             <Text className="text-[13px] text-ink-soft">
               Tap again to close.

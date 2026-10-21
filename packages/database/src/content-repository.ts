@@ -1,8 +1,11 @@
 import {
+  applyFeatureStatusChanges,
+  applyRoadmapItemStatusChanges,
   contentGraphSchema,
+  resolveFeatureStatuses,
   type ContentGraph,
 } from "@it/content/graph-schema";
-import type { Kysely } from "kysely";
+import { sql, type Kysely } from "kysely";
 import type { Database } from "./types";
 import type { ItDatabase } from "./database";
 
@@ -230,6 +233,7 @@ export async function readDraftContent(db: ItDatabase): Promise<{
     actionPainLinks,
     fixes,
     fixDreamLinks,
+    roadmapItems,
     sources,
     provenance,
   ] = await Promise.all([
@@ -248,8 +252,27 @@ export async function readDraftContent(db: ItDatabase): Promise<{
       .orderBy("sort_order")
       .execute(),
     db.selectFrom("action_pain_links").selectAll().execute(),
-    db.selectFrom("content_fixes").selectAll().orderBy("sort_order").execute(),
+    db
+      .selectFrom("content_fixes")
+      .selectAll()
+      .select(
+        sql<string | null>`to_char(status_changed_on, 'YYYY-MM-DD')`.as(
+          "status_changed_on_text",
+        ),
+      )
+      .orderBy("sort_order")
+      .execute(),
     db.selectFrom("fix_dream_links").selectAll().execute(),
+    db
+      .selectFrom("roadmap_items")
+      .selectAll()
+      .select(
+        sql<string | null>`to_char(status_changed_on, 'YYYY-MM-DD')`.as(
+          "status_changed_on_text",
+        ),
+      )
+      .orderBy("sort_order")
+      .execute(),
     db.selectFrom("content_sources").selectAll().execute(),
     db.selectFrom("content_provenance").selectAll().execute(),
   ]);
@@ -312,6 +335,9 @@ export async function readDraftContent(db: ItDatabase): Promise<{
           description,
           kind,
           feature_status,
+          status_changed_on_text,
+          status_note,
+          roadmap_item_id,
           evidence,
           evidence_note,
           sort_order,
@@ -321,6 +347,11 @@ export async function readDraftContent(db: ItDatabase): Promise<{
           description,
           kind,
           ...(feature_status ? { featureStatus: feature_status } : {}),
+          ...(status_changed_on_text
+            ? { statusChangedOn: status_changed_on_text }
+            : {}),
+          ...(status_note ? { statusNote: status_note } : {}),
+          ...(roadmap_item_id ? { roadmapItemId: roadmap_item_id } : {}),
           evidence,
           evidenceNote: evidence_note,
           sortOrder: sort_order,
@@ -330,6 +361,27 @@ export async function readDraftContent(db: ItDatabase): Promise<{
         fixId: fix_id,
         dreamId: dream_id,
       })),
+      roadmapItems: roadmapItems.map(
+        ({
+          id,
+          title,
+          line,
+          status,
+          status_changed_on_text,
+          status_note,
+          sort_order,
+        }) => ({
+          id,
+          title,
+          line,
+          status,
+          ...(status_changed_on_text
+            ? { statusChangedOn: status_changed_on_text }
+            : {}),
+          ...(status_note ? { statusNote: status_note } : {}),
+          sortOrder: sort_order,
+        }),
+      ),
       sources: sources.map(
         ({ id, title, document_path, source_type, rights }) => ({
           id,
@@ -362,12 +414,25 @@ export async function readDraftContent(db: ItDatabase): Promise<{
   };
 }
 
+export class FeatureStatusNoteError extends Error {
+  constructor(readonly issues: ContentValidationIssue[]) {
+    super(issues.map((issue) => issue.message).join(" "));
+    this.name = "FeatureStatusNoteError";
+  }
+}
+
 export async function saveDraftContent(
   db: ItDatabase,
   graphInput: unknown,
-  options: { expectedRevision: number; actor: string; changeNote: string },
+  options: {
+    expectedRevision: number;
+    actor: string;
+    changeNote: string;
+    // The date recorded with a status change; defaults to today in UTC.
+    today?: string;
+  },
 ) {
-  const graph = contentGraphSchema.parse(graphInput);
+  const parsed = contentGraphSchema.parse(graphInput);
   return db.transaction().execute(async (trx) => {
     const state = await trx
       .selectFrom("content_draft_state")
@@ -381,6 +446,22 @@ export async function saveDraftContent(
         `Draft changed since revision ${options.expectedRevision}; reload before saving.`,
       );
     }
+    const previous = await readDraftContent(trx);
+    const today = options.today ?? new Date().toISOString().slice(0, 10);
+    const { fixes, issues } = applyFeatureStatusChanges(
+      resolveFeatureStatuses(previous.content),
+      parsed.fixes,
+      today,
+    );
+    const { items: roadmapItems, issues: itemIssues } =
+      applyRoadmapItemStatusChanges(
+        previous.content.roadmapItems,
+        parsed.roadmapItems,
+        today,
+      );
+    if (issues.length || itemIssues.length)
+      throw new FeatureStatusNoteError([...issues, ...itemIssues]);
+    const graph = { ...parsed, fixes, roadmapItems };
     return saveDraftInTransaction(trx, graph, options, state.revision);
   });
 }
@@ -579,6 +660,7 @@ async function replaceNormalizedContent(db: ItDatabase, graph: ContentGraph) {
     "content_sources",
     "fix_dream_links",
     "content_fixes",
+    "roadmap_items",
     "action_pain_links",
     "content_first_actions",
     "pain_dream_links",
@@ -665,6 +747,22 @@ async function replaceNormalizedContent(db: ItDatabase, graph: ContentGraph) {
         })),
       )
       .execute();
+  if (graph.roadmapItems.length)
+    await db
+      .insertInto("roadmap_items")
+      .values(
+        graph.roadmapItems.map((item) => ({
+          id: item.id,
+          title: item.title,
+          line: item.line,
+          status: item.status,
+          status_changed_on: item.statusChangedOn ?? null,
+          status_note: item.statusNote ?? null,
+          sort_order: item.sortOrder,
+          updated_at: new Date(),
+        })),
+      )
+      .execute();
   if (graph.fixes.length)
     await db
       .insertInto("content_fixes")
@@ -675,6 +773,9 @@ async function replaceNormalizedContent(db: ItDatabase, graph: ContentGraph) {
           description: item.description,
           kind: item.kind,
           feature_status: item.featureStatus ?? null,
+          status_changed_on: item.statusChangedOn ?? null,
+          status_note: item.statusNote ?? null,
+          roadmap_item_id: item.roadmapItemId ?? null,
           evidence: item.evidence,
           evidence_note: item.evidenceNote,
           sort_order: item.sortOrder,

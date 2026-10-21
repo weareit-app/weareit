@@ -21,8 +21,9 @@ For each fix:
 
 1. Fill in your kind's `method` fields first, as your kind's brief describes. They are how you think the fix through, and they stay in the file. They never appear in the copy, and neither the screen nor the judges see them.
 2. Then write `title`, `whatChanges` (the fix text, 1–3 sentences), and `firstStep` (one sentence, starting with a verb, doable in 20 minutes or less, with `firstStepMinutes`). Write them in plain sentences, never in the method's template ("When I…, I want…", "After I…, I will…", "If…, then I will…").
-3. Set `status`, and either `exemplarRef` (an exemplar in this run whose page backs the fix) or `speculative: true` with a `speculativeRationale`. Every number and proper noun in the copy must appear in the cited exemplar's record. Speculative fixes name no institutions.
-4. Set `kind` to your kind, `origin` to `kind:<your kind>`, `draftedFor` to the dream you wrote it for, and `provenance` to `{sourceId: "generator-run-<runId>", locator: "fixes.json#<fix-id>", evidenceType: "ai_generated_from_exemplars", rights: "CC-BY-SA-4.0", reviewStatus: "unreviewed"}`. Put your reasoning in `writerNotes`.
+3. Set `lens`, where the change happens (`individual`, `relational`, `community`, `market`, `policy`, `technology`, or `culture`), and `ambition`, how far it reaches: `tonight` (something a person can do or use now), `this-year` (a change that takes weeks or months), or `together` (a change people make with others). Dreams have neither, so coverage is counted on these.
+4. Set `status`, and either `exemplarRef` (an exemplar in this run whose page backs the fix) or `speculative: true` with a `speculativeRationale`. Every number and proper noun in the copy must appear in the cited exemplar's record. Speculative fixes name no institutions.
+5. Set `kind` to your kind, `origin` to `kind:<your kind>`, `draftedFor` to the dream you wrote it for, and `provenance` to `{sourceId: "generator-run-<runId>", locator: "fixes.json#<fix-id>", evidenceType: "ai_generated_from_exemplars", rights: "CC-BY-SA-4.0", reviewStatus: "unreviewed"}`. Put your reasoning in `writerNotes`.
 
 Fix IDs are `<dream-id>-<kind letter><n>` or any other ID that is unique in the run.
 
