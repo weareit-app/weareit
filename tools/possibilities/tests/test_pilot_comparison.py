@@ -199,6 +199,15 @@ class Report(Pilot):
         self.assertEqual(self.report()['tokens'], {'old': {'total': 5000, 'byStage': None},
                                                    'new': {'total': 2100, 'byStage': {'plan': 1300, 'judge': 800}}})
 
+    def test_a_plain_finish_run_keeps_the_stage_tokens(self):
+        """The dreams brief's finish-run records searches and pages; it leaves the stage token sum alone."""
+        for stage, tokens in (('examples', '900'), ('dreams', '700')):
+            self.assertEqual(cli(self.tmp, 'finish-run', str(self.run_dir), '--stage', stage, '--tokens', tokens).returncode, 0)
+        result = cli(self.tmp, 'finish-run', str(self.run_dir), '--searches', '12', '--pages', '20')
+        self.assertEqual(result.returncode, 0, result.stderr)
+        meta = cards.read(self.run_dir / 'run.json')
+        self.assertEqual((meta['tokens'], meta['searches'], meta['pagesOpened']), (1600, 12, 20))
+
     def test_a_stage_outside_the_flow_is_refused(self):
         result = cli(self.tmp, 'finish-run', str(self.run_dir), '--stage', 'writer', '--tokens', '10')
         self.assertEqual(result.returncode, 2)

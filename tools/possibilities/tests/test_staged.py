@@ -55,6 +55,38 @@ class StagedBase(Base):
         return json.loads(result.stdout)
 
 
+class PilotRuns(StagedBase):
+    """--pilot marks a staged run as a pilot run, so the trial kinds join it without editing run.json."""
+
+    def plan_kinds(self, run):
+        result = cli(self.tmp, 'start', str(run), 'plan')
+        self.assertEqual(result.returncode, 0, result.stderr)
+        return json.loads(result.stdout)['kinds']
+
+    def reviewed(self, run):
+        self.write_examples(run)
+        self.write_dreams(run, lambda d: [x.update(review={'decision': 'accept'}) for x in d['dreams'].values()])
+        return run
+
+    def test_pilot_option_marks_the_run_and_admits_the_trial_kinds(self):
+        result = cli(self.tmp, 'new-run', 'burnout', '--staged', '--pilot')
+        self.assertEqual(result.returncode, 0, result.stderr)
+        run = self.tmp / json.loads(result.stdout)['run']
+        self.assertIs(cards.read(run / 'run.json')['pilot'], True)
+        self.assertTrue({'leave', 'switch'} <= set(self.plan_kinds(self.reviewed(run))))
+
+    def test_a_run_without_the_option_is_not_a_pilot_run(self):
+        run = self.reviewed(self.new_staged())
+        self.assertNotIn('pilot', cards.read(run / 'run.json'))
+        self.assertFalse({'leave', 'switch'} & set(self.plan_kinds(run)))
+
+    def test_pilot_needs_a_staged_run(self):
+        result = cli(self.tmp, 'new-run', 'burnout', '--pilot')
+        self.assertEqual(result.returncode, 2)
+        self.assertIn('--staged', result.stderr)
+        self.assertFalse((self.tmp / cards.DATA_ROOT / 'runs/burnout').exists())
+
+
 class Staged(StagedBase):
     def test_new_staged_run_starts_with_examples(self):
         run = self.new_staged()

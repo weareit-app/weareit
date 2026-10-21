@@ -58,7 +58,7 @@ Rules:
 
 `tokensByStage` is `{ <stage>: <tokens> }` for a staged run, written by `finish-run --stage`. `tokens` is then their sum. Card runs record only `tokens`.
 
-`pilot: true` marks a staged run as a pilot run, which also plans and drafts the trial kinds `leave` and `switch` (see *plan.json*). It is set by hand in `run.json`; any other run refuses them.
+`pilot: true` marks a staged run as a pilot run, which also plans and drafts the trial kinds `leave` and `switch` (see *plan.json*). `new-run <pain-id> --staged --pilot` sets it; any other run refuses them.
 
 `painName` and `painLine` are the catalog wording the run was written for (added 2026-10-19; older runs lack them, and `stale` falls back to the catalog history at `startedAt`). `painId` is always the surviving ID: a run started for a merged pain is created for the pain it was merged into.
 

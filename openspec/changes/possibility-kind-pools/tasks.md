@@ -44,8 +44,8 @@ Start only after the pain-catalog change (PR #27) and the full pain sweep are me
 ## 7. Calibration pages and skills
 
 - [x] 7.1 Change `calibrate-build` and `audit-build` so an item is a dream with its linked fixes. Verify with existing calibration tests updated to v2 fixtures, plus a v1 fixture that still builds.
-- [ ] 7.2 Add staged steps to `possibilities-generate`, `possibilities-judge` and `possibilities-repair` (Claude and Codex copies), with explicit stops for the two founder reviews, behind a `--staged` option so the old flow still runs. Verify by running a dry staged generate on a fixture up to the dream review stop.
-- [ ] 7.3 Add Ask (`message-circle-question`), Use a resource (`life-buoy`), and the trial kinds Leave (`door-open`) and Switch (`arrow-left-right`) to the "Kinds of fixes" table in `docs/style/copy-style-guide.md`. Update `tools/possibilities/README.md` for the staged flow, the run files, and the coverage rules. Verify that the README's subcommand table matches `cards.py --help`.
+- [x] 7.2 Add staged steps to `possibilities-generate`, `possibilities-judge`, and `possibilities-repair` (Claude and Codex copies), with explicit stops for the two founder reviews, behind a `--staged` option so the old flow still runs. Verify by running a dry staged generate on a fixture up to the dream review stop.
+- [x] 7.3 Add Ask (`message-circle-question`), Use a resource (`life-buoy`), and the trial kinds Leave (`door-open`) and Switch (`arrow-left-right`) to the "Kinds of fixes" table in `docs/style/copy-style-guide.md`. Update `tools/possibilities/README.md` for the staged flow, the run files, and the coverage rules. Verify that the README's subcommand table matches `cards.py --help`.
 
 ## 8. Pilot comparison
 

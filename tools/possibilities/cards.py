@@ -239,7 +239,8 @@ STAGE_DONE = {
     'judge': lambda run: (run / 'ranking.json').is_file(),  # select writes it after the panel's consensus
     'fix-review': lambda run: fix_review_ingested(run),  # defined with the fix review, below
 }
-FOUNDER_STOPS = ('dream-review', 'fix-review')
+FOUNDER_STOPS = {'dream-review': ('dreams-review-build', 'dreams-ingest'),  # each stop's page build, then its ingest
+                 'fix-review': ('fixes-review-build', 'fixes-ingest')}
 
 
 BRIEFS = 'tools/possibilities/briefs/'
@@ -355,8 +356,8 @@ def start(run, stage):
         raise ValueError('%s cannot start: %s is not complete' % (stage, pending))
     if pending == 'done':
         raise ValueError('%s cannot start: the fix review of %s is ingested, so the run is done' % (stage, run.name))
-    if stage == 'fix-review':
-        raise ValueError('fix-review is a founder stop: run fixes-review-build, then fixes-ingest')
+    if stage in FOUNDER_STOPS:
+        raise ValueError('%s is a founder stop: run %s, then %s' % (stage, *FOUNDER_STOPS[stage]))
     if stage not in STAGE_BRIEFS:
         raise ValueError('%s is not built yet' % stage)
     result = {'run': run.name, 'stage': stage, 'brief': STAGE_BRIEFS[stage]}
@@ -2038,6 +2039,8 @@ def main():
     parser.add_argument('--tokens', type=int)
     parser.add_argument('--audit', help='Audit ratings export for report')
     parser.add_argument('--staged', action='store_true', help='new-run: start a staged run (schemaVersion 2)')
+    parser.add_argument('--pilot', action='store_true',
+                        help='new-run --staged: mark the run as a pilot run, which also drafts the trial kinds')
     parser.add_argument('--stage', help='finish-run: record --tokens for one stage of a staged run')
     args = parser.parse_args()
     root = args.root.resolve()
@@ -2055,13 +2058,16 @@ def main():
         inventory = pains(root)
         if len(args.targets) != 1 or args.targets[0] not in inventory:
             parser.error('new-run needs one pain ID from ' + PAIN_CATALOG)
+        if args.pilot and not args.staged:
+            parser.error('--pilot needs --staged: only a staged run drafts the trial kinds')
         pain, notes = resolve_pain(root, args.targets[0])
         stamp = datetime.datetime.now().strftime('%Y%m%d-%H%M%S')
         folder = data_root(root) / 'runs' / pain / stamp
         folder.mkdir(parents=True, exist_ok=False)
         write(folder / 'run.json', {'schemaVersion': 2 if args.staged else 1, 'painId': pain, 'runId': stamp, 'startedAt': now(),
                                     'painName': inventory[pain]['name'], 'painLine': inventory[pain]['line'],
-                                    'finishedAt': None, 'searches': None, 'pagesOpened': None, 'tokens': None, 'notes': ''})
+                                    'finishedAt': None, 'searches': None, 'pagesOpened': None, 'tokens': None, 'notes': '',
+                                    **({'pilot': True} if args.pilot else {})})
         out = {'run': str(folder.relative_to(root)), 'pain': inventory[pain], 'notes': notes}
     elif args.command == 'stale':
         out = stale(root)
@@ -2110,7 +2116,9 @@ def main():
                 results[target] = record_stage_tokens(folder, args.stage, args.tokens)
             else:
                 run = read(folder / 'run.json')
-                run.update({'finishedAt': now(), 'searches': args.searches, 'pagesOpened': args.pages, 'tokens': args.tokens})
+                # A staged run's stage tokens already sum into tokens: keep them unless --tokens is given.
+                tokens = args.tokens if args.tokens is not None or not run.get('tokensByStage') else run['tokens']
+                run.update({'finishedAt': now(), 'searches': args.searches, 'pagesOpened': args.pages, 'tokens': tokens})
                 write(folder / 'run.json', run)
                 results[target] = run
         out = results[args.targets[0]] if len(args.targets) == 1 else results
