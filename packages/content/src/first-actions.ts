@@ -1,20 +1,6 @@
 import { z } from "zod";
-import { nonEmptyTextSchema, slugIdSchema } from "@it/domain/primitives";
+import { firstActionSchema } from "@it/domain/content";
 import { getAllPains, personalPainDomains, worldPainDomains } from "./tier-1";
-
-const firstActionSchema = z
-  .object({
-    id: slugIdSchema,
-    painIds: z.array(z.string().min(1)).min(1),
-    title: nonEmptyTextSchema,
-    description: nonEmptyTextSchema,
-    firstStep: nonEmptyTextSchema,
-    effortMinutes: z.number().int().positive().max(120),
-    evidence: z.enum(["candidate", "practical"]),
-    safetyNote: nonEmptyTextSchema.optional(),
-    source: nonEmptyTextSchema,
-  })
-  .strict();
 
 const firstActionListSchema = z
   .array(firstActionSchema)

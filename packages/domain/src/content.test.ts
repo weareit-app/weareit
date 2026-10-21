@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest";
 import {
   applyRoadmapItemStatusChanges,
+  contentFixSchema,
   contentGraphSchema,
+  fixSchema,
   resolveFeatureStatuses,
   type ContentFix,
   type ContentRoadmapItem,
@@ -186,5 +188,53 @@ describe("applyRoadmapItemStatusChanges", () => {
 
     expect(result.issues).toEqual([]);
     expect(result.items[0]?.statusChangedOn).toBe(today);
+  });
+});
+
+describe("the feature status rule", () => {
+  const way = {
+    id: "check-ins",
+    title: "Check-ins",
+    description: "Paired with a person working on the same thing.",
+    kind: "feature" as const,
+    evidence: "untested" as const,
+    evidenceNote: "Not tested yet.",
+  };
+  const message = "Features, and only features, carry a roadmap status.";
+
+  it("rejects a feature way without a status in the graph", () => {
+    const result = contentFixSchema.safeParse({ ...way, sortOrder: 0 });
+
+    expect(result.error?.issues).toContainEqual(
+      expect.objectContaining({ path: ["featureStatus"], message }),
+    );
+  });
+
+  it("rejects a feature way without a status in the tier-1 data", () => {
+    const result = fixSchema.safeParse({
+      ...way,
+      dreamIds: ["calm-in-my-body"],
+    });
+
+    expect(result.error?.issues).toContainEqual(
+      expect.objectContaining({ path: ["featureStatus"], message }),
+    );
+  });
+
+  it("accepts the same way once it has a status", () => {
+    expect(
+      contentFixSchema.safeParse({
+        ...way,
+        featureStatus: "idea",
+        sortOrder: 0,
+      }).success,
+    ).toBe(true);
+    expect(
+      fixSchema.safeParse({
+        ...way,
+        featureStatus: "idea",
+        dreamIds: ["calm-in-my-body"],
+      }).success,
+    ).toBe(true);
   });
 });
