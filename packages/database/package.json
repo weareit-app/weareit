@@ -23,7 +23,6 @@
   "scripts": {
     "db:migrate": "node --env-file-if-exists=../../.env --import tsx scripts/migrate.ts",
     "db:seed": "node --env-file-if-exists=../../.env --import tsx scripts/seed.ts",
-    "typecheck": "tsc --noEmit",
-    "lint": "prettier --check src scripts tests"
+    "typecheck": "tsc --noEmit"
   }
 }

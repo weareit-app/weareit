@@ -15,7 +15,7 @@ export const tier1ContentMetadata = {
 
 // Personal set, flat under the pain tree's headings (docs/spec/pains/pain-tree.md;
 // every pain top level, parked pains left out, 2026-10-18). Names and lines
-// come from docs/spec/pains/pain-inventory.yaml. Futures are drafts from the onboarding
+// come from the pain catalog (docs/research/pains/catalog.json). Futures are drafts from the onboarding
 // prototype; pains with none yet still show, and say so when opened.
 const pain = (
   id: string,

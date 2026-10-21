@@ -1,6 +1,8 @@
 # Pain inventory
 
-Every pain on the personal page ("What could be better for you?") and the societal page ("What could be better for us?"): the launch set plus new candidates, each mapped to outside lists. The full data is in [pain-inventory.yaml](pain-inventory.yaml); this page explains it and holds the founder's review.
+Every pain on the personal page ("What could be better for you?") and the societal page ("What could be better for us?"): the launch set plus new candidates, each mapped to outside lists. The full data was in `pain-inventory.yaml`, now kept as a snapshot at [`docs/research/pains/sources/pain-inventory-2026-10-16.yaml`](../../research/pains/sources/pain-inventory-2026-10-16.yaml); this page explains it and holds the founder's review.
+
+**Superseded 2026-10-19** by the pain catalog, [`docs/research/pains/catalog.json`](../../research/pains/catalog.json), seeded from this inventory with every ID kept. `main` and `more_like_this_under` no longer apply: a pain is shown or not shown.
 
 Status: **provisionally approved** by the founder, 2026-10-16, pending their own further review and outside feedback. Built in a side session from the sources below. Nothing here changes the launch content (`packages/content/`) or the specs; approved additions still need dreams and ideas before they can ship (FR-012).
 

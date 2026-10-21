@@ -1,0 +1,100 @@
+# Runs the typecheck, lint, the Vitest and jest-expo tests, the Playwright web
+# tests and a render of every Storybook story on every pull request and push to
+# master, so a commit made with `git commit --no-verify` is still checked.
+# Runner costs: docs/architecture/dependency-policy.md. Read it before changing `runs-on`.
+# Action pins and their reviews: docs/architecture/ci-actions.md.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Typecheck, lint and unit tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # Every action must be SHA-pinned and reviewed in ci-actions.md. Runs before
+      # the setup action so its pins are checked before they run; the runner's Node is enough.
+      - run: node tools/action-pins/check-action-pins.mjs
+
+      - uses: ./.github/actions/setup
+
+      - run: pnpm run typecheck
+
+      # Every tracked TypeScript file must be in a project the typecheck above ran.
+      - run: node tools/typecheck-coverage/check-typecheck-coverage.mjs
+
+      # Every UI component must have stories or an allowlist entry with a reason.
+      - run: node tools/story-coverage/check-story-coverage.mjs
+
+      - run: pnpm run lint
+
+      - run: pnpm run test:unit
+
+      - run: pnpm run test:expo
+
+      # The research tools (pain catalog, possibility generator, copy checks) are stdlib Python.
+      - run: pnpm run test:tools
+
+  # Separate job so the slower browser tests don't hold up the checks above.
+  e2e:
+    name: Web end-to-end tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: ./.github/actions/setup
+
+      - run: pnpm exec playwright install --with-deps chromium
+
+      - run: pnpm run test:e2e
+
+      - if: failure()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: playwright-traces
+          path: apps/app/test-results/
+          retention-days: 7
+
+  # Renders every Storybook story in light and dark; fails when one doesn't render.
+  # docs/architecture/storybook.md.
+  stories:
+    name: Storybook stories render
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: ./.github/actions/setup
+
+      - run: pnpm exec playwright install --with-deps chromium
+
+      - run: pnpm storybook:review --no-base
+
+      - if: failure()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: storybook-review
+          path: |
+            apps/app/storybook-review/index.html
+            apps/app/storybook-review/head/
+          retention-days: 7
