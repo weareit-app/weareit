@@ -118,6 +118,8 @@ Obvious, practical fixes (blackout curtains, a white noise machine, earplugs) ar
 
 ## Open questions for the founder
 
-1. Should status labels read **Real now / Existing resource / Something It could build / A change we'd make together**, or keep the constitution's shorter terms?
-2. American English everywhere, or match each person's locale later?
-3. Is one plain limit in the copy right? Or should limits live only behind an "About this idea" detail, keeping the copy clean?
+1. American English everywhere, or match each person's locale later?
+2. Is one plain limit in the copy right? Or should limits live only behind an "About this idea" detail, keeping the copy clean?
+
+Settled by the founder on 2026-10-20:
+- **Status labels** read **Real now**, **Existing resource**, **Something It could build**, and **A change we'd make together**, not the constitution's shorter terms. Rating and review pages show them as text labels. A Feature's roadmap status (Idea, Planned, and so on) is a separate set that only the app shows.
