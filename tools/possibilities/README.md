@@ -17,7 +17,7 @@ This file holds the rules they share.
 | `tools/possibilities/cards.py` | Python helper with no dependencies (run with `python3`) |
 | `tools/possibilities/tests/` | `python3 -m unittest discover -s tools/possibilities/tests` |
 | `tools/possibilities/data-model.md` | File shapes for runs, judgments, selection and calibration |
-| `tools/possibilities/config/` | `rubric.md`, `banned-phrases.json`, `feature-patterns.md`, `style-guide.md` (the founder's calibration findings), `calibration-page.template.html`, `dream-review-page.template.html` |
+| `tools/possibilities/config/` | `rubric.md`, `banned-phrases.json`, `feature-patterns.md`, `style-guide.md` (the founder's calibration findings), `calibration-page.template.html`, `dream-review-page.template.html`, `fix-review-page.template.html` |
 | `tools/possibilities/briefs/` | What each isolated agent receives: `writer.md`, `judge.md`, `repair.md`, `classify-kinds.md`, `feature-pitch.md`, and for staged runs `dreams.md`, `planner.md`, `shared-fixes.md`, `kinds/_shared.md` with one brief per kind in `kinds/` (every kind except Path, plus the trial kinds `leave.md` and `switch.md`), `screen.md`, and `assembler.md` |
 | `docs/research/possibilities/runs/<pain>/<runId>/` | One run: `run.json`, `exemplars.json`, `cards.json` (or, in a staged run, `dreams.json`, `reviews/`, `plan.json`, `fixes.json`, `screen.json`, and `links.json`), `lint.json`, `judgments-<n>.json`, `judgments.json`, `selection.json` (`ranking.json` in a staged run), `repair-todo.md` |
 | `docs/research/possibilities/calibration/` | Blind calibration set, key, ratings, anchors and the published rating page |
@@ -38,6 +38,8 @@ Run it from the repository root: `python3 tools/possibilities/cards.py <subcomma
 | `start <run> <stage>` | Names the stage's brief (and, for `plan` and `kind-pools`, the kinds to plan or draft; for `kind-pools`, also the shared fixes already drafted), or exits 2 while an earlier stage is incomplete |
 | `dreams-review-build <run>` | Writes `reviews/proposals.json` and the dream review page, `reviews/review.html`, while the dream review is pending |
 | `dreams-ingest <run> <decisions.json>` | Records the founder's decision on every dream, keeps the drafted wording beside each edit, and copies the export to `reviews/dreams-decisions.json` |
+| `fixes-review-build <run>` | Writes `reviews/fix-proposals.json` and the fix review page, `reviews/fix-review.html`, once `ranking.json` exists |
+| `fixes-ingest <run> <decisions.json>` | Records one decision per fix, keeps the drafted copy beside each edit, makes `links.json` the founder's final links, and copies the export to `reviews/fixes-decisions.json` |
 | `validate <run…>` | Checks the shape of exemplars, cards, dreams, the plan, fixes, screen, links, judgments, and selection |
 | `lint <run…>` | Applies the copy, sourcing, kind and coverage rules, including the Oxford comma (`serial-comma`, from `tools/style/serial_comma.py`), and writes `lint.json` |
 | `judge-input <run>` | Prints a judge's whole input, with writer notes and provenance removed. In a staged run, it lists each accepted dream with its linked fixes in order, repeating a shared fix under each dream, and leaves out method fields |
@@ -74,7 +76,16 @@ After the dream review, each stage is a fresh agent with its own brief. `start <
 5. **Assemble** (`briefs/assembler.md`): an isolated assembler links 2–5 screened fixes to each accepted dream, in order, and says how each one helps. It records chains as path candidates and writes `links.json`. Unlinked fixes stay in the pool.
 6. **Judge** (`briefs/judge.md`): three isolated judges each score every accepted dream together with its linked fixes, never a fix alone, and write `judgments-<n>.json` keyed by dream ID. `consensus` combines them, and `select` writes `ranking.json`, which orders the founder's fix review. There are no finalists or audit samples (founder, 2026-10-20).
 
-The founder's fix review isn't built yet for staged runs.
+## Founder fix review
+
+After `select` writes `ranking.json`, `status` names `fix-review`, the second founder stop. The page works like the dream review page.
+
+1. Run `fixes-review-build <run>`. It refuses a `ranking.json` that no longer matches `links.json`; run `select` again.
+2. Start the `fix-review` launch config (`.claude/launch.json`). It serves `docs/research/possibilities/runs` on `127.0.0.1:4176` only. Open `http://127.0.0.1:4176/<pain>/<runId>/reviews/fix-review.html`.
+3. The page lists each fix once, in ranking order, with unlinked fixes last. Screened-out fixes stay in the pool but aren't listed, because they can't be linked. Each fix shows its kind and status as text labels with icons, its cited example, and its linked dreams as chips. The founder accepts, edits, or rejects each fix, removes a chip with its **Remove** button, and adds a link to any accepted dream, all from the keyboard. The method fields sit in a collapsed note. The founder's links may take a dream past the assembler's limit of 5.
+4. Save the download as `reviews/fixes-decisions.json` in the run, and run `fixes-ingest <run> <run>/reviews/fixes-decisions.json`. Ingest refuses an export that leaves a fix undecided, or links a fix to a dream that isn't accepted.
+
+Ingest records one decision per fix, so a shared fix is decided once and keeps every link the founder left on it. An edit keeps the drafted copy in `review.original`. `links.json` then holds the founder's final links: the assembler's links they kept, and their own (`by: founder`). The links they removed, and those of rejected fixes, move to `review.removed`. From then on, coverage lint checks the final links, and `status` names `done`. `fix-review.html` is rebuilt from the run and isn't committed; the decisions are committed with the run.
 
 ## Rules every writer and repairer follows
 

@@ -37,9 +37,9 @@ Start only after the pain-catalog change (PR #27) and the full pain sweep are me
 
 ## 6. Founder fix review
 
-- [ ] 6.1 Add `fixes-review-build`: one list ordered by `ranking.json`, each fix once, with kind and status as text labels, the cited example, linked dreams as removable chips, a way to add a dream link, unlinked fixes last, and method fields in a collapsed note. Verify that the page works from the keyboard alone, that a screen reader announces kind, status, linked dreams and the note's expanded or collapsed state, and that the page uses no motion.
-- [ ] 6.2 Let founder links take a dream past 5 fixes, marking them as founder links, while assembler links stay capped at 5. Verify with tests: a sixth founder link passes `validate`, and a sixth assembler link fails.
-- [ ] 6.3 Add `fixes-ingest <run> <decisions.json>`, which records one decision per fix and the final links. Verify with tests: one decision is kept for a shared fix with all its links, and an edit keeps the original text beside it.
+- [x] 6.1 Add `fixes-review-build`: one list ordered by `ranking.json`, each fix once, with kind and status as text labels, the cited example, linked dreams as removable chips, a way to add a dream link, unlinked fixes last, and method fields in a collapsed note. Verify that the page works from the keyboard alone, that a screen reader announces kind, status, linked dreams and the note's expanded or collapsed state, and that the page uses no motion.
+- [x] 6.2 Let founder links take a dream past 5 fixes, marking them as founder links, while assembler links stay capped at 5. Verify with tests: a sixth founder link passes `validate`, and a sixth assembler link fails.
+- [x] 6.3 Add `fixes-ingest <run> <decisions.json>`, which records one decision per fix and the final links. Verify with tests: one decision is kept for a shared fix with all its links, and an edit keeps the original text beside it.
 
 ## 7. Calibration pages and skills
 
