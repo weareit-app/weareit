@@ -58,9 +58,10 @@ None.
 
 ## Open questions
 
-1. Which pains is the pilot run on? The founder picks them once the pain sweep is merged.
+None open.
 
 Answered by the founder on 2026-10-20:
+- **Pilot pains:** Sleep, High rent, and Loneliness (`poor-sleep`, `rent-eats-everything`, and `loneliness`; see #100).
 - **Finalists and audit samples are dropped.** The founder reviews every dream and every fix, so the judges' ranking only orders the fix review list.
 - **Names and icons:** Ask (`message-circle-question`) and Use a resource (`life-buoy`). "Leave or switch" was two kinds in one, so it became the trial kinds Leave (`door-open`) and Switch (`arrow-left-right`).
 - **More than 5 fixes:** the assembler proposes 2–5 fixes per dream, but the founder's review may link more.

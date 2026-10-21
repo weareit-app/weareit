@@ -237,7 +237,10 @@ STAGE_DONE = {
     'screen': lambda run: (run / 'screen.json').is_file(),
     'assemble': lambda run: (run / 'links.json').is_file(),
     'judge': lambda run: (run / 'ranking.json').is_file(),  # select writes it after the panel's consensus
+    'fix-review': lambda run: fix_review_ingested(run),  # defined with the fix review, below
 }
+FOUNDER_STOPS = {'dream-review': ('dreams-review-build', 'dreams-ingest'),  # each stop's page build, then its ingest
+                 'fix-review': ('fixes-review-build', 'fixes-ingest')}
 
 
 BRIEFS = 'tools/possibilities/briefs/'
@@ -301,6 +304,9 @@ METHOD_FIELDS = {
 }
 # Statuses a kind is limited to (spec, "Honest status"). Other kinds take any status: kind and status stay separate.
 KIND_STATUSES = {'resource': ('existing_resource', 'real_now')}
+# A Feature's roadmap status (featureStatus in the content graph: idea, planned) is set only in the app, never by the
+# generator; a generated fix carries only its honest status (founder, 2026-10-20).
+NO_ROADMAP_STATUS = ': the generator never sets a roadmap status (featureStatus)'
 
 
 def is_staged(run):
@@ -314,7 +320,12 @@ def require_staged(run):
 
 
 def next_stage(run):
-    return next(s for s in STAGES if not STAGE_DONE.get(s, lambda _: False)(run))
+    """The first incomplete stage, or done once the fix review is ingested."""
+    return next((s for s in STAGES if not STAGE_DONE.get(s, lambda _: False)(run)), 'done')
+
+
+def stage_index(stage):
+    return len(STAGES) if stage == 'done' else STAGES.index(stage)
 
 
 def status(run):
@@ -341,8 +352,12 @@ def start(run, stage):
     if stage not in STAGES:
         raise ValueError('unknown stage %s; stages are %s' % (stage, ', '.join(STAGES)))
     pending = next_stage(run)
-    if STAGES.index(pending) < STAGES.index(stage):
+    if stage_index(pending) < STAGES.index(stage):
         raise ValueError('%s cannot start: %s is not complete' % (stage, pending))
+    if pending == 'done':
+        raise ValueError('%s cannot start: the fix review of %s is ingested, so the run is done' % (stage, run.name))
+    if stage in FOUNDER_STOPS:
+        raise ValueError('%s is a founder stop: run %s, then %s' % (stage, *FOUNDER_STOPS[stage]))
     if stage not in STAGE_BRIEFS:
         raise ValueError('%s is not built yet' % stage)
     result = {'run': run.name, 'stage': stage, 'brief': STAGE_BRIEFS[stage]}
@@ -354,6 +369,20 @@ def start(run, stage):
         result['kinds'] = {kind: kinds[kind] for kind in planned_kinds(run) if kind not in drafted_pools(run)}
         result['shared'] = shared_fixes(run)
     return result
+
+
+def record_stage_tokens(run, stage, tokens):
+    """finish-run --stage: one stage's tokens in tokensByStage (a rerun replaces them); tokens becomes their sum."""
+    require_staged(run)
+    if stage not in STAGES:
+        raise ValueError('unknown stage %s; stages are %s' % (stage, ', '.join(STAGES)))
+    if tokens is None:
+        raise ValueError('finish-run --stage needs --tokens')
+    meta = read(run / 'run.json')
+    meta['tokensByStage'] = {**(meta.get('tokensByStage') or {}), stage: tokens}
+    meta['tokens'] = sum(meta['tokensByStage'].values())
+    write(run / 'run.json', meta)
+    return meta
 
 
 # ---------- founder dream review ----------
@@ -470,6 +499,180 @@ def accepted_dreams(run):
     return {key: d for key, d in read(run / 'dreams.json')['dreams'].items() if key in keys}
 
 
+# ---------- founder fix review ----------
+
+# The words the review page shows (docs/style/copy-style-guide.md, "Kinds of fixes" and status labels).
+KIND_LABELS = {'feature': 'Feature', 'task': 'Task', 'schedule': 'Schedule', 'habit': 'Habit', 'practice': 'Practice',
+               'learn': 'Learn', 'project': 'Project', 'group': 'Group', 'new-group': 'New group', 'ask': 'Ask',
+               'resource': 'Use a resource', 'leave': 'Leave', 'switch': 'Switch', 'path': 'Path'}
+STATUS_LABELS = {'real_now': 'Real now', 'existing_resource': 'Existing resource',
+                 'proposed_it_feature': 'Something It could build', 'societal_proposal': "A change we'd make together"}
+FIX_DECISIONS = DREAM_DECISIONS  # an edit accepts the fix with the founder's wording
+FIX_WORDING = ('title', 'whatChanges', 'firstStep')  # the copy an edit may change; the drafted copy is kept beside it
+FIX_WORDING_TEXT = '%s, %s, and %s' % FIX_WORDING
+
+
+def has_fix_wording(value):
+    return isinstance(value, dict) and all(isinstance(value.get(f), str) and value[f].strip() for f in FIX_WORDING)
+
+
+def fix_review_ingested(run):
+    """True once fixes-ingest has made links.json the founder's final links."""
+    review = read(run / 'links.json').get('review') if (run / 'links.json').is_file() else None
+    return isinstance(review, dict) and bool(review.get('ingestedAt'))
+
+
+def rejected_fixes(fixes):
+    return {k for k, f in fixes.items() if isinstance(f, dict) and isinstance(f.get('review'), dict)
+            and f['review'].get('decision') == 'reject'}
+
+
+def reviewed_fix_order(run):
+    """Fixes on the founder's review: linked ones in ranking order (ranking.json fixOrder), then unlinked ones that
+    passed the screen. Screened-out fixes stay in the pool but aren't reviewed, because they can't be linked."""
+    fixes, links = read(run / 'fixes.json')['fixes'], read(run / 'links.json')['links']
+    order = read(run / 'ranking.json').get('fixOrder', [])
+    linked = {e['fixId'] for e in links}
+    if len(set(order)) != len(order) or set(order) != linked:
+        raise ValueError('ranking.json does not match links.json; run select again')
+    out = set(screened_out(run))
+    return order + sorted(k for k in fixes if k not in linked and k not in out)
+
+
+def fixes_review_build(run, root):
+    """Write reviews/fix-proposals.json and a static fix-review.html: one list in ranking order, each fix once."""
+    require_staged(run)
+    pending = next_stage(run)
+    if pending != 'fix-review':
+        raise ValueError('fix review cannot be built: next stage is %s' % pending)
+    issues = validate_run(run)
+    if issues:
+        raise ValueError('fix validation first: ' + '; '.join(issues))
+    meta, exemplars = read(run / 'run.json'), read(run / 'exemplars.json')['exemplars']
+    fixes, links, ranking = read(run / 'fixes.json')['fixes'], read(run / 'links.json')['links'], read(run / 'ranking.json')
+    accepted = accepted_dreams(run)
+    rank_of = {r['dreamId']: i for i, r in enumerate(ranking['ranking'])}
+    if set(rank_of) != set(accepted):
+        raise ValueError('ranking.json does not rank the accepted dreams; run select again')
+    dreams = [{'id': r['dreamId'], 'title': accepted[r['dreamId']]['title'], 'line': accepted[r['dreamId']]['line'],
+               'ambition': accepted[r['dreamId']]['ambition'], 'honestStatus': r['honestStatus']['pass']}
+              for r in ranking['ranking']]
+
+    def proposal(key):
+        f = fixes[key]
+        ref = f.get('exemplarRef')
+        example = {'id': ref, **{k: exemplars[ref].get(k) for k in ('name', 'place', 'year', 'outcome', 'limits')}} if ref in exemplars else None
+        own = sorted((e for e in links if e['fixId'] == key), key=lambda e: rank_of[e['dreamId']])
+        # writerNotes and provenance stay out; method and origin go in the collapsed note (spec, "Method fields per kind").
+        return {'id': key, **{k: f[k] for k in ('title', 'whatChanges', 'firstStep', 'firstStepMinutes', 'kind', 'status')},
+                'kindLabel': KIND_LABELS[f['kind']], 'statusLabel': STATUS_LABELS[f['status']],
+                'example': example, 'speculative': bool(f.get('speculative')),
+                'speculativeRationale': f.get('speculativeRationale'), 'featureIdea': f.get('featureIdea'),
+                'links': [{k: e.get(k) for k in ('dreamId', 'order', 'how', 'by')} for e in own],
+                'method': f.get('method', {}), 'origin': f['origin']}
+
+    proposals = [proposal(key) for key in reviewed_fix_order(run)]
+    set_id = review_set_id(run)
+    folder = run / 'reviews'
+    folder.mkdir(exist_ok=True)
+    write(folder / 'fix-proposals.json', {'schemaVersion': 1, 'setId': set_id, 'builtAt': now(), 'dreams': dreams,
+                                          'proposals': proposals})
+    page = {'setId': set_id, 'painName': meta.get('painName', meta['painId']), 'painLine': meta.get('painLine', ''),
+            'maxLinks': MAX_LINKS, 'dreams': dreams, 'proposals': proposals}
+    data = json.dumps(page, ensure_ascii=False).replace('</', '<\\/')
+    template = (config_root(root) / 'fix-review-page.template.html').read_text()
+    (folder / 'fix-review.html').write_text(template.replace('/*__DATA__*/', data))
+    return {'set': set_id, 'page': str((folder / 'fix-review.html').relative_to(data_root(root) / 'runs')),
+            'fixes': len(proposals), 'unlinked': sum(not p['links'] for p in proposals)}
+
+
+def fixes_ingest(run, decisions_path):
+    """Apply the founder's exported fix decisions: one decision per fix, edits beside the drafted copy, and the final
+    links, which replace the assembler's in links.json (removed links are kept under review.removed)."""
+    require_staged(run)
+    if fix_review_ingested(run):
+        raise ValueError('the fix review of %s was already ingested' % run.name)
+    if not (run / 'reviews/fix-proposals.json').is_file():
+        raise ValueError('no fix review was built for %s; run fixes-review-build first' % run.name)
+    export, fix_doc, link_doc = read(decisions_path), read(run / 'fixes.json'), read(run / 'links.json')
+    set_id, fixes, links = review_set_id(run), fix_doc['fixes'], link_doc['links']
+    if not isinstance(export, dict) or export.get('setId') != set_id:
+        raise ValueError('decisions are for %s, not %s' % (export.get('setId') if isinstance(export, dict) else None, set_id))
+    shown = {p['id']: p for p in read(run / 'reviews/fix-proposals.json')['proposals']}
+    order = reviewed_fix_order(run)
+
+    def drifted(key):
+        proposed = sorted((e['dreamId'], e['by']) for e in shown[key]['links'])
+        return (any(shown[key][f] != fixes[key][f] for f in FIX_WORDING)
+                or proposed != sorted((e['dreamId'], e['by']) for e in links if e['fixId'] == key))
+    changed = sorted(k for k in set(shown) | set(order) if k not in shown or k not in order or drifted(k))
+    if changed:
+        raise ValueError('fixes.json or links.json changed since the fix review page was built (%s); rebuild it with '
+                         'fixes-review-build' % ', '.join(changed))
+    decisions, issues = export.get('decisions'), []
+    if not isinstance(decisions, dict):
+        raise ValueError('decisions must be keyed by fix ID')
+    accepted = set(accepted_dreams(run))
+    issues += ['unknown fix %s' % key for key in sorted(set(decisions) - set(order))]
+    undecided = sorted(set(order) - set(decisions))
+    if undecided:
+        issues.append('undecided: ' + ', '.join(undecided))
+    for key, d in sorted(decisions.items()):
+        if not isinstance(d, dict) or d.get('decision') not in FIX_DECISIONS:
+            issues.append('%s: unknown decision %s' % (key, d.get('decision') if isinstance(d, dict) else d))
+            continue
+        if d['decision'] == 'edit' and not has_fix_wording(d.get('edit')):
+            issues.append('%s: an edit needs a %s' % (key, FIX_WORDING_TEXT))
+        chosen = d.get('links')
+        if not isinstance(chosen, list) or not all(isinstance(dream, str) for dream in chosen):
+            issues.append('%s: links must be a list of dream IDs' % key)
+            continue
+        issues += ['%s: %s is linked twice' % (key, dream) for dream in sorted({x for x in chosen if chosen.count(x) > 1})]
+        issues += ['%s: %s is not an accepted dream' % (key, dream) for dream in sorted(set(chosen) - accepted)]
+    if issues:
+        raise ValueError('; '.join(issues))
+    ingested = now()
+    for key, d in decisions.items():
+        fix = fixes[key]
+        review = {'decision': d['decision'], 'note': d.get('note', ''), 'decidedAt': d.get('decidedAt'), 'ingestedAt': ingested}
+        if d['decision'] == 'edit':
+            review['original'] = {f: fix[f] for f in FIX_WORDING}
+            fix.update({f: d['edit'][f].strip() for f in FIX_WORDING})
+        fix['review'] = review
+        fix['provenance']['reviewStatus'] = 'reviewed'
+    # Final links: a rejected fix keeps none. Within a dream, kept links stay in their order, and the founder's
+    # links follow in review order. The founder's links may take a dream past the assembler's 5.
+    wanted = {(key, dream) for key, d in decisions.items() if d['decision'] in ACCEPTED for dream in d['links']}
+    kept = [dict(e) for e in links if (e['fixId'], e['dreamId']) in wanted]
+    removed = [{**e, 'reason': 'rejected' if decisions[e['fixId']]['decision'] == 'reject' else 'unlinked'}
+               for e in links if (e['fixId'], e['dreamId']) not in wanted]
+    known = {(e['fixId'], e['dreamId']) for e in links}
+    added = [{'fixId': key, 'dreamId': dream, 'by': 'founder'}
+             for key in order for dream in decisions[key]['links'] if (key, dream) in wanted - known]
+    final = []
+    for dream in sorted({e['dreamId'] for e in kept + added}):
+        entries = sorted((e for e in kept if e['dreamId'] == dream), key=lambda e: e['order'])
+        entries += [e for e in added if e['dreamId'] == dream]
+        for n, entry in enumerate(entries, 1):
+            entry['order'] = n
+        final += entries
+    link_doc.update(links=final, review={'ingestedAt': ingested, 'removed': removed})
+    before = {name: (run / name).read_text() for name in ('fixes.json', 'links.json')}
+    write(run / 'fixes.json', fix_doc)
+    write(run / 'links.json', link_doc)
+    issues = validate_run(run)
+    if issues:
+        for name, text in before.items():
+            (run / name).write_text(text)
+        raise ValueError('the reviewed fixes do not validate: ' + '; '.join(issues))
+    # The export is kept in the run, so the decisions are committed with it, as with the dream review.
+    write(run / 'reviews/fixes-decisions.json', export)
+    counts = {dream: sum(e['dreamId'] == dream for e in final) for dream in sorted(accepted)}
+    return {'run': run.name, 'decisions': {k: sum(d['decision'] == k for d in decisions.values()) for k in FIX_DECISIONS},
+            'links': {'kept': len(kept), 'added': len(added), 'removed': len(removed)},
+            'dreamsUnderTwoFixes': [dream for dream, n in counts.items() if n < 2], 'next': next_stage(run)}
+
+
 # ---------- validation ----------
 
 def require(condition, message, issues):
@@ -529,6 +732,7 @@ def validate_cards(doc, exemplars, issues, generated=True):
                 require(f.get(field), fw + ': missing ' + field, issues)
             if generated:
                 require(f.get('status') in STATUSES, fw + ': unknown status', issues)
+                require('featureStatus' not in f, fw + NO_ROADMAP_STATUS, issues)
                 require(f.get('kind') in KINDS, fw + ': kind must be one of ' + ', '.join(KINDS), issues)
                 require((f.get('kind') == 'feature') == (f.get('status') == 'proposed_it_feature'),
                         fw + ': kind feature goes with status proposed_it_feature, and only with it', issues)
@@ -709,6 +913,7 @@ def validate_fixes(doc, exemplars, ceilings, accepted, issues, pain=None, kinds=
             require(f.get('draftedFor') in accepted, where + ': draftedFor must be an accepted dream', issues)
             require('proposedLinks' not in f, where + ': only a shared fix has proposedLinks', issues)
         require(f.get('status') in STATUSES, where + ': unknown status', issues)
+        require('featureStatus' not in f, where + NO_ROADMAP_STATUS, issues)
         require((kind == 'feature') == (f.get('status') == 'proposed_it_feature'),
                 where + ': kind feature goes with status proposed_it_feature, and only with it', issues)
         if kind in KIND_STATUSES:
@@ -726,6 +931,11 @@ def validate_fixes(doc, exemplars, ceilings, accepted, issues, pain=None, kinds=
         prov = f.get('provenance') if isinstance(f.get('provenance'), dict) else {}
         for field in ('sourceId', 'locator', 'evidenceType', 'rights', 'reviewStatus'):
             require(prov.get(field), where + ': provenance lacks ' + field, issues)
+        review = f.get('review')
+        if review is not None:
+            require(isinstance(review, dict) and review.get('decision') in FIX_DECISIONS, where + ': unknown review decision', issues)
+            if isinstance(review, dict) and review.get('decision') == 'edit':
+                require(has_fix_wording(review.get('original')), where + ': an edit keeps the original ' + FIX_WORDING_TEXT, issues)
     for kind, pool in sorted(pools.items()):
         if kind not in kinds:
             issues.append('pool %s: %s' % (kind, refused_kind(kind, kinds)))
@@ -794,6 +1004,8 @@ def validate_links(doc, fixes, passed, accepted, issues, pain=None):
     if not isinstance(links, list):
         return []
     accepted, seen, per_dream = accepted or set(), set(), {}
+    reviewed = isinstance(doc.get('review'), dict)  # fixes-ingest made these the founder's final links
+    rejected = rejected_fixes(fixes)
     for entry in links:
         entry = entry if isinstance(entry, dict) else {}
         fix, dream = entry.get('fixId'), entry.get('dreamId')
@@ -801,8 +1013,11 @@ def validate_links(doc, fixes, passed, accepted, issues, pain=None):
         require(fix in fixes, '%s: %s is not in fixes.json' % (where, fix), issues)
         require(passed is None or fix not in fixes or fix in passed, '%s: %s was screened out' % (where, fix), issues)
         require(dream in accepted, '%s: %s is not an accepted dream' % (where, dream), issues)
-        require(one_line(entry.get('how')) and len(SENTENCE.findall(entry['how'].strip())) <= 1,
-                where + ': how needs one sentence on how the fix helps', issues)
+        require(fix not in rejected, '%s: %s was rejected in the fix review' % (where, fix), issues)
+        # A link the founder adds in review may leave out how; the assembler always says it.
+        if entry.get('by') != 'founder' or entry.get('how') is not None:
+            require(one_line(entry.get('how')) and len(SENTENCE.findall(entry['how'].strip())) <= 1,
+                    where + ': how needs one sentence on how the fix helps', issues)
         require(entry.get('by') in LINK_AUTHORS, where + ': by must be ' + ' or '.join(LINK_AUTHORS), issues)
         require((fix, dream) not in seen, where + ' is listed twice', issues)
         seen.add((fix, dream))
@@ -810,8 +1025,9 @@ def validate_links(doc, fixes, passed, accepted, issues, pain=None):
     for dream in sorted(accepted):
         entries = per_dream.get(dream, [])
         by_assembler = sum(e.get('by') == 'assembler' for e in entries)
-        # The 2-5 limit is the assembler's; links the founder adds in review may go past 5 (spec, "Founder fix review").
-        require(len(entries) >= 2, 'dream %s: %d linked fix%s; the assembler links 2-%d'
+        # The 2-5 limit is the assembler's; links the founder adds in review may go past 5 (spec, "Founder fix review"),
+        # and once the review is ingested, the founder's final links may leave a dream with fewer than 2.
+        require(reviewed or len(entries) >= 2, 'dream %s: %d linked fix%s; the assembler links 2-%d'
                 % (dream, len(entries), '' if len(entries) == 1 else 'es', MAX_LINKS), issues)
         require(by_assembler <= MAX_LINKS, 'dream %s: %d assembler links; the assembler links 2-%d' % (dream, by_assembler, MAX_LINKS), issues)
         orders = [e.get('order') for e in entries]
@@ -879,7 +1095,12 @@ def validate_staged_run(run, judgments=True):
         passed = validate_screen(read(run / 'screen.json'), fixes, issues, pain)
     if (run / 'links.json').is_file():
         require((run / 'screen.json').is_file(), 'links.json needs screen.json', issues)
-        validate_links(read(run / 'links.json'), fixes, passed, accepted, issues, pain)
+        links = read(run / 'links.json')
+        validate_links(links, fixes, passed, accepted, issues, pain)
+        if isinstance(links.get('review'), dict):
+            require((run / 'ranking.json').is_file(), 'the fix review needs ranking.json', issues)
+            undecided = sorted(k for k in fixes if k in (passed or ()) and not isinstance(fixes[k].get('review'), dict))
+            require(not undecided, 'the fix review left fixes undecided (%s)' % ', '.join(undecided), issues)
     if judgments and (run / 'judgments.json').is_file():
         require((run / 'links.json').is_file(), 'judgments.json needs links.json', issues)
         validate_dream_judgments(read(run / 'judgments.json'), accepted or set(), fixes, issues, pain)
@@ -925,7 +1146,10 @@ def copy_patterns(root):
     boilerplate, modals = phrase_pattern(banned.get('boilerplate', [])), phrase_pattern(banned.get('softModals', []))
     regional_words = banned.get('regional', [])
     acronyms = [w for w in regional_words if w.isupper() or '-' in w]
-    regional = re.compile(r'\b(' + '|'.join(re.escape(w) for w in regional_words if w not in acronyms) + r')\b', re.I) if regional_words else None
+    # British words match in any case; an acronym matches as written, unless it may be spelled out in the text.
+    alternatives = ['(?i:%s)' % re.escape(w) for w in regional_words if w not in acronyms]
+    alternatives += [re.escape(w) for w in acronyms if w not in banned.get('spelledOutInText', [])]
+    regional = re.compile(r'\b(' + '|'.join(alternatives) + r')\b') if alternatives else None
     acronym_titles = re.compile(r'\b(' + '|'.join(re.escape(w) for w in acronyms) + r')\b') if acronyms else None
     return {'banned': banned, 'generic': generic, 'boilerplate': boilerplate, 'modals': modals,
             'regional': regional, 'acronymTitles': acronym_titles}
@@ -943,6 +1167,16 @@ def phrase_rules(field, text, patterns):
         yield 'boilerplate-caveat', '%s: "%s" (status labels carry this)' % (field, m[0])
 
 
+def soft_modals(patterns, *texts):
+    return [m[0] for text in texts for m in (patterns['modals'].finditer(text) if patterns['modals'] else ())]
+
+
+def hedge_rules(modal_hits):
+    """One plain limit per card, dream or fix (copy style guide); more is hedging."""
+    if len(modal_hits) > 1:
+        yield 'stacked-hedges', 'soft modals used %d times (%s); keep at most one plain limit' % (len(modal_hits), ', '.join(modal_hits))
+
+
 # A kind's method written out as copy: a job story, or an if-then plan (spec, "Copy"). Method fields hold these.
 TEMPLATE_COPY = re.compile(r'\bWhen I\b[^.!?]*\bI want\b'
                            r'|\b(When|Whenever|Once|After|Before|If)\b[^.!?]*,\s*(then\s+)?I(\s+will|’ll|\'ll)\b', re.I)
@@ -956,10 +1190,25 @@ def title_words(title):
     return {w for w in re.findall(r"[a-z0-9’']+", (title or '').lower())} - TITLE_FILLER
 
 
-def lint_staged_fixes(fixes, add_fix):
+COPY_FIELDS = ('title', 'whatChanges', 'firstStep')
+
+
+def lint_staged_fixes(fixes, add_fix, exemplars, patterns):
+    allowed, known = set(patterns['banned'].get('allowedTerms', [])), known_places(exemplars)
+    # Validate reports copy of the wrong type; lint reads it as empty rather than crash.
+    fixes = {key: dict(f, **{field: f[field] if isinstance(f.get(field), str) else '' for field in COPY_FIELDS})
+             for key, f in fixes.items()}
     for key, f in sorted(fixes.items()):
-        for field in ('title', 'whatChanges', 'firstStep'):
-            m = TEMPLATE_COPY.search(f.get(field) or '')
+        for rule, detail in fix_copy_rules(f, patterns):
+            add_fix(key, rule, detail)
+        # A staged fix stands alone, so it gets the one plain limit a card shared across its fixes.
+        for rule, detail in hedge_rules(soft_modals(patterns, f.get('title', ''), f.get('whatChanges', ''))):
+            add_fix(key, rule, detail)
+        ref = f.get('exemplarRef')
+        for rule, detail in fix_sourcing_rules(f, exemplars.get(ref) if isinstance(ref, str) else None, allowed, known):
+            add_fix(key, rule, detail)
+        for field in COPY_FIELDS:
+            m = TEMPLATE_COPY.search(f[field])
             if m:
                 add_fix(key, 'template-copy', '%s: "%s…" is a method template; keep the method in its fields and say what changes'
                         % (field, m[0][:40]))
@@ -982,7 +1231,7 @@ def lint_staged_run(run, root):
         issues.append({'fixId': fix, 'rule': rule, 'detail': detail})
 
     patterns = copy_patterns(root)
-    modals, regional, acronym_titles = patterns['modals'], patterns['regional'], patterns['acronymTitles']
+    regional, acronym_titles = patterns['regional'], patterns['acronymTitles']
     for key, d in dreams.items():
         copy = {'title': d.get('title', ''), 'line': d.get('line', '')}
         for rule, detail in dream_rules(copy['title'], copy['line']):
@@ -994,12 +1243,13 @@ def lint_staged_run(run, root):
                 add(key, 'regional-word', '%s: "%s" (use the everyday American word)' % (field, m[0]))
         for m in acronym_titles.finditer(copy['title']) if acronym_titles else ():
             add(key, 'acronym-in-title', '"%s" in a title; spell it out or rephrase' % m[0])
-        modal_hits = [m[0] for text in copy.values() for m in (modals.finditer(text) if modals else ())]
-        if len(modal_hits) > 1:
-            add(key, 'stacked-hedges', 'soft modals used %d times (%s); keep at most one plain limit' % (len(modal_hits), ', '.join(modal_hits)))
+        for rule, detail in hedge_rules(soft_modals(patterns, *copy.values())):
+            add(key, rule, detail)
     fixes = read(run / 'fixes.json').get('fixes') if (run / 'fixes.json').is_file() else {}
     fixes = {key: f for key, f in fixes.items() if isinstance(f, dict)} if isinstance(fixes, dict) else {}
-    lint_staged_fixes(fixes, add_fix)
+    exemplars = read(run / 'exemplars.json').get('exemplars') if (run / 'exemplars.json').is_file() else {}
+    exemplars = {key: e for key, e in exemplars.items() if isinstance(e, dict)} if isinstance(exemplars, dict) else {}
+    lint_staged_fixes(fixes, add_fix, exemplars, patterns)
     # Coverage is across accepted dreams once the review is in (spec, "Coverage per pain"); before it, the drafted ones.
     accepted = reviewed_dreams(run)
     covered = {key: d for key, d in dreams.items() if accepted is None or key in accepted}
@@ -1014,7 +1264,8 @@ def lint_staged_run(run, root):
     # Basics and It-led coverage need linked fixes, so they wait for the assembler. No kind has a minimum.
     if (run / 'links.json').is_file():
         # A link to a screened-out fix fails validate; coverage leaves it out too.
-        linkable = set(fixes) - set(screened_out(run))
+        # After the fix review, links.json holds the founder's final links, and rejected fixes lose theirs.
+        linkable = set(fixes) - set(screened_out(run)) - rejected_fixes(fixes)
         links = [e for e in read(run / 'links.json').get('links', []) if isinstance(e, dict)
                  and isinstance(e.get('dreamId'), str) and e['dreamId'] in covered
                  and isinstance(e.get('fixId'), str) and e['fixId'] in linkable]
@@ -1034,18 +1285,87 @@ def lint_staged_run(run, root):
     return result
 
 
+def known_places(exemplars):
+    """Places named by any exemplar in the run: a sentence that opens with one still needs its own source."""
+    names = {w.strip('.,()’\'') for e in exemplars.values() for w in re.split(r'[\s,/]+', e.get('place') or '')}
+    return {w for w in names if len(w) > 2 and w[:1].isupper()} - {'The', 'United', 'States', 'City', 'County', 'One', 'Two', 'Three', 'Several', 'Many', 'Some', 'Most', 'Large', 'Small'}
+
+
+def fix_copy_rules(f, patterns, card_copy=None):
+    """(rule, detail) for one fix's wording, shared by cards and staged fixes. A card's fix is also checked with the
+    card's own title and line (card_copy), since they show together."""
+    card_copy = card_copy or {}
+    title, text, first_step = f.get('title', ''), f.get('whatChanges', ''), f.get('firstStep', '')
+    fields = [('fix title', title), ('whatChanges', text), ('firstStep', first_step)]
+    for field, value in list(card_copy.items()) + fields:
+        yield from phrase_rules(field, value, patterns)
+    if len(SENTENCE.findall(text.strip())) > 3:
+        yield 'fix-text-length', 'fix text should be 1-3 sentences'
+    regional, acronym_titles = patterns['regional'], patterns['acronymTitles']
+    for field, value in fields + ([('line', card_copy['line'])] if 'line' in card_copy else []):
+        for m in regional.finditer(value) if regional else ():
+            yield 'regional-word', '%s: "%s" (use the everyday American word)' % (field, m[0])
+    for m in acronym_titles.finditer(title + ' ' + card_copy.get('title', '')) if acronym_titles else ():
+        yield 'acronym-in-title', '"%s" in a title; spell it out or rephrase' % m[0]
+    learnish = re.match(r'(Learn|Read|Know|Understand|Study|Find out)\b', title)
+    if learnish and f.get('kind') not in ('feature', 'learn'):
+        yield 'not-an-action', 'fix title "%s" asks the reader to learn; if it gives a usable skill or knowledge make it kind learn, otherwise say what they do with it' % title[:40]
+    elif f.get('kind') == 'learn' and ABOUT_OTHERS.search(title):
+        yield 'learn-about-others', 'Learn fix "%s" is about someone else\'s example; turn it into what the reader does, with the example in the text' % title[:40]
+
+
+def fix_sourcing_rules(f, ex, allowed, known):
+    """(rule, detail) for one fix's sourcing and how it talks about It, shared by cards and staged fixes. ex is its cited
+    exemplar, if any."""
+    # Every number and proper noun in the fix copy must appear in the cited exemplar record.
+    claim_text = f.get('title', '') + '. ' + f.get('whatChanges', '')
+    found = details(claim_text, allowed, known)
+    if f.get('speculative') or not ex:
+        missing = sorted(found['names'])
+        if missing:
+            yield 'unsourced-detail', 'speculative fix names %s with no opened source; cite a verified exemplar or remove the name' % ', '.join(missing)
+    else:
+        source = ' '.join(str(ex.get(k) or '') for k in ('name', 'place', 'year', 'outcome', 'locator', 'limits', 'url')).lower()
+        source_digits = source.replace(',', '')
+        missing = [n for n in sorted(found['numbers']) if n not in source_digits]
+        missing += [w for w in sorted(found['names']) if w.lower() not in source]
+        if missing:
+            yield 'unsourced-detail', 'not in exemplar %s: %s. Add it to the exemplar record from the opened source, or remove it' % (f['exemplarRef'], ', '.join(missing))
+    if ex:
+        names = {w.strip('.,’\'') for w in (ex.get('name', '') + ' ' + (ex.get('place') or '')).split()}
+        names = {w for w in names if len(w) > 2 and w[0].isupper() and w.lower() not in ('the', 'and', 'city', 'law')}
+        hit = [w for w in names if re.search(r'\b' + re.escape(w) + r'\b', f.get('title', ''))]
+        if hit:
+            yield 'title-assumes-example', 'title names the example (%s); describe the action, introduce the example in the text' % ', '.join(sorted(hit))
+    if not f.get('speculative'):
+        if ex and not ex.get('verified'):
+            yield 'unverified-example', 'cites unverified exemplar %s; open the source or mark speculative' % f['exemplarRef']
+        text = ' '.join([f.get('title', ''), f.get('whatChanges', ''), (ex or {}).get('name', '')])
+        if not is_specific(text):
+            yield 'not-specific', 'no proper noun or number in title, whatChanges or example'
+    feature = f.get('kind') == 'feature' or f.get('status') == 'proposed_it_feature'
+    for sentence in re.split(r'(?<=[.!?])\s+', f.get('whatChanges', '')):
+        starts = re.match(r'It(’s|\'s)?\b\s*(\w+)?', sentence)
+        if starts and feature:
+            yield 'feature-pitch', 'feature text starts with "%s"; the Feature tag already says It would build this. Describe the behavior, verb first ("Shows…", "Finds…")' % sentence[:24]
+        elif starts:
+            yield 'ambiguous-it', 'sentence starts with "%s"; readers may take it for the product. Name the thing instead' % sentence[:24]
+    if feature and re.search(r',? with It\b|\bIt\b', f.get('title', '')):
+        yield 'feature-pitch', 'feature title mentions It; the Feature tag carries that'
+    if f.get('status') == 'proposed_it_feature' and BUILT_CLAIM.search(f.get('title', '') + ' ' + f.get('whatChanges', '')):
+        yield 'built-claim', 'proposed It feature described in present tense; say what It could do'
+
+
 def lint_run(run, root):
     if is_staged(Path(run)):
         return lint_staged_run(Path(run), root)
     run, ex_doc, card_doc = load_run(run)
     patterns = copy_patterns(root)
-    banned, modals, regional, acronym_titles = (patterns[k] for k in ('banned', 'modals', 'regional', 'acronymTitles'))
+    banned = patterns['banned']
     it_ideas = basics = 0
     allowed = set(banned.get('allowedTerms', []))
     exemplars = ex_doc.get('exemplars', {})
-    # Places named by any exemplar in the run: a sentence that opens with one still needs its own source.
-    known_names = {w.strip('.,()’\'') for e in exemplars.values() for w in re.split(r'[\s,/]+', e.get('place') or '')}
-    known_names = {w for w in known_names if len(w) > 2 and w[:1].isupper()} - {'The', 'United', 'States', 'City', 'County', 'One', 'Two', 'Three', 'Several', 'Many', 'Some', 'Most', 'Large', 'Small'}
+    known_names = known_places(exemplars)
     issues = []
 
     def add(card, rule, detail, fix=None):
@@ -1057,68 +1377,16 @@ def lint_run(run, root):
             add(key, rule, detail)
         modal_hits = []
         for f in c.get('fixes', []):
-            fix_copy = {'fix title': f.get('title', ''), 'whatChanges': f.get('whatChanges', '')}
-            for field, text in list(copy.items()) + list(fix_copy.items()) + [('firstStep', f.get('firstStep', ''))]:
-                for rule, detail in phrase_rules(field, text, patterns):
-                    add(key, rule, detail, f.get('id'))
-            for text in [f.get('title', ''), f.get('whatChanges', '')]:
-                modal_hits += [m[0] for m in modals.finditer(text)] if modals else []
-            if len(SENTENCE.findall(f.get('whatChanges', '').strip())) > 3:
-                add(key, 'fix-text-length', 'fix text should be 1-3 sentences', f.get('id'))
-            for field, text in [('fix title', f.get('title', '')), ('whatChanges', f.get('whatChanges', '')), ('firstStep', f.get('firstStep', '')), ('line', copy['line'])]:
-                for m in regional.finditer(text) if regional else ():
-                    add(key, 'regional-word', '%s: "%s" (use the everyday American word)' % (field, m[0]), f.get('id'))
-            for m in acronym_titles.finditer(f.get('title', '') + ' ' + copy['title']) if acronym_titles else ():
-                add(key, 'acronym-in-title', '"%s" in a title; spell it out or rephrase' % m[0], f.get('id'))
-            learnish = re.match(r'(Learn|Read|Know|Understand|Study|Find out)\b', f.get('title', ''))
-            if learnish and f.get('kind') not in ('feature', 'learn'):
-                add(key, 'not-an-action', 'fix title "%s" asks the reader to learn; if it gives a usable skill or knowledge make it kind learn, otherwise say what they do with it' % f['title'][:40], f.get('id'))
-            elif f.get('kind') == 'learn' and ABOUT_OTHERS.search(f.get('title', '')):
-                add(key, 'learn-about-others', 'Learn fix "%s" is about someone else\'s example; turn it into what the reader does, with the example in the text' % f['title'][:40], f.get('id'))
+            for rule, detail in fix_copy_rules(f, patterns, copy):
+                add(key, rule, detail, f.get('id'))
+            modal_hits += soft_modals(patterns, f.get('title', ''), f.get('whatChanges', ''))
             it_ideas += f.get('status') == 'proposed_it_feature'
             basics += c.get('ambition') == 'tonight' and f.get('status') in ('real_now', 'existing_resource')
             ex = exemplars.get(f.get('exemplarRef'))
-            # Every number and proper noun in the fix copy must appear in the cited exemplar record.
-            claim_text = f.get('title', '') + '. ' + f.get('whatChanges', '')
-            found = details(claim_text, allowed, known_names)
-            if f.get('speculative') or not ex:
-                missing = sorted(found['names'])
-                if missing:
-                    add(key, 'unsourced-detail', 'speculative fix names %s with no opened source; cite a verified exemplar or remove the name' % ', '.join(missing), f.get('id'))
-            else:
-                source = ' '.join(str(ex.get(k) or '') for k in ('name', 'place', 'year', 'outcome', 'locator', 'limits', 'url')).lower()
-                source_digits = source.replace(',', '')
-                missing = [n for n in sorted(found['numbers']) if n not in source_digits]
-                missing += [w for w in sorted(found['names']) if w.lower() not in source]
-                if missing:
-                    add(key, 'unsourced-detail', 'not in exemplar %s: %s. Add it to the exemplar record from the opened source, or remove it' % (f['exemplarRef'], ', '.join(missing)), f.get('id'))
-            if ex:
-                names = {w.strip('.,’\'') for w in (ex.get('name', '') + ' ' + (ex.get('place') or '')).split()}
-                names = {w for w in names if len(w) > 2 and w[0].isupper() and w.lower() not in ('the', 'and', 'city', 'law')}
-                hit = [w for w in names if re.search(r'\b' + re.escape(w) + r'\b', f.get('title', ''))]
-                if hit:
-                    add(key, 'title-assumes-example', 'title names the example (%s); describe the action, introduce the example in the text' % ', '.join(sorted(hit)), f.get('id'))
-            if not f.get('speculative'):
-                if ex and not ex.get('verified'):
-                    add(key, 'unverified-example', 'cites unverified exemplar %s; open the source or mark speculative' % f['exemplarRef'], f.get('id'))
-                text = ' '.join([f.get('title', ''), f.get('whatChanges', ''), (ex or {}).get('name', '')])
-                if not is_specific(text):
-                    add(key, 'not-specific', 'no proper noun or number in title, whatChanges or example', f.get('id'))
-            feature = f.get('kind') == 'feature' or f.get('status') == 'proposed_it_feature'
-            for sentence in re.split(r'(?<=[.!?])\s+', f.get('whatChanges', '')):
-                starts = re.match(r'It(’s|\'s)?\b\s*(\w+)?', sentence)
-                if starts and feature:
-                    add(key, 'feature-pitch', 'feature text starts with "%s"; the Feature tag already says It would build this. Describe the behavior, verb first ("Shows…", "Finds…")' % sentence[:24], f.get('id'))
-                elif starts:
-                    add(key, 'ambiguous-it', 'sentence starts with "%s"; readers may take it for the product. Name the thing instead' % sentence[:24], f.get('id'))
-            if feature and re.search(r',? with It\b|\bIt\b', f.get('title', '')):
-                add(key, 'feature-pitch', 'feature title mentions It; the Feature tag carries that', f.get('id'))
-            if f.get('status') == 'proposed_it_feature' and BUILT_CLAIM.search(f.get('title', '') + ' ' + f.get('whatChanges', '')):
-                add(key, 'built-claim', 'proposed It feature described in present tense; say what It could do', f.get('id'))
-        for m in modals.finditer(copy['line']) if modals else ():
-            modal_hits.append(m[0])
-        if len(modal_hits) > 1:
-            add(key, 'stacked-hedges', 'soft modals used %d times (%s); keep at most one plain limit' % (len(modal_hits), ', '.join(modal_hits)))
+            for rule, detail in fix_sourcing_rules(f, ex, allowed, known_names):
+                add(key, rule, detail, f.get('id'))
+        for rule, detail in hedge_rules(modal_hits + soft_modals(patterns, copy['line'])):
+            add(key, rule, detail)
     lenses = sorted({c.get('lens') for c in card_doc['cards'].values()})
     ambitions = sorted({c.get('ambition') for c in card_doc['cards'].values()})
     if len(lenses) < 4:
@@ -1147,8 +1415,10 @@ JUDGED_DREAM_FIELDS = ('title', 'line', 'lens', 'ambition', 'exemplarRefs')
 def judged_dreams(run):
     """Each accepted dream with its linked fixes in link order. A fix linked to several dreams is repeated under each."""
     pending = next_stage(run)
-    if STAGES.index(pending) < STAGES.index('judge'):
+    if stage_index(pending) < STAGES.index('judge'):
         raise ValueError('judging cannot start: %s is not complete' % pending)
+    if pending == 'done':
+        raise ValueError('judging cannot start: the fix review of %s is ingested, so the run is done' % run.name)
     issues = validate_staged_run(run, judgments=False)  # judgments.json is what the panel is about to replace
     if issues:
         raise ValueError('fix validation first: ' + '; '.join(issues))
@@ -1159,7 +1429,8 @@ def judged_dreams(run):
         judged[key]['fixes'] = []
         for entry in sorted((e for e in links if e['dreamId'] == key), key=lambda e: e['order']):
             fix = fixes[entry['fixId']]
-            judged[key]['fixes'].append({'id': entry['fixId'], **{f: fix[f] for f in JUDGED_FIX_FIELDS if f in fix}, 'how': entry['how']})
+            judged[key]['fixes'].append({'id': entry['fixId'], **{f: fix[f] for f in JUDGED_FIX_FIELDS if f in fix},
+                                         'how': entry.get('how', '')})
     return judged
 
 
@@ -1343,16 +1614,22 @@ def consensus(run):
 
 # ---------- calibration and audit ----------
 
-def latest_run(root, pain, require_selection=True):
+def is_selected(run):
+    return (run / 'selection.json').is_file() or (run / 'ranking.json').is_file()
+
+
+def latest_run(root, pain, require_selection=True, staged=None):
+    """A pain's newest run; staged=True or False keeps only staged runs or only card runs."""
     folder = data_root(root) / 'runs' / pain
     runs = sorted(p for p in folder.iterdir() if p.is_dir()) if folder.is_dir() else []
-    runs = [r for r in runs if (r / 'selection.json').is_file()] if require_selection else runs
+    runs = [r for r in runs if (not require_selection or is_selected(r)) and (staged is None or is_staged(r) == staged)]
     if not runs:
-        raise FileNotFoundError('No selected run for ' + pain)
+        raise FileNotFoundError('No selected %srun for %s' % ({True: 'staged ', False: 'card '}.get(staged, ''), pain))
     return runs[-1]
 
 
 def item_from(card, exemplars, pain_line, pain_name=''):
+    """A rating item: a dream (a card's title and line, or a staged dream's) with its fixes in order. Holds nothing that names its flow."""
     fixes = []
     for f in card['fixes']:
         e = exemplars.get(f.get('exemplarRef') or '')
@@ -1361,21 +1638,52 @@ def item_from(card, exemplars, pain_line, pain_name=''):
             bits = [e.get('name'), e.get('place'), str(e['year']) if e.get('year') else None, e.get('outcome')]
             example = ' · '.join(b for b in bits if b)
         fixes.append({'title': f['title'], 'whatChanges': f['whatChanges'], 'example': example, 'firstStep': f.get('firstStep'),
-                      'kind': f.get('kind'), 'featureIdea': f.get('featureIdea')})
+                      'kind': f.get('kind'), 'featureIdea': f.get('featureIdea'), 'status': f.get('status')})
     return {'painName': pain_name, 'painLine': pain_line, 'title': card['title'], 'line': card['line'], 'fixes': fixes}
 
 
+def run_entries(run):
+    """A selected run's rateable dreams, best first, as (role, source, dream).
+    A card run gives its finalists, then its audit sample (roles 'finalist' and 'sample'), with source {'sourceCardId'}.
+    A staged run has no finalists or sample (founder, 2026-10-20): it gives every ranked dream that passed honest status
+    (role 'ranked') with its linked fixes in link order, with source {'sourceDreamId'}."""
+    if is_staged(run):
+        fixes = read(run / 'fixes.json')['fixes']
+        judged = judged_dreams(run)
+        return [('ranked', {'sourceDreamId': r['dreamId']},
+                 {**judged[r['dreamId']], 'fixes': [fixes[f['id']] for f in judged[r['dreamId']]['fixes']]})
+                for r in read(run / 'ranking.json')['ranking'] if r['honestStatus']['pass']]
+    selection, card_map = read(run / 'selection.json'), read(run / 'cards.json')['cards']
+    return [('finalist' if k in selection['finalists'] else 'sample', {'sourceCardId': k}, card_map[k])
+            for k in selection['finalists'] + selection['auditSample']]
+
+
+def top_entries(run, n):
+    """The judges' best n: a card run's finalists, or a staged run's top-ranked dreams."""
+    return [(source, dream) for role, source, dream in run_entries(run) if role != 'sample'][:n]
+
+
+def source_id(entry):
+    """The card or dream a key entry points at."""
+    return entry.get('sourceDreamId') or entry.get('sourceCardId')
+
+
+def source_ref(entry):
+    """A key entry's source as a rating row names it: {'dreamId'} for a staged item, {'cardId'} otherwise."""
+    return {'dreamId': entry['sourceDreamId']} if 'sourceDreamId' in entry else {'cardId': entry['sourceCardId']}
+
+
 def build_items(root, entries, seed, prefix):
-    """entries: (origin, painId, cardId, runId|None, card, exemplars, heldOut)."""
+    """entries: (origin, painId, source, runId|None, dream, exemplars, heldOut); source is {'sourceCardId'} or {'sourceDreamId'}."""
     inventory = pains(root)
     order = list(entries)
     random.Random(seed).shuffle(order)
     items, key = [], {}
-    for index, (origin, pain, card_id, run_id, card, exemplars, held) in enumerate(order, 1):
+    for index, (origin, pain, source, run_id, dream, exemplars, held) in enumerate(order, 1):
         item_id = '%s%02d' % (prefix, index)
         info = inventory.get(pain, {})
-        items.append({'id': item_id, **item_from(card, exemplars, info.get('line', pain), info.get('name', pain))})
-        key[item_id] = {'origin': origin, 'painId': pain, 'sourceCardId': card_id, 'runId': run_id, 'heldOut': held}
+        items.append({'id': item_id, **item_from(dream, exemplars, info.get('line', pain), info.get('name', pain))})
+        key[item_id] = {'origin': origin, 'painId': pain, **source, 'runId': run_id, 'heldOut': held}
     return {'schemaVersion': 1, 'seed': seed, 'items': items}, key
 
 
@@ -1391,13 +1699,12 @@ def calibrate_build(root, seed=20261017, per_pain_new=3):
     for pain in KNOWN_PAINS:
         old = sorted(k for k, c in baseline['cards'].items() if c['painId'] == pain)
         run = latest_run(root, pain)
-        selection, cards = read(run / 'selection.json'), read(run / 'cards.json')['cards']
         exemplars = read(run / 'exemplars.json')['exemplars']
-        new = selection['finalists'][:per_pain_new]
+        new = top_entries(run, per_pain_new)
         held_old = set(rng.sample(old, min(1, len(old))))
-        held_new = set(rng.sample(new, min(rng.choice((1, 2)), len(new))))
-        entries += [('old', pain, k, None, baseline['cards'][k], {}, k in held_old) for k in old]
-        entries += [('new', pain, k, run.name, cards[k], exemplars, k in held_new) for k in new]
+        held_new = set(rng.sample(range(len(new)), min(rng.choice((1, 2)), len(new))))
+        entries += [('old', pain, {'sourceCardId': k}, None, baseline['cards'][k], {}, k in held_old) for k in old]
+        entries += [('new', pain, source, run.name, dream, exemplars, i in held_new) for i, (source, dream) in enumerate(new)]
     items, key = build_items(root, entries, seed, 'c')
     write(cal / 'set.json', items)
     write(cal / 'key.json', key)
@@ -1422,7 +1729,8 @@ def calibrate_ingest(root, export_path):
     ratings = validate_ratings(read(export_path), key)
     write(cal / 'ratings.json', {'schemaVersion': 1, 'rater': 'founder', 'context': 'calibration', 'ratings': ratings})
     set_items = {i['id']: i for i in read(cal / 'set.json')['items']}
-    rows = [{'id': k, 'rating': r['rating'], 'reason': r.get('reason'), 'item': set_items[k], 'painId': key[k]['painId']}
+    rows = [{'id': k, 'rating': r['rating'], 'reason': r.get('reason'), 'item': set_items[k], 'painId': key[k]['painId'],
+             **source_ref(key[k])}
             for k, r in sorted(ratings.items()) if r['rating'] != 'skip']
     anchors = [r for r in rows if not key[r['id']]['heldOut']]
     write(cal / 'anchors.json', {'schemaVersion': 1, 'anchors': anchors})
@@ -1436,17 +1744,197 @@ def audit_build(root, runs, seed=20261018):
     entries = []
     for run in runs:
         run = Path(run)
-        cards_doc = read(run / 'cards.json')
-        selection, exemplars = read(run / 'selection.json'), read(run / 'exemplars.json')['exemplars']
-        for k in selection['finalists'] + selection['auditSample']:
-            origin = 'finalist' if k in selection['finalists'] else 'sample'
-            entries.append((origin, cards_doc['painId'], k, run.name, cards_doc['cards'][k], exemplars, False))
+        pain = read(run / ('run.json' if is_staged(run) else 'cards.json'))['painId']
+        exemplars = read(run / 'exemplars.json')['exemplars']
+        for role, source, dream in run_entries(run):
+            entries.append((role, pain, source, run.name, dream, exemplars, False))
     items, key = build_items(root, entries, seed, 'a')
     out = data_root(root) / 'evaluations/generator-2026-10'
     out.mkdir(parents=True, exist_ok=True)
     write(out / 'audit-set.json', items)
     write(out / 'audit-key.json', key)
     return {'items': len(items['items'])}
+
+
+# ---------- pilot comparison ----------
+
+PILOT_OUT = 'evaluations/pilot-2026-10'
+
+
+def assembler_links(run):
+    """links.json as the assembler left it, before the founder's fix review: the assembler's links in their first order.
+    fixes-ingest renumbers the links it keeps and moves the others, with their first order, to review.removed."""
+    doc = read(run / 'links.json')
+    removed = [e for e in (doc.get('review') or {}).get('removed', []) if e.get('by') == 'assembler']
+    kept = [e for e in doc['links'] if e.get('by') == 'assembler']
+    links = []
+    for dream in sorted({e['dreamId'] for e in kept + removed}):
+        gone = {e['order']: e for e in removed if e['dreamId'] == dream}
+        stay = sorted((e for e in kept if e['dreamId'] == dream), key=lambda e: e['order'])
+        slots = range(1, len(gone) + len(stay) + 1)
+        if len(gone) != sum(e['dreamId'] == dream for e in removed) or not set(gone) <= set(slots):
+            raise ValueError('cannot rebuild the assembler\'s links for %s: review.removed orders clash or run past %d'
+                             % (dream, len(slots)))
+        stay = iter(stay)
+        for n in slots:
+            entry = gone[n] if n in gone else next(stay)
+            links.append({**{k: v for k, v in entry.items() if k != 'reason'}, 'order': n})
+    return links
+
+
+def drafted(record):
+    """A dream or fix in its drafted wording: a founder's edit is undone from review.original."""
+    return {**record, **((record.get('review') or {}).get('original') or {})}
+
+
+def machine_entries(run):
+    """What a run's own flow shows before any founder fix review, best first, as (source, dream).
+    A card run gives its finalists. A staged run gives each ranked dream that passed honest status, in its drafted
+    wording, with the assembler's links and the drafted fix wording (founder, 2026-10-20: both sides are machine output).
+    The dream review still decides which dreams are in, as selection does for cards."""
+    if not is_staged(run):
+        selection, card_map = read(run / 'selection.json'), read(run / 'cards.json')['cards']
+        return [({'sourceCardId': k}, card_map[k]) for k in selection['finalists']]
+    fixes, dreams = read(run / 'fixes.json')['fixes'], accepted_dreams(run)
+    links = assembler_links(run)
+    return [({'sourceDreamId': r['dreamId']},
+             {**drafted(dreams[r['dreamId']]), 'fixes': [drafted(fixes[e['fixId']]) for e in
+                                                 sorted((e for e in links if e['dreamId'] == r['dreamId']), key=lambda e: e['order'])]})
+            for r in read(run / 'ranking.json')['ranking'] if r['honestStatus']['pass']]
+
+
+def compare_build(root, pilot_pains, seed=20261020):
+    """A blind set pairing each pilot pain's newest card run (old) with its newest staged run (new); the key is kept apart."""
+    stale_runs = {s['run']: s for s in stale(root)['stale']}
+    entries = []
+    for pain in pilot_pains:
+        for origin, staged in (('old', False), ('new', True)):
+            run = latest_run(root, pain, staged=staged)
+            found = stale_runs.get(str(run.relative_to(root)))
+            if found:
+                # Both sides must answer the same pain text (design, "Pilot comparison"): rerun the old flow first.
+                raise ValueError('%s is stale: %s%s; rerun it on the current wording first' % (
+                    found['run'], found['reason'], ' (%r, now %r)' % (found['old']['line'], found['new']['line']) if 'old' in found else ''))
+            exemplars = read(run / 'exemplars.json')['exemplars']
+            entries += [(origin, pain, source, run.name, dream, exemplars, False) for source, dream in machine_entries(run)]
+    items, key = build_items(root, entries, seed, 'p')
+    out = data_root(root) / PILOT_OUT
+    out.mkdir(parents=True, exist_ok=True)
+    write(out / 'compare-set.json', items)
+    write(out / 'compare-key.json', key)
+    return {'items': len(items['items']), 'old': sum(v['origin'] == 'old' for v in key.values()),
+            'new': sum(v['origin'] == 'new' for v in key.values())}
+
+
+RATING_POINTS = {'love': 2, 'keep': 1, 'kill': 0}  # skip has no points and is left out of the mean
+PAUSE_MINUTES = 10  # a longer gap between two decisions is a break, not review time
+
+
+def moment(stamp):
+    return datetime.datetime.fromisoformat(stamp.replace('Z', '+00:00'))
+
+
+def gaps(stamps):
+    """Minutes before each decision after the first, in time order; a break counts as nothing."""
+    times = sorted(moment(t) for t in stamps)
+    minutes = [(b - a).total_seconds() / 60 for a, b in zip(times, times[1:])]
+    return [m if m <= PAUSE_MINUTES else 0 for m in minutes]
+
+
+def page_minutes(stamps):
+    """Review time on one page from its decidedAt stamps, or None when the page has none to time."""
+    stamps = [t for t in stamps if t]
+    return round(sum(gaps(stamps)), 1) if len(stamps) >= 2 else None
+
+
+def staged_review_minutes(run):
+    """The founder's time on a staged run's dream review and fix review, or None if either can't be timed."""
+    dreams = [(d.get('review') or {}).get('decidedAt') for d in read(run / 'dreams.json')['dreams'].values()]
+    fixes = [(f.get('review') or {}).get('decidedAt') for f in read(run / 'fixes.json')['fixes'].values()]
+    pages = [page_minutes(dreams), page_minutes(fixes)]
+    return None if None in pages else sum(pages)
+
+
+def item_minutes(ratings):
+    """Time spent on each rated item: the gap since the rating before it on the page (the first item counts nothing)."""
+    order = sorted((moment(r['ratedAt']), k) for k, r in ratings.items() if r.get('ratedAt'))
+    spent = gaps([r['ratedAt'] for r in ratings.values() if r.get('ratedAt')])
+    return {k: m for (_, k), m in zip(order[1:], spent)}
+
+
+def fill_rate(run):
+    """Kind fixes drafted against the plan's ceilings, as the mean share of each ceiling above zero that was filled
+    (design, "Risks": the report shows it so ceilings creeping into quotas are visible). Shared fixes count against none."""
+    fixes = read(run / 'fixes.json')['fixes'].values()
+    cells = {}
+    for dream, row in read(run / 'plan.json')['ceilings'].items():
+        for kind, ceiling in row.items():
+            if ceiling['max'] > 0:
+                drafted = sum(f.get('origin') == 'kind:' + kind and f.get('draftedFor') == dream for f in fixes)
+                cells.setdefault(kind, []).append(min(drafted, ceiling['max']) / ceiling['max'])
+    return cells
+
+
+def run_tokens(run):
+    meta = read(run / 'run.json') if (run / 'run.json').is_file() else {}
+    return meta.get('tokens'), meta.get('tokensByStage')
+
+
+def compare_report(root, export_path):
+    """The pilot's gate: the staged flow passes only if it rates at least as well, its linked fixes span more kinds,
+    and the founder's review is no longer (spec, "Pilot comparison")."""
+    out = data_root(root) / PILOT_OUT
+    key, items = read(out / 'compare-key.json'), {i['id']: i for i in read(out / 'compare-set.json')['items']}
+    ratings = validate_ratings(read(export_path), key)
+    flows = ('old', 'new')
+    pilot = sorted({v['painId'] for v in key.values()})
+    runs = {o: sorted({(v['painId'], v['runId']) for v in key.values() if v['origin'] == o}) for o in flows}
+
+    def mean(values):
+        return round(statistics.mean(values), 2) if values else None
+
+    points = {o: [RATING_POINTS[r['rating']] for k, r in ratings.items() if key[k]['origin'] == o and r['rating'] in RATING_POINTS]
+              for o in flows}
+    kinds = {o: mean([len({f.get('kind') for k, v in key.items() if v['origin'] == o and v['painId'] == pain
+                           for f in items[k]['fixes'] if f.get('kind')}) for pain in pilot]) for o in flows}
+    spent = item_minutes(ratings)
+    staged = [staged_review_minutes(data_root(root) / 'runs' / pain / run) for pain, run in runs['new']]
+    old_spent = [m for k, m in spent.items() if key[k]['origin'] == 'old']
+    minutes = {'old': round(sum(old_spent), 1) if old_spent else None,
+               'new': None if None in staged or not staged else round(sum(staged), 1)}
+    mean_rating = {o: mean(points[o]) for o in flows}
+    cells = {}
+    for pain, run in runs['new']:
+        for kind, filled in fill_rate(data_root(root) / 'runs' / pain / run).items():
+            cells.setdefault(kind, []).extend(filled)
+    tokens = {}
+    for o in flows:
+        found = [run_tokens(data_root(root) / 'runs' / pain / run) for pain, run in runs[o]]
+        by_stage = {}
+        for _, stages in found:
+            for stage, n in (stages or {}).items():
+                by_stage[stage] = by_stage.get(stage, 0) + n
+        totals = [total for total, _ in found if total is not None]
+        tokens[o] = {'total': sum(totals) if totals else None, 'byStage': by_stage or None}
+
+    def measured(*values):  # a missing measure fails its check
+        return None not in values
+    checks = {
+        'newMeanRating>=oldMeanRating': measured(*mean_rating.values()) and mean_rating['new'] >= mean_rating['old'],
+        'newKindsPerPain>oldKindsPerPain': measured(*kinds.values()) and kinds['new'] > kinds['old'],
+        'newReviewMinutes<=oldReviewMinutes': measured(*minutes.values()) and minutes['new'] <= minutes['old'],
+    }
+    result = {
+        'schemaVersion': 1, 'generatedAt': now(), 'pains': pilot,
+        'rates': {o: rates([r['rating'] for k, r in ratings.items() if key[k]['origin'] == o]) for o in flows},
+        'meanRating': mean_rating, 'kindsPerPain': kinds, 'reviewMinutes': minutes,
+        'fillRate': {'old': None, 'new': {'overall': mean([x for v in cells.values() for x in v]),
+                                          'byKind': {k: mean(v) for k, v in sorted(cells.items())}} if cells else None},
+        'tokens': tokens,
+        'gate': gate(checks),
+    }
+    write(out / 'compare-metrics.json', result)
+    return result
 
 
 # ---------- report ----------
@@ -1460,11 +1948,16 @@ def rates(values):
             'kill': round(values.count('kill') / n, 3), 'loveKeep': round((values.count('love') + values.count('keep')) / n, 3)}
 
 
+def gate(checks):
+    return {'result': 'scale-up' if all(checks.values()) else 'iterate', 'checks': checks,
+            'failing': [k for k, v in checks.items() if not v]}
+
+
 def review_minutes(ratings):
     times = sorted(r['ratedAt'] for r in ratings.values() if r.get('ratedAt'))
     if len(times) < 2:
         return None
-    start, end = (datetime.datetime.fromisoformat(t.replace('Z', '+00:00')) for t in (times[0], times[-1]))
+    start, end = (moment(t) for t in (times[0], times[-1]))
     return round((end - start).total_seconds() / 60, 1)
 
 
@@ -1475,13 +1968,13 @@ def report(root, audit_path=None):
     # Agreement: per known pain, does the judge's top 3 include a held-out new item the founder loved or kept?
     agreement, judge_kills, judge_total = [], 0, 0
     for pain in KNOWN_PAINS:
-        held = {v['sourceCardId']: ratings.get(k, {}).get('rating') for k, v in key.items()
+        held = {source_id(v): ratings.get(k, {}).get('rating') for k, v in key.items()
                 if v['painId'] == pain and v['origin'] == 'new' and v['heldOut'] and k in ratings}
         held = {c: r for c, r in held.items() if r and r != 'skip'}
         if not held:
             continue
         run = data_root(root) / 'runs' / pain / next(v['runId'] for v in key.values() if v['painId'] == pain and v['origin'] == 'new')
-        top3 = read(run / 'selection.json')['finalists'][:3]
+        top3 = [source_id(source) for source, _ in top_entries(run, 3)]
         agreement.append(any(held.get(c) in ('love', 'keep') for c in top3))
         judge_total += sum(1 for c in top3 if c in held)
         judge_kills += sum(1 for c in top3 if held.get(c) == 'kill')
@@ -1489,7 +1982,7 @@ def report(root, audit_path=None):
     if audit_path:
         audit_key = read(data_root(root) / 'evaluations/generator-2026-10/audit-key.json')
         audit_ratings = validate_ratings(read(audit_path), audit_key)
-        fresh = [r['rating'] for k, r in audit_ratings.items() if audit_key[k]['painId'] in FRESH_PAINS and audit_key[k]['origin'] == 'finalist']
+        fresh = [r['rating'] for k, r in audit_ratings.items() if audit_key[k]['painId'] in FRESH_PAINS and audit_key[k]['origin'] in ('finalist', 'ranked')]
         audit = {'freshFinalists': rates(fresh), 'reviewMinutes': review_minutes(audit_ratings)}
     runs = []
     for folder in sorted((data_root(root) / 'runs').glob('*/*/run.json')):
@@ -1520,8 +2013,7 @@ def report(root, audit_path=None):
         'agreement': {'pains': len(agreement), 'top3HitRate': round(sum(agreement) / len(agreement), 3) if agreement else None,
                       'founderKillsAmongJudgeTop3': judge_kills, 'heldOutJudgeTop3Rated': judge_total},
         'cost': cost,
-        'gate': {'result': 'scale-up' if all(checks.values()) else 'iterate', 'checks': checks,
-                 'failing': [k for k, v in checks.items() if not v]},
+        'gate': gate(checks),
         'notes': ['Origin may be guessable in the blind round: old items have no named example.',
                   'Cost is approximate: wall-clock and any token counts the agent environment exposed.'],
     }
@@ -1535,8 +2027,10 @@ def report(root, audit_path=None):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', choices=('new-run', 'status', 'start', 'dreams-review-build', 'dreams-ingest', 'validate', 'lint', 'judge-input', 'consensus', 'select', 'finish-run',
-                                            'calibrate-build', 'calibrate-ingest', 'audit-build', 'report', 'stale'))
+    parser.add_argument('command', choices=('new-run', 'status', 'start', 'dreams-review-build', 'dreams-ingest',
+                                            'fixes-review-build', 'fixes-ingest', 'validate', 'lint', 'judge-input', 'consensus', 'select', 'finish-run',
+                                            'calibrate-build', 'calibrate-ingest', 'audit-build', 'report', 'stale',
+                                            'compare-build', 'compare-report'))
     parser.add_argument('targets', nargs='*')
     parser.add_argument('--root', type=Path, default=Path.cwd())
     parser.add_argument('--seed', type=int)
@@ -1545,6 +2039,9 @@ def main():
     parser.add_argument('--tokens', type=int)
     parser.add_argument('--audit', help='Audit ratings export for report')
     parser.add_argument('--staged', action='store_true', help='new-run: start a staged run (schemaVersion 2)')
+    parser.add_argument('--pilot', action='store_true',
+                        help='new-run --staged: mark the run as a pilot run, which also drafts the trial kinds')
+    parser.add_argument('--stage', help='finish-run: record --tokens for one stage of a staged run')
     args = parser.parse_args()
     root = args.root.resolve()
     if not (root / 'openspec/config.yaml').is_file():
@@ -1561,13 +2058,16 @@ def main():
         inventory = pains(root)
         if len(args.targets) != 1 or args.targets[0] not in inventory:
             parser.error('new-run needs one pain ID from ' + PAIN_CATALOG)
+        if args.pilot and not args.staged:
+            parser.error('--pilot needs --staged: only a staged run drafts the trial kinds')
         pain, notes = resolve_pain(root, args.targets[0])
         stamp = datetime.datetime.now().strftime('%Y%m%d-%H%M%S')
         folder = data_root(root) / 'runs' / pain / stamp
         folder.mkdir(parents=True, exist_ok=False)
         write(folder / 'run.json', {'schemaVersion': 2 if args.staged else 1, 'painId': pain, 'runId': stamp, 'startedAt': now(),
                                     'painName': inventory[pain]['name'], 'painLine': inventory[pain]['line'],
-                                    'finishedAt': None, 'searches': None, 'pagesOpened': None, 'tokens': None, 'notes': ''})
+                                    'finishedAt': None, 'searches': None, 'pagesOpened': None, 'tokens': None, 'notes': '',
+                                    **({'pilot': True} if args.pilot else {})})
         out = {'run': str(folder.relative_to(root)), 'pain': inventory[pain], 'notes': notes}
     elif args.command == 'stale':
         out = stale(root)
@@ -1587,6 +2087,14 @@ def main():
         if len(args.targets) != 2:
             parser.error('dreams-ingest needs a run directory and the decisions export')
         out = dreams_ingest(run_dir(args.targets[0]), Path(args.targets[1]))
+    elif args.command == 'fixes-review-build':
+        if len(args.targets) != 1:
+            parser.error('fixes-review-build needs one run directory')
+        out = fixes_review_build(run_dir(args.targets[0]), root)
+    elif args.command == 'fixes-ingest':
+        if len(args.targets) != 2:
+            parser.error('fixes-ingest needs a run directory and the decisions export')
+        out = fixes_ingest(run_dir(args.targets[0]), Path(args.targets[1]))
     elif args.command in ('validate', 'lint', 'judge-input', 'consensus', 'select', 'finish-run'):
         if not args.targets:
             parser.error(args.command + ' needs a run directory')
@@ -1604,9 +2112,13 @@ def main():
                 results[target] = consensus(folder)
             elif args.command == 'select':
                 results[target] = select(folder, args.seed)
+            elif args.stage:
+                results[target] = record_stage_tokens(folder, args.stage, args.tokens)
             else:
                 run = read(folder / 'run.json')
-                run.update({'finishedAt': now(), 'searches': args.searches, 'pagesOpened': args.pages, 'tokens': args.tokens})
+                # A staged run's stage tokens already sum into tokens: keep them unless --tokens is given.
+                tokens = args.tokens if args.tokens is not None or not run.get('tokensByStage') else run['tokens']
+                run.update({'finishedAt': now(), 'searches': args.searches, 'pagesOpened': args.pages, 'tokens': tokens})
                 write(folder / 'run.json', run)
                 results[target] = run
         out = results[args.targets[0]] if len(args.targets) == 1 else results
@@ -1625,6 +2137,16 @@ def main():
         out = report(root, args.audit)
         print(json.dumps(out, indent=2, ensure_ascii=False))
         return 0 if out['gate']['result'] == 'scale-up' else 1
+    elif args.command == 'compare-report':
+        if len(args.targets) != 1:
+            parser.error('compare-report needs the comparison ratings export path')
+        out = compare_report(root, args.targets[0])
+        print(json.dumps(out, indent=2, ensure_ascii=False))
+        return 0 if out['gate']['result'] == 'scale-up' else 1
+    elif args.command == 'compare-build':
+        if not args.targets:
+            parser.error('compare-build needs the pilot pain IDs')
+        out = compare_build(root, args.targets, args.seed or 20261020)
     print(json.dumps(out, indent=2, ensure_ascii=False))
     return 0
 

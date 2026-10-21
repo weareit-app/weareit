@@ -36,6 +36,7 @@ Rules:
 - `firstStepMinutes` must be 20 or less.
 - Fix IDs are unique across the pain.
 - `writerNotes` is stripped from judge input.
+- No fix has `featureStatus`. A Feature's roadmap status (Idea, Planned, and so on) is set in the app, never by the generator (founder, 2026-10-20). Staged fixes follow the same rule.
 - The provenance fields mirror `contentProvenanceSchema` (`packages/content/src/graph-schema.ts`).
 
 ## lint.json (per run)
@@ -53,9 +54,11 @@ Rules:
 `{ finalists: [card-id…3–5], auditSample: [card-id…≥2], ranking: [ {cardId, wins, meanScore} ], excluded: [ {cardId, reason} ] }`
 
 ## run.json (per run)
-`{ painId, runId, startedAt, painName, painLine, finishedAt, searches, pagesOpened, tokens?, notes, pilot? }`
+`{ painId, runId, startedAt, painName, painLine, finishedAt, searches, pagesOpened, tokens?, tokensByStage?, notes, pilot? }`
 
-`pilot: true` marks a staged run as a pilot run, which also plans and drafts the trial kinds `leave` and `switch` (see *plan.json*). It is set by hand in `run.json`; any other run refuses them.
+`tokensByStage` is `{ <stage>: <tokens> }` for a staged run, written by `finish-run --stage`. `tokens` is then their sum. Card runs record only `tokens`.
+
+`pilot: true` marks a staged run as a pilot run, which also plans and drafts the trial kinds `leave` and `switch` (see *plan.json*). `new-run <pain-id> --staged --pilot` sets it; any other run refuses them.
 
 `painName` and `painLine` are the catalog wording the run was written for (added 2026-10-19; older runs lack them, and `stale` falls back to the catalog history at `startedAt`). `painId` is always the surviving ID: a run started for a merged pain is created for the pain it was merged into.
 
@@ -72,14 +75,15 @@ A staged run mirrors the content graph (`packages/content/src/graph-schema.ts`):
 - `kind-pools` is complete when `fixes.json` has a `pools` entry for every kind the plan gives a ceiling above zero. A kind with only zero ceilings doesn't run;
 - `screen` is complete when `screen.json` exists;
 - `assemble` is complete when `links.json` exists;
-- `judge` is complete when `ranking.json` exists. `select` writes it after `consensus`.
+- `judge` is complete when `ranking.json` exists. `select` writes it after `consensus`;
+- `fix-review` is complete when `links.json` has a `review` record, written by `fixes-ingest` (see *Fix review files*). `status` then names `done`.
 
 `start <run> <stage>` refuses with a usage error (exit 2) while any earlier stage is incomplete, so no fix stage runs before the dream review is ingested. Otherwise it names the stage's brief:
 - for `plan`, `kinds` lists the kinds the planner sets ceilings for, which are the kinds that have a brief (`KIND_BRIEFS` in `cards.py`: every kind except `path`), plus the trial kinds `leave` and `switch` (`TRIAL_KIND_BRIEFS`) in a pilot run;
 - for `shared-fixes`, `brief` is `briefs/shared-fixes.md`;
 - for `kind-pools`, `brief` is the shared kind brief, `kinds` maps each kind still to draft (a ceiling above zero and no pool yet) to its own brief, and `shared` lists the IDs of the shared pass's fixes, which kind briefs read so they don't repeat them.
 
-`start <run> judge` names `briefs/judge.md`. `fix-review` isn't built yet. Once `fixes.json` exists, `status` also reports the fix pool: `fixes: {total, screenedOut: [fix-id…], unlinked: [fix-id…] | null}`. `unlinked` is `null` until `links.json` exists.
+`start <run> judge` names `briefs/judge.md`. `start <run> fix-review` exits 2, because the fix review is a founder stop: run `fixes-review-build`, then `fixes-ingest`. Once `fixes.json` exists, `status` also reports the fix pool: `fixes: {total, screenedOut: [fix-id…], unlinked: [fix-id…] | null}`. `unlinked` is `null` until `links.json` exists.
 
 `validate` checks each file below when it is present, and that each file's stage came after the one before: a plan needs an ingested dream review, `fixes.json` needs `plan.json`, kind pools need the `shared` record, `screen.json` needs `fixes.json`, `links.json` needs `screen.json`, and `judgments.json` needs `links.json`. Each file has `schemaVersion: 2` and the `painId` of `run.json`. Only accepted dreams (`accept` or `edit`) can be planned, drafted for, or linked.
 
@@ -129,7 +133,9 @@ The run's whole fix pool. Fixes that fail the screen or are left unlinked stay i
     exemplarRef | null, speculative: bool, speculativeRationale?,
     firstStep, firstStepMinutes,
     provenance: { sourceId, locator, evidenceType, rights, reviewStatus },
-    writerNotes? } },
+    writerNotes?, review? } },            # review: the founder's decision, written by fixes-ingest
+                                          #   { decision: accept|edit|reject, note, decidedAt, ingestedAt,
+                                          #     original?: { title, whatChanges, firstStep } }   # on an edit
   pools: { <kind>: { draftedAt, shortfalls: { <dream-id>: <one-line reason> } } },
   shared: { draftedAt, emptyReason? } }     # the shared-fixes pass ran; emptyReason when it drafted no fix
 ```
@@ -183,6 +189,7 @@ Rules:
   | | `tradeOff` | what the move costs or loses |
 
   Every value is nonempty text, except `keepsWorking` and `lever`. A kind brief may add optional fields, which aren't checked.
+- A `review` has a known `decision`. An `edit` keeps the drafted `title`, `whatChanges`, and `firstStep` in `original`, and the fix holds the founder's wording. Ingest sets `provenance.reviewStatus` to `reviewed`.
 - A `practice` fix also has `featureIdea`: one line, a coaching feature It could build. It sits on the fix, not in `method`, because the app shows it.
 
 ### screen.json (staged run)
@@ -200,13 +207,16 @@ Rules:
 ```
 { schemaVersion: 2, painId, runId, assembler: { context: "isolated", model?, at },
   links: [ { fixId, dreamId, order, how, by: assembler|founder } ],   # graph fixDreamLinks, plus order and how
-  pathCandidates: [ { fixIds: [<fix-id>…], reason } ] }               # chains in order; no paths are built
+  pathCandidates: [ { fixIds: [<fix-id>…], reason } ],                # chains in order; no paths are built
+  review? }                                                           # written by fixes-ingest: links are then final
 ```
+`review` is `{ ingestedAt, removed: [ { fixId, dreamId, order, how, by, reason: unlinked|rejected } ] }`.
 Rules:
 - `assembler.context` is `isolated`.
 - `fixId` is a fix in `fixes.json` that passed the screen, and `dreamId` is an accepted dream. Each pair appears once.
-- `how` is one sentence on how the fix helps that dream.
+- `how` is one sentence on how the fix helps that dream. A link `by: founder` may leave it out.
 - Each accepted dream has at least 2 links. At most 5 are `by: assembler`. A dream the pools can't serve fails validation, and the run needs a repair. Links `by: founder`, added in the fix review, may take a dream past 5.
+- Once `review` is present, `links` are the founder's final links: the 2-link minimum no longer applies, a rejected fix has no link, every fix that passed the screen has a `review` in `fixes.json`, and `ranking.json` must exist.
 - Within a dream, each link has its own `order`, a positive integer. Order 1 is shown first.
 - A fix may be linked to several dreams. A fix with no link stays in `fixes.json` and is listed in `status` as `fixes.unlinked`.
 - A path candidate lists two or more different screened fixes in order, with a one-line reason.
@@ -240,8 +250,9 @@ Rules:
 `{ passed: bool, issues: [ { dreamId | fixId, rule, detail } ], coverage: { lenses, ambitions, basicsTonight?, itLed? }, dreams, checkedAt }`
 
 Rules:
-- Fix copy rules: `template-copy` flags a method written into a title, `whatChanges`, or `firstStep`, such as "When I…, I want…, so I can…", "After I…, I will…", or "If…, then I will…". `near-duplicate-fix` flags two fixes in the pool whose titles share at least 80% of their words, ignoring small words like "the" and "in". The issue names the first fix by ID and the second in `detail`, so the screen can drop one.
-- Coverage counts the accepted dreams once the dream review is in, and the drafted dreams before it. Links to screened-out fixes don't count. A coverage issue has `dreamId: "*"`.
+- Each fix gets the card fix rules, checked on its own: `generic-phrase`, `serial-comma`, `exclamation`, `boilerplate-caveat`, `fix-text-length`, `regional-word`, `acronym-in-title`, `not-an-action`, `learn-about-others`, `unsourced-detail` (against the record of the exemplar it cites, or any proper noun in a speculative fix), `title-assumes-example`, `unverified-example`, `not-specific`, `ambiguous-it`, `feature-pitch`, and `built-claim`. `stacked-hedges` counts soft modals in one fix's title and `whatChanges`, where a card counted them across all its fixes.
+- Fix copy rules for staged runs only: `template-copy` flags a method written into a title, `whatChanges`, or `firstStep`, such as "When I…, I want…, so I can…", "After I…, I will…", or "If…, then I will…". `near-duplicate-fix` flags two fixes in the pool whose titles share at least 80% of their words, ignoring small words like "the" and "in". The issue names the first fix by ID and the second in `detail`, so the screen can drop one.
+- Coverage counts the accepted dreams once the dream review is in, and the drafted dreams before it. Links to screened-out or rejected fixes don't count. After the fix review, `links.json` holds the founder's final links, so coverage checks those, not the assembler's. A coverage issue has `dreamId: "*"`.
   - `lens-coverage`: at least 4 lenses.
   - `ambition-coverage`: all three ambitions.
   - `basics-coverage`, once `links.json` exists: at least 3 distinct fixes with status `real_now` or `existing_resource` linked to a tonight dream.
@@ -253,12 +264,29 @@ Rules:
 - **review.html**: the static page, built from `config/dream-review-page.template.html`. It is derived, so it isn't committed.
 - **dreams-decisions.json**: the founder's export, `{ schemaVersion: 1, setId, exportedAt, decisions: { <dream-id>: { decision: accept|edit|reject, note, decidedAt, edit?: { title, line } } } }`. Ingest refuses an export for another run, a page built before `dreams.json` last changed, an unknown dream, an unknown decision, an edit without a title and a line, or any dream left undecided.
 
+### Fix review files (`<run>/reviews/`)
+- **fix-proposals.json**: `{ schemaVersion: 1, setId: "<painId>-<runId>", builtAt, dreams: [ { id, title, line, ambition, honestStatus } ], proposals: [ { id, title, whatChanges, firstStep, firstStepMinutes, kind, kindLabel, status, statusLabel, example: {id, name, place, year, outcome, limits} | null, speculative, speculativeRationale, featureIdea, links: [ {dreamId, order, how, by} ], method, origin } ] }`. `dreams` are the accepted dreams in ranking order, and `honestStatus` is the panel's pass or fail. `proposals` lists each fix that passed the screen once: linked fixes in `ranking.json` `fixOrder`, then unlinked fixes by ID. A fix's `links` follow the ranking. No `writerNotes` or `provenance`.
+- **fix-review.html**: the static page, built from `config/fix-review-page.template.html`. It is derived, so it isn't committed.
+- **fixes-decisions.json**: the founder's export, `{ schemaVersion: 1, setId, exportedAt, decisions: { <fix-id>: { decision: accept|edit|reject, note, decidedAt, edit?: { title, whatChanges, firstStep }, links: [<dream-id>…] } } }`. `links` are the fix's final dreams. Ingest refuses an export for another run, a page built before `fixes.json` or `links.json` last changed, an unknown or screened-out fix, an unknown decision, an edit without all three fields, a link to a dream that isn't accepted or is listed twice, or any fix left undecided.
+- Ingest keeps the assembler's links that the founder kept, with their `how` and `by`, and adds the founder's as `by: founder` with no `how`. Within a dream, kept links keep their order, and the founder's follow in review order. A rejected fix keeps no link.
+
 ## Calibration files (`docs/research/possibilities/calibration/`)
 - **baseline.json**: 16 old cards in the `cards.json` card shape, with fixes without exemplars, and `provenance.sourceId` pointing at `founder-review.md` with an anchor locator.
-- **set.json**: `{ seed, items: [ { id: "c01", painLine, title, line, fixes:[{title, whatChanges, example?}] } ] }`. Holds no origin information.
-- **key.json**: `{ <item-id>: { origin: "old"|"new", painId, sourceCardId, runId?, heldOut: bool } }`. Local only.
+- **set.json**: `{ seed, items: [ { id: "c01", painName, painLine, title, line, fixes:[{title, whatChanges, example?, firstStep?, kind?, featureIdea?, status?}] } ] }`. Each item is a dream with its fixes in order: a card's title, line, and fixes, or a staged dream with its linked fixes in link order. Holds no origin or flow information, so card and staged items can share one blind set.
+- **key.json**: `{ <item-id>: { origin: "old"|"new", painId, sourceCardId | sourceDreamId, runId?, heldOut: bool } }`. `sourceDreamId` marks an item from a staged run, `sourceCardId` one from a card run or the baseline. Local only. The audit's `audit-key.json` has the same shape, with origin `finalist` or `sample` for a card run, and `ranked` for every dream in a staged run that passed honest status.
 - **ratings.json**: `{ rater: "founder", context: "calibration"|"audit", ratings: { <item-id>: { rating, reason?, rewriteAs?, ratedAt } } }`
-- **anchors.json** / **heldout.json**: lists of item IDs with rating and reason. Only anchors are passed to the judge.
+- **anchors.json** / **heldout.json**: lists of item IDs with rating and reason, each keyed to the `dreamId` (staged) or `cardId` it rates. Only anchors are passed to the judge.
+
+## Pilot comparison files (`docs/research/possibilities/evaluations/pilot-2026-10/`)
+- **compare-set.json**: the calibration `set.json` shape. Each item is a dream with its fixes: a card run's finalist, or a staged dream that passed honest status, with the assembler's links in their first order. Dreams and fixes keep their drafted wording: `review.original` undoes a founder edit. The dream review still decides which dreams are in. Holds no origin or flow information.
+- **compare-key.json**: the `key.json` shape, with origin `old` (card run) or `new` (staged run), `runId`, and `heldOut: false`.
+- **compare-metrics.json**: written by `compare-report`: `{ pains, rates, meanRating, kindsPerPain, reviewMinutes, fillRate, tokens, gate: { result, checks, failing } }`, each by flow (`old`, `new`).
+  - `meanRating` scores Love 2, Keep 1, and Kill 0, leaving out Skip.
+  - `kindsPerPain` is the mean, across pilot pains, of the distinct kinds among the fixes in that flow's items.
+  - `reviewMinutes.new` is the founder's time on each staged run's dream review and fix review, from the `decidedAt` stamps that `dreams-ingest` and `fixes-ingest` record. `reviewMinutes.old` is the time on the old items in the comparison export, from its `ratedAt` stamps. Both count the gap before each decision. The first decision on a page counts nothing, and a gap over 10 minutes is a break that counts nothing. A flow with nothing to time (a staged run whose reviews have no stamps, or no timed old item) gives `null`, which fails the check.
+  - `fillRate.new` is the mean share of each ceiling above zero that its kind filled, overall and by kind. Shared fixes count against no ceiling.
+  - `tokens` is each flow's total and, for staged runs, `byStage`.
+  - The gate's checks are `newMeanRating>=oldMeanRating`, `newKindsPerPain>oldKindsPerPain`, and `newReviewMinutes<=oldReviewMinutes`.
 
 ## State transitions
 A card's `provenance.reviewStatus` starts as `unreviewed`. It becomes `reviewed` once the founder has rated it, and `approved` only when the founder chooses Love or Keep in an audit. Nothing is published.
