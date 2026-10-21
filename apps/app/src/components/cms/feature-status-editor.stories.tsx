@@ -27,7 +27,7 @@ const meta = {
   component: FeatureStatusEditor,
   args: {
     fixes: contentFixes,
-    savedFixes: contentFixes,
+    saved: { fixes: contentFixes, roadmapItems: [] },
     onChange: fn(),
   },
   decorators: [
@@ -45,20 +45,23 @@ type Story = StoryObj<typeof meta>;
 export const FromContent: Story = {};
 
 export const EveryStatus: Story = {
-  args: { fixes: everyStatus, savedFixes: everyStatus },
+  args: { fixes: everyStatus, saved: { fixes: everyStatus, roadmapItems: [] } },
 };
 
 export const NoFeatures: Story = {
   args: {
     fixes: contentFixes.filter(({ kind }) => kind !== "feature"),
-    savedFixes: contentFixes.filter(({ kind }) => kind !== "feature"),
+    saved: {
+      fixes: contentFixes.filter(({ kind }) => kind !== "feature"),
+      roadmapItems: [],
+    },
   },
 };
 
 export const MistypedDate: Story = {
   args: {
     fixes: [{ ...planned, statusChangedOn: "20 Oct" }],
-    savedFixes: [planned],
+    saved: { fixes: [planned], roadmapItems: [] },
   },
 };
 
@@ -69,7 +72,7 @@ function Editable({ saved }: { saved: ContentFix[] }) {
   return (
     <FeatureStatusEditor
       fixes={fixes}
-      savedFixes={saved}
+      saved={{ fixes: saved, roadmapItems: [] }}
       onChange={(fixId, patch) =>
         setFixes((current) =>
           current.map((fix) => (fix.id === fixId ? { ...fix, ...patch } : fix)),
@@ -80,11 +83,11 @@ function Editable({ saved }: { saved: ContentFix[] }) {
 }
 
 export const StatusChangedWithoutNote: Story = {
-  args: { fixes: [planned], savedFixes: [planned] },
-  render: (args) => <Editable saved={[...args.savedFixes]} />,
+  args: { fixes: [planned], saved: { fixes: [planned], roadmapItems: [] } },
+  render: (args) => <Editable saved={[...args.saved.fixes]} />,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await userEvent.click(canvas.getByText("In Progress"));
+    await userEvent.click(canvas.getByText("In progress"));
     await expect(
       await canvas.findByText(
         "Add a note saying what changed before changing the status.",
