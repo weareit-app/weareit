@@ -21,7 +21,7 @@ This file holds the rules they share.
 | `tools/possibilities/briefs/` | What each isolated agent receives: `writer.md`, `judge.md`, `repair.md`, `classify-kinds.md`, `feature-pitch.md`, and for staged runs `dreams.md`, `planner.md`, `shared-fixes.md`, `kinds/_shared.md` with one brief per kind in `kinds/` (every kind except Path, plus the trial kinds `leave.md` and `switch.md`), `screen.md`, and `assembler.md` |
 | `docs/research/possibilities/runs/<pain>/<runId>/` | One run: `run.json`, `exemplars.json`, `cards.json` (or, in a staged run, `dreams.json`, `reviews/`, `plan.json`, `fixes.json`, `screen.json`, and `links.json`), `lint.json`, `judgments-<n>.json`, `judgments.json`, `selection.json` (`ranking.json` in a staged run), `repair-todo.md` |
 | `docs/research/possibilities/calibration/` | Blind calibration set, key, ratings, anchors and the published rating page |
-| `docs/research/possibilities/evaluations/` | Audit sets, ratings, `evaluation.md`, `metrics.json` |
+| `docs/research/possibilities/evaluations/` | Audit sets, ratings, `evaluation.md`, `metrics.json`, and the pilot comparison in `pilot-2026-10/` |
 | `docs/style/copy-style-guide.md` | Copy rules for every piece of It copy, including the kinds of fixes |
 
 Pain IDs and wording come from the pain catalog, `docs/research/pains/catalog.json` (`tools/pains/`). A merged ID is resolved to the pain it was merged into. The history up to 2026-10-19, including earlier runs, the Spec Kit extension and the case-led deep dive, is at tag `possibilities-pilot-final`. Paths starting with `.specify/` in older files refer to that tag.
@@ -44,9 +44,12 @@ Run it from the repository root: `python3 tools/possibilities/cards.py <subcomma
 | `consensus <run>` | Combines `judgments-<n>.json` into `judgments.json` (mean scores, majority honest status, Borda points) |
 | `select <run>` | Picks 3–5 finalists (at least 2 lenses and one It-led card) plus 2 audit samples, and writes `selection.json`. In a staged run, it writes `ranking.json` instead: every dream in order, with dreams that fail honest status marked and last. That order sets the founder's fix review |
 | `finish-run <run> --searches N --pages N [--tokens N]` | Records the counts in `run.json` |
+| `finish-run <run> --stage <stage> --tokens N` | Records one stage's tokens in a staged run's `run.json` (`tokensByStage`), and sets `tokens` to their sum. Rerunning a stage replaces its count |
 | `calibrate-build`, `calibrate-ingest <export>` | Builds the blind calibration set, and ingests the founder's ratings. Each item is a dream with its fixes: a card's finalists from a card run, or a staged run's top-ranked dreams that passed honest status, each with its linked fixes in order |
 | `audit-build <run…>` | Builds the audit set and key: a card run's finalists and audit sample, or every ranked dream in a staged run that passed honest status |
 | `report --audit <export>` | Prints the metrics and the gate result (`scale-up` or `iterate`) |
+| `compare-build <pain…>` | Builds the pilot's blind comparison set and its key in `evaluations/pilot-2026-10/`. For each pain, it pairs the newest card run's finalists with every ranked dream of the newest staged run that passed honest status. Staged items use the assembler's links and the drafted fix wording, from before the founder's fix review, so both sides are machine output. Exits 2 if either run is stale, with the reason |
+| `compare-report <export>` | Prints the mean rating per flow, the distinct kinds among linked fixes per pain, the founder's review time, the fill rate against the plan's ceilings, and tokens per stage, with `scale-up` or `iterate` and the checks that failed. Exits 1 on `iterate` |
 | `stale` | Lists runs whose pain was merged or split, or whose name or line changed since the run, with the old and new wording. A report: exit 0 |
 
 ## Founder dream review
