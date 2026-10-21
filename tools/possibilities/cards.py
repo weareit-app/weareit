@@ -352,8 +352,9 @@ def start(run, stage):
         raise ValueError('%s cannot start: %s is not complete' % (stage, pending))
     if pending == 'done':
         raise ValueError('%s cannot start: the fix review of %s is ingested, so the run is done' % (stage, run.name))
-    if stage == 'fix-review':
-        raise ValueError('fix-review is a founder stop: run fixes-review-build, then fixes-ingest')
+    if stage in FOUNDER_STOPS:
+        build, ingest = ('dreams-review-build', 'dreams-ingest') if stage == 'dream-review' else ('fixes-review-build', 'fixes-ingest')
+        raise ValueError('%s is a founder stop: run %s, then %s' % (stage, build, ingest))
     if stage not in STAGE_BRIEFS:
         raise ValueError('%s is not built yet' % stage)
     result = {'run': run.name, 'stage': stage, 'brief': STAGE_BRIEFS[stage]}
@@ -1832,6 +1833,8 @@ def main():
     parser.add_argument('--tokens', type=int)
     parser.add_argument('--audit', help='Audit ratings export for report')
     parser.add_argument('--staged', action='store_true', help='new-run: start a staged run (schemaVersion 2)')
+    parser.add_argument('--pilot', action='store_true',
+                        help='new-run --staged: mark the run as a pilot run, which also drafts the trial kinds')
     args = parser.parse_args()
     root = args.root.resolve()
     if not (root / 'openspec/config.yaml').is_file():
@@ -1848,13 +1851,16 @@ def main():
         inventory = pains(root)
         if len(args.targets) != 1 or args.targets[0] not in inventory:
             parser.error('new-run needs one pain ID from ' + PAIN_CATALOG)
+        if args.pilot and not args.staged:
+            parser.error('--pilot needs --staged: only a staged run drafts the trial kinds')
         pain, notes = resolve_pain(root, args.targets[0])
         stamp = datetime.datetime.now().strftime('%Y%m%d-%H%M%S')
         folder = data_root(root) / 'runs' / pain / stamp
         folder.mkdir(parents=True, exist_ok=False)
         write(folder / 'run.json', {'schemaVersion': 2 if args.staged else 1, 'painId': pain, 'runId': stamp, 'startedAt': now(),
                                     'painName': inventory[pain]['name'], 'painLine': inventory[pain]['line'],
-                                    'finishedAt': None, 'searches': None, 'pagesOpened': None, 'tokens': None, 'notes': ''})
+                                    'finishedAt': None, 'searches': None, 'pagesOpened': None, 'tokens': None, 'notes': '',
+                                    **({'pilot': True} if args.pilot else {})})
         out = {'run': str(folder.relative_to(root)), 'pain': inventory[pain], 'notes': notes}
     elif args.command == 'stale':
         out = stale(root)
