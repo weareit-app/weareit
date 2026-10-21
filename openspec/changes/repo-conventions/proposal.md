@@ -22,7 +22,7 @@ What contributors (people and agents) see:
 - **Tests beside their code**, found by glob, with one check that fails on a test no runner owns or that breaks the layout. CI fails without Postgres. ([#150](https://github.com/weareit-app/weareit/issues/150))
 - **Typed API errors** with domain-named codes, error classes on the server, and app-owned error copy. ([#170](https://github.com/weareit-app/weareit/issues/170))
 - **Environment variables** validated once per program at its entry point, with example files kept in step by a test. ([#171](https://github.com/weareit-app/weareit/issues/171))
-- **Server logging** through one small It-owned module with levels, writing structured lines to the console. (Map, carried item.)
+- **Logging** through one small It-owned package, `@it/log`, with levels, writing structured lines to the console, shared by the API server, the database scripts, and the tools. (Map, carried item.)
 - **Generated files** stay committed, and CI fails if regenerating them changes anything. (Map, carried item.)
 - **Python tools** in `tools/` are linted and formatted by ruff, pinned. (Map, carried item.)
 - **Docs and steering**: one root `AGENTS.md` with guardrails and pointers, judgement rules only in `CODING_STANDARDS.md`, workflow detail in `docs/agents/`, decision records only in `docs/architecture/decisions.md`. ([#152](https://github.com/weareit-app/weareit/issues/152))
@@ -52,12 +52,12 @@ Must leave room for: `render.yaml` (the env check compares its keys once it land
 
 ### Modified Capabilities
 
-None. The `support` and `account-signup` specs name the `UNAUTHORIZED` and `NOT_FOUND` codes; they stay unchanged unless the founder answers the first open question differently.
+None. The `support` and `account-signup` specs name the `UNAUTHORIZED` and `NOT_FOUND` codes, which stay as they are (founder, 2026-10-21).
 
 ## Impact
 
-- **Packages**: `packages/domain` (new modules), `packages/content` (schemas leave; `buildTier1ContentGraph` arrives), `packages/watercolor` (gains `./marks`), new `packages/api-contract`, `packages/api` removed, `packages/database` (generated table types, `CHECK` test).
-- **Apps**: `apps/api-server` (router, `env.ts`, logging module, error mapping), `apps/app` (`app.config.ts` replaces `app.json`, `src/env.ts`, error copy helpers, `.env.example`).
+- **Packages**: new `packages/log`, `packages/domain` (new modules), `packages/content` (schemas leave; `buildTier1ContentGraph` arrives), `packages/watercolor` (gains `./marks`), new `packages/api-contract`, `packages/api` removed, `packages/database` (generated table types, `CHECK` test).
+- **Apps**: `apps/api-server` (router, `env.ts`, error mapping), `apps/app` (`app.config.ts` replaces `app.json`, `src/env.ts`, error copy helpers, `.env.example`).
 - **Tools and config**: `biome.json`, `eslint.config.mts`, `.dependency-cruiser.cjs`, knip and sherif config, `vitest.config.mts` (projects), `lefthook.yml`, `.github/workflows/ci.yml`, `tools/test-coverage`, a new skills sync script, ruff config.
 - **Dependencies added**: Biome, ESLint 10 with three plugins, dependency-cruiser, knip, sherif, kysely-codegen, ruff. Prettier removed. Each pin follows `docs/architecture/dependency-policy.md`.
 - **Docs**: `AGENTS.md`, `CODING_STANDARDS.md`, `docs/agents/`, `docs/architecture/decisions.md`, `docs/architecture/dependency-policy.md`, `openspec/config.yaml`.
@@ -65,5 +65,4 @@ None. The `support` and `account-signup` specs name the `UNAUTHORIZED` and `NOT_
 
 ## Open questions
 
-1. **Shared error codes.** #170 gives `NOT_SIGNED_IN` as an example of a shared code, but five specs and in-flight changes already say signed-out calls fail with `UNAUTHORIZED`, and owner-only lookups with `NOT_FOUND`. Recommended: declare those two under their existing names, which already say what happened, and use domain names for every new code. The alternative renames them and updates `support`, `account-signup`, and four in-flight changes.
-2. **Logging module home.** Recommended: `apps/api-server/src/log.ts`, since the API server is the only long-running program. Database scripts keep writing to the console. A shared package would add a node to the package graph.
+Both answered by the founder on 2026-10-21; see design.md, "Founder answers".

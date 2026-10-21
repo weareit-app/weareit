@@ -7,20 +7,34 @@ Defines which workspace packages, apps, tools, and third-party libraries each pa
 ## ADDED Requirements
 
 ### Requirement: Allowed package graph
-Workspace dependencies SHALL follow this graph, and any edge not listed SHALL fail the check:
+Workspace packages SHALL depend on each other only as listed here, and any edge not listed SHALL fail the check:
 
 | Package | May depend on |
 | --- | --- |
-| `@it/domain`, `@it/watercolor` | nothing |
+| `@it/domain`, `@it/watercolor`, `@it/log` | nothing |
 | `@it/content`, `@it/api-contract` | `@it/domain` |
-| `@it/database` | `@it/domain`, `@it/content` |
-| `apps/api-server` | `@it/api-contract`, `@it/database`, `@it/domain`, `@it/content` |
+| `@it/database` | `@it/domain`, `@it/content`, `@it/log` |
+
+#### Scenario: Content imports the database
+- **WHEN** a file in `@it/content` imports from `@it/database`
+- **THEN** the check fails and names the file and the forbidden edge
+
+### Requirement: Allowed app and tool dependencies
+Apps and tools SHALL depend only on the packages listed here, and any edge not listed SHALL fail the check:
+
+| App or tool | May depend on |
+| --- | --- |
+| `apps/api-server` | `@it/api-contract`, `@it/database`, `@it/domain`, `@it/content`, `@it/log` |
 | `apps/app` | `@it/api-contract`, `@it/content`, `@it/domain`, `@it/watercolor` |
 | `tools/*` | any package |
 
 #### Scenario: App imports the database
 - **WHEN** a file in `apps/app` imports from `@it/database`
 - **THEN** the check fails and names the file and the forbidden edge
+
+#### Scenario: Logging from the app
+- **WHEN** a file in `apps/app` or in a pure package imports `@it/log`
+- **THEN** the check fails, because only the API server, the database package, and tools may import it
 
 #### Scenario: Something imports an app
 - **WHEN** a package or tool imports from `apps/api-server` or `apps/app`
@@ -34,7 +48,7 @@ An import from another package SHALL use the package name and one of its `export
 - **THEN** the check fails, and the fix is to import the function through a package export
 
 ### Requirement: Pure packages use an allowlist
-`@it/domain`, `@it/watercolor`, and `@it/content` SHALL import only `zod` from outside the workspace. `@it/api-contract` SHALL import only `zod`, `@orpc/contract`, and `@orpc/client`. Adding a library to one of these packages SHALL require editing the allowlist. This is how the rule that domain and content stay free of Expo, React Native, UI, and provider imports is checked.
+`@it/domain`, `@it/watercolor`, and `@it/content` SHALL import only `zod` from outside the workspace. `@it/api-contract` SHALL import only `zod`, `@orpc/contract`, and `@orpc/client`. `@it/log` SHALL import nothing from outside the workspace. Adding a library to one of these packages SHALL require editing the allowlist. This is how the rule that domain and content stay free of Expo, React Native, UI, and provider imports is checked.
 
 #### Scenario: React Native in content
 - **WHEN** a file in `@it/content`'s source imports `react-native`

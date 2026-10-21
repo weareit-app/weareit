@@ -86,7 +86,7 @@ The move is one mechanical PR (`git mv` plus globs). The `jest-expo/universal` s
 
 ### 9. Typed errors in the contract, classes on the server ([#170](https://github.com/weareit-app/weareit/issues/170))
 
-Procedures declare `.errors({ CODE: { status, message, data } })`. Shared failures go on a base built with `oc.errors(...)`. Repositories and payment services export `Error` subclasses with typed fields (for example `RevisionConflictError { expectedRevision, actualRevision }`); the router catches each and returns `errors.CODE({ data })`. Anything else propagates, so oRPC turns it into `INTERNAL_SERVER_ERROR` with a hidden message, and the server's interceptor logs it with its cause.
+Procedures declare `.errors({ CODE: { status, message, data } })`. Shared failures go on a base built with `oc.errors(...)`. `UNAUTHORIZED` (signed out) and `NOT_FOUND` (a record the caller doesn't own) keep their names; every new code is a domain name (founder answers, below). Repositories and payment services export `Error` subclasses with typed fields (for example `RevisionConflictError { expectedRevision, actualRevision }`); the router catches each and returns `errors.CODE({ data })`. Anything else propagates, so oRPC turns it into `INTERNAL_SERVER_ERROR` with a hidden message, and the server's interceptor logs it with its cause.
 
 The app gets one helper per feature (`describeCmsError`, `describeSupportError`) that narrows with `isDefinedError` and returns copy keyed by code, with one generic sentence as fallback. TanStack Query's `onError` or error state calls it. `describeApiFailure` stays as developer-only detail. The founder approves the copy.
 
@@ -96,11 +96,13 @@ This change converts every existing `new ORPCError` in the router, because the l
 
 *Alternatives:* a Result type in the domain (rejected: `{ issues }` and `safeParse` already cover it), `safe()` wrappers in the app (rejected: Query's error state is the one place), and keeping server messages as user copy (rejected: it leaks developer text and can't follow the copy guide).
 
-### 10. Logging module ([#170](https://github.com/weareit-app/weareit/issues/170), map carried item)
+### 10. Logging package ([#170](https://github.com/weareit-app/weareit/issues/170), map carried item)
 
-`apps/api-server/src/log.ts` exports `log.debug | info | warn | error(event, fields)`, writing one JSON line per call to `console.log` or `console.error`, with a level threshold from the server's config. Callers pass fields, never interpolated strings, so the privacy rules in the spec can be reviewed at the call site. A hosted service later replaces the sink, not the calls. Its home is the second open question in the proposal; the database scripts keep printing to the console.
+A new `@it/log` package (`packages/log`) exports `createLog({ level })`, returning `debug | info | warn | error(event, fields)`, each writing one JSON line to `console.log` or `console.error`. The level comes from the calling program's config; the package reads no environment. Callers pass fields, never interpolated strings, so the privacy rules in the spec can be reviewed at the call site. A hosted service later replaces the sink, not the calls.
 
-*Alternatives:* pino or another library. Rejected for now: one small module keeps the vendor behind an It-owned boundary, as `AGENTS.md` asks, and the server's volume doesn't need more.
+It depends on nothing, inside the workspace or out. The API server, `@it/database` (for its scripts), and `tools/*` may import it; the app and the pure packages may not, because the app's logs are not server logs and pure packages don't log.
+
+*Alternatives:* `apps/api-server/src/log.ts`, rejected by the founder because the database scripts and tools log too; and pino or another library, rejected for now because one small package keeps the vendor behind an It-owned boundary, as `AGENTS.md` asks, and the server's volume doesn't need more.
 
 ### 11. Env per program ([#171](https://github.com/weareit-app/weareit/issues/171))
 
@@ -137,7 +139,14 @@ The steering and `CODING_STANDARDS.md` rules land first, because they cost nothi
 | Map: adoption order | (decision 13) | order of tasks.md |
 | Map: generated files | code-checks: Generated files stay in step; domain-model: Generated table types | 3.1, 10.1, 10.3 |
 | Map: ruff | code-checks: Python tools are linted and formatted | 10.2, 10.3 |
-| Map: logging module | api-errors: Server logging, Log privacy | 1.2, 4.1, 4.6 |
+| Map: logging module | api-errors: Server logging, Log privacy; package-boundaries: Allowed package graph, Allowed app and tool dependencies, Pure packages use an allowlist | 1.2, 4.1, 4.6, 8.1 |
+
+## Founder answers
+
+The proposal's two open questions, answered by the founder on 2026-10-21 on PR #178:
+
+1. **Shared error codes: keep both, domain names after.** `UNAUTHORIZED` and `NOT_FOUND` stay as they are, so the `support` and `account-signup` specs and the in-flight changes that name them don't change. Every code added from now on is named in domain terms. #170's `NOT_SIGNED_IN` was an example only; the not-signed-in failure on the shared base is `UNAUTHORIZED`.
+2. **Logging home: a new package.** A small `@it/log` package now, shared by every program that logs, instead of `apps/api-server/src/log.ts` (decision 10).
 
 ## Risks / Trade-offs
 

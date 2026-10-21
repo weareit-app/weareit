@@ -14,11 +14,15 @@ Each API operation SHALL declare the failures its caller acts on, each with a co
 - **THEN** the caller receives the declared rollback error with the issues as structured data, not inside the message
 
 ### Requirement: Domain-named codes
-New error codes SHALL be named for what happened in the domain, such as `REVISION_CONFLICT`, `CONTENT_NOT_PUBLISHED`, and `PAYMENTS_NOT_CONFIGURED`. A failure several operations share SHALL be declared once, on a base those operations build from.
+A signed-out call SHALL keep failing with `UNAUTHORIZED`, and a lookup of a record the caller does not own SHALL keep failing with `NOT_FOUND`. Every code added from now on SHALL be named for what happened in the domain, such as `REVISION_CONFLICT`, `CONTENT_NOT_PUBLISHED`, and `PAYMENTS_NOT_CONFIGURED`. A failure several operations share SHALL be declared once, on a base those operations build from.
 
 #### Scenario: Shared sign-in failure
 - **WHEN** a contributor adds a signed-in-only operation
-- **THEN** it inherits the shared not-signed-in error from its base instead of declaring its own
+- **THEN** it inherits the declared `UNAUTHORIZED` error from its base instead of declaring its own
+
+#### Scenario: New failure
+- **WHEN** a contributor declares a failure no existing code covers
+- **THEN** its code names the domain event, such as `REVISION_CONFLICT`, not a generic HTTP name
 
 ### Requirement: Draft revision conflict
 Saving a CMS draft whose revision has changed since the editor loaded it SHALL fail with `REVISION_CONFLICT`. The editor SHALL tell the founder the draft changed elsewhere and how to get the latest version, and SHALL NOT show "Internal server error".
@@ -70,7 +74,7 @@ An error message SHALL be shown as text near the action that failed, SHALL be an
 - **THEN** the conflict message is announced and the save control can still be reached by keyboard
 
 ### Requirement: Server logging
-The API server SHALL write logs through one It-owned logging module with levels (debug, info, warn, error), as one structured line per event on the console. Every undeclared error SHALL be logged at error level with its cause.
+Every program that logs (the API server, the database scripts, and the tools) SHALL write logs through one It-owned logging package with levels (debug, info, warn, error), as one structured line per event on the console. The API server SHALL log every undeclared error at error level with its cause.
 
 #### Scenario: Undeclared error logged
 - **WHEN** an operation fails with an undeclared error
