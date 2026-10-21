@@ -1,4 +1,4 @@
-import type { ContentGraph, FeatureStatus } from "@it/content/graph-schema";
+import type { ContentGraph, FeatureStatus } from "@it/domain/content";
 import type {
   ContributionStatus,
   PaymentProcessor,

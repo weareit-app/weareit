@@ -1,4 +1,4 @@
-import type { ContentGraph } from "@it/content/graph-schema";
+import type { ContentGraph } from "@it/domain/content";
 import { View } from "react-native";
 import { Text } from "./text";
 

@@ -1,9 +1,6 @@
 import { sql, type Migrator } from "kysely";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import {
-  resolveFeatureStatuses,
-  type ContentGraph,
-} from "@it/content/graph-schema";
+import { resolveFeatureStatuses, type ContentGraph } from "@it/domain/content";
 import type { ItDatabase } from "../src/database";
 import {
   initializeContent,

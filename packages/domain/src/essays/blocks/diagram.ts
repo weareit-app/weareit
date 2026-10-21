@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { nonEmptyTextSchema } from "@it/domain/primitives";
+import { nonEmptyTextSchema } from "../../primitives";
 
 // The data file of a `::diagram{id="…"}` block. The description is what
 // readers get with scripts off and what screen readers hear, so it is

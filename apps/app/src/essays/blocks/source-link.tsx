@@ -1,4 +1,4 @@
-import type { EssaySource } from "@it/content/essay-schema";
+import type { EssaySource } from "@it/domain/essays";
 
 /**
  * A source named by ID in a block, as a link to what was published and who

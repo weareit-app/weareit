@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { isoDateSchema, nonEmptyTextSchema } from "@it/domain/primitives";
+import { isoDateSchema, nonEmptyTextSchema } from "../../primitives";
 
 // A year ("2026"), a month ("2026-10") or a day ("2026-10-26") that exists.
 const timelineDate = z.union(

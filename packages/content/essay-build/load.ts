@@ -1,6 +1,6 @@
 import { readdirSync, readFileSync, statSync } from "node:fs";
 import { basename, join } from "node:path";
-import type { Essay } from "../src/essay-schema";
+import type { Essay } from "@it/domain/essays";
 import { EssayError, parseEssay } from "./parse";
 
 /** Reads `<dir>/essay.md` and the block files beside it. */

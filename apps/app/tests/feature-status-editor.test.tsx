@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react-native";
-import type { ContentFix } from "@it/content/graph-schema";
+import type { ContentFix } from "@it/domain/content";
 import {
   FeatureStatusEditor,
   refuseStatusChangesWithoutNotes,

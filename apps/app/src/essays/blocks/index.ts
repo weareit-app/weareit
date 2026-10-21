@@ -1,4 +1,4 @@
-import type { BlockType } from "@it/content/essay-schema";
+import type { BlockType } from "@it/domain/essays";
 import type { ComponentType } from "react";
 import { ChartBlock } from "./chart";
 import { DiagramBlock } from "./diagram";

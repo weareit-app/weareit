@@ -5,7 +5,7 @@ import {
   resolveFeatureStatuses,
   type ContentFix,
   type ContentGraph,
-} from "@it/content/graph-schema";
+} from "@it/domain/content";
 import { statusCopy } from "../personal/way-row";
 import { Text } from "../text";
 import { Field, SelectField } from "./fields";

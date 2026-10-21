@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { nonEmptyTextSchema } from "@it/domain/primitives";
+import { nonEmptyTextSchema } from "../../primitives";
 import { checkRowKeys, dataColumns, dataContext, dataRow } from "./shared";
 
 // True when any object in the spec, at any depth, has one of these keys.

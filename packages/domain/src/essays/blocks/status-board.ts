@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { nonEmptyTextSchema } from "@it/domain/primitives";
+import { nonEmptyTextSchema } from "../../primitives";
 import { essayStatusLabelSchema } from "./shared";
 
 // The data file of a `::status-board{id="…"}` block.

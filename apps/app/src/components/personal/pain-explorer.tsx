@@ -9,7 +9,7 @@ import {
   type ViewInstance,
 } from "react-native";
 import { useReducedMotion } from "react-native-reanimated";
-import { resolveFeatureStatuses } from "@it/content/graph-schema";
+import { resolveFeatureStatuses } from "@it/domain/content";
 import { SiteFooter } from "../site-footer";
 import { Text } from "../text";
 import { ClearDraftControl } from "../clear-draft-control";

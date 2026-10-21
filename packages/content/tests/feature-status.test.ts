@@ -5,7 +5,7 @@ import {
   contentGraphSchema,
   featureStatuses,
   type ContentFix,
-} from "../src/graph-schema";
+} from "@it/domain/content";
 import { fixes } from "../src/fixes";
 
 const feature: ContentFix = {

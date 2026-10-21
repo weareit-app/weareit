@@ -37,7 +37,7 @@ Rules:
 - Fix IDs are unique across the pain.
 - `writerNotes` is stripped from judge input.
 - No fix has `featureStatus`. A Feature's roadmap status (Idea, Planned, and so on) is set in the app, never by the generator (founder, 2026-10-20). Staged fixes follow the same rule.
-- The provenance fields mirror `contentProvenanceSchema` (`packages/content/src/graph-schema.ts`).
+- The provenance fields mirror `contentProvenanceSchema` (`packages/domain/src/content.ts`).
 
 ## lint.json (per run)
 `{ passed: bool, issues: [ { cardId, fixId?, rule, detail } ], coverage: { lenses: [...], ambitions: [...] } }`
@@ -63,7 +63,7 @@ Rules:
 `painName` and `painLine` are the catalog wording the run was written for (added 2026-10-19; older runs lack them, and `stale` falls back to the catalog history at `startedAt`). `painId` is always the surviving ID: a run started for a merged pain is created for the pain it was merged into.
 
 ## Staged runs (schemaVersion 2)
-A staged run mirrors the content graph (`packages/content/src/graph-schema.ts`): dreams, fixes, and fix–dream links instead of cards. `new-run <pain-id> --staged` writes `run.json` with `schemaVersion: 2`. The run then gets `exemplars.json` (same shape as above), `dreams.json`, and `dream-screen.json`. The plan, fixes, screen, and links files are added by later stages. Card runs (v1) still validate and lint as before, including `dream-not-outcome`, because the card flow stays the pilot's comparison baseline until #101 (founder, 2026-10-20).
+A staged run mirrors the content graph (`packages/domain/src/content.ts`): dreams, fixes, and fix–dream links instead of cards. `new-run <pain-id> --staged` writes `run.json` with `schemaVersion: 2`. The run then gets `exemplars.json` (same shape as above), `dreams.json`, and `dream-screen.json`. The plan, fixes, screen, and links files are added by later stages. Card runs (v1) still validate and lint as before, including `dream-not-outcome`, because the card flow stays the pilot's comparison baseline until #101 (founder, 2026-10-20).
 
 ### Stages
 `examples → dreams → dream-screen → dream-review → plan → shared-fixes → kind-pools → screen → assemble → judge → fix-review`. `dream-review` and `fix-review` are founder stops. `status <run>` names the next stage from the files present:

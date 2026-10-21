@@ -4,7 +4,7 @@ import {
   contentGraphSchema,
   resolveFeatureStatuses,
   type ContentGraph,
-} from "@it/content/graph-schema";
+} from "@it/domain/content";
 import { sql, type Kysely } from "kysely";
 import type { Database } from "./types";
 import type { ItDatabase } from "./database";

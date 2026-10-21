@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { nonEmptyTextSchema } from "@it/domain/primitives";
+import { nonEmptyTextSchema } from "../../primitives";
 import { checkRowKeys, dataColumns, dataContext, dataRow } from "./shared";
 
 // The data file of a `::table{id="…"}` block. (A Markdown table in the text

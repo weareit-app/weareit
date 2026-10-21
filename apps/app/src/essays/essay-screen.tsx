@@ -1,4 +1,4 @@
-import type { Essay } from "@it/content/essay-schema";
+import type { Essay } from "@it/domain/essays";
 import { essays } from "@it/content/essays";
 import { Unmatched, useLocalSearchParams } from "expo-router";
 import { isListedPage } from "../navigation/site-links";

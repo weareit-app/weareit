@@ -5,11 +5,7 @@ import {
   type BlockType,
   type DataBlockType,
 } from "./essays/blocks";
-import {
-  isoDateSchema,
-  nonEmptyTextSchema,
-  slugIdSchema,
-} from "@it/domain/primitives";
+import { isoDateSchema, nonEmptyTextSchema, slugIdSchema } from "./primitives";
 import {
   essayStatusLabels,
   essayStatusLabelSchema,

@@ -1,4 +1,4 @@
-import type { EssayBlockOf } from "@it/content/essay-schema";
+import type { EssayBlockOf } from "@it/domain/essays";
 import embed, { type VisualizationSpec } from "vega-embed";
 
 // Loaded only when a chart renders on the web, so Vega stays out of every
