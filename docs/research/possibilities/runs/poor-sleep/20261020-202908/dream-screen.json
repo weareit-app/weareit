@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 2,
+  "painId": "poor-sleep",
+  "runId": "20261020-202908",
+  "judge": {
+    "context": "isolated",
+    "model": "claude-opus-5-5",
+    "at": "2026-10-21T01:37:35Z"
+  },
+  "results": {
+    "falling-asleep-easily": {
+      "title": "Falling asleep soon after I go to bed",
+      "line": "Most nights I get into bed, put the light out, and I'm asleep before I've had time to start worrying.",
+      "pass": true,
+      "reason": "Names the end state of drifting off soon after bed, which is sleep itself and fits no other pain unchanged."
+    },
+    "sleeping-through-the-night": {
+      "title": "Sleeping through the night without waking",
+      "line": "Most nights I sleep straight through from when I drop off until morning.",
+      "pass": true,
+      "reason": "Names an unbroken night of sleep, the end state of this pain, which belongs only to sleep."
+    },
+    "back-to-sleep-quickly": {
+      "title": "Getting back to sleep quickly when I wake",
+      "line": "If I wake at 3 in the morning, I roll over and I'm asleep again in a few minutes, not lying there until dawn.",
+      "pass": true,
+      "reason": "Names a night where waking costs nothing because sleep returns in minutes, an end state specific to sleep."
+    },
+    "sleeping-until-morning": {
+      "title": "Sleeping until it's time to get up",
+      "line": "I sleep until my alarm or a little before, not wide awake at 4 in the morning with the day already running through my head.",
+      "pass": true,
+      "reason": "Names sleeping until it's time to get up rather than waking early, an end state specific to sleep."
+    },
+    "enough-hours-most-nights": {
+      "title": "Getting enough hours of sleep most nights",
+      "line": "Most nights I get the seven or eight hours I need, instead of getting by on five or six.",
+      "pass": true,
+      "reason": "Names getting the hours of sleep a person needs; it's wanted to feel rested, which lies outside this pain, and hours of sleep don't fit Energy unchanged."
+    },
+    "waking-up-rested": {
+      "title": "Waking up feeling like I actually slept",
+      "line": "When I wake up, I feel like the night counted, instead of feeling like I spent eight hours in bed and got nothing from it.",
+      "pass": true,
+      "reason": "Names a night of sleep that leaves a person refreshed in the morning, which is about the night's sleep rather than daytime energy, so it doesn't fit Energy unchanged."
+    },
+    "breathing-easily-asleep": {
+      "title": "Breathing easily all night while I sleep",
+      "line": "I breathe steadily through the night, without snoring loud enough to wake anyone or waking up gasping.",
+      "pass": false,
+      "check": "why",
+      "reason": "Breathing steadily without snoring or gasping is wanted so the night isn't broken and the sleep refreshes, which is still inside this pain, so it's a means to sleeping through the night or waking rested."
+    },
+    "sleep-at-hours-that-fit": {
+      "title": "Sleeping at hours that fit my life",
+      "line": "My body gets sleepy at a sensible bedtime and wakes when I need it to, instead of being wide awake at two in the morning and dead on my feet at seven.",
+      "pass": true,
+      "reason": "Names a body clock that matches the person's life, so sleep comes and ends at the right hours, an end state specific to sleep."
+    },
+    "sleeping-well-without-pills": {
+      "title": "Sleeping well without needing a pill",
+      "line": "Most nights I drift off and stay asleep with no sleeping pill or nightcap to help me.",
+      "pass": true,
+      "reason": "Names sleep that doesn't depend on a pill or a drink, an end state wanted for itself and specific to sleep."
+    },
+    "not-worrying-about-sleep": {
+      "title": "Not worrying about sleep anymore",
+      "line": "I don't count the hours left at night or plan my day around how badly I slept; sleep just happens.",
+      "pass": true,
+      "reason": "Names a relationship to sleep free of dread and clock-watching, where sleep just happens, an end state specific to sleep."
+    },
+    "both-of-us-sleep-well": {
+      "title": "My partner and I both sleeping well",
+      "line": "My partner and I both get a good night's sleep, and neither of us is the reason the other one is lying awake.",
+      "pass": true,
+      "reason": "Names a shared end state where both partners sleep well and neither keeps the other awake, specific to sleep."
+    }
+  }
+}

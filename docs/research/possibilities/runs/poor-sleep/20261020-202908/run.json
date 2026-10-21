@@ -5,14 +5,15 @@
   "startedAt": "2026-10-21T00:29:08+00:00",
   "painName": "Sleep",
   "painLine": "I don't sleep well.",
-  "finishedAt": "2026-10-21T00:34:10+00:00",
+  "finishedAt": "2026-10-21T01:37:04+00:00",
   "searches": 11,
   "pagesOpened": 21,
-  "tokens": 202551,
-  "notes": "",
+  "tokens": 278997,
+  "notes": "First dreams draft (89931 tokens) voided by the end-state dream rule (PR #130, #132); its files are in commit 4628258. tokensByStage.dreams is the redraft only.",
   "pilot": true,
   "tokensByStage": {
     "examples": 112620,
-    "dreams": 89931
+    "dreams": 100493,
+    "dream-screen": 65884
   }
 }

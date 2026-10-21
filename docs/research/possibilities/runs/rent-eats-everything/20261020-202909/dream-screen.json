@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 2,
+  "painId": "rent-eats-everything",
+  "runId": "20261020-202909",
+  "judge": {
+    "context": "isolated",
+    "model": "claude-opus-5-5",
+    "at": "2026-10-21T01:38:15+00:00"
+  },
+  "results": {
+    "rent-leaves-room": {
+      "title": "Rent that leaves enough for everything else",
+      "line": "After I pay rent each month, there's still enough for groceries, bills, and a little put away.",
+      "pass": true,
+      "reason": "Names the end state of rent taking a share of pay small enough that groceries, bills, and some savings still fit, which is tied to rent and not to Broke or No savings."
+    },
+    "predictable-rent": {
+      "title": "Knowing what my rent will be next year",
+      "line": "When my lease comes up for renewal, I already know about what next year's rent will be, and I know I can pay it.",
+      "pass": true,
+      "reason": "Names the end state of a future rent that is known in advance and affordable, tied to lease renewal rather than any other pain."
+    },
+    "staying-put": {
+      "title": "Staying in my home as long as I want",
+      "line": "I can keep living in the home and neighborhood I know for years, without a rent increase pushing me out.",
+      "pass": false,
+      "check": "swap",
+      "reason": "Staying in my home for years without being pushed out fits Eviction (\"I might lose my home.\") and Gentrification just as well, since rent increases are a main way people lose their homes."
+    },
+    "room-for-family": {
+      "title": "Affording enough room for my family",
+      "line": "We can afford a place where the kids have a bedroom and nobody sleeps on the couch, and we still cover our other bills.",
+      "pass": true,
+      "reason": "Names the end state of a family affording a home with enough bedrooms while still covering other bills, which is the rent-for-space tradeoff of this pain."
+    },
+    "own-place": {
+      "title": "Affording a place of my own",
+      "line": "I can pay the rent on a place by myself, without needing roommates to cover it.",
+      "pass": true,
+      "reason": "Names the end state of affording rent alone without roommates, which the roommate detail keeps distinct from Living with parents."
+    },
+    "near-what-matters": {
+      "title": "Affording to live near my work and family",
+      "line": "I can pay the rent on a place close to my job and the people I love, so I'm not trading cheaper rent for an hour on the road each way.",
+      "pass": true,
+      "reason": "Names the end state of affording rent close to work and family instead of trading cheaper rent for a long drive, which ties Commute's loss to this pain's cost."
+    },
+    "fair-rent": {
+      "title": "Paying a fair rent for the place I get",
+      "line": "My rent matches what my place is really worth, and no hidden fees get added on top.",
+      "pass": false,
+      "check": "why",
+      "reason": "A rent that matches the place's worth with no added fees is wanted so I stop overpaying and keep more of my pay, which is the rent-leaves-room end inside this pain."
+    },
+    "rent-builds-something": {
+      "title": "Housing payments that build something for me",
+      "line": "Part of what I pay for housing each month adds up to savings or a share in my home, instead of just disappearing.",
+      "pass": false,
+      "check": "swap",
+      "reason": "Housing payments that add up to savings or a share in my home fit Buying a home (\"I can't afford to buy a home.\") unchanged, and are about what payments build rather than paying too much."
+    },
+    "town-affordable": {
+      "title": "Rents in my town that ordinary paychecks can cover",
+      "line": "Teachers, cooks, nurses, and people with jobs like mine can all afford to rent in my town.",
+      "pass": false,
+      "check": "swap",
+      "reason": "Rents that teachers, cooks, and nurses can afford in my town fit Gentrification (\"I see longtime neighbors priced out as my area gets more expensive.\") unchanged."
+    }
+  }
+}

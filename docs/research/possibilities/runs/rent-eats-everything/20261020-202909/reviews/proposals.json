@@ -1,391 +1,148 @@
 {
   "schemaVersion": 1,
   "setId": "rent-eats-everything-20261020-202909",
-  "builtAt": "2026-10-21T00:34:38+00:00",
+  "builtAt": "2026-10-21T01:38:27+00:00",
   "proposals": [
     {
-      "id": "a-house-for-the-cost-of-a-room",
-      "title": "A whole house for what one room cost",
-      "line": "I moved to a cheaper city with my remote job, and my payment on a three-bedroom house is about what I paid for one room before.",
-      "lens": "individual",
-      "ambition": "this-year",
-      "examples": [
+      "id": "near-what-matters",
+      "title": "Affording to live near my work and family",
+      "line": "I can pay the rent on a place close to my job and the people I love, so I'm not trading cheaper rent for an hour on the road each way.",
+      "screen": {
+        "pass": true,
+        "reason": "Names the end state of affording rent close to work and family instead of trading cheaper rent for a long drive, which ties Commute's loss to this pain's cost."
+      },
+      "overlaps": [
         {
-          "id": "tulsa-remote",
-          "name": "Tulsa Remote",
-          "place": "Tulsa, Oklahoma",
-          "year": 2019,
-          "outcome": "A $10,000 grant for remote workers who move to Tulsa for a year; more than 3,300 workers since 2019, about 90% stay longer than a year; one participant's mortgage on a three-bedroom home roughly equals what she paid for a single room in Los Angeles"
+          "with": "staying-put",
+          "title": "Staying in my home as long as I want",
+          "reason": "Both are about where I can afford to live, one about staying and one about being close to work and family."
         }
-      ],
+      ]
+    },
+    {
+      "id": "own-place",
+      "title": "Affording a place of my own",
+      "line": "I can pay the rent on a place by myself, without needing roommates to cover it.",
+      "screen": {
+        "pass": true,
+        "reason": "Names the end state of affording rent alone without roommates, which the roommate detail keeps distinct from Living with parents."
+      },
+      "overlaps": [
+        {
+          "with": "room-for-family",
+          "title": "Affording enough room for my family",
+          "reason": "Both are about what kind of place the rent lets me have, more space for a family or a place without roommates."
+        }
+      ]
+    },
+    {
+      "id": "predictable-rent",
+      "title": "Knowing what my rent will be next year",
+      "line": "When my lease comes up for renewal, I already know about what next year's rent will be, and I know I can pay it.",
+      "screen": {
+        "pass": true,
+        "reason": "Names the end state of a future rent that is known in advance and affordable, tied to lease renewal rather than any other pain."
+      },
+      "overlaps": [
+        {
+          "with": "staying-put",
+          "title": "Staying in my home as long as I want",
+          "reason": "Both protect against rent increases, one as a known number and one as not being pushed out."
+        }
+      ]
+    },
+    {
+      "id": "rent-leaves-room",
+      "title": "Rent that leaves enough for everything else",
+      "line": "After I pay rent each month, there's still enough for groceries, bills, and a little put away.",
+      "screen": {
+        "pass": true,
+        "reason": "Names the end state of rent taking a share of pay small enough that groceries, bills, and some savings still fit, which is tied to rent and not to Broke or No savings."
+      },
+      "overlaps": [
+        {
+          "with": "fair-rent",
+          "title": "Paying a fair rent for the place I get",
+          "reason": "A fair rent may read as a way to rent that leaves enough for everything else."
+        }
+      ]
+    },
+    {
+      "id": "room-for-family",
+      "title": "Affording enough room for my family",
+      "line": "We can afford a place where the kids have a bedroom and nobody sleeps on the couch, and we still cover our other bills.",
+      "screen": {
+        "pass": true,
+        "reason": "Names the end state of a family affording a home with enough bedrooms while still covering other bills, which is the rent-for-space tradeoff of this pain."
+      },
+      "overlaps": [
+        {
+          "with": "own-place",
+          "title": "Affording a place of my own",
+          "reason": "Both are about what kind of place the rent lets me have, more space for a family or a place without roommates."
+        }
+      ]
+    },
+    {
+      "id": "fair-rent",
+      "title": "Paying a fair rent for the place I get",
+      "line": "My rent matches what my place is really worth, and no hidden fees get added on top.",
+      "screen": {
+        "pass": false,
+        "check": "why",
+        "reason": "A rent that matches the place's worth with no added fees is wanted so I stop overpaying and keep more of my pay, which is the rent-leaves-room end inside this pain."
+      },
+      "overlaps": [
+        {
+          "with": "rent-leaves-room",
+          "title": "Rent that leaves enough for everything else",
+          "reason": "A fair rent may read as a way to rent that leaves enough for everything else."
+        }
+      ]
+    },
+    {
+      "id": "rent-builds-something",
+      "title": "Housing payments that build something for me",
+      "line": "Part of what I pay for housing each month adds up to savings or a share in my home, instead of just disappearing.",
+      "screen": {
+        "pass": false,
+        "check": "swap",
+        "reason": "Housing payments that add up to savings or a share in my home fit Buying a home (\"I can't afford to buy a home.\") unchanged, and are about what payments build rather than paying too much."
+      },
       "overlaps": []
     },
     {
-      "id": "city-owned-apartments-for-working-people",
-      "title": "Good city-owned apartments for people with ordinary incomes",
-      "line": "My city builds and owns well-kept apartments where people like me pay rent we can afford, the way Vienna has for about a century.",
-      "lens": "policy",
-      "ambition": "together",
-      "examples": [
+      "id": "staying-put",
+      "title": "Staying in my home as long as I want",
+      "line": "I can keep living in the home and neighborhood I know for years, without a rent increase pushing me out.",
+      "screen": {
+        "pass": false,
+        "check": "swap",
+        "reason": "Staying in my home for years without being pushed out fits Eviction (\"I might lose my home.\") and Gentrification just as well, since rent increases are a main way people lose their homes."
+      },
+      "overlaps": [
         {
-          "id": "vienna-city-flats",
-          "name": "Vienna city-owned and co-operative flats",
-          "place": "Vienna, Austria",
-          "year": 2026,
-          "outcome": "About 220,000 city-owned flats and 200,000 co-operative flats; eligibility needs two years living in Vienna and income below a limit"
+          "with": "predictable-rent",
+          "title": "Knowing what my rent will be next year",
+          "reason": "Both protect against rent increases, one as a known number and one as not being pushed out."
         },
         {
-          "id": "montgomery-hoc",
-          "name": "Housing Opportunities Commission mixed-income social housing",
-          "place": "Montgomery County, Maryland",
-          "year": 2021,
-          "outcome": "The county housing agency set up a Housing Production Fund in 2021 to build mixed-income apartments it owns; the first, The Laureate, has 268 homes, with affordable and market-rate homes looking the same and higher rents offsetting lower ones"
+          "with": "near-what-matters",
+          "title": "Affording to live near my work and family",
+          "reason": "Both are about where I can afford to live, one about staying and one about being close to work and family."
         }
-      ],
+      ]
+    },
+    {
+      "id": "town-affordable",
+      "title": "Rents in my town that ordinary paychecks can cover",
+      "line": "Teachers, cooks, nurses, and people with jobs like mine can all afford to rent in my town.",
+      "screen": {
+        "pass": false,
+        "check": "swap",
+        "reason": "Rents that teachers, cooks, and nurses can afford in my town fit Gentrification (\"I see longtime neighbors priced out as my area gets more expensive.\") unchanged."
+      },
       "overlaps": []
-    },
-    {
-      "id": "knowing-fair-rent-before-signing",
-      "title": "Knowing what my rent should be before I sign",
-      "line": "Before I sign a lease, I can see what similar apartments nearby rent for and who owns the building, so I know whether the price is fair.",
-      "lens": "technology",
-      "ambition": "tonight",
-      "examples": [
-        {
-          "id": "justfix",
-          "name": "JustFix tenant tools",
-          "place": "New York City",
-          "year": 2026,
-          "outcome": "Free tools to order an apartment's rent history by mail or text, look up who owns a building and their other properties (Who Owns What), and send a repair letter by certified mail"
-        },
-        {
-          "id": "germany-rent-brake",
-          "name": "Conny and Germany's rent brake",
-          "place": "Germany",
-          "year": 2026,
-          "outcome": "In tight markets, rent on a new lease may be no more than 10% above the local comparative rent from the city's rent index; Conny checks a tenant's rent, sends the formal complaint, and charges only if the rent is reduced"
-        }
-      ],
-      "overlaps": [
-        {
-          "with": "overpaid-rent-returned",
-          "title": "Getting back rent I was overcharged",
-          "reason": "Both rest on knowing a home's legal or comparable rent, before and after signing."
-        }
-      ]
-    },
-    {
-      "id": "less-rent-for-help-around-the-house",
-      "title": "Paying less rent in exchange for help around the house",
-      "line": "I rent a spare room from an older homeowner and pay less because I help with groceries, chores, and yard work.",
-      "lens": "market",
-      "ambition": "this-year",
-      "examples": [
-        {
-          "id": "nesterly",
-          "name": "Nesterly home-sharing matches",
-          "place": "United States",
-          "year": 2026,
-          "outcome": "Matches people who have spare rooms with renters for stays of a month or more; guests can agree to help around the home in exchange for lower rent; either side can end with 30 days' notice"
-        },
-        {
-          "id": "homeshare-vermont",
-          "name": "HomeShare Vermont",
-          "place": "Vermont",
-          "year": 1982,
-          "outcome": "Nonprofit matching housemates since 1982 across 12 of Vermont's 14 counties; people choose whom they live with after screening"
-        }
-      ],
-      "overlaps": [
-        {
-          "with": "splitting-rent-with-a-chosen-housemate",
-          "title": "Splitting rent with a housemate I chose",
-          "reason": "Both are home-sharing, and trading help for lower rent is one form of sharing with a chosen housemate."
-        }
-      ]
-    },
-    {
-      "id": "lower-rent-at-renewal",
-      "title": "A lower rent at my next lease renewal",
-      "line": "When my lease came up, I showed my landlord similar listings and my record of paying on time, and we settled on less than they first asked.",
-      "lens": "individual",
-      "ambition": "this-year",
-      "examples": [
-        {
-          "id": "rent-negotiation-avail",
-          "name": "Avail survey of renters negotiating rent",
-          "place": "United States",
-          "year": 2023,
-          "outcome": "Success rate for negotiating lower rent rose from 17% in October 2022 to just over 25% in April 2023; only 28% negotiated their most recent renewal"
-        }
-      ],
-      "overlaps": []
-    },
-    {
-      "id": "more-homes-so-rents-stop-climbing",
-      "title": "Enough new homes nearby that rents stop climbing",
-      "line": "My city allowed more apartments and duplexes to be built, and rents near me rose much less than in the rest of the state.",
-      "lens": "policy",
-      "ambition": "together",
-      "examples": [
-        {
-          "id": "minneapolis-reforms",
-          "name": "Minneapolis land-use reforms",
-          "place": "Minneapolis, Minnesota",
-          "year": 2024,
-          "outcome": "From 2017 to 2022 the city permitted about 21,000 new homes, about 12% more housing against about 4% statewide, and rent growth ran 13 percentage points below the state average; renters pay about $1,700 a year less than if rents had tracked the state"
-        },
-        {
-          "id": "la-adus",
-          "name": "Backyard homes (ADUs) in Los Angeles",
-          "place": "Los Angeles, California",
-          "year": 2023,
-          "outcome": "Over 25,000 accessory dwelling units (backyard homes) permitted in the city since 2017, after California made them easier to build"
-        }
-      ],
-      "overlaps": []
-    },
-    {
-      "id": "overpaid-rent-returned",
-      "title": "Getting back rent I was overcharged",
-      "line": "I checked my apartment's legal rent and rent history, and my landlord had to lower my rent and pay back part of what I'd overpaid.",
-      "lens": "technology",
-      "ambition": "this-year",
-      "examples": [
-        {
-          "id": "germany-rent-brake",
-          "name": "Conny and Germany's rent brake",
-          "place": "Germany",
-          "year": 2026,
-          "outcome": "In tight markets, rent on a new lease may be no more than 10% above the local comparative rent from the city's rent index; Conny checks a tenant's rent, sends the formal complaint, and charges only if the rent is reduced"
-        },
-        {
-          "id": "justfix",
-          "name": "JustFix tenant tools",
-          "place": "New York City",
-          "year": 2026,
-          "outcome": "Free tools to order an apartment's rent history by mail or text, look up who owns a building and their other properties (Who Owns What), and send a repair letter by certified mail"
-        }
-      ],
-      "overlaps": [
-        {
-          "with": "knowing-fair-rent-before-signing",
-          "title": "Knowing what my rent should be before I sign",
-          "reason": "Both rest on knowing a home's legal or comparable rent, before and after signing."
-        }
-      ]
-    },
-    {
-      "id": "owning-through-a-land-trust",
-      "title": "Owning an affordable home through a land trust",
-      "line": "I bought a home through a community land trust at a price I could afford, and when I sell I keep part of the gain.",
-      "lens": "community",
-      "ambition": "together",
-      "examples": [
-        {
-          "id": "champlain-housing-trust",
-          "name": "Champlain Housing Trust shared-equity homes",
-          "place": "Burlington, Vermont",
-          "year": 2008,
-          "outcome": "Study of 205 resales of homes developed 1988 to 2008: the average seller left nearly $14,000 richer after about 5.4 years, and 73% bought another home when they left"
-        }
-      ],
-      "overlaps": []
-    },
-    {
-      "id": "rent-at-a-third-of-income",
-      "title": "Paying about a third of my income on rent",
-      "line": "My rent is set at about 30% of what I earn, so the rest of my paycheck goes to food, bills, and savings.",
-      "lens": "policy",
-      "ambition": "this-year",
-      "examples": [
-        {
-          "id": "hud-vouchers",
-          "name": "Housing Choice Voucher program (Section 8)",
-          "place": "United States",
-          "year": 2026,
-          "outcome": "About 2,000 local public housing agencies run it with HUD funding; the family typically pays about 30% of adjusted monthly income, up to 40%, and the agency pays the landlord the rest"
-        },
-        {
-          "id": "brooke-amendment",
-          "name": "Brooke Amendment, origin of the 30% rent rule",
-          "place": "United States",
-          "year": 1969,
-          "outcome": "Capped public housing rent at 25% of a tenant's income in 1969; raised to 30% in 1981, which became the common rule of thumb for affordable rent"
-        }
-      ],
-      "overlaps": [
-        {
-          "with": "rent-paid-this-month",
-          "title": "This month's rent paid while I catch up",
-          "reason": "Both are rent paid partly by an assistance program; one is short-term help, the other a lasting subsidy."
-        }
-      ]
-    },
-    {
-      "id": "rent-increases-capped",
-      "title": "Yearly rent increases capped by law",
-      "line": "My rent can only go up by a set amount each year, so I never open a renewal letter to a jump I can't pay.",
-      "lens": "policy",
-      "ambition": "together",
-      "examples": [
-        {
-          "id": "oregon-rent-cap",
-          "name": "Oregon statewide rent stabilization",
-          "place": "Oregon",
-          "year": 2026,
-          "outcome": "Yearly rent increases are capped at 7% plus inflation, never more than 10%; the cap was 9.5% for 2026 and is 10% for 2027"
-        },
-        {
-          "id": "sf-rent-control-study",
-          "name": "Stanford study of San Francisco's 1994 rent control expansion",
-          "place": "San Francisco, California",
-          "year": 2018,
-          "outcome": "Covered tenants saved roughly $2,300 to $6,600 a year, but rent-controlled units fell about 25% from 1994 to 2010 and later renters paid about 5% more"
-        }
-      ],
-      "overlaps": [
-        {
-          "with": "tenants-holding-rents-steady-together",
-          "title": "My building's tenants keeping our rent steady together",
-          "reason": "Both end with rent that holds steady; one gets there by law and one by tenants negotiating together."
-        }
-      ]
-    },
-    {
-      "id": "rent-paid-this-month",
-      "title": "This month's rent paid while I catch up",
-      "line": "I found local rental assistance through 211, and this month's rent is covered while I get back on my feet.",
-      "lens": "individual",
-      "ambition": "tonight",
-      "examples": [
-        {
-          "id": "cfpb-renthelp",
-          "name": "Consumer Financial Protection Bureau rent help page",
-          "place": "United States",
-          "year": 2026,
-          "outcome": "Points renters to state, tribal, and local rental assistance, 211, HUD-approved housing counselors, year-round utility help through LIHEAP (the Low Income Home Energy Assistance Program), and housing choice vouchers"
-        }
-      ],
-      "overlaps": [
-        {
-          "with": "rent-at-a-third-of-income",
-          "title": "Paying about a third of my income on rent",
-          "reason": "Both are rent paid partly by an assistance program; one is short-term help, the other a lasting subsidy."
-        }
-      ]
-    },
-    {
-      "id": "saving-while-living-with-family",
-      "title": "Saving money while I live with family for a while",
-      "line": "I moved back in with my parents for now, and the money I'd have spent on rent is going into savings for a place of my own.",
-      "lens": "relational",
-      "ambition": "this-year",
-      "examples": [
-        {
-          "id": "pew-multigenerational",
-          "name": "Pew Research Center on multigenerational homes",
-          "place": "United States",
-          "year": 2021,
-          "outcome": "Among adults 25 and older living with a parent, 57% of those ages 25 to 39 say finances are a major reason, compared with 31% of older adults"
-        }
-      ],
-      "overlaps": []
-    },
-    {
-      "id": "sharing-a-home-with-friends-as-we-age",
-      "title": "Sharing a house with friends as we get older",
-      "line": "A few friends and I share one house as we age, and splitting the costs means none of us is stretched thin.",
-      "lens": "culture",
-      "ambition": "together",
-      "examples": [
-        {
-          "id": "aarp-golden-girls",
-          "name": "Older women sharing homes as housemates (AARP report)",
-          "place": "United States",
-          "year": 2026,
-          "outcome": "57% of women 50 and older would consider living with a friend as they age (2024 AARP survey); about 1 in 4 adults 50 and older would consider renting part of their home to a nonfamily member (July 2026); Colorado's 2024 law removed local caps on unrelated people living together"
-        },
-        {
-          "id": "homeshare-vermont",
-          "name": "HomeShare Vermont",
-          "place": "Vermont",
-          "year": 1982,
-          "outcome": "Nonprofit matching housemates since 1982 across 12 of Vermont's 14 counties; people choose whom they live with after screening"
-        }
-      ],
-      "overlaps": [
-        {
-          "with": "splitting-rent-with-a-chosen-housemate",
-          "title": "Splitting rent with a housemate I chose",
-          "reason": "Sharing a house with friends is a version of splitting rent with a chosen housemate."
-        }
-      ]
-    },
-    {
-      "id": "splitting-rent-with-a-chosen-housemate",
-      "title": "Splitting rent with a housemate I chose",
-      "line": "I share a home with someone I met and picked, and we each pay a fraction of what living alone cost me.",
-      "lens": "relational",
-      "ambition": "this-year",
-      "examples": [
-        {
-          "id": "nesterly",
-          "name": "Nesterly home-sharing matches",
-          "place": "United States",
-          "year": 2026,
-          "outcome": "Matches people who have spare rooms with renters for stays of a month or more; guests can agree to help around the home in exchange for lower rent; either side can end with 30 days' notice"
-        },
-        {
-          "id": "homeshare-vermont",
-          "name": "HomeShare Vermont",
-          "place": "Vermont",
-          "year": 1982,
-          "outcome": "Nonprofit matching housemates since 1982 across 12 of Vermont's 14 counties; people choose whom they live with after screening"
-        },
-        {
-          "id": "aarp-golden-girls",
-          "name": "Older women sharing homes as housemates (AARP report)",
-          "place": "United States",
-          "year": 2026,
-          "outcome": "57% of women 50 and older would consider living with a friend as they age (2024 AARP survey); about 1 in 4 adults 50 and older would consider renting part of their home to a nonfamily member (July 2026); Colorado's 2024 law removed local caps on unrelated people living together"
-        }
-      ],
-      "overlaps": [
-        {
-          "with": "less-rent-for-help-around-the-house",
-          "title": "Paying less rent in exchange for help around the house",
-          "reason": "Both are home-sharing, and trading help for lower rent is one form of sharing with a chosen housemate."
-        },
-        {
-          "with": "sharing-a-home-with-friends-as-we-age",
-          "title": "Sharing a house with friends as we get older",
-          "reason": "Sharing a house with friends is a version of splitting rent with a chosen housemate."
-        }
-      ]
-    },
-    {
-      "id": "tenants-holding-rents-steady-together",
-      "title": "My building's tenants keeping our rent steady together",
-      "line": "My neighbors and I formed a tenants union, and now our rent holds steady and repairs get done by a set deadline.",
-      "lens": "community",
-      "ambition": "together",
-      "examples": [
-        {
-          "id": "kc-tenants-independence-towers",
-          "name": "KC Tenants rent strike at Independence Towers",
-          "place": "Kansas City, Missouri",
-          "year": 2019,
-          "outcome": "After an eight-month rent strike, tenants won a contract that held rents steady, removed some extra fees, and set a deadline for repairs; KC Tenants, founded in 2019, has more than 10,000 members"
-        }
-      ],
-      "overlaps": [
-        {
-          "with": "rent-increases-capped",
-          "title": "Yearly rent increases capped by law",
-          "reason": "Both end with rent that holds steady; one gets there by law and one by tenants negotiating together."
-        }
-      ]
     }
   ]
 }

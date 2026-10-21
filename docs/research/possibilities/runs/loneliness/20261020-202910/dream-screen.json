@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 2,
+  "painId": "loneliness",
+  "runId": "20261020-202910",
+  "judge": {
+    "context": "isolated",
+    "model": "claude-opus-5-5",
+    "at": "2026-10-21T01:37:56+00:00"
+  },
+  "results": {
+    "people-who-know-whats-going-on-with-me": {
+      "title": "People who know what's really going on with me",
+      "line": "A few people know what I'm worried about this month and what I'm looking forward to, because I've told them and they remember.",
+      "pass": true,
+      "reason": "Names being known day to day, with a few people who hold my worries and hopes in mind."
+    },
+    "talking-most-days-with-someone-who-knows-me": {
+      "title": "Talking most days with someone who knows me well",
+      "line": "Most days I have at least one conversation that goes past small talk with someone who knows me well.",
+      "pass": true,
+      "reason": "Names the direct reverse of the pain: a real conversation most days with someone who knows me well."
+    },
+    "someone-would-notice-if-i-went-quiet": {
+      "title": "Someone who'd notice if I went quiet",
+      "line": "If I didn't answer my phone for a few days, someone who knows me would notice and get in touch to check on me.",
+      "pass": false,
+      "check": "swap",
+      "reason": "Someone checking on me when I go quiet fits No support (\"I have no one to call when I need help\") and Growing old alone just as well."
+    },
+    "someone-to-tell-about-my-day": {
+      "title": "Someone to tell about my day",
+      "line": "When something small happens, good or annoying, I have someone to tell that evening who knows why it matters to me.",
+      "pass": true,
+      "reason": "Names having someone who knows me to share the small things of each day with."
+    },
+    "someone-i-can-be-completely-honest-with": {
+      "title": "Someone I can be completely honest with",
+      "line": "There's at least one person I can tell the hard or embarrassing things to without editing myself first.",
+      "pass": true,
+      "reason": "Names having at least one person who knows me well enough that I can be fully honest with them."
+    },
+    "friends-who-get-in-touch-with-me-first": {
+      "title": "Friends who get in touch with me first",
+      "line": "My friends call or text me just to talk, so I'm not always the one who has to start.",
+      "pass": false,
+      "check": "why",
+      "reason": "Friends reaching out first is wanted so that I end up talking with people who know me, which is still this pain, so it reads as a means."
+    },
+    "seeing-people-who-know-me-in-person": {
+      "title": "Seeing people who know me in person",
+      "line": "Most weeks I'm in the same room as a friend who knows me well, not just trading messages.",
+      "pass": true,
+      "reason": "Names regular time in the same room as a friend who knows me well, not only messages."
+    },
+    "feeling-close-to-the-people-i-live-with": {
+      "title": "Feeling close to the people I live with",
+      "line": "The people I share a home with know what's on my mind, because we talk about more than chores and schedules.",
+      "pass": true,
+      "reason": "Names being known by the people I share a home with, beyond chores and schedules."
+    },
+    "time-alone-that-doesnt-feel-lonely": {
+      "title": "Time alone that doesn't feel lonely",
+      "line": "When I spend an evening on my own, I enjoy the quiet, because I know I'll be talking with people who care about me soon.",
+      "pass": true,
+      "reason": "Names solitude that feels restful because closeness with people who care is never far off."
+    }
+  }
+}

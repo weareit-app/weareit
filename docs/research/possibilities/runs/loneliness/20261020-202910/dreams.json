@@ -3,299 +3,135 @@
   "painId": "loneliness",
   "runId": "20261020-202910",
   "dreams": {
-    "someone-glad-to-hear-from-me-tonight": {
-      "title": "Someone glad to hear from me tonight",
-      "line": "Even on a night when nobody comes to mind, I can call a line where a person is glad to talk with me for as long as I need.",
-      "lens": "individual",
-      "ambition": "tonight",
-      "exemplarRefs": [
-        "friendship-line",
-        "lifeline-988",
-        "seoul-goodbye-loneliness-120"
-      ],
+    "people-who-know-whats-going-on-with-me": {
+      "title": "People who know what's really going on with me",
+      "line": "A few people know what I'm worried about this month and what I'm looking forward to, because I've told them and they remember.",
       "provenance": {
         "sourceId": "generator-run-20261020-202910",
-        "locator": "dreams.json#someone-glad-to-hear-from-me-tonight",
+        "locator": "dreams.json#people-who-know-whats-going-on-with-me",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "Talklines exist now: the Friendship Line for older adults, 988 for anyone in distress, and Seoul's city line. The basic, reachable outcome for the worst evenings."
+      "writerNotes": "The core of 'anyone who really knows me': being known in depth by a small circle. Why test: wanting to be known is the end state itself, not a route to something else in this pain. Swap test: No support is about getting help in a crisis and Belonging about fitting a group; this is about people holding my current life in mind. Distinct from the honesty dream (what I can say) and the daily-conversation dream (how often)."
     },
-    "small-talk-with-strangers-that-lifts-my-day": {
-      "title": "Small talk with strangers that lifts my day",
-      "line": "On the bus or in line at the store, I trade a few real sentences with someone new and walk away in a better mood than I expected.",
-      "lens": "individual",
-      "ambition": "tonight",
-      "exemplarRefs": [
-        "epley-talking-to-strangers"
-      ],
+    "talking-most-days-with-someone-who-knows-me": {
+      "title": "Talking most days with someone who knows me well",
+      "line": "Most days I have at least one conversation that goes past small talk with someone who knows me well.",
       "provenance": {
         "sourceId": "generator-run-20261020-202910",
-        "locator": "dreams.json#small-talk-with-strangers-that-lifts-my-day",
+        "locator": "dreams.json#talking-most-days-with-someone-who-knows-me",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "Epley's commuter studies: people predict talking to strangers will be worse, and it turns out better. Surprising and doable today."
+      "writerNotes": "The direct answer to 'most days I don't talk to anyone', with the added detail that the talk goes past small talk so it isn't a bare restatement. Why test: a regular real conversation is wanted for itself. Swap test: Plans is about having company to go out with, not daily talk. Distinct by frequency; flagged as possible overlap with being known and with telling someone about my day."
     },
-    "back-in-touch-with-an-old-friend": {
-      "title": "Back in touch with a friend I'd drifted from",
-      "line": "I called a friend I hadn't spoken to in years, and we talked long enough to catch up on what actually matters in our lives.",
-      "lens": "relational",
-      "ambition": "tonight",
-      "exemplarRefs": [
-        "surgeon-general-advisory",
-        "harvard-adult-development"
-      ],
+    "someone-would-notice-if-i-went-quiet": {
+      "title": "Someone who'd notice if I went quiet",
+      "line": "If I didn't answer my phone for a few days, someone who knows me would notice and get in touch to check on me.",
       "provenance": {
         "sourceId": "generator-run-20261020-202910",
-        "locator": "dreams.json#back-in-touch-with-an-old-friend",
+        "locator": "dreams.json#someone-would-notice-if-i-went-quiet",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "The advisory urges picking up calls from friends; Harvard's study ties close ties to lasting happiness. Reconnecting is the fastest route to someone who already knows you."
+      "writerNotes": "Being missed: someone keeps track of me without my asking. Why test: wanting to be noticed is part of mattering to someone, the end state, not a means. Swap test: No support is about having someone to call when I need help, where I reach out; here the other person notices first. Growing old alone is about older people near me. Flagged against the being-known dream, which it may sit inside."
     },
-    "a-friend-i-talk-with-every-week": {
-      "title": "A close friend I talk with every week",
-      "line": "There's at least one person I see or call every week who knows what's going on in my life, and I know what's going on in theirs.",
-      "lens": "relational",
-      "ambition": "this-year",
-      "exemplarRefs": [
-        "hall-friendship-hours",
-        "harvard-adult-development"
-      ],
+    "someone-to-tell-about-my-day": {
+      "title": "Someone to tell about my day",
+      "line": "When something small happens, good or annoying, I have someone to tell that evening who knows why it matters to me.",
       "provenance": {
         "sourceId": "generator-run-20261020-202910",
-        "locator": "dreams.json#a-friend-i-talk-with-every-week",
+        "locator": "dreams.json#someone-to-tell-about-my-day",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "Hall's numbers (about 200 hours to a close friend) make a weekly habit the realistic path; the dream is the outcome, the weekly friend."
+      "writerNotes": "Sharing the ordinary as it happens, which people who live alone often name as what they miss. Why test: telling someone is the thing wanted, not a step toward it. Swap test: Intimacy is closeness with one person, often a partner; this can be any friend or relative. Flagged against the daily-conversation dream."
     },
-    "a-weekly-group-that-notices-when-im-missing": {
-      "title": "A weekly group that notices when I'm missing",
-      "line": "Every Saturday I show up to the same free 5k, and the people there ask where I was if I skip a week.",
-      "lens": "community",
-      "ambition": "this-year",
-      "exemplarRefs": [
-        "parkrun-ireland-men",
-        "mens-sheds-australia"
-      ],
+    "someone-i-can-be-completely-honest-with": {
+      "title": "Someone I can be completely honest with",
+      "line": "There's at least one person I can tell the hard or embarrassing things to without editing myself first.",
       "provenance": {
         "sourceId": "generator-run-20261020-202910",
-        "locator": "dreams.json#a-weekly-group-that-notices-when-im-missing",
+        "locator": "dreams.json#someone-i-can-be-completely-honest-with",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "parkrun study: friendships formed through repeated attendance. Being missed is the concrete sign of belonging."
+      "writerNotes": "Depth without performance: being able to drop the edited version of myself. Why test: honesty with someone is wanted for itself. Swap test: No support is practical help; Intimacy is closeness, often physical or romantic; this is about being fully known in conversation. Flagged against the being-known dream."
     },
-    "a-workshop-where-i-build-things-with-others": {
-      "title": "A workshop where I build and fix things with others",
-      "line": "A couple of mornings a week I work on a project at a shared workshop, and the talk comes easily because our hands are busy.",
-      "lens": "community",
-      "ambition": "this-year",
-      "exemplarRefs": [
-        "mens-sheds-australia"
-      ],
+    "friends-who-get-in-touch-with-me-first": {
+      "title": "Friends who get in touch with me first",
+      "line": "My friends call or text me just to talk, so I'm not always the one who has to start.",
       "provenance": {
         "sourceId": "generator-run-20261020-202910",
-        "locator": "dreams.json#a-workshop-where-i-build-things-with-others",
+        "locator": "dreams.json#friends-who-get-in-touch-with-me-first",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "Men's Sheds: more than 1,300 in Australia. Side-by-side work suits people who don't like face-to-face small talk."
+      "writerNotes": "Reciprocity: the connection runs both ways. Why test: being sought out is part of being known and valued, not a means to another loneliness outcome. Swap test: Old friends is about drift from specific past friends; this is about whichever friends I have now. Distinct from every other dream, which do not say who initiates."
     },
-    "neighbors-i-eat-dinner-with-every-week": {
-      "title": "Neighbors I eat dinner with a few nights a week",
-      "line": "I live in a building where neighbors take turns cooking shared dinners, so I'm never more than a day or two from a real conversation.",
-      "lens": "community",
-      "ambition": "together",
-      "exemplarRefs": [
-        "capitol-hill-cohousing"
-      ],
+    "seeing-people-who-know-me-in-person": {
+      "title": "Seeing people who know me in person",
+      "line": "Most weeks I'm in the same room as a friend who knows me well, not just trading messages.",
       "provenance": {
         "sourceId": "generator-run-20261020-202910",
-        "locator": "dreams.json#neighbors-i-eat-dinner-with-every-week",
+        "locator": "dreams.json#seeing-people-who-know-me-in-person",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "Capitol Hill Urban Cohousing: 21 residents, shared dinners three or four nights a week (rechecked on the KUOW page). Needs others to build it, so together."
+      "writerNotes": "In-person presence, which many lonely people lack even with plenty of messages. Why test: being with someone face to face is wanted for itself. Swap test: Plans is about having someone to go out with to do things; this is about time together with someone who knows me, wherever it happens. Flagged against the daily-conversation dream."
     },
-    "living-alongside-people-of-a-different-age": {
-      "title": "Living alongside neighbors of a very different age",
-      "line": "I share a home with people decades older or younger than me, and we drop in on each other without needing a reason.",
-      "lens": "culture",
-      "ambition": "together",
-      "exemplarRefs": [
-        "humanitas-deventer",
-        "capitol-hill-cohousing"
-      ],
+    "feeling-close-to-the-people-i-live-with": {
+      "title": "Feeling close to the people I live with",
+      "line": "The people I share a home with know what's on my mind, because we talk about more than chores and schedules.",
       "provenance": {
         "sourceId": "generator-run-20261020-202910",
-        "locator": "dreams.json#living-alongside-people-of-a-different-age",
+        "locator": "dreams.json#feeling-close-to-the-people-i-live-with",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "Humanitas in Deventer housed students rent-free among residents mostly over 80. Culture lens: changes who we expect to live with."
+      "writerNotes": "Loneliness inside a full household, a common case the other dreams miss because they assume I'm alone. Why test: closeness at home is the end state. Swap test: Relationship is about conflict with a partner; this covers roommates, family, or a partner when nobody is fighting but nobody really talks."
     },
-    "a-town-where-eating-with-strangers-is-normal": {
-      "title": "A town where sharing meals with strangers is normal",
-      "line": "A couple of times a year my whole town sets out tables for shared meals, and I sit down with neighbors I'd never met.",
-      "lens": "culture",
-      "ambition": "together",
-      "exemplarRefs": [
-        "danmark-spiser-sammen",
-        "big-lunch"
-      ],
+    "time-alone-that-doesnt-feel-lonely": {
+      "title": "Time alone that doesn't feel lonely",
+      "line": "When I spend an evening on my own, I enjoy the quiet, because I know I'll be talking with people who care about me soon.",
       "provenance": {
         "sourceId": "generator-run-20261020-202910",
-        "locator": "dreams.json#a-town-where-eating-with-strangers-is-normal",
+        "locator": "dreams.json#time-alone-that-doesnt-feel-lonely",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "Denmark Eats Together (weeks 17 and 45) and the Big Lunch each June show a whole country can make shared meals ordinary."
-    },
-    "a-checkout-where-nobody-rushes-me": {
-      "title": "A checkout line where the cashier has time to chat",
-      "line": "At my supermarket there's a lane where the cashier is glad to talk, so I don't feel like I'm holding anyone up.",
-      "lens": "market",
-      "ambition": "together",
-      "exemplarRefs": [
-        "jumbo-kletskassa"
-      ],
-      "provenance": {
-        "sourceId": "generator-run-20261020-202910",
-        "locator": "dreams.json#a-checkout-where-nobody-rushes-me",
-        "evidenceType": "ai_generated_from_exemplars",
-        "rights": "CC-BY-SA-4.0",
-        "reviewStatus": "unreviewed"
-      },
-      "writerNotes": "Jumbo's chat checkouts, part of a Dutch health ministry program. Needs a business to change, so together."
-    },
-    "someone-checking-on-my-parent-every-week": {
-      "title": "A familiar visitor checking on my parent every week",
-      "line": "Someone my mom knows stops by her place every week, and I hear how she's doing even though I live far away.",
-      "lens": "market",
-      "ambition": "this-year",
-      "exemplarRefs": [
-        "la-poste-facteur-visits",
-        "friendship-line"
-      ],
-      "provenance": {
-        "sourceId": "generator-run-20261020-202910",
-        "locator": "dreams.json#someone-checking-on-my-parent-every-week",
-        "evidenceType": "ai_generated_from_exemplars",
-        "rights": "CC-BY-SA-4.0",
-        "reviewStatus": "unreviewed"
-      },
-      "writerNotes": "La Poste's mail carrier visits, plus the Friendship Line's regular check-in calls. For people whose loneliness worry is a parent's, or who are the parent."
-    },
-    "a-dinner-with-new-people-on-my-calendar": {
-      "title": "A dinner with new people already on my calendar",
-      "line": "This week I have a dinner booked with a small group of people I haven't met, matched to me, and I'm looking forward to it.",
-      "lens": "technology",
-      "ambition": "tonight",
-      "exemplarRefs": [
-        "timeleft-dinners",
-        "bumble-for-friends"
-      ],
-      "provenance": {
-        "sourceId": "generator-run-20261020-202910",
-        "locator": "dreams.json#a-dinner-with-new-people-on-my-calendar",
-        "evidenceType": "ai_generated_from_exemplars",
-        "rights": "CC-BY-SA-4.0",
-        "reviewStatus": "unreviewed"
-      },
-      "writerNotes": "Timeleft books a table of six strangers; Bumble For Friends matches by interests. Booking is a tonight action; the dinner is days away."
-    },
-    "a-doctor-who-can-refer-me-to-groups": {
-      "title": "A doctor who refers me to local groups, not pills",
-      "line": "When I tell my doctor I'm lonely, she connects me with someone who finds me a gardening club or a music group nearby.",
-      "lens": "policy",
-      "ambition": "together",
-      "exemplarRefs": [
-        "england-social-prescribing",
-        "friendship-bench-zimbabwe"
-      ],
-      "provenance": {
-        "sourceId": "generator-run-20261020-202910",
-        "locator": "dreams.json#a-doctor-who-can-refer-me-to-groups",
-        "evidenceType": "ai_generated_from_exemplars",
-        "rights": "CC-BY-SA-4.0",
-        "reviewStatus": "unreviewed"
-      },
-      "writerNotes": "England's social prescribing, with more than 3,300 link workers. Friendship Bench shows lay listeners and peer groups through care systems. A policy change for most places."
-    },
-    "a-city-that-answers-when-i-call-about-loneliness": {
-      "title": "A city that answers when I call about loneliness",
-      "line": "My city runs a loneliness line I can call at any hour, and a local council of support groups follows up so I don't fall through the cracks.",
-      "lens": "policy",
-      "ambition": "together",
-      "exemplarRefs": [
-        "seoul-goodbye-loneliness-120",
-        "japan-loneliness-act"
-      ],
-      "provenance": {
-        "sourceId": "generator-run-20261020-202910",
-        "locator": "dreams.json#a-city-that-answers-when-i-call-about-loneliness",
-        "evidenceType": "ai_generated_from_exemplars",
-        "rights": "CC-BY-SA-4.0",
-        "reviewStatus": "unreviewed"
-      },
-      "writerNotes": "Seoul's 120 line beat its yearly goal in six weeks; Japan's 2023 Act asks local governments to set up councils on loneliness."
-    },
-    "a-bench-where-saying-hello-is-expected": {
-      "title": "A park bench where saying hello is expected",
-      "line": "There's a bench near me with a sign saying it's fine to sit and chat, so I can start a conversation without feeling strange.",
-      "lens": "community",
-      "ambition": "together",
-      "exemplarRefs": [
-        "happy-to-chat-benches",
-        "friendship-bench-zimbabwe"
-      ],
-      "provenance": {
-        "sourceId": "generator-run-20261020-202910",
-        "locator": "dreams.json#a-bench-where-saying-hello-is-expected",
-        "evidenceType": "ai_generated_from_exemplars",
-        "rights": "CC-BY-SA-4.0",
-        "reviewStatus": "unreviewed"
-      },
-      "writerNotes": "Avon and Somerset Police chat benches. A small public change that gives people permission to talk."
+      "writerNotes": "The end state from the solitude side: being alone stops hurting. Why test: wanted for itself. Swap test: no neighboring pain is about how solitude feels. Distinct because every other dream describes time with people; this one describes time without them."
     }
   },
   "overlaps": [
     {
-      "a": "a-weekly-group-that-notices-when-im-missing",
-      "b": "a-workshop-where-i-build-things-with-others",
-      "reason": "Both are a regular group where you get to know people over repeated weeks; the workshop could read as one example of the weekly group."
+      "a": "people-who-know-whats-going-on-with-me",
+      "b": "someone-i-can-be-completely-honest-with",
+      "reason": "Being able to tell one person everything may be the same end state as having people who know what's going on with me."
     },
     {
-      "a": "neighbors-i-eat-dinner-with-every-week",
-      "b": "living-alongside-people-of-a-different-age",
-      "reason": "Both are about sharing a home with neighbors you see often, and both cite the Seattle cohousing building."
+      "a": "people-who-know-whats-going-on-with-me",
+      "b": "someone-would-notice-if-i-went-quiet",
+      "reason": "People who know what's going on with me would likely notice if I went quiet, so one may contain the other."
     },
     {
-      "a": "back-in-touch-with-an-old-friend",
-      "b": "a-friend-i-talk-with-every-week",
-      "reason": "Reconnecting with an old friend can be the start of having a close friend you talk with every week."
+      "a": "talking-most-days-with-someone-who-knows-me",
+      "b": "someone-to-tell-about-my-day",
+      "reason": "Telling someone about my day each evening may be the same thing as talking most days with someone who knows me."
     },
     {
-      "a": "neighbors-i-eat-dinner-with-every-week",
-      "b": "a-town-where-eating-with-strangers-is-normal",
-      "reason": "Both make shared meals the way people meet; one in a building every week, the other across a town a few times a year."
-    },
-    {
-      "a": "someone-glad-to-hear-from-me-tonight",
-      "b": "a-city-that-answers-when-i-call-about-loneliness",
-      "reason": "Both are a line you can call when lonely; the city one adds a local council that follows up."
+      "a": "talking-most-days-with-someone-who-knows-me",
+      "b": "seeing-people-who-know-me-in-person",
+      "reason": "Both describe regular contact with people who know me, differing mainly in whether it is in person."
     }
   ]
 }

@@ -3,297 +3,135 @@
   "painId": "rent-eats-everything",
   "runId": "20261020-202909",
   "dreams": {
-    "rent-paid-this-month": {
-      "title": "This month's rent paid while I catch up",
-      "line": "I found local rental assistance through 211, and this month's rent is covered while I get back on my feet.",
-      "lens": "individual",
-      "ambition": "tonight",
-      "exemplarRefs": [
-        "cfpb-renthelp"
-      ],
+    "rent-leaves-room": {
+      "title": "Rent that leaves enough for everything else",
+      "line": "After I pay rent each month, there's still enough for groceries, bills, and a little put away.",
       "provenance": {
         "sourceId": "generator-run-20261020-202909",
-        "locator": "dreams.json#rent-paid-this-month",
+        "locator": "dreams.json#rent-leaves-room",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "Obvious basic: emergency rent help exists in most places, though funds run out. Tonight-level because the call can happen now."
+      "writerNotes": "The core end state: housing stops eating the rest of the budget. Why test: why want this? To have money for the rest of life, which is the end, not a step inside this pain. Swap test: the title and line name rent, so it doesn't fit Broke or No savings unchanged. Distinct from fair-rent (fairness of the price, not the share of pay)."
     },
-    "rent-at-a-third-of-income": {
-      "title": "Paying about a third of my income on rent",
-      "line": "My rent is set at about 30% of what I earn, so the rest of my paycheck goes to food, bills, and savings.",
-      "lens": "policy",
-      "ambition": "this-year",
-      "exemplarRefs": [
-        "hud-vouchers",
-        "brooke-amendment"
-      ],
+    "predictable-rent": {
+      "title": "Knowing what my rent will be next year",
+      "line": "When my lease comes up for renewal, I already know about what next year's rent will be, and I know I can pay it.",
       "provenance": {
         "sourceId": "generator-run-20261020-202909",
-        "locator": "dreams.json#rent-at-a-third-of-income",
+        "locator": "dreams.json#predictable-rent",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "Vouchers and public housing already work this way; waiting lists are long, so this-year rather than tonight."
+      "writerNotes": "End state is certainty about future housing cost, the thing renters dread at renewal. Why test: why want it? To plan the year without fear, which is the end itself; a rent cap or longer lease would be the fix. Swap test: lease renewal ties it to this pain. Distinct from staying-put (staying in place) because this is about the number, not the address."
     },
-    "lower-rent-at-renewal": {
-      "title": "A lower rent at my next lease renewal",
-      "line": "When my lease came up, I showed my landlord similar listings and my record of paying on time, and we settled on less than they first asked.",
-      "lens": "individual",
-      "ambition": "this-year",
-      "exemplarRefs": [
-        "rent-negotiation-avail"
-      ],
+    "staying-put": {
+      "title": "Staying in my home as long as I want",
+      "line": "I can keep living in the home and neighborhood I know for years, without a rent increase pushing me out.",
       "provenance": {
         "sourceId": "generator-run-20261020-202909",
-        "locator": "dreams.json#lower-rent-at-renewal",
+        "locator": "dreams.json#staying-put",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "About one in four renters who tried succeeded in 2023; makes an ordinary step feel worth trying."
+      "writerNotes": "End state is not being priced out of one's own home. Why test: why want it? Because it's home: school, friends, routine; that's the end. Swap test: Eviction is about a legal process and Gentrification about neighbors; this one is about my rent pushing me out. Flagged against predictable-rent and near-what-matters."
     },
-    "rent-increases-capped": {
-      "title": "Yearly rent increases capped by law",
-      "line": "My rent can only go up by a set amount each year, so I never open a renewal letter to a jump I can't pay.",
-      "lens": "policy",
-      "ambition": "together",
-      "exemplarRefs": [
-        "oregon-rent-cap",
-        "sf-rent-control-study"
-      ],
+    "room-for-family": {
+      "title": "Affording enough room for my family",
+      "line": "We can afford a place where the kids have a bedroom and nobody sleeps on the couch, and we still cover our other bills.",
       "provenance": {
         "sourceId": "generator-run-20261020-202909",
-        "locator": "dreams.json#rent-increases-capped",
+        "locator": "dreams.json#room-for-family",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "Named plainly as rent control/stabilization; contested (Stanford study shows supply effects), so fixes should present it as a proposal with more than one direction."
+      "writerNotes": "High rent often means paying a lot for too little space. Why test: why want more room? So the family lives comfortably; that's the end. Swap test: Bad housing is about the place being run-down; this names the rent-for-space tradeoff. Flagged against own-place."
     },
-    "overpaid-rent-returned": {
-      "title": "Getting back rent I was overcharged",
-      "line": "I checked my apartment's legal rent and rent history, and my landlord had to lower my rent and pay back part of what I'd overpaid.",
-      "lens": "technology",
-      "ambition": "this-year",
-      "exemplarRefs": [
-        "germany-rent-brake",
-        "justfix"
-      ],
+    "own-place": {
+      "title": "Affording a place of my own",
+      "line": "I can pay the rent on a place by myself, without needing roommates to cover it.",
       "provenance": {
         "sourceId": "generator-run-20261020-202909",
-        "locator": "dreams.json#overpaid-rent-returned",
+        "locator": "dreams.json#own-place",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "Conny and JustFix both make rent-history and overcharge checks easy; outcome depends on local law."
+      "writerNotes": "For single renters, high rent means roommates they didn't choose. Why test: why want it? Privacy and control over home life, the end itself. Swap test: Living with parents is about not having moved out; this is about affording to live alone. Flagged against room-for-family, since both are about what kind of place the rent lets me have."
     },
-    "knowing-fair-rent-before-signing": {
-      "title": "Knowing what my rent should be before I sign",
-      "line": "Before I sign a lease, I can see what similar apartments nearby rent for and who owns the building, so I know whether the price is fair.",
-      "lens": "technology",
-      "ambition": "tonight",
-      "exemplarRefs": [
-        "justfix",
-        "germany-rent-brake"
-      ],
+    "near-what-matters": {
+      "title": "Affording to live near my work and family",
+      "line": "I can pay the rent on a place close to my job and the people I love, so I'm not trading cheaper rent for an hour on the road each way.",
       "provenance": {
         "sourceId": "generator-run-20261020-202909",
-        "locator": "dreams.json#knowing-fair-rent-before-signing",
+        "locator": "dreams.json#near-what-matters",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "Germany's rent index and Who Owns What show the data can exist; a likely place for an It feature."
+      "writerNotes": "High rent pushes people far out. Why test: why want to live close? Time and closeness to people, which are ends. Swap test: Commute is about lost hours; this is about rent forcing the tradeoff, so it names the cost. Flagged against staying-put."
     },
-    "splitting-rent-with-a-chosen-housemate": {
-      "title": "Splitting rent with a housemate I chose",
-      "line": "I share a home with someone I met and picked, and we each pay a fraction of what living alone cost me.",
-      "lens": "relational",
-      "ambition": "this-year",
-      "exemplarRefs": [
-        "nesterly",
-        "homeshare-vermont",
-        "aarp-golden-girls"
-      ],
+    "fair-rent": {
+      "title": "Paying a fair rent for the place I get",
+      "line": "My rent matches what my place is really worth, and no hidden fees get added on top.",
       "provenance": {
         "sourceId": "generator-run-20261020-202909",
-        "locator": "dreams.json#splitting-rent-with-a-chosen-housemate",
+        "locator": "dreams.json#fair-rent",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "Home-sharing services screen and match; AARP shows wide willingness among older women to live with a friend."
+      "writerNotes": "End state is not being overcharged. Why test: why want a fair rent? Partly to pay less (rent-leaves-room), but feeling not taken advantage of is its own end; a renter can afford rent and still be overcharged. Swap test: rent and fees tie it here. Flagged against rent-leaves-room."
     },
-    "less-rent-for-help-around-the-house": {
-      "title": "Paying less rent in exchange for help around the house",
-      "line": "I rent a spare room from an older homeowner and pay less because I help with groceries, chores, and yard work.",
-      "lens": "market",
-      "ambition": "this-year",
-      "exemplarRefs": [
-        "nesterly",
-        "homeshare-vermont"
-      ],
+    "rent-builds-something": {
+      "title": "Housing payments that build something for me",
+      "line": "Part of what I pay for housing each month adds up to savings or a share in my home, instead of just disappearing.",
       "provenance": {
         "sourceId": "generator-run-20261020-202909",
-        "locator": "dreams.json#less-rent-for-help-around-the-house",
+        "locator": "dreams.json#rent-builds-something",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "Nesterly lets guests trade help for lower rent; HomeShare Vermont matches older hosts with younger guests."
+      "writerNotes": "End state is that the biggest monthly bill leaves something behind. Why test: why want it? Long-term security from money already spent; the end, not a step. Swap test: Buying a home is about owning outright; this applies to renters too (shared-equity, savings). Closest cross-pain risk is Buying a home, which the screen should try."
     },
-    "saving-while-living-with-family": {
-      "title": "Saving money while I live with family for a while",
-      "line": "I moved back in with my parents for now, and the money I'd have spent on rent is going into savings for a place of my own.",
-      "lens": "relational",
-      "ambition": "this-year",
-      "exemplarRefs": [
-        "pew-multigenerational"
-      ],
+    "town-affordable": {
+      "title": "Rents in my town that ordinary paychecks can cover",
+      "line": "Teachers, cooks, nurses, and people with jobs like mine can all afford to rent in my town.",
       "provenance": {
         "sourceId": "generator-run-20261020-202909",
-        "locator": "dreams.json#saving-while-living-with-family",
+        "locator": "dreams.json#town-affordable",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "Common and obvious; Pew shows finances are the main reason for younger adults. Not possible or safe for everyone."
-    },
-    "a-house-for-the-cost-of-a-room": {
-      "title": "A whole house for what one room cost",
-      "line": "I moved to a cheaper city with my remote job, and my payment on a three-bedroom house is about what I paid for one room before.",
-      "lens": "individual",
-      "ambition": "this-year",
-      "exemplarRefs": [
-        "tulsa-remote"
-      ],
-      "provenance": {
-        "sourceId": "generator-run-20261020-202909",
-        "locator": "dreams.json#a-house-for-the-cost-of-a-room",
-        "evidenceType": "ai_generated_from_exemplars",
-        "rights": "CC-BY-SA-4.0",
-        "reviewStatus": "unreviewed"
-      },
-      "writerNotes": "Tulsa Remote participant quote supports this; only for people with remote jobs, and moving away has real costs."
-    },
-    "tenants-holding-rents-steady-together": {
-      "title": "My building's tenants keeping our rent steady together",
-      "line": "My neighbors and I formed a tenants union, and now our rent holds steady and repairs get done by a set deadline.",
-      "lens": "community",
-      "ambition": "together",
-      "exemplarRefs": [
-        "kc-tenants-independence-towers"
-      ],
-      "provenance": {
-        "sourceId": "generator-run-20261020-202909",
-        "locator": "dreams.json#tenants-holding-rents-steady-together",
-        "evidenceType": "ai_generated_from_exemplars",
-        "rights": "CC-BY-SA-4.0",
-        "reviewStatus": "unreviewed"
-      },
-      "writerNotes": "KC Tenants won a contract freezing rent and setting repair deadlines after an eight-month rent strike; risky, best with numbers and legal backing."
-    },
-    "owning-through-a-land-trust": {
-      "title": "Owning an affordable home through a land trust",
-      "line": "I bought a home through a community land trust at a price I could afford, and when I sell I keep part of the gain.",
-      "lens": "community",
-      "ambition": "together",
-      "exemplarRefs": [
-        "champlain-housing-trust"
-      ],
-      "provenance": {
-        "sourceId": "generator-run-20261020-202909",
-        "locator": "dreams.json#owning-through-a-land-trust",
-        "evidenceType": "ai_generated_from_exemplars",
-        "rights": "CC-BY-SA-4.0",
-        "reviewStatus": "unreviewed"
-      },
-      "writerNotes": "Champlain Housing Trust sellers left about $14,000 richer and most bought again; builds less wealth than market homes."
-    },
-    "city-owned-apartments-for-working-people": {
-      "title": "Good city-owned apartments for people with ordinary incomes",
-      "line": "My city builds and owns well-kept apartments where people like me pay rent we can afford, the way Vienna has for about a century.",
-      "lens": "policy",
-      "ambition": "together",
-      "exemplarRefs": [
-        "vienna-city-flats",
-        "montgomery-hoc"
-      ],
-      "provenance": {
-        "sourceId": "generator-run-20261020-202909",
-        "locator": "dreams.json#city-owned-apartments-for-working-people",
-        "evidenceType": "ai_generated_from_exemplars",
-        "rights": "CC-BY-SA-4.0",
-        "reviewStatus": "unreviewed"
-      },
-      "writerNotes": "Social housing named plainly; Montgomery County shows a U.S. version is starting. Contested and slow."
-    },
-    "more-homes-so-rents-stop-climbing": {
-      "title": "Enough new homes nearby that rents stop climbing",
-      "line": "My city allowed more apartments and duplexes to be built, and rents near me rose much less than in the rest of the state.",
-      "lens": "policy",
-      "ambition": "together",
-      "exemplarRefs": [
-        "minneapolis-reforms",
-        "la-adus"
-      ],
-      "provenance": {
-        "sourceId": "generator-run-20261020-202909",
-        "locator": "dreams.json#more-homes-so-rents-stop-climbing",
-        "evidenceType": "ai_generated_from_exemplars",
-        "rights": "CC-BY-SA-4.0",
-        "reviewStatus": "unreviewed"
-      },
-      "writerNotes": "Minneapolis supply reforms are the strongest evidence; LA backyard homes show another way to add supply. Contested in some neighborhoods."
-    },
-    "sharing-a-home-with-friends-as-we-age": {
-      "title": "Sharing a house with friends as we get older",
-      "line": "A few friends and I share one house as we age, and splitting the costs means none of us is stretched thin.",
-      "lens": "culture",
-      "ambition": "together",
-      "exemplarRefs": [
-        "aarp-golden-girls",
-        "homeshare-vermont"
-      ],
-      "provenance": {
-        "sourceId": "generator-run-20261020-202909",
-        "locator": "dreams.json#sharing-a-home-with-friends-as-we-age",
-        "evidenceType": "ai_generated_from_exemplars",
-        "rights": "CC-BY-SA-4.0",
-        "reviewStatus": "unreviewed"
-      },
-      "writerNotes": "Culture lens: AARP shows 57% of women 50+ would consider it, and Colorado removed local caps on unrelated housemates. Willingness, not practice yet."
+      "writerNotes": "The shared version: rent is set by the local market, so this pain is partly about the world, which allows one world-level dream. Why test: why want it? So I and people like me can live here, the end. Swap test: Gentrification is about longtime neighbors being priced out of a changing area; this is about rents matching local wages anywhere. Distinct from rent-leaves-room because it's about everyone, not my budget."
     }
   },
   "overlaps": [
     {
-      "a": "splitting-rent-with-a-chosen-housemate",
-      "b": "less-rent-for-help-around-the-house",
-      "reason": "Both are home-sharing, and trading help for lower rent is one form of sharing with a chosen housemate."
+      "a": "predictable-rent",
+      "b": "staying-put",
+      "reason": "Both protect against rent increases, one as a known number and one as not being pushed out."
     },
     {
-      "a": "splitting-rent-with-a-chosen-housemate",
-      "b": "sharing-a-home-with-friends-as-we-age",
-      "reason": "Sharing a house with friends is a version of splitting rent with a chosen housemate."
+      "a": "staying-put",
+      "b": "near-what-matters",
+      "reason": "Both are about where I can afford to live, one about staying and one about being close to work and family."
     },
     {
-      "a": "rent-increases-capped",
-      "b": "tenants-holding-rents-steady-together",
-      "reason": "Both end with rent that holds steady; one gets there by law and one by tenants negotiating together."
+      "a": "room-for-family",
+      "b": "own-place",
+      "reason": "Both are about what kind of place the rent lets me have, more space for a family or a place without roommates."
     },
     {
-      "a": "overpaid-rent-returned",
-      "b": "knowing-fair-rent-before-signing",
-      "reason": "Both rest on knowing a home's legal or comparable rent, before and after signing."
-    },
-    {
-      "a": "rent-paid-this-month",
-      "b": "rent-at-a-third-of-income",
-      "reason": "Both are rent paid partly by an assistance program; one is short-term help, the other a lasting subsidy."
+      "a": "rent-leaves-room",
+      "b": "fair-rent",
+      "reason": "A fair rent may read as a way to rent that leaves enough for everything else."
     }
   ]
 }

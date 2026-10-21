@@ -3,276 +3,169 @@
   "painId": "poor-sleep",
   "runId": "20261020-202908",
   "dreams": {
-    "falling-asleep-without-pills": {
-      "title": "Falling asleep without pills or dread",
-      "line": "I go to bed expecting to sleep, and most nights I do.",
-      "lens": "individual",
-      "ambition": "this-year",
-      "exemplarRefs": [
-        "habit-nurses",
-        "nice-sleepio"
-      ],
+    "falling-asleep-easily": {
+      "title": "Falling asleep soon after I go to bed",
+      "line": "Most nights I get into bed, put the light out, and I'm asleep before I've had time to start worrying.",
       "provenance": {
         "sourceId": "generator-run-20261020-202908",
-        "locator": "dreams.json#falling-asleep-without-pills",
+        "locator": "dreams.json#falling-asleep-easily",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "The copy guide's own after-example. HABIT shows four nurse sessions beat the leaflet for 12 months; NICE judged Sleepio better than pills. Outcome is the relief, not the therapy."
+      "writerNotes": "Sleep onset. Why: so I'm not lying awake, which is the pain itself, so this is the end state. Swap: falling asleep only belongs to sleep, not to Energy or Burnout. Distinct from staying asleep and from waking early: it's the start of the night."
     },
-    "insomnia-help-on-my-phone": {
-      "title": "Insomnia therapy I can follow on my own phone",
-      "line": "I work through a few weeks of sleep lessons and a sleep diary on my phone, at my own pace, without a waiting list.",
-      "lens": "technology",
-      "ambition": "this-year",
-      "exemplarRefs": [
-        "nice-sleepio",
-        "va-insomnia-coach"
-      ],
+    "sleeping-through-the-night": {
+      "title": "Sleeping through the night without waking",
+      "line": "Most nights I sleep straight through from when I drop off until morning.",
       "provenance": {
         "sourceId": "generator-run-20261020-202908",
-        "locator": "dreams.json#insomnia-help-on-my-phone",
+        "locator": "dreams.json#sleeping-through-the-night",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "Sleepio (six weeks, NICE) and the free VA Insomnia Coach (five weeks). Distinct from the first dream because the outcome is getting help without a clinic; flagged as an overlap."
+      "writerNotes": "Sleep maintenance, the guide's own example. Why: so the night isn't broken, which is the pain. Swap: specific to sleep. Distinct from getting back to sleep (which accepts waking) and from early waking (the end of the night)."
     },
-    "dark-bedroom": {
-      "title": "A bedroom that goes properly dark at night",
-      "line": "When I switch off the lamp, no streetlight or standby glow gets in, and I wake up less groggy.",
-      "lens": "individual",
-      "ambition": "tonight",
-      "exemplarRefs": [
-        "northwestern-light"
-      ],
+    "back-to-sleep-quickly": {
+      "title": "Getting back to sleep quickly when I wake",
+      "line": "If I wake at 3 in the morning, I roll over and I'm asleep again in a few minutes, not lying there until dawn.",
       "provenance": {
         "sourceId": "generator-run-20261020-202908",
-        "locator": "dreams.json#dark-bedroom",
+        "locator": "dreams.json#back-to-sleep-quickly",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "Northwestern's lab study: one night at 100 lux vs 3 lux raised heart rate and insulin resistance. A basic people can reach tonight with curtains or a mask."
+      "writerNotes": "For people who will always wake now and then (age, kids, a bathroom trip) the end state is that waking costs nothing. Why: so the night stays whole; still the pain, so it's an end state, not a means. Swap: sleep only. Flagged as overlapping with sleeping through the night."
     },
-    "noises-stop-waking-me": {
-      "title": "Small noises no longer jolting me awake",
-      "line": "A steady, low sound in my room covers the doors and traffic outside, so I sleep through the little noises.",
-      "lens": "individual",
-      "ambition": "tonight",
-      "exemplarRefs": [
-        "noise-review"
-      ],
+    "sleeping-until-morning": {
+      "title": "Sleeping until it's time to get up",
+      "line": "I sleep until my alarm or a little before, not wide awake at 4 in the morning with the day already running through my head.",
       "provenance": {
         "sourceId": "generator-run-20261020-202908",
-        "locator": "dreams.json#noises-stop-waking-me",
+        "locator": "dreams.json#sleeping-until-morning",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "White and pink noise is the common thing people do; the review found weak but mostly positive evidence (pink noise 9 of 11). Kept as a basic; the fix copy should state the weak evidence once."
+      "writerNotes": "Early-morning waking is its own common pattern, often tied to stress or age. Why: to get the last hours of sleep, which is the pain. Swap: specific to sleep. Flagged as overlapping with sleeping through the night."
     },
-    "separate-rooms-both-rest": {
-      "title": "Sleeping in separate rooms so we both rest",
-      "line": "My partner and I both sleep through the night, even if that means separate rooms some nights.",
-      "lens": "relational",
-      "ambition": "tonight",
-      "exemplarRefs": [
-        "aasm-sleep-divorce"
-      ],
+    "enough-hours-most-nights": {
+      "title": "Getting enough hours of sleep most nights",
+      "line": "Most nights I get the seven or eight hours I need, instead of getting by on five or six.",
       "provenance": {
         "sourceId": "generator-run-20261020-202908",
-        "locator": "dreams.json#separate-rooms-both-rest",
+        "locator": "dreams.json#enough-hours-most-nights",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "The copy guide's after-example. AASM survey: over a third of U.S. adults do this. Outcome is both partners resting, with no judgment attached."
+      "writerNotes": "Quantity rather than quality: for people whose sleep is cut short by work, kids, or late nights rather than insomnia. Why: to feel rested, which is the Energy pain, so this is the top of the ladder for this pain. Swap: hours of sleep don't fit Energy unchanged; Energy is how I feel during the day."
     },
-    "snoring-checked-and-treated": {
-      "title": "Knowing whether my snoring is sleep apnea",
-      "line": "I found out what my snoring means and got it treated, so I wake up clear-headed instead of foggy.",
-      "lens": "individual",
-      "ambition": "this-year",
-      "exemplarRefs": [
-        "aasm-apnea-undiagnosed",
-        "apple-apnea"
-      ],
+    "waking-up-rested": {
+      "title": "Waking up feeling like I actually slept",
+      "line": "When I wake up, I feel like the night counted, instead of feeling like I spent eight hours in bed and got nothing from it.",
       "provenance": {
         "sourceId": "generator-run-20261020-202908",
-        "locator": "dreams.json#snoring-checked-and-treated",
+        "locator": "dreams.json#waking-up-rested",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "About 23.5 million U.S. adults have undiagnosed apnea; the Apple Watch feature screens for it. Sensitive health topic: the dream names the outcome (an answer and treatment), not a diagnosis."
+      "writerNotes": "Unrefreshing sleep: people who sleep enough hours but wake foggy (light sleep, apnea, light or noise during sleep). Why: so the sleep does its job; still the pain. Swap risk: close to Energy, but it's about the morning after the night, not energy all day; the screen should check it against always-tired. Distinct from enough-hours, which is about quantity."
     },
-    "evenings-free-from-work-messages": {
-      "title": "Evenings free from work messages",
-      "line": "When I finish work, I'm actually finished, and my phone stays quiet until morning.",
-      "lens": "policy",
-      "ambition": "together",
-      "exemplarRefs": [
-        "portugal-no-contact"
-      ],
+    "breathing-easily-asleep": {
+      "title": "Breathing easily all night while I sleep",
+      "line": "I breathe steadily through the night, without snoring loud enough to wake anyone or waking up gasping.",
       "provenance": {
         "sourceId": "generator-run-20261020-202908",
-        "locator": "dreams.json#evenings-free-from-work-messages",
+        "locator": "dreams.json#breathing-easily-asleep",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "The copy guide's after-example. Portugal's duty of no contact shows it can be law; teams can also agree it informally, which later fixes can carry."
+      "writerNotes": "The snoring and sleep apnea end state, which the voided draft only reached as a means (knowing whether my snoring is apnea). Why: so my sleep isn't broken and I wake clear-headed, still the pain. Swap: specific to sleep. Flagged as overlapping with waking up rested, since apnea is one cause of unrefreshing sleep."
     },
-    "full-night-between-shifts": {
-      "title": "A full night's sleep between one shift and the next",
-      "line": "My schedule always leaves me at least 11 hours off between shifts, so I can get home, sleep a full night, and eat before I go back.",
-      "lens": "policy",
-      "ambition": "together",
-      "exemplarRefs": [
-        "eu-working-time"
-      ],
+    "sleep-at-hours-that-fit": {
+      "title": "Sleeping at hours that fit my life",
+      "line": "My body gets sleepy at a sensible bedtime and wakes when I need it to, instead of being wide awake at two in the morning and dead on my feet at seven.",
       "provenance": {
         "sourceId": "generator-run-20261020-202908",
-        "locator": "dreams.json#full-night-between-shifts",
+        "locator": "dreams.json#sleep-at-hours-that-fit",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "EU Working Time Directive guarantees 11 consecutive hours of rest. Speaks to shift workers and those on clopening schedules, a group the other dreams miss."
+      "writerNotes": "Timing: night owls, shift workers, teens, and people thrown off by clock changes. Why: so I can sleep when my life lets me, which is still the pain. Swap: about the body clock and sleep, so it doesn't fit another pain. Distinct from falling asleep easily, which is about the act of drifting off at any hour."
     },
-    "school-starts-after-teens-wake": {
-      "title": "School that starts late enough for my teenager to sleep",
-      "line": "My teenager's first class starts at 8:30 or later, so they get up without a fight and sleep about half an hour more.",
-      "lens": "policy",
-      "ambition": "together",
-      "exemplarRefs": [
-        "seattle-start",
-        "california-sb328"
-      ],
+    "sleeping-well-without-pills": {
+      "title": "Sleeping well without needing a pill",
+      "line": "Most nights I drift off and stay asleep with no sleeping pill or nightcap to help me.",
       "provenance": {
         "sourceId": "generator-run-20261020-202908",
-        "locator": "dreams.json#school-starts-after-teens-wake",
+        "locator": "dreams.json#sleeping-well-without-pills",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "Seattle (8:45 start, about 34 more minutes of sleep) and California SB 328 (8:30 for high schools). Written for a parent, since the pain line is first person and parents lose sleep over this too."
+      "writerNotes": "For people relying on medication, melatonin, or alcohol, the end state is sleep that doesn't depend on them. Why: a pill is already a way to sleep, so wanting sleep without one is a different end state, not a means. Swap: specific to sleep. Flagged as overlapping with falling asleep easily."
     },
-    "no-planes-at-night": {
-      "title": "No planes over my house at night",
-      "line": "Nothing flies overhead between when I go to bed and when I get up.",
-      "lens": "community",
-      "ambition": "together",
-      "exemplarRefs": [
-        "frankfurt-night-flights"
-      ],
+    "not-worrying-about-sleep": {
+      "title": "Not worrying about sleep anymore",
+      "line": "I don't count the hours left at night or plan my day around how badly I slept; sleep just happens.",
       "provenance": {
         "sourceId": "generator-run-20261020-202908",
-        "locator": "dreams.json#no-planes-at-night",
+        "locator": "dreams.json#not-worrying-about-sleep",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "The copy guide's after-example. Frankfurt residents won an 11 p.m. to 5 a.m. ban in court."
+      "writerNotes": "The relationship to sleep: the dread and clock-watching that keep insomnia going. Why: so sleep stops being a problem I manage, which is the pain resolved. Swap: worry about sleep is specific to sleep, not general anxiety. Flagged as overlapping with falling asleep easily."
     },
-    "street-quiet-enough-for-open-window": {
-      "title": "A street quiet enough to sleep with the window open",
-      "line": "Through traffic and loud motorbikes no longer pass under my window at night, so I can leave it open and still sleep.",
-      "lens": "community",
-      "ambition": "together",
-      "exemplarRefs": [
-        "barcelona-superblocks",
-        "paris-noise-radar"
-      ],
+    "both-of-us-sleep-well": {
+      "title": "My partner and I both sleeping well",
+      "line": "My partner and I both get a good night's sleep, and neither of us is the reason the other one is lying awake.",
       "provenance": {
         "sourceId": "generator-run-20261020-202908",
-        "locator": "dreams.json#street-quiet-enough-for-open-window",
+        "locator": "dreams.json#both-of-us-sleep-well",
         "evidenceType": "ai_generated_from_exemplars",
         "rights": "CC-BY-SA-4.0",
         "reviewStatus": "unreviewed"
       },
-      "writerNotes": "Barcelona superblocks residents reported less noise and better sleep; Paris is testing noise radar for loud vehicles. Both are neighborhood-level changes."
-    },
-    "clocks-stay-the-same-all-year": {
-      "title": "Clocks that stay the same all year",
-      "line": "I no longer lose a week of good sleep every spring when the clocks jump forward.",
-      "lens": "policy",
-      "ambition": "together",
-      "exemplarRefs": [
-        "aasm-standard-time"
-      ],
-      "provenance": {
-        "sourceId": "generator-run-20261020-202908",
-        "locator": "dreams.json#clocks-stay-the-same-all-year",
-        "evidenceType": "ai_generated_from_exemplars",
-        "rights": "CC-BY-SA-4.0",
-        "reviewStatus": "unreviewed"
-      },
-      "writerNotes": "Contested: sleep doctors back permanent standard time, while Congress has debated permanent daylight saving time. The line names the outcome (no switch) without picking a side; fixes should present both directions."
-    },
-    "employer-that-rewards-sleep": {
-      "title": "An employer that rewards rest instead of late nights",
-      "line": "My workplace treats a full night's sleep as part of doing the job well, and nobody brags about running on five hours.",
-      "lens": "market",
-      "ambition": "this-year",
-      "exemplarRefs": [
-        "aetna-sleep",
-        "crazy-inc"
-      ],
-      "provenance": {
-        "sourceId": "generator-run-20261020-202908",
-        "locator": "dreams.json#employer-that-rewards-sleep",
-        "evidenceType": "ai_generated_from_exemplars",
-        "rights": "CC-BY-SA-4.0",
-        "reviewStatus": "unreviewed"
-      },
-      "writerNotes": "Aetna paid for 7-hour nights; Crazy Inc. gave cafeteria points for 6. Both raise privacy questions about tracking staff sleep, so the line describes the culture, not the tracking."
-    },
-    "resting-without-guilt": {
-      "title": "Napping on a hard day without feeling guilty",
-      "line": "When I'm worn out, I lie down for a nap and don't feel I've failed at anything.",
-      "lens": "culture",
-      "ambition": "tonight",
-      "exemplarRefs": [
-        "nap-ministry"
-      ],
-      "provenance": {
-        "sourceId": "generator-run-20261020-202908",
-        "locator": "dreams.json#resting-without-guilt",
-        "evidenceType": "ai_generated_from_exemplars",
-        "rights": "CC-BY-SA-4.0",
-        "reviewStatus": "unreviewed"
-      },
-      "writerNotes": "The Nap Ministry frames rest as something people are owed, with free group naps in Atlanta. A culture-lens dream about permission to rest, not a sleep disorder."
+      "writerNotes": "The shared end state for couples where snoring, restlessness, or different hours keep one up. It names no way there (same bed or separate rooms are both fixes). Why: so we both sleep, which is the pain for two people. Swap: specific to sleep. Flagged as overlapping with sleeping through the night."
     }
   },
   "overlaps": [
     {
-      "a": "falling-asleep-without-pills",
-      "b": "insomnia-help-on-my-phone",
-      "reason": "Both end in sleeping well after insomnia therapy; the second differs only in getting it on a phone."
+      "a": "sleeping-through-the-night",
+      "b": "back-to-sleep-quickly",
+      "reason": "Both describe an unbroken night; one rules out waking and the other only rules out staying awake."
     },
     {
-      "a": "evenings-free-from-work-messages",
-      "b": "employer-that-rewards-sleep",
-      "reason": "Both describe a workplace that stops eating into the night, one through no messages and one through how rest is valued."
+      "a": "sleeping-through-the-night",
+      "b": "sleeping-until-morning",
+      "reason": "Waking at 4 a.m. and not getting back to sleep is one way of not sleeping through the night."
     },
     {
-      "a": "evenings-free-from-work-messages",
-      "b": "full-night-between-shifts",
-      "reason": "Both protect time off work for sleep; one is about messages, the other about hours between shifts."
+      "a": "falling-asleep-easily",
+      "b": "not-worrying-about-sleep",
+      "reason": "Dread at bedtime is often what stops someone falling asleep, so the two can read as the same end state."
     },
     {
-      "a": "no-planes-at-night",
-      "b": "street-quiet-enough-for-open-window",
-      "reason": "Both are quieter nights from transport noise near home, from planes and from road traffic."
+      "a": "falling-asleep-easily",
+      "b": "sleeping-well-without-pills",
+      "reason": "Falling asleep on my own may already contain falling asleep without a pill."
     },
     {
-      "a": "noises-stop-waking-me",
-      "b": "street-quiet-enough-for-open-window",
-      "reason": "Both end with outside noise no longer waking me, one by covering it in my room and one by removing it from the street."
+      "a": "waking-up-rested",
+      "b": "breathing-easily-asleep",
+      "reason": "Interrupted breathing is a main cause of waking unrested, so one may contain the other."
+    },
+    {
+      "a": "sleeping-through-the-night",
+      "b": "both-of-us-sleep-well",
+      "reason": "For a couple, both sleeping well may just be each person sleeping through the night."
     }
   ]
 }
