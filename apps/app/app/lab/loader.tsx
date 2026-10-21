@@ -4,6 +4,7 @@ import {
   Pressable,
   ScrollView,
   Text,
+  type ScrollViewInstance,
   useWindowDimensions,
   View,
 } from "react-native";
@@ -22,7 +23,7 @@ export default function LoaderLab() {
   const { width, height } = useWindowDimensions();
   const { page: startPage } = useLocalSearchParams<{ page?: string }>();
   const insets = useSafeAreaInsets();
-  const pager = useRef<ScrollView>(null);
+  const pager = useRef<ScrollViewInstance>(null);
   useEffect(() => {
     const index = Math.max(Number(startPage) || 1, 1) - 1;
     pager.current?.scrollTo({ x: index * width, animated: false });

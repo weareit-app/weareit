@@ -1,15 +1,9 @@
-import {
-  Canvas,
-  FillType,
-  Group,
-  Path,
-  Skia,
-  type SkPath,
-} from "@shopify/react-native-skia";
+import { Canvas, Group, Path, type SkPath } from "@shopify/react-native-skia";
 import { useMemo, type ReactNode } from "react";
 import { View } from "react-native";
 import { useNativeVariable as useNativeVariableTyped } from "react-native-css";
 import { INK, markLayout, type Mark } from "./marks";
+import { toSkPath } from "./sk-path";
 
 // The package's types describe its web build (no arguments); this file runs
 // only on native (mark-view.web.tsx covers web), where it takes a variable name.
@@ -18,11 +12,7 @@ const useNativeVariable = useNativeVariableTyped as unknown as (
 ) => unknown;
 
 function toSkia(mark: Mark): SkPath[] {
-  return mark.paths.map(({ d, evenOdd }) => {
-    const path = Skia.Path.MakeFromSVGString(d)!;
-    if (evenOdd) path.setFillType(FillType.EvenOdd);
-    return path;
-  });
+  return mark.paths.map(({ d, evenOdd }) => toSkPath(d, evenOdd));
 }
 
 // matrix(s 0 0 s x y): scale, then offset. Skia applies the last listed
