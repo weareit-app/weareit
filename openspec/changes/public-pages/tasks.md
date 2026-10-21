@@ -28,11 +28,13 @@ Builds after `required-signup-gate` task 5.1 (menu button and Account). Essays p
 ## 4. Rich blocks (web)
 
 - [ ] 4.1 Review and pin Vega-Lite/`vega-embed`, Mermaid and KaTeX (dependency trees, licences, two-week release age) and record them in `dependency-policy.md`; verify `expo install --check` passes
-- [ ] 4.2 Build the chart block with lazy loading and a generated data-table fallback; verify the fallback in the HTML with scripts off and the drawn chart in the web preview
+  - Vega, Vega-Lite and vega-embed: reviewed, pinned and recorded (#43); Mermaid and KaTeX: #44.
+- [x] 4.2 Build the chart block with lazy loading and a generated data-table fallback; verify the fallback in the HTML with scripts off and the drawn chart in the web preview
 - [ ] 4.3 Build the diagram and maths blocks (Mermaid with written description fallback; KaTeX with MathML and self-hosted fonts); verify with VoiceOver that maths is read and nothing loads from a third-party host (network log)
-- [ ] 4.4 Build evidence card, timeline, status board, expandable and table blocks; verify keyboard operation and announced expanded state
-  - Timeline, status board and expandable: built and tested (#45); expandable is a native `<details>` disclosure, so it opens by keyboard and announces its state with scripts off.
-- [ ] 4.5 Measure the essay-page bundle, set the budget in design.md, and add a CI check; verify the explorer's bundle is unchanged
+- [x] 4.4 Build evidence card, timeline, status board, expandable and table blocks; verify keyboard operation and announced expanded state
+  - Evidence card and table: built and tested (#43). Timeline, status board and expandable: built and tested (#45); expandable is a native `<details>` disclosure, so it opens by keyboard and announces its state with scripts off.
+- [ ] 4.5 Measure the essay-page bundle, set the budget in design.md, and add a CI check; verify the drawing libraries stay out of the explorer's bundle
+  - Chart chunk measured and recorded in design.md's open question (#43); the budget figure and CI check wait for the diagram and maths measurements.
 
 ## 5. Statuses and roadmap
 

@@ -176,6 +176,10 @@ describe("essay parser", () => {
             title: "Reported incidents",
             description: "Incidents rose from three to five.",
             spec: { mark: "line" },
+            columns: [
+              { key: "year", label: "Year" },
+              { key: "count", label: "Incidents" },
+            ],
             data: [
               { year: 2020, count: 3 },
               { year: 2021, count: 5 },
