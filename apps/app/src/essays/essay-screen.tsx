@@ -1,7 +1,7 @@
 import type { Essay } from "@it/content/essay-schema";
 import { essays } from "@it/content/essays";
 import { Unmatched, useLocalSearchParams } from "expo-router";
-import { siteGroups } from "../navigation/site-links";
+import { isListedPage } from "../navigation/site-links";
 import { EssayPage } from "./essay-page";
 
 const published: Partial<Record<string, Essay>> = essays;
@@ -14,10 +14,7 @@ const drafts: Partial<Record<string, Essay>> = __DEV__
 
 /** An essay is reachable only when it is published and in the link list. */
 export function isEssayLive(slug: string) {
-  const listed = siteGroups.some((group) =>
-    group.links.some((link) => link.href === `/${slug}` && link.published),
-  );
-  return Boolean(published[slug] && listed);
+  return Boolean(published[slug] && isListedPage(`/${slug}`));
 }
 
 // The body of each essay route (`app/why.tsx`, …). Anything not live shows the

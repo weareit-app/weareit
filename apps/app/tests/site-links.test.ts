@@ -1,5 +1,6 @@
 import {
   CONTACT_EMAIL,
+  isListedPage,
   menuExtras,
   siteBottomLine,
   siteGroups,
@@ -37,6 +38,22 @@ const groups: SiteGroup[] = [
 ];
 
 describe("site links", () => {
+  it("counts a page as listed when published in a group or the bottom line", () => {
+    const bottomLine = [
+      {
+        label: "Licensing",
+        href: "/licensing",
+        when: "always" as const,
+        published: true,
+      },
+      { label: "FAQ", href: "/faq", when: "always" as const, published: false },
+    ];
+    expect(isListedPage("/why", groups, bottomLine)).toBe(true);
+    expect(isListedPage("/licensing", groups, bottomLine)).toBe(true);
+    expect(isListedPage("/risks", groups, bottomLine)).toBe(false);
+    expect(isListedPage("/faq", groups, bottomLine)).toBe(false);
+  });
+
   it("links only published pages and hides empty groups", () => {
     const shown = visibleGroups(groups, { signedIn: false });
     expect(shown.map((group) => group.title)).toEqual([

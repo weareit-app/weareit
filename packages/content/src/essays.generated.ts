@@ -3,7 +3,7 @@
 import type { Essay } from "./essay-schema";
 
 /** Every essay's `published` front matter, by slug. */
-export const essayPublished = { why: false } as const;
+export const essayPublished = { licensing: false, why: false } as const;
 
 export type EssaySlug = keyof typeof essayPublished;
 

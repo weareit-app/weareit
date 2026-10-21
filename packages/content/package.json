@@ -11,7 +11,8 @@
     "./graph-schema": "./src/graph-schema.ts",
     "./essay-schema": "./src/essay-schema.ts",
     "./essays": "./src/essays.generated.ts",
-    "./essay-drafts": "./src/essay-drafts.generated.ts"
+    "./essay-drafts": "./src/essay-drafts.generated.ts",
+    "./credits": "./src/credits.ts"
   },
   "dependencies": {
     "zod": "4.6.7"

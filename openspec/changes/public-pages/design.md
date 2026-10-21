@@ -40,7 +40,7 @@
 
 9. **Measurement.** The six new page views are added to the shared page-view list from `visit-measurement`. Each public page shows the same one-line privacy note as the explorer pages, and sends its page view only once that note is on screen. If `visit-measurement` has not landed, nothing is sent and the pages still work.
 
-10. **Licensing page.** `/licensing` is an essay file whose license table is a `table` block, with rows taken from `docs/architecture/licensing.md` and a `status` column ("today" or "planned"). The ESCO and ISCED credit text is shared with `help-build-it`'s credit (task 1.1 there) so the two never disagree.
+10. **Licensing page.** `/licensing` is an essay file whose license table is a Markdown table (no data file needed, and it renders as a table with scripts off), with rows taken from `docs/architecture/licensing.md` and a "today or planned" column. The ESCO and ISCED credit text lives in `packages/content/src/credits.ts` and is shared with `help-build-it`'s credit (task 1.1 there); a test checks the essay repeats it word for word, so the two never disagree.
 
 ## Risks / Trade-offs
 

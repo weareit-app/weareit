@@ -66,7 +66,7 @@ export const siteGroups: SiteGroup[] = [
 export const siteBottomLine: SiteLink[] = [
   page("Privacy", "/privacy"),
   page("FAQ", "/faq"),
-  page("Licensing", "/licensing"),
+  page("Licensing", "/licensing", essayPublished.licensing),
   page(CONTACT_EMAIL, `mailto:${CONTACT_EMAIL}`, true),
 ];
 
@@ -75,6 +75,17 @@ export const menuExtras: SiteLink[] = [
   { label: "Sign in", href: "/signup", when: "signed-out", published: false },
   { label: "Account", href: "/account", when: "signed-in", published: false },
 ];
+
+/** Whether a page is published in the footer: in a group or the bottom line. */
+export function isListedPage(
+  href: string,
+  groups: SiteGroup[] = siteGroups,
+  bottomLine: SiteLink[] = siteBottomLine,
+) {
+  return [...groups.flatMap((group) => group.links), ...bottomLine].some(
+    (link) => link.href === href && link.published,
+  );
+}
 
 type Viewer = { signedIn: boolean };
 
