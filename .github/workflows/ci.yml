@@ -22,6 +22,24 @@ jobs:
     name: Typecheck, lint and unit tests
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    # A disposable Postgres server for the repository tests in packages/database/tests,
+    # which skip without TEST_DATABASE_URL. Image pin: docs/architecture/ci-actions.md.
+    # GitHub's PostgreSQL service-container guide uses these health-check options to
+    # "wait until postgres has started", and a job on the runner reaches the service at
+    # localhost through the mapped port (checked 2026-10-21 against docs.github.com,
+    # "Creating PostgreSQL service containers").
+    services:
+      postgres:
+        image: postgres:17.11-alpine@sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24
+        env:
+          POSTGRES_PASSWORD: it
+        ports:
+          - 54346:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -44,6 +62,8 @@ jobs:
       - run: pnpm run lint
 
       - run: pnpm run test:unit
+        env:
+          TEST_DATABASE_URL: postgres://postgres:it@localhost:54346/postgres
 
       - run: pnpm run test:expo
 
