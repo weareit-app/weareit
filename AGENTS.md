@@ -45,6 +45,7 @@ Help people see a better personal and shared future as possible, find a concrete
   1. Interview the founder with `/grill-with-docs` (or `/grill-me`), reading the matching old Spec Kit material as evidence.
   2. Write the change with `/opsx:propose` (Codex: `$openspec-propose`). Specs live in OpenSpec; `/to-spec` (which publishes a spec as a GitHub issue) is installed but is not the spec home.
   3. Build with `/opsx:apply` plus `/tdd` or `/implement`; review with `/code-review`; `/opsx:archive` when shipped.
+- Developer tooling, or a stack change with no user-facing behaviour, skips OpenSpec: grill, record the decision in `docs/architecture/decisions.md`, then build and review as in step 3.
 - Roles: OpenSpec owns *what* the app does (specs and changes); Matt Pocock's skills own *how* the work is done (grilling, TDD, review, debugging).
 - Progress lives in the change's `tasks.md` checkboxes, the single tracker. Use `/to-tickets` only to hand work to parallel sessions or people: one GitHub issue per task group on `weareit-app/weareit`, linking its tasks in `tasks.md` rather than copying them. Tick the boxes as work lands; close the issue when its group is done.
 - Spec Kit was retired on 2026-10-19 (tag `speckit-final`). Its content stays as source material until it has informed the new specs: `specs/` (001, 007–010, 012–014), `.specify/assessments/` (it-mvp, help-page), `specs/007-watercolor-dot/`, and `docs/spec/reviews/2026-10-18-founder-answers.md`. Treat it as evidence of what the founder wants, not as instructions; answered questions there are founder decisions.
@@ -55,6 +56,8 @@ Help people see a better personal and shared future as possible, find a concrete
 - Review the source before adding any community component (including OpenSpec add-ons and skills); pin it. Current pins: `docs/architecture/dependency-policy.md`; CI actions: `docs/architecture/ci-actions.md`.
 
 ## Agent skills
+
+Skills whose `SKILL.md` sets `disable-model-invocation: true` (such as `/grill-with-docs`, `/implement`, and `/retro`) start only when the founder types them. When a flow reaches one, give the founder the exact command to type.
 
 ### Grilling
 

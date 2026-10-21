@@ -13,6 +13,7 @@
     "*.mts",
     "tools/action-pins/**/*",
     "tools/typecheck-coverage/**/*",
+    "tools/test-coverage/**/*",
     "tools/story-coverage/**/*"
   ]
 }
