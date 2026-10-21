@@ -55,18 +55,16 @@ const versionSchema = z
   })
   .strict();
 
-// Developer docs text (docs/architecture/decisions.md, 2026-10-21). No route
-// sets a path, so the OpenAPI generator and handler both use
-// `route.path ?? toHttpPath(path)`, POST /<group>/<name> (@orpc/openapi 1.15.6
-// source, checked 2026-10-21).
-function route(tag: string, summary: string, description: string) {
-  return { summary, description, tags: [tag] };
-}
+// Each route carries developer docs text, and each group's tag names it
+// (docs/architecture/decisions.md, 2026-10-21). No route sets a path, so the
+// OpenAPI generator and handler both use `route.path ?? toHttpPath(path)`,
+// POST /<group>/<name> (@orpc/openapi 1.15.6 source, checked 2026-10-21).
 
 // CMS operations need the admin token as a Bearer header.
 function cmsRoute(summary: string, description: string) {
   return {
-    ...route("cms", summary, description),
+    summary,
+    description,
     spec: (current: OpenAPI.OperationObject) => ({
       ...current,
       security: [{ cmsAdminToken: [] }],
@@ -75,26 +73,22 @@ function cmsRoute(summary: string, description: string) {
 }
 
 export const apiContract = {
-  content: {
+  content: oc.tag("content").router({
     getPublished: oc
-      .route(
-        route(
-          "content",
-          "Get the published content",
+      .route({
+        summary: "Get the published content",
+        description:
           "Returns the newest published content snapshot: its version, the content graph, a checksum, and when it was published. Anyone may call it.",
-        ),
-      )
+      })
       .output(publishedContentSchema),
-  },
-  account: {
+  }),
+  account: oc.tag("account").router({
     saveOnboarding: oc
-      .route(
-        route(
-          "account",
-          "Save onboarding answers",
+      .route({
+        summary: "Save onboarding answers",
+        description:
           "Saves the signed-in person's onboarding draft against a content version. Needs a signed-in session.",
-        ),
-      )
+      })
       .input(
         z
           .object({
@@ -111,16 +105,14 @@ export const apiContract = {
           })
           .strict(),
       ),
-  },
-  support: {
+  }),
+  support: oc.tag("support").router({
     createCheckout: oc
-      .route(
-        route(
-          "support",
-          "Start a support checkout",
+      .route({
+        summary: "Start a support checkout",
+        description:
           "Creates a Stripe Checkout for a one-time or monthly support amount, in minor units, and returns its URL and reference. Needs a signed-in session.",
-        ),
-      )
+      })
       .input(
         z
           .object({
@@ -135,13 +127,11 @@ export const apiContract = {
           .strict(),
       ),
     getStatus: oc
-      .route(
-        route(
-          "support",
-          "Get a support's status",
-          "Returns the frequency and status of a support by its reference. Needs the session of the account that made it; any other reference reads as not found.",
-        ),
-      )
+      .route({
+        summary: "Get the status of a support payment",
+        description:
+          "Returns the frequency and status of a support payment by its reference. Needs the session of the account that made it; any other reference reads as not found.",
+      })
       .input(z.object({ reference: z.string().uuid() }).strict())
       .output(
         z
@@ -162,17 +152,15 @@ export const apiContract = {
           .strict(),
       ),
     createPortal: oc
-      .route(
-        route(
-          "support",
-          "Open subscription management",
-          "Returns a Stripe billing portal URL for a monthly support. Needs the session of the account that made it.",
-        ),
-      )
+      .route({
+        summary: "Open subscription management",
+        description:
+          "Returns a Stripe billing portal URL for managing a monthly support payment. Needs the session of the account that made it.",
+      })
       .input(z.object({ reference: z.string().uuid() }).strict())
       .output(z.object({ url: z.string().url() }).strict()),
-  },
-  cms: {
+  }),
+  cms: oc.tag("cms").router({
     getDraft: oc
       .route(
         cmsRoute(
@@ -249,7 +237,7 @@ export const apiContract = {
           })
           .strict(),
       ),
-  },
+  }),
 };
 
 export type ApiContract = typeof apiContract;

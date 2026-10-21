@@ -1,7 +1,5 @@
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
-import { OpenAPIHandler } from "@orpc/openapi/fetch";
-import { generateOpenApiDocument } from "@it/api/openapi";
 import type { ApiContext, ApiRouter } from "@it/api/router";
 
 const scalarScriptPath = "/docs/scalar.js";
@@ -44,6 +42,16 @@ async function readScalarScript() {
   );
 }
 
+// Imported on the first docs request, so a server started without API_DOCS
+// (production) never loads the OpenAPI handler or generator.
+async function loadOpenApi(router: ApiRouter) {
+  const [{ OpenAPIHandler }, { generateOpenApiDocument }] = await Promise.all([
+    import("@orpc/openapi/fetch"),
+    import("@it/api/openapi"),
+  ]);
+  return { handler: new OpenAPIHandler(router), generateOpenApiDocument };
+}
+
 // Local-only developer docs (docs/architecture/decisions.md, 2026-10-21):
 // the spec at /openapi.json, a Scalar page at /docs, and the OpenAPI
 // transport under /api so the page's "Try it" works. Returns null for any
@@ -55,7 +63,7 @@ export function createApiDocs({
   router: ApiRouter;
   enabled: boolean;
 }) {
-  const openApiHandler = new OpenAPIHandler(router);
+  let openApi: ReturnType<typeof loadOpenApi> | undefined;
   let scalarScript: Promise<string> | undefined;
 
   return {
@@ -64,6 +72,8 @@ export function createApiDocs({
       context: ApiContext,
     ): Promise<Response | null> {
       if (!enabled) return null;
+      openApi ??= loadOpenApi(router);
+      const { handler, generateOpenApiDocument } = await openApi;
       const { pathname } = new URL(request.url);
       if (pathname === "/openapi.json")
         return Response.json(await generateOpenApiDocument());
@@ -77,7 +87,7 @@ export function createApiDocs({
           headers: { "Content-Type": "text/javascript; charset=utf-8" },
         });
       }
-      const result = await openApiHandler.handle(request, {
+      const result = await handler.handle(request, {
         prefix: "/api",
         context,
       });

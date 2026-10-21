@@ -10,7 +10,7 @@ const generator = new OpenAPIGenerator({
 // server's /api prefix.
 export function generateOpenApiDocument() {
   return generator.generate(apiContract, {
-    info: { title: "It API", version: "0.1.0" },
+    info: { title: "It API", version: "local" },
     servers: [{ url: "/api" }],
     components: {
       securitySchemes: {
