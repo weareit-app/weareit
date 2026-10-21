@@ -1208,14 +1208,18 @@ def phrase_pattern(phrases):
     return re.compile(r'\b(' + '|'.join(re.escape(p) for p in sorted(phrases, key=len, reverse=True)) + r')\b', re.I) if phrases else None
 
 
-def dream_rules(title, line):
-    """(rule, detail) for a dream's title and line, shared by cards and staged dreams."""
+def dream_rules(title, line, card=False):
+    """(rule, detail) for a dream's title and line, shared by cards and staged dreams. dream-not-outcome checks card
+    titles only: the card flow stays the pilot's baseline until #101, and a staged run's dream screen judges means
+    (founder, 2026-10-20)."""
     words = len(title.split())
     # Clarity over brevity (copy style guide): a one-word label is too vague; a title past 10 words is a sentence.
     if words < 2:
         yield 'title-vague', 'one-word title; say what is different'
     elif words > 10:
         yield 'title-length', 'title has %d words; keep it a title, not a sentence' % words
+    if card and re.match(r'(Telling|Asking|Writing|Calling|Contacting|Emailing|Petitioning|Lobbying|Learning|Reading)\b', title):
+        yield 'dream-not-outcome', 'dream title "%s" is an action; name the outcome, e.g. "I get limits on addictive app design"' % title[:40]
     if len(SENTENCE.findall(line.strip())) > 1:
         yield 'line-length', 'dream line should be one sentence'
 
@@ -1456,7 +1460,7 @@ def lint_run(run, root):
 
     for key, c in card_doc['cards'].items():
         copy = {'title': c.get('title', ''), 'line': c.get('line', '')}
-        for rule, detail in dream_rules(copy['title'], copy['line']):
+        for rule, detail in dream_rules(copy['title'], copy['line'], card=True):
             add(key, rule, detail)
         modal_hits = []
         for f in c.get('fixes', []):

@@ -84,7 +84,7 @@ A dream is the end state a person wants for one pain (`GLOSSARY.md`, **Dream**);
 - the why test (not too low): asking "why do you want that?" doesn't lead to something else inside the same pain;
 - the swap test (not too high): it wouldn't fit a different pain unchanged. `start <run> dream-screen` lists the catalog's related pains to try it against.
 
-The judge writes `dream-screen.json`, with pass or fail, the failed check, and a one-sentence reason for every dream, and the title and line it judged. Redrafting a dream sends the run back to the screen. A dream that fails stays in the run. There is no word-level lint for this: a semantic rule needs a semantic check (founder, 2026-10-20).
+The judge writes `dream-screen.json`, with pass or fail, the failed check, and a one-sentence reason for every dream, and the title and line it judged. Redrafting a dream sends the run back to the screen. A dream that fails stays in the run. Staged runs have no word-level lint for this, because a semantic rule needs a semantic check (founder, 2026-10-20). Card runs keep `dream-not-outcome` until #101 retires the card flow.
 
 ## Founder dream review
 

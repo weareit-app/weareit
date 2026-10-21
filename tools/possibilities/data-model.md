@@ -63,7 +63,7 @@ Rules:
 `painName` and `painLine` are the catalog wording the run was written for (added 2026-10-19; older runs lack them, and `stale` falls back to the catalog history at `startedAt`). `painId` is always the surviving ID: a run started for a merged pain is created for the pain it was merged into.
 
 ## Staged runs (schemaVersion 2)
-A staged run mirrors the content graph (`packages/content/src/graph-schema.ts`): dreams, fixes, and fix–dream links instead of cards. `new-run <pain-id> --staged` writes `run.json` with `schemaVersion: 2`. The run then gets `exemplars.json` (same shape as above), `dreams.json`, and `dream-screen.json`. The plan, fixes, screen, and links files are added by later stages. Card runs (v1) still validate and lint as before, except that lint no longer checks dream titles for action words, in either kind of run: the dream screen judges that (founder, 2026-10-20).
+A staged run mirrors the content graph (`packages/content/src/graph-schema.ts`): dreams, fixes, and fix–dream links instead of cards. `new-run <pain-id> --staged` writes `run.json` with `schemaVersion: 2`. The run then gets `exemplars.json` (same shape as above), `dreams.json`, and `dream-screen.json`. The plan, fixes, screen, and links files are added by later stages. Card runs (v1) still validate and lint as before, including `dream-not-outcome`, because the card flow stays the pilot's comparison baseline until #101 (founder, 2026-10-20).
 
 ### Stages
 `examples → dreams → dream-screen → dream-review → plan → shared-fixes → kind-pools → screen → assemble → judge → fix-review`. `dream-review` and `fix-review` are founder stops. `status <run>` names the next stage from the files present:
@@ -107,7 +107,7 @@ Rules:
 - `schemaVersion` is 2, and `painId` matches `run.json`.
 - Each overlap names two different dreams in the run, with a reason, and each pair is flagged once.
 - `title` and `line` map to the graph dream's `title` and `description`.
-- Lint applies the dream copy rules (`title-vague`, `title-length`, `line-length`, `generic-phrase`, `serial-comma`, `exclamation`, `boilerplate-caveat`, `regional-word`, `acronym-in-title`, and `stacked-hedges`). Its issues carry `dreamId` in place of `cardId`. Whether a dream is an end state is the dream screen's call, not lint's. Coverage is in "lint.json (staged run)".
+- Lint applies the dream copy rules (`title-vague`, `title-length`, `line-length`, `generic-phrase`, `serial-comma`, `exclamation`, `boilerplate-caveat`, `regional-word`, `acronym-in-title`, and `stacked-hedges`). Its issues carry `dreamId` in place of `cardId`. A staged dream gets no `dream-not-outcome` check: whether it is an end state is the dream screen's call, not lint's. Card lint still applies that rule. Coverage is in "lint.json (staged run)".
 - `writerNotes` is never shown to judges or on review pages.
 - A `screen` has `pass`, a one-sentence `reason`, and, when `pass` is false, `check`: `why` or `swap`. Ingest copies it from `dream-screen.json`, so a dream the founder rescued keeps the reason it failed.
 - A `review` has a known `decision`. An `edit` keeps the drafted `title` and `line` in `original`, and `title` and `line` hold the founder's wording. Ingest sets `provenance.reviewStatus` to `reviewed`.

@@ -217,10 +217,11 @@ class Lint(Base):
         self.mutate(lambda cs: cs['poor-sleep-c01']['fixes'][0].update(featureIdea='Coaches you before the talk.'))
         self.assertFalse(any('featureIdea' in i for i in cards.validate_run(self.run)))
 
-    def test_learn_titles_flagged(self):
+    def test_learn_titles_and_action_dreams_flagged(self):
         self.mutate(lambda cs: cs['poor-sleep-c00']['fixes'][0].update(title='Learn how Preston changed shifts'))
+        self.mutate(lambda cs: cs['poor-sleep-c01'].update(title='Telling my boss about the rota'))
         rules = {i['rule'] for i in cards.lint_run(self.run, self.tmp)['issues']}
-        self.assertIn('not-an-action', rules)
+        self.assertTrue({'not-an-action', 'dream-not-outcome'} <= rules)
 
     def test_learn_kind_allows_usable_skills_only(self):
         self.mutate(lambda cs: cs['poor-sleep-c00']['fixes'][0].update(kind='learn', title='Learn box breathing to calm down fast'))
