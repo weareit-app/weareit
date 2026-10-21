@@ -4,9 +4,26 @@ Dependencies are pinned so contributors install the same workspace. Refresh them
 
 ## Expo and native packages
 
-The app is on Expo SDK 57.0.30 (expo-router 57.0.28; updated with `expo install --fix` on 2026-10-17). SDK 57 is the current stable line; SDK 58 is in beta. `expo install --fix` selected the SDK-compatible Expo Router and native package versions, and `expo install --check` reports the app dependencies are up to date. Keep React 19.2.3 and React Native 0.86.3 aligned with SDK 57. Do not independently upgrade them to newer registry releases; move them with an Expo SDK update.
+The app is on Expo SDK 58.0.16 (expo-router 58.0.24; upgraded from SDK 57.0.30 with `expo install --fix` on 2026-10-20). SDK 58.0.0 was published on 2026-09-29 and 58.0.16 on 2026-10-19 (npm registry release dates, `npm view expo time`, checked 2026-10-20). `expo install --fix` selected the SDK-compatible Expo Router and native package versions, and `expo install --check` reports the app dependencies are up to date. Keep React 19.3.0 and React Native 0.88.0 aligned with SDK 58. Do not independently upgrade them to newer registry releases; move them with an Expo SDK update.
 
-`@shopify/react-native-skia` 2.6.2 was selected by `expo install` for SDK 57 (2026-10-17) for the watercolor dot (spec 007; approved in `decisions.md`). Its postinstall only copies the prebuilt Skia libraries from the `react-native-skia-*` packages, so it is allowed in `pnpm-workspace.yaml` `allowBuilds`. It is used on iOS only in v0.1; web loads it solely inside the development lab route.
+SDK 58 changes that matter here (each checked 2026-10-20):
+
+- Async routes: Expo's docs say that "in SDK 58 and later, async routes on web are stable and enabled by default in development and production" (docs.expo.dev/router/web/async-routes). `apps/app/app.json` limits them to web production builds (`asyncRoutes: { web: "production", default: false }`), so each route gets its own chunk in the exported site. The measurements are in weareit-app/weareit#75. In development, async routes made the dev server compile each route the first time a page asked for it. That pushed the web end-to-end tests past their timeout in CI (run 39482818478).
+- Ref types: React Native 0.88's types declare `View` and `ScrollView` as functions, not classes (`react-native@0.88.0`, `types_generated/Libraries/Components/View/View.d.ts`), so `useRef<View>` no longer types the instance. Type refs with the exported `ViewInstance` and `ScrollViewInstance`.
+- tsconfig: the `exports` map in `expo@58.0.16`'s `package.json` has no `tsconfig.base` entry. `apps/app/tsconfig.json` extends the file by path so Vitest's resolver finds it.
+- Xcode bundle script: `expo prebuild` with SDK 58.0.16 already quotes the path to React Native's Xcode bundle script (the generated `project.pbxproj` wraps it as `` "`…react-native-xcode.sh…`" ``). So the app's own quoting config plugin (`with-quoted-rn-xcode-script`) was removed.
+- Babel and Hermes: `@orpc/client` 1.15.6 ships `async (...[input, options = {}]) =>`, which SDK 58's Hermes rejects ("invalid destructuring target" in the iOS dev build).
+  - `babel-preset-expo` 57.0.16 rewrote such async arrows with its `fix-hermes-v1-async-arrow-non-simple-params` plugin, a workaround for facebook/hermes#1761. 58.0.18 no longer has that plugin (both read from the published packages).
+  - `apps/app/babel.config.js` applies `@babel/plugin-transform-parameters` 7.29.7 (already in the tree, now pinned directly) to `@orpc` only. Without it the iOS build fails, and with it the build runs (both tried).
+  - `babel-preset-expo` is a direct dependency because pnpm's isolated `node_modules` doesn't make it resolvable from `apps/app` otherwise.
+- Asset registry: `react-native@0.88.0` no longer depends on `@react-native/assets-registry` (0.86.3 did; `npm view react-native@<version> dependencies`). `react-native-svg` 15.16.0's web code still imports `@react-native/assets-registry/registry` (`lib/module/lib/resolveAssetUri.web.js`). Metro resolves it for the app. Storybook's Vite config (`apps/app/.storybook/main.ts`) aliases it to react-native-web's asset registry, which has the same `getAssetByID`.
+- Jest 30 install scripts: Jest 30 (with `jest-expo` 58) brings `@parcel/watcher` 2.6.0 and `unrs-resolver` 1.12.2. Each lists prebuilt platform binaries as optional dependencies. Their install scripts are fallbacks: `@parcel/watcher` builds from source, and `unrs-resolver` runs `napi-postinstall` to fetch a binding. Both are denied in `pnpm-workspace.yaml` `allowBuilds` (`npm view <package>@<version> scripts`).
+
+`@shopify/react-native-skia` 2.14.0 was selected by `expo install` for SDK 58 on 2026-10-20 (2.6.2 for SDK 57 on 2026-10-17), for the watercolor dot (spec 007; approved in `decisions.md`).
+- Its prebuilt libraries come in the `react-native-skia-*` packages.
+- 2.14.0 publishes no install or postinstall script (2.6.2 ran `node scripts/install-libs.js`; `npm view @shopify/react-native-skia@<version> scripts`, checked 2026-10-20). pnpm still asks about it, so it is denied in `pnpm-workspace.yaml` `allowBuilds`.
+- It is used on iOS only in v0.1; web loads it solely inside the development lab route.
+- In 2.14.0's types an `SkPath` has no `setFillType` (`lib/typescript/src/skia/types/Path/Path.d.ts`). `apps/app/src/watercolor/sk-path.ts` builds even-odd paths through `Skia.PathBuilder`.
 
 NativeWind 5.0.0-rc.0 and react-native-css 3.1.0-rc.0 are an intentional prerelease pair. Keep their exact versions together. Tailwind and its PostCSS plugin are kept on the same current 4.x version. `lightningcss` remains pinned at 1.30.1 as a compatibility override for this NativeWind/react-native-css setup; change that pin only after validating the styling pipeline on web and iOS.
 
@@ -17,10 +34,36 @@ NativeWind 5.0.0-rc.0 and react-native-css 3.1.0-rc.0 are an intentional prerele
 - Prettier 3.9.10 and Turborepo 2.11.8 are current releases within their existing major versions.
 - Zod 4.6.7 and Zustand 5.0.15 are current releases within their existing major versions.
 - TypeScript remains at 5.9.3, the latest 5.x release. Do not adopt TypeScript 7 as a major toolchain change until Expo and workspace tooling compatibility is established.
+- Lefthook 2.1.17 runs the git pre-commit hook (`lefthook.yml`; chosen 2026-10-20 as the newest release at least two weeks old). Its postinstall only runs `lefthook install` (skipped when `CI` is set), so it is allowed in `pnpm-workspace.yaml` `allowBuilds`. It is one Go binary with staged-file filtering and restaging built in, so no lint-staged is needed.
 - pnpm remains pinned to 11.25.0 for reproducible contributor installs. A pnpm major upgrade should include a lockfile review.
 
-The Expo CLI's dependency resolver owns SDK-specific package versions. Re-run `expo install --check` after dependency changes. `pnpm outdated` is useful for finding candidates, but its `Latest` column is not an Expo compatibility guarantee. pnpm added exact-version entries to `minimumReleaseAgeExclude` for Expo packages selected by the CLI because those releases were newer than pnpm's release-age window at install time.
+The Expo CLI's dependency resolver owns SDK-specific package versions. Re-run `expo install --check` after dependency changes. `pnpm outdated` is useful for finding candidates, but its `Latest` column is not an Expo compatibility guarantee. For SDK 57, pnpm needed exact-version entries in `minimumReleaseAgeExclude` for Expo packages selected by the CLI, because those releases were newer than pnpm's release-age window at install time. The SDK 58 install on 2026-10-20 needed none, so those entries were removed. If `expo install` picks a release that is too new, pnpm refuses it; add an exact-version entry for that release.
 
+## Storybook
+
+Storybook 10.6.1 (`storybook` and `@storybook/react-native-web-vite`, pinned exactly) with Vite 7.3.6: each the newest release at least two weeks old on 2026-10-20, from the npm registry's release dates (`npm view <package> time`, checked 2026-10-20). Storybook 10.6.1 came out 2026-09-29 (10.6.2, 2026-10-12, was too new); Vite 7.3.6 came out 2026-06-25 (7.3.7, 2026-10-06, was too new). Vite 7 is within the framework's supported Vite range (`^5 || ^6 || ^7 || ^8`, its peer dependencies, checked the same day). Both are dev dependencies of `@it/app` only. Telemetry is off in `apps/app/.storybook/main.ts`. Keep `storybook` and its framework package on the same version. After an upgrade, or a NativeWind, react-native-css, Tailwind or Expo update, run `pnpm storybook:review --no-base` and look at the report: styling, fonts and dark mode must still match the app. See `docs/architecture/storybook.md`.
+
+## Continuous integration
+
+`.github/workflows/ci.yml` runs on every pull request and on pushes to `master`, so a commit made with `git commit --no-verify` is still checked. It has three jobs that run in parallel:
+
+- `check`: typecheck, the typecheck coverage check, the story coverage check, lint, the Vitest unit tests and the jest-expo tests (about 8 seconds of test time). The coverage check (`tools/typecheck-coverage/`) fails when a tracked TypeScript file is in no project a `typecheck` script runs, since `tsc` skips files outside a tsconfig's `include` without saying so. Root files and the repo tools without a package of their own are in the root `tsconfig.json`, checked by `pnpm run typecheck:root`. The story coverage check (`tools/story-coverage/`) fails when a UI component has no `*.stories.tsx` beside it and no entry in its allowlist; see `docs/architecture/storybook.md`.
+- `e2e`: the Playwright web tests. It downloads Chromium and starts the Expo web server, so it takes about two minutes and is the job most likely to fail for reasons unrelated to the code. It is a separate job so it does not hold up `check`. On failure it uploads `apps/app/test-results/` (kept 7 days).
+- `stories`: `pnpm storybook:review --no-base`, which builds Storybook and screenshots every story in light and dark with Playwright's Chromium, failing when a story doesn't render. On failure it uploads the report and screenshots (kept 7 days). See `docs/architecture/storybook.md`.
+
+The shared install steps (pnpm, Node, `pnpm install`) live in `.github/actions/setup/action.yml`, so each pin and the Node version appear once. Node is pinned to the version in `mise.toml`; update both together.
+
+Cost (checked 2026-10-20 against GitHub's Actions billing docs): GitHub Actions is free for public repositories on standard GitHub-hosted runners, so this workflow costs nothing while `weareit-app/weareit` stays public. Larger runners are billed even on public repositories. If the repository becomes private, the organization's free plan includes 2,000 minutes and 500 MB of artifact storage a month. To keep CI free:
+
+- Use `ubuntu-latest` only. Do not add larger runners. The billing docs do not say whether standard macOS runners are free for public repositories, so check them before adding a macOS job (for example an iOS build).
+- Keep `timeout-minutes` on every job and keep artifacts short-lived.
+- Keep the organization's Actions budget at $0, so usage that would be billed is blocked rather than charged.
+
+Action pins and their review notes: `docs/architecture/ci-actions.md`.
+
+## Generator pages
+
+- Lucide 0.469.0 (ISC), loaded from `https://cdn.jsdelivr.net/npm/lucide@0.469.0/dist/umd/lucide.min.js` by the calibration page (`tools/possibilities/config/calibration-page.template.html`, since 2026-10-19) and the fix review page (`fix-review-page.template.html`, since 2026-10-20). It was published on 2024-12-20 (`npm view lucide time`, checked 2026-10-20). It draws the icons for fix kinds and statuses named in `docs/style/copy-style-guide.md`. The icons are decorative: both pages always show the kind or status as text, so a page that can't reach the CDN still works. Keep both pages on the same version. Before an upgrade, check that every icon name in the copy guide's "Kinds of fixes" table still exists.
 
 ## Spec and agent tooling
 

@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fix Review</title>
+<style>
+/* Adapted from dream-review-page.template.html: one reading column, one fix at a time in ranking order, decision bar, note, then navigation. */
+:root {
+  --bg: #f3f5f4; --surface: #ffffff; --fg: #1d2523; --muted: #5d6a66; --line: #d6dddb;
+  --accent: #087e9f; --accept: #1f6b5c; --reject: #8a2f3c; --flag: #7a5b12; --focus: #087e9f;
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-ui: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #121716; --surface: #1a2120; --fg: #e4ebe8; --muted: #9aa8a3; --line: #2e3836;
+  --accent: #5cc3df; --accept: #5fbfa9; --reject: #e58a98; --flag: #e0b660; --focus: #5cc3df; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #121716; --surface: #1a2120; --fg: #e4ebe8; --muted: #9aa8a3; --line: #2e3836;
+  --accent: #5cc3df; --accept: #5fbfa9; --reject: #e58a98; --flag: #e0b660; --focus: #5cc3df; color-scheme: dark }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-ui); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; display: grid; gap: 16px; }
+h1 { font-family: var(--font-display); font-size: 1.5rem; margin: 0; }
+.intro, .muted { color: var(--muted); margin: 0; }
+.filters { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.filters label { display: flex; gap: 6px; align-items: center; font-size: 0.9rem; color: var(--muted); }
+input[type=text], textarea, select { font: inherit; color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; }
+input[type=text] { width: 100%; box-sizing: border-box; }
+textarea { width: 100%; box-sizing: border-box; min-height: 52px; resize: vertical; }
+select { max-width: 100%; }
+.count { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 0.9rem; }
+article { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 20px; display: grid; gap: 14px; min-width: 0; }
+article:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.labels { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0; font-size: 0.85rem; }
+.label { display: inline-flex; gap: 4px; align-items: center; border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; font-weight: 600; }
+.label svg, .label i { width: 14px; height: 14px; stroke: currentColor; }
+.label.kind { color: var(--accent); }
+.state { font-size: 0.85rem; font-weight: 600; margin: 0; }
+.state[data-d="accept"], .state[data-d="edit"] { color: var(--accept); }
+.state[data-d="reject"] { color: var(--reject); }
+.title { font-weight: 600; font-size: 1.1rem; margin: 0; }
+.changes { margin: 0; }
+.step { margin: 0; }
+.original, .note-box { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
+section h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 0 0 6px; }
+section p { margin: 0; }
+.chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; flex-wrap: wrap; gap: 6px; align-items: center; border: 1.5px solid var(--line); border-radius: 999px; padding: 4px 6px 4px 12px; }
+.chip .by { color: var(--muted); font-size: 0.82rem; }
+.chip .over { color: var(--flag); font-size: 0.82rem; font-weight: 600; }
+.add label kbd { font: 500 0.72rem var(--font-ui); color: var(--muted); margin-left: 4px; }
+.add { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 10px; }
+.unlinked { border-left: 3px solid var(--flag); padding-left: 10px; }
+dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 4px 12px; }
+dt { color: var(--muted); }
+dd { margin: 0; }
+.decide { display: flex; flex-wrap: wrap; gap: 8px; }
+button { font: 500 0.92rem var(--font-ui); border: 1.5px solid var(--line); background: var(--surface); color: var(--fg); border-radius: 8px; padding: 8px 12px; cursor: pointer; }
+button kbd { font: 500 0.72rem var(--font-ui); color: var(--muted); margin-left: 4px; }
+button[aria-pressed="true"] { border-color: var(--accept); }
+button[aria-pressed="true"]::before { content: "✓ "; }
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+button.small { padding: 2px 8px; font-size: 0.82rem; border-radius: 999px; }
+button.toggle { justify-self: start; }
+button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.edit { display: grid; gap: 8px; }
+.edit[hidden], .note-box[hidden] { display: none; }
+.edit label { display: grid; gap: 2px; font-size: 0.9rem; }
+.nav { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.primary { background: var(--accent); border-color: var(--accent); color: var(--surface); font-weight: 600; }
+.primary kbd { color: inherit; opacity: 0.8; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1 id="heading">Fix review</h1>
+    <p class="intro" id="pain"></p>
+    <p class="intro">Keys: <kbd>A</kbd> accept, <kbd>E</kbd> edit, <kbd>R</kbd> reject, <kbd>U</kbd> undo, <kbd>L</kbd> choose a dream to link, <kbd>N</kbd>/<kbd>P</kbd> next and previous.</p>
+    <p class="intro">One fix at a time, in the judges’ ranking order, with unlinked fixes last. Each fix appears once, with every dream it’s linked to. Remove a link with its <strong>Remove</strong> button, or add one to any accepted dream. Your links may take a dream past the assembler’s limit of five. Choosing a decision saves it and stays on the same fix; move on with <strong>Next</strong>. An edit accepts the fix with your wording, and the drafted wording is kept beside it. Decisions and links are kept in this browser until you download them. Save the file as <code>reviews/fixes-decisions.json</code> in the run and give it to <code>fixes-ingest</code>.</p>
+  </header>
+  <div class="filters" role="search" aria-label="Filter fixes">
+    <label><input type="checkbox" id="f-open"> Undecided only</label>
+  </div>
+  <div class="count" id="count" role="status" aria-live="polite"></div>
+  <article id="card" aria-labelledby="card-title card-labels card-links card-state"></article>
+  <div class="decide" role="group" aria-label="Decision" id="decide">
+    <button data-d="accept">Accept<kbd>A</kbd></button>
+    <button data-d="edit">Edit<kbd>E</kbd></button>
+    <button data-d="reject">Reject<kbd>R</kbd></button>
+    <button id="undo">Undo<kbd>U</kbd></button>
+  </div>
+  <div class="edit" id="edit" hidden>
+    <label>Title <input type="text" id="edit-title"></label>
+    <label>What changes <input type="text" id="edit-changes"></label>
+    <label>First step <input type="text" id="edit-step"></label>
+    <button id="edit-save">Save edit and accept</button>
+  </div>
+  <label>Note (optional) <textarea id="note"></textarea></label>
+  <div class="nav">
+    <button id="prev">Previous<kbd>P</kbd></button>
+    <button id="download">Download decisions</button>
+    <button id="next" class="primary">Next<kbd>N</kbd></button>
+  </div>
+  <div class="sr" id="announce" aria-live="assertive" aria-atomic="true"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+<script>
+const DATA = /*__DATA__*/;
+const KEY = 'fix-review:' + DATA.setId;
+// Lucide icons from docs/style/copy-style-guide.md, "Kinds of fixes". Icons are decorative: the kind word is always shown.
+const ICONS = { feature: 'hammer', task: 'circle-dot-dashed', schedule: 'calendar-sync', habit: 'repeat', practice: 'sprout',
+  learn: 'graduation-cap', project: 'folder-kanban', group: 'users', 'new-group': 'user-round-plus', ask: 'message-circle-question',
+  resource: 'life-buoy', leave: 'door-open', 'switch': 'arrow-left-right', path: 'footprints' };
+const STATUS_ICONS = { real_now: 'circle-check', existing_resource: 'building-2', proposed_it_feature: 'lightbulb', societal_proposal: 'landmark' };
+const DECIDED = { accept: 'Accepted', edit: 'Accepted with your edit', reject: 'Rejected' };
+const DREAMS = Object.fromEntries(DATA.dreams.map((d) => [d.id, d]));
+const PROPOSED = Object.fromEntries(DATA.proposals.map((p) => [p.id, p.links.map((l) => l.dreamId)]));
+let decisions = {}, drafts = {}, links = {};
+try {
+  decisions = JSON.parse(localStorage.getItem(KEY) || '{}');
+  drafts = JSON.parse(localStorage.getItem(KEY + ':notes') || '{}');
+  links = JSON.parse(localStorage.getItem(KEY + ':links') || '{}');
+} catch (e) { decisions = {}; drafts = {}; links = {}; }
+const undoStack = [];
+let index = 0, pinned = null, noteOpen = false; // pinned: the fix on screen stays listed under "Undecided only" until you move on
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const icon = (name) => '<i data-lucide="' + esc(name) + '" aria-hidden="true"></i>';
+function save() {
+  try {
+    localStorage.setItem(KEY, JSON.stringify(decisions));
+    localStorage.setItem(KEY + ':notes', JSON.stringify(drafts));
+    localStorage.setItem(KEY + ':links', JSON.stringify(links));
+  } catch (e) { /* kept in memory */ }
+}
+function linksOf(id) { return links[id] || PROPOSED[id].slice(); }
+function fixCount(dreamId) {
+  // Fixes linked to a dream right now: a rejected fix keeps no links.
+  return DATA.proposals.filter((p) => !(decisions[p.id] && decisions[p.id].decision === 'reject') && linksOf(p.id).includes(dreamId)).length;
+}
+function visible() { const open = $('f-open').checked; return DATA.proposals.filter((p) => !open || !decisions[p.id] || p.id === pinned); }
+function stateText(d) { return d ? 'Decided: ' + DECIDED[d.decision] : 'Not decided yet'; }
+function wording(p) { const d = decisions[p.id]; return d && d.decision === 'edit' ? d.edit : { title: p.title, whatChanges: p.whatChanges, firstStep: p.firstStep }; }
+function byText(p, dreamId) {
+  const proposed = p.links.find((l) => l.dreamId === dreamId);
+  return proposed ? (proposed.by === 'founder' ? 'linked by you' : 'proposed by the assembler') : 'added by you';
+}
+function dreamName(id) { const d = DREAMS[id]; return d ? d.title : id; }
+function linkedSummary(p) {
+  const ids = linksOf(p.id);
+  return ids.length ? 'Linked dreams: ' + ids.map(dreamName).join('; ') + '.' : 'Not linked to any dream.';
+}
+function exampleHtml(p) {
+  if (p.example) {
+    const e = p.example;
+    return '<section aria-label="Cited example"><h2>Cited example</h2><p>' + esc(e.name) + (e.place ? ', ' + esc(e.place) : '') +
+      (e.year ? ' (' + esc(e.year) + ')' : '') + (e.outcome ? ': ' + esc(e.outcome) : '') + '</p>' +
+      (e.limits ? '<p class="muted">Limits: ' + esc(e.limits) + '</p>' : '') + '</section>';
+  }
+  return '<section aria-label="Cited example"><h2>Cited example</h2><p>None: speculative. ' + esc(p.speculativeRationale || '') + '</p></section>';
+}
+function chipsHtml(p) {
+  const ids = linksOf(p.id);
+  const rejected = decisions[p.id] && decisions[p.id].decision === 'reject';
+  const chips = ids.map((id) => {
+    const n = fixCount(id), d = DREAMS[id];
+    return '<li class="chip"><span>' + esc(dreamName(id)) + '</span>' +
+      '<span class="by">' + esc(byText(p, id)) + ' · ' + n + ' fix' + (n === 1 ? '' : 'es') +
+      (d && d.honestStatus === false ? ' · failed honest status' : '') + '</span>' +
+      (n > DATA.maxLinks ? '<span class="over">' + icon('triangle-alert') + ' Over the assembler’s ' + DATA.maxLinks + '</span>' : '') +
+      '<button class="small" data-remove="' + esc(id) + '" aria-label="Remove link to ' + esc(dreamName(id)) + '">Remove</button></li>';
+  }).join('');
+  const options = DATA.dreams.filter((d) => !ids.includes(d.id)).map((d) => {
+    const n = fixCount(d.id);
+    return '<option value="' + esc(d.id) + '">' + esc(d.title) + ' (' + n + ' fix' + (n === 1 ? '' : 'es') + ')</option>';
+  }).join('');
+  return '<section aria-labelledby="links-heading"' + (ids.length ? '' : ' class="unlinked"') + '><h2 id="links-heading">Linked dreams</h2>' +
+    (ids.length ? '<ul class="chips" aria-label="Linked dreams">' + chips + '</ul>' : '<p>' + icon('unlink') + ' Not linked to any dream.</p>') +
+    (rejected ? '<p class="muted">Rejected: this fix keeps no links when ingested.</p>' : '') +
+    (options ? '<div class="add"><label for="add-dream">Add a link to<kbd>L</kbd></label><select id="add-dream">' + options + '</select>' +
+      '<button id="add-link">Add link</button></div>' : '<p class="muted">Linked to every accepted dream.</p>') + '</section>';
+}
+function methodHtml(p) {
+  const rows = Object.entries(p.method || {}).map(([k, v]) => '<dt>' + esc(k) + '</dt><dd>' + esc(typeof v === 'boolean' ? (v ? 'yes' : 'no') : v) + '</dd>').join('');
+  return '<button class="toggle" id="note-toggle" aria-expanded="' + noteOpen + '" aria-controls="method-note">Method fields</button>' +
+    '<section class="note-box" id="method-note" aria-label="Method fields"' + (noteOpen ? '' : ' hidden') + '><dl>' + rows +
+    '<dt>Drafted by</dt><dd>' + esc(p.origin === 'shared' ? 'the shared-fixes pass' : 'the ' + p.kindLabel + ' brief') + '</dd>' +
+    (p.featureIdea ? '<dt>featureIdea</dt><dd>' + esc(p.featureIdea) + '</dd>' : '') + '</dl></section>';
+}
+function render() {
+  const list = visible();
+  if (index >= list.length) index = Math.max(0, list.length - 1);
+  const decided = DATA.proposals.filter((p) => decisions[p.id]).length;
+  const left = (DATA.proposals.length - decided) + ' of ' + DATA.proposals.length + ' left to decide';
+  $('count').textContent = list.length ? 'Fix ' + (index + 1) + ' of ' + list.length + ' shown · ' + left : 'No undecided fixes · ' + left;
+  const p = list[index];
+  pinned = p ? p.id : null;
+  const card = $('card');
+  document.querySelectorAll('#decide button[data-d]').forEach((b) => { b.disabled = !p; b.setAttribute('aria-pressed', 'false'); });
+  $('edit').hidden = true;
+  if (!p) { card.innerHTML = '<p id="card-title">Nothing to show.</p>'; $('note').value = ''; return; }
+  const d = decisions[p.id];
+  document.querySelectorAll('#decide button[data-d]').forEach((b) => b.setAttribute('aria-pressed', String(!!d && d.decision === b.dataset.d)));
+  const w = wording(p);
+  const position = PROPOSED[p.id].length ? 'Ranked ' + (DATA.proposals.indexOf(p) + 1) : 'Unlinked by the assembler';
+  card.innerHTML =
+    '<p class="labels" id="card-labels"><span class="label kind">' + icon(ICONS[p.kind] || 'circle') + '<span>Kind: ' + esc(p.kindLabel) + '</span></span><span class="sr">. </span>' +
+    '<span class="label">' + icon(STATUS_ICONS[p.status] || 'circle') + '<span>Status: ' + esc(p.statusLabel) + '</span></span><span class="sr">. </span>' +
+    '<span class="muted">' + esc(position) + ' · ' + esc(p.id) + '</span></p>' +
+    '<p class="sr" id="card-links">' + esc(linkedSummary(p)) + '</p>' +
+    '<p class="state" id="card-state" data-d="' + esc(d ? d.decision : '') + '">' + esc(stateText(d)) + '</p>' +
+    '<p class="title" id="card-title">' + esc(w.title) + '</p><p class="changes">' + esc(w.whatChanges) + '</p>' +
+    '<p class="step"><strong>First step</strong> (' + esc(p.firstStepMinutes) + ' min): ' + esc(w.firstStep) + '</p>' +
+    (d && d.decision === 'edit' ? '<section class="original" aria-label="Drafted wording"><h2>Drafted wording</h2><p class="title">' + esc(p.title) +
+      '</p><p>' + esc(p.whatChanges) + '</p><p>First step: ' + esc(p.firstStep) + '</p></section>' : '') +
+    exampleHtml(p) + chipsHtml(p) + methodHtml(p);
+  card.querySelectorAll('button[data-remove]').forEach((b) => b.addEventListener('click', () => removeLink(b.dataset.remove)));
+  if ($('add-link')) $('add-link').addEventListener('click', addLink);
+  $('note-toggle').addEventListener('click', toggleNote);
+  $('note').value = d && d.note ? d.note : (drafts[p.id] || '');
+  $('edit-title').value = w.title; $('edit-changes').value = w.whatChanges; $('edit-step').value = w.firstStep;
+  try { window.lucide?.createIcons(); } catch (e) { /* icons are decorative; the words still show */ }
+}
+function current() { return visible()[index]; }
+function show(id) { pinned = id; index = Math.max(0, visible().findIndex((p) => p.id === id)); render(); $('card').focus(); }
+function setLinks(p, ids, message, focusId) {
+  undoStack.push({ id: p.id, before: decisions[p.id] || null, links: links[p.id] ? links[p.id].slice() : null });
+  links[p.id] = ids;
+  save();
+  render();
+  const target = focusId && $(focusId);
+  (target || $('card')).focus();
+  $('announce').textContent = message + ' ' + linkedSummary(p);
+}
+function addLink() {
+  const p = current(), select = $('add-dream');
+  if (!p || !select) return;
+  const id = select.value;
+  const n = fixCount(id) + 1;
+  setLinks(p, linksOf(p.id).concat(id), 'Linked to ' + dreamName(id) + ', which now has ' + n + ' fixes' +
+    (n > DATA.maxLinks ? ', past the assembler’s ' + DATA.maxLinks + '; your link is allowed.' : '.'), 'add-dream');
+}
+function removeLink(id) {
+  const p = current();
+  if (!p) return;
+  const ids = linksOf(p.id), at = ids.indexOf(id), rest = ids.filter((x) => x !== id);
+  const next = rest[Math.min(at, rest.length - 1)];
+  setLinks(p, rest, 'Removed the link to ' + dreamName(id) + '.', null);
+  const button = next && document.querySelector('button[data-remove="' + CSS.escape(next) + '"]');
+  (button || $('add-dream') || $('card')).focus();
+}
+function toggleNote() {
+  noteOpen = !noteOpen;
+  $('note-toggle').setAttribute('aria-expanded', String(noteOpen));
+  $('method-note').hidden = !noteOpen;
+}
+function decide(decision, extra) {
+  const p = current();
+  if (!p) return;
+  undoStack.push({ id: p.id, before: decisions[p.id] || null, links: links[p.id] ? links[p.id].slice() : null });
+  decisions[p.id] = Object.assign({ decision: decision, note: $('note').value.trim(), decidedAt: new Date().toISOString() }, extra || {});
+  delete drafts[p.id];
+  save();
+  render();
+  $('announce').textContent = 'Saved: ' + DECIDED[decision].toLowerCase() + '. Still on this fix.';
+}
+function openEdit() { if (!current()) return; $('edit').hidden = false; $('edit-title').focus(); $('edit-title').select(); }
+function undo() {
+  const last = undoStack.pop();
+  if (!last) { $('announce').textContent = 'Nothing to undo.'; return; }
+  if (last.before) decisions[last.id] = last.before; else delete decisions[last.id];
+  if (last.links) links[last.id] = last.links; else delete links[last.id];
+  save(); render();
+  $('announce').textContent = 'Undone.';
+}
+function move(step) { const list = visible(); if (!list.length) return; show(list[Math.min(list.length - 1, Math.max(0, index + step))].id); }
+document.querySelectorAll('#decide button[data-d]').forEach((b) => b.addEventListener('click', () => {
+  if (b.disabled) return;
+  if (b.dataset.d === 'edit') openEdit(); else decide(b.dataset.d);
+}));
+$('edit-save').addEventListener('click', () => {
+  const edit = { title: $('edit-title').value.trim(), whatChanges: $('edit-changes').value.trim(), firstStep: $('edit-step').value.trim() };
+  if (!edit.title || !edit.whatChanges || !edit.firstStep) { $('announce').textContent = 'Give a title, what changes, and a first step.'; return; }
+  const p = current();
+  if (p && edit.title === p.title && edit.whatChanges === p.whatChanges && edit.firstStep === p.firstStep) decide('accept');
+  else decide('edit', { edit: edit });
+  $('card').focus();
+});
+$('undo').addEventListener('click', undo);
+$('next').addEventListener('click', () => move(1));
+$('prev').addEventListener('click', () => move(-1));
+$('note').addEventListener('input', () => {
+  const p = current(); if (!p) return;
+  if (decisions[p.id]) decisions[p.id].note = $('note').value.trim(); else drafts[p.id] = $('note').value;
+  save();
+});
+$('f-open').addEventListener('change', () => { index = 0; pinned = null; render(); });
+$('download').addEventListener('click', () => {
+  // Each decision carries the fix's final links, so a shared fix is decided once with all of them.
+  const out = {};
+  for (const [id, d] of Object.entries(decisions)) out[id] = Object.assign({}, d, { links: linksOf(id) });
+  const blob = new Blob([JSON.stringify({ schemaVersion: 1, setId: DATA.setId, exportedAt: new Date().toISOString(), decisions: out }, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = 'fixes-decisions.json'; a.click();
+  const left = DATA.proposals.filter((p) => !decisions[p.id]).length;
+  $('announce').textContent = 'Downloaded fixes-decisions.json.' + (left ? ' ' + left + ' fixes are still undecided; ingest needs every fix decided.' : '');
+});
+document.addEventListener('keydown', (e) => {
+  if (e.target.closest('input[type=text], textarea, select') || e.metaKey || e.ctrlKey || e.altKey) return;
+  const k = e.key.toLowerCase();
+  if (k === 'a' || k === 'r') { const d = k === 'a' ? 'accept' : 'reject'; if (!document.querySelector('#decide button[data-d="' + d + '"]').disabled) decide(d); }
+  else if (k === 'e') openEdit();
+  else if (k === 'u') undo();
+  else if (k === 'l') { if ($('add-dream')) $('add-dream').focus(); else $('announce').textContent = 'This fix is linked to every accepted dream.'; }
+  else if (k === 'n') move(1);
+  else if (k === 'p') move(-1);
+  else return;
+  e.preventDefault();
+});
+$('heading').textContent = 'Fix review: ' + DATA.painName;
+$('pain').textContent = 'Pain: ' + DATA.painLine;
+$('card').tabIndex = -1;
+render();
+</script>
+</body>
+</html>

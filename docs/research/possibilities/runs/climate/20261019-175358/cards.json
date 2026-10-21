@@ -12,7 +12,7 @@
       "fixes": [
         {
           "id": "climate-biggest-choices-big-four",
-          "title": "Focus first on driving, flying and food",
+          "title": "Focus first on driving, flying, and food",
           "whatChanges": "A 2017 review of 39 studies by researchers at Lund University found that living without a car saves about 2.4 tonnes of carbon a year, and skipping one round-trip flight across the Atlantic saves about 1.6. Eating plant-based saves about 0.8 tonnes, roughly four times what thorough recycling does.",
           "who": "You",
           "exemplarRef": "high-impact-actions",
@@ -184,7 +184,7 @@
       "fixes": [
         {
           "id": "climate-food-beef-swap",
-          "title": "Swap beef for chicken, beans or lentils a few nights a week",
+          "title": "Swap beef for chicken, beans, or lentils a few nights a week",
           "whatChanges": "A 2018 study of 38,000 farms in 119 countries found that a kilo of beef puts out about 60 kilos of greenhouse gases, while a kilo of peas puts out about one. You don’t have to give up beef to make a big difference; eating less of it does most of the work.",
           "who": "You",
           "exemplarRef": "food-footprints",
@@ -274,7 +274,7 @@
           "id": "climate-car-trips-rebate-campaign",
           "title": "One shared request for e-bike rebates to your city council",
           "whatChanges": "Gathers residents behind one request for e-bike rebates like Denver's, shows how many people in each council district have signed on, and sends it to the council together.",
-          "who": "You, your neighbors and It",
+          "who": "You, your neighbors, and It",
           "exemplarRef": "denver-ebike-rebates",
           "speculative": false,
           "firstStep": "Tell us you'd use this, and ask one neighbor whether they'd sign a request for e-bike rebates.",
@@ -313,7 +313,7 @@
         {
           "id": "climate-flying-lower-flight",
           "title": "Choose the lower-emission flight when you do fly",
-          "whatChanges": "Google Flights labels each flight as higher, typical or lower emissions compared with others on the same route. The nonstop isn’t always the lowest, because the type of plane and the seating matter too.",
+          "whatChanges": "Google Flights labels each flight as higher, typical, or lower emissions compared with others on the same route. The nonstop isn’t always the lowest, because the type of plane and the seating matter too.",
           "who": "You",
           "exemplarRef": "google-flights-emissions",
           "speculative": false,
@@ -445,7 +445,7 @@
           "id": "climate-shared-ownership-gather",
           "title": "Gather enough interested neighbors to start a solar co-op",
           "whatChanges": "Shows how many people near you are interested and hands that list to an organizer when there are enough. Solar United Neighbors runs its co-ops as groups of about 100 neighbors, so a handful of interested households usually isn't enough on its own.",
-          "who": "You, your neighbors and It",
+          "who": "You, your neighbors, and It",
           "exemplarRef": "solar-united-neighbors-coops",
           "speculative": false,
           "firstStep": "Tell us you'd use this, and ask two neighbors whether they've ever priced solar.",
@@ -497,7 +497,7 @@
           "id": "climate-town-power-neighbor-letter",
           "title": "Send your city council one letter signed by many neighbors",
           "whatChanges": "Helps you collect signatures from people in your district and send one organized letter to the right council members. A single letter with fifty local names is harder to set aside than fifty separate emails.",
-          "who": "You, your neighbors and It",
+          "who": "You, your neighbors, and It",
           "exemplarRef": null,
           "speculative": true,
           "firstStep": "Tell us you'd use this, and find out which council district you live in.",
@@ -516,7 +516,7 @@
       }
     },
     "climate-local-risks": {
-      "title": "Knowing how heat, fire and flooding could affect my street",
+      "title": "Knowing how heat, fire, and flooding could affect my street",
       "line": "I know which climate risks are real for where I live, and I have done the one or two things that matter most.",
       "lens": "technology",
       "ambition": "this-year",
@@ -658,7 +658,7 @@
         {
           "id": "climate-courts-public-comment",
           "title": "Comment when your state reviews a big new project",
-          "whatChanges": "Permits for power plants, pipelines and mines usually have a public comment period. A comment that names the project and asks how its emissions were counted goes into the official record.",
+          "whatChanges": "Permits for power plants, pipelines, and mines usually have a public comment period. A comment that names the project and asks how its emissions were counted goes into the official record.",
           "who": "You",
           "exemplarRef": null,
           "speculative": true,
@@ -726,7 +726,7 @@
           "id": "climate-talk-find-others",
           "title": "Meet people nearby who want to work on the same thing",
           "whatChanges": "Connects you with people near you who chose the same climate goal, like community solar or safer bike routes, so you can start together. Worry is easier to carry with company and a shared task.",
-          "who": "You, your neighbors and It",
+          "who": "You, your neighbors, and It",
           "exemplarRef": null,
           "speculative": true,
           "firstStep": "Tell us you'd use this, and pick the one climate change you'd most like to work on locally.",

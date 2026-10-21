@@ -44,7 +44,7 @@ Decided 2026-10-16 (founder override of the assessment's weak-evidence gate); co
 
 - Expo Router is the universal app and route system. Revisit a separate Next.js app only if a demonstrated Expo limitation requires it.
 - Use pnpm workspaces. The owner uses mise locally; contributor setup remains tool-agnostic.
-- Use NativeWind 5.0.0-rc.0 with its exact `react-native-css` 3.1.0-rc.0 pairing for the SDK 57 prototype. NativeWind labels v5 a pre-release and says it is not intended for production, so re-evaluate maturity before launch or switch to a stable compatible release.
+- Use NativeWind 5.0.0-rc.0 with its exact `react-native-css` 3.1.0-rc.0 pairing, chosen for the SDK 57 prototype and kept for SDK 58 (2026-10-20, weareit-app/weareit#79). NativeWind labels v5 a pre-release and says it is not intended for production, so re-evaluate maturity before launch or switch to a stable compatible release.
 - Keep `lightningcss` at 1.30.1 as the NativeWind/react-native-css compatibility override. Dependency refresh rules and current intentional version pins are recorded in `docs/architecture/dependency-policy.md`.
 - Use oRPC for typed API contracts and Kysely for SQL access. Keep contracts/framework independent where practical.
 - Use Neon initially through a provider-neutral PostgreSQL connection boundary.
@@ -53,6 +53,7 @@ Decided 2026-10-16 (founder override of the assessment's weak-evidence gate); co
 - General offline sync is deferred. Pre-signup onboarding still needs local draft persistence and restart recovery on each platform.
 - Product content (domains, pains, dreams, first actions, and their provenance) is database-backed from the start, not maintained as Git-authored runtime content. Build a first-party CMS for editing and publishing this structured content. PostgreSQL is the source of truth; Kysely owns migrations and SQL access, and the app receives validated content through semantic oRPC operations. Git may hold schema, migrations, seed/import tools, and snapshots for review, but must not become a competing source of truth.
 - The CMS starts with a small structured workflow: edit drafts, validate references and required provenance, preview the onboarding experience, and publish a versioned content snapshot. Keep content revisions and publication history so changes can be reviewed and rolled back. Do not build a general page builder or workflow engine for MVP.
+- Prettier formats code only (JavaScript and TypeScript). Docs, research data and vendored skills stay as written. `.prettierignore` is the one definition of what gets formatted, used by `pnpm run format`, CI's `pnpm run lint` and the pre-commit hook (weareit-app/weareit#62, #77).
 
 ## Identity and privacy
 
@@ -98,7 +99,7 @@ Decided 2026-10-18; details in `docs/architecture/typography.md`.
 **Approved by the founder 2026-10-17.** Spec: `specs/007-watercolor-dot/spec.md` (being absorbed into `openspec/specs/brand-mark` via change `watercolor-followups`); research in `docs/research/watercolor.md`.
 
 - **Why.** Both candidates in the fidelity proof need GPU shaders: Option B (look-alike shader) draws watercolor marks live, and Option E (dots painted ahead of time by physics) is colored live with Kubelka-Munk pigment optics. Reanimated, already installed, can move, scale and fade existing images but cannot draw new watercolor shapes. Skia gives GPU 2D drawing and custom SkSL RuntimeEffect shaders on iOS and web, driven by Reanimated shared values, and is supported in the Expo SDK 57 docs.
-- **Version.** Install with `expo install` so the version matches SDK 57; record any pin in `docs/architecture/dependency-policy.md`. Not installed yet; the fidelity proof installs it.
+- **Version.** Install with `expo install` so the version matches the app's Expo SDK (SDK 57 when this was decided; SDK 58 since #79); record any pin in `docs/architecture/dependency-policy.md`. Not installed yet; the fidelity proof installs it.
 - **Web cost.** Skia on web loads CanvasKit (WebAssembly), about 2.9 MB gzipped, against the founder's 1 MB extra web budget loaded after the first screen (FR-011). So web will likely use the animated painted orb in all three placements, and Skia is used on iOS, unless the fidelity proof finds a web path for the chosen dot within 1 MB. The proof must report the web download for each approach. *(Superseded the same day: see "Web, updated 2026-10-17" below.)*
 - **Native cost.** Roughly 4–6 MB added to the iOS binary (figures vary between sources; the proof measures it). Targets are iPhone 12 and newer (founder, 2026-10-17).
 - **License.** `@shopify/react-native-skia` is MIT and Skia itself BSD-3-Clause; both are compatible with the AGPL-3.0-or-later app license.
@@ -113,6 +114,9 @@ Decided 2026-10-18; details in `docs/architecture/typography.md`.
 - In generated copy, honesty lives in fields: `status` (real now / existing resource / proposed It feature / societal proposal), exemplar `limits` and `verified`, and `speculative`. It is not written into the prose. Copy is "plain but specific" and follows `docs/style/copy-style-guide.md` (a trusted mentor's or hometown doctor's voice; no separate scenes). This replaces the fifth-grade reading target for generated content. Any UI that shows generated items must display these fields (2026-10-17).
 - A real-world example counts only if its source was opened and located in the run; recalled examples are marked unverified. Every number and proper noun in a fix must appear in its cited example's record (2026-10-17, lint added 2026-10-18).
 - Each fix has a kind (feature, task, schedule, habit, practice, learn, project, group, new-group; path later), defined in the copy guide. Features are written as capability pitches, not user actions (founder, 2026-10-19).
+- Fixes are brainstormed per kind, not by one writer who tags kinds afterwards (founder, 2026-10-20; grilling and `docs/research/fix-kind-ideation/research.md`). The single writer drafted 44% Tasks and 36% Features across 17 pains, leaving every other kind thin. The order is research, then dreams, which the founder reviews before any fix is drafted, then one planner per pain that sets a ceiling per kind for each dream, a pass for fixes that serve several dreams, one brief per kind, a cheap screen, an assembler that links fixes to dreams, the judge panel, and founder review of each fix once. Ceilings rather than quotas, because LLM brainstorms collapse into duplicates and quotas invite filler. Each kind's method (job story, if-then plan, named decision-maker) is stored as fields and never written into copy.
+- Generator output is dreams, fixes and fix–dream links, matching the content graph, not cards; a fix can serve several dreams (founder, 2026-10-20). This replaces the card shape.
+- Ask and Use a resource join the kinds; Leave and Switch are separate trial kinds until the pilot decides; there is no Give kind, because "support" is reserved for paying It (founder, 2026-10-20). Growing the app's own kinds (today once, habit, group, feature) is a separate change.
 
 ## Rendering
 
@@ -127,6 +131,12 @@ Decided 2026-10-19 by the founder (ticket "Pick hosting, email provider and depl
 - **Database:** Neon in `aws-us-east-1`, starting on the Free plan.
 - **Email:** Resend over SMTP behind the `sendEmail` boundary, starting on the Free plan; Postmark is the upgrade if volume or deliverability needs it. Resend keeps email data, including sign-in codes, for 30 days, and the privacy page says so.
 - **Deploys:** master deploys to production only after CI passes; pull requests get previews of the static web build only; no staging; database migrations run before each API deploy; rollback is a redeploy of an earlier deploy.
+- **CI:** GitHub Actions on standard `ubuntu-latest` runners, which are free for public repositories. Two jobs must pass before master deploys: `check` (typecheck, lint, Vitest, jest-expo) and `e2e` (Playwright web tests). Runner costs and action pins: `docs/architecture/dependency-policy.md`.
+
+## Component review
+
+- Storybook (`@storybook/react-native-web-vite`, web only) shows components one at a time for pull-request review, and `pnpm storybook:review` screenshots every story for a branch and its merge base and reports what changed (founder, 2026-10-20). The founder chose Storybook over an in-app gallery route, on condition that it render the app faithfully. Storybook builds with Vite, not Metro; NativeWind 5's Babel preset and Tailwind's PostCSS plugin both run there, and the stories render the app's tokens, fonts and dark mode. If a NativeWind or Expo update breaks that, fix the Storybook config, or move the stories to an in-app gallery route; don't change the app to suit Storybook. Details: `docs/architecture/storybook.md`.
+- Review is local for now: screenshots and a report on the reviewer's machine. Publishing Storybook on pull-request previews waits on the Render preview deploys above (weareit-app/weareit#72).
 
 ## Open implementation decisions
 
@@ -151,3 +161,7 @@ Decided 2026-10-19 by the founder (ticket "Pick hosting, email provider and depl
 - 2026-10-19: added the generated possibility content decisions (honesty in fields, plain but specific copy, verified and traced examples, fix kinds); the generator moved from a Spec Kit extension to `tools/possibilities/` and skills.
 - 2026-10-19: founder chose hosting, email and deploys for launch (Render, Neon Free, Resend Free, master deploys after CI); replaces the SST on AWS lean.
 - 2026-10-19: chose Cloudflare R2 for image storage, behind the asset boundary (over S3 with CloudFront: DNS already on Cloudflare, no download fees).
+- 2026-10-20: founder chose Storybook for component review, with a local screenshot comparison per branch; Storybook links on pull-request previews come later.
+- 2026-10-20: founder chose to run the Playwright web tests in CI as their own job (weareit-app/weareit#63), reversing the choice in #66 to leave them out as slow and prone to failing for reasons unrelated to the code. Deploys from master now also wait for them; if they prove flaky, remove the `e2e` job.
+- 2026-10-20: founder asked to move the app to Expo SDK 58 (weareit-app/weareit#79, a draft until after the Oct 26 launch), mainly for per-route web bundles. Expo Router async routes are limited to web production builds, so development keeps one bundle. The stack is unchanged: same Expo Router, NativeWind pair and Skia, at SDK 58's versions (`docs/architecture/dependency-policy.md`).
+- 2026-10-20: recorded the code-only Prettier decision (from #62 and #77), which until then lived only in tool config comments.

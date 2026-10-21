@@ -1,6 +1,8 @@
 # Pain tree
 
-How the pages would read. Each heading lists its main pains. Indented items appear after tapping **More like this** on the pain above them. A pain can appear in several places but is one pain with one set of dreams. Generated from [pain-inventory.yaml](pain-inventory.yaml). Provisionally approved (2026-10-16), pending outside feedback.
+How the pages would read. Each heading lists its main pains. Indented items appear after tapping **More like this** on the pain above them. A pain can appear in several places but is one pain with one set of dreams. Generated from the 2026-10-16 inventory ([snapshot](../../research/pains/sources/pain-inventory-2026-10-16.yaml)). Provisionally approved (2026-10-16), pending outside feedback.
+
+**Historical (2026-10-19):** the founder dropped **More like this**; the pages show only the pains the founder has published. The current list is the pain catalog, [`docs/research/pains/catalog.md`](../../research/pains/catalog.md).
 
 Marks: ★ also a main pain elsewhere on its page · *(us)* / *(you)* lives on the other page · ✱ launch-content pain whose name or line would change.
 

@@ -1,7 +1,13 @@
 import { Link, type Href } from "expo-router";
 import { CornerLeftDown } from "lucide-react-native";
 import { useMemo, useRef, useState, type ReactNode } from "react";
-import { Pressable, ScrollView, View } from "react-native";
+import {
+  Pressable,
+  ScrollView,
+  View,
+  type ScrollViewInstance,
+  type ViewInstance,
+} from "react-native";
 import { useReducedMotion } from "react-native-reanimated";
 import { resolveFeatureStatuses } from "@it/content/graph-schema";
 import { Text } from "../text";
@@ -73,9 +79,9 @@ export function PainExplorer({
   const [focus, setFocus] = useState<Record<string, string>>({});
   const [inviteDismissed, setInviteDismissed] = useState(false);
 
-  const scrollRef = useRef<ScrollView>(null);
-  const contentRef = useRef<View>(null);
-  const painRefs = useRef(new Map<string, { current: View | null }>());
+  const scrollRef = useRef<ScrollViewInstance>(null);
+  const contentRef = useRef<ViewInstance>(null);
+  const painRefs = useRef(new Map<string, { current: ViewInstance | null }>());
 
   const content = contentQuery.data?.content;
   const model = useMemo(() => {
@@ -130,7 +136,7 @@ export function PainExplorer({
   };
 
   // Keeps the person's place: brings a view back near the top of the screen.
-  function scrollTo(view: View | null | undefined) {
+  function scrollTo(view: ViewInstance | null | undefined) {
     const container = contentRef.current;
     if (!view || !container) return;
     view.measureLayout(container, (_x, y) => {
