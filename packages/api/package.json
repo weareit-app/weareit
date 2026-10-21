@@ -6,7 +6,8 @@
   "exports": {
     "./contract": "./src/contract.ts",
     "./router": "./src/router.ts",
-    "./client": "./src/client.ts"
+    "./client": "./src/client.ts",
+    "./openapi": "./src/openapi.ts"
   },
   "dependencies": {
     "@it/content": "workspace:*",
@@ -14,7 +15,9 @@
     "@it/domain": "workspace:*",
     "@orpc/client": "^1.15.6",
     "@orpc/contract": "^1.15.6",
+    "@orpc/openapi": "1.15.6",
     "@orpc/server": "^1.15.6",
+    "@orpc/zod": "1.15.6",
     "zod": "4.6.7"
   },
   "scripts": {

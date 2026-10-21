@@ -3,6 +3,7 @@ import { RPCHandler } from "@orpc/server/fetch";
 import { createApiRouter } from "@it/api/router";
 import { createDatabase } from "@it/database/database";
 import { checkDatabaseReadiness } from "@it/database/readiness";
+import { createApiDocs } from "./api-docs";
 import { createAuth } from "./auth";
 import {
   createStripeSupport,
@@ -33,6 +34,9 @@ const auth = createAuth(db);
 const router = createApiRouter(db);
 const supportPayments = createStripeSupport(db);
 const handler = new RPCHandler(router);
+// Only the dev script sets API_DOCS (docs/architecture/decisions.md, 2026-10-21).
+const apiDocsEnabled = process.env.API_DOCS === "1";
+const apiDocs = createApiDocs({ router, enabled: apiDocsEnabled });
 const port = Number(process.env.PORT ?? 3001);
 const allowedOrigins = new Set(
   (process.env.WEB_ORIGINS ?? "http://localhost:8081,http://127.0.0.1:8081")
@@ -169,18 +173,17 @@ const server = createServer(async (incoming, outgoing) => {
     }
 
     const session = await auth.api.getSession({ headers: request.headers });
-    const result = await handler.handle(request, {
-      prefix: "/rpc",
-      context: {
-        db,
-        cmsActor: suppliedToken === cmsAdminToken ? "cms-admin" : null,
-        userId: session?.user.id ?? null,
-        supportPayments,
-      },
-    });
+    const context = {
+      db,
+      cmsActor: suppliedToken === cmsAdminToken ? "cms-admin" : null,
+      userId: session?.user.id ?? null,
+      supportPayments,
+    };
+    const result = await handler.handle(request, { prefix: "/rpc", context });
     const response = result.matched
       ? result.response
-      : new Response("Not found", { status: 404 });
+      : ((await apiDocs.handle(request, context)) ??
+        new Response("Not found", { status: 404 }));
     for (const [name, value] of response.headers)
       if (name.toLowerCase() !== "set-cookie") outgoing.setHeader(name, value);
     const cookies = response.headers.getSetCookie();
@@ -196,6 +199,8 @@ const server = createServer(async (incoming, outgoing) => {
 
 server.listen(port, "0.0.0.0", () => {
   console.log(`It API listening on http://localhost:${port}/rpc`);
+  if (apiDocsEnabled)
+    console.log(`API docs for developers: http://localhost:${port}/docs`);
 });
 
 for (const signal of ["SIGINT", "SIGTERM"] as const) {
