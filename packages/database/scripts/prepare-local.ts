@@ -3,7 +3,7 @@ import { fileURLToPath } from "node:url";
 import { initializeContentIfEmpty } from "../src/content-repository";
 import { createDatabase } from "../src/database";
 import { migrateToLatest } from "../src/migrator";
-import { checkDatabaseReadiness } from "../src/readiness";
+import { checkDatabaseReadiness, isLocalDatabase } from "../src/readiness";
 import { buildTier1ContentGraph } from "../src/tier1-import";
 
 // Runs before `pnpm dev`: brings the local database to the point where the
@@ -16,10 +16,10 @@ if (!connectionString)
 let readiness = await checkDatabaseReadiness(connectionString);
 
 if (!readiness.ready && readiness.problem === "unreachable") {
-  if (!isLocal(connectionString)) fail(readiness.message);
+  if (!isLocalDatabase(connectionString)) fail(readiness.message);
   if (!dockerIsRunning())
     fail(
-      `Can't reach Postgres at ${new URL(connectionString).host}, and neither OrbStack nor Docker is running. Start one and run \`pnpm dev\` again, or set DATABASE_URL in .env to any running Postgres, such as a Neon branch.`,
+      `Nothing is running Postgres at ${new URL(connectionString).host}, and neither OrbStack nor Docker is running to start it. Start one and run \`pnpm dev\` again, or set DATABASE_URL in .env to any running Postgres, such as a Neon branch.`,
     );
   console.log("Starting Postgres with docker compose…");
   const started = spawnSync(
@@ -30,12 +30,18 @@ if (!readiness.ready && readiness.problem === "unreachable") {
       stdio: "inherit",
     },
   );
-  if (started.status !== 0) fail(readiness.message);
+  if (started.status !== 0)
+    fail(
+      "docker compose couldn't start Postgres; its output is above. Fix that, or set DATABASE_URL in .env to a database that's running.",
+    );
   readiness = await checkDatabaseReadiness(connectionString);
 }
 
 if (!readiness.ready && readiness.problem === "migrations-pending") {
-  await withDatabase(migrateToLatest);
+  await withDatabase(async (db) => {
+    for (const name of await migrateToLatest(db))
+      console.log(`Migrated: ${name}`);
+  });
   readiness = await checkDatabaseReadiness(connectionString);
 }
 
@@ -59,10 +65,6 @@ async function withDatabase(
   } finally {
     await db.destroy();
   }
-}
-
-function isLocal(url: string) {
-  return ["localhost", "127.0.0.1", "[::1]"].includes(new URL(url).hostname);
 }
 
 function dockerIsRunning() {

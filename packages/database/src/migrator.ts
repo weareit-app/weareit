@@ -15,10 +15,10 @@ export function createMigrator(db: ItDatabase) {
   });
 }
 
-// Runs every pending migration, logging each one, and throws on failure.
+// Runs every pending migration and returns the names it ran; throws on
+// failure.
 export async function migrateToLatest(db: ItDatabase) {
   const { error, results } = await createMigrator(db).migrateToLatest();
-  for (const result of results ?? [])
-    console.log(`${result.status}: ${result.migrationName}`);
   if (error) throw error;
+  return (results ?? []).map((result) => result.migrationName);
 }

@@ -41,9 +41,10 @@ const defaultUrl =
   process.env.EXPO_PUBLIC_API_URL ?? "http://localhost:3001/rpc";
 export const apiClient = createItApiClient(defaultUrl);
 
-// For developers only: what went wrong with a call, in a sentence. A call
-// that never reached the API fails with fetch's TypeError ("fetch failed",
-// "Failed to fetch", or "Network request failed", depending on the platform).
+// For developers only: what went wrong with a call, in a sentence. When a
+// call never reaches the API, fetch rejects with a TypeError (checked
+// 2026-10-21 against the WHATWG Fetch Standard, fetch() method step 12.3);
+// its message varies by platform, for example "fetch failed" in Node 24.
 export function describeApiFailure(error: unknown, url = defaultUrl) {
   if (error instanceof ORPCError)
     return `The API at ${url} answered ${error.status}: ${error.message}`;

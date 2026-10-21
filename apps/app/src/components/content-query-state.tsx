@@ -3,12 +3,20 @@ import { WatercolorLoader } from "../watercolor/watercolor-loader";
 import { Page } from "./page";
 import { Text } from "./text";
 
+const loadingDescriptions = {
+  pains: "Loading the list of what could be better.",
+  futures: "Loading the futures that match what you chose.",
+};
+
 export function ContentQueryState({
+  content,
   loading,
   error,
   retry,
   developerDetail,
 }: {
+  /** What the page is waiting for, named in the loading copy. */
+  content: keyof typeof loadingDescriptions;
   loading: boolean;
   error: Error | null;
   retry: () => void;
@@ -36,7 +44,7 @@ export function ContentQueryState({
     );
   }
   return (
-    <Page title="Just a moment" description="Loading this page.">
+    <Page title="Just a moment" description={loadingDescriptions[content]}>
       <WatercolorLoader />
     </Page>
   );

@@ -57,7 +57,14 @@ describe("ContentQueryState", () => {
   afterEach(() => jest.useRealTimers());
 
   it("shows the watercolor loader while loading", async () => {
-    await render(<ContentQueryState loading error={null} retry={() => {}} />);
+    await render(
+      <ContentQueryState
+        content="pains"
+        loading
+        error={null}
+        retry={() => {}}
+      />,
+    );
     await act(() => jest.advanceTimersByTime(LOADER_DELAY_MS));
     expect(screen.getByTestId("watercolor-dot")).toBeTruthy();
   });
@@ -65,6 +72,7 @@ describe("ContentQueryState", () => {
   it("shows retry and no dot when loading fails (FR-013)", async () => {
     await render(
       <ContentQueryState
+        content="pains"
         loading={false}
         error={new Error("offline")}
         retry={() => {}}

@@ -1,4 +1,5 @@
 import { sql } from "kysely";
+import { DatabaseError } from "pg";
 import { createDatabase } from "./database";
 import { createMigrator } from "./migrator";
 
@@ -6,7 +7,11 @@ export type DatabaseReadiness =
   | { ready: true }
   | {
       ready: false;
-      problem: "unreachable" | "migrations-pending" | "no-published-content";
+      problem:
+        | "unreachable"
+        | "login-rejected"
+        | "migrations-pending"
+        | "no-published-content";
       message: string;
     };
 
@@ -22,10 +27,22 @@ export async function checkDatabaseReadiness(
     try {
       await sql`select 1`.execute(db);
     } catch (error) {
+      // A DatabaseError comes from the server, so Postgres is running and
+      // turned this login or database name down.
+      if (error instanceof DatabaseError)
+        return {
+          ready: false,
+          problem: "login-rejected",
+          message: `Postgres at ${url.host} rejected the login: ${error.message}. Check the user, password, and database name in DATABASE_URL.`,
+        };
       return {
         ready: false,
         problem: "unreachable",
-        message: `Can't reach Postgres at ${url.host}. ${describe(error)} Run \`pnpm dev\` to start the local database, or set DATABASE_URL to a running one.`,
+        message: `Can't reach Postgres at ${url.host}: ${describeConnectionError(error)}. ${
+          isLocalDatabase(connectionString)
+            ? "Run `pnpm dev` to start it, or set DATABASE_URL to a database that's running."
+            : "Check DATABASE_URL, and check that the database is running."
+        }`,
       };
     }
     const pending = (await createMigrator(db).getMigrations()).filter(
@@ -63,11 +80,19 @@ export async function checkDatabaseReadiness(
   }
 }
 
-function describe(error: unknown) {
+export function isLocalDatabase(connectionString: string) {
+  return ["localhost", "127.0.0.1", "[::1]"].includes(
+    new URL(connectionString).hostname,
+  );
+}
+
+function describeConnectionError(error: unknown) {
   if (!(error instanceof Error)) return String(error);
-  // pg reports a refused localhost connection (IPv4 and IPv6 both tried) as
-  // an AggregateError with an empty message, seen with Node 24 and pg 8.
+  // Node tries each address localhost resolves to (IPv6, then IPv4) and,
+  // when every attempt fails, raises one AggregateError (checked 2026-10-21
+  // against the Node.js net docs, "autoSelectFamily"). pg passes it on with
+  // an empty message and the code ECONNREFUSED (seen with Node 24 and pg 8).
   if ((error as { code?: string }).code === "ECONNREFUSED")
-    return "Nothing is accepting connections there.";
+    return "nothing is accepting connections";
   return error.message;
 }

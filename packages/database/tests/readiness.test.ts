@@ -11,14 +11,25 @@ import { buildTier1ContentGraph } from "../src/tier1-import";
 import { createTestDatabase } from "./test-database";
 
 describe("database readiness", () => {
-  it("reports a database nobody is listening for", async () => {
+  it("reports a local database nobody is listening for", async () => {
     expect(
       await checkDatabaseReadiness("postgres://it:it@localhost:1/it_dev"),
     ).toEqual({
       ready: false,
       problem: "unreachable",
       message:
-        "Can't reach Postgres at localhost:1. Nothing is accepting connections there. Run `pnpm dev` to start the local database, or set DATABASE_URL to a running one.",
+        "Can't reach Postgres at localhost:1: nothing is accepting connections. Run `pnpm dev` to start it, or set DATABASE_URL to a database that's running.",
+    });
+  });
+
+  it("doesn't suggest `pnpm dev` for a database on another host", async () => {
+    expect(
+      await checkDatabaseReadiness("postgres://it:it@db.example.invalid/it"),
+    ).toEqual({
+      ready: false,
+      problem: "unreachable",
+      message:
+        "Can't reach Postgres at db.example.invalid: getaddrinfo ENOTFOUND db.example.invalid. Check DATABASE_URL, and check that the database is running.",
     });
   });
 });
@@ -43,6 +54,18 @@ describe.skipIf(!connectionString)("database readiness in Postgres", () => {
 
   afterAll(async () => {
     await db?.destroy();
+  });
+
+  it("tells a rejected login apart from an unreachable database", async () => {
+    const wrongPassword = new URL(databaseUrl);
+    wrongPassword.password = "not-the-password";
+    const host = wrongPassword.host;
+
+    expect(await checkDatabaseReadiness(wrongPassword.toString())).toEqual({
+      ready: false,
+      problem: "login-rejected",
+      message: `Postgres at ${host} rejected the login: password authentication failed for user "postgres". Check the user, password, and database name in DATABASE_URL.`,
+    });
   });
 
   it("asks for migrations on a new, empty database", async () => {
@@ -75,10 +98,11 @@ describe.skipIf(!connectionString)("database readiness in Postgres", () => {
 
   it("leaves CMS edits alone when seeding a database that has content", async () => {
     const draft = await readDraftContent(db);
+    const editedTitle = draft.content.pains[1]!.title;
     const edited = {
       ...draft.content,
       pains: draft.content.pains.map((pain, index) =>
-        index === 0 ? { ...pain, title: "Edited in the CMS" } : pain,
+        index === 0 ? { ...pain, title: editedTitle } : pain,
       ),
     };
     await saveDraftContent(db, edited, {
@@ -91,7 +115,7 @@ describe.skipIf(!connectionString)("database readiness in Postgres", () => {
       await initializeContentIfEmpty(db, buildTier1ContentGraph()),
     ).toEqual({ seeded: false });
     expect((await readDraftContent(db)).content.pains[0]!.title).toBe(
-      "Edited in the CMS",
+      editedTitle,
     );
   });
 

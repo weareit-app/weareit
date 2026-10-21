@@ -7,7 +7,8 @@ if (!connectionString)
 const db = createDatabase(connectionString);
 
 try {
-  await migrateToLatest(db);
+  for (const name of await migrateToLatest(db))
+    console.log(`Migrated: ${name}`);
 } finally {
   await db.destroy();
 }

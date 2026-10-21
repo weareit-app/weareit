@@ -25,7 +25,7 @@ import {
   type PainScope,
 } from "../../state/onboarding-store";
 import {
-  developerDetailFor,
+  contentQueryStateProps,
   usePublishedContent,
 } from "../../content/use-published-content";
 import { useTokenColor } from "../../theme/use-token-color";
@@ -122,10 +122,8 @@ export function PainExplorer({
   if (!model)
     return (
       <ContentQueryState
-        loading={contentQuery.isLoading}
-        error={contentQuery.error}
-        retry={() => void contentQuery.refetch()}
-        developerDetail={developerDetailFor(contentQuery.error)}
+        content="pains"
+        {...contentQueryStateProps(contentQuery)}
       />
     );
 

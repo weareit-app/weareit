@@ -5,7 +5,7 @@ import { FirstActionCard } from "../../src/components/first-action-card";
 import { Page } from "../../src/components/page";
 import { useOnboardingStore } from "../../src/state/onboarding-store";
 import {
-  developerDetailFor,
+  contentQueryStateProps,
   usePublishedContent,
 } from "../../src/content/use-published-content";
 import { ContentQueryState } from "../../src/components/content-query-state";
@@ -23,10 +23,8 @@ export default function FuturesScreen() {
   if (!contentQuery.data) {
     const state = (
       <ContentQueryState
-        loading={contentQuery.isLoading}
-        error={contentQuery.error}
-        retry={() => void contentQuery.refetch()}
-        developerDetail={developerDetailFor(contentQuery.error)}
+        content="futures"
+        {...contentQueryStateProps(contentQuery)}
       />
     );
     if (state) return state;
