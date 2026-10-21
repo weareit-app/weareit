@@ -15,3 +15,14 @@ pre-commit:
     - name: unit tests
       glob: "*.{ts,tsx,mts,cts,js,jsx,mjs,cjs,json}"
       run: pnpm -s test:unit
+    # The coverage checks read git's tracked files, so here, after staging, they see new
+    # files that a run before `git add` would miss. CI runs them too.
+    - name: typecheck coverage
+      glob: "*.{ts,tsx,mts,cts,json}"
+      run: node tools/typecheck-coverage/check-typecheck-coverage.mjs
+    - name: test coverage
+      glob: "*.{ts,tsx,mts,cts,js,jsx,mjs,cjs}"
+      run: node tools/test-coverage/check-test-coverage.mjs
+    - name: story coverage
+      glob: "*.tsx"
+      run: node tools/story-coverage/check-story-coverage.mjs

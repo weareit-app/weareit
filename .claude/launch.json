@@ -80,7 +80,8 @@
         "@it/api-server",
         "dev"
       ],
-      "port": 3001
+      "port": 3001,
+      "autoPort": true
     },
     {
       "name": "storybook",

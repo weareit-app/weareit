@@ -56,6 +56,9 @@ jobs:
       # Every tracked TypeScript file must be in a project the typecheck above ran.
       - run: node tools/typecheck-coverage/check-typecheck-coverage.mjs
 
+      # Every tracked test file must be collected by Vitest or the app's Jest config.
+      - run: node tools/test-coverage/check-test-coverage.mjs
+
       # Every UI component must have stories or an allowlist entry with a reason.
       - run: node tools/story-coverage/check-story-coverage.mjs
 

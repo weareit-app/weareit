@@ -1,0 +1,5 @@
+# Gitignored files Claude Code copies from the main checkout into each worktree it
+# creates with git, including desktop-app parallel sessions; .gitignore syntax
+# (code.claude.com/docs/en/worktrees, "Copy gitignored files into worktrees",
+# checked 2026-10-21). Without .env a worktree can't start the API server.
+.env
