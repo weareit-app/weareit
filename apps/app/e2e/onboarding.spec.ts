@@ -112,8 +112,9 @@ test("lets someone clear their local choices after confirmation", async ({
 
 test("shows Support It as optional and starts the selected monthly checkout", async ({
   page,
+  baseURL,
 }) => {
-  const checkoutUrl = "http://127.0.0.1:4173/mock-stripe-checkout";
+  const checkoutUrl = `${baseURL}/mock-stripe-checkout`;
   await page.route("**/rpc/support/createCheckout", async (route) => {
     expect(route.request().postDataJSON()).toEqual({
       json: { amountMinor: 1500, frequency: "monthly" },

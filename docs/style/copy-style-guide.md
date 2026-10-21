@@ -11,7 +11,7 @@ It sounds like the hometown doctor who has known you since you were a kid, or yo
 - **says exactly what they mean.** They'd never hand you a vague label like "Sleeping through" or "Both of us rested". They'd say "Falling asleep without dreading bed" or "Sleeping in separate rooms so we both rest". Clarity always beats brevity.
 - **tells you the truth calmly.** That includes when something worked only once, costs money, or won't fit everyone. They don't hedge everything, and they don't oversell anything.
 - **believes things can get better and doesn't need to shout it.** The hope comes from the example, not the adjectives.
-- **never makes you feel judged.** They don't diagnose, moralize or imply it's your fault. They offer ("One thing that's helped a lot of people…") rather than prescribe ("You should…").
+- **never makes you feel judged.** They don't diagnose, moralize, or imply it's your fault. They offer ("One thing that's helped a lot of people…") rather than prescribe ("You should…").
 - **can be a little wry about themselves**, never about your problem.
 
 The founder's Support letter is the reference for this voice. A good test is whether a sentence could sit next to "If you can't, you're just as welcome here (I honestly couldn't right now myself)."
@@ -25,7 +25,7 @@ These don't sound like that person, so avoid them:
 - **Contrast punchlines.** "…a breach, not a test of loyalty." "On purpose, not out of hope."
 - **Fragments for effect.** Write full, natural sentences.
 - **Titles that assume you know the example.** "Bring the Seattle results to your school board" only makes sense to someone who already knows about Seattle. The title says the action in plain terms ("Ask your school board for a later start time"), and the text underneath introduces the example.
-- **Jargon, regional words and abbreviations.** Use the everyday American word: "shift schedule", not "rota"; "doctor", not "GP"; "city council member", not "councillor"; "license", not "licence". Spell out acronyms the first time, or avoid them (say "insomnia therapy", not "CBT-I").
+- **Jargon, regional words, and abbreviations.** Use the everyday American word: "shift schedule", not "rota"; "doctor", not "GP"; "city council member", not "councillor"; "license", not "licence". Spell out acronyms the first time, or avoid them (say "insomnia therapy", not "CBT-I").
 - **Roundabout phrasing.** "Join the people near you who are fighting night flights" becomes "Organize with neighbors to limit night flights". Say the action directly, with the fewest words that stay clear.
 - **Euphemisms.** If an idea has a common name, use it. "Put a floor under income" hides "universal basic income", and readers can't tell what it means. Name it plainly and present it as a proposal people disagree about.
 - **Passive dream lines.** "Something I care about making is real" has no one doing anything. Write "I finished the thing I wanted to make, and people are using it."
@@ -66,7 +66,7 @@ Every fix is one of these kinds. The app shows each kind with an icon and a word
 | Kind | Icon (Lucide) | What it is | How to write it |
 | --- | --- | --- | --- |
 | **Feature** | `hammer` | Something It would build (status: Something It could build) | A short feature pitch, verb first: "Shows employee-owned workplaces near you, from the public worker co-op directory and federal employee-stock-plan data, so you have somewhere to apply or a model to point to." The title names the capability ("Shared signup for covering town meetings"), not a user action. Never "It could" or "with It". |
-| **Task** | `circle-dot-dashed` | Something you do once, including one-time changes that keep working afterward (grayscale, blackout curtains, one charging spot) | Name the action and its object. "Ask your school board for a later start time." |
+| **Task** | `circle-dot-dashed` | Something you do once, including one-time changes that keep working afterward (grayscale, blackout curtains, one charging spot) | Name the action and its object. "Move your phone charger out of the bedroom." |
 | **Schedule** | `calendar-sync` | A recurring commitment on the calendar | Say what repeats and how often. "Set up a weekly call or walk with one friend." |
 | **Habit** | `repeat` | A behavior triggered by a cue, repeated without planning (use sparingly) | Name the cue and the behavior. "When you meet someone new on the street, note their name." |
 | **Practice** | `sprout` | A skill you get better at over time, usually in conversation | Name the skill. Every Practice carries a `featureIdea`: a one-line, verb-first coaching feature It could build ("Helps you prepare for a hard conversation and checks in afterward"). The app shows it on hover. |
@@ -74,6 +74,10 @@ Every fix is one of these kinds. The app shows each kind with an icon and a word
 | **Project** | `folder-kanban` | A bounded effort over days or weeks, with several steps and an end | Name the finished thing. "Organize a block party with your neighbors." |
 | **Group** | `users` | Join an existing group | Name the group. "Join your building's tenant association." |
 | **New group** | `user-round-plus` | Start a group that doesn't exist yet | Name what you'd start. "Start a tenant association in your building." |
+| **Ask** | `message-circle-question` | A request that needs someone else's yes: a landlord, a manager, a school board, or someone you know | Name who you ask and what for. "Ask your school board for a later start time." Never imply they've said yes. |
+| **Use a resource** | `life-buoy` | A service that already exists for people like you: a hotline, a clinic, a benefits program, or 211 | Name the service and what you do with it. "Call 211 for help with rent this month." Its status is always Existing resource or Real now. |
+| **Leave** (trial) | `door-open` | Stop being part of something, with nothing lined up to replace it | Name what you leave, and say plainly what you give up. "Leave the work chat on your phone." On trial: only pilot runs use it. |
+| **Switch** (trial) | `arrow-left-right` | Replace something with a better version of the same thing | Name what you switch to, and from what when it helps. "Move your checking account to a credit union." On trial: only pilot runs use it. |
 | **Path** | `footprints` | A sequence of the above toward a bigger change (later) | Not used yet. |
 
 Rules for every kind:
@@ -89,13 +93,14 @@ Obvious, practical fixes (blackout curtains, a white noise machine, earplugs) ar
 
 ## Mechanics
 
-- American English, with contractions ("don't", "it's"). Spell out numbers one to nine except times, money and statistics.
+- American English, with contractions ("don't", "it's"). Spell out numbers one to nine except times, money, and statistics.
 - "Support", never "donate" or "donation". It is not a charity.
 - "We Are It" is the full name of both the organization and the app; "It" is the short name (see `GLOSSARY.md`). Use the full name where it reads as a formal party, as in the signup line "By continuing, you acknowledge We Are It's Privacy Policy".
 - "It" (capital I) is the product, so avoid starting a sentence with the pronoun "it". Readers can't tell "It's common" or "It isn't right for everyone" from the product. Name the thing instead ("Sleeping apart is common", "This therapy isn't right for everyone").
 - In running text, "we" means the people involved in It, which is not yet a crowd. Don't imply scale It doesn't have.
 - Plain but specific: short common words, and real names and numbers where they help. There is no reading-level formula, but if a 12-year-old would stumble on a word, find another.
 - Sentence case for titles and headings.
+- Use the Oxford (serial) comma in every list: "forms, bills, and calls", "rivers, lakes, or drinking water". The pain and possibility lints flag a list without it (founder, 2026-10-20).
 
 ## Before and after (Sleep)
 
@@ -113,6 +118,8 @@ Obvious, practical fixes (blackout curtains, a white noise machine, earplugs) ar
 
 ## Open questions for the founder
 
-1. Should status labels read **Real now / Existing resource / Something It could build / A change we'd make together**, or keep the constitution's shorter terms?
-2. American English everywhere, or match each person's locale later?
-3. Is one plain limit in the copy right? Or should limits live only behind an "About this idea" detail, keeping the copy clean?
+1. American English everywhere, or match each person's locale later?
+2. Is one plain limit in the copy right? Or should limits live only behind an "About this idea" detail, keeping the copy clean?
+
+Settled by the founder on 2026-10-20:
+- **Status labels** read **Real now**, **Existing resource**, **Something It could build**, and **A change we'd make together**, not the constitution's shorter terms. Rating and review pages show them as text labels. A Feature's roadmap status (Idea, Planned, and so on) is a separate set that only the app shows.

@@ -42,6 +42,8 @@ article { background: var(--surface); border: 1px solid var(--line); border-radi
 .kind { display: inline-flex; align-items: center; gap: 5px; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 4px; }
 .kind svg { width: 14px; height: 14px; stroke: currentColor; }
 .kind[data-kind="feature"] { color: var(--accent); }
+.status-label { display: inline-flex; align-items: center; gap: 5px; margin-left: 10px; font-size: 0.72rem; font-weight: 600; color: var(--muted); }
+.status-label svg { width: 14px; height: 14px; stroke: currentColor; }
 button.kind { background: none; border: 1px dashed var(--line); border-radius: 999px; padding: 2px 8px; cursor: pointer; font-family: var(--font-ui); }
 button.kind::after { content: "ⓘ"; font-size: 0.8rem; margin-left: 2px; }
 .practice-note { font-size: 0.85rem; color: var(--muted); background: var(--bg); border-radius: 6px; padding: 6px 10px; margin: 2px 0 6px; }
@@ -112,6 +114,14 @@ const KINDS = {
   feature: ['hammer', 'Feature'], task: ['circle-dot-dashed', 'Task'], schedule: ['calendar-sync', 'Schedule'],
   habit: ['repeat', 'Habit'], practice: ['sprout', 'Practice'], learn: ['graduation-cap', 'Learn'], project: ['folder-kanban', 'Project'],
   group: ['users', 'Group'], 'new-group': ['user-round-plus', 'New group'], path: ['footprints', 'Path'],
+  ask: ['message-circle-question', 'Ask'], resource: ['life-buoy', 'Use a resource'],
+  leave: ['door-open', 'Leave'], switch: ['arrow-left-right', 'Switch'],
+};
+// Honest status, in the copy guide's words (founder, 2026-10-20), with the fix review page's icons.
+// Generated fixes carry no roadmap status.
+const STATUSES = {
+  real_now: ['circle-check', "Real now"], existing_resource: ['building-2', "Existing resource"],
+  proposed_it_feature: ['lightbulb', "Something It could build"], societal_proposal: ['landmark', "A change we'd make together"],
 };
 function setStatus(text, tone) { statusEl.textContent = text; statusEl.dataset.tone = tone || ''; }
 
@@ -143,6 +153,12 @@ function render() {
         k.addEventListener('click', () => { note.hidden = !note.hidden; k.setAttribute('aria-expanded', String(!note.hidden)); });
         li.append(note);
       }
+    }
+    if (f.status && STATUSES[f.status]) {
+      const s = el('span', 'status-label');
+      const icon = document.createElement('i'); icon.setAttribute('data-lucide', STATUSES[f.status][0]); icon.setAttribute('aria-hidden', 'true');
+      s.append(icon, document.createTextNode(STATUSES[f.status][1]));
+      li.append(s);
     }
     li.append(el('h3', null, f.title), el('p', null, f.whatChanges));
     if (f.example) li.append(el('p', 'ex', 'Example: ' + f.example));

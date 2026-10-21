@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "paint": "node --experimental-strip-types paint.ts",
-    "typecheck": "tsc --noEmit",
-    "lint": "prettier --check *.ts tests README.md"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@it/watercolor": "workspace:*"

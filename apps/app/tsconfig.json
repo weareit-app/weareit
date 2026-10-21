@@ -1,5 +1,5 @@
 {
-  "extends": "expo/tsconfig.base",
+  "extends": "./node_modules/expo/tsconfig.base.json",
   "compilerOptions": {
     "strict": true,
     "noUncheckedIndexedAccess": true,
@@ -18,6 +18,9 @@
   "include": [
     "**/*.ts",
     "**/*.tsx",
+    ".storybook/*.ts",
+    ".storybook/*.tsx",
+    "scripts/*.mts",
     ".expo/types/**/*.ts",
     "nativewind-env.d.ts",
     "expo-env.d.ts"
