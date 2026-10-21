@@ -1,4 +1,4 @@
-import type { ContentGraph } from "@it/content/graph-schema";
+import type { ContentGraph, FeatureStatus } from "@it/content/graph-schema";
 import type { ColumnType, Generated, JSONColumnType } from "kysely";
 
 type Timestamp = ColumnType<Date, Date | string | undefined, Date | string>;
@@ -55,7 +55,10 @@ export interface ContentFixesTable {
   title: string;
   description: string;
   kind: "once" | "habit" | "group" | "feature";
-  feature_status: "planned" | "idea" | null;
+  feature_status: FeatureStatus | null;
+  // A calendar date; read it as YYYY-MM-DD text (see content-repository).
+  status_changed_on: ColumnType<Date | null, string | null, string | null>;
+  status_note: string | null;
   evidence: "strong" | "some" | "limited" | "untested";
   evidence_note: string;
   sort_order: number;

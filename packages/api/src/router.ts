@@ -1,6 +1,7 @@
 import { ORPCError, implement } from "@orpc/server";
 import type { ItDatabase } from "@it/database/database";
 import {
+  FeatureStatusNoteError,
   listPublishedVersions,
   InvalidOnboardingDraftError,
   publishDraftContent,
@@ -182,12 +183,18 @@ export function createApiRouter(db: ItDatabase) {
       }),
       saveDraft: os.cms.saveDraft.handler(async ({ context, input }) => {
         const actor = requireCmsActor(context.cmsActor);
-        const revision = await saveDraftContent(db, input.content, {
-          expectedRevision: input.expectedRevision,
-          actor,
-          changeNote: input.changeNote,
-        });
-        return { revision };
+        try {
+          const revision = await saveDraftContent(db, input.content, {
+            expectedRevision: input.expectedRevision,
+            actor,
+            changeNote: input.changeNote,
+          });
+          return { revision };
+        } catch (error) {
+          if (error instanceof FeatureStatusNoteError)
+            throw new ORPCError("BAD_REQUEST", { message: error.message });
+          throw error;
+        }
       }),
       validateDraft: os.cms.validateDraft.handler(async ({ context }) => {
         requireCmsActor(context.cmsActor);
