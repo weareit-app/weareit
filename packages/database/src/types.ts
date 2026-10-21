@@ -5,6 +5,10 @@ import type {
   SupportFrequency,
   TransactionStatus,
 } from "@it/domain/support";
+import type {
+  OnboardingDraft,
+  OnboardingDraftInput,
+} from "@it/domain/onboarding";
 import type { ColumnType, Generated, JSONColumnType } from "kysely";
 
 type Timestamp = ColumnType<Date, Date | string | undefined, Date | string>;
@@ -132,35 +136,12 @@ export interface PublishedContentVersionsTable {
   published_at: Timestamp;
 }
 
-type UserOnboardingDraft = {
-  personalPainIds: string[];
-  worldPainIds: string[];
-  personalDreamIds: string[];
-  worldDreamIds: string[];
-  personalPaths: OnboardingPath[];
-  worldPaths: OnboardingPath[];
-  helpInterests: string[];
-  draftUpdatedAt: number;
-};
-
-type OnboardingPath = { painId: string; dreamIds: string[]; fixIds: string[] };
-
-// Drafts saved before paths existed have none.
-type StoredUserOnboardingDraft = Omit<
-  UserOnboardingDraft,
-  "personalPaths" | "worldPaths"
-> &
-  Partial<Pick<UserOnboardingDraft, "personalPaths" | "worldPaths">>;
-
 export interface UserOnboardingDraftsTable {
   id: Generated<number>;
   user_id: string;
   content_version: number;
-  draft: JSONColumnType<
-    StoredUserOnboardingDraft,
-    UserOnboardingDraft,
-    UserOnboardingDraft
-  >;
+  // Read as stored: drafts saved before paths existed have none.
+  draft: JSONColumnType<OnboardingDraftInput, OnboardingDraft, OnboardingDraft>;
   saved_at: Timestamp;
 }
 

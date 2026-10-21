@@ -58,6 +58,8 @@ export const onboardingDraftSchema = z
   .strict();
 
 export type OnboardingDraft = z.infer<typeof onboardingDraftSchema>;
+/** A draft as stored, before parsing fills in what older drafts lack. */
+export type OnboardingDraftInput = z.input<typeof onboardingDraftSchema>;
 
 export type SelectionState = {
   personalPainIds: string[];
