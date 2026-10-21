@@ -7,13 +7,16 @@ const FLOW_DESCRIPTION = /^A flow from left to right: a pain you name/;
 // The app's own API (EXPO_PUBLIC_API_URL in playwright.config.ts), which
 // the site menu asks whether someone is signed in.
 const API_HOST = "localhost:3001";
+// Every test here opens the lab page, which loads Mermaid's chunk. Whichever
+// test runs first makes the dev server compile it, which takes longer than the
+// 30-second default in CI; a release serves the chunk prebuilt.
+test.describe.configure({ timeout: 90_000 });
+
 const QUADRATIC_TEX = "x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}";
 
 test("draws diagrams and typesets math from this site only", async ({
   page,
 }) => {
-  // The first visit compiles Mermaid's chunk on the dev server.
-  test.slow();
   const hosts = new Set<string>();
   page.on("request", (request) => hosts.add(new URL(request.url()).host));
   // The dev server builds Mermaid's lazy chunk (about 5 MB) on first request,
