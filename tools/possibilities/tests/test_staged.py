@@ -267,6 +267,10 @@ class DreamScreen(StagedBase):
         found = self.screen(lambda d: d['results']['burnout-d00'].update({'pass': False}))
         self.assertIn('dream screen burnout-d00: a fail names its check (why or swap)', found)
 
+    def test_a_pass_names_no_failed_check(self):
+        found = self.screen(lambda d: d['results']['burnout-d00'].update(check='why'))
+        self.assertIn('dream screen burnout-d00: a pass names no failed check', found)
+
     def test_screen_judge_is_isolated(self):
         self.assertIn('dream screen judge context must be isolated', self.screen(lambda d: d['judge'].update(context='shared')))
 
@@ -415,6 +419,13 @@ class DreamReview(StagedBase):
         result = self.ingest(path)
         self.assertEqual(result.returncode, 2)
         self.assertIn('dreams.json changed since the review page was built (burnout-d01)', result.stderr)
+
+    def test_ingest_refuses_once_the_screen_is_gone_or_stale(self):
+        path = self.export()
+        (self.run_dir / 'dream-screen.json').unlink()
+        result = self.ingest(path)
+        self.assertEqual(result.returncode, 2, result.stdout)
+        self.assertIn('the dream screen of %s is missing or out of date' % self.run_dir.name, result.stderr)
 
     def test_review_is_ingested_once(self):
         path = self.export()

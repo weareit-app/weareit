@@ -180,6 +180,7 @@ STAGES = ('examples', 'dreams', 'dream-screen', 'dream-review', 'plan', 'shared-
 DREAM_CHECKS = ('why', 'swap')
 # Fields a dream no longer has: lens and ambition moved to fixes, and examples feed only the fix stages (2026-10-20).
 NOT_ON_DREAMS = ('lens', 'ambition', 'exemplarRefs')
+DREAM_WORDING = ('title', 'line')  # what a person reads of a dream: what the screen judges and an edit changes
 
 
 def dream_review_ingested(run):
@@ -192,7 +193,7 @@ def drafted_wording(dream):
     """The wording the dream was drafted and screened with: the original beside a founder's edit, else its own."""
     review = dream.get('review') if isinstance(dream.get('review'), dict) else {}
     source = review['original'] if review.get('decision') == 'edit' and has_wording(review.get('original')) else dream
-    return {f: source.get(f) for f in ('title', 'line')}
+    return {f: source.get(f) for f in DREAM_WORDING}
 
 
 def unscreened_dreams(run):
@@ -204,7 +205,7 @@ def unscreened_dreams(run):
     doc = read(run / 'dream-screen.json') if (run / 'dream-screen.json').is_file() else {}
     results = doc.get('results') if isinstance(doc.get('results'), dict) else {}
     return sorted(key for key, d in dreams.items() if not isinstance(d, dict) or not isinstance(results.get(key), dict)
-                  or {f: results[key].get(f) for f in ('title', 'line')} != drafted_wording(d))
+                  or {f: results[key].get(f) for f in DREAM_WORDING} != drafted_wording(d))
 
 
 def dream_screen_done(run):
@@ -385,7 +386,7 @@ def related_pains(root, pain_id):
     return [{**wording[r['id']], 'relation': r['kind']} for r in relations if r.get('id') in wording]
 
 
-def start(run, stage, root=None):
+def start(run, stage, root):
     """Refuse a stage until every stage before it is complete (a usage error), then name its brief."""
     require_staged(run)
     if stage not in STAGES:
@@ -400,7 +401,7 @@ def start(run, stage, root=None):
     if stage not in STAGE_BRIEFS:
         raise ValueError('%s is not built yet' % stage)
     result = {'run': run.name, 'stage': stage, 'brief': STAGE_BRIEFS[stage]}
-    if stage == 'dream-screen' and root is not None:
+    if stage == 'dream-screen':
         result['relatedPains'] = related_pains(root, read(run / 'run.json')['painId'])
     elif stage == 'plan':
         result['kinds'] = list(run_kinds(run))  # the kinds the planner sets ceilings for
@@ -483,7 +484,7 @@ ACCEPTED = ('accept', 'edit')
 
 def has_wording(value):
     """A dream wording: a nonempty title and line."""
-    return isinstance(value, dict) and all(isinstance(value.get(f), str) and value[f].strip() for f in ('title', 'line'))
+    return isinstance(value, dict) and all(isinstance(value.get(f), str) and value[f].strip() for f in DREAM_WORDING)
 
 
 def dreams_ingest(run, decisions_path):
@@ -493,6 +494,9 @@ def dreams_ingest(run, decisions_path):
         raise ValueError('the dream review of %s was already ingested' % run.name)
     if not (run / 'reviews/proposals.json').is_file():
         raise ValueError('no dream review was built for %s; run dreams-review-build first' % run.name)
+    if not dream_screen_done(run):
+        raise ValueError('the dream screen of %s is missing or out of date (unscreened %s); screen the dreams and rebuild '
+                         'the review page' % (run.name, ', '.join(unscreened_dreams(run))))
     export, doc = read(decisions_path), read(run / 'dreams.json')
     set_id, dreams = review_set_id(run), doc['dreams']
     if not isinstance(export, dict) or export.get('setId') != set_id:
@@ -802,13 +806,15 @@ def validate_cards(doc, exemplars, issues, generated=True):
     return cards
 
 
-def check_verdict(result, where, issues):
+def validate_verdict(result, where, issues):
     """A dream screen verdict: pass, a one-sentence reason, and, for a fail, the check it failed."""
     result = result if isinstance(result, dict) else {}
     require(isinstance(result.get('pass'), bool) and one_line(result.get('reason'))
             and len(SENTENCE.findall(result['reason'].strip())) <= 1, where + ': needs pass and a one-sentence reason', issues)
     if result.get('pass') is False:
         require(result.get('check') in DREAM_CHECKS, where + ': a fail names its check (%s)' % ' or '.join(DREAM_CHECKS), issues)
+    else:
+        require('check' not in result, where + ': a pass names no failed check', issues)
 
 
 def validate_dreams(doc, issues, pain=None):
@@ -825,7 +831,7 @@ def validate_dreams(doc, issues, pain=None):
             require(isinstance(d.get(field), str) and d[field].strip(), where + ': missing ' + field, issues)
         issues += ['%s: a dream has no %s' % (where, field) for field in NOT_ON_DREAMS if field in d]
         if 'screen' in d:
-            check_verdict(d['screen'], where + ' screen', issues)
+            validate_verdict(d['screen'], where + ' screen', issues)
         prov = d.get('provenance', {})
         for field in ('sourceId', 'locator', 'evidenceType', 'rights', 'reviewStatus'):
             require(prov.get(field), where + ': provenance lacks ' + field, issues)
@@ -855,7 +861,7 @@ def validate_dream_screen(doc, dreams, issues, pain=None):
     for key, result in sorted(results.items() if isinstance(results, dict) else ()):
         where = 'dream screen ' + key
         require(key in dreams, where + ': not a dream in dreams.json', issues)
-        check_verdict(result, where, issues)
+        validate_verdict(result, where, issues)
         require(has_wording(result), where + ': records the title and line it judged', issues)
 
 
@@ -1486,7 +1492,7 @@ def lint_run(run, root):
 # Fix fields a judge sees: copy, kind, status, and sourcing. method, origin, draftedFor, provenance, and writerNotes stay out.
 JUDGED_FIX_FIELDS = ('title', 'whatChanges', 'kind', 'status', 'lens', 'ambition', 'exemplarRef', 'speculative',
                      'speculativeRationale', 'firstStep', 'firstStepMinutes')
-JUDGED_DREAM_FIELDS = ('title', 'line')
+JUDGED_DREAM_FIELDS = DREAM_WORDING
 
 
 def judged_dreams(run):

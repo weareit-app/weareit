@@ -98,7 +98,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 <script>
 const DATA = /*__DATA__*/;
 const KEY = 'dream-review:' + DATA.setId;
-const CHECK = { why: 'why test: a means, not the end state', swap: 'swap test: it would fit another pain' };
+const CHECK = { why: 'why test: it reads as a way to get somewhere in this pain', swap: 'swap test: it would fit another pain' };
 const DECIDED = { accept: 'Accepted', edit: 'Accepted with your edit', reject: 'Rejected' };
 let decisions = {}, drafts = {};
 try { decisions = JSON.parse(localStorage.getItem(KEY) || '{}'); drafts = JSON.parse(localStorage.getItem(KEY + ':notes') || '{}'); } catch (e) { decisions = {}; drafts = {}; }
