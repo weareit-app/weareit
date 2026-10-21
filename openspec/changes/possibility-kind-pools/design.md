@@ -28,7 +28,7 @@ Constraints:
 
 ### Run files mirror the graph (schemaVersion 2)
 A v2 run replaces `cards.json` with the following files:
-- `dreams.json`, with each dream's lens, ambition, overlap flags and review decision;
+- `dreams.json`, with each dream's title, line, overlap flags, screen result and review decision (no lens, ambition or example references since 2026-10-20);
 - `fixes.json`, the full pool, including screened-out and unlinked fixes, each with `kind`, `method` fields, `status`, `exemplarRef` or `speculative`, `firstStep`, and `origin` (`shared` or `kind:<kind>`);
 - `plan.json`;
 - `links.json`, with `{fixId, dreamId, order, how}` from the assembler and `pathCandidates`;
@@ -43,7 +43,7 @@ Founder decisions go in `reviews/dreams-decisions.json` and `reviews/fixes-decis
 `cards.py status <run>` reports the next stage by checking which files exist and whether the review decisions were ingested. Each stage's subcommand refuses unless the stage before it is complete:
 
 ```
-examples → dreams → dream review* → plan → shared fixes → kind pools → screen → assemble → judge → fix review*
+examples → dreams → dream screen → dream review* → plan → shared fixes → kind pools → screen → assemble → judge → fix review*
                                                                                     (* = founder stop)
 ```
 
@@ -72,6 +72,15 @@ New single briefs:
 - `screen.md`;
 - `assembler.md`.
 
+### Dreams are end states; the screen judges them (founder, 2026-10-20)
+The pilot's first drafts turned most dreams into means, because the dreams brief required an example per dream and a lens and ambition on each dream, which pushed the writer to produce one example-shaped dream per lens and ambition. Three changes:
+- Dreams carry only a title, a line, overlap flags, the screen result and the review decision. Lens and ambition move to fixes, and examples feed only the fix stages.
+- `briefs/dreams.md` teaches the end-state rule with both checks and the Sleep ladder ("No planes at night" → means; "I sleep through the night" → dream; "I have energy all day" → too high). It asks the writer to note what makes each dream distinct, with no target count.
+- A new `briefs/dream-screen.md` stage: one isolated judge applies the why test and the swap test to each dream, writing `dream-screen.json` with pass or fail and a reason. For the swap test it may use the catalog's `relations` for the pain. The dream review page lists passing dreams first and failed ones after, collapsed, with the reason.
+
+The word-level `dream-not-outcome` lint is retired: a semantic rule needs a semantic check.
+- *Alternative:* lint for proper nouns and past-tense actions in dreams. Rejected by the founder: the screen already judges meaning, and word lists would pass well-phrased means.
+
 ### Isolation and homogenization
 Every stage runs as a fresh subagent (a new thread in Codex). In this design, isolation is about context, not true independence: the research shows that agents on the same model converge. Three mitigations:
 - each kind brief is narrowly conditioned, which the research found raises diversity;
@@ -87,7 +96,7 @@ The screen is one isolated judge per run that scores each fix on three things:
 It writes `screen.json`. The panel's `judge-input` lists each accepted dream with its linked fixes in order, and repeats a shared fix under each dream. Consensus works as today, keyed by dream ID. `select` no longer picks finalists or audit samples (founder, 2026-10-20): it writes `ranking.json`, which orders the fix review page.
 
 ### Coverage and kind rules in lint
-Coverage moves from cards to accepted dreams and their linked fixes. The "led by It" check means a dream with at least one Feature linked (founder, 2026-10-20). There is no kind minimum. The trial kinds `leave` and `switch` are valid only when `run.json` has `"pilot": true`. The 2–5 limit applies to the assembler's links; links the founder adds in review may take a dream past 5, and `fixes-ingest` records them as founder links. Method-field checks are per kind. For example, Ask needs `decisionMaker` and `request`, and Use a resource needs `provider`, `eligibility`, `access` and `bring`.
+Coverage is counted on the fixes linked to a pain's accepted dreams, using each fix's lens and ambition; dreams have neither. The "led by It" check means a dream with at least one Feature linked (founder, 2026-10-20). There is no kind minimum. The trial kinds `leave` and `switch` are valid only when `run.json` has `"pilot": true`. The 2–5 limit applies to the assembler's links; links the founder adds in review may take a dream past 5, and `fixes-ingest` records them as founder links. Method-field checks are per kind. For example, Ask needs `decisionMaker` and `request`, and Use a resource needs `provider`, `eligibility`, `access` and `bring`.
 
 ### Pilot comparison
 `compare-build <pain…>` pairs the newest v1 run with the newest v2 run for each pilot pain. If the v1 run is stale against the catalog, the skill first reruns the old flow on the current wording, so both sides use the same pain text. It builds a blind calibration-style set, with items as dreams plus their fixes, and keeps a separate key. `compare-report <export>` computes three things:
