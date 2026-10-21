@@ -21,7 +21,7 @@ Builds after `required-signup-gate` task 5.1 (menu button and Account). Essays p
 ## 3. Essay pages
 
 - [x] 3.1 Build the shared essay layout (title, question, text, status labels, source links, source list, "last updated", change list) and the static renderer for the typed tree; verify the pre-rendered HTML from `expo export --platform web` contains the full text
-- [x] 3.2 Add the routes `/why`, `/principles`, `/ai`, `/risks`, `/roadmap` (intro) and `/licensing`, showing not-found unless the essay is published and listed; verify with a test for each state (#41 adds `/why` and the shared `EssayScreen`; each other route is a one-line file added with its essay)
+- [x] 3.2 Add the routes `/why`, `/principles`, `/ai`, `/risks`, `/roadmap` (intro) and `/licensing`, showing not-found unless the essay is published and listed; verify with a test for each state (#41 adds `/why` and the shared `EssayScreen`; each other route is a one-line file added with its essay; #49 adds `/licensing` and lets bottom-line links count as listed)
 - [ ] 3.3 Add the Spanish note (shown when the app language is Spanish; placeholder copy for founder approval); verify by switching language in the web preview
 - [ ] 3.4 Show the one-line privacy note on each public page; verify it is on screen before any measurement call (test with the measurement client mocked)
 
@@ -31,8 +31,8 @@ Builds after `required-signup-gate` task 5.1 (menu button and Account). Essays p
   - Vega, Vega-Lite and vega-embed: reviewed, pinned and recorded (#43); Mermaid and KaTeX: #44.
 - [x] 4.2 Build the chart block with lazy loading and a generated data-table fallback; verify the fallback in the HTML with scripts off and the drawn chart in the web preview
 - [ ] 4.3 Build the diagram and maths blocks (Mermaid with written description fallback; KaTeX with MathML and self-hosted fonts); verify with VoiceOver that maths is read and nothing loads from a third-party host (network log)
-- [ ] 4.4 Build evidence card, timeline, status board, expandable and table blocks; verify keyboard operation and announced expanded state
-  - Evidence card and table: built and tested (#43); timeline, status board and expandable to do.
+- [x] 4.4 Build evidence card, timeline, status board, expandable and table blocks; verify keyboard operation and announced expanded state
+  - Evidence card and table: built and tested (#43). Timeline, status board and expandable: built and tested (#45); expandable is a native `<details>` disclosure, so it opens by keyboard and announces its state with scripts off.
 - [ ] 4.5 Measure the essay-page bundle, set the budget in design.md, and add a CI check; verify the drawing libraries stay out of the explorer's bundle
   - Chart chunk measured and recorded in design.md's open question (#43); the budget figure and CI check wait for the diagram and maths measurements.
 
@@ -59,7 +59,7 @@ Builds after `required-signup-gate` task 5.1 (menu button and Account). Essays p
 - [ ] 7.3 `/principles`: draft from `outlines/principles.md`; founder rewrites and approves; publish
 - [ ] 7.4 `/risks`: draft the six areas from `outlines/risks.md` with sourced chart data; founder rewrites and approves; publish
 - [ ] 7.5 `/roadmap`: enter the candidate items from `outlines/roadmap.md` in the CMS, connect the ones that match Feature fixes, and set statuses (founder adds more later); draft the intro from `outlines/roadmap.md`; founder approves; publish
-- [ ] 7.6 `/licensing`: draft from `licensing.md` with the public repository link (public at launch); founder approves; publish
+- [ ] 7.6 `/licensing`: draft from `licensing.md` with the public repository link (public at launch); founder approves; publish (drafted in #49, unpublished; waiting for founder approval)
 - [ ] 7.7 Before each publish, run the atlas's publishing checklist (stranger can follow it; facts, hypotheses and hopes separated; sources fair; privacy and safety considered) and record the result in the essay's first change note
 
 ## 8. Integration check

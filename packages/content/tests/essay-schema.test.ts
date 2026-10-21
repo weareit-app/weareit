@@ -174,6 +174,25 @@ describe("block data", () => {
     ).toBe(false);
   });
 
+  it("takes timeline dates as a year, a month or a day", () => {
+    const timeline = (date: string) =>
+      blockSchemas.timeline.safeParse({ entries: [{ date, title: "Launch" }] })
+        .success;
+    expect(
+      ["2026", "2026-10", "2026-10-26", "2028-02-29"].map(timeline),
+    ).toEqual([true, true, true, true]);
+    expect(
+      [
+        "2026-13",
+        "2026-00",
+        "2026-00-10",
+        "2026-02-30",
+        "2027-02-29",
+        "26",
+      ].map(timeline),
+    ).toEqual([false, false, false, false, false, false]);
+  });
+
   it("has the spec's seven status labels, written as words", () => {
     expect(essayStatusLabels).toEqual([
       "established result",
