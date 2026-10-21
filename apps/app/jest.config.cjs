@@ -16,12 +16,27 @@ const [babelJest, babelOptions] = require("jest-expo/jest-preset").transform[
 ];
 const webPreset = require("jest-expo/web/jest-preset");
 
+// oRPC (behind @it/api/client) ships only ES modules as .mjs files, which the
+// preset neither transforms nor lets out of its node_modules ignore list.
+// Babel compiles them like the app's own code.
+const esmOnlyPackages = ["@orpc"];
+const [presetIgnore, ...otherIgnores] =
+  require("jest-expo/jest-preset").transformIgnorePatterns;
+const transformIgnorePatterns = [
+  presetIgnore.replace("(?!(", `(?!(${esmOnlyPackages.join("|")}|`),
+  ...otherIgnores,
+];
+if (transformIgnorePatterns[0] === presetIgnore)
+  throw new Error("jest-expo's transformIgnorePatterns changed shape");
+
 module.exports = {
   projects: [
     {
       ...shared,
       displayName: "app",
       preset: "jest-expo",
+      transform: { "\\.mjs$": [babelJest, babelOptions] },
+      transformIgnorePatterns,
       testMatch: ["<rootDir>/tests/**/*.test.[jt]s?(x)"],
       testPathIgnorePatterns: ["<rootDir>/tests/essays/"],
     },
