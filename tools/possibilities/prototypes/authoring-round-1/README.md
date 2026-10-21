@@ -6,7 +6,7 @@
 
 - **Frozen rules:** the guide and prototype at tag `situation-graph-v3.1-frozen` (commit `3065947`). Problems found in this round are recorded here, not fixed mid-round.
 - **Authors:** three isolated agents, each on a different model (A: Opus, B: Sonnet, C: Fable) to reduce shared assumptions. Each had only [`packet.md`](packet.md): the guide, the notes, the output format, and the rule to mark each line as stated, assumed, or needs checking. They didn't have the evaluation questions, any expected answers, prototype examples, review history, or each other's drafts.
-- **Evaluator:** one fresh agent, which saw the drafts only as A, B, and C and answered from what each graph says, not from common sense. Its brief, including three changes the authors didn't know about, is [`evaluator-brief.md`](evaluator-brief.md). The full evaluation is [`evaluation.md`](evaluation.md).
+- **Evaluator:** one fresh agent, which saw the drafts only as A, B, and C and answered from what each graph says, not from common sense. Its brief, including three changes the authors didn't know about, is [`evaluator-brief.md`](evaluator-brief.md). The full evaluation is [`evaluation.md`](evaluation.md). **Read it with [`corrections.md`](corrections.md):** a later check against the drafts found overstatements, withdrew its ranking of authors, and credits the gaps authors found separately.
 
 ## Caveats
 
