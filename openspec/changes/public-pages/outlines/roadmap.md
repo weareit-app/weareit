@@ -8,11 +8,11 @@
 
 1. What this page is: everything It has built, is building or is considering, in one place, with the date each item last changed and why. Some ideas will be dropped or replaced; that will show here too.
 2. How to read it: the five statuses, one line each (the spec requires this on the page):
-   - **Shipped**: live in It now.
-   - **In Progress**: being built now.
-   - **Planned**: decided, not started.
-   - **Exploring**: being looked into; may not be built.
-   - **Idea**: not decided.
+   - **Live**: available to use.
+   - **In progress**: being built right now.
+   - **Planned**: a decision has been made to build it.
+   - **Exploring**: investigating what might work, without committing yet.
+   - **Idea**: a possibility someone has proposed.
 
    Items connected to Feature fixes link to the pains those fixes help with. Mention that there are no dates promised, and how to suggest something (the contact address).
 
@@ -22,9 +22,9 @@ Taken from the proposed OpenSpec changes, so each one is real work. Suggested st
 
 | Item | Source | Suggested status |
 | --- | --- | --- |
-| Explore what could be better for you and for us | the explorer (built, not yet launched) | In Progress until launch, then Shipped |
-| Save your picks with an account | `required-signup-gate` | In Progress |
-| Support It once, monthly or yearly | `embedded-support` | In Progress |
+| Explore what could be better for you and for us | the explorer (built, not yet launched) | In progress until launch, then Live |
+| Save your picks with an account | `required-signup-gate` | In progress |
+| Support It once, monthly or yearly | `embedded-support` | In progress |
 | A page for every pain, to share | `pain-pages` | Planned |
 | Help build It with your skills | `help-build-it` | Planned |
 | Use It in Spanish | `spanish-language` | Planned |
@@ -41,4 +41,4 @@ Keep the page's own change list for changes to the introduction or to how the ro
 
 **Blocks:** the status groups are the page itself (`status-board`); no other blocks needed to start.
 
-**Sources to find:** none; check every Shipped and In Progress status against the release at publish time.
+**Sources to find:** none; check every Live and In progress status against the release at publish time.
