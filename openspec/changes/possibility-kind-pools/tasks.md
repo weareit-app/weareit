@@ -27,6 +27,7 @@ Start only after the pain-catalog change (PR #27) and the full pain sweep are me
 - [x] 4.1 Add `template-copy` lint for method templates in titles and text ("When I…, I want…", "After I…, I will…", "If…, then I will…"). Verify with tests using the spec's job-story example.
 - [x] 4.2 Add `near-duplicate-fix` lint, comparing title tokens across a pain's pool. Verify with a test: two fixes that differ only in word order are flagged.
 - [x] 4.3 Move coverage from cards to accepted dreams and their linked fixes: at least 4 lenses, all three ambitions, at least 3 basics tonight, and at least one dream with a Feature linked, with no kind minimum. Verify with the spec's "One Feature is enough" and "No Feature" scenarios as tests.
+- [x] 4.4 Apply the card copy and sourcing rules to staged dreams and fixes, `unsourced-detail` included, sharing the card rule functions (#124). Verify with a staged-run test for each rule, and that card-run lint is unchanged on every v1 run.
 
 ## 5. Screen, assembly and judging
 
@@ -36,19 +37,19 @@ Start only after the pain-catalog change (PR #27) and the full pain sweep are me
 
 ## 6. Founder fix review
 
-- [ ] 6.1 Add `fixes-review-build`: one list ordered by `ranking.json`, each fix once, with kind and status as text labels, the cited example, linked dreams as removable chips, a way to add a dream link, unlinked fixes last, and method fields in a collapsed note. Verify that the page works from the keyboard alone, that a screen reader announces kind, status, linked dreams and the note's expanded or collapsed state, and that the page uses no motion.
-- [ ] 6.2 Let founder links take a dream past 5 fixes, marking them as founder links, while assembler links stay capped at 5. Verify with tests: a sixth founder link passes `validate`, and a sixth assembler link fails.
-- [ ] 6.3 Add `fixes-ingest <run> <decisions.json>`, which records one decision per fix and the final links. Verify with tests: one decision is kept for a shared fix with all its links, and an edit keeps the original text beside it.
+- [x] 6.1 Add `fixes-review-build`: one list ordered by `ranking.json`, each fix once, with kind and status as text labels, the cited example, linked dreams as removable chips, a way to add a dream link, unlinked fixes last, and method fields in a collapsed note. Verify that the page works from the keyboard alone, that a screen reader announces kind, status, linked dreams and the note's expanded or collapsed state, and that the page uses no motion.
+- [x] 6.2 Let founder links take a dream past 5 fixes, marking them as founder links, while assembler links stay capped at 5. Verify with tests: a sixth founder link passes `validate`, and a sixth assembler link fails.
+- [x] 6.3 Add `fixes-ingest <run> <decisions.json>`, which records one decision per fix and the final links. Verify with tests: one decision is kept for a shared fix with all its links, and an edit keeps the original text beside it.
 
 ## 7. Calibration pages and skills
 
-- [ ] 7.1 Change `calibrate-build` and `audit-build` so an item is a dream with its linked fixes. Verify with existing calibration tests updated to v2 fixtures, plus a v1 fixture that still builds.
-- [ ] 7.2 Add staged steps to `possibilities-generate`, `possibilities-judge` and `possibilities-repair` (Claude and Codex copies), with explicit stops for the two founder reviews, behind a `--staged` option so the old flow still runs. Verify by running a dry staged generate on a fixture up to the dream review stop.
-- [ ] 7.3 Add Ask (`message-circle-question`), Use a resource (`life-buoy`), and the trial kinds Leave (`door-open`) and Switch (`arrow-left-right`) to the "Kinds of fixes" table in `docs/style/copy-style-guide.md`. Update `tools/possibilities/README.md` for the staged flow, the run files, and the coverage rules. Verify that the README's subcommand table matches `cards.py --help`.
+- [x] 7.1 Change `calibrate-build` and `audit-build` so an item is a dream with its linked fixes. Verify with existing calibration tests updated to v2 fixtures, plus a v1 fixture that still builds.
+- [x] 7.2 Add staged steps to `possibilities-generate`, `possibilities-judge`, and `possibilities-repair` (Claude and Codex copies), with explicit stops for the two founder reviews, behind a `--staged` option so the old flow still runs. Verify by running a dry staged generate on a fixture up to the dream review stop.
+- [x] 7.3 Add Ask (`message-circle-question`), Use a resource (`life-buoy`), and the trial kinds Leave (`door-open`) and Switch (`arrow-left-right`) to the "Kinds of fixes" table in `docs/style/copy-style-guide.md`. Update `tools/possibilities/README.md` for the staged flow, the run files, and the coverage rules. Verify that the README's subcommand table matches `cards.py --help`.
 
 ## 8. Pilot comparison
 
-- [ ] 8.1 Add `compare-build <pain…>` (pairs each pilot pain's newest v1 and v2 runs, builds a blind set with a separate key, and refuses if the v1 run is stale) and `compare-report <export>` (mean rating per flow, distinct kinds among linked fixes, founder review time, fill rate against ceilings, and tokens per stage, with a `scale-up` or `iterate` result). Verify with tests: the set has no origin information, and a slower review gives `iterate` and names that check.
+- [x] 8.1 Add `compare-build <pain…>` (pairs each pilot pain's newest v1 and v2 runs, builds a blind set with a separate key, and refuses if the v1 run is stale) and `compare-report <export>` (mean rating per flow, distinct kinds among linked fixes, founder review time, fill rate against ceilings, and tokens per stage, with a `scale-up` or `iterate` result). Verify with tests: the set has no origin information, and a slower review gives `iterate` and names that check.
 - [ ] 8.2 Run the pilot on the founder's chosen pains: rerun the old flow if its run is stale, run the staged flow with both founder reviews, build the comparison set, and ingest the founder's ratings. Verify that `compare-report` prints a result and that the run folders pass `validate` and `lint`.
 
 ## 9. Switch over (only if the pilot says `scale-up`)
