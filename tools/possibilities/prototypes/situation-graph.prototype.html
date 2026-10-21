@@ -3,45 +3,48 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Situation graph (prototype)</title>
+<title>Situation graph (prototype, v2)</title>
 <style>
-  :root { --ink:#1d2327; --muted:#5d6a72; --line:#dfe5e8; --bg:#fbfcfc; --card:#fff; --accent:#087E9F; --soft:#e7f3f6; --warn:#8a5a00; --warnbg:#fff6e0; --bad:#9b2c2c; --badbg:#fdeeee; --ok:#22663a; --okbg:#eaf6ee; --unk:#4b3f8a; --unkbg:#efecfb; }
+  :root { color-scheme:dark; --ink:#e6ecef; --muted:#9aa8b0; --line:#2c363c; --bg:#11171a; --card:#182024; --btn:#1f292e; --accent:#3fb6d6; --onaccent:#0b1a1f; --soft:#173039; --warn:#f0c46a; --warnbg:#3a2f14; --bad:#ff9a9a; --badbg:#3d1d1d; --ok:#7fd69a; --okbg:#173322; --unk:#c3b6ff; --unkbg:#2a2547; --q:#7fd8ef; --qbg:#123540; --grey:#c9d1d5; --greybg:#2a3236; }
   * { box-sizing:border-box; }
   body { margin:0; font:15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; color:var(--ink); background:var(--bg); }
-  main { max-width:1120px; margin:0 auto; padding:24px 16px 64px; }
-  h1 { font-size:24px; margin:0 0 4px; } h2 { font-size:17px; margin:24px 0 8px; } h3 { font-size:15px; margin:0 0 6px; }
+  main { max-width:1180px; margin:0 auto; padding:24px 16px 64px; }
+  h1 { font-size:24px; margin:0 0 4px; } h2 { font-size:17px; margin:0 0 6px; } h3 { font-size:15px; margin:0 0 4px; } h4 { font-size:13px; margin:10px 0 2px; color:var(--muted); text-transform:uppercase; letter-spacing:.03em; }
   .tag { display:inline-block; font-size:12px; padding:1px 8px; border-radius:999px; background:var(--soft); color:var(--accent); margin-right:4px; }
-  .intro { color:var(--muted); max-width:820px; } .intro strong { color:var(--ink); }
-  .cols { display:grid; grid-template-columns: 350px 1fr; gap:20px; }
-  @media (max-width:840px) { .cols { grid-template-columns:1fr; } }
+  .intro { color:var(--muted); max-width:860px; } .intro strong { color:var(--ink); }
+  .cols { display:grid; grid-template-columns: 370px 1fr; gap:20px; }
+  @media (max-width:860px) { .cols { grid-template-columns:1fr; } }
   .panel { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-bottom:14px; }
-  button { font:inherit; border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:8px; padding:5px 10px; margin:0 6px 6px 0; cursor:pointer; text-align:left; }
+  button { font:inherit; border:1px solid var(--line); background:var(--btn); color:var(--ink); border-radius:8px; padding:5px 10px; margin:0 6px 6px 0; cursor:pointer; text-align:left; }
   button:hover { border-color:var(--accent); }
-  button.on { background:var(--accent); color:#fff; border-color:var(--accent); }
-  button.small { font-size:13px; padding:2px 8px; margin:0 0 0 6px; }
+  button.on { background:var(--accent); color:var(--onaccent); border-color:var(--accent); }
+  button.small { font-size:12px; padding:1px 7px; margin:2px 4px 2px 0; }
   button.step { display:block; width:100%; }
-  button.step.done { opacity:.55; }
-  button.step.next { border-color:var(--accent); box-shadow:0 0 0 2px var(--soft); }
+  button.step.done { opacity:.55; } button.step.next { border-color:var(--accent); box-shadow:0 0 0 2px var(--soft); }
   .muted { color:var(--muted); font-size:13px; }
   .changed { background:var(--soft); border-left:3px solid var(--accent); padding:8px 10px; border-radius:6px; margin-bottom:12px; font-size:14px; }
-  .dream { border-top:1px solid var(--line); padding:10px 0; } .dream:first-of-type { border-top:0; }
+  .dream { border-top:1px solid var(--line); padding:12px 0; } .dream:first-of-type { border-top:0; }
   .fix { border:1px solid var(--line); border-radius:8px; padding:8px 10px; margin:6px 0 0; }
   .status { font-size:12px; font-weight:600; padding:1px 8px; border-radius:999px; white-space:nowrap; }
-  .s-open { background:var(--okbg); color:var(--ok); } .s-first { background:var(--warnbg); color:var(--warn); } .s-blocked { background:var(--badbg); color:var(--bad); } .s-unknown { background:var(--unkbg); color:var(--unk); } .s-done { background:#eee; color:#444; }
-  .gap { padding:8px 10px; border-radius:8px; margin-top:8px; font-size:14px; }
-  .gap.blocked { background:var(--badbg); border:1px dashed var(--bad); color:var(--bad); }
-  .gap.unknown { background:var(--unkbg); border:1px dashed var(--unk); color:var(--unk); }
+  .s-open { background:var(--okbg); color:var(--ok); } .s-first { background:var(--warnbg); color:var(--warn); } .s-check { background:var(--qbg); color:var(--q); }
+  .s-blocked, .s-failed { background:var(--badbg); color:var(--bad); } .s-unknown { background:var(--unkbg); color:var(--unk); }
+  .s-done, .s-waiting { background:var(--greybg); color:var(--grey); }
+  .head { padding:7px 10px; border-radius:8px; margin:8px 0 4px; font-size:14px; }
+  .h-try { background:var(--okbg); color:var(--ok); } .h-wait { background:var(--greybg); color:var(--grey); } .h-gap { background:var(--unkbg); color:var(--unk); } .h-blocked { background:var(--badbg); color:var(--bad); }
+  .note { font-size:13px; margin-top:4px; padding:5px 8px; border-left:3px solid var(--warn); background:var(--warnbg); border-radius:4px; }
   ul.r { margin:4px 0 0 18px; padding:0; font-size:13px; color:var(--muted); }
   .sub { margin:4px 0 0 14px; font-size:13px; }
-  .rel { font-size:12px; font-weight:600; margin-left:6px; } .more { color:var(--ok); } .less { color:var(--warn); }
-  .legend span { display:inline-block; margin:0 8px 4px 0; }
+  .rel { font-size:12px; font-weight:600; margin-left:6px; } .more { color:var(--ok); } .harder { color:var(--warn); }
+  .fact { display:flex; align-items:center; justify-content:space-between; gap:6px; border-bottom:1px solid var(--line); padding:4px 0; font-size:14px; }
+  .fact:last-child { border-bottom:0; } .fact .seg { white-space:nowrap; }
+  .legend span { display:inline-block; margin:0 6px 4px 0; }
 </style>
 </head>
 <body>
 <main>
-  <span class="tag">PROTOTYPE · throwaway</span><span class="tag">hypothetical situations only</span><span class="tag">illustrative content, not reviewed copy</span>
+  <span class="tag">PROTOTYPE v2 · throwaway</span><span class="tag">hypothetical situations only</span><span class="tag">illustrative content, not reviewed copy</span>
   <h1>Situation graph</h1>
-  <p class="intro"><strong>Question:</strong> if It records dreams, fixes, a few facts about an imagined person's situation, and three different relationships between them, can it answer questions nobody wrote the answers to? The three relationships are kept apart: a fix is <strong>made of</strong> smaller steps (all of them done means it's done), a fix <strong>needs</strong> something that a fact or another fix can provide, and a fix <strong>may help</strong> toward a dream, with no promise. Every answer below comes from the same few general rules over the graph, so editing the graph (left, "Change the graph") changes the answers by itself. Facts never remove a dream; they change how relevant it is or how a fix fits. "No known way yet" is a gap to fill, not the same as "not possible here".</p>
+  <p class="intro"><strong>Question:</strong> can a small graph of dreams, fixes, and facts about an imagined person give <em>trustworthy</em> answers that nobody wrote by hand? Version 2 narrows every claim. <strong>Doing something isn't the same as it working:</strong> each fix has possible outcomes, and only an outcome provides anything. <strong>Not known isn't false:</strong> facts are yes, no, or not checked. <strong>"Made of" completes a larger step only when it's truly a checklist.</strong> A fix <strong>may help</strong> toward a dream; nothing here ever says a dream is reached, and "blocked" only ever means <strong>every approach modeled here</strong>. The relationships stay distinct: made of, needs and provides, may help toward. Edit the graph and the same rules give new answers.</p>
 
   <div class="cols">
     <div>
@@ -53,40 +56,40 @@
       <div class="panel">
         <h3>Free play</h3>
         <div class="muted">Pain</div><div id="pains"></div>
-        <div class="muted">Facts about this imagined person</div><div id="facts"></div>
-        <div class="muted">Change the graph</div><div id="edits"></div>
+        <div class="muted" style="margin-top:4px">Facts about this imagined person (not checked, yes, or no)</div><div id="facts"></div>
+        <div class="muted" style="margin-top:8px">Change the graph</div><div id="edits"></div>
         <button id="reset">Start over</button>
       </div>
       <div class="panel">
         <h3>Steps shared across fixes or pains</h3>
-        <div class="muted" style="margin-bottom:6px">Found by a general rule: any fix that provides what two or more fixes need, is part of two or more fixes, or serves more than one pain.</div>
+        <div class="muted" style="margin-bottom:6px">General rule: a fix whose results feed two or more other fixes (directly or further down the line), or that serves more than one pain.</div>
         <div id="shared"></div>
       </div>
     </div>
     <div>
       <div id="changed"></div>
-      <div class="panel legend muted"><span class="status s-open">Open now</span><span class="status s-first">Open after a first step</span><span class="status s-unknown">No known way yet</span><span class="status s-blocked">Not possible here as written</span><span class="status s-done">Done</span></div>
+      <div class="panel legend muted"><span class="status s-open">Can start now</span><span class="status s-check">A question to check first</span><span class="status s-first">Needs a step first</span><span class="status s-unknown">No modeled way yet</span><span class="status s-blocked">Blocked as modeled</span><span class="status s-waiting">Waiting on an answer</span><span class="status s-done">Worked</span><span class="status s-failed">Didn't work</span></div>
       <div class="panel" id="view"></div>
     </div>
   </div>
 </main>
 
 <script>
-// ===== Portable logic module: pure data and pure functions, no DOM. =====
+// ===== Portable logic module: pure data and pure functions. No DOM. =====
 const Graph = (() => {
+  const OK = { done: { label:'Done', kind:'success' } };
   const base = {
     facts: {
       'lie-awake': { text:'Lies awake for hours' },
       'infant': { text:'Wakes at night to care for a baby' },
-      'second-adult': { text:'Has a second adult at home at night', provides:['second-adult'] },
+      'second-adult': { text:'Has a second adult at home every night', provides:['overnight-nightly'] },
       'nights': { text:'Works night shifts' },
       'partner-snores': { text:"Partner's snoring wakes them" },
       'no-specialist': { text:"Can't afford a sleep specialist" },
       'low-income': { text:'Income is low enough for rent assistance' },
-      'has-docs': { text:'Has proof of income and ID on hand', provides:['proof-of-income'] },
+      'has-docs': { text:'Has proof of income and ID on hand', provides:['income-proof','id-doc'] },
       'wants-stay': { text:'Wants to stay in this exact home' },
-      'cares-local': { text:"Cares for someone nearby, so can't move far" },
-      'landlord-no': { text:"Landlord won't negotiate" },
+      'cares-local': { text:'Cares for someone nearby, so has to stay close' },
       'knows-neighbors': { text:'Already knows the neighbors', provides:['known-neighbors'] },
       'neighbors-unwilling': { text:"Neighbors aren't interested in organizing" },
       'shallow': { text:'Talks with lots of people, but nobody knows them well' },
@@ -94,19 +97,21 @@ const Graph = (() => {
       'live-with': { text:'Lives with other people' },
       'always-initiate': { text:'Is always the one who reaches out' },
     },
+    // A condition can cover another: help every night covers help one night a week.
     conditions: {
-      'proof-of-income': 'proof of income and ID',
-      'second-adult': 'a second adult at home at night',
-      'known-neighbors': 'neighbors you know',
-      'tenant-group': 'an organized tenant group',
-      'sleep-picture': "a picture of what's disrupting your sleep",
+      'income-proof': { label:'proof of income' },
+      'id-doc': { label:'ID' },
+      'overnight-nightly': { label:'a second adult at home every night', covers:['overnight-weekly'] },
+      'overnight-weekly': { label:'a second adult one night a week' },
+      'known-neighbors': { label:'neighbors you know' },
+      'tenant-group': { label:'an organized tenant group' },
+      'sleep-picture': { label:"a picture of what's disrupting your sleep" },
     },
     pains: {
       sleep: { title:"I don't sleep well.", facts:['lie-awake','infant','second-adult','nights','partner-snores','no-specialist'] },
-      rent: { title:'I pay too much for housing.', facts:['low-income','has-docs','wants-stay','cares-local','landlord-no','knows-neighbors','neighbors-unwilling'] },
+      rent: { title:'I pay too much for housing.', facts:['low-income','has-docs','wants-stay','cares-local','knows-neighbors','neighbors-unwilling'] },
       lonely: { title:"Most days I don't talk to anyone who really knows me.", facts:['shallow','far-friends','live-with','always-initiate','knows-neighbors'] },
     },
-    // kind: a state, or a freedom (having the option). scale: me, people around me, everyone.
     dreams: {
       'fall-asleep': { pains:['sleep'], title:'Falling asleep easily', line:'I settle into bed and drift off.', kind:'state', scale:'me' },
       'sleep-through': { pains:['sleep'], title:'Sleeping through the night', line:'I sleep straight through until morning.', kind:'state', scale:'me' },
@@ -125,234 +130,342 @@ const Graph = (() => {
       'close-at-home': { pains:['lonely'], title:'Close to the people I live with', line:'We talk about more than chores.', kind:'state', scale:'me' },
       'belong': { pains:['lonely'], title:'Belonging where I live', line:'I know people near me, and they know me.', kind:'state', scale:'people around me' },
     },
-    // A fact changes how relevant a dream is. It never removes the dream.
-    relevance: [
-      { fact:'infant', dream:'back-to-sleep', dir:'more', why:'waking is part of caring for a baby, so getting back to sleep matters most' },
-      { fact:'infant', dream:'sleep-through', dir:'less', why:'harder to reach while night feeds continue' },
-      { fact:'nights', dream:'hours-fit', dir:'more', why:'the body clock and the work schedule pull apart' },
-      { fact:'lie-awake', dream:'fall-asleep', dir:'more', why:'this is exactly the trouble described' },
-      { fact:'partner-snores', dream:'both-sleep', dir:'more', why:"both people's sleep is involved" },
-      { fact:'wants-stay', dream:'stay-home', dir:'more', why:'they want this home, not just a cheaper one' },
-      { fact:'cares-local', dream:'near-family', dir:'more', why:"moving far away isn't an option" },
-      { fact:'shallow', dream:'known', dir:'more', why:'plenty of contact, but no depth' },
-      { fact:'far-friends', dream:'in-person', dir:'less', why:'the close friends are far away for now' },
-      { fact:'far-friends', dream:'known', dir:'more', why:'the people who know them exist, just far away' },
-      { fact:'live-with', dream:'close-at-home', dir:'more', why:'the people are already at home' },
-      { fact:'always-initiate', dream:'be-wanted', dir:'more', why:"reciprocity is what's missing" },
+    // Two separate kinds of link. "likely" = likely to matter to this person (they decide how much it matters).
+    // "harder" = harder to reach right now. Neither ever removes a dream.
+    dreamNotes: [
+      { fact:'infant', dream:'back-to-sleep', type:'likely', why:'waking is part of caring for a baby' },
+      { fact:'infant', dream:'sleep-through', type:'harder', why:'night feeds make it harder for now, not less wanted' },
+      { fact:'nights', dream:'hours-fit', type:'likely', why:'the body clock and the work schedule pull apart' },
+      { fact:'lie-awake', dream:'fall-asleep', type:'likely', why:'this is exactly the trouble described' },
+      { fact:'partner-snores', dream:'both-sleep', type:'likely', why:"both people's sleep is involved" },
+      { fact:'wants-stay', dream:'stay-home', type:'likely', why:'they want this home, not just a cheaper one' },
+      { fact:'cares-local', dream:'near-family', type:'likely', why:'staying close to the person they care for' },
+      { fact:'shallow', dream:'known', type:'likely', why:'plenty of contact, but no depth' },
+      { fact:'far-friends', dream:'in-person', type:'harder', why:'the close friends are far away for now' },
+      { fact:'live-with', dream:'close-at-home', type:'likely', why:'the people are already at home' },
+      { fact:'always-initiate', dream:'be-wanted', type:'likely', why:"reciprocity is what's missing" },
     ],
-    // Fixes. toward = may help toward these dreams (no promise). needs = conditions it needs, optionally only when a fact holds.
-    // provides = conditions it supplies. parts = smaller fixes it's made of. actors: does | agrees | decides | joins.
-    // factEffects: eligible (only applies if the fact holds), blocks (not possible as written), harder, suits.
+    // Fixes. toward: may help toward these dreams, with no promise. needs: conditions. outcomes: what can happen when it's tried;
+    // only an outcome provides conditions. parts: smaller fixes; checklist: true means the parts ARE the fix, so all parts
+    // succeeding means it succeeded. uses: shared resources (for spotting options that compete). factEffects on a fact
+    // that is yes / no / not checked: eligible, blocks, harder, suits.
     fixes: {
-      'sleep-diary': { title:'Keep a sleep diary for two weeks', kind:'task', toward:[], actors:[['You','does']] },
-      'talk-doctor': { title:'Talk to a doctor about your sleep', kind:'resource', toward:[], actors:[['You','does'],['A doctor','joins']] },
-      'find-cause': { title:"Find out what's disrupting your sleep", kind:'project', toward:[], parts:['sleep-diary','talk-doctor'], provides:['sleep-picture'], actors:[['You','does']] },
-      'cbti': { title:'Short, drug-free insomnia therapy', kind:'resource', toward:['fall-asleep','back-to-sleep','sleep-through'], needs:[{cond:'sleep-picture'}], actors:[['You','does'],['A clinician','joins']], factEffects:[['no-specialist','harder','the clinician route costs money; a self-guided program may not'],['nights','harder','most programs assume night-time sleep']] },
-      'cbti-self': { title:'Self-guided insomnia program', kind:'learn', toward:['fall-asleep','back-to-sleep'], actors:[['You','does']], factEffects:[['lie-awake','suits','built for lying awake']] },
-      'apnea-check': { title:'Get checked for sleep apnea', kind:'resource', toward:['wake-rested','both-sleep'], needs:[{cond:'sleep-picture'}], actors:[['The person who snores','does'],['A doctor','decides']], factEffects:[['no-specialist','harder','testing has a cost; some clinics offer home tests'],['partner-snores','suits','the snoring partner is the one to check, so they have to agree']] },
-      'same-wake': { title:'Get up at the same time every day', kind:'habit', toward:['fall-asleep','wake-rested'], actors:[['You','does']], factEffects:[['nights','blocks','as written, this assumes a daytime schedule'],['infant','harder','night feeds move the morning around']] },
-      'anchor-sleep': { title:'Keep one fixed block of sleep on work and off days', kind:'habit', toward:['hours-fit','wake-rested'], actors:[['You','does']], factEffects:[['nights','suits','made for shift work']] },
-      'dark-day': { title:'Make the bedroom dark enough for daytime sleep', kind:'task', toward:['hours-fit'], actors:[['You','does']], factEffects:[['nights','suits','daytime sleep needs real darkness']] },
-      'shift-gap': { title:'Ask for at least 11 hours between shifts', kind:'ask', toward:['hours-fit'], actors:[['You','does'],['Your employer','decides']], factEffects:[['nights','eligible','only applies to shift work']] },
-      'tag-team': { title:'Take turns on night feeds with another adult', kind:'schedule', toward:['back-to-sleep','wake-rested'], needs:[{cond:'second-adult'}], actors:[['You','does'],['Another adult','joins']], factEffects:[['infant','eligible','this is about night feeds']] },
-      'separate-rooms': { title:'Try sleeping apart for two weeks', kind:'task', toward:['both-sleep','sleep-through'], actors:[['You','does'],['Your partner','agrees']] },
-      'gather-docs': { title:'Gather proof of income and ID', kind:'task', toward:[], provides:['proof-of-income'], actors:[['You','does']] },
-      'rent-help': { title:'Apply for rent assistance', kind:'resource', toward:['money-left'], needs:[{cond:'proof-of-income'}], actors:[['You','does'],['The assistance office','decides']], factEffects:[['low-income','eligible','eligibility depends on income']] },
-      'long-lease': { title:'Ask for a longer lease with a set increase', kind:'ask', toward:['predictable','stay-home'], actors:[['You','does'],['Your landlord','agrees']], factEffects:[['landlord-no','blocks','the landlord has to agree']] },
-      'housemate': { title:'Share your place with a housemate', kind:'task', toward:['money-left'], actors:[['You','does'],['A housemate','joins']] },
-      'move-cheaper': { title:'Move somewhere cheaper', kind:'switch', toward:['money-left'], actors:[['You','does']], factEffects:[['cares-local','blocks',"can't move far from the person they care for"],['wants-stay','harder','works against wanting to stay in this home']] },
-      'meet-neighbors': { title:'Meet the neighbors in your building', kind:'task', toward:['belong'], provides:['known-neighbors'], actors:[['You','does'],['Your neighbors','joins']] },
-      'tenant-group': { title:'Start a tenants association', kind:'new-group', toward:['stay-home','predictable','neighbors-stay'], needs:[{cond:'known-neighbors'}], provides:['tenant-group'], actors:[['You','does'],['At least a few neighbors','joins']], factEffects:[['neighbors-unwilling','blocks','needs neighbors who want to organize']] },
-      'learn-rules': { title:'Learn how rent rules are set where you live', kind:'learn', toward:[], actors:[['You','does']] },
-      'testify': { title:'Speak at a council hearing', kind:'task', toward:[], actors:[['You','does'],['The city council','decides']] },
-      'rent-limits': { title:'Campaign for limits on rent increases', kind:'project', toward:['predictable','neighbors-stay','stay-home'], needs:[{cond:'tenant-group'}], parts:['learn-rules','testify'], actors:[['You','does'],['An organized tenant group','joins'],['The city council','decides']] },
-      'weekly-call': { title:'Set up a weekly call with a faraway friend', kind:'schedule', toward:['known','be-wanted'], actors:[['You','does'],['Your friend','joins']], factEffects:[['far-friends','suits','the friends who know them are far away']] },
-      'share-real': { title:'Share one real thing in your next conversation', kind:'practice', toward:['known'], actors:[['You','does']], factEffects:[['shallow','suits','turns existing contact into depth']] },
-      'ask-reach': { title:"Tell a friend you'd love them to call sometimes", kind:'ask', toward:['be-wanted'], actors:[['You','does'],['Your friend','agrees']], factEffects:[['always-initiate','suits','names the imbalance kindly']] },
-      'weekly-group': { title:'Join a group that meets every week', kind:'group', toward:['in-person','belong'], actors:[['You','does'],['The group','joins']] },
-      'house-dinner': { title:'Start a weekly dinner at home', kind:'schedule', toward:['close-at-home'], actors:[['You','does'],['The people you live with','joins']], factEffects:[['live-with','eligible','needs people at home']] },
+      'sleep-diary': { title:'Keep a sleep diary for two weeks', kind:'task', toward:[], actors:[['You','does']], outcomes:OK },
+      'talk-doctor': { title:'Talk to a doctor about your sleep', kind:'resource', toward:[], actors:[['You','does'],['A doctor','joins']], outcomes:OK },
+      'find-cause': { title:"Find out what's disrupting your sleep", kind:'project', toward:[], parts:['sleep-diary','talk-doctor'], actors:[['You','does']], outcomes:{ found:{ label:'Found a likely cause', kind:'success', provides:['sleep-picture'] }, unclear:{ label:'Still unclear', kind:'fail' } } },
+      'cbti': { title:'Short, drug-free insomnia therapy', kind:'resource', toward:['fall-asleep','back-to-sleep','sleep-through','wake-rested'], needs:['sleep-picture'], uses:['spare money'], actors:[['You','does'],['A clinician','joins']], factEffects:[['no-specialist','harder','the clinician route costs money; a self-guided program may not'],['nights','harder','most programs assume night-time sleep']], outcomes:{ helped:{ label:'Helped', kind:'success' }, didnt:{ label:"Didn't help", kind:'fail' } } },
+      'cbti-self': { title:'Self-guided insomnia program', kind:'learn', toward:['fall-asleep','back-to-sleep'], actors:[['You','does']], factEffects:[['lie-awake','suits','built for lying awake']], outcomes:{ helped:{ label:'Helped', kind:'success' }, didnt:{ label:"Didn't help", kind:'fail' } } },
+      'apnea-check': { title:'Get checked for sleep apnea', kind:'resource', toward:['wake-rested','both-sleep'], needs:['sleep-picture'], uses:['spare money'], actors:[['The person who snores','does'],['A doctor','decides']], factEffects:[['no-specialist','harder','testing has a cost; some clinics offer home tests'],['partner-snores','suits','the snoring partner is the one to check, so they have to agree']], outcomes:{ treated:{ label:'Found and treated', kind:'success' }, clear:{ label:'No apnea found', kind:'fail' }, waiting:{ label:'Waiting for an appointment', kind:'pending' } } },
+      'same-wake': { title:'Keep the same wake-up time every day', kind:'habit', toward:['fall-asleep','wake-rested'], actors:[['You','does']], factEffects:[['nights','harder','works only if the time stays fixed across work and off days; rotating shifts make that hard'],['infant','harder','night feeds move the morning around']], outcomes:{ helped:{ label:'Helped', kind:'success' }, didnt:{ label:"Didn't help", kind:'fail' } } },
+      'anchor-sleep': { title:'Keep one fixed block of sleep on work and off days', kind:'habit', toward:['hours-fit','wake-rested'], actors:[['You','does']], factEffects:[['nights','suits','made for shift work']], outcomes:{ helped:{ label:'Helped', kind:'success' }, didnt:{ label:"Didn't help", kind:'fail' } } },
+      'dark-day': { title:'Make the bedroom dark enough for daytime sleep', kind:'task', toward:['hours-fit'], actors:[['You','does']], factEffects:[['nights','suits','daytime sleep needs real darkness']], outcomes:OK },
+      'shift-gap': { title:'Ask for at least 11 hours between shifts', kind:'ask', toward:['hours-fit'], actors:[['You','does'],['Your employer','decides']], factEffects:[['nights','eligible','only applies to shift work']], outcomes:{ agreed:{ label:'Employer agreed', kind:'success' }, refused:{ label:'Employer said no', kind:'fail' }, pending:{ label:'No answer yet', kind:'pending' } } },
+      'tag-team': { title:'Take turns on night feeds every night with another adult', kind:'schedule', toward:['back-to-sleep','wake-rested'], needs:['overnight-nightly'], actors:[['You','does'],['Another adult','joins']], factEffects:[['infant','eligible','this is about night feeds']], outcomes:{ helped:{ label:'Helped', kind:'success' }, didnt:{ label:"Didn't help", kind:'fail' } } },
+      'tag-team-weekly': { title:'Hand off night feeds one night a week', kind:'schedule', toward:['wake-rested'], needs:['overnight-weekly'], actors:[['You','does'],['Another adult','joins']], factEffects:[['infant','eligible','this is about night feeds']], outcomes:{ helped:{ label:'Helped', kind:'success' }, didnt:{ label:"Didn't help", kind:'fail' } } },
+      'separate-rooms': { title:'Try sleeping apart for two weeks', kind:'task', toward:['both-sleep','sleep-through'], actors:[['You','does'],['Your partner','agrees']], outcomes:{ helped:{ label:'Helped', kind:'success' }, didnt:{ label:"Didn't help", kind:'fail' }, partnerNo:{ label:'Partner said no', kind:'fail' } } },
+      'get-paystub': { title:'Get a recent pay stub or benefits letter', kind:'task', toward:[], actors:[['You','does']], outcomes:{ done:{ label:'Got it', kind:'success', provides:['income-proof'] } } },
+      'get-id': { title:'Find or replace your ID', kind:'task', toward:[], actors:[['You','does']], outcomes:{ done:{ label:'Got it', kind:'success', provides:['id-doc'] } } },
+      'gather-docs': { title:'Gather proof of income and ID', kind:'task', toward:[], parts:['get-paystub','get-id'], checklist:true, actors:[['You','does']], outcomes:{ done:{ label:'Gathered', kind:'success', provides:['income-proof','id-doc'] } } },
+      'rent-help': { title:'Apply for rent assistance', kind:'resource', toward:['money-left'], needs:['income-proof','id-doc'], actors:[['You','does'],['The assistance office','decides']], factEffects:[['low-income','eligible','eligibility depends on income']], outcomes:{ approved:{ label:'Approved', kind:'success' }, denied:{ label:'Denied', kind:'fail' }, pending:{ label:'Waiting for a decision', kind:'pending' } } },
+      'long-lease': { title:'Ask for a longer lease with a set increase', kind:'ask', toward:['predictable','stay-home'], actors:[['You','does'],['Your landlord','agrees']], outcomes:{ agreed:{ label:'Landlord agreed', kind:'success' }, refused:{ label:'Landlord said no', kind:'fail' }, pending:{ label:'No answer yet', kind:'pending' } } },
+      'housemate': { title:'Share your place with a housemate', kind:'task', toward:['money-left'], uses:['your spare room'], actors:[['You','does'],['A housemate','joins']], outcomes:{ found:{ label:'Found a housemate', kind:'success' }, none:{ label:'No one suitable yet', kind:'fail' } } },
+      'move-cheaper': { title:'Move somewhere cheaper', kind:'switch', toward:['money-left'], actors:[['You','does']], factEffects:[['cares-local','harder','only nearby places count, which narrows the search'],['wants-stay','harder','works against wanting to stay in this home']], outcomes:{ moved:{ label:'Moved', kind:'success' }, nothing:{ label:'Nothing affordable found', kind:'fail' } } },
+      'meet-neighbors': { title:'Meet the neighbors in your building', kind:'task', toward:['belong'], actors:[['You','does'],['Your neighbors','joins']], outcomes:{ met:{ label:'Met some neighbors', kind:'success', provides:['known-neighbors'] }, notYet:{ label:'No luck yet', kind:'fail' } } },
+      'tenant-group': { title:'Start a tenants association', kind:'new-group', toward:['stay-home','predictable','neighbors-stay'], needs:['known-neighbors'], actors:[['You','does'],['At least a few neighbors','joins']], factEffects:[['neighbors-unwilling','blocks','needs neighbors who want to organize']], outcomes:{ formed:{ label:'Formed', kind:'success', provides:['tenant-group'] }, didnt:{ label:"Didn't come together", kind:'fail' } } },
+      'learn-rules': { title:'Learn how rent rules are set where you live', kind:'learn', toward:[], actors:[['You','does']], outcomes:OK },
+      'testify': { title:'Speak at a council hearing', kind:'task', toward:[], actors:[['You','does'],['The city council','decides']], outcomes:OK },
+      'rent-limits': { title:'Campaign for limits on rent increases', kind:'project', toward:['predictable','neighbors-stay','stay-home'], needs:['tenant-group'], parts:['learn-rules','testify'], actors:[['You','does'],['An organized tenant group','joins'],['The city council','decides']], outcomes:{ passed:{ label:'Limits passed', kind:'success' }, notPassed:{ label:'Limits not passed', kind:'fail' }, ongoing:{ label:'Still campaigning', kind:'pending' } } },
+      'weekly-call': { title:'Set up a weekly call with a faraway friend', kind:'schedule', toward:['known','be-wanted'], uses:['your evenings'], actors:[['You','does'],['Your friend','joins']], factEffects:[['far-friends','suits','the friends who know them are far away']], outcomes:{ going:{ label:'Calls are happening', kind:'success' }, fizzled:{ label:'Fizzled out', kind:'fail' } } },
+      'share-real': { title:'Share one real thing in your next conversation', kind:'practice', toward:['known'], actors:[['You','does']], factEffects:[['shallow','suits','turns existing contact into depth']], outcomes:{ landed:{ label:'It landed', kind:'success' }, didnt:{ label:"Didn't go well", kind:'fail' } } },
+      'ask-reach': { title:"Tell a friend you'd love them to call sometimes", kind:'ask', toward:['be-wanted'], actors:[['You','does'],['Your friend','agrees']], factEffects:[['always-initiate','suits','names the imbalance kindly']], outcomes:{ agreed:{ label:'They said they would', kind:'success' }, no:{ label:"Didn't change anything", kind:'fail' } } },
+      'weekly-group': { title:'Join a group that meets every week', kind:'group', toward:['in-person','belong'], uses:['your evenings'], actors:[['You','does'],['The group','joins']], outcomes:{ joined:{ label:'Joined and going', kind:'success' }, notFit:{ label:"Wasn't a fit", kind:'fail' } } },
+      'house-dinner': { title:'Start a weekly dinner at home', kind:'schedule', toward:['close-at-home'], uses:['your evenings'], actors:[['You','does'],['The people you live with','joins']], factEffects:[['live-with','eligible','needs people at home']], outcomes:{ going:{ label:'Dinners are happening', kind:'success' }, no:{ label:"Others weren't interested", kind:'fail' } } },
     },
   };
 
-  // Edits to the graph itself. Each is a pure function from graph to graph.
+  // Edits to the graph itself, each a pure function of the graph.
   const edits = {
-    'no-docs-needed': { label:'Rent assistance stops needing proof of income', apply:g => { g.fixes['rent-help'].needs = []; } },
-    'utility-help': { label:'Add a fix: apply for help with utility bills (also needs proof of income)', apply:g => { g.fixes['utility-help'] = { title:'Apply for help with utility bills', kind:'resource', toward:['money-left'], needs:[{cond:'proof-of-income'}], actors:[['You','does'],['The utility program','decides']], factEffects:[['low-income','eligible','eligibility depends on income']] }; } },
-    'employer-letter': { label:'Add another way to get proof of income: a letter from your employer', apply:g => { g.fixes['employer-letter'] = { title:'Ask your employer for an income letter', kind:'ask', toward:[], provides:['proof-of-income'], actors:[['You','does'],['Your employer','agrees']] }; } },
-    'relative-stay': { label:'Add a way to get a second adult at night: a relative stays over once a week', apply:g => { g.fixes['relative-stay'] = { title:'Ask a relative to stay over one night a week', kind:'ask', toward:[], provides:['second-adult'], actors:[['You','does'],['A relative','agrees']] }; } },
+    'no-docs-needed': { label:'Rent assistance stops needing documents', apply:g => { g.fixes['rent-help'].needs = []; } },
+    'utility-help': { label:'Add: help with utility bills (also needs proof of income and ID)', apply:g => { g.fixes['utility-help'] = { title:'Apply for help with utility bills', kind:'resource', toward:['money-left'], needs:['income-proof','id-doc'], actors:[['You','does'],['The utility program','decides']], factEffects:[['low-income','eligible','eligibility depends on income']], outcomes:{ approved:{ label:'Approved', kind:'success' }, denied:{ label:'Denied', kind:'fail' } } }; } },
+    'employer-letter': { label:'Add: an employer income letter (income only, not ID)', apply:g => { g.fixes['employer-letter'] = { title:'Ask your employer for an income letter', kind:'ask', toward:[], actors:[['You','does'],['Your employer','agrees']], outcomes:{ agreed:{ label:'Got the letter', kind:'success', provides:['income-proof'] }, refused:{ label:'Employer said no', kind:'fail' } } }; } },
+    'relative-stay': { label:'Add: ask a relative to stay over one night a week', apply:g => { g.fixes['relative-stay'] = { title:'Ask a relative to stay over one night a week', kind:'ask', toward:[], actors:[['You','does'],['A relative','agrees']], outcomes:{ agreed:{ label:'Relative agreed', kind:'success', provides:['overnight-weekly'] }, refused:{ label:'Relative said no', kind:'fail' }, pending:{ label:'No answer yet', kind:'pending' } } }; } },
+    'needs-loop': { label:'Add a loop: the caseworker letter needs an application on file, and the application needs the letter', apply:g => {
+      g.conditions['caseworker-letter'] = { label:'a caseworker letter' }; g.conditions['application-on-file'] = { label:'an application on file' };
+      g.fixes['caseworker'] = { title:'Get a letter from a caseworker', kind:'ask', toward:[], needs:['application-on-file'], actors:[['You','does'],['A caseworker','agrees']], outcomes:{ done:{ label:'Got the letter', kind:'success', provides:['caseworker-letter'] } } };
+      g.fixes['file-application'] = { title:'File an application with the housing office', kind:'task', toward:[], needs:['caseworker-letter'], actors:[['You','does']], outcomes:{ done:{ label:'Filed', kind:'success', provides:['application-on-file'] } } };
+      g.fixes['rent-help'].needs = [...g.fixes['rent-help'].needs, 'caseworker-letter']; } },
+    'parts-loop': { label:'Add a loop in parts: "Find out what\'s disrupting your sleep" lists itself as a step', apply:g => { g.fixes['find-cause'].parts = [...g.fixes['find-cause'].parts, 'find-cause']; } },
   };
-  function buildGraph(editIds) { const g = JSON.parse(JSON.stringify(base)); const fns = { ...edits }; for (const id of editIds) fns[id].apply(g); return g; }
+  function buildGraph(editIds) { const g = JSON.parse(JSON.stringify(base)); for (const id of editIds) edits[id].apply(g); return g; }
 
-  const RANK = { done:0, open:1, first:2, unknown:3, blocked:4 };
-  const worst = (a, b) => RANK[a] >= RANK[b] ? a : b;
-  const has = (sit, fact) => sit.facts.includes(fact);
+  const fact = (sit, f) => sit.facts[f] || 'unknown';   // 'yes' | 'no' | 'unknown'
+  const title = (g, id) => g.fixes[id].title;
+  const covers = (g, c) => [c, ...((g.conditions[c] || {}).covers || [])];
+  const RANK = { open:1, first:2, check:3, waiting:4, unknown:5, failed:6, blocked:7 };
 
-  // Rule 1: how one fix stands for a situation. Uses only the three relationships plus fact effects.
-  function standing(g, sit, id, seen = []) {
+  // What outcome a fix has: recorded, or (for a checklist) all of its steps succeeded. Cycle-safe.
+  function outcomeOf(g, sit, id, stack = []) {
+    const f = g.fixes[id]; if (!f || stack.includes(id)) return null;
+    const rec = sit.outcomes[id];
+    if (rec && f.outcomes[rec]) return { id:rec, ...f.outcomes[rec] };
+    if (f.checklist && (f.parts || []).length && f.parts.every(p => { const o = outcomeOf(g, sit, p, [...stack, id]); return o && o.kind === 'success'; })) {
+      const ok = Object.entries(f.outcomes).find(([, o]) => o.kind === 'success');
+      return { id:ok[0], ...ok[1], label:`${ok[1].label} (all of its steps succeeded)`, auto:true };
+    }
+    return null;
+  }
+
+  // Is a condition established right now, and by what?
+  function establishedBy(g, sit, c) {
+    for (const [fid, f] of Object.entries(g.facts)) if (fact(sit, fid) === 'yes' && (f.provides || []).some(p => covers(g, p).includes(c))) return `fact: ${f.text.toLowerCase()}`;
+    for (const id of Object.keys(g.fixes)) { const o = outcomeOf(g, sit, id); if (o && o.kind === 'success' && (o.provides || []).some(p => covers(g, p).includes(c))) return `"${title(g, id)}": ${o.label.toLowerCase()}`; }
+    return null;
+  }
+  const providersOf = (g, c) => Object.keys(g.fixes).filter(id => Object.values(g.fixes[id].outcomes).some(o => o.kind === 'success' && (o.provides || []).some(p => covers(g, p).includes(c))));
+
+  // Rule 1: where one fix stands. The badge answers "can this be started now?" and never claims the fix will work.
+  function standing(g, sit, id, stack = []) {
     const f = g.fixes[id];
-    const parts = (f.parts || []).map(p => ({ id:p, ...standing(g, sit, p, [...seen, id]) }));
-    if (sit.done.includes(id)) return { status:'done', reasons:['Done'], first:[], parts };
-    if (parts.length && parts.every(p => p.status === 'done')) return { status:'done', reasons:['Done through all its parts'], first:[], parts };
-    let status = 'open'; const reasons = []; const first = [];
-    for (const [fact, effect, why] of (f.factEffects || [])) {
-      if (effect === 'eligible' && !has(sit, fact)) { status = 'blocked'; reasons.push(`Only applies if: ${g.facts[fact].text.toLowerCase()} (${why})`); }
-      if (effect === 'blocks' && has(sit, fact)) { status = 'blocked'; reasons.push(`Not possible as written: ${why}`); }
-      if (effect === 'harder' && has(sit, fact)) reasons.push(`Harder here: ${why}`);
-      if (effect === 'suits' && has(sit, fact)) reasons.push(`Fits well: ${why}`);
+    if (stack.includes(id)) { const cycle = [...stack.slice(stack.indexOf(id)), id].map(x => title(g, x)).join(' → '); return { avail:'blocked', block:'circular', cycle, reasons:[`Circular: ${cycle}`], ways:[], parts:[], outcome:null, questions:[], gaps:[] }; }
+    const parts = (f.parts || []).map(p => ({ id:p, ...standing(g, sit, p, [...stack, id]) }));
+    const outcome = outcomeOf(g, sit, id, stack);
+    if (outcome) {
+      const avail = outcome.kind === 'success' ? 'done' : outcome.kind === 'pending' ? 'waiting' : 'failed';
+      return { avail, block: avail === 'failed' ? (f.kind === 'ask' ? 'refusal' : 'tried') : null, reasons:[`Tried: ${outcome.label}`], ways:[], parts, outcome, questions:[], gaps:[] };
     }
-    for (const n of (f.needs || [])) {
-      if (n.when && !has(sit, n.when)) continue;
-      const name = g.conditions[n.cond];
-      const fromFact = Object.keys(g.facts).find(k => has(sit, k) && (g.facts[k].provides || []).includes(n.cond));
-      if (fromFact) { reasons.push(`Has ${name} already`); continue; }
-      const providers = Object.keys(g.fixes).filter(k => k !== id && !seen.includes(k) && (g.fixes[k].provides || []).includes(n.cond));
-      if (!providers.length) { status = worst(status, 'unknown'); reasons.push(`No known way yet to get ${name}. That's a gap to fill, and it could become its own goal.`); continue; }
-      const ranked = providers.map(p => ({ id:p, ...standing(g, sit, p, [...seen, id]) })).sort((a, b) => RANK[a.status] - RANK[b.status]);
-      const best = ranked[0];
-      if (best.status === 'done') { reasons.push(`Has ${name} (from "${g.fixes[best.id].title}")`); continue; }
-      if (best.status === 'blocked') { status = 'blocked'; reasons.push(`Needs ${name}, and every known way to get it is blocked here`); continue; }
-      if (best.status === 'unknown') { status = worst(status, 'unknown'); reasons.push(`Needs ${name}, and the way to get it has its own gap`); continue; }
-      status = worst(status, 'first');
-      first.push({ cond:n.cond, via:best.id, alts:ranked.slice(1).filter(r => r.status !== 'blocked').map(r => r.id) });
+    let avail = 'open'; const reasons = []; const ways = []; const questions = []; const gaps = []; let block = null; let cycle;
+    const worsen = (s, b) => { if (RANK[s] > RANK[avail]) { avail = s; if (b) block = b; } };
+    for (const [fid, effect, why] of (f.factEffects || [])) {
+      const v = fact(sit, fid); const t = g.facts[fid].text.toLowerCase();
+      if (effect === 'eligible' && v === 'unknown') { worsen('check'); questions.push(fid); reasons.push(`Not checked yet: ${t}? (${why})`); }
+      if (effect === 'eligible' && v === 'no') { worsen('blocked', 'confirmed'); reasons.push(`Confirmed not to apply: not "${t}" (${why})`); }
+      if (effect === 'blocks' && v === 'yes') { worsen('blocked', 'confirmed'); reasons.push(`Blocked as written: ${why}`); }
+      if (effect === 'harder' && v === 'yes') reasons.push(`Harder here: ${why}`);
+      if (effect === 'suits' && v === 'yes') reasons.push(`Fits well: ${why}`);
     }
+    for (const c of (f.needs || [])) {
+      const label = g.conditions[c].label; const by = establishedBy(g, sit, c);
+      if (by) { reasons.push(`Has ${label} (${by})`); continue; }
+      const provs = providersOf(g, c).filter(p => p !== id);
+      if (!provs.length) { worsen('unknown'); gaps.push(c); reasons.push(`No modeled way yet to get ${label}. A gap to fill; it could become its own goal.`); continue; }
+      const opts = provs.map(p => ({ id:p, ...standing(g, sit, p, [...stack, id]) }));
+      const live = opts.filter(o => ['open','check','first','waiting','unknown'].includes(o.avail));
+      const cyc = opts.find(o => o.cycle);
+      if (!live.length && cyc) { worsen('blocked', 'circular'); cycle = cyc.cycle; reasons.push(`Needs ${label}, but getting it goes in a circle: ${cyc.cycle}`); continue; }
+      if (!live.length) {
+        const why = opts.map(o => `"${title(g, o.id)}" ${o.avail === 'failed' ? "didn't work" : 'is blocked'}${o.block === 'circular' ? ` (${o.reasons[0]})` : ''}`).join('; ');
+        worsen('blocked', opts.some(o => o.block === 'circular') ? 'circular' : 'dependency'); reasons.push(`Needs ${label}, and every modeled way to get it is blocked or didn't work: ${why}`); continue;
+      }
+      if (live.every(o => o.avail === 'unknown')) { worsen('unknown'); gaps.push(c); reasons.push(`Needs ${label}; the ways to get it have their own gaps`); continue; }
+      worsen(live.some(o => o.avail === 'waiting') && live.every(o => ['waiting','unknown'].includes(o.avail)) ? 'waiting' : 'first');
+      ways.push({ cond:c, options: live.map(o => o.id).sort((a, b) => title(g, a).localeCompare(title(g, b))) });
+    }
+    // Parts: for a checklist, every step is required; otherwise steps are a guide and the larger fix needs its own outcome.
     for (const p of parts) {
-      if (p.status === 'blocked') { status = 'blocked'; reasons.push(`Its part "${g.fixes[p.id].title}" is blocked here`); }
-      if (p.status === 'unknown') status = worst(status, 'unknown');
+      if (p.block === 'circular') { worsen('blocked', 'circular'); cycle = p.cycle; reasons.push(`Its steps go in a circle: ${p.cycle}`); }
+      else if (f.checklist && ['blocked','failed'].includes(p.avail)) { worsen('blocked', 'dependency'); reasons.push(`A required step is blocked or didn't work: "${title(g, p.id)}"`); }
     }
-    return { status, reasons, first: status === 'blocked' ? [] : first, parts };
+    if (parts.length && !f.checklist && parts.every(p => p.avail === 'done')) reasons.push('All its listed steps are done. That doesn\'t settle the result: record what happened.');
+    return { avail, block, cycle, reasons, ways: avail === 'blocked' ? [] : ways, parts, outcome:null, questions, gaps };
   }
 
-  // Rule 2: a fact changes a dream's relevance; the dream always stays.
-  const dreamRelevance = (g, sit, d) => g.relevance.filter(r => r.dream === d && has(sit, r.fact));
+  // Rule 2: notes on dreams. Likely-to-matter and harder-for-now are separate; neither removes the dream.
+  const dreamNotes = (g, sit, d) => g.dreamNotes.filter(n => n.dream === d && fact(sit, n.fact) === 'yes');
 
-  // Rule 3: routes to a dream are the fixes that may help toward it. A gap is no route that is open, open after a step, or done.
-  function routes(g, sit, d) {
-    const list = Object.keys(g.fixes).filter(id => g.fixes[id].toward.includes(d)).map(id => ({ id, ...standing(g, sit, id) }));
-    const live = list.some(r => ['done','open','first'].includes(r.status));
-    const gap = !list.length ? 'unknown' : live ? null : list.some(r => r.status === 'unknown') ? 'unknown' : 'blocked';
-    return { list, gap };
+  // Rule 3: a dream's summary. Never infers that the dream is reached.
+  function dreamSummary(g, sit, d) {
+    const fixes = Object.keys(g.fixes).filter(id => g.fixes[id].toward.includes(d)).map(id => ({ id, ...standing(g, sit, id) }));
+    const tryNow = fixes.filter(f => ['open','check','first'].includes(f.avail));
+    const waiting = fixes.filter(f => f.avail === 'waiting');
+    const worked = fixes.filter(f => f.avail === 'done');
+    const failed = fixes.filter(f => f.avail === 'failed');
+    const blocked = fixes.filter(f => f.avail === 'blocked');
+    const gaps = fixes.filter(f => f.avail === 'unknown');
+    let head;
+    if (tryNow.length) head = { type:'try', text:`${tryNow.length} approach${tryNow.length > 1 ? 'es' : ''} to try` };
+    else if (waiting.length) head = { type:'wait', text:'Waiting on an answer; nothing else modeled is open right now' };
+    else if (gaps.length) head = { type:'gap', text:'A gap to fill: no modeled way yet to get what the remaining approaches need' };
+    else head = { type:'blocked', text:'All approaches modeled here are blocked or didn\'t work. That isn\'t proof it\'s impossible: there may be approaches nobody has added yet.' };
+    const notes = [];
+    if (worked.length) notes.push('Some approaches worked. That\'s progress toward this dream, not proof it\'s reached.');
+    // Rule 5: competing for the same resource. Available separately doesn't mean available together.
+    const byUse = {};
+    for (const f of tryNow) for (const u of (g.fixes[f.id].uses || [])) (byUse[u] = byUse[u] || []).push(f.id);
+    for (const [u, ids] of Object.entries(byUse)) if (ids.length > 1) notes.push(`Available separately, not necessarily together: ${ids.map(i => `"${title(g, i)}"`).join(' and ')} both use ${u}. This prototype doesn't check whether they fit together.`);
+    const blockTypes = [...new Set([...blocked, ...failed].map(f => f.block).filter(Boolean))];
+    return { fixes, tryNow, waiting, worked, failed, blocked, gaps, head, notes, blockTypes };
   }
 
-  // Rule 4: shared steps. A fix is shared if it provides what 2+ fixes need, is a part of 2+ fixes, or serves 2+ pains (directly or through what it enables).
+  // Rule 4: shared steps, following results all the way downstream.
   function sharedSteps(g) {
     const ids = Object.keys(g.fixes);
+    const direct = id => ids.filter(o => o !== id && (
+      (g.fixes[o].parts || []).includes(id) ||
+      (g.fixes[o].needs || []).some(c => Object.values(g.fixes[id].outcomes).some(oc => oc.kind === 'success' && (oc.provides || []).some(p => covers(g, p).includes(c))))));
     return ids.map(id => {
-      const f = g.fixes[id];
-      const users = ids.filter(o => o !== id && ((g.fixes[o].needs || []).some(n => (f.provides || []).includes(n.cond)) || (g.fixes[o].parts || []).includes(id)));
-      const painsOf = x => g.fixes[x].toward.flatMap(d => g.dreams[d].pains);
-      const pains = [...new Set([...painsOf(id), ...users.flatMap(painsOf)])];
-      return { id, users, pains };
-    }).filter(s => s.users.length > 1 || s.pains.length > 1);
+      const seen = new Set(); const queue = direct(id);
+      while (queue.length) { const x = queue.shift(); if (seen.has(x) || x === id) continue; seen.add(x); queue.push(...direct(x)); }
+      const down = [...seen];
+      const pains = [...new Set([id, ...down].flatMap(x => g.fixes[x].toward.flatMap(d => g.dreams[d].pains)))];
+      return { id, down, pains };
+    }).filter(s => s.down.length > 1 || s.pains.length > 1);
   }
 
-  const initial = () => ({ pain:'sleep', facts:[], done:[], edits:[] });
-  function reduce(state, a) {
-    const toggle = (list, x) => list.includes(x) ? list.filter(y => y !== x) : [...list, x];
+  const initial = () => ({ pain:'sleep', facts:{}, outcomes:{}, edits:[], matters:[] });
+  function reduce(s, a) {
+    const toggle = (l, x) => l.includes(x) ? l.filter(y => y !== x) : [...l, x];
     switch (a.type) {
-      case 'pain': return { ...state, pain:a.pain };
-      case 'fact': return { ...state, facts:toggle(state.facts, a.fact) };
-      case 'done': return { ...state, done:toggle(state.done, a.fix) };
-      case 'edit': return { ...state, edits:toggle(state.edits, a.edit) };
+      case 'pain': return { ...s, pain:a.pain };
+      case 'fact': { const facts = { ...s.facts }; if (a.value === 'unknown') delete facts[a.fact]; else facts[a.fact] = a.value; return { ...s, facts }; }
+      case 'outcome': { const outcomes = { ...s.outcomes }; if (!a.outcome || outcomes[a.fix] === a.outcome) delete outcomes[a.fix]; else outcomes[a.fix] = a.outcome; return { ...s, outcomes }; }
+      case 'edit': return { ...s, edits:toggle(s.edits, a.edit) };
+      case 'matters': return { ...s, matters:toggle(s.matters, a.dream) };
       case 'reset': return initial();
-      default: return state;
+      default: return s;
     }
   }
-  return { base, edits, buildGraph, standing, dreamRelevance, routes, sharedSteps, initial, reduce };
+  return { base, edits, buildGraph, outcomeOf, standing, dreamNotes, dreamSummary, sharedSteps, initial, reduce };
 })();
 
 // ===== Throwaway page shell =====
 const G = Graph;
 let state = G.initial(); let note = '';
 const $ = id => document.getElementById(id);
-const LABEL = { open:'Open now', first:'Open after a first step', unknown:'No known way yet', blocked:'Not possible here as written', done:'Done' };
+const LABEL = { open:'Can start now', check:'A question to check first', first:'Needs a step first', waiting:'Waiting on an answer', unknown:'No modeled way yet', blocked:'Blocked as modeled', done:'Worked', failed:"Didn't work" };
+const BLOCK = { confirmed:'a fact rules it out as written', refusal:'someone said no', tried:'tried, and it didn\'t work', dependency:'something it needs is blocked', circular:'a loop in what it needs' };
 const ROLE = { does:'does it', agrees:'has to agree', decides:'decides', joins:'takes part' };
-const doneBtn = id => `<button class="small" data-done="${id}">${state.done.includes(id) ? 'Undo' : 'Mark done'}</button>`;
 
 function dispatch(a, msg) { state = G.reduce(state, a); note = msg || ''; render(); }
+function outcomeButtons(g, id) {
+  const f = g.fixes[id]; const cur = state.outcomes[id];
+  return Object.entries(f.outcomes).map(([k, o]) => `<button class="small ${cur === k ? 'on' : ''}" data-fix="${id}" data-outcome="${k}">${o.label}</button>`).join('');
+}
+function badge(s) { return `<span class="status s-${s}">${LABEL[s]}</span>`; }
 
 function render() {
   const g = G.buildGraph(state.edits);
   $('pains').innerHTML = Object.entries(g.pains).map(([id, p]) => `<button class="${state.pain === id ? 'on' : ''}" data-pain="${id}">${p.title}</button>`).join('');
-  $('facts').innerHTML = g.pains[state.pain].facts.map(f => `<button class="${state.facts.includes(f) ? 'on' : ''}" data-fact="${f}">${g.facts[f].text}</button>`).join('');
+  $('facts').innerHTML = g.pains[state.pain].facts.map(f => { const v = state.facts[f] || 'unknown'; return `<div class="fact"><span>${g.facts[f].text}</span><span class="seg">${['unknown','yes','no'].map(x => `<button class="small ${v === x ? 'on' : ''}" data-fact="${f}" data-value="${x}">${x === 'unknown' ? 'Not checked' : x === 'yes' ? 'Yes' : 'No'}</button>`).join('')}</span></div>`; }).join('');
   $('edits').innerHTML = Object.entries(G.edits).map(([id, e]) => `<button class="${state.edits.includes(id) ? 'on' : ''}" data-edit="${id}">${e.label}</button>`).join('');
   $('changed').innerHTML = note ? `<div class="changed"><strong>What just changed:</strong> ${note}</div>` : '';
-  const active = state.facts.filter(f => g.pains[state.pain].facts.includes(f));
-  let h = `<h2 style="margin-top:0">${g.pains[state.pain].title}</h2><div class="muted">Imagined situation: ${active.length ? active.map(f => g.facts[f].text).join('; ') : 'nothing known yet'}${state.done.length ? '<br>Done: ' + state.done.filter(f => g.fixes[f]).map(f => g.fixes[f].title).join('; ') : ''}${state.edits.length ? '<br>Graph edits: ' + state.edits.map(e => G.edits[e].label).join('; ') : ''}</div>`;
-  for (const d of Object.keys(g.dreams).filter(d => g.dreams[d].pains.includes(state.pain))) {
-    const dr = g.dreams[d]; const rel = G.dreamRelevance(g, state, d); const { list, gap } = G.routes(g, state, d);
-    h += `<div class="dream"><h3>${dr.title}<span class="muted" style="font-weight:400"> · ${dr.kind === 'freedom' ? 'a freedom' : 'a state'} · for ${dr.scale}</span>${rel.map(r => `<span class="rel ${r.dir}">${r.dir === 'more' ? '▲ more relevant' : '▼ less relevant'}</span>`).join('')}</h3><div class="muted">${dr.line}</div>`;
-    if (rel.length) h += `<ul class="r">${rel.map(r => `<li>${g.facts[r.fact].text}: ${r.why}. (Still shown.)</li>`).join('')}</ul>`;
-    for (const r of list) h += renderFix(g, r);
-    if (gap === 'blocked') h += `<div class="gap blocked"><strong>Honest gap:</strong> every known route is blocked in this situation. It can say so, show what blocks each one, and treat this as something to build or organize toward, instead of hiding the dream.</div>`;
-    if (gap === 'unknown') h += `<div class="gap unknown"><strong>Gap to fill:</strong> no complete route is known yet. The missing piece is named above, and it can become its own goal.</div>`;
-    h += `</div>`;
-  }
+  const known = Object.entries(state.facts).filter(([f]) => g.pains[state.pain].facts.includes(f));
+  let h = `<h2>${g.pains[state.pain].title}</h2><div class="muted">Imagined situation: ${known.length ? known.map(([f, v]) => `${g.facts[f].text}: ${v}`).join('; ') : 'nothing checked yet'}${state.edits.length ? '<br>Graph edits: ' + state.edits.map(e => G.edits[e].label).join('; ') : ''}</div>`;
+  for (const d of Object.keys(g.dreams).filter(d => g.dreams[d].pains.includes(state.pain))) h += renderDream(g, d);
   $('view').innerHTML = h;
-  $('shared').innerHTML = G.sharedSteps(g).map(s => `<div style="margin-bottom:8px"><strong>${g.fixes[s.id].title}</strong><div class="muted">${s.users.length ? 'Used by: ' + s.users.map(o => g.fixes[o].title).join('; ') + '. ' : ''}Pains: ${s.pains.map(p => g.pains[p].title).join(' / ') || 'none directly'}</div></div>`).join('') || '<div class="muted">None yet.</div>';
+  $('shared').innerHTML = G.sharedSteps(g).map(s => `<div style="margin-bottom:8px"><strong>${g.fixes[s.id].title}</strong><div class="muted">${s.down.length ? 'Its results feed: ' + s.down.map(o => g.fixes[o].title).join('; ') + '. ' : ''}Pains: ${s.pains.map(p => g.pains[p].title).join(' / ') || 'none directly'}</div></div>`).join('') || '<div class="muted">None.</div>';
   renderScenario();
+}
+
+function renderDream(g, d) {
+  const dr = g.dreams[d]; const notes = G.dreamNotes(g, state, d); const s = G.dreamSummary(g, state, d); const matters = state.matters.includes(d);
+  let h = `<div class="dream"><h3>${dr.title}<span class="muted" style="font-weight:400"> · ${dr.kind === 'freedom' ? 'a freedom' : 'a state'} · for ${dr.scale}</span>${notes.map(n => `<span class="rel ${n.type === 'likely' ? 'more' : 'harder'}">${n.type === 'likely' ? '▲ likely to matter' : '◆ harder for now'}</span>`).join('')} <button class="small ${matters ? 'on' : ''}" data-matters="${d}">${matters ? '★ Matters to me' : '☆ Matters to me?'}</button></h3><div class="muted">${dr.line}</div>`;
+  if (notes.length) h += `<ul class="r">${notes.map(n => `<li>${g.facts[n.fact].text}: ${n.why}. Still shown; how much it matters is the person's call.</li>`).join('')}</ul>`;
+  h += `<div class="head h-${s.head.type}"><strong>${s.head.text}</strong>${s.blockTypes.length && s.head.type === 'blocked' ? `<div class="muted">Why: ${s.blockTypes.map(b => BLOCK[b]).join('; ')}.</div>` : ''}</div>`;
+  for (const n of s.notes) h += `<div class="note">${n}</div>`;
+  const groups = [['Try now', s.tryNow], ['Waiting', s.waiting], ['Tried: worked', s.worked], ["Tried: didn't work", s.failed], ['No modeled way yet', s.gaps], ['Blocked as modeled', s.blocked]];
+  for (const [label, list] of groups) if (list.length) h += `<h4>${label}</h4>` + list.map(r => renderFix(g, r)).join('');
+  return h + `</div>`;
 }
 
 function renderFix(g, r) {
   const f = g.fixes[r.id];
-  let h = `<div class="fix"><div><span class="status s-${r.status}">${LABEL[r.status]}</span> <strong>${f.title}</strong> <span class="muted">· ${f.kind} · may help, no promise</span>${doneBtn(r.id)}</div>`;
-  h += `<ul class="r"><li>Who takes part: ${f.actors.map(([w, role]) => `${w} ${ROLE[role]}`).join('; ')}</li>${r.reasons.map(x => `<li>${x}</li>`).join('')}</ul>`;
-  if (r.parts.length) h += `<div class="sub muted">Made of: ${r.parts.map(p => `<span class="status s-${p.status}">${LABEL[p.status]}</span> ${g.fixes[p.id].title}${doneBtn(p.id)}`).join(' &nbsp; ')}</div>`;
-  for (const s of r.first) {
-    const v = g.fixes[s.via]; const vs = G.standing(g, state, s.via);
-    h += `<div class="sub">↳ Needs ${g.conditions[s.cond]} first: <strong>${v.title}</strong> <span class="status s-${vs.status}">${LABEL[vs.status]}</span>${doneBtn(s.via)}`;
-    if (vs.parts.length) h += `<div class="sub muted">Made of: ${vs.parts.map(p => `<span class="status s-${p.status}">${LABEL[p.status]}</span> ${g.fixes[p.id].title}${doneBtn(p.id)}`).join(' &nbsp; ')}</div>`;
-    if (s.alts.length) h += `<div class="sub muted">Other ways to get it: ${s.alts.map(a => g.fixes[a].title).join('; ')}</div>`;
+  let h = `<div class="fix"><div>${badge(r.avail)} <strong>${f.title}</strong> <span class="muted">· ${f.kind} · may help, no promise</span></div>`;
+  h += `<ul class="r"><li>Who takes part: ${f.actors.map(([w, role]) => `${w} ${ROLE[role]}`).join('; ')}</li>${r.block ? `<li>Kind of block: ${BLOCK[r.block]}</li>` : ''}${r.reasons.map(x => `<li>${x}</li>`).join('')}</ul>`;
+  if (r.parts.length) h += `<div class="sub muted">${f.checklist ? 'Made of (a checklist: all succeeding completes it):' : 'Steps that usually go into it (doing them doesn\'t settle the result):'} ${r.parts.map(p => `<div>${badge(p.avail)} ${g.fixes[p.id].title} ${p.block === 'circular' ? '' : outcomeButtons(g, p.id)}</div>`).join('')}</div>`;
+  for (const w of r.ways) {
+    h += `<div class="sub">↳ Needs ${g.conditions[w.cond].label} first. Any of these, listed alphabetically, not ranked:`;
+    for (const o of w.options) { const os = G.standing(g, state, o); h += `<div class="sub">${badge(os.avail)} ${g.fixes[o].title} ${outcomeButtons(g, o)}${os.reasons.length && os.avail !== 'open' ? `<ul class="r">${os.reasons.map(x => `<li>${x}</li>`).join('')}</ul>` : ''}</div>`; }
     h += `</div>`;
   }
+  h += `<div class="sub muted">Record what happened: ${outcomeButtons(g, r.id)}</div>`;
   return h + `</div>`;
 }
 
+const F = (fact, value, msg) => [msg[0], { type:'fact', fact, value }, msg[1]];
+const O = (fix, outcome, msg) => [msg[0], { type:'outcome', fix, outcome }, msg[1]];
+const P = (pain, msg) => [msg[0], { type:'pain', pain }, msg[1]];
+const E = (edit, msg) => [msg[0], { type:'edit', edit }, msg[1]];
 const scenarios = [
-  { name:'Missing prerequisite', text:'High rent. The imagined person qualifies for rent assistance but has no proof of income on hand. Nobody wrote "gather documents first" on rent assistance; the graph only says rent assistance needs proof of income, and gathering documents provides it.', steps:[
-    ['Open High rent', {type:'pain', pain:'rent'}, 'Switched to High rent. Rent assistance only applies with low income, so it shows as not possible here.'],
-    ['Income is low enough for assistance', {type:'fact', fact:'low-income'}, 'Rent assistance is open after a first step: it needs proof of income, and "Gather proof of income and ID" provides it.'],
-    ['Gather the documents', {type:'done', fix:'gather-docs'}, 'Proof of income is in hand, so rent assistance is open now.'],
+  { name:"We haven't checked eligibility", text:'Nothing is known yet about income. Rent assistance should ask, not exclude. Then compare a confirmed "no".', steps:[
+    P('rent', ['Open High rent', 'Rent assistance shows "A question to check first": income hasn\'t been checked, so eligibility is open, not ruled out. (Its documents come after.)']),
+    F('low-income', 'no', ['Income: confirmed not low enough', 'Now it\'s blocked, and the reason is a confirmed fact, which is a different result from "not checked".']),
+    F('low-income', 'yes', ['Income: confirmed low enough', 'Eligible. It needs proof of income and ID first.']),
   ]},
-  { name:'Change the graph', text:'Edit the graph itself and watch the same rules give new answers. Add a second way to get proof of income, then remove the need for it altogether.', steps:[
-    ['Open High rent', {type:'pain', pain:'rent'}, 'Switched to High rent.'],
-    ['Income is low enough for assistance', {type:'fact', fact:'low-income'}, 'Rent assistance needs proof of income first, via gathering documents.'],
-    ['Add: an employer income letter', {type:'edit', edit:'employer-letter'}, 'A new fix provides proof of income. With no new code, rent assistance now lists it as another way to get it.'],
-    ['Edit: rent assistance stops needing proof of income', {type:'edit', edit:'no-docs-needed'}, 'The requirement is gone, so rent assistance is open now and no first step is recommended.'],
+  { name:'Missing prerequisite', text:'Rent assistance needs proof of income and ID. "Gather proof of income and ID" is a true checklist: getting both pieces completes it, and that provides what rent assistance needs.', steps:[
+    P('rent', ['Open High rent', 'Switched to High rent.']),
+    F('low-income', 'yes', ['Income is low enough', 'Rent assistance needs a step first. Each need lists its ways, unranked: a single piece, or the full documents checklist.']),
+    O('get-paystub', 'done', ['Got a pay stub', 'Proof of income is in hand; ID is still missing, so the step first remains.']),
+    O('get-id', 'done', ['Got ID', 'Both pieces done, so the checklist completes itself, and rent assistance can start now.']),
   ]},
-  { name:'Shared step', text:'One definition, reused. Proof of income serves rent assistance and, once added, utility help. "Meet the neighbors" serves a tenants association under High rent and belonging under Loneliness. Watch the shared-steps panel, and "done" carry across pains.', steps:[
-    ['Open High rent', {type:'pain', pain:'rent'}, 'Switched to High rent. In the shared-steps panel, "Meet the neighbors" serves both High rent and Loneliness.'],
-    ['Add: utility help (also needs proof of income)', {type:'edit', edit:'utility-help'}, '"Gather proof of income and ID" now provides what two fixes need, so it appears as shared. It\'s still one definition.'],
-    ['Meet the neighbors', {type:'done', fix:'meet-neighbors'}, 'The tenants association no longer needs a first step.'],
-    ['Open Loneliness', {type:'pain', pain:'lonely'}, 'Under "Belonging where I live", meeting the neighbors already counts as done.'],
+  { name:'Change the graph', text:'Edit the graph and watch the same rules answer differently. The employer letter provides proof of income only, not ID, so it can\'t be the whole answer.', steps:[
+    P('rent', ['Open High rent', 'Switched to High rent.']),
+    F('low-income', 'yes', ['Income is low enough', 'Rent assistance needs proof of income and ID first.']),
+    E('employer-letter', ['Add: an employer income letter', 'A new way appears under "proof of income", listed alphabetically, not ranked. It doesn\'t appear under ID, because the letter isn\'t ID.']),
+    E('no-docs-needed', ['Edit: rent assistance stops needing documents', 'No requirement, so no first step. Rent assistance can start now.']),
   ]},
-  { name:'Made of smaller steps', text:'"Find out what\'s disrupting your sleep" is made of two smaller steps. When both are done, it\'s done, and the fixes that need its result open up.', steps:[
-    ['Open Sleep', {type:'pain', pain:'sleep'}, 'Insomnia therapy and the apnea check both need a picture of what\'s disrupting sleep, which "Find out what\'s disrupting your sleep" provides.'],
-    ['Keep a sleep diary', {type:'done', fix:'sleep-diary'}, 'One of two parts done; the larger step is not done yet.'],
-    ['Talk to a doctor', {type:'done', fix:'talk-doctor'}, 'All parts done, so the larger step is done through its parts, and both fixes that needed it are open now.'],
+  { name:'Shared step', text:'One definition, reused, followed downstream. "Gather proof of income and ID" feeds rent assistance and, once added, utility help. "Meet the neighbors" feeds a tenants association and the campaign that needs it, under High rent, and serves belonging under Loneliness.', steps:[
+    P('rent', ['Open High rent', 'In the shared-steps panel, "Meet the neighbors" feeds the tenants association and, further down the line, the rent-limits campaign.']),
+    E('utility-help', ['Add: help with utility bills', 'The gathered documents now feed two fixes; one definition.']),
+    O('meet-neighbors', 'met', ['Record: met some neighbors', 'That outcome provides "neighbors you know", so the tenants association can start now.']),
+    P('lonely', ['Open Loneliness', 'Under "Belonging where I live", meeting the neighbors shows as worked.']),
   ]},
-  { name:'Who takes part', text:'Some fixes need other people: a partner who has to agree, a doctor who decides, a city council. Recorded roles let It say whose participation a route needs.', steps:[
-    ['Open Sleep', {type:'pain', pain:'sleep'}, 'Switched to Sleep.'],
-    ["Partner's snoring wakes them", {type:'fact', fact:'partner-snores'}, '"Both sleeping well" is more relevant, and the apnea check names the partner as the one who has to do it.'],
-    ['Open High rent', {type:'pain', pain:'rent'}, 'The rent-limits campaign lists a tenant group that takes part and a city council that decides, and it needs a tenant group first.'],
+  { name:'Steps done, result unsettled', text:'"Find out what\'s disrupting your sleep" lists two steps, but it isn\'t a checklist: doing both doesn\'t mean you found the cause. Compare it with the documents checklist.', steps:[
+    P('sleep', ['Open Sleep', 'Insomnia therapy and the apnea check need a picture of what\'s disrupting sleep.']),
+    O('sleep-diary', 'done', ['Record: kept the diary', 'One step done.']),
+    O('talk-doctor', 'done', ['Record: talked to a doctor', 'Both steps done, and the larger step still isn\'t: it says to record what happened.']),
+    O('find-cause', 'found', ['Record: found a likely cause', 'Now the picture exists, so both fixes can start.']),
   ]},
-  { name:'Same fact, different roles', text:'"Works night shifts" isn\'t a constraint or an advantage on its own. Watch it make one dream more relevant, one fix impossible as written, two fixes fit well, one harder, and one apply at all.', steps:[
-    ['Open Sleep', {type:'pain', pain:'sleep'}, 'Switched to Sleep.'],
-    ['Works night shifts', {type:'fact', fact:'nights'}, '"Hours that fit my life" is more relevant. "Same wake time" isn\'t possible as written. The dark bedroom and fixed sleep block fit well. Insomnia therapy is harder. The 11-hour ask now applies.'],
+  { name:'I asked; they said no', text:'With a baby, no second adult, and a relative to ask, asking isn\'t the same as getting help. A "no" means the relative\'s help doesn\'t exist.', steps:[
+    P('sleep', ['Open Sleep', 'Switched to Sleep.']),
+    F('infant', 'yes', ['Wakes to care for a baby', '"Getting back to sleep quickly" is likely to matter; "Sleeping through the night" is harder for now, still shown.']),
+    F('second-adult', 'no', ['No second adult at home', 'Both night-feed fixes show "No modeled way yet": nothing in the graph provides a second adult. That\'s a gap, not an impossibility.']),
+    E('relative-stay', ['Add: ask a relative to stay over', 'The weekly hand-off needs a step first: the ask. Taking turns every night is still a gap, because one night a week doesn\'t cover every night.']),
+    O('relative-stay', 'refused', ['Record: relative said no', 'The ask was tried and refused. The weekly hand-off is blocked: every modeled way to get help one night a week didn\'t work.']),
   ]},
-  { name:'Unknown is not impossible', text:'A baby at night makes "Sleeping through the night" less relevant, not illegitimate. Taking turns on night feeds needs a second adult at night. With no second adult and no known way to get one, that\'s a gap to fill, not an impossibility. Adding a way fills it.', steps:[
-    ['Open Sleep', {type:'pain', pain:'sleep'}, 'Switched to Sleep.'],
-    ['Wakes to care for a baby', {type:'fact', fact:'infant'}, '"Getting back to sleep quickly" rises; "Sleeping through the night" is less relevant but still shown. Taking turns on night feeds shows "No known way yet": nothing in the graph provides a second adult.'],
-    ['Add: a relative stays over once a week', {type:'edit', edit:'relative-stay'}, 'The gap is filled by a new fix. Taking turns is now open after a first step: asking a relative.'],
+  { name:'Help for one night', text:'The relative agrees, for one night a week. That supports the weekly hand-off, not taking turns every night.', steps:[
+    P('sleep', ['Open Sleep', 'Switched to Sleep.']),
+    F('infant', 'yes', ['Wakes to care for a baby', 'Night-feed fixes apply.']),
+    F('second-adult', 'no', ['No second adult at home', 'Both night-feed fixes have a gap.']),
+    E('relative-stay', ['Add: ask a relative to stay over', 'The weekly hand-off needs the ask first.']),
+    O('relative-stay', 'pending', ['Record: no answer yet', 'Waiting: the hand-off waits on the answer, and nothing is assumed.']),
+    O('relative-stay', 'agreed', ['Record: relative agreed', 'Help one night a week now exists. The weekly hand-off can start now; taking turns every night still has its gap.']),
   ]},
-  { name:'Honest gap', text:'High rent, for someone who wants to stay. Their landlord won\'t negotiate and their neighbors aren\'t interested in organizing. Watch the routes to "Staying in my home" close, including the campaign that depends on a tenant group.', steps:[
-    ['Open High rent', {type:'pain', pain:'rent'}, 'Switched to High rent.'],
-    ['Wants to stay in this exact home', {type:'fact', fact:'wants-stay'}, '"Staying in my home" is more relevant.'],
-    ["Landlord won't negotiate", {type:'fact', fact:'landlord-no'}, 'The longer-lease ask isn\'t possible as written. The tenants association is still a route.'],
-    ["Neighbors aren't interested", {type:'fact', fact:'neighbors-unwilling'}, 'The tenants association is blocked, so the campaign that needs a tenant group is blocked too. "Staying in my home" shows an honest gap.'],
+  { name:'I did everything; it didn\'t work', text:'Someone tries every route to staying in their home. Results stay recorded, the dream stays open, and nothing claims it was reached.', steps:[
+    P('rent', ['Open High rent', 'Switched to High rent.']),
+    O('long-lease', 'refused', ['Record: landlord said no', 'The lease ask moves to "didn\'t work", with the reason: someone said no.']),
+    O('meet-neighbors', 'met', ['Record: met some neighbors', 'The tenants association can start.']),
+    O('tenant-group', 'formed', ['Record: association formed', 'It worked, and it provides an organized tenant group, so the campaign can start.']),
+    O('rent-limits', 'notPassed', ['Record: limits not passed', 'Nothing modeled is left to try for staying in the home. The association\'s success is noted as progress, not as the dream reached.']),
+  ]},
+  { name:'All modeled approaches blocked', text:'Someone who wants to stay: the landlord said no, and the neighbors aren\'t interested. The dream stays; the claim is only about approaches modeled here.', steps:[
+    P('rent', ['Open High rent', 'Switched to High rent.']),
+    F('wants-stay', 'yes', ['Wants to stay in this home', '"Staying in my home" is likely to matter.']),
+    O('long-lease', 'refused', ['Record: landlord said no', 'One route didn\'t work; others remain.']),
+    F('neighbors-unwilling', 'yes', ['Neighbors aren\'t interested', 'The association is blocked as written, so the campaign that needs a tenant group is blocked too. The headline says all modeled approaches are blocked, which isn\'t proof it\'s impossible, with the kinds of block listed.']),
+  ]},
+  { name:'Two options, one budget', text:'Insomnia therapy and an apnea check can each start, but both cost money. The prototype flags the clash instead of implying you can do both.', steps:[
+    P('sleep', ['Open Sleep', 'Switched to Sleep.']),
+    O('find-cause', 'found', ['Record: found a likely cause', 'Both fixes can start. Under "Waking up rested", a note says they both use spare money, so available separately isn\'t available together.']),
+  ]},
+  { name:'A loop in the prerequisites', text:'Two kinds of loop: one in what a fix needs, one in what it\'s made of. Neither should crash, invent a first step, or be called a knowledge gap.', steps:[
+    P('rent', ['Open High rent', 'Switched to High rent.']),
+    F('low-income', 'yes', ['Income is low enough', 'Rent assistance needs documents first.']),
+    E('needs-loop', ['Add the caseworker loop', 'Rent assistance is blocked, and the reason names the loop: the caseworker letter needs an application on file, which needs the letter.']),
+    P('sleep', ['Open Sleep', 'Switched to Sleep.']),
+    E('parts-loop', ['Add the loop in parts', 'Insomnia therapy and the apnea check are blocked, and their reason names the loop in finding the cause. Nothing crashes.']),
+  ]},
+  { name:'Who takes part', text:'Fixes record who has to act, and asks have outcomes, so agreement is part of the reasoning, not just a label.', steps:[
+    P('sleep', ['Open Sleep', 'Switched to Sleep.']),
+    F('partner-snores', 'yes', ["Partner's snoring wakes them", 'The apnea check names the partner as the one who does it.']),
+    P('rent', ['Open High rent', 'The rent-limits campaign lists the tenant group that takes part and the city council that decides.']),
+  ]},
+  { name:'Same fact, different roles', text:'"Works night shifts" isn\'t a constraint or an advantage by itself. Watch it make one dream likely to matter, two fixes fit well, two harder, and one apply at all.', steps:[
+    P('sleep', ['Open Sleep', 'Switched to Sleep.']),
+    F('nights', 'yes', ['Works night shifts: yes', '"Hours that fit my life" is likely to matter. The dark bedroom and the fixed block fit well. The same wake-up time and insomnia therapy are harder. The 11-hour ask now applies.']),
   ]},
 ];
 let tab = 0, stepAt = 0;
-function startTab(i) { tab = i; stepAt = 0; state = G.initial(); note = 'Started this walkthrough from a blank situation and the original graph.'; render(); }
+function startTab(i) { tab = i; stepAt = 0; state = G.initial(); note = 'Started this walkthrough from nothing checked and the original graph.'; render(); }
 function renderScenario() {
   $('tabs').innerHTML = scenarios.map((s, i) => `<button class="${i === tab ? 'on' : ''}" data-tab="${i}">${s.name}</button>`).join('');
   const s = scenarios[tab];
@@ -361,13 +474,14 @@ function renderScenario() {
 document.addEventListener('click', e => {
   const b = e.target.closest('button'); if (!b) return;
   const g = G.buildGraph(state.edits);
-  if (b.dataset.pain) dispatch({type:'pain', pain:b.dataset.pain}, `Switched to ${g.pains[b.dataset.pain].title}`);
-  else if (b.dataset.fact) dispatch({type:'fact', fact:b.dataset.fact}, `Toggled the fact: ${g.facts[b.dataset.fact].text}.`);
-  else if (b.dataset.done) dispatch({type:'done', fix:b.dataset.done}, `Toggled done: ${g.fixes[b.dataset.done].title}.`);
-  else if (b.dataset.edit) dispatch({type:'edit', edit:b.dataset.edit}, `Toggled the graph edit: ${G.edits[b.dataset.edit].label}.`);
+  if (b.dataset.pain) dispatch({ type:'pain', pain:b.dataset.pain }, `Switched to ${g.pains[b.dataset.pain].title}`);
+  else if (b.dataset.fact) dispatch({ type:'fact', fact:b.dataset.fact, value:b.dataset.value }, `${g.facts[b.dataset.fact].text}: ${b.dataset.value === 'unknown' ? 'not checked' : b.dataset.value}.`);
+  else if (b.dataset.outcome) dispatch({ type:'outcome', fix:b.dataset.fix, outcome:b.dataset.outcome }, `Recorded for "${g.fixes[b.dataset.fix].title}": ${g.fixes[b.dataset.fix].outcomes[b.dataset.outcome].label} (click again to clear).`);
+  else if (b.dataset.edit) dispatch({ type:'edit', edit:b.dataset.edit }, `Graph edit toggled: ${G.edits[b.dataset.edit].label}.`);
+  else if (b.dataset.matters) dispatch({ type:'matters', dream:b.dataset.matters }, `Marked how much "${g.dreams[b.dataset.matters].title}" matters. That's the person's call, not the graph's.`);
   else if (b.dataset.tab) startTab(+b.dataset.tab);
   else if (b.dataset.step) { const i = +b.dataset.step; if (i !== stepAt) return; const st = scenarios[tab].steps[i]; stepAt = i + 1; dispatch(st[1], st[2]); }
-  else if (b.id === 'reset') { stepAt = 0; dispatch({type:'reset'}, 'Started over with the original graph.'); }
+  else if (b.id === 'reset') { stepAt = 0; dispatch({ type:'reset' }, 'Started over: nothing checked, original graph.'); }
 });
 startTab(0);
 </script>
