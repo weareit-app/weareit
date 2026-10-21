@@ -61,6 +61,10 @@ Cost (checked 2026-10-20 against GitHub's Actions billing docs): GitHub Actions 
 
 Action pins and their review notes: `docs/architecture/ci-actions.md`.
 
+## Generator pages
+
+- Lucide 0.469.0 (ISC), loaded from `https://cdn.jsdelivr.net/npm/lucide@0.469.0/dist/umd/lucide.min.js` by the calibration page (`tools/possibilities/config/calibration-page.template.html`, since 2026-10-19) and the fix review page (`fix-review-page.template.html`, since 2026-10-20). It was published on 2024-12-20 (`npm view lucide time`, checked 2026-10-20). It draws the icons for fix kinds and statuses named in `docs/style/copy-style-guide.md`. The icons are decorative: both pages always show the kind or status as text, so a page that can't reach the CDN still works. Keep both pages on the same version. Before an upgrade, check that every icon name in the copy guide's "Kinds of fixes" table still exists.
+
 ## Spec and agent tooling
 
 - OpenSpec CLI 1.14.1 (`npm install -g @fission-ai/openspec@1.14.1`; chosen 2026-10-19 as the newest release at least two weeks old). Telemetry off (`openspec config set telemetry.enabled false`). Generated files: `openspec/`, `.claude/skills/openspec-*`, `.claude/commands/opsx/`, `.agents/skills/openspec-*`. Refresh with `openspec update` after upgrading the CLI, and review the diff.
