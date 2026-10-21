@@ -35,6 +35,7 @@ Decided 2026-10-16 (founder override of the assessment's weak-evidence gate); co
 
 - **Go** on the full v0.1, built in the order a visitor meets it, despite weak demand evidence: one informal tester, no interviews or analytics. Launching is how the evidence gets gathered.
 - **Launch target:** web. The iOS app is optional for v0.1, ships only if ready, and is kept working throughout.
+- **Launch date:** Monday Nov 2, 2026, moved from Oct 26 on 2026-10-21 with the full launch bar (weareit-app/weareit#160). Stripe live setup by Thu Oct 29 and a live test on Sat Oct 31. Checkpoint Wed Oct 28: if signup and Support aren't running in production, ship the smallest version of whatever is slipping rather than move the date again.
 - **Smallest version over delay:** if the build is clearly slipping mid-week, ship the smallest version of the slipping feature rather than delay launch.
 - **Launch measures are never cut:** selected fixes, the stage funnel (see `visit-measurement`) and support conversion ship in v0.1.
 - **Signup review line:** if more than about half of the people who reach the signup gate leave there, revisit required signup, with a decision record.
@@ -176,3 +177,4 @@ Decided 2026-10-19 by the founder (ticket "Pick hosting, email provider and depl
 - 2026-10-20: founder asked to move the app to Expo SDK 58 (weareit-app/weareit#79, a draft until after the Oct 26 launch), mainly for per-route web bundles. Expo Router async routes are limited to web production builds, so development keeps one bundle. The stack is unchanged: same Expo Router, NativeWind pair and Skia, at SDK 58's versions (`docs/architecture/dependency-policy.md`).
 - 2026-10-20: recorded the code-only Prettier decision (from #62 and #77), which until then lived only in tool config comments.
 - 2026-10-21: founder chose local-only OpenAPI docs for developers: a generated spec, a Scalar page, and an OpenAPI transport beside RPC, all behind `API_DOCS=1`. The app's RPC transport and production are unchanged.
+- 2026-10-21: founder moved the v0.1 launch from Oct 26 to Nov 2 with the full launch bar, because none of the four launch features was built yet (weareit-app/weareit#157, #160); added a Wed Oct 28 checkpoint.

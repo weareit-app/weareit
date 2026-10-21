@@ -31,7 +31,7 @@ Must leave room for (features.md §4, §6 and Stages): managing or cancelling re
 
 ## Launch scope (founder, 2026-10-19)
 
-For the v0.1 web launch on Oct 26 (map issue #2, ticket #7), this change ships on web with everything above except:
+For the v0.1 web launch on Nov 2, moved from Oct 26 (map issue #2, ticket #7), this change ships on web with everything above except:
 
 - **Deferred until after launch:** the public funding total and the comparison with other companies; the CMS place for the founder letter; everything on iOS.
 - **Founder letter:** ships as fixed text in the app. The founder is finishing the copy; no placeholder ships.
