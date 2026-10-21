@@ -1,6 +1,11 @@
 import type { LucideIcon } from "lucide-react-native";
 import type { RefObject } from "react";
-import { Pressable, useWindowDimensions, View } from "react-native";
+import {
+  Pressable,
+  useWindowDimensions,
+  View,
+  type ViewInstance,
+} from "react-native";
 import Animated, { FadeIn, FadeOut } from "react-native-reanimated";
 import type { ContentFix } from "@it/content/graph-schema";
 import type { PersonalPath } from "@it/domain/onboarding";
@@ -27,7 +32,7 @@ export type PainRowProps = {
   fixOrder: string[];
   focusDreamId: string | undefined;
   openChip: { fixId: string; chip: WayChip } | null;
-  rowRef: RefObject<View | null>;
+  rowRef: RefObject<ViewInstance | null>;
   onCheck: () => void;
   onRowPress: () => void;
   onToggleDream: (dreamId: string) => void;

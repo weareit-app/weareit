@@ -1,0 +1,42 @@
+/* The story canvas follows the theme toolbar, as the app's page does. */
+body {
+  background-color: var(--color-paper);
+}
+
+/*
+  The faces in src/theme/fonts.ts, under the family names the font-* tokens in
+  global.css use. The app loads them with expo-font; Storybook loads them here.
+*/
+
+@font-face {
+  font-family: "Bitter_400Regular";
+  src: url("@expo-google-fonts/bitter/400Regular/Bitter_400Regular.ttf");
+}
+@font-face {
+  font-family: "Bitter_400Regular_Italic";
+  src: url("@expo-google-fonts/bitter/400Regular_Italic/Bitter_400Regular_Italic.ttf");
+}
+@font-face {
+  font-family: "Bitter_600SemiBold";
+  src: url("@expo-google-fonts/bitter/600SemiBold/Bitter_600SemiBold.ttf");
+}
+@font-face {
+  font-family: "Bitter_600SemiBold_Italic";
+  src: url("@expo-google-fonts/bitter/600SemiBold_Italic/Bitter_600SemiBold_Italic.ttf");
+}
+@font-face {
+  font-family: "Inter_400Regular";
+  src: url("@expo-google-fonts/inter/400Regular/Inter_400Regular.ttf");
+}
+@font-face {
+  font-family: "Inter_500Medium";
+  src: url("@expo-google-fonts/inter/500Medium/Inter_500Medium.ttf");
+}
+@font-face {
+  font-family: "Inter_600SemiBold";
+  src: url("@expo-google-fonts/inter/600SemiBold/Inter_600SemiBold.ttf");
+}
+@font-face {
+  font-family: "Inter_700Bold";
+  src: url("@expo-google-fonts/inter/700Bold/Inter_700Bold.ttf");
+}
