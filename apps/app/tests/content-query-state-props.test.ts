@@ -1,3 +1,4 @@
+import { describeApiFailure } from "@it/api/client";
 import { contentQueryStateProps } from "../src/content/use-published-content";
 
 // Uses the real API client, so this file fails to load if Jest can't run
@@ -14,16 +15,15 @@ describe("contentQueryStateProps", () => {
     expect(props.developerDetail).toBeUndefined();
   });
 
-  it("names the unreachable API in development builds", () => {
+  it("describes the failure in development builds", () => {
+    const error = new TypeError("fetch failed");
     const props = contentQueryStateProps({
       isLoading: false,
-      error: new TypeError("fetch failed"),
+      error,
       refetch: () => undefined,
     });
 
-    expect(props.developerDetail).toBe(
-      "Couldn't reach the API at http://localhost:3001/rpc. Start it with `pnpm dev`, or check EXPO_PUBLIC_API_URL.",
-    );
+    expect(props.developerDetail).toBe(describeApiFailure(error));
   });
 
   it("retries by refetching", () => {
