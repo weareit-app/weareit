@@ -2,6 +2,7 @@ import { createServer } from "node:http";
 import { RPCHandler } from "@orpc/server/fetch";
 import { createApiRouter } from "@it/api/router";
 import { createDatabase } from "@it/database/database";
+import { checkDatabaseReadiness } from "@it/database/readiness";
 import { createApiDocs } from "./api-docs";
 import { createAuth } from "./auth";
 import {
@@ -21,6 +22,12 @@ if (!connectionString)
   throw new Error("Set DATABASE_URL to start the API server.");
 if (!cmsAdminToken)
   throw new Error("Set CMS_ADMIN_TOKEN to protect CMS operations.");
+
+const readiness = await checkDatabaseReadiness(connectionString);
+if (!readiness.ready) {
+  console.error(readiness.message);
+  process.exit(1);
+}
 
 const db = createDatabase(connectionString);
 const auth = createAuth(db);

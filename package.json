@@ -6,13 +6,14 @@
     "node": ">=24.0.0 <25"
   },
   "scripts": {
-    "dev": "turbo dev",
+    "dev": "pnpm db:prepare && turbo dev",
     "web": "turbo web --filter=@it/app",
     "ios": "turbo ios --filter=@it/app",
     "api": "pnpm --filter @it/api-server dev",
     "db:up:docker": "docker compose up -d postgres",
     "db:down:docker": "docker compose down",
     "db:migrate": "pnpm --filter @it/database db:migrate",
+    "db:prepare": "pnpm --filter @it/database db:prepare",
     "db:seed": "pnpm --filter @it/database db:seed",
     "test": "pnpm run test:unit && pnpm run test:expo && pnpm run test:e2e",
     "test:unit": "vitest run",

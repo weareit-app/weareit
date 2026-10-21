@@ -24,7 +24,10 @@ import {
   useOnboardingStore,
   type PainScope,
 } from "../../state/onboarding-store";
-import { usePublishedContent } from "../../content/use-published-content";
+import {
+  contentQueryStateProps,
+  usePublishedContent,
+} from "../../content/use-published-content";
 import { useTokenColor } from "../../theme/use-token-color";
 import { groupIcons } from "../../content/group-icons";
 
@@ -119,9 +122,8 @@ export function PainExplorer({
   if (!model)
     return (
       <ContentQueryState
-        loading={contentQuery.isLoading}
-        error={contentQuery.error}
-        retry={() => void contentQuery.refetch()}
+        content="pains"
+        {...contentQueryStateProps(contentQuery)}
       />
     );
 

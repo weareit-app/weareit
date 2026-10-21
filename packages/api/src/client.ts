@@ -1,4 +1,4 @@
-import { createORPCClient } from "@orpc/client";
+import { createORPCClient, ORPCError } from "@orpc/client";
 import { RPCLink } from "@orpc/client/fetch";
 import type { RouterClient } from "@orpc/server";
 import type { ApiRouter } from "./router";
@@ -40,3 +40,15 @@ export function createItApiClient(url: string) {
 const defaultUrl =
   process.env.EXPO_PUBLIC_API_URL ?? "http://localhost:3001/rpc";
 export const apiClient = createItApiClient(defaultUrl);
+
+// For developers only: what went wrong with a call, in a sentence. When a
+// call never reaches the API, fetch rejects with a TypeError (checked
+// 2026-10-21 against the WHATWG Fetch Standard, fetch() method step 12.3);
+// its message varies by platform, for example "fetch failed" in Node 24.
+export function describeApiFailure(error: unknown, url = defaultUrl) {
+  if (error instanceof ORPCError)
+    return `The API at ${url} answered ${error.status}: ${error.message}`;
+  if (error instanceof TypeError)
+    return `Couldn't reach the API at ${url}. Start it with \`pnpm dev\`, or check EXPO_PUBLIC_API_URL.`;
+  return `The call to the API at ${url} failed: ${error instanceof Error ? error.message : String(error)}`;
+}
