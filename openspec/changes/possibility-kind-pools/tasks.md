@@ -47,6 +47,13 @@ Start only after the pain-catalog change (PR #27) and the full pain sweep are me
 - [x] 7.2 Add staged steps to `possibilities-generate`, `possibilities-judge`, and `possibilities-repair` (Claude and Codex copies), with explicit stops for the two founder reviews, behind a `--staged` option so the old flow still runs. Verify by running a dry staged generate on a fixture up to the dream review stop.
 - [x] 7.3 Add Ask (`message-circle-question`), Use a resource (`life-buoy`), and the trial kinds Leave (`door-open`) and Switch (`arrow-left-right`) to the "Kinds of fixes" table in `docs/style/copy-style-guide.md`. Update `tools/possibilities/README.md` for the staged flow, the run files, and the coverage rules. Verify that the README's subcommand table matches `cards.py --help`.
 
+## 7b. Dreams as end states (founder, 2026-10-20)
+
+- [ ] 7b.1 Drop `lens`, `ambition` and `exemplarRefs` from staged dreams and require `lens` and `ambition` on staged fixes, with the kind briefs, the shared-fixes brief and the plan updated to set them. Verify with tests: a dream with a lens fails `validate`, and a fix without an ambition fails.
+- [ ] 7b.2 Count coverage (lenses, ambitions, basics tonight) on the fixes linked to accepted dreams. Verify with tests on a fixture whose dreams have no lens or ambition.
+- [ ] 7b.3 Rewrite `briefs/dreams.md` for the end-state rule, both checks, the Sleep ladder, distinctness notes, and no target count. Retire the `dream-not-outcome` lint. Verify that no brief or helper refers to dream lenses, dream ambitions, dream example references, or `dream-not-outcome`.
+- [ ] 7b.4 Add the dream screen stage (`briefs/dream-screen.md`, `dream-screen.json`, the stage gate), and list failed dreams after passing ones, collapsed with the reason, on the dream review page, where they can still be accepted. Verify with tests and by keyboard in the browser preview.
+
 ## 8. Pilot comparison
 
 - [x] 8.1 Add `compare-build <pain…>` (pairs each pilot pain's newest v1 and v2 runs, builds a blind set with a separate key, and refuses if the v1 run is stale) and `compare-report <export>` (mean rating per flow, distinct kinds among linked fixes, founder review time, fill rate against ceilings, and tokens per stage, with a `scale-up` or `iterate` result). Verify with tests: the set has no origin information, and a slower review gives `iterate` and names that check.
