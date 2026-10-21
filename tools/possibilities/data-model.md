@@ -240,7 +240,8 @@ Rules:
 `{ passed: bool, issues: [ { dreamId | fixId, rule, detail } ], coverage: { lenses, ambitions, basicsTonight?, itLed? }, dreams, checkedAt }`
 
 Rules:
-- Fix copy rules: `template-copy` flags a method written into a title, `whatChanges`, or `firstStep`, such as "When I…, I want…, so I can…", "After I…, I will…", or "If…, then I will…". `near-duplicate-fix` flags two fixes in the pool whose titles share at least 80% of their words, ignoring small words like "the" and "in". The issue names the first fix by ID and the second in `detail`, so the screen can drop one.
+- Each fix gets the card fix rules, checked on its own: `generic-phrase`, `serial-comma`, `exclamation`, `boilerplate-caveat`, `fix-text-length`, `regional-word`, `acronym-in-title`, `not-an-action`, `learn-about-others`, `unsourced-detail` (against the record of the exemplar it cites, or any proper noun in a speculative fix), `title-assumes-example`, `unverified-example`, `not-specific`, `ambiguous-it`, `feature-pitch`, and `built-claim`. `stacked-hedges` counts soft modals in one fix's title and `whatChanges`, where a card counted them across all its fixes.
+- Fix copy rules for staged runs only: `template-copy` flags a method written into a title, `whatChanges`, or `firstStep`, such as "When I…, I want…, so I can…", "After I…, I will…", or "If…, then I will…". `near-duplicate-fix` flags two fixes in the pool whose titles share at least 80% of their words, ignoring small words like "the" and "in". The issue names the first fix by ID and the second in `detail`, so the screen can drop one.
 - Coverage counts the accepted dreams once the dream review is in, and the drafted dreams before it. Links to screened-out fixes don't count. A coverage issue has `dreamId: "*"`.
   - `lens-coverage`: at least 4 lenses.
   - `ambition-coverage`: all three ambitions.

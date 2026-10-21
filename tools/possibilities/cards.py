@@ -925,7 +925,10 @@ def copy_patterns(root):
     boilerplate, modals = phrase_pattern(banned.get('boilerplate', [])), phrase_pattern(banned.get('softModals', []))
     regional_words = banned.get('regional', [])
     acronyms = [w for w in regional_words if w.isupper() or '-' in w]
-    regional = re.compile(r'\b(' + '|'.join(re.escape(w) for w in regional_words if w not in acronyms) + r')\b', re.I) if regional_words else None
+    # British words match in any case; an acronym matches as written, unless it may be spelled out in the text.
+    alternatives = ['(?i:%s)' % re.escape(w) for w in regional_words if w not in acronyms]
+    alternatives += [re.escape(w) for w in acronyms if w not in banned.get('spelledOutInText', [])]
+    regional = re.compile(r'\b(' + '|'.join(alternatives) + r')\b') if alternatives else None
     acronym_titles = re.compile(r'\b(' + '|'.join(re.escape(w) for w in acronyms) + r')\b') if acronyms else None
     return {'banned': banned, 'generic': generic, 'boilerplate': boilerplate, 'modals': modals,
             'regional': regional, 'acronymTitles': acronym_titles}
@@ -943,6 +946,16 @@ def phrase_rules(field, text, patterns):
         yield 'boilerplate-caveat', '%s: "%s" (status labels carry this)' % (field, m[0])
 
 
+def soft_modals(patterns, *texts):
+    return [m[0] for text in texts for m in (patterns['modals'].finditer(text) if patterns['modals'] else ())]
+
+
+def hedge_rules(modal_hits):
+    """One plain limit per card, dream or fix (copy style guide); more is hedging."""
+    if len(modal_hits) > 1:
+        yield 'stacked-hedges', 'soft modals used %d times (%s); keep at most one plain limit' % (len(modal_hits), ', '.join(modal_hits))
+
+
 # A kind's method written out as copy: a job story, or an if-then plan (spec, "Copy"). Method fields hold these.
 TEMPLATE_COPY = re.compile(r'\bWhen I\b[^.!?]*\bI want\b'
                            r'|\b(When|Whenever|Once|After|Before|If)\b[^.!?]*,\s*(then\s+)?I(\s+will|’ll|\'ll)\b', re.I)
@@ -956,10 +969,25 @@ def title_words(title):
     return {w for w in re.findall(r"[a-z0-9’']+", (title or '').lower())} - TITLE_FILLER
 
 
-def lint_staged_fixes(fixes, add_fix):
+COPY_FIELDS = ('title', 'whatChanges', 'firstStep')
+
+
+def lint_staged_fixes(fixes, add_fix, exemplars, patterns):
+    allowed, known = set(patterns['banned'].get('allowedTerms', [])), known_places(exemplars)
+    # Validate reports copy of the wrong type; lint reads it as empty rather than crash.
+    fixes = {key: dict(f, **{field: f[field] if isinstance(f.get(field), str) else '' for field in COPY_FIELDS})
+             for key, f in fixes.items()}
     for key, f in sorted(fixes.items()):
-        for field in ('title', 'whatChanges', 'firstStep'):
-            m = TEMPLATE_COPY.search(f.get(field) or '')
+        for rule, detail in fix_copy_rules(f, patterns):
+            add_fix(key, rule, detail)
+        # A staged fix stands alone, so it gets the one plain limit a card shared across its fixes.
+        for rule, detail in hedge_rules(soft_modals(patterns, f.get('title', ''), f.get('whatChanges', ''))):
+            add_fix(key, rule, detail)
+        ref = f.get('exemplarRef')
+        for rule, detail in fix_sourcing_rules(f, exemplars.get(ref) if isinstance(ref, str) else None, allowed, known):
+            add_fix(key, rule, detail)
+        for field in COPY_FIELDS:
+            m = TEMPLATE_COPY.search(f[field])
             if m:
                 add_fix(key, 'template-copy', '%s: "%s…" is a method template; keep the method in its fields and say what changes'
                         % (field, m[0][:40]))
@@ -982,7 +1010,7 @@ def lint_staged_run(run, root):
         issues.append({'fixId': fix, 'rule': rule, 'detail': detail})
 
     patterns = copy_patterns(root)
-    modals, regional, acronym_titles = patterns['modals'], patterns['regional'], patterns['acronymTitles']
+    regional, acronym_titles = patterns['regional'], patterns['acronymTitles']
     for key, d in dreams.items():
         copy = {'title': d.get('title', ''), 'line': d.get('line', '')}
         for rule, detail in dream_rules(copy['title'], copy['line']):
@@ -994,12 +1022,13 @@ def lint_staged_run(run, root):
                 add(key, 'regional-word', '%s: "%s" (use the everyday American word)' % (field, m[0]))
         for m in acronym_titles.finditer(copy['title']) if acronym_titles else ():
             add(key, 'acronym-in-title', '"%s" in a title; spell it out or rephrase' % m[0])
-        modal_hits = [m[0] for text in copy.values() for m in (modals.finditer(text) if modals else ())]
-        if len(modal_hits) > 1:
-            add(key, 'stacked-hedges', 'soft modals used %d times (%s); keep at most one plain limit' % (len(modal_hits), ', '.join(modal_hits)))
+        for rule, detail in hedge_rules(soft_modals(patterns, *copy.values())):
+            add(key, rule, detail)
     fixes = read(run / 'fixes.json').get('fixes') if (run / 'fixes.json').is_file() else {}
     fixes = {key: f for key, f in fixes.items() if isinstance(f, dict)} if isinstance(fixes, dict) else {}
-    lint_staged_fixes(fixes, add_fix)
+    exemplars = read(run / 'exemplars.json').get('exemplars') if (run / 'exemplars.json').is_file() else {}
+    exemplars = {key: e for key, e in exemplars.items() if isinstance(e, dict)} if isinstance(exemplars, dict) else {}
+    lint_staged_fixes(fixes, add_fix, exemplars, patterns)
     # Coverage is across accepted dreams once the review is in (spec, "Coverage per pain"); before it, the drafted ones.
     accepted = reviewed_dreams(run)
     covered = {key: d for key, d in dreams.items() if accepted is None or key in accepted}
@@ -1034,18 +1063,87 @@ def lint_staged_run(run, root):
     return result
 
 
+def known_places(exemplars):
+    """Places named by any exemplar in the run: a sentence that opens with one still needs its own source."""
+    names = {w.strip('.,()’\'') for e in exemplars.values() for w in re.split(r'[\s,/]+', e.get('place') or '')}
+    return {w for w in names if len(w) > 2 and w[:1].isupper()} - {'The', 'United', 'States', 'City', 'County', 'One', 'Two', 'Three', 'Several', 'Many', 'Some', 'Most', 'Large', 'Small'}
+
+
+def fix_copy_rules(f, patterns, card_copy=None):
+    """(rule, detail) for one fix's wording, shared by cards and staged fixes. A card's fix is also checked with the
+    card's own title and line (card_copy), since they show together."""
+    card_copy = card_copy or {}
+    title, text, first_step = f.get('title', ''), f.get('whatChanges', ''), f.get('firstStep', '')
+    fields = [('fix title', title), ('whatChanges', text), ('firstStep', first_step)]
+    for field, value in list(card_copy.items()) + fields:
+        yield from phrase_rules(field, value, patterns)
+    if len(SENTENCE.findall(text.strip())) > 3:
+        yield 'fix-text-length', 'fix text should be 1-3 sentences'
+    regional, acronym_titles = patterns['regional'], patterns['acronymTitles']
+    for field, value in fields + ([('line', card_copy['line'])] if 'line' in card_copy else []):
+        for m in regional.finditer(value) if regional else ():
+            yield 'regional-word', '%s: "%s" (use the everyday American word)' % (field, m[0])
+    for m in acronym_titles.finditer(title + ' ' + card_copy.get('title', '')) if acronym_titles else ():
+        yield 'acronym-in-title', '"%s" in a title; spell it out or rephrase' % m[0]
+    learnish = re.match(r'(Learn|Read|Know|Understand|Study|Find out)\b', title)
+    if learnish and f.get('kind') not in ('feature', 'learn'):
+        yield 'not-an-action', 'fix title "%s" asks the reader to learn; if it gives a usable skill or knowledge make it kind learn, otherwise say what they do with it' % title[:40]
+    elif f.get('kind') == 'learn' and ABOUT_OTHERS.search(title):
+        yield 'learn-about-others', 'Learn fix "%s" is about someone else\'s example; turn it into what the reader does, with the example in the text' % title[:40]
+
+
+def fix_sourcing_rules(f, ex, allowed, known):
+    """(rule, detail) for one fix's sourcing and how it talks about It, shared by cards and staged fixes. ex is its cited
+    exemplar, if any."""
+    # Every number and proper noun in the fix copy must appear in the cited exemplar record.
+    claim_text = f.get('title', '') + '. ' + f.get('whatChanges', '')
+    found = details(claim_text, allowed, known)
+    if f.get('speculative') or not ex:
+        missing = sorted(found['names'])
+        if missing:
+            yield 'unsourced-detail', 'speculative fix names %s with no opened source; cite a verified exemplar or remove the name' % ', '.join(missing)
+    else:
+        source = ' '.join(str(ex.get(k) or '') for k in ('name', 'place', 'year', 'outcome', 'locator', 'limits', 'url')).lower()
+        source_digits = source.replace(',', '')
+        missing = [n for n in sorted(found['numbers']) if n not in source_digits]
+        missing += [w for w in sorted(found['names']) if w.lower() not in source]
+        if missing:
+            yield 'unsourced-detail', 'not in exemplar %s: %s. Add it to the exemplar record from the opened source, or remove it' % (f['exemplarRef'], ', '.join(missing))
+    if ex:
+        names = {w.strip('.,’\'') for w in (ex.get('name', '') + ' ' + (ex.get('place') or '')).split()}
+        names = {w for w in names if len(w) > 2 and w[0].isupper() and w.lower() not in ('the', 'and', 'city', 'law')}
+        hit = [w for w in names if re.search(r'\b' + re.escape(w) + r'\b', f.get('title', ''))]
+        if hit:
+            yield 'title-assumes-example', 'title names the example (%s); describe the action, introduce the example in the text' % ', '.join(sorted(hit))
+    if not f.get('speculative'):
+        if ex and not ex.get('verified'):
+            yield 'unverified-example', 'cites unverified exemplar %s; open the source or mark speculative' % f['exemplarRef']
+        text = ' '.join([f.get('title', ''), f.get('whatChanges', ''), (ex or {}).get('name', '')])
+        if not is_specific(text):
+            yield 'not-specific', 'no proper noun or number in title, whatChanges or example'
+    feature = f.get('kind') == 'feature' or f.get('status') == 'proposed_it_feature'
+    for sentence in re.split(r'(?<=[.!?])\s+', f.get('whatChanges', '')):
+        starts = re.match(r'It(’s|\'s)?\b\s*(\w+)?', sentence)
+        if starts and feature:
+            yield 'feature-pitch', 'feature text starts with "%s"; the Feature tag already says It would build this. Describe the behavior, verb first ("Shows…", "Finds…")' % sentence[:24]
+        elif starts:
+            yield 'ambiguous-it', 'sentence starts with "%s"; readers may take it for the product. Name the thing instead' % sentence[:24]
+    if feature and re.search(r',? with It\b|\bIt\b', f.get('title', '')):
+        yield 'feature-pitch', 'feature title mentions It; the Feature tag carries that'
+    if f.get('status') == 'proposed_it_feature' and BUILT_CLAIM.search(f.get('title', '') + ' ' + f.get('whatChanges', '')):
+        yield 'built-claim', 'proposed It feature described in present tense; say what It could do'
+
+
 def lint_run(run, root):
     if is_staged(Path(run)):
         return lint_staged_run(Path(run), root)
     run, ex_doc, card_doc = load_run(run)
     patterns = copy_patterns(root)
-    banned, modals, regional, acronym_titles = (patterns[k] for k in ('banned', 'modals', 'regional', 'acronymTitles'))
+    banned = patterns['banned']
     it_ideas = basics = 0
     allowed = set(banned.get('allowedTerms', []))
     exemplars = ex_doc.get('exemplars', {})
-    # Places named by any exemplar in the run: a sentence that opens with one still needs its own source.
-    known_names = {w.strip('.,()’\'') for e in exemplars.values() for w in re.split(r'[\s,/]+', e.get('place') or '')}
-    known_names = {w for w in known_names if len(w) > 2 and w[:1].isupper()} - {'The', 'United', 'States', 'City', 'County', 'One', 'Two', 'Three', 'Several', 'Many', 'Some', 'Most', 'Large', 'Small'}
+    known_names = known_places(exemplars)
     issues = []
 
     def add(card, rule, detail, fix=None):
@@ -1057,68 +1155,16 @@ def lint_run(run, root):
             add(key, rule, detail)
         modal_hits = []
         for f in c.get('fixes', []):
-            fix_copy = {'fix title': f.get('title', ''), 'whatChanges': f.get('whatChanges', '')}
-            for field, text in list(copy.items()) + list(fix_copy.items()) + [('firstStep', f.get('firstStep', ''))]:
-                for rule, detail in phrase_rules(field, text, patterns):
-                    add(key, rule, detail, f.get('id'))
-            for text in [f.get('title', ''), f.get('whatChanges', '')]:
-                modal_hits += [m[0] for m in modals.finditer(text)] if modals else []
-            if len(SENTENCE.findall(f.get('whatChanges', '').strip())) > 3:
-                add(key, 'fix-text-length', 'fix text should be 1-3 sentences', f.get('id'))
-            for field, text in [('fix title', f.get('title', '')), ('whatChanges', f.get('whatChanges', '')), ('firstStep', f.get('firstStep', '')), ('line', copy['line'])]:
-                for m in regional.finditer(text) if regional else ():
-                    add(key, 'regional-word', '%s: "%s" (use the everyday American word)' % (field, m[0]), f.get('id'))
-            for m in acronym_titles.finditer(f.get('title', '') + ' ' + copy['title']) if acronym_titles else ():
-                add(key, 'acronym-in-title', '"%s" in a title; spell it out or rephrase' % m[0], f.get('id'))
-            learnish = re.match(r'(Learn|Read|Know|Understand|Study|Find out)\b', f.get('title', ''))
-            if learnish and f.get('kind') not in ('feature', 'learn'):
-                add(key, 'not-an-action', 'fix title "%s" asks the reader to learn; if it gives a usable skill or knowledge make it kind learn, otherwise say what they do with it' % f['title'][:40], f.get('id'))
-            elif f.get('kind') == 'learn' and ABOUT_OTHERS.search(f.get('title', '')):
-                add(key, 'learn-about-others', 'Learn fix "%s" is about someone else\'s example; turn it into what the reader does, with the example in the text' % f['title'][:40], f.get('id'))
+            for rule, detail in fix_copy_rules(f, patterns, copy):
+                add(key, rule, detail, f.get('id'))
+            modal_hits += soft_modals(patterns, f.get('title', ''), f.get('whatChanges', ''))
             it_ideas += f.get('status') == 'proposed_it_feature'
             basics += c.get('ambition') == 'tonight' and f.get('status') in ('real_now', 'existing_resource')
             ex = exemplars.get(f.get('exemplarRef'))
-            # Every number and proper noun in the fix copy must appear in the cited exemplar record.
-            claim_text = f.get('title', '') + '. ' + f.get('whatChanges', '')
-            found = details(claim_text, allowed, known_names)
-            if f.get('speculative') or not ex:
-                missing = sorted(found['names'])
-                if missing:
-                    add(key, 'unsourced-detail', 'speculative fix names %s with no opened source; cite a verified exemplar or remove the name' % ', '.join(missing), f.get('id'))
-            else:
-                source = ' '.join(str(ex.get(k) or '') for k in ('name', 'place', 'year', 'outcome', 'locator', 'limits', 'url')).lower()
-                source_digits = source.replace(',', '')
-                missing = [n for n in sorted(found['numbers']) if n not in source_digits]
-                missing += [w for w in sorted(found['names']) if w.lower() not in source]
-                if missing:
-                    add(key, 'unsourced-detail', 'not in exemplar %s: %s. Add it to the exemplar record from the opened source, or remove it' % (f['exemplarRef'], ', '.join(missing)), f.get('id'))
-            if ex:
-                names = {w.strip('.,’\'') for w in (ex.get('name', '') + ' ' + (ex.get('place') or '')).split()}
-                names = {w for w in names if len(w) > 2 and w[0].isupper() and w.lower() not in ('the', 'and', 'city', 'law')}
-                hit = [w for w in names if re.search(r'\b' + re.escape(w) + r'\b', f.get('title', ''))]
-                if hit:
-                    add(key, 'title-assumes-example', 'title names the example (%s); describe the action, introduce the example in the text' % ', '.join(sorted(hit)), f.get('id'))
-            if not f.get('speculative'):
-                if ex and not ex.get('verified'):
-                    add(key, 'unverified-example', 'cites unverified exemplar %s; open the source or mark speculative' % f['exemplarRef'], f.get('id'))
-                text = ' '.join([f.get('title', ''), f.get('whatChanges', ''), (ex or {}).get('name', '')])
-                if not is_specific(text):
-                    add(key, 'not-specific', 'no proper noun or number in title, whatChanges or example', f.get('id'))
-            feature = f.get('kind') == 'feature' or f.get('status') == 'proposed_it_feature'
-            for sentence in re.split(r'(?<=[.!?])\s+', f.get('whatChanges', '')):
-                starts = re.match(r'It(’s|\'s)?\b\s*(\w+)?', sentence)
-                if starts and feature:
-                    add(key, 'feature-pitch', 'feature text starts with "%s"; the Feature tag already says It would build this. Describe the behavior, verb first ("Shows…", "Finds…")' % sentence[:24], f.get('id'))
-                elif starts:
-                    add(key, 'ambiguous-it', 'sentence starts with "%s"; readers may take it for the product. Name the thing instead' % sentence[:24], f.get('id'))
-            if feature and re.search(r',? with It\b|\bIt\b', f.get('title', '')):
-                add(key, 'feature-pitch', 'feature title mentions It; the Feature tag carries that', f.get('id'))
-            if f.get('status') == 'proposed_it_feature' and BUILT_CLAIM.search(f.get('title', '') + ' ' + f.get('whatChanges', '')):
-                add(key, 'built-claim', 'proposed It feature described in present tense; say what It could do', f.get('id'))
-        for m in modals.finditer(copy['line']) if modals else ():
-            modal_hits.append(m[0])
-        if len(modal_hits) > 1:
-            add(key, 'stacked-hedges', 'soft modals used %d times (%s); keep at most one plain limit' % (len(modal_hits), ', '.join(modal_hits)))
+            for rule, detail in fix_sourcing_rules(f, ex, allowed, known_names):
+                add(key, rule, detail, f.get('id'))
+        for rule, detail in hedge_rules(modal_hits + soft_modals(patterns, copy['line'])):
+            add(key, rule, detail)
     lenses = sorted({c.get('lens') for c in card_doc['cards'].values()})
     ambitions = sorted({c.get('ambition') for c in card_doc['cards'].values()})
     if len(lenses) < 4:
