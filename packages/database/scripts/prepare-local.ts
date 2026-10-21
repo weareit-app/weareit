@@ -2,7 +2,7 @@ import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { initializeContentIfEmpty } from "../src/content-repository";
 import { createDatabase } from "../src/database";
-import { createMigrator } from "../src/migrator";
+import { migrateToLatest } from "../src/migrator";
 import { checkDatabaseReadiness } from "../src/readiness";
 import { buildTier1ContentGraph } from "../src/tier1-import";
 
@@ -19,7 +19,7 @@ if (!readiness.ready && readiness.problem === "unreachable") {
   if (!isLocal(connectionString)) fail(readiness.message);
   if (!dockerIsRunning())
     fail(
-      `${readiness.message}\nStart OrbStack or Docker and run \`pnpm dev\` again, or set DATABASE_URL in .env to any running Postgres, such as a free Neon branch.`,
+      `Can't reach Postgres at ${new URL(connectionString).host}, and neither OrbStack nor Docker is running. Start one and run \`pnpm dev\` again, or set DATABASE_URL in .env to any running Postgres, such as a Neon branch.`,
     );
   console.log("Starting Postgres with docker compose…");
   const started = spawnSync(
@@ -35,12 +35,7 @@ if (!readiness.ready && readiness.problem === "unreachable") {
 }
 
 if (!readiness.ready && readiness.problem === "migrations-pending") {
-  await withDatabase(async (db) => {
-    const { error, results } = await createMigrator(db).migrateToLatest();
-    for (const result of results ?? [])
-      console.log(`${result.status}: ${result.migrationName}`);
-    if (error) throw error;
-  });
+  await withDatabase(migrateToLatest);
   readiness = await checkDatabaseReadiness(connectionString);
 }
 

@@ -42,10 +42,12 @@ const defaultUrl =
 export const apiClient = createItApiClient(defaultUrl);
 
 // For developers only: what went wrong with a call, in a sentence. A call
-// that never reached the API fails with the platform's fetch error instead
-// of an ORPCError.
+// that never reached the API fails with fetch's TypeError ("fetch failed",
+// "Failed to fetch", or "Network request failed", depending on the platform).
 export function describeApiFailure(error: unknown, url = defaultUrl) {
   if (error instanceof ORPCError)
     return `The API at ${url} answered ${error.status}: ${error.message}`;
-  return `Couldn't reach the API at ${url}. Start it with \`pnpm dev\`, or check EXPO_PUBLIC_API_URL.`;
+  if (error instanceof TypeError)
+    return `Couldn't reach the API at ${url}. Start it with \`pnpm dev\`, or check EXPO_PUBLIC_API_URL.`;
+  return `The call to the API at ${url} failed: ${error instanceof Error ? error.message : String(error)}`;
 }

@@ -36,10 +36,7 @@ export function ContentQueryState({
     );
   }
   return (
-    <Page
-      title="Just a moment"
-      description="Loading the things people want to be better."
-    >
+    <Page title="Just a moment" description="Loading this page.">
       <WatercolorLoader />
     </Page>
   );

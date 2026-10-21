@@ -18,7 +18,7 @@ describe("database readiness", () => {
       ready: false,
       problem: "unreachable",
       message:
-        "Can't reach Postgres at localhost:1. Nothing is accepting connections there.",
+        "Can't reach Postgres at localhost:1. Nothing is accepting connections there. Run `pnpm dev` to start the local database, or set DATABASE_URL to a running one.",
     });
   });
 });
@@ -35,10 +35,10 @@ describe.skipIf(!connectionString)("database readiness in Postgres", () => {
   let migrator: Migrator;
 
   beforeAll(async () => {
-    ({ db, migrator } = await createTestDatabase(connectionString!, name));
-    const url = new URL(connectionString!);
-    url.pathname = `/${name}`;
-    databaseUrl = url.toString();
+    ({ db, migrator, databaseUrl } = await createTestDatabase(
+      connectionString!,
+      name,
+    ));
   });
 
   afterAll(async () => {
@@ -93,5 +93,16 @@ describe.skipIf(!connectionString)("database readiness in Postgres", () => {
     expect((await readDraftContent(db)).content.pains[0]!.title).toBe(
       "Edited in the CMS",
     );
+  });
+
+  it("points to the CMS when content exists but none is published", async () => {
+    await db.deleteFrom("published_content_versions").execute();
+
+    expect(await checkDatabaseReadiness(databaseUrl)).toEqual({
+      ready: false,
+      problem: "no-published-content",
+      message:
+        "Onboarding content exists but none is published. Publish it from /cms in the web app.",
+    });
   });
 });

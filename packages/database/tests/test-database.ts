@@ -7,7 +7,7 @@ import { createMigrator } from "../src/migrator";
 export async function createTestDatabase(
   connectionString: string,
   name: string,
-): Promise<{ db: ItDatabase; migrator: Migrator }> {
+): Promise<{ db: ItDatabase; migrator: Migrator; databaseUrl: string }> {
   const server = createDatabase(connectionString);
   await sql`drop database if exists ${sql.id(name)} with (force)`.execute(
     server,
@@ -16,7 +16,8 @@ export async function createTestDatabase(
   await server.destroy();
   const url = new URL(connectionString);
   url.pathname = `/${name}`;
-  const db = createDatabase(url.toString());
+  const databaseUrl = url.toString();
+  const db = createDatabase(databaseUrl);
   const migrator = createMigrator(db);
-  return { db, migrator };
+  return { db, migrator, databaseUrl };
 }

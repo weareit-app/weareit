@@ -25,7 +25,7 @@ export async function checkDatabaseReadiness(
       return {
         ready: false,
         problem: "unreachable",
-        message: `Can't reach Postgres at ${url.host}. ${describe(error)}`,
+        message: `Can't reach Postgres at ${url.host}. ${describe(error)} Run \`pnpm dev\` to start the local database, or set DATABASE_URL to a running one.`,
       };
     }
     const pending = (await createMigrator(db).getMigrations()).filter(
@@ -42,12 +42,21 @@ export async function checkDatabaseReadiness(
       .select("version")
       .limit(1)
       .executeTakeFirst();
-    if (!published)
+    if (!published) {
+      // The seed only fills an empty database; content that is already
+      // there gets published from the CMS instead.
+      const drafted = await db
+        .selectFrom("content_draft_state")
+        .select("id")
+        .executeTakeFirst();
       return {
         ready: false,
         problem: "no-published-content",
-        message: "No onboarding content is published yet. Run `pnpm db:seed`.",
+        message: drafted
+          ? "Onboarding content exists but none is published. Publish it from /cms in the web app."
+          : "No onboarding content is published yet. Run `pnpm db:seed`.",
       };
+    }
     return { ready: true };
   } finally {
     await db.destroy();
@@ -56,8 +65,8 @@ export async function checkDatabaseReadiness(
 
 function describe(error: unknown) {
   if (!(error instanceof Error)) return String(error);
-  // A refused localhost connection fails on IPv4 and IPv6 at once, and the
-  // combined error has no message of its own.
+  // pg reports a refused localhost connection (IPv4 and IPv6 both tried) as
+  // an AggregateError with an empty message, seen with Node 24 and pg 8.
   if ((error as { code?: string }).code === "ECONNREFUSED")
     return "Nothing is accepting connections there.";
   return error.message;

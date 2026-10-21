@@ -9,7 +9,6 @@ import {
   type ViewInstance,
 } from "react-native";
 import { useReducedMotion } from "react-native-reanimated";
-import { describeApiFailure } from "@it/api/client";
 import { resolveFeatureStatuses } from "@it/content/graph-schema";
 import { SiteFooter } from "../site-footer";
 import { Text } from "../text";
@@ -25,7 +24,10 @@ import {
   useOnboardingStore,
   type PainScope,
 } from "../../state/onboarding-store";
-import { usePublishedContent } from "../../content/use-published-content";
+import {
+  developerDetailFor,
+  usePublishedContent,
+} from "../../content/use-published-content";
 import { useTokenColor } from "../../theme/use-token-color";
 import { groupIcons } from "../../content/group-icons";
 
@@ -123,11 +125,7 @@ export function PainExplorer({
         loading={contentQuery.isLoading}
         error={contentQuery.error}
         retry={() => void contentQuery.refetch()}
-        developerDetail={
-          __DEV__ && contentQuery.error
-            ? describeApiFailure(contentQuery.error)
-            : undefined
-        }
+        developerDetail={developerDetailFor(contentQuery.error)}
       />
     );
 

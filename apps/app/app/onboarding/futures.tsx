@@ -4,7 +4,10 @@ import { Text } from "../../src/components/text";
 import { FirstActionCard } from "../../src/components/first-action-card";
 import { Page } from "../../src/components/page";
 import { useOnboardingStore } from "../../src/state/onboarding-store";
-import { usePublishedContent } from "../../src/content/use-published-content";
+import {
+  developerDetailFor,
+  usePublishedContent,
+} from "../../src/content/use-published-content";
 import { ContentQueryState } from "../../src/components/content-query-state";
 
 export default function FuturesScreen() {
@@ -23,6 +26,7 @@ export default function FuturesScreen() {
         loading={contentQuery.isLoading}
         error={contentQuery.error}
         retry={() => void contentQuery.refetch()}
+        developerDetail={developerDetailFor(contentQuery.error)}
       />
     );
     if (state) return state;

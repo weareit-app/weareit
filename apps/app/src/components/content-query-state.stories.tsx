@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-native-web-vite";
 import { fn } from "storybook/test";
+import { describeApiFailure } from "@it/api/client";
 import { ContentQueryState } from "./content-query-state";
 
 const meta = {
@@ -20,7 +21,6 @@ export const Failed: Story = {
 export const FailedWithDeveloperDetail: Story = {
   args: {
     error: new Error("fetch failed"),
-    developerDetail:
-      "Couldn't reach the API at http://localhost:3001/rpc. Start it with `pnpm dev`, or check EXPO_PUBLIC_API_URL.",
+    developerDetail: describeApiFailure(new TypeError("fetch failed")),
   },
 };

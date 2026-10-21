@@ -21,4 +21,12 @@ describe("describing a failed API call for developers", () => {
       "The API at http://localhost:3001/rpc answered 404: Published onboarding content is not available.",
     );
   });
+
+  it("doesn't call a reply it couldn't read unreachable", () => {
+    expect(
+      describeApiFailure(new SyntaxError("Unexpected token '<'"), url),
+    ).toBe(
+      "The call to the API at http://localhost:3001/rpc failed: Unexpected token '<'",
+    );
+  });
 });

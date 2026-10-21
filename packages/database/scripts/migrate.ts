@@ -1,5 +1,5 @@
 import { createDatabase } from "../src/database";
-import { createMigrator } from "../src/migrator";
+import { migrateToLatest } from "../src/migrator";
 
 const connectionString = process.env.DATABASE_URL;
 if (!connectionString)
@@ -7,10 +7,7 @@ if (!connectionString)
 const db = createDatabase(connectionString);
 
 try {
-  const { error, results } = await createMigrator(db).migrateToLatest();
-  for (const result of results ?? [])
-    console.log(`${result.status}: ${result.migrationName}`);
-  if (error) throw error;
+  await migrateToLatest(db);
 } finally {
   await db.destroy();
 }
