@@ -15,6 +15,16 @@ pre-commit:
     - name: unit tests
       glob: "*.{ts,tsx,mts,cts,js,jsx,mjs,cjs,json}"
       run: pnpm -s test:unit
+    # The app's Jest suites, for app files and the workspace packages it imports, so a
+    # suite that stops loading fails here rather than in CI. `**` matches one or more
+    # folders in lefthook's default matcher (checked 2026-10-21 against
+    # lefthook.dev/configuration/glob), so files at the app's top level get their own line.
+    - name: expo tests
+      glob:
+        - "apps/app/*.{ts,tsx,js,jsx,mjs,cjs,json}"
+        - "apps/app/**/*.{ts,tsx,js,jsx,mjs,cjs,json}"
+        - "packages/**/*.{ts,tsx,mts,cts,js,jsx,mjs,cjs,json}"
+      run: pnpm -s test:expo
     # The coverage checks read git's tracked files, so here, after staging, they see new
     # files that a run before `git add` would miss. CI runs them too.
     - name: typecheck coverage
