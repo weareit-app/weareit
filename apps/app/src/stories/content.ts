@@ -1,6 +1,6 @@
 import { firstActions } from "@it/content/first-actions";
 import { fixes } from "@it/content/fixes";
-import type { ContentFix, ContentGraph } from "@it/content/graph-schema";
+import type { ContentFix, ContentGraph } from "@it/domain/content";
 import { personalPainDomains } from "@it/content/tier-1";
 
 // Real content for stories, shaped as the published content graph delivers

@@ -3,9 +3,7 @@ import {
   type Dream,
   type Pain,
   type PainDomain,
-} from "./schema";
-
-export type { Dream, Pain, PainDomain } from "./schema";
+} from "@it/domain/content";
 
 export const tier1ContentMetadata = {
   version: "tier-1-2026-10-14",

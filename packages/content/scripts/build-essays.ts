@@ -21,7 +21,7 @@ const target = (name: string) =>
 const header = [
   "// Generated from essays/<slug>/essay.md by `pnpm --filter @it/content essays`.",
   "// Don't edit it by hand: edit the essay and run the script again.",
-  'import type { Essay } from "./essay-schema";',
+  'import type { Essay } from "@it/domain/essays";',
   "",
 ];
 

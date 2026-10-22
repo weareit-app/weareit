@@ -3,7 +3,7 @@ import {
   isoDateSchema,
   nonEmptyTextSchema,
   slugIdSchema,
-} from "@it/domain/primitives";
+} from "../../primitives";
 
 // Field types shared by the essay front matter and the block schemas.
 

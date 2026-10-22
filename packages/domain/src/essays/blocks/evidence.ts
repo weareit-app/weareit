@@ -3,7 +3,7 @@ import {
   isoDateSchema,
   nonEmptyTextSchema,
   slugIdSchema,
-} from "@it/domain/primitives";
+} from "../../primitives";
 import { essayStatusLabelSchema } from "./shared";
 
 // The data file of a `::evidence{id="…"}` block.

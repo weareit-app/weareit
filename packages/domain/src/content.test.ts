@@ -5,7 +5,7 @@ import {
   resolveFeatureStatuses,
   type ContentFix,
   type ContentRoadmapItem,
-} from "../src/graph-schema";
+} from "./content";
 
 const spanish: ContentRoadmapItem = {
   id: "use-it-in-spanish",

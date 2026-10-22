@@ -7,7 +7,7 @@ import {
   type ViewInstance,
 } from "react-native";
 import Animated, { FadeIn, FadeOut } from "react-native-reanimated";
-import type { ContentFix } from "@it/content/graph-schema";
+import type { ContentFix } from "@it/domain/content";
 import type { PersonalPath } from "@it/domain/onboarding";
 import { rankWays } from "@it/domain/onboarding";
 import { dreamStageArt, painStageArt } from "../../content/illustrations";

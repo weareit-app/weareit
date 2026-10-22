@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { fireEvent, render, screen } from "@testing-library/react-native";
 import type { ReactNode } from "react";
-import type { ContentGraph } from "@it/content/graph-schema";
+import type { ContentGraph } from "@it/domain/content";
 import { PainExplorer } from "../src/components/personal/pain-explorer";
 import { publishedContentQueryKey } from "../src/content/use-published-content";
 import { useOnboardingStore } from "../src/state/onboarding-store";

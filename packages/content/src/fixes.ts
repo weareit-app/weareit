@@ -4,7 +4,7 @@ import {
   nonEmptyTextSchema,
   slugIdSchema,
 } from "@it/domain/primitives";
-import { evidenceLevels, featureStatuses, fixKinds } from "./graph-schema";
+import { evidenceLevels, featureStatuses, fixKinds } from "@it/domain/content";
 import { getAllDreams, personalPainDomains } from "./tier-1";
 
 // Ways a chosen future can get better, from the onboarding prototype (Design
