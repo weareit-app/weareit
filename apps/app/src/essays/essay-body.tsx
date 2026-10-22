@@ -1,4 +1,5 @@
 import type {
+  BlockType,
   EssayBlock,
   EssayInline,
   EssayNode,
@@ -8,9 +9,16 @@ import { Link, type Href } from "expo-router";
 import type { ComponentType } from "react";
 import { Platform, View } from "react-native";
 import { Text } from "../components/text";
-import { blockComponents } from "./blocks";
 import { BlockFallback } from "./blocks/block-fallback";
-import { InlineMath } from "./blocks/math";
+import { ChartBlock } from "./blocks/chart";
+import { DiagramBlock } from "./blocks/diagram";
+import { EvidenceBlock } from "./blocks/evidence";
+import { ExpandableBlock } from "./blocks/expandable";
+import { InlineMath, MathBlock } from "./blocks/math";
+import { StatusBoardBlock } from "./blocks/status-board";
+import { TableBlock } from "./blocks/table";
+import { TimelineBlock } from "./blocks/timeline";
+import type { BlockProps } from "./blocks/types";
 
 // Renders the typed tree the essay build writes (public-essays). Static: the
 // text, sources and labels are in the pre-rendered HTML, with scripts off.
@@ -78,6 +86,26 @@ function Inline({
     }
   });
 }
+
+// One component per block type. It lives here, not in blocks/, because an
+// expandable block holds essay body: the blocks import nothing back from this
+// file, so there is no require cycle.
+const blockComponents: {
+  [T in BlockType]: ComponentType<BlockProps<T>>;
+} = {
+  chart: ChartBlock,
+  diagram: DiagramBlock,
+  math: MathBlock,
+  evidence: EvidenceBlock,
+  timeline: TimelineBlock,
+  "status-board": StatusBoardBlock,
+  expandable: ({ block, sources }) => (
+    <ExpandableBlock title={block.title}>
+      <EssayBody nodes={block.children} sources={sources} />
+    </ExpandableBlock>
+  ),
+  table: TableBlock,
+};
 
 function Block({
   block,

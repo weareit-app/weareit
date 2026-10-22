@@ -1,28 +1,35 @@
 /** @jest-environment node */
 import { renderToStaticMarkup } from "react-dom/server";
-import { ExpandableBlock } from "../../src/essays/blocks/expandable";
+import { EssayBody } from "../../src/essays/essay-body";
 
 describe("ExpandableBlock", () => {
   const html = renderToStaticMarkup(
-    <ExpandableBlock
-      block={{
-        type: "expandable",
-        title: "How the numbers were counted",
-        children: [
-          {
-            type: "paragraph",
-            children: [{ type: "text", value: "Each visit counts once." }],
+    <EssayBody
+      nodes={[
+        {
+          type: "block",
+          block: {
+            type: "expandable",
+            title: "How the numbers were counted",
+            children: [
+              {
+                type: "paragraph",
+                children: [{ type: "text", value: "Each visit counts once." }],
+              },
+              {
+                type: "block",
+                block: {
+                  type: "timeline",
+                  id: "counting",
+                  data: {
+                    entries: [{ date: "2026-10", title: "Counting began" }],
+                  },
+                },
+              },
+            ],
           },
-          {
-            type: "block",
-            block: {
-              type: "timeline",
-              id: "counting",
-              data: { entries: [{ date: "2026-10", title: "Counting began" }] },
-            },
-          },
-        ],
-      }}
+        },
+      ]}
       sources={[]}
     />,
   );
