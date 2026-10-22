@@ -14,15 +14,9 @@
 // don't clip it), --size PX (1024).
 import CanvasKitInit from "canvaskit-wasm";
 import { writeFileSync } from "node:fs";
-import {
-  IT_MARK,
-  WE_ARE_IT_MARK,
-} from "../../apps/app/src/watercolor/marks.ts";
-import { PALETTES } from "../../packages/watercolor/src/palettes.ts";
-import {
-  DOT_B_SKSL,
-  paletteUniforms,
-} from "../../packages/watercolor/src/shaders/index.ts";
+import { IT_MARK, WE_ARE_IT_MARK } from "@it/watercolor/marks";
+import { PALETTES } from "@it/watercolor/palettes";
+import { DOT_B_SKSL, paletteUniforms } from "@it/watercolor/shaders";
 import { encodeRgbPng } from "./png.ts";
 
 function arg(name: string, fallback: string): string {

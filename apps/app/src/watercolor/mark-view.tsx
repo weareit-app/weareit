@@ -2,7 +2,7 @@ import { Canvas, Group, Path, type SkPath } from "@shopify/react-native-skia";
 import { useMemo, type ReactNode } from "react";
 import { View } from "react-native";
 import { useNativeVariable as useNativeVariableTyped } from "react-native-css";
-import { INK, markLayout, type Mark } from "./marks";
+import { INK, markLayout, type Mark } from "@it/watercolor/marks";
 import { toSkPath } from "./sk-path";
 
 // The package's types describe its web build (no arguments); this file runs

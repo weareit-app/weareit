@@ -15,7 +15,7 @@ Order (design decision 13): write the conventions down, move packages, then turn
 - [ ] 2.3 Move `onboarding.ts` into an `onboarding` module and replace the hand-written `UserOnboardingDraft` (and its `helpInterests: string[]`) with the schema's type. Verify an onboarding draft saved before the change parses after it (test with a stored fixture)
 - [ ] 2.4 Build the tier-1 authoring schemas from the graph schemas with `pick` and `extend`, moving shared rules such as the feature-status rule onto the graph schema. Verify the existing tier-1 tests pass and a feature way without a status fails both schemas
 - [ ] 2.5 Move `buildTier1ContentGraph` into `@it/content` as a new export, and change the e2e specs and `@it/database` to import it by package name. Verify no file imports `packages/database/src` by relative path (`git grep`)
-- [ ] 2.6 Move `IT_MARK` and `WE_ARE_IT_MARK` into `@it/watercolor` as `./marks`, and change the app and `tools/watercolor-sim` to import `@it/watercolor` subpaths only. Verify `git grep` finds no relative import from `tools/watercolor-sim` into `packages/` or `apps/`
+- [x] 2.6 Move `IT_MARK` and `WE_ARE_IT_MARK` into `@it/watercolor` as `./marks`, and change the app and `tools/watercolor-sim` to import `@it/watercolor` subpaths only. Verify `git grep` finds no relative import from `tools/watercolor-sim` into `packages/` or `apps/`
 - [ ] 2.7 Record the model-package decision (#147: one Zod-only package with a module per domain, types from schemas) in `decisions.md`, in the PR that finishes this group. Verify the entry links to this change
 
 ## 3. Database types

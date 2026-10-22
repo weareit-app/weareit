@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import { markLayout } from "./marks";
+import { markLayout } from "@it/watercolor/marks";
 import type { MarkViewProps } from "./mark-view";
 
 // A letter mark with a watercolor dot as the dot of the i (web: the letters

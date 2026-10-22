@@ -11,7 +11,7 @@ import {
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { GatherDot } from "../../src/watercolor/gather-dot";
 import { MarkLoader } from "../../src/watercolor/mark-loader";
-import { IT_MARK, WE_ARE_IT_MARK } from "../../src/watercolor/marks";
+import { IT_MARK, WE_ARE_IT_MARK } from "@it/watercolor/marks";
 import { WatercolorLoader } from "../../src/watercolor/watercolor-loader";
 
 // The gathering loader, one variant per page: enlarged, as shipped, and as

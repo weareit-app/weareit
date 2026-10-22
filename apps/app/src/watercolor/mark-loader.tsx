@@ -1,7 +1,7 @@
 import { View } from "react-native";
 import { GatherDot } from "./gather-dot";
 import { MarkView } from "./mark-view";
-import { LOADER_DOT_FILL, type Mark } from "./marks";
+import { LOADER_DOT_FILL, type Mark } from "@it/watercolor/marks";
 
 // A letter mark with the gathering loader as the dot of the i. It fits
 // within `maxWidth` × `maxHeight`. Screen readers hear the label.
