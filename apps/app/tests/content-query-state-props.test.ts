@@ -1,4 +1,4 @@
-import { describeApiFailure } from "@it/api/client";
+import { describeApiFailure } from "../src/api-client";
 import { contentQueryStateProps } from "../src/content/use-published-content";
 
 // Uses the real API client, so this file fails to load if Jest can't run

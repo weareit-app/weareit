@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { Platform, Pressable, TextInput, View } from "react-native";
 import { Text } from "../src/components/text";
-import { apiClient } from "@it/api/client";
+import { apiClient } from "../src/api-client";
 import {
   supportFrequencySchema,
   type SupportFrequency,

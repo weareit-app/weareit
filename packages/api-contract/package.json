@@ -1,0 +1,22 @@
+{
+  "name": "@it/api-contract",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./contract": "./src/contract.ts",
+    "./client": "./src/client.ts",
+    "./openapi": "./src/openapi.ts"
+  },
+  "dependencies": {
+    "@it/domain": "workspace:*",
+    "@orpc/client": "^1.15.6",
+    "@orpc/contract": "^1.15.6",
+    "@orpc/openapi": "1.15.6",
+    "@orpc/zod": "1.15.6",
+    "zod": "4.6.7"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  }
+}

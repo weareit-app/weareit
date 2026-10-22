@@ -1,7 +1,7 @@
 import { isContractProcedure } from "@orpc/contract";
 import { describe, expect, it } from "vitest";
-import { apiContract } from "../src/contract";
-import { generateOpenApiDocument } from "../src/openapi";
+import { apiContract } from "./contract";
+import { generateOpenApiDocument } from "./openapi";
 
 // Every procedure path in the contract, at any depth, so a new operation
 // without docs text fails here.
