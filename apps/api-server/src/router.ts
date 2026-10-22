@@ -1,6 +1,9 @@
+import type {
+  InferContractRouterInputs,
+  InferContractRouterOutputs,
+} from "@orpc/contract";
 import { ORPCError, implement } from "@orpc/server";
 import type { ItDatabase } from "@it/database/database";
-import type { ContributionStatus, SupportFrequency } from "@it/domain/support";
 import {
   FeatureStatusNoteError,
   listPublishedVersions,
@@ -15,25 +18,34 @@ import {
 } from "@it/database/content-repository";
 import { apiContract } from "@it/api-contract/contract";
 
+type ApiInputs = InferContractRouterInputs<typeof apiContract>;
+type ApiOutputs = InferContractRouterOutputs<typeof apiContract>;
+type Support<K extends keyof ApiInputs["support"]> = {
+  input: ApiInputs["support"][K];
+  output: Promise<ApiOutputs["support"][K]>;
+};
+
+// The payment service the support operations call. Its shapes come from the
+// contract, plus the signed-in account the router has checked.
+export interface SupportPayments {
+  createCheckout(
+    input: Support<"createCheckout">["input"] & { userId: string },
+  ): Support<"createCheckout">["output"];
+  getStatus(
+    reference: Support<"getStatus">["input"]["reference"],
+    userId: string,
+  ): Support<"getStatus">["output"];
+  createPortal(
+    reference: Support<"createPortal">["input"]["reference"],
+    userId: string,
+  ): Support<"createPortal">["output"];
+}
+
 export interface ApiContext {
   db: ItDatabase;
   cmsActor: string | null;
   userId: string | null;
-  supportPayments: {
-    createCheckout(input: {
-      amountMinor: number;
-      frequency: SupportFrequency;
-      userId: string;
-    }): Promise<{ url: string; reference: string }>;
-    getStatus(
-      reference: string,
-      userId: string,
-    ): Promise<{
-      frequency: SupportFrequency;
-      status: ContributionStatus;
-    }>;
-    createPortal(reference: string, userId: string): Promise<{ url: string }>;
-  };
+  supportPayments: SupportPayments;
 }
 
 const os = implement(apiContract).$context<ApiContext>();

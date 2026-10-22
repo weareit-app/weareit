@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
-import type { ApiContext, ApiRouter } from "@it/api/router";
+import type { ApiContext, ApiRouter } from "./router";
 
 const scalarScriptPath = "/docs/scalar.js";
 

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { createApiRouter, type ApiContext } from "@it/api/router";
+import { createApiRouter, type ApiContext } from "../src/router";
 import type { ItDatabase } from "@it/database/database";
 import { createApiDocs } from "../src/api-docs";
 
