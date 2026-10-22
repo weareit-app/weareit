@@ -119,6 +119,32 @@ The earlier "after" dreams in this guide (quiet evenings, no night flights, sepa
 - Fix: **Organize with neighbors to limit night flights**. "In Frankfurt, neighbors took the airport to court and won a ban on flights from 11pm to 5am." First step: "Look up whether there's a noise group for your nearest airport, and read their latest update."
 - Fix: **Try sleeping apart for two weeks**. "More than a third of American adults sleep in a different room from their partner at least sometimes. It's common, and it doesn't have to mean anything is wrong." First step: "Pick a start date together and decide who gets which room."
 
+## Error messages
+
+**Status:** Draft for founder approval (2026-10-22).
+
+When an API call fails, the app writes the words, keyed by the error's code (`apps/app/src/api-errors/`). The server's message is for developers and logs, and is never shown. Each message:
+
+- **says what didn't happen.** "Your changes weren't saved", "no payment was started". Never imply a save, payment, or publish went through when it didn't.
+- **says what to do next, when there is something.** Name the real control ("Choose Validate") or step ("reload the page"). Never promise a fix It hasn't built.
+- **has one generic sentence per screen for everything else**, including a dropped connection.
+- **appears beside the control that failed and is announced to screen readers.** Focus stays on that control so the person can try again by keyboard.
+
+The CMS speaks to the founder, so it can name revisions and controls. Support It speaks to anyone.
+
+| Screen | Code | Message |
+| --- | --- | --- |
+| CMS | `UNAUTHORIZED` | The CMS didn't accept that admin token, so nothing changed. Choose Change admin token and enter it again. |
+| CMS | `REVISION_CONFLICT` | The draft was saved as revision {actual} after you opened revision {expected}, so your changes weren't saved. Copy anything you want to keep, then reload the page to get the latest draft. |
+| CMS | `STATUS_NOTE_REQUIRED` | Each status change needs a new note saying what changed, so the draft wasn't saved. Add the notes and save again. |
+| CMS | `ROLLBACK_NOT_PUBLISHABLE` | That version was restored to the draft as revision {revision}, but it wasn't published because it has {count} publishing issue(s). Choose Validate to see them. |
+| CMS | anything else | Something went wrong, so that didn't go through. Reload the page to see the current draft, then try again. |
+| Support It | `UNAUTHORIZED` | You're signed out, so nothing was started. Sign in with the account you use for It, then try again. |
+| Support It | `PAYMENTS_NOT_CONFIGURED` | Support isn't available right now, so no payment was started. You can still help in the other ways below. |
+| Support It | `NOT_FOUND` | We couldn't find that support on this account. If you supported It with a different account, sign in with that one. |
+| Support It | `SUPPORT_NOT_RECURRING` | This support doesn't have a monthly plan to manage. |
+| Support It | anything else | Something went wrong, and no payment was taken. Try again in a few minutes. |
+
 ## Open questions for the founder
 
 1. American English everywhere, or match each person's locale later?
