@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { contentGraphSchema } from "@it/domain/content";
 import { validatePublishableGraph } from "../src/content-repository";
-import { buildTier1ContentGraph } from "../src/tier1-import";
+import { buildTier1ContentGraph } from "@it/content/tier-1-graph";
 
 describe("Tier 1 database import", () => {
   it("imports sourced content with stable IDs and valid links", () => {

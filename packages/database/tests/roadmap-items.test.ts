@@ -11,7 +11,7 @@ import {
   saveDraftContent,
 } from "../src/content-repository";
 import { createTestDatabase } from "./test-database";
-import { buildTier1ContentGraph } from "../src/tier1-import";
+import { buildTier1ContentGraph } from "@it/content/tier-1-graph";
 
 // Runs against a disposable Postgres server, for example:
 // docker run --rm -e POSTGRES_PASSWORD=it -p 54346:5432 postgres:17-alpine

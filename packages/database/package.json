@@ -7,7 +7,6 @@
     "./types": "./src/types.ts",
     "./database": "./src/database.ts",
     "./content-repository": "./src/content-repository.ts",
-    "./tier1-import": "./src/tier1-import.ts",
     "./support-repository": "./src/support-repository.ts",
     "./readiness": "./src/readiness.ts"
   },

@@ -5,6 +5,7 @@
   "type": "module",
   "exports": {
     "./tier-1": "./src/tier-1.ts",
+    "./tier-1-graph": "./src/tier-1-graph.ts",
     "./first-actions": "./src/first-actions.ts",
     "./fixes": "./src/fixes.ts",
     "./essays": "./src/essays.generated.ts",
