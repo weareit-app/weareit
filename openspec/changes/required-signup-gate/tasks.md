@@ -1,6 +1,6 @@
 # Tasks
 
-Tasks marked *(after launch)* wait until after the Oct 26 web launch (see proposal.md, "Launch scope").
+Tasks marked *(after launch)* wait until after the Nov 2 web launch (moved from Oct 26) (see proposal.md, "Launch scope").
 
 ## 1. Data model
 
