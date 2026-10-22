@@ -175,6 +175,16 @@ Decided with the founder in weareit-app/weareit#147; carried out in group 2 of t
 - **Tier-1 authoring schemas are built from the graph schemas** with `pick` and `extend`. A rule both share, such as a feature status being required exactly when a way's kind is feature, lives on the graph schema.
 - *Alternatives:* a separate `@it/primitives` package, splitting `@it/content` into schema and data packages, or no move. Each kept a package-edge question for every shared shape; modules in one package remove it.
 
+### Generated table types
+
+Decided with the founder in weareit-app/weareit#147; carried out in group 3 of the [`repo-conventions` change](../../openspec/changes/repo-conventions/tasks.md).
+
+- **Table types are generated, not written by hand.** kysely-codegen writes `packages/database/src/db.ts` from a scratch database migrated to latest (`pnpm db:types`). Enum columns narrowed by `CHECK` and the `jsonb` columns are typed with their `@it/domain` types through column overrides, so the domain stays the one owner of those shapes. Pin and option notes: `docs/architecture/dependency-policy.md`.
+- **Check 1, codegen with `--verify`:** CI's `check` job runs `pnpm db:types --verify` against its Postgres service and fails if the committed `db.ts` differs from fresh output. A migration can't land without its types.
+- **Check 2, the `CHECK` enum test:** `packages/database/tests/check-enums.test.ts` reads every enum `CHECK` constraint from the Postgres catalog and fails if its values differ from its Zod enum, naming the column and the values. It also fails on an enum `CHECK` with no Zod enum mapped to it. Neither check alone catches both a missing column type and SQL-versus-Zod drift.
+- **Generated names are kept:** the database interface is `DB`, as kysely-codegen names it. Table interfaces keep the `Table` suffix (`ContentPainsTable`), produced by kysely-codegen's `singularize` option, so the `Table`-suffix naming rule holds without hand edits.
+- *Alternatives:* hand-written table types derived from Zod types. Kysely's docs call hand-written types good enough in many cases (#145, checked 2026-10-21), but a new column can go untyped without failing anything.
+
 ## Open implementation decisions
 
 - Sender identity (from-address and reply-to) for service email.
@@ -206,3 +216,4 @@ Decided with the founder in weareit-app/weareit#147; carried out in group 2 of t
 - 2026-10-21: founder moved the v0.1 launch from Oct 26 to Nov 2 with the full launch bar, because none of the four launch features was built yet (weareit-app/weareit#157, #160); added a Wed Oct 28 checkpoint.
 - 2026-10-21: added the code conventions topic with the docs and steering decision (weareit-app/weareit#152): decision records only in this file, `AGENTS.md` as guardrails and pointers and the one source of the privacy invariants, judgement rules only in `CODING_STANDARDS.md`, workflow detail in `docs/agents/`, and no `CLAUDE.md`.
 - 2026-10-21: added the domain model package decision (weareit-app/weareit#147): every domain schema in one Zod-only `@it/domain` with a module per domain, `@it/content` reduced to data and the essay build, types derived from schemas, and tier-1 authoring schemas built from the graph schemas.
+- 2026-10-22: added the generated table types decision (weareit-app/weareit#147): kysely-codegen output checked in CI with `--verify`, a Postgres test that each enum `CHECK` matches its Zod enum, and the generated names kept (`DB`, and the `Table` suffix).
