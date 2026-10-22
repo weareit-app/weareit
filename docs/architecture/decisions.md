@@ -149,6 +149,22 @@ Decided 2026-10-19 by the founder (ticket "Pick hosting, email provider and depl
 - Storybook (`@storybook/react-native-web-vite`, web only) shows components one at a time for pull-request review, and `pnpm storybook:review` screenshots every story for a branch and its merge base and reports what changed (founder, 2026-10-20). The founder chose Storybook over an in-app gallery route, on condition that it render the app faithfully. Storybook builds with Vite, not Metro; NativeWind 5's Babel preset and Tailwind's PostCSS plugin both run there, and the stories render the app's tokens, fonts and dark mode. If a NativeWind or Expo update breaks that, fix the Storybook config, or move the stories to an in-app gallery route; don't change the app to suit Storybook. Details: `docs/architecture/storybook.md`.
 - Review is local for now: screenshots and a report on the reviewer's machine. Publishing Storybook on pull-request previews waits on the Render preview deploys above (weareit-app/weareit#72).
 
+## Code conventions
+
+Decided 2026-10-21 in the repo conventions map (weareit-app/weareit#140) and carried out by the `repo-conventions` OpenSpec change. Each convention is enforced by a check where it is mechanical, and by a rule in `CODING_STANDARDS.md` where it is a judgement call.
+
+### Docs and steering
+
+Decided with the founder in weareit-app/weareit#152.
+
+- **Decision records** live only in this file: current decisions grouped by topic and edited in place, plus the dated change log below. There is no `docs/adr/` folder; a check that fails if one appears comes with the `repo-conventions` change.
+- **`AGENTS.md`** holds guardrails and pointers: product intent, the binding stack lines, and the privacy invariants, plus one pointer to each other doc, worded with when to read it. Anything with another home moves there.
+- **The privacy invariants are written only in `AGENTS.md`.** This file records when and why each was decided or changed and links to `AGENTS.md`, without restating them. Changing an invariant still needs a dated entry here.
+- **Judgement rules** that review applies and no check can enforce live only in `CODING_STANDARDS.md`. `AGENTS.md` and `openspec/config.yaml` point to it instead of copying its rules. A rule a check can enforce becomes a check instead.
+- **Workflow detail** (the OpenSpec workflow, the Spec Kit retirement notes, and skill configuration) lives in `docs/agents/`, with one pointer per file in `AGENTS.md`.
+- **One steering file:** one root `AGENTS.md`, with no `CLAUDE.md` and no `.claude/rules/`. Claude Code reads `AGENTS.md` directly when no `CLAUDE.md` exists, and adding a `CLAUDE.md` would stop it loading nested `AGENTS.md` files (checked 2026-10-21 against Claude Code's memory docs, code.claude.com/docs/en/memory). A package gets a nested `AGENTS.md` only when it has rules nothing else carries.
+- **Doc roles:** this file says what was decided and why. `docs/architecture/<topic>.md` says how a decided area works (setup, gotchas, versions), and its entry here links to it. An OpenSpec `design.md` covers one change; when the change is archived, each decision that outlasts it gets an entry here.
+
 ## Open implementation decisions
 
 - Sender identity (from-address and reply-to) for service email.
@@ -178,3 +194,4 @@ Decided 2026-10-19 by the founder (ticket "Pick hosting, email provider and depl
 - 2026-10-20: recorded the code-only Prettier decision (from #62 and #77), which until then lived only in tool config comments.
 - 2026-10-21: founder chose local-only OpenAPI docs for developers: a generated spec, a Scalar page, and an OpenAPI transport beside RPC, all behind `API_DOCS=1`. The app's RPC transport and production are unchanged.
 - 2026-10-21: founder moved the v0.1 launch from Oct 26 to Nov 2 with the full launch bar, because none of the four launch features was built yet (weareit-app/weareit#157, #160); added a Wed Oct 28 checkpoint.
+- 2026-10-21: added the code conventions topic with the docs and steering decision (weareit-app/weareit#152): decision records only in this file, `AGENTS.md` as guardrails and pointers and the one source of the privacy invariants, judgement rules only in `CODING_STANDARDS.md`, workflow detail in `docs/agents/`, and no `CLAUDE.md`.
