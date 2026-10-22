@@ -165,6 +165,16 @@ Decided with the founder in weareit-app/weareit#152.
 - **One steering file:** one root `AGENTS.md`, with no `CLAUDE.md` and no `.claude/rules/`. Claude Code reads `AGENTS.md` directly when no `CLAUDE.md` exists, and adding a `CLAUDE.md` would stop it loading nested `AGENTS.md` files (checked 2026-10-21 against Claude Code's memory docs, code.claude.com/docs/en/memory). A package gets a nested `AGENTS.md` only when it has rules nothing else carries.
 - **Doc roles:** this file says what was decided and why. `docs/architecture/<topic>.md` says how a decided area works (setup, gotchas, versions), and its entry here links to it. An OpenSpec `design.md` covers one change; when the change is archived, each decision that outlasts it gets an entry here.
 
+### Domain model package
+
+Decided with the founder in weareit-app/weareit#147; carried out in group 2 of the [`repo-conventions` change](../../openspec/changes/repo-conventions/tasks.md).
+
+- **One Zod-only package, `@it/domain`,** holds every domain schema and the pure domain logic, with one module per domain, each its own export subpath: `primitives` (slug ID, non-empty text, ISO date, ISO datetime), `content` (the content graph and the tier-1 authoring schemas), `essays`, `onboarding`, and `support`. Modules import along real dependencies only: onboarding → content → primitives; essays → primitives; support → primitives.
+- **`@it/content` holds only content data and the essay build,** and imports its schemas from `@it/domain` like every other layer. `@it/watercolor` keeps its rendering schemas (manifest, palette, pigment), which no other layer restates.
+- **Types come from schemas:** a type for a value with a schema is `z.infer` (or `z.input` for a value before parsing), never written by hand, and enum unions come from their schema. Hand-written types are for values with no schema, such as props and internal state.
+- **Tier-1 authoring schemas are built from the graph schemas** with `pick` and `extend`. A rule both share, such as a feature status being required exactly when a way's kind is feature, lives on the graph schema.
+- *Alternatives:* a separate `@it/primitives` package, splitting `@it/content` into schema and data packages, or no move. Each kept a package-edge question for every shared shape; modules in one package remove it.
+
 ## Open implementation decisions
 
 - Sender identity (from-address and reply-to) for service email.
@@ -195,3 +205,4 @@ Decided with the founder in weareit-app/weareit#152.
 - 2026-10-21: founder chose local-only OpenAPI docs for developers: a generated spec, a Scalar page, and an OpenAPI transport beside RPC, all behind `API_DOCS=1`. The app's RPC transport and production are unchanged.
 - 2026-10-21: founder moved the v0.1 launch from Oct 26 to Nov 2 with the full launch bar, because none of the four launch features was built yet (weareit-app/weareit#157, #160); added a Wed Oct 28 checkpoint.
 - 2026-10-21: added the code conventions topic with the docs and steering decision (weareit-app/weareit#152): decision records only in this file, `AGENTS.md` as guardrails and pointers and the one source of the privacy invariants, judgement rules only in `CODING_STANDARDS.md`, workflow detail in `docs/agents/`, and no `CLAUDE.md`.
+- 2026-10-21: added the domain model package decision (weareit-app/weareit#147): every domain schema in one Zod-only `@it/domain` with a module per domain, `@it/content` reduced to data and the essay build, types derived from schemas, and tier-1 authoring schemas built from the graph schemas.
