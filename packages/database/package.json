@@ -13,6 +13,7 @@
   "dependencies": {
     "@it/content": "workspace:*",
     "@it/domain": "workspace:*",
+    "@it/log": "workspace:*",
     "kysely": "^0.28.17",
     "pg": "^8.23.1"
   },

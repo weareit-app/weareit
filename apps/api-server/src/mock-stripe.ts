@@ -5,11 +5,13 @@ import {
   type ServerResponse,
 } from "node:http";
 import Stripe from "stripe";
+import { createLog } from "@it/log";
 
 if (process.env.NODE_ENV === "production") {
   throw new Error("The local Stripe simulator cannot run in production.");
 }
 
+const log = createLog({ level: "info" });
 const port = Number(process.env.MOCK_STRIPE_PORT ?? 12111);
 const apiBase = process.env.MOCK_IT_API_BASE ?? "http://localhost:3001";
 const appBase = process.env.PUBLIC_APP_URL ?? "http://localhost:8082";
@@ -392,13 +394,13 @@ const server = createServer(async (request, response) => {
 
     response.writeHead(404).end("Not found");
   } catch (error) {
-    console.error("Local Stripe simulator request failed", error);
+    log.error("stripe_simulator_request_failed", { cause: error });
     response.writeHead(502).end("Local payment simulator could not reach It");
   }
 });
 
 server.listen(port, "127.0.0.1", () => {
-  console.log(`Local Stripe simulator listening on http://127.0.0.1:${port}`);
+  log.info("stripe_simulator_listening", { url: `http://127.0.0.1:${port}` });
 });
 
 process.on("SIGINT", () => server.close());
