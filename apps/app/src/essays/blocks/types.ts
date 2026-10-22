@@ -1,8 +1,4 @@
-import type {
-  BlockType,
-  EssayBlockOf,
-  EssaySource,
-} from "@it/content/essay-schema";
+import type { BlockType, EssayBlockOf, EssaySource } from "@it/domain/essays";
 
 /**
  * What every block component receives: its parsed block (type, id and the

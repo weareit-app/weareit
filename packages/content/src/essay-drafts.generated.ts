@@ -1,6 +1,6 @@
 // Generated from essays/<slug>/essay.md by `pnpm --filter @it/content essays`.
 // Don't edit it by hand: edit the essay and run the script again.
-import type { Essay } from "./essay-schema";
+import type { Essay } from "@it/domain/essays";
 
 /** Unpublished essays, for the development `?draft` preview only. */
 export const draftEssays: Partial<Record<string, Essay>> = {

@@ -3,7 +3,7 @@ import type {
   DataContext,
   DataRow,
   EssaySource,
-} from "@it/content/essay-schema";
+} from "@it/domain/essays";
 import { formatEssayDate } from "./format";
 import { SourceLink } from "./source-link";
 

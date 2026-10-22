@@ -3,7 +3,7 @@ import type {
   EssayInline,
   EssayNode,
   EssaySource,
-} from "@it/content/essay-schema";
+} from "@it/domain/essays";
 import { Link, type Href } from "expo-router";
 import type { ComponentType } from "react";
 import { Platform, View } from "react-native";

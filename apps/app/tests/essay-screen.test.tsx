@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react-native";
-import type { Essay } from "@it/content/essay-schema";
+import type { Essay } from "@it/domain/essays";
 import { draftEssays } from "@it/content/essay-drafts";
 import { essays } from "@it/content/essays";
 import { EssayPage } from "../src/essays/essay-page";

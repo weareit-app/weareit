@@ -5,7 +5,7 @@ import {
   within,
 } from "@testing-library/react-native";
 import { useState } from "react";
-import type { ContentFix, ContentRoadmapItem } from "@it/content/graph-schema";
+import type { ContentFix, ContentRoadmapItem } from "@it/domain/content";
 import { refuseStatusChangesWithoutNotes } from "../src/components/cms/feature-status-editor";
 import {
   RoadmapEditor,

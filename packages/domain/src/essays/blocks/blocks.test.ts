@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { diagramBlockSchema } from "../src/essays/blocks/diagram";
-import { mathBlockSchema } from "../src/essays/blocks/math";
+import { diagramBlockSchema } from "./diagram";
+import { mathBlockSchema } from "./math";
 
 describe("diagram block", () => {
   it("accepts Mermaid text with a written description", () => {

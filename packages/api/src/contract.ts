@@ -1,6 +1,6 @@
 import { oc, type OpenAPI } from "@orpc/contract";
 import { z } from "zod";
-import { contentGraphSchema } from "@it/content/graph-schema";
+import { contentGraphSchema } from "@it/domain/content";
 import { onboardingDraftSchema } from "@it/domain/onboarding";
 import { isoDatetimeSchema, nonEmptyTextSchema } from "@it/domain/primitives";
 import {

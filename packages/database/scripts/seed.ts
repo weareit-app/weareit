@@ -1,6 +1,6 @@
 import { createDatabase } from "../src/database";
 import { initializeContent } from "../src/content-repository";
-import { buildTier1ContentGraph } from "../src/tier1-import";
+import { buildTier1ContentGraph } from "@it/content/tier-1-graph";
 
 const connectionString = process.env.DATABASE_URL;
 if (!connectionString)

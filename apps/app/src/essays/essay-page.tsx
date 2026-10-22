@@ -1,4 +1,4 @@
-import type { Essay } from "@it/content/essay-schema";
+import type { Essay } from "@it/domain/essays";
 import { Link, type Href } from "expo-router";
 import { View } from "react-native";
 import { Page } from "../components/page";

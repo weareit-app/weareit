@@ -4,7 +4,7 @@ import { initializeContentIfEmpty } from "../src/content-repository";
 import { createDatabase } from "../src/database";
 import { migrateToLatest } from "../src/migrator";
 import { checkDatabaseReadiness, isLocalDatabase } from "../src/readiness";
-import { buildTier1ContentGraph } from "../src/tier1-import";
+import { buildTier1ContentGraph } from "@it/content/tier-1-graph";
 
 // Runs before `pnpm dev`: brings the local database to the point where the
 // API starts, or stops with one message saying what to do. A database that

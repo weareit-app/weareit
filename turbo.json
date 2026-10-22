@@ -6,8 +6,9 @@
         "essays/**",
         "essay-build/**",
         "scripts/build-essays.ts",
-        "src/essay-schema.ts",
-        "src/essays/**"
+        "$TURBO_ROOT$/packages/domain/src/essays.ts",
+        "$TURBO_ROOT$/packages/domain/src/essays/**",
+        "$TURBO_ROOT$/packages/domain/src/primitives.ts"
       ],
       "outputs": ["src/essays.generated.ts", "src/essay-drafts.generated.ts"]
     },

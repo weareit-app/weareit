@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { nonEmptyTextSchema } from "@it/domain/primitives";
+import { nonEmptyTextSchema } from "../../primitives";
 
 // The data file of a `::math{id="…"}` block.
 export const mathBlockSchema = z.strictObject({

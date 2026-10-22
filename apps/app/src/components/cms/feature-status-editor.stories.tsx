@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-native-web-vite";
 import { useState } from "react";
 import { View } from "react-native";
 import { expect, fn, userEvent, within } from "storybook/test";
-import { featureStatuses, type ContentFix } from "@it/content/graph-schema";
+import { featureStatuses, type ContentFix } from "@it/domain/content";
 import { contentFixes, fixOfKind } from "../../stories/content";
 import { FeatureStatusEditor } from "./feature-status-editor";
 

@@ -2,7 +2,7 @@ import {
   blockSchemas,
   essaySourceSchema,
   type EssayBlockOf,
-} from "@it/content/essay-schema";
+} from "@it/domain/essays";
 
 // Sample blocks for the essay-blocks lab and the block tests, parsed by the
 // content schemas as the essay build would, so a fixture that drifts from a

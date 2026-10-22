@@ -5,7 +5,7 @@ import {
   contentGraphSchema,
   featureStatuses,
   type ContentFix,
-} from "../src/graph-schema";
+} from "@it/domain/content";
 import { fixes } from "../src/fixes";
 
 const feature: ContentFix = {
@@ -169,7 +169,7 @@ describe("status date and note", () => {
       featureStatus: undefined,
       statusNote: "Not a feature.",
     };
-    expect(contentFixSchema.safeParse(habit).success).toBe(true);
+    expect(contentFixSchema.safeParse(habit).success).toBe(false);
     expect(
       contentGraphSchema.safeParse({
         domains: [],

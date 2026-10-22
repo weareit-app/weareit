@@ -7,7 +7,7 @@ import {
   type ContentFix,
   type ContentGraph,
   type ContentRoadmapItem,
-} from "@it/content/graph-schema";
+} from "@it/domain/content";
 import { statusCopy } from "../personal/way-row";
 import { Text } from "../text";
 import { Button, Field, RelationPicker, SelectField } from "./fields";

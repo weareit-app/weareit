@@ -3,7 +3,7 @@ import {
   blockSchemas,
   essayFrontMatterSchema,
   essayStatusLabels,
-} from "../src/essay-schema";
+} from "./essays";
 
 const frontMatter = {
   title: "Why It exists",
