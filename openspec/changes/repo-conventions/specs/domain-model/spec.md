@@ -64,7 +64,7 @@ The API contract, a client typed from the contract alone, and the OpenAPI docume
 
 #### Scenario: App typecheck
 - **WHEN** the app is typechecked
-- **THEN** no file from `@it/database`, `kysely`, or `pg` is part of its program
+- **THEN** no file reached through It's own packages (`@it/*`) is from `@it/database`, `kysely`, or `pg`; `kysely`'s types still arrive through Better Auth's client until better-auth/better-auth#6183 makes them optional (founder, 2026-10-22)
 
 #### Scenario: Client takes its address
 - **WHEN** the app creates an API client
