@@ -121,7 +121,7 @@ The earlier "after" dreams in this guide (quiet evenings, no night flights, sepa
 
 ## Error messages
 
-**Status:** Draft for founder approval (2026-10-22).
+**Status:** Approved by the founder as written (2026-10-22).
 
 When an API call fails, the app writes the words, keyed by the error's code (`apps/app/src/api-errors/`). The server's message is for developers and logs, and is never shown. Each message:
 
