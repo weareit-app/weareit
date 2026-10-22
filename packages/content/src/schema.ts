@@ -1,21 +1,19 @@
 import { z } from "zod";
-
-const contentIdSchema = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
-const copySchema = z.string().trim().min(1);
+import { nonEmptyTextSchema, slugIdSchema } from "@it/domain/primitives";
 
 export const dreamSchema = z
   .object({
-    id: contentIdSchema,
-    title: copySchema,
-    description: copySchema,
+    id: slugIdSchema,
+    title: nonEmptyTextSchema,
+    description: nonEmptyTextSchema,
   })
   .strict();
 
 export const painSchema = z
   .object({
-    id: contentIdSchema,
-    title: copySchema,
-    description: copySchema,
+    id: slugIdSchema,
+    title: nonEmptyTextSchema,
+    description: nonEmptyTextSchema,
     // Empty until futures are written; the page says so (CONFLICTS.md P7).
     dreams: z.array(dreamSchema),
   })
@@ -23,8 +21,8 @@ export const painSchema = z
 
 export const painDomainSchema = z
   .object({
-    id: contentIdSchema,
-    title: copySchema,
+    id: slugIdSchema,
+    title: nonEmptyTextSchema,
     pains: z.array(painSchema).min(1),
   })
   .strict();

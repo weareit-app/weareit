@@ -6,11 +6,13 @@ import {
   type DataBlockType,
 } from "./essays/blocks";
 import {
+  isoDateSchema,
+  nonEmptyTextSchema,
+  slugIdSchema,
+} from "@it/domain/primitives";
+import {
   essayStatusLabels,
   essayStatusLabelSchema,
-  isoDate,
-  slugId,
-  text,
 } from "./essays/blocks/shared";
 
 // Essays (public-pages, public-essays). An essay is a Markdown file with front
@@ -23,10 +25,10 @@ export type { DataColumn, DataContext, DataRow } from "./essays/blocks/shared";
 export type EssayStatusLabel = z.infer<typeof essayStatusLabelSchema>;
 
 export const essaySourceSchema = z.strictObject({
-  id: slugId,
-  title: text,
+  id: slugIdSchema,
+  title: nonEmptyTextSchema,
   /** Who published it; described by what they published, never endorsement. */
-  publisher: text,
+  publisher: nonEmptyTextSchema,
   url: z.url({ protocol: /^https?$/ }),
   /** When it was published, as a year or a date. */
   date: z
@@ -36,15 +38,18 @@ export const essaySourceSchema = z.strictObject({
 });
 export type EssaySource = z.infer<typeof essaySourceSchema>;
 
-export const essayChangeSchema = z.strictObject({ date: isoDate, note: text });
+export const essayChangeSchema = z.strictObject({
+  date: isoDateSchema,
+  note: nonEmptyTextSchema,
+});
 
 export const essayFrontMatterSchema = z
   .strictObject({
-    title: text,
+    title: nonEmptyTextSchema,
     /** The one-line question the essay answers. */
-    question: text,
+    question: nonEmptyTextSchema,
     published: z.boolean(),
-    updated: isoDate,
+    updated: isoDateSchema,
     /** Newest first; the first published version has one entry. */
     changes: z.array(essayChangeSchema).min(1),
     sources: z.array(essaySourceSchema).default([]),
@@ -139,19 +144,19 @@ const inlineSchema: z.ZodType<EssayInline> = z.lazy(() =>
         ),
       children: z.array(inlineSchema).min(1),
     }),
-    z.strictObject({ type: z.literal("sourceRef"), id: slugId }),
+    z.strictObject({ type: z.literal("sourceRef"), id: slugIdSchema }),
     z.strictObject({
       type: z.literal("status"),
       label: essayStatusLabelSchema,
     }),
-    z.strictObject({ type: z.literal("math"), tex: text }),
+    z.strictObject({ type: z.literal("math"), tex: nonEmptyTextSchema }),
   ]),
 );
 
 const dataBlock = <T extends DataBlockType>(type: T) =>
   z.strictObject({
     type: z.literal(type),
-    id: slugId,
+    id: slugIdSchema,
     data: blockSchemas[type],
   });
 
@@ -166,7 +171,7 @@ const blockSchema: z.ZodType<EssayBlock> = z.lazy(() =>
     dataBlock("table"),
     z.strictObject({
       type: z.literal("expandable"),
-      title: text,
+      title: nonEmptyTextSchema,
       children: z.array(nodeSchema).min(1),
     }),
   ]),
@@ -201,11 +206,11 @@ const nodeSchema: z.ZodType<EssayNode> = z.lazy(() =>
 export const essayNodeSchema = nodeSchema;
 
 export const essaySchema = z.strictObject({
-  slug: slugId,
-  title: text,
-  question: text,
+  slug: slugIdSchema,
+  title: nonEmptyTextSchema,
+  question: nonEmptyTextSchema,
   published: z.boolean(),
-  updated: isoDate,
+  updated: isoDateSchema,
   changes: z.array(essayChangeSchema).min(1),
   sources: z.array(essaySourceSchema),
   body: z.array(nodeSchema).min(1),

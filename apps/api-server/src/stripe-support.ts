@@ -1,6 +1,7 @@
 import { createHash, randomUUID } from "node:crypto";
 import Stripe from "stripe";
 import type { ItDatabase } from "@it/database/database";
+import type { SupportFrequency } from "@it/domain/support";
 import {
   attachStripeCheckout,
   createPendingStripeContribution,
@@ -57,7 +58,7 @@ export function createStripeSupport(db: ItDatabase) {
   return {
     async createCheckout(input: {
       amountMinor: number;
-      frequency: "once" | "monthly";
+      frequency: SupportFrequency;
       userId: string;
     }) {
       if (!stripe || !productId) throw new Error("STRIPE_NOT_CONFIGURED");

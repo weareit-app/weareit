@@ -1,13 +1,13 @@
 import { z } from "zod";
-import { text } from "./shared";
+import { nonEmptyTextSchema } from "@it/domain/primitives";
 
 // The data file of a `::diagram{id="…"}` block. The description is what
 // readers get with scripts off and what screen readers hear, so it is
 // required.
 export const diagramBlockSchema = z.strictObject({
-  title: text.optional(),
+  title: nonEmptyTextSchema.optional(),
   /** Mermaid source. */
-  mermaid: text
+  mermaid: nonEmptyTextSchema
     // The app sets the theme, security level and layout, so a diagram may
     // not carry its own %%{init}%% directive or YAML front matter.
     .refine(
@@ -25,5 +25,5 @@ export const diagramBlockSchema = z.strictObject({
       (source) => !source.includes("$$"),
       "Remove the $$ math; use a math block for formulas",
     ),
-  description: text,
+  description: nonEmptyTextSchema,
 });

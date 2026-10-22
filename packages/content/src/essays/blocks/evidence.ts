@@ -1,11 +1,16 @@
 import { z } from "zod";
-import { text, slugId, isoDate, essayStatusLabelSchema } from "./shared";
+import {
+  isoDateSchema,
+  nonEmptyTextSchema,
+  slugIdSchema,
+} from "@it/domain/primitives";
+import { essayStatusLabelSchema } from "./shared";
 
 // The data file of a `::evidence{id="…"}` block.
 export const evidenceBlockSchema = z.strictObject({
-  claim: text,
-  source: slugId,
-  date: isoDate,
+  claim: nonEmptyTextSchema,
+  source: slugIdSchema,
+  date: isoDateSchema,
   status: essayStatusLabelSchema,
-  limitation: text,
+  limitation: nonEmptyTextSchema,
 });

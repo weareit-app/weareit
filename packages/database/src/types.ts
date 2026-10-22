@@ -1,4 +1,10 @@
 import type { ContentGraph, FeatureStatus } from "@it/content/graph-schema";
+import type {
+  ContributionStatus,
+  PaymentProcessor,
+  SupportFrequency,
+  TransactionStatus,
+} from "@it/domain/support";
 import type { ColumnType, Generated, JSONColumnType } from "kysely";
 
 type Timestamp = ColumnType<Date, Date | string | undefined, Date | string>;
@@ -161,20 +167,11 @@ export interface UserOnboardingDraftsTable {
 export interface SupportContributionsTable {
   id: string;
   user_id: string | null;
-  processor: "stripe" | "app_store" | "play_store";
-  frequency: "once" | "monthly";
+  processor: PaymentProcessor;
+  frequency: SupportFrequency;
   amount_minor: number;
   currency: string;
-  status:
-    | "pending"
-    | "active"
-    | "succeeded"
-    | "past_due"
-    | "cancel_scheduled"
-    | "canceled"
-    | "expired"
-    | "failed"
-    | "refunded";
+  status: ContributionStatus;
   stripe_customer_id: string | null;
   stripe_checkout_session_id: string | null;
   stripe_subscription_id: string | null;
@@ -198,11 +195,11 @@ export interface SupportPaymentEventsTable {
 export interface SupportTransactionsTable {
   id: string;
   contribution_id: string;
-  processor: "stripe" | "app_store" | "play_store";
+  processor: PaymentProcessor;
   provider_transaction_id: string;
   amount_minor: number;
   currency: string;
-  status: "succeeded" | "failed" | "refunded" | "partially_refunded";
+  status: TransactionStatus;
   occurred_at: Timestamp;
   recorded_at: Timestamp;
 }

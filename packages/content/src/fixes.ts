@@ -1,4 +1,9 @@
 import { z } from "zod";
+import {
+  isoDateSchema,
+  nonEmptyTextSchema,
+  slugIdSchema,
+} from "@it/domain/primitives";
 import { evidenceLevels, featureStatuses, fixKinds } from "./graph-schema";
 import { getAllDreams, personalPainDomains } from "./tier-1";
 
@@ -8,16 +13,16 @@ import { getAllDreams, personalPainDomains } from "./tier-1";
 // have no linked sources yet.
 const fixSchema = z
   .object({
-    id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+    id: slugIdSchema,
     dreamIds: z.array(z.string().min(1)).min(1),
-    title: z.string().trim().min(1),
-    description: z.string().trim().min(1),
+    title: nonEmptyTextSchema,
+    description: nonEmptyTextSchema,
     kind: z.enum(fixKinds),
     featureStatus: z.enum(featureStatuses).optional(),
-    statusChangedOn: z.iso.date().optional(),
-    statusNote: z.string().trim().min(1).max(500).optional(),
+    statusChangedOn: isoDateSchema.optional(),
+    statusNote: nonEmptyTextSchema.max(500).optional(),
     evidence: z.enum(evidenceLevels),
-    evidenceNote: z.string().trim().min(1),
+    evidenceNote: nonEmptyTextSchema,
   })
   .strict()
   .refine((fix) => (fix.kind === "feature") === Boolean(fix.featureStatus), {
