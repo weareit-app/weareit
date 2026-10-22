@@ -48,11 +48,15 @@ An import from another package SHALL use the package name and one of its `export
 - **THEN** the check fails, and the fix is to import the function through a package export
 
 ### Requirement: Pure packages use an allowlist
-`@it/domain`, `@it/watercolor`, and `@it/content` SHALL import only `zod` from outside the workspace. `@it/api-contract` SHALL import only `zod`, `@orpc/contract`, and `@orpc/client`. `@it/log` SHALL import nothing from outside the workspace. Adding a library to one of these packages SHALL require editing the allowlist. This is how the rule that domain and content stay free of Expo, React Native, UI, and provider imports is checked.
+`@it/domain`, `@it/watercolor`, and `@it/content` SHALL import only `zod` from outside the workspace; `@it/api-contract` only `zod`, `@orpc/contract`, `@orpc/client`, `@orpc/openapi`, and `@orpc/zod`; and `@it/log` nothing. Adding a library to one of these packages SHALL require editing the allowlist. This is how the rule that domain and content stay free of Expo, React Native, UI, and provider imports is checked.
 
 #### Scenario: React Native in content
 - **WHEN** a file in `@it/content`'s source imports `react-native`
 - **THEN** the check fails with the package's allowlist in the message
+
+#### Scenario: OpenAPI generator in the contract package
+- **WHEN** `@it/api-contract`'s OpenAPI generator imports `@orpc/openapi` and `@orpc/zod`
+- **THEN** the check passes, because the founder chose to keep the generator there (2026-10-22)
 
 ### Requirement: Server framework stays in the server
 Only `apps/api-server` SHALL import the oRPC server library. Repositories, services, and domain logic SHALL NOT import any oRPC library.
