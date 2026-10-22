@@ -1,6 +1,6 @@
 # Tasks
 
-Launch (Oct 26): groups 4 and 7 and tasks 9.2 and 9.3 are deferred until after launch, along with the funding total in 1.2, 2.1 (`getFundingTotal`) and 5.1; the founder letter ships as fixed text in the app (see proposal.md "Launch scope").
+Launch (Nov 2, moved from Oct 26): groups 4 and 7 and tasks 9.2 and 9.3 are deferred until after launch, along with the funding total in 1.2, 2.1 (`getFundingTotal`) and 5.1; the founder letter ships as fixed text in the app (see proposal.md "Launch scope").
 
 Prerequisites: `required-signup-gate` merged (migration `006_signup_gate`, header/menu chrome, `/all-set`, moment emitter); founder answers to `confirm.md` (all answered 2026-10-19) Q1, Q4, Q5, Q9 and Q10 before groups 1, 7 and 3.5.
 

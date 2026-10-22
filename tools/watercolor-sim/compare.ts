@@ -6,16 +6,13 @@ import CanvasKitInit from "canvaskit-wasm";
 import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { manifestSchema } from "../../packages/watercolor/src/manifest.ts";
-import {
-  PALETTES,
-  type PaletteId,
-} from "../../packages/watercolor/src/palettes.ts";
+import { manifestSchema } from "@it/watercolor/manifest";
+import { PALETTES, type PaletteId } from "@it/watercolor/palettes";
 import {
   DOT_B_SKSL,
   DOT_E_SKSL,
   paletteUniforms,
-} from "../../packages/watercolor/src/shaders/index.ts";
+} from "@it/watercolor/shaders";
 
 function arg(name: string, fallback: string): string {
   const i = process.argv.indexOf(`--${name}`);

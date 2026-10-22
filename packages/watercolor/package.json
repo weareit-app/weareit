@@ -10,7 +10,8 @@
     "./manifest": "./src/manifest.ts",
     "./shaders": "./src/shaders/index.ts",
     "./motion": "./src/motion.ts",
-    "./gather": "./src/gather.ts"
+    "./gather": "./src/gather.ts",
+    "./marks": "./src/marks.ts"
   },
   "dependencies": {
     "zod": "4.6.7"
