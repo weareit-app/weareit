@@ -9,7 +9,8 @@ import {
   toggleFix,
   toggleSelection,
   unselectPain,
-} from "../src/onboarding";
+} from "./onboarding";
+import storedDrafts from "./onboarding-drafts.fixture.json";
 
 describe("toggleSelection", () => {
   it("adds an unselected ID without changing the original list", () => {
@@ -136,4 +137,19 @@ describe("rankWays", () => {
       { fixId: "wind-down", dreamIds: ["calm"] },
     ]);
   });
+});
+
+// Drafts stored before the schemas moved into @it/domain (2026-10-21), each
+// with what the schema returned for it then. `stored` is the raw string: the
+// app's persisted { state, version } entry, or the API's jsonb column.
+describe("stored onboarding drafts", () => {
+  it.each(storedDrafts)(
+    "parses a draft $name as before",
+    ({ stored, parsed }) => {
+      const value = JSON.parse(stored);
+      const draft = "state" in value ? value.state : value;
+
+      expect(onboardingDraftSchema.parse(draft)).toEqual(parsed);
+    },
+  );
 });

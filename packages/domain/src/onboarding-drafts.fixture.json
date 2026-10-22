@@ -1,0 +1,111 @@
+[
+  {
+    "name": "on the device, saved before paths existed",
+    "stored": "{\"state\":{\"personalPainIds\":[\"poor-sleep\"],\"worldPainIds\":[\"they-dont-listen\"],\"personalDreamIds\":[\"fall-asleep\"],\"worldDreamIds\":[\"real-representation\"],\"helpInterests\":[\"research\",\"open-to-anything\"],\"draftUpdatedAt\":1760000000000},\"version\":1}",
+    "parsed": {
+      "personalPainIds": [
+        "poor-sleep"
+      ],
+      "worldPainIds": [
+        "they-dont-listen"
+      ],
+      "personalDreamIds": [
+        "fall-asleep"
+      ],
+      "worldDreamIds": [
+        "real-representation"
+      ],
+      "worldPaths": [],
+      "personalPaths": [],
+      "helpInterests": [
+        "research",
+        "open-to-anything"
+      ],
+      "draftUpdatedAt": 1760000000000
+    }
+  },
+  {
+    "name": "on the device, with paths",
+    "stored": "{\"state\":{\"personalPainIds\":[\"poor-sleep\"],\"worldPainIds\":[\"they-dont-listen\"],\"personalDreamIds\":[\"fall-asleep\"],\"worldDreamIds\":[\"real-representation\"],\"worldPaths\":[{\"painId\":\"they-dont-listen\",\"dreamIds\":[\"real-representation\"],\"fixIds\":[]}],\"personalPaths\":[{\"painId\":\"poor-sleep\",\"dreamIds\":[\"fall-asleep\"],\"fixIds\":[\"ask-about-sleep-care\"]}],\"helpInterests\":[\"skills\"],\"draftUpdatedAt\":1761060000000},\"version\":1}",
+    "parsed": {
+      "personalPainIds": [
+        "poor-sleep"
+      ],
+      "worldPainIds": [
+        "they-dont-listen"
+      ],
+      "personalDreamIds": [
+        "fall-asleep"
+      ],
+      "worldDreamIds": [
+        "real-representation"
+      ],
+      "worldPaths": [
+        {
+          "painId": "they-dont-listen",
+          "dreamIds": [
+            "real-representation"
+          ],
+          "fixIds": []
+        }
+      ],
+      "personalPaths": [
+        {
+          "painId": "poor-sleep",
+          "dreamIds": [
+            "fall-asleep"
+          ],
+          "fixIds": [
+            "ask-about-sleep-care"
+          ]
+        }
+      ],
+      "helpInterests": [
+        "skills"
+      ],
+      "draftUpdatedAt": 1761060000000
+    }
+  },
+  {
+    "name": "on the server, in user_onboarding_drafts.draft",
+    "stored": "{\"personalPainIds\":[\"poor-sleep\"],\"worldPainIds\":[\"they-dont-listen\"],\"personalDreamIds\":[\"fall-asleep\"],\"worldDreamIds\":[\"real-representation\"],\"worldPaths\":[{\"painId\":\"they-dont-listen\",\"dreamIds\":[\"real-representation\"],\"fixIds\":[]}],\"personalPaths\":[{\"painId\":\"poor-sleep\",\"dreamIds\":[\"fall-asleep\"],\"fixIds\":[\"ask-about-sleep-care\"]}],\"helpInterests\":[\"skills\"],\"draftUpdatedAt\":1761060000000}",
+    "parsed": {
+      "personalPainIds": [
+        "poor-sleep"
+      ],
+      "worldPainIds": [
+        "they-dont-listen"
+      ],
+      "personalDreamIds": [
+        "fall-asleep"
+      ],
+      "worldDreamIds": [
+        "real-representation"
+      ],
+      "worldPaths": [
+        {
+          "painId": "they-dont-listen",
+          "dreamIds": [
+            "real-representation"
+          ],
+          "fixIds": []
+        }
+      ],
+      "personalPaths": [
+        {
+          "painId": "poor-sleep",
+          "dreamIds": [
+            "fall-asleep"
+          ],
+          "fixIds": [
+            "ask-about-sleep-care"
+          ]
+        }
+      ],
+      "helpInterests": [
+        "skills"
+      ],
+      "draftUpdatedAt": 1761060000000
+    }
+  }
+]
