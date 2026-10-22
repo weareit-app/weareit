@@ -5,6 +5,7 @@ import {
   recordRevenueCatSupportEvent,
   type RevenueCatSupportEvent,
 } from "@it/database/support-repository";
+import { WebhookNotConfiguredError } from "./payment-errors";
 
 const webhookSchema = z
   .object({
@@ -27,7 +28,7 @@ const webhookSchema = z
 
 export function verifyRevenueCatWebhook(rawBody: Buffer, signature: string) {
   const secret = process.env.REVENUECAT_WEBHOOK_SECRET;
-  if (!secret) throw new Error("REVENUECAT_WEBHOOK_NOT_CONFIGURED");
+  if (!secret) throw new WebhookNotConfiguredError("revenuecat");
   const parts = Object.fromEntries(
     signature.split(",").map((part) => {
       const separator = part.indexOf("=");

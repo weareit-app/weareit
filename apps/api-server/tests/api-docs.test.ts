@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { createApiRouter, type ApiContext } from "../src/router";
 import type { ItDatabase } from "@it/database/database";
 import { createApiDocs } from "../src/api-docs";
+import { SupportContributionNotFoundError } from "../src/payment-errors";
 
 const reference = "00000000-0000-4000-8000-000000000001";
 
@@ -14,7 +15,7 @@ const context: ApiContext = {
     getStatus: (ref, userId) =>
       ref === reference && userId === "user_owner"
         ? Promise.resolve({ frequency: "monthly", status: "active" })
-        : Promise.reject(new Error("SUPPORT_CONTRIBUTION_NOT_FOUND")),
+        : Promise.reject(new SupportContributionNotFoundError()),
     createPortal: () => Promise.reject(new Error("unused")),
   },
 };

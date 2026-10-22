@@ -4,6 +4,7 @@ import type { ItDatabase } from "../src/database";
 import {
   initializeContent,
   readDraftContent,
+  RevisionConflictError,
   saveDraftContent,
 } from "../src/content-repository";
 import { createTestDatabase } from "./test-database";
@@ -151,6 +152,21 @@ describe.skipIf(!connectionString)("five feature statuses in Postgres", () => {
         ({ id }) => id === feature.id,
       )?.featureStatus,
     ).toBe("in-progress");
+  });
+
+  it("refuses a save against an old revision, naming both revisions", async () => {
+    const draft = await readDraftContent(db);
+    const save = saveDraftContent(db, draft.content, {
+      expectedRevision: draft.revision - 1,
+      actor: "test",
+      changeNote: "From a stale tab",
+    });
+
+    await expect(save).rejects.toBeInstanceOf(RevisionConflictError);
+    await expect(save).rejects.toMatchObject({
+      expectedRevision: draft.revision - 1,
+      actualRevision: draft.revision,
+    });
   });
 
   it("rolls the migration back once only planned and idea remain", async () => {
