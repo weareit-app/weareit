@@ -1,4 +1,4 @@
-import { blockSchemas, type EssayNode } from "@it/content/essay-schema";
+import { blockSchemas, type EssayNode } from "@it/domain/essays";
 import { ScrollView, View } from "react-native";
 import { EssayBody } from "../../essay-body";
 

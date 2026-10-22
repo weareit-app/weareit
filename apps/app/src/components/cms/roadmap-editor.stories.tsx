@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-native-web-vite";
 import { View } from "react-native";
 import { expect, fn, userEvent, within } from "storybook/test";
-import type { ContentFix, ContentRoadmapItem } from "@it/content/graph-schema";
+import type { ContentFix, ContentRoadmapItem } from "@it/domain/content";
 import { contentFixes } from "../../stories/content";
 import { RoadmapEditor, type RoadmapContent } from "./roadmap-editor";
 

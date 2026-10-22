@@ -5,7 +5,7 @@ import {
   personalPainDomains,
   worldPainDomains,
 } from "../src/tier-1";
-import { painDomainListSchema } from "../src/schema";
+import { painDomainListSchema } from "@it/domain/content";
 
 describe("onboarding content", () => {
   it("has unique, valid IDs and nonempty content", () => {

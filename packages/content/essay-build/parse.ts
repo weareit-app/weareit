@@ -1,5 +1,5 @@
 // Build-time only: turns an essay's Markdown and block files into the typed
-// tree in `src/essay-schema.ts`. The Markdown parser lives here, so neither the
+// tree in `@it/domain/essays`. The Markdown parser lives here, so neither the
 // content package's runtime exports nor the app ship it.
 
 import type {
@@ -30,7 +30,7 @@ import {
   type EssayBlock,
   type EssayInline,
   type EssayNode,
-} from "../src/essay-schema";
+} from "@it/domain/essays";
 
 export class EssayError extends Error {
   constructor(readonly problems: string[]) {

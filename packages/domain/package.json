@@ -4,7 +4,11 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./onboarding": "./src/onboarding.ts"
+    "./content": "./src/content.ts",
+    "./essays": "./src/essays.ts",
+    "./onboarding": "./src/onboarding.ts",
+    "./primitives": "./src/primitives.ts",
+    "./support": "./src/support.ts"
   },
   "dependencies": {
     "zod": "4.6.7"

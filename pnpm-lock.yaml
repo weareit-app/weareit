@@ -44,6 +44,9 @@ importers:
       '@it/database':
         specifier: workspace:*
         version: link:../../packages/database
+      '@it/domain':
+        specifier: workspace:*
+        version: link:../../packages/domain
       '@orpc/openapi':
         specifier: 1.15.6
         version: 1.15.6(@opentelemetry/api@1.9.1)(ws@8.22.0)
@@ -277,6 +280,9 @@ importers:
 
   packages/content:
     dependencies:
+      '@it/domain':
+        specifier: workspace:*
+        version: link:../domain
       zod:
         specifier: 4.6.7
         version: 4.6.7
@@ -329,6 +335,9 @@ importers:
       '@it/content':
         specifier: workspace:*
         version: link:../content
+      '@it/domain':
+        specifier: workspace:*
+        version: link:../domain
       kysely:
         specifier: ^0.28.17
         version: 0.28.17

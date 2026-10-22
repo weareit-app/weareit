@@ -1,4 +1,4 @@
-import type { EssayNode } from "@it/content/essay-schema";
+import type { EssayNode } from "@it/domain/essays";
 import { act } from "react";
 import { createRoot } from "react-dom/client";
 import { renderToString } from "react-dom/server";

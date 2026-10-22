@@ -1,4 +1,14 @@
-import type { ContentGraph, FeatureStatus } from "@it/content/graph-schema";
+import type { ContentGraph, FeatureStatus } from "@it/domain/content";
+import type {
+  ContributionStatus,
+  PaymentProcessor,
+  SupportFrequency,
+  TransactionStatus,
+} from "@it/domain/support";
+import type {
+  OnboardingDraft,
+  OnboardingDraftInput,
+} from "@it/domain/onboarding";
 import type { ColumnType, Generated, JSONColumnType } from "kysely";
 
 type Timestamp = ColumnType<Date, Date | string | undefined, Date | string>;
@@ -126,55 +136,23 @@ export interface PublishedContentVersionsTable {
   published_at: Timestamp;
 }
 
-type UserOnboardingDraft = {
-  personalPainIds: string[];
-  worldPainIds: string[];
-  personalDreamIds: string[];
-  worldDreamIds: string[];
-  personalPaths: OnboardingPath[];
-  worldPaths: OnboardingPath[];
-  helpInterests: string[];
-  draftUpdatedAt: number;
-};
-
-type OnboardingPath = { painId: string; dreamIds: string[]; fixIds: string[] };
-
-// Drafts saved before paths existed have none.
-type StoredUserOnboardingDraft = Omit<
-  UserOnboardingDraft,
-  "personalPaths" | "worldPaths"
-> &
-  Partial<Pick<UserOnboardingDraft, "personalPaths" | "worldPaths">>;
-
 export interface UserOnboardingDraftsTable {
   id: Generated<number>;
   user_id: string;
   content_version: number;
-  draft: JSONColumnType<
-    StoredUserOnboardingDraft,
-    UserOnboardingDraft,
-    UserOnboardingDraft
-  >;
+  // Read as stored: drafts saved before paths existed have none.
+  draft: JSONColumnType<OnboardingDraftInput, OnboardingDraft, OnboardingDraft>;
   saved_at: Timestamp;
 }
 
 export interface SupportContributionsTable {
   id: string;
   user_id: string | null;
-  processor: "stripe" | "app_store" | "play_store";
-  frequency: "once" | "monthly";
+  processor: PaymentProcessor;
+  frequency: SupportFrequency;
   amount_minor: number;
   currency: string;
-  status:
-    | "pending"
-    | "active"
-    | "succeeded"
-    | "past_due"
-    | "cancel_scheduled"
-    | "canceled"
-    | "expired"
-    | "failed"
-    | "refunded";
+  status: ContributionStatus;
   stripe_customer_id: string | null;
   stripe_checkout_session_id: string | null;
   stripe_subscription_id: string | null;
@@ -198,11 +176,11 @@ export interface SupportPaymentEventsTable {
 export interface SupportTransactionsTable {
   id: string;
   contribution_id: string;
-  processor: "stripe" | "app_store" | "play_store";
+  processor: PaymentProcessor;
   provider_transaction_id: string;
   amount_minor: number;
   currency: string;
-  status: "succeeded" | "failed" | "refunded" | "partially_refunded";
+  status: TransactionStatus;
   occurred_at: Timestamp;
   recorded_at: Timestamp;
 }

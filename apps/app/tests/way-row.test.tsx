@@ -6,7 +6,7 @@ import {
   ListTodo,
 } from "lucide-react-native";
 import { fireEvent, render, screen } from "@testing-library/react-native";
-import { featureStatuses, type ContentFix } from "@it/content/graph-schema";
+import { featureStatuses, type ContentFix } from "@it/domain/content";
 import {
   statusCopy,
   WayRow,

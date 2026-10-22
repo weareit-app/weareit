@@ -4,7 +4,8 @@ import {
   contentGraphSchema,
   resolveFeatureStatuses,
   type ContentGraph,
-} from "@it/content/graph-schema";
+} from "@it/domain/content";
+import type { OnboardingDraft } from "@it/domain/onboarding";
 import { sql, type Kysely } from "kysely";
 import type { Database } from "./types";
 import type { ItDatabase } from "./database";
@@ -124,16 +125,7 @@ export async function saveUserOnboardingDraft(
   db: ItDatabase,
   userId: string,
   contentVersion: number,
-  draft: {
-    personalPainIds: string[];
-    worldPainIds: string[];
-    personalDreamIds: string[];
-    worldDreamIds: string[];
-    personalPaths: { painId: string; dreamIds: string[]; fixIds: string[] }[];
-    worldPaths: { painId: string; dreamIds: string[]; fixIds: string[] }[];
-    helpInterests: string[];
-    draftUpdatedAt: number;
-  },
+  draft: OnboardingDraft,
 ) {
   const published = await db
     .selectFrom("published_content_versions")

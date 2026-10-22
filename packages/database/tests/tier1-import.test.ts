@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { contentGraphSchema } from "@it/content/graph-schema";
+import { contentGraphSchema } from "@it/domain/content";
 import { validatePublishableGraph } from "../src/content-repository";
-import { buildTier1ContentGraph } from "../src/tier1-import";
+import { buildTier1ContentGraph } from "@it/content/tier-1-graph";
 
 describe("Tier 1 database import", () => {
   it("imports sourced content with stable IDs and valid links", () => {
@@ -29,6 +29,16 @@ describe("Tier 1 database import", () => {
         (reference) => reference.reviewStatus !== "unreviewed",
       ),
     ).toBe(true);
+  });
+
+  // Publishing stores the parsed graph and its checksum, so the schema must
+  // hand the seed back unchanged, byte for byte.
+  it("parses the seed into the same JSON it was given", () => {
+    const graph = buildTier1ContentGraph();
+
+    expect(JSON.stringify(contentGraphSchema.parse(graph))).toBe(
+      JSON.stringify(graph),
+    );
   });
 
   it("rejects links to records outside the content graph", () => {

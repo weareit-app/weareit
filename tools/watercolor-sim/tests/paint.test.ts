@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { manifestSchema } from "../../../packages/watercolor/src/manifest.ts";
+import { manifestSchema } from "@it/watercolor/manifest";
 import { paint } from "../paint.ts";
 import { DEFAULT_SETTINGS } from "../sim.ts";
 

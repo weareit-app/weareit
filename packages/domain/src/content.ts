@@ -1,8 +1,7 @@
 import { z } from "zod";
+import { isoDateSchema, nonEmptyTextSchema, slugIdSchema } from "./primitives";
 
-const idSchema = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
-const copySchema = z.string().trim().min(1).max(4000);
-export const calendarDateSchema = z.iso.date();
+const copySchema = nonEmptyTextSchema.max(4000);
 
 export const fixKinds = ["once", "habit", "group", "feature"] as const;
 // Roadmap order: live, being built, decided, being looked into, undecided.
@@ -25,7 +24,7 @@ export type EvidenceLevel = (typeof evidenceLevels)[number];
 
 export const contentDomainSchema = z
   .object({
-    id: idSchema,
+    id: slugIdSchema,
     scope: z.enum(["personal", "world"]),
     title: copySchema,
     sortOrder: z.number().int().nonnegative(),
@@ -34,8 +33,8 @@ export const contentDomainSchema = z
 
 export const contentPainSchema = z
   .object({
-    id: idSchema,
-    domainId: idSchema,
+    id: slugIdSchema,
+    domainId: slugIdSchema,
     title: copySchema,
     description: copySchema,
     sortOrder: z.number().int().nonnegative(),
@@ -44,7 +43,7 @@ export const contentPainSchema = z
 
 export const contentDreamSchema = z
   .object({
-    id: idSchema,
+    id: slugIdSchema,
     title: copySchema,
     description: copySchema,
     sortOrder: z.number().int().nonnegative(),
@@ -53,7 +52,7 @@ export const contentDreamSchema = z
 
 export const contentFirstActionSchema = z
   .object({
-    id: idSchema,
+    id: slugIdSchema,
     title: copySchema,
     description: copySchema,
     firstStep: copySchema,
@@ -64,35 +63,82 @@ export const contentFirstActionSchema = z
   })
   .strict();
 
-export const contentFixSchema = z
+const contentFixFields = z
   .object({
-    id: idSchema,
+    id: slugIdSchema,
     title: copySchema,
     description: copySchema,
     kind: z.enum(fixKinds),
     featureStatus: z.enum(featureStatuses).optional(),
     // When the status last changed and a short note of what changed. Content
     // from before five statuses has neither.
-    statusChangedOn: calendarDateSchema.optional(),
+    statusChangedOn: isoDateSchema.optional(),
     statusNote: copySchema.max(500).optional(),
     // A Feature fix connected to a roadmap item takes the item's status and
     // has none of its own.
-    roadmapItemId: idSchema.optional(),
+    roadmapItemId: slugIdSchema.optional(),
     evidence: z.enum(evidenceLevels),
     evidenceNote: copySchema,
     sortOrder: z.number().int().nonnegative(),
   })
   .strict();
 
+// The status rules every fix follows, in the graph and in the tier-1 data. A
+// fix connected to a roadmap item is checked against the item in the graph.
+function checkFixStatus(
+  fix: Pick<
+    z.infer<typeof contentFixFields>,
+    "kind" | "featureStatus" | "statusChangedOn" | "statusNote"
+  > & { roadmapItemId?: string | undefined },
+  context: z.RefinementCtx,
+) {
+  if (fix.roadmapItemId !== undefined) {
+    if (fix.kind !== "feature")
+      context.addIssue({
+        code: "custom",
+        path: ["roadmapItemId"],
+        message: "Only Feature fixes connect to a roadmap item.",
+      });
+    if (
+      fix.featureStatus !== undefined ||
+      fix.statusChangedOn !== undefined ||
+      fix.statusNote !== undefined
+    )
+      context.addIssue({
+        code: "custom",
+        path: ["featureStatus"],
+        message: "A connected fix takes its roadmap item's status.",
+      });
+    return;
+  }
+  if ((fix.kind === "feature") !== Boolean(fix.featureStatus))
+    context.addIssue({
+      code: "custom",
+      path: ["featureStatus"],
+      message: "Features, and only features, carry a roadmap status.",
+    });
+  if (
+    fix.kind !== "feature" &&
+    (fix.statusChangedOn !== undefined || fix.statusNote !== undefined)
+  )
+    context.addIssue({
+      code: "custom",
+      path: ["statusNote"],
+      message: "Only features carry a status date and note.",
+    });
+}
+
+export const contentFixSchema = contentFixFields.superRefine(checkFixStatus);
+
 // A piece of It's work on the roadmap, for example "Use It in Spanish". The
 // ID stays the same when the title changes.
 export const contentRoadmapItemSchema = z
   .object({
-    id: idSchema,
+    id: slugIdSchema,
     title: copySchema.max(200),
     line: copySchema.max(300),
     status: z.enum(featureStatuses),
-    statusChangedOn: calendarDateSchema.optional(),
+    statusChangedOn: isoDateSchema.optional(),
     statusNote: copySchema.max(500).optional(),
     sortOrder: z.number().int().nonnegative(),
   })
@@ -100,7 +146,7 @@ export const contentRoadmapItemSchema = z
 
 export const contentSourceSchema = z
   .object({
-    id: idSchema,
+    id: slugIdSchema,
     title: copySchema,
     documentPath: copySchema,
     sourceType: z.enum(["research_registry", "content_spec", "fix_corpus"]),
@@ -111,8 +157,8 @@ export const contentSourceSchema = z
 export const contentProvenanceSchema = z
   .object({
     entityType: z.enum(["domain", "pain", "dream", "first_action", "fix"]),
-    entityId: idSchema,
-    sourceId: idSchema,
+    entityId: slugIdSchema,
+    sourceId: slugIdSchema,
     locator: copySchema,
     evidenceType: copySchema,
     rights: z.enum(["CC0-1.0", "CC-BY-SA-4.0"]),
@@ -126,16 +172,16 @@ export const contentGraphSchema = z
     pains: z.array(contentPainSchema),
     dreams: z.array(contentDreamSchema),
     painDreamLinks: z.array(
-      z.object({ painId: idSchema, dreamId: idSchema }).strict(),
+      z.object({ painId: slugIdSchema, dreamId: slugIdSchema }).strict(),
     ),
     firstActions: z.array(contentFirstActionSchema),
     actionPainLinks: z.array(
-      z.object({ actionId: idSchema, painId: idSchema }).strict(),
+      z.object({ actionId: slugIdSchema, painId: slugIdSchema }).strict(),
     ),
     // Defaults keep content versions published before fixes existed readable.
     fixes: z.array(contentFixSchema).default([]),
     fixDreamLinks: z
-      .array(z.object({ fixId: idSchema, dreamId: idSchema }).strict())
+      .array(z.object({ fixId: slugIdSchema, dreamId: slugIdSchema }).strict())
       .default([]),
     roadmapItems: z.array(contentRoadmapItemSchema).default([]),
     sources: z.array(contentSourceSchema),
@@ -263,45 +309,15 @@ export const contentGraphSchema = z
         });
     });
     graph.fixes.forEach((fix, index) => {
-      if (fix.roadmapItemId !== undefined) {
-        if (fix.kind !== "feature")
-          context.addIssue({
-            code: "custom",
-            path: ["fixes", index, "roadmapItemId"],
-            message: "Only Feature fixes connect to a roadmap item.",
-          });
-        else if (!roadmapItemIds.has(fix.roadmapItemId))
-          context.addIssue({
-            code: "custom",
-            path: ["fixes", index, "roadmapItemId"],
-            message: `Unknown roadmap item ${fix.roadmapItemId}.`,
-          });
-        if (
-          fix.featureStatus !== undefined ||
-          fix.statusChangedOn !== undefined ||
-          fix.statusNote !== undefined
-        )
-          context.addIssue({
-            code: "custom",
-            path: ["fixes", index, "featureStatus"],
-            message: "A connected fix takes its roadmap item's status.",
-          });
-        return;
-      }
-      if ((fix.kind === "feature") !== Boolean(fix.featureStatus))
-        context.addIssue({
-          code: "custom",
-          path: ["fixes", index, "featureStatus"],
-          message: "Features, and only features, carry a roadmap status.",
-        });
       if (
-        fix.kind !== "feature" &&
-        (fix.statusChangedOn !== undefined || fix.statusNote !== undefined)
+        fix.roadmapItemId !== undefined &&
+        fix.kind === "feature" &&
+        !roadmapItemIds.has(fix.roadmapItemId)
       )
         context.addIssue({
           code: "custom",
-          path: ["fixes", index, "statusNote"],
-          message: "Only features carry a status date and note.",
+          path: ["fixes", index, "roadmapItemId"],
+          message: `Unknown roadmap item ${fix.roadmapItemId}.`,
         });
     });
     graph.provenance.forEach((reference, index) => {
@@ -429,3 +445,98 @@ export function applyRoadmapItemStatusChanges(
   );
   return { items: records, issues };
 }
+
+// Tier-1 authoring: the nested shape the tier-1 data is written in, before
+// buildTier1ContentGraph flattens it into the graph above.
+
+export const dreamSchema = contentDreamSchema.pick({
+  id: true,
+  title: true,
+  description: true,
+});
+
+export const painSchema = contentPainSchema
+  .pick({ id: true, title: true, description: true })
+  .extend({
+    // Empty until futures are written; the page says so (CONFLICTS.md P7).
+    dreams: z.array(dreamSchema),
+  });
+
+export const painDomainSchema = contentDomainSchema
+  .pick({ id: true, title: true })
+  .extend({ pains: z.array(painSchema).min(1) });
+
+export const firstActionSchema = contentFirstActionSchema
+  .pick({
+    id: true,
+    title: true,
+    description: true,
+    firstStep: true,
+    effortMinutes: true,
+    evidence: true,
+    safetyNote: true,
+  })
+  .extend({
+    painIds: z.array(z.string().min(1)).min(1),
+    source: copySchema,
+  });
+
+export const fixSchema = contentFixFields
+  .pick({
+    id: true,
+    title: true,
+    description: true,
+    kind: true,
+    featureStatus: true,
+    statusChangedOn: true,
+    statusNote: true,
+    evidence: true,
+    evidenceNote: true,
+  })
+  .extend({ dreamIds: z.array(z.string().min(1)).min(1) })
+  .superRefine(checkFixStatus);
+
+function hasUniqueIds<T extends { id: string }>(items: T[]) {
+  return new Set(items.map((item) => item.id)).size === items.length;
+}
+
+export const painDomainListSchema = z
+  .array(painDomainSchema)
+  .min(1)
+  .superRefine((domains, context) => {
+    if (!hasUniqueIds(domains)) {
+      context.addIssue({
+        code: "custom",
+        message: "Domain IDs must be unique.",
+      });
+    }
+
+    const pains = domains.flatMap((domain) => domain.pains);
+    if (!hasUniqueIds(pains)) {
+      context.addIssue({
+        code: "custom",
+        message: "Pain IDs must be unique across the content set.",
+      });
+    }
+
+    // A dream may serve several pains; every use of its ID must carry the same copy.
+    const dreamsById = new Map<string, Dream>();
+    for (const dream of pains.flatMap((pain) => pain.dreams)) {
+      const existing = dreamsById.get(dream.id);
+      if (
+        existing &&
+        (existing.title !== dream.title ||
+          existing.description !== dream.description)
+      ) {
+        context.addIssue({
+          code: "custom",
+          message: `Dream ${dream.id} has different copy in different pains.`,
+        });
+      }
+      dreamsById.set(dream.id, dream);
+    }
+  });
+
+export type Dream = z.infer<typeof dreamSchema>;
+export type Pain = z.infer<typeof painSchema>;
+export type PainDomain = z.infer<typeof painDomainSchema>;

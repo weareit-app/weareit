@@ -12,7 +12,7 @@ import {
 } from "lucide-react-native";
 import { Pressable, View } from "react-native";
 import { useTokenColor } from "../../theme/use-token-color";
-import type { ContentFix } from "@it/content/graph-schema";
+import type { ContentFix } from "@it/domain/content";
 import { Text } from "../text";
 import { CheckSquare } from "./marks";
 

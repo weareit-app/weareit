@@ -1,29 +1,11 @@
 import { z } from "zod";
-import { evidenceLevels, featureStatuses, fixKinds } from "./graph-schema";
+import { fixSchema } from "@it/domain/content";
 import { getAllDreams, personalPainDomains } from "./tier-1";
 
 // Ways a chosen future can get better, from the onboarding prototype (Design
 // canvas "What can be better for you?", 2026-10-18). Only Anxiety,
 // Procrastination, Poor sleep and Broke have ways so far; the evidence ratings
 // have no linked sources yet.
-const fixSchema = z
-  .object({
-    id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
-    dreamIds: z.array(z.string().min(1)).min(1),
-    title: z.string().trim().min(1),
-    description: z.string().trim().min(1),
-    kind: z.enum(fixKinds),
-    featureStatus: z.enum(featureStatuses).optional(),
-    statusChangedOn: z.iso.date().optional(),
-    statusNote: z.string().trim().min(1).max(500).optional(),
-    evidence: z.enum(evidenceLevels),
-    evidenceNote: z.string().trim().min(1),
-  })
-  .strict()
-  .refine((fix) => (fix.kind === "feature") === Boolean(fix.featureStatus), {
-    message: "Features, and only features, carry a roadmap status.",
-  });
-
 const fixListSchema = z.array(fixSchema).superRefine((fixes, context) => {
   if (new Set(fixes.map(({ id }) => id)).size !== fixes.length) {
     context.addIssue({ code: "custom", message: "Fix IDs must be unique." });

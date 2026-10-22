@@ -1,19 +1,6 @@
 import { z } from "zod";
+import { firstActionSchema } from "@it/domain/content";
 import { getAllPains, personalPainDomains, worldPainDomains } from "./tier-1";
-
-const firstActionSchema = z
-  .object({
-    id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
-    painIds: z.array(z.string().min(1)).min(1),
-    title: z.string().trim().min(1),
-    description: z.string().trim().min(1),
-    firstStep: z.string().trim().min(1),
-    effortMinutes: z.number().int().positive().max(120),
-    evidence: z.enum(["candidate", "practical"]),
-    safetyNote: z.string().trim().min(1).optional(),
-    source: z.string().trim().min(1),
-  })
-  .strict();
 
 const firstActionListSchema = z
   .array(firstActionSchema)

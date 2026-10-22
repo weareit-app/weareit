@@ -1,4 +1,4 @@
-import type { BlockType } from "@it/content/essay-schema";
+import type { BlockType } from "@it/domain/essays";
 import { View } from "react-native";
 import { Text } from "../../components/text";
 

@@ -5,16 +5,15 @@
   "type": "module",
   "exports": {
     "./tier-1": "./src/tier-1.ts",
-    "./schema": "./src/schema.ts",
+    "./tier-1-graph": "./src/tier-1-graph.ts",
     "./first-actions": "./src/first-actions.ts",
     "./fixes": "./src/fixes.ts",
-    "./graph-schema": "./src/graph-schema.ts",
-    "./essay-schema": "./src/essay-schema.ts",
     "./essays": "./src/essays.generated.ts",
     "./essay-drafts": "./src/essay-drafts.generated.ts",
     "./credits": "./src/credits.ts"
   },
   "dependencies": {
+    "@it/domain": "workspace:*",
     "zod": "4.6.7"
   },
   "scripts": {

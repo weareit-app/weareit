@@ -1,14 +1,19 @@
 import { oc, type OpenAPI } from "@orpc/contract";
 import { z } from "zod";
-import { contentGraphSchema } from "@it/content/graph-schema";
+import { contentGraphSchema } from "@it/domain/content";
 import { onboardingDraftSchema } from "@it/domain/onboarding";
+import { isoDatetimeSchema, nonEmptyTextSchema } from "@it/domain/primitives";
+import {
+  contributionStatusSchema,
+  supportFrequencySchema,
+} from "@it/domain/support";
 
 const publishedContentSchema = z
   .object({
     version: z.number().int().positive(),
     content: contentGraphSchema,
     checksum: z.string().regex(/^[a-f0-9]{64}$/),
-    publishedAt: z.string().datetime(),
+    publishedAt: isoDatetimeSchema,
   })
   .strict();
 
@@ -101,7 +106,7 @@ export const apiContract = {
         z
           .object({
             contentVersion: z.number().int().positive(),
-            savedAt: z.string().datetime(),
+            savedAt: isoDatetimeSchema,
           })
           .strict(),
       ),
@@ -117,7 +122,7 @@ export const apiContract = {
         z
           .object({
             amountMinor: z.number().int().min(100).max(100_000),
-            frequency: z.enum(["once", "monthly"]),
+            frequency: supportFrequencySchema,
           })
           .strict(),
       )
@@ -136,18 +141,8 @@ export const apiContract = {
       .output(
         z
           .object({
-            frequency: z.enum(["once", "monthly"]),
-            status: z.enum([
-              "pending",
-              "active",
-              "succeeded",
-              "past_due",
-              "cancel_scheduled",
-              "canceled",
-              "expired",
-              "failed",
-              "refunded",
-            ]),
+            frequency: supportFrequencySchema,
+            status: contributionStatusSchema,
           })
           .strict(),
       ),
@@ -180,7 +175,7 @@ export const apiContract = {
         z
           .object({
             expectedRevision: z.number().int().nonnegative(),
-            changeNote: z.string().trim().min(1).max(500),
+            changeNote: nonEmptyTextSchema.max(500),
             content: contentGraphSchema,
           })
           .strict(),
