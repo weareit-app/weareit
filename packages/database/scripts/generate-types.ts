@@ -8,7 +8,7 @@ import { migrateToLatest } from "../src/migrator";
 // disposable server named by TEST_DATABASE_URL, so the output never depends on
 // the state of a developer's own database. With --verify it writes nothing and
 // fails if the committed file differs. Options: kysely-codegen 0.20.0 README,
-// "--overrides", "--custom-imports" and "Configuration file" (checked
+// "--overrides", "--custom-imports", and "Configuration file" (checked
 // 2026-10-22); docs/architecture/dependency-policy.md has the pin.
 
 const verify = process.argv.includes("--verify");
@@ -29,8 +29,7 @@ scratchUrl.pathname = `/${scratchName}`;
 const scratch = createDatabase(scratchUrl.toString());
 
 // Columns whose values a CHECK constraint or a schema narrows are typed with
-// the @it/domain type that owns them (tests/check-enums.test.ts keeps the
-// CHECK lists equal to the Zod enums). An override replaces the whole column
+// the @it/domain type that owns them. An override replaces the whole column
 // type, so a nullable column says `| null` itself.
 const content = "ContentGraph";
 const overrides = {
