@@ -57,8 +57,12 @@ export interface ApiContext {
 const os = implement(apiContract).$context<ApiContext>();
 
 // Each handler maps the error classes its services throw to the errors its
-// contract declares (errors.CODE). Anything else propagates, and oRPC sends
-// it as INTERNAL_SERVER_ERROR without its message.
+// contract declares (errors.CODE). Anything else propagates, such as the
+// repository's ContentNotSeededError and PublishedVersionNotFoundError, which
+// no caller can act on. oRPC sends those as INTERNAL_SERVER_ERROR with the
+// message "Internal server error", keeping the original only as the error's
+// cause on the server (toORPCError in the installed @orpc/client 1.15.6 dist,
+// checked 2026-10-22).
 type Unauthorized = {
   UNAUTHORIZED: (options?: { message?: string }) => Error;
 };

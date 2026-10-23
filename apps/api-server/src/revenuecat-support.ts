@@ -5,7 +5,10 @@ import {
   recordRevenueCatSupportEvent,
   type RevenueCatSupportEvent,
 } from "@it/database/support-repository";
-import { WebhookNotConfiguredError } from "./payment-errors";
+import {
+  WebhookNotConfiguredError,
+  WebhookSignatureError,
+} from "./payment-errors";
 
 const webhookSchema = z
   .object({
@@ -42,14 +45,14 @@ export function verifyRevenueCatWebhook(rawBody: Buffer, signature: string) {
     !received ||
     Math.abs(Date.now() / 1000 - timestamp) > 300
   )
-    throw new Error("INVALID_REVENUECAT_SIGNATURE");
+    throw new WebhookSignatureError("revenuecat");
   const expected = createHmac("sha256", secret)
     .update(`${timestamp}.`)
     .update(rawBody)
     .digest();
   const actual = Buffer.from(received, "hex");
   if (actual.length !== expected.length || !timingSafeEqual(actual, expected))
-    throw new Error("INVALID_REVENUECAT_SIGNATURE");
+    throw new WebhookSignatureError("revenuecat");
 }
 
 export function parseRevenueCatWebhook(rawBody: Buffer) {

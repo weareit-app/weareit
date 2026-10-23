@@ -33,15 +33,21 @@ export class RevisionConflictError extends Error {
   }
 }
 
-// The content tables are empty: run `pnpm db:prepare` or `pnpm db:seed`.
-export class ContentNotSeededError extends Error {
+// The next two are not declared in the contract, because no caller can act
+// on them: an empty content database is a setup step (`pnpm db:prepare` or
+// `pnpm db:seed`), and the CMS only offers rollback to versions it has listed.
+// They reach the client as an internal server error and the server logs them.
+// They are classes rather than plain Errors so a log line names the failure.
+
+// The content tables are empty.
+class ContentNotSeededError extends Error {
   constructor() {
     super("The CMS has not been seeded yet.");
     this.name = "ContentNotSeededError";
   }
 }
 
-export class PublishedVersionNotFoundError extends Error {
+class PublishedVersionNotFoundError extends Error {
   constructor(readonly version: number) {
     super(`Published content version ${version} was not found.`);
     this.name = "PublishedVersionNotFoundError";
