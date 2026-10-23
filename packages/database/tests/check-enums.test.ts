@@ -10,6 +10,7 @@ import {
 } from "@it/domain/content";
 import {
   contributionStatusSchema,
+  paymentEventProcessorSchema,
   paymentProcessorSchema,
   supportFrequencySchema,
   transactionStatusSchema,
@@ -43,6 +44,7 @@ const domainEnums: Record<string, readonly string[]> = {
   "support_contributions.processor": paymentProcessorSchema.options,
   "support_contributions.frequency": supportFrequencySchema.options,
   "support_contributions.status": contributionStatusSchema.options,
+  "support_payment_events.processor": paymentEventProcessorSchema.options,
   "support_transactions.processor": paymentProcessorSchema.options,
   "support_transactions.status": transactionStatusSchema.options,
 };
