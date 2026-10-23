@@ -20,14 +20,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Decides whether a pull request changes only docs: every changed file is Markdown
-  # outside apps/, packages/, tools/, and .github/, where tests and tools read Markdown
-  # as input. Pushes to master always run everything. The other jobs skip with a
-  # job-level `if:` rather than a path filter on the workflow, because the master
-  # ruleset requires "Typecheck, lint and unit tests" and "Web end-to-end tests", and
-  # a workflow that never starts leaves those checks waiting, while a skipped job passes.
-  # Because a skipped job passes, the other jobs run in full when this one fails
-  # (`!cancelled()`, and an empty output isn't 'true') rather than skipping.
+  # Decides whether a pull request changes only docs. Why the other jobs skip with
+  # job-level `if:` and run in full when this job fails: dependency-policy.md
+  # ("Continuous integration").
   changes:
     name: Detect docs-only changes
     runs-on: ubuntu-latest
@@ -39,8 +34,9 @@ jobs:
         if: github.event_name == 'pull_request'
         with:
           persist-credentials: false
-          # A pull request checks out its merge commit; its first parent is the base
-          # branch, so diffing the two gives exactly the pull request's changes.
+          # A pull request checks out its merge commit. GitHub doesn't document its
+          # parent order; the first parent was the base on #190, so diffing the two
+          # gives the pull request's changes. docs/research/ci-docs-only-gating/research.md.
           fetch-depth: 2
 
       - id: classify

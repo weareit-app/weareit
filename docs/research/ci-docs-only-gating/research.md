@@ -9,7 +9,7 @@
 ## Summary
 
 - **Keep the current approach.** GitHub still documents exactly the behavior it relies on: a job skipped by a conditional "will report its status as 'Success'" and won't block a merge, while a workflow skipped by path filtering leaves its checks "Pending" and blocks the merge. Rulesets offer nothing native that changes this for a repository ruleset.
-- **Fix one real fail-open: renames.** `git diff --name-only` detects renames by default and lists only the new path. A pull request that moves `apps/…/x.ts` to `docs/x.md` is classified docs-only, so the typecheck and tests are skipped even though a code file was removed. Add `--no-renames` (diff below). Reproduced locally with Git 2.56.
+- **Fix one real fail-open: renames.** `git diff --name-only` detects renames by default and lists only the new path. A pull request that moves `apps/…/x.ts` to `docs/x.md` is classified docs-only, so the typecheck and tests are skipped even though a code file was removed. Add `--no-renames` (diff below). Reproduced locally with Git 2.56. This fix landed in #190 (commit f57b7ec).
 - **The companion "always passes" workflow is gone from GitHub's docs.** GitHub documented it from 2021 and removed it on 2023-07-11; the page now says only "Avoid requiring workflows that can be skipped." Because required checks match by job name only, the trick still works mechanically, but it is no longer a supported pattern and it can pass a check whose real job never ran.
 - **Third-party filter actions aren't worth their pin and review cost here.** `dorny/paths-filter` reads the pull request's files from the REST API, which is no more correct than the current `git diff` for this question. `tj-actions/changed-files` had its tags rewritten to a secret-stealing commit in March 2025 (CVE-2025-30066).
 - **An aggregator job is the only alternative with a real advantage**, and only if two things matter: making "Storybook stories render" required, and closing an undocumented gap where a run cancelled while `changes` is running might report the skipped jobs as passing. Write it with `needs.*.result` and `if: always()`, not `re-actors/alls-green`. It needs a ruleset edit that only the founder can make.
@@ -88,7 +88,7 @@ Two more rules matter:
 
 ## Recommendation
 
-Keep the current approach: a `changes` job with no third-party action, and job-level `if:` so skipped required jobs report success. Make one change now, to close the rename gap:
+Keep the current approach: a `changes` job with no third-party action, and job-level `if:` so skipped required jobs report success. One change was needed, to close the rename gap. It landed in #190 (commit f57b7ec), with a slightly different comment:
 
 ```diff
 --- a/.github/workflows/ci.yml
