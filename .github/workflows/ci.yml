@@ -1,6 +1,7 @@
 # Runs the typecheck, lint, the Vitest and jest-expo tests, the Playwright web
 # tests and a render of every Storybook story on every pull request and push to
-# master, so a commit made with `git commit --no-verify` is still checked.
+# master, so a commit made with `git commit --no-verify` is still checked. A pull
+# request that changes only docs Markdown runs a lighter set (see the `changes` job).
 # What each job runs and what it costs: docs/architecture/dependency-policy.md
 # ("Continuous integration"). Update it when a job's steps, services or runner change.
 # Action and image pins and their reviews: docs/architecture/ci-actions.md.
@@ -19,8 +20,49 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # Decides whether a pull request changes only docs. Why the other jobs skip with
+  # job-level `if:` and run in full when this job fails: dependency-policy.md
+  # ("Continuous integration").
+  changes:
+    name: Detect docs-only changes
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      docs-only: ${{ steps.classify.outputs.docs-only }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        if: github.event_name == 'pull_request'
+        with:
+          persist-credentials: false
+          # A pull request checks out its merge commit. GitHub doesn't document its
+          # parent order; the first parent was the base on #190, so diffing the two
+          # gives the pull request's changes. docs/research/ci-docs-only-gating/research.md.
+          fetch-depth: 2
+
+      - id: classify
+        run: |
+          docs_only=false
+          if [ "$GITHUB_EVENT_NAME" = pull_request ]; then
+            # --no-renames lists a moved file under its old path too, so moving code
+            # into a .md file outside the code folders isn't read as docs-only.
+            changed=$(git diff --name-only --no-renames HEAD^1 HEAD)
+            printf 'Changed files:\n%s\n' "$changed"
+            # Not docs-only when any file isn't Markdown or sits in a code folder.
+            if [ -n "$changed" ] \
+              && ! printf '%s\n' "$changed" | grep -q -v -E '\.md$' \
+              && ! printf '%s\n' "$changed" | grep -q -E '^(apps|packages|tools|\.github)/'; then
+              docs_only=true
+            fi
+          fi
+          echo "Docs only: $docs_only"
+          echo "docs-only=$docs_only" >> "$GITHUB_OUTPUT"
+
+  # On a docs-only pull request this runs only the checks that read Markdown: the
+  # action pins check, lint (Prettier and the essay check), and the Python tool tests.
   check:
     name: Typecheck, lint and unit tests
+    needs: changes
+    if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     # A disposable Postgres server for the repository tests in packages/database/tests,
@@ -53,23 +95,29 @@ jobs:
       - uses: ./.github/actions/setup
 
       - run: pnpm run typecheck
+        if: needs.changes.outputs.docs-only != 'true'
 
       # Every tracked TypeScript file must be in a project the typecheck above ran.
       - run: node tools/typecheck-coverage/check-typecheck-coverage.mjs
+        if: needs.changes.outputs.docs-only != 'true'
 
       # Every tracked test file must be collected by Vitest or the app's Jest config.
       - run: node tools/test-coverage/check-test-coverage.mjs
+        if: needs.changes.outputs.docs-only != 'true'
 
       # Every UI component must have stories or an allowlist entry with a reason.
       - run: node tools/story-coverage/check-story-coverage.mjs
+        if: needs.changes.outputs.docs-only != 'true'
 
       - run: pnpm run lint
 
       - run: pnpm run test:unit
+        if: needs.changes.outputs.docs-only != 'true'
         env:
           TEST_DATABASE_URL: postgres://postgres:it@localhost:54346/postgres
 
       - run: pnpm run test:expo
+        if: needs.changes.outputs.docs-only != 'true'
 
       # The research tools (pain catalog, possibility generator, copy checks) are stdlib Python.
       - run: pnpm run test:tools
@@ -77,6 +125,8 @@ jobs:
   # Separate job so the slower browser tests don't hold up the checks above.
   e2e:
     name: Web end-to-end tests
+    needs: changes
+    if: ${{ !cancelled() && needs.changes.outputs.docs-only != 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -101,6 +151,8 @@ jobs:
   # docs/architecture/storybook.md.
   stories:
     name: Storybook stories render
+    needs: changes
+    if: ${{ !cancelled() && needs.changes.outputs.docs-only != 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
