@@ -26,7 +26,7 @@ Apps and tools SHALL depend only on the packages listed here, and any edge not l
 | --- | --- |
 | `apps/api-server` | `@it/api-contract`, `@it/database`, `@it/domain`, `@it/content`, `@it/log` |
 | `apps/app` | `@it/api-contract`, `@it/content`, `@it/domain`, `@it/watercolor` |
-| `tools/*` | any package |
+| `tools/*` | any package except `@it/log` |
 
 #### Scenario: App imports the database
 - **WHEN** a file in `apps/app` imports from `@it/database`
@@ -34,7 +34,7 @@ Apps and tools SHALL depend only on the packages listed here, and any edge not l
 
 #### Scenario: Logging from the app
 - **WHEN** a file in `apps/app` or in a pure package imports `@it/log`
-- **THEN** the check fails, because only the API server, the database package, and tools may import it
+- **THEN** the check fails, because only the API server and the database package may import it
 
 #### Scenario: Something imports an app
 - **WHEN** a package or tool imports from `apps/api-server` or `apps/app`

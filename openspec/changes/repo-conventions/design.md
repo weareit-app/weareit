@@ -100,9 +100,11 @@ This change converts every existing `new ORPCError` in the router, because the l
 
 A new `@it/log` package (`packages/log`) exports `createLog({ level })`, returning `debug | info | warn | error(event, fields)`, each writing one JSON line to `console.log` or `console.error`. The level comes from the calling program's config; the package reads no environment. Callers pass fields, never interpolated strings, so the privacy rules in the spec can be reviewed at the call site. A hosted service later replaces the sink, not the calls.
 
-It depends on nothing, inside the workspace or out. The API server, `@it/database` (for its scripts), and `tools/*` may import it; the app and the pure packages may not, because the app's logs are not server logs and pure packages don't log.
+It depends on nothing, inside the workspace or out. The API server and `@it/database` (for its scripts) may import it; the app, the pure packages, and `tools/*` may not, because the app's logs are not server logs, pure packages don't log, and the tools print output for a person (founder, 2026-10-23).
 
-*Alternatives:* `apps/api-server/src/log.ts`, rejected by the founder because the database scripts and tools log too; and pino or another library, rejected for now because one small package keeps the vendor behind an It-owned boundary, as `AGENTS.md` asks, and the server's volume doesn't need more.
+The server logs a failure it didn't expect (a server error, including an undeclared error sent as an internal server error) at error level with its cause, and an undeclared failure caused by a bad request, such as input that fails validation, at warn level without its cause, because the cause holds the input (founder, 2026-10-23).
+
+*Alternatives:* `apps/api-server/src/log.ts`, rejected by the founder because the database scripts log too; and pino or another library, rejected for now because one small package keeps the vendor behind an It-owned boundary, as `AGENTS.md` asks, and the server's volume doesn't need more.
 
 ### 11. Env per program ([#171](https://github.com/weareit-app/weareit/issues/171))
 
@@ -139,14 +141,14 @@ The steering and `CODING_STANDARDS.md` rules land first, because they cost nothi
 | Map: adoption order | (decision 13) | order of tasks.md |
 | Map: generated files | code-checks: Generated files stay in step; domain-model: Generated table types | 3.1, 10.1, 10.3 |
 | Map: ruff | code-checks: Python tools are linted and formatted | 10.2, 10.3 |
-| Map: logging module | api-errors: Server logging, Log privacy; package-boundaries: Allowed package graph, Allowed app and tool dependencies, Pure packages use an allowlist | 1.2, 4.1, 4.6, 8.1 |
+| Map: logging module | api-errors: Server logging, Undeclared failures logged by cause, Log privacy; package-boundaries: Allowed package graph, Allowed app and tool dependencies, Pure packages use an allowlist | 1.2, 4.1, 4.6, 8.1 |
 
 ## Founder answers
 
 The proposal's two open questions, answered by the founder on 2026-10-21 on PR #178:
 
 1. **Shared error codes: keep both, domain names after.** `UNAUTHORIZED` and `NOT_FOUND` stay as they are, so the `support` and `account-signup` specs and the in-flight changes that name them don't change. Every code added from now on is named in domain terms. #170's `NOT_SIGNED_IN` was an example only; the not-signed-in failure on the shared base is `UNAUTHORIZED`.
-2. **Logging home: a new package.** A small `@it/log` package now, shared by every program that logs, instead of `apps/api-server/src/log.ts` (decision 10).
+2. **Logging home: a new package.** A small `@it/log` package now, shared by the API server and the database scripts, instead of `apps/api-server/src/log.ts` (decision 10).
 
 ## Risks / Trade-offs
 

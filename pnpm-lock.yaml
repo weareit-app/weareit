@@ -47,6 +47,9 @@ importers:
       '@it/domain':
         specifier: workspace:*
         version: link:../../packages/domain
+      '@it/log':
+        specifier: workspace:*
+        version: link:../../packages/log
       '@orpc/openapi':
         specifier: 1.15.6
         version: 1.15.6(@opentelemetry/api@1.9.1)(ws@8.22.0)
@@ -338,6 +341,9 @@ importers:
       '@it/domain':
         specifier: workspace:*
         version: link:../domain
+      '@it/log':
+        specifier: workspace:*
+        version: link:../log
       kysely:
         specifier: ^0.28.17
         version: 0.28.17
@@ -360,6 +366,8 @@ importers:
       zod:
         specifier: 4.6.7
         version: 4.6.7
+
+  packages/log: {}
 
   packages/watercolor:
     dependencies:
