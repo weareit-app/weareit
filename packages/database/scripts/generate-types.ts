@@ -49,9 +49,7 @@ const overrides = {
     "support_contributions.status": "ContributionStatus",
     "support_transactions.processor": "PaymentProcessor",
     "support_transactions.status": "TransactionStatus",
-    // Which webhook sent the event. No CHECK and no domain schema: only the
-    // support repository writes it.
-    "support_payment_events.processor": '"stripe" | "revenuecat"',
+    "support_payment_events.processor": "PaymentEventProcessor",
     // The singleton row (CHECK id = 1).
     "content_draft_state.id": "1",
     "content_revisions.content":
@@ -84,6 +82,7 @@ try {
       OnboardingDraft: "@it/domain/onboarding",
       OnboardingDraftInput: "@it/domain/onboarding",
       ContributionStatus: "@it/domain/support",
+      PaymentEventProcessor: "@it/domain/support",
       PaymentProcessor: "@it/domain/support",
       SupportFrequency: "@it/domain/support",
       TransactionStatus: "@it/domain/support",

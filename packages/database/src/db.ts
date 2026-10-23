@@ -5,7 +5,7 @@
 
 import type { ContentGraph, EvidenceLevel, FeatureStatus, FixKind } from "@it/domain/content";
 import type { OnboardingDraft, OnboardingDraftInput } from "@it/domain/onboarding";
-import type { ContributionStatus, PaymentProcessor, SupportFrequency, TransactionStatus } from "@it/domain/support";
+import type { ContributionStatus, PaymentEventProcessor, PaymentProcessor, SupportFrequency, TransactionStatus } from "@it/domain/support";
 import type { ColumnType, JSONColumnType } from "kysely";
 
 export type Generated<T> = T extends ColumnType<infer S, infer I, infer U>
@@ -186,7 +186,7 @@ export interface SupportContributionsTable {
 export interface SupportPaymentEventsTable {
   body_sha256: string;
   event_id: string;
-  processor: "stripe" | "revenuecat";
+  processor: PaymentEventProcessor;
   received_at: Generated<Timestamp>;
 }
 
