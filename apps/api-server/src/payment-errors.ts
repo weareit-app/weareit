@@ -1,6 +1,6 @@
 // Failures of the payment services that their callers act on. The router
-// maps the first three to declared contract errors; the server answers a
-// webhook it can't verify yet with 503.
+// maps the first three to declared contract errors. For webhooks, the server
+// answers 503 while a webhook secret isn't set, and 400 to a bad signature.
 
 // Stripe's secret key or support product isn't set.
 export class PaymentsNotConfiguredError extends Error {
@@ -34,5 +34,14 @@ export class WebhookNotConfiguredError extends Error {
   constructor(readonly processor: "stripe" | "revenuecat") {
     super(`The ${processor} webhook secret is not set.`);
     this.name = "WebhookNotConfiguredError";
+  }
+}
+
+// A webhook's signature header is missing parts, too old, or doesn't match
+// the body.
+export class WebhookSignatureError extends Error {
+  constructor(readonly processor: "revenuecat") {
+    super(`The ${processor} webhook signature didn't verify.`);
+    this.name = "WebhookSignatureError";
   }
 }
