@@ -48,13 +48,21 @@ const domainEnums: Record<string, readonly string[]> = {
 };
 
 // Postgres stores `column in ('a', 'b')` as
-// `column = ANY (ARRAY['a'::text, 'b'::text])`, also inside larger checks.
-const anyArray = /\b(\w+) = ANY \(ARRAY\[([^\]]*)\]\)/g;
-const textLiteral = /'((?:[^']|'')*)'::text/g;
+// `column = ANY (ARRAY['a'::text, 'b'::text])` for a text column and as
+// `(column)::text = ANY ((ARRAY['a'::character varying, …])::text[])` for a
+// varchar one, also inside larger checks. A one-value list is stored as
+// `column = 'a'::text`, which can't be told apart from other comparisons, so
+// an enum CHECK needs at least two values to be found here.
+const anyArray = /\(?\b(\w+)\)?(?:::\w+)? = ANY \(\(?ARRAY\[([^\]]*)\]/g;
+const textLiteral = /'((?:[^']|'')*)'::(?:text|character varying)/g;
 
 describe.skipIf(!connectionString)("CHECK enums in Postgres", () => {
   let db: ItDatabase;
   const sqlEnums = new Map<string, string[]>();
+  // CHECK definitions with an `= ANY` list the pattern above can't read, and
+  // columns that more than one CHECK lists values for.
+  const unparsed: string[] = [];
+  const repeated: string[] = [];
 
   beforeAll(async () => {
     ({ db } = await createTestDatabase(
@@ -70,17 +78,27 @@ describe.skipIf(!connectionString)("CHECK enums in Postgres", () => {
         and conrelid <> 0
     `.execute(db);
     for (const { table, definition } of rows) {
-      for (const [, column, list] of definition.matchAll(anyArray)) {
+      const lists = [...definition.matchAll(anyArray)];
+      if (lists.length < definition.split(" = ANY (").length - 1)
+        unparsed.push(`${table}: ${definition}`);
+      for (const [, column, list] of lists) {
+        const key = `${table}.${column}`;
+        if (sqlEnums.has(key)) repeated.push(key);
         const values = [...list!.matchAll(textLiteral)].map(([, value]) =>
           value!.replaceAll("''", "'"),
         );
-        sqlEnums.set(`${table}.${column}`, values);
+        sqlEnums.set(key, values);
       }
     }
   });
 
   afterAll(async () => {
     await db?.destroy();
+  });
+
+  it("reads every enum list, each column from one CHECK constraint", () => {
+    expect(unparsed, "CHECK constraints with an unread ANY list").toEqual([]);
+    expect(repeated, "columns listed by more than one CHECK").toEqual([]);
   });
 
   it("finds a Zod enum for every enum CHECK constraint", () => {
