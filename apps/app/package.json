@@ -60,6 +60,7 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-parameters": "7.29.7",
+    "@orpc/client": "^1.15.6",
     "@playwright/test": "^1.64.0",
     "@storybook/react-native-web-vite": "10.6.1",
     "@tailwindcss/postcss": "4.3.3",

@@ -214,6 +214,9 @@ importers:
       '@babel/plugin-transform-parameters':
         specifier: 7.29.7
         version: 7.29.7(@babel/core@7.29.7(supports-color@8.1.1))
+      '@orpc/client':
+        specifier: ^1.15.6
+        version: 1.15.6(@opentelemetry/api@1.9.1)
       '@playwright/test':
         specifier: ^1.64.0
         version: 1.64.0

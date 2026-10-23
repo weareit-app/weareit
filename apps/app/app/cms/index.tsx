@@ -20,6 +20,7 @@ import {
   refuseRoadmapStatusChangesWithoutNotes,
 } from "../../src/components/cms/roadmap-editor";
 import { publishedContentQueryKey } from "../../src/content/use-published-content";
+import { describeCmsError } from "../../src/api-errors/describe-cms-error";
 
 type Kind = "domains" | "pains" | "dreams" | "firstActions";
 const cmsQueryKey = ["cms", "draft"] as const;
@@ -76,30 +77,13 @@ export default function CmsScreen() {
   );
 
   const saveMutation = useMutation({
-    mutationFn: async () => {
-      if (!graph || !draftQuery.data)
-        throw new Error("Load a draft before saving.");
-      const refusal = refuseStatusChangesWithoutNotes(
-        draftQuery.data.content,
-        graph.fixes,
-      );
-      const itemRefusal = refuseRoadmapStatusChangesWithoutNotes(
-        draftQuery.data.content.roadmapItems,
-        graph.roadmapItems,
-      );
-      if (refusal || itemRefusal)
-        throw new Error([refusal, itemRefusal].filter(Boolean).join(" "));
-      return apiClient.cms.saveDraft({
-        expectedRevision: draftQuery.data.revision,
-        changeNote,
-        content: graph,
-      });
-    },
+    mutationFn: (draft: { expectedRevision: number; content: ContentGraph }) =>
+      apiClient.cms.saveDraft({ ...draft, changeNote }),
     onSuccess: async ({ revision }) => {
       setNotice(`Draft saved as revision ${revision}.`);
       await queryClient.invalidateQueries({ queryKey: cmsQueryKey });
     },
-    onError: (error) => setNotice(error.message),
+    onError: (error) => setNotice(describeCmsError(error)),
   });
   const validateMutation = useMutation({
     mutationFn: () => apiClient.cms.validateDraft(),
@@ -109,7 +93,7 @@ export default function CmsScreen() {
           ? "Draft is ready to publish."
           : `${result.issues.length} publishing issue${result.issues.length === 1 ? "" : "s"} found.`,
       ),
-    onError: (error) => setNotice(error.message),
+    onError: (error) => setNotice(describeCmsError(error)),
   });
   const publishMutation = useMutation({
     mutationFn: () => apiClient.cms.publishDraft(),
@@ -124,18 +108,16 @@ export default function CmsScreen() {
         queryClient.invalidateQueries({ queryKey: publishedContentQueryKey }),
       ]);
     },
-    onError: (error) => setNotice(error.message),
+    onError: (error) => setNotice(describeCmsError(error)),
   });
   const previewMutation = useMutation({
-    mutationFn: () => {
-      if (!graph) throw new Error("Load a draft before previewing.");
-      return apiClient.cms.previewDraft({ content: graph });
-    },
+    mutationFn: (content: ContentGraph) =>
+      apiClient.cms.previewDraft({ content }),
     onSuccess: (draft) => {
       setPreviewGraph(draft.content);
       setShowPreview(true);
     },
-    onError: (error) => setNotice(error.message),
+    onError: (error) => setNotice(describeCmsError(error)),
   });
   const rollbackMutation = useMutation({
     mutationFn: (version: number) => apiClient.cms.rollback({ version }),
@@ -149,8 +131,30 @@ export default function CmsScreen() {
         queryClient.invalidateQueries({ queryKey: publishedContentQueryKey }),
       ]);
     },
-    onError: (error) => setNotice(error.message),
+    onError: (error) => setNotice(describeCmsError(error)),
   });
+
+  // Status changes without notes are refused here, before anything is sent.
+  function save() {
+    if (!graph || !draftQuery.data) return;
+    const refusal = refuseStatusChangesWithoutNotes(
+      draftQuery.data.content,
+      graph.fixes,
+    );
+    const itemRefusal = refuseRoadmapStatusChangesWithoutNotes(
+      draftQuery.data.content.roadmapItems,
+      graph.roadmapItems,
+    );
+    if (refusal || itemRefusal) {
+      setNotice([refusal, itemRefusal].filter(Boolean).join(" "));
+      return;
+    }
+    setNotice("");
+    saveMutation.mutate({
+      expectedRevision: draftQuery.data.revision,
+      content: graph,
+    });
+  }
 
   function connect() {
     setCmsToken(tokenInput);
@@ -543,7 +547,11 @@ export default function CmsScreen() {
         brand
         eyebrow="Authoring"
         title="CMS"
-        description={draftQuery.error?.message ?? "Loading the current draft…"}
+        description={
+          draftQuery.error
+            ? describeCmsError(draftQuery.error)
+            : "Loading the current draft…"
+        }
       >
         <Button
           title="Reload draft"
@@ -910,7 +918,7 @@ export default function CmsScreen() {
       <View className="flex-row flex-wrap gap-2">
         <Button
           title={saveMutation.isPending ? "Saving…" : "Save draft"}
-          onPress={() => saveMutation.mutate()}
+          onPress={save}
         />
         <Button
           title="Validate"
@@ -919,12 +927,15 @@ export default function CmsScreen() {
         />
         <Button
           title={previewMutation.isPending ? "Preparing preview…" : "Preview"}
-          onPress={() => previewMutation.mutate()}
+          onPress={() => previewMutation.mutate(graph)}
         />
         <Button
           title={publishMutation.isPending ? "Publishing…" : "Publish"}
-          disabled={hasUnsavedChanges || publishMutation.isPending}
-          onPress={() => publishMutation.mutate()}
+          disabled={hasUnsavedChanges}
+          // Stays enabled while publishing so keyboard focus stays here.
+          onPress={() => {
+            if (!publishMutation.isPending) publishMutation.mutate();
+          }}
         />
       </View>
       {notice ? (
