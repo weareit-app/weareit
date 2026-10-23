@@ -1,7 +1,7 @@
 import { createDatabase } from "../src/database";
 import { initializeContent } from "../src/content-repository";
 import { buildTier1ContentGraph } from "@it/content/tier-1-graph";
-import { createLog } from "@it/log";
+import { createLog } from "@it/log/log";
 
 const log = createLog({ level: "info" });
 

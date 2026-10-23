@@ -3,7 +3,7 @@ import { betterAuth } from "better-auth";
 import { emailOTP } from "better-auth/plugins";
 import nodemailer from "nodemailer";
 import type { ItDatabase } from "@it/database/database";
-import type { Log } from "@it/log";
+import type { Log } from "@it/log/log";
 
 export function createAuth(db: ItDatabase, log: Log) {
   const secret = process.env.BETTER_AUTH_SECRET;
@@ -61,7 +61,7 @@ export function createAuth(db: ItDatabase, log: Log) {
               );
             // Local development only, with no email server: the one place a
             // log may hold a sign-in code (CODING_STANDARDS.md, "Logging").
-            log.info("development_sign_in_code", { type, email, otp });
+            log.info("development_sign_in_code", { type, otp });
             return;
           }
           const from = process.env.SMTP_FROM;
@@ -76,8 +76,10 @@ export function createAuth(db: ItDatabase, log: Log) {
         },
       }),
     ],
-    // Better Auth's own messages go through the server log. Their extra
-    // arguments can hold request details, so only the message is kept.
+    // Better Auth's own messages go through the server log. Its logger is
+    // also passed extra arguments of any type (`...args: any[]` in
+    // @better-auth/core 1.7.8 dist/env/logger.d.mts, checked 2026-10-22),
+    // which this can't review for personal data, so only the message is kept.
     logger: {
       log: (level, message) => log[level]("better_auth", { message }),
     },

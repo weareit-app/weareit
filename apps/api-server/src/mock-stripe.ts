@@ -5,7 +5,7 @@ import {
   type ServerResponse,
 } from "node:http";
 import Stripe from "stripe";
-import { createLog } from "@it/log";
+import { createLog } from "@it/log/log";
 
 if (process.env.NODE_ENV === "production") {
   throw new Error("The local Stripe simulator cannot run in production.");

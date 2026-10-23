@@ -5,7 +5,7 @@ import { createDatabase } from "../src/database";
 import { migrateToLatest } from "../src/migrator";
 import { checkDatabaseReadiness, isLocalDatabase } from "../src/readiness";
 import { buildTier1ContentGraph } from "@it/content/tier-1-graph";
-import { createLog } from "@it/log";
+import { createLog } from "@it/log/log";
 
 // Runs before `pnpm dev`: brings the local database to the point where the
 // API starts, or stops with one message saying what to do. A database that

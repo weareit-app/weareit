@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./src/log.ts"
+    "./log": "./src/log.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"

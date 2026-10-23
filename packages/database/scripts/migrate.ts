@@ -1,6 +1,6 @@
 import { createDatabase } from "../src/database";
 import { migrateToLatest } from "../src/migrator";
-import { createLog } from "@it/log";
+import { createLog } from "@it/log/log";
 
 const log = createLog({ level: "info" });
 

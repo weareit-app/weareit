@@ -2,11 +2,12 @@ import { createServer } from "node:http";
 import { RPCHandler } from "@orpc/server/fetch";
 import { createApiRouter } from "@it/api/router";
 import { createDatabase } from "@it/database/database";
-import { createLog } from "@it/log";
+import { createLog } from "@it/log/log";
 import { checkDatabaseReadiness } from "@it/database/readiness";
 import { createApiDocs } from "./api-docs";
 import { createAuth } from "./auth";
-import { logAuthFailure, logUndeclaredErrors } from "./server-log";
+import { logAuthFailure } from "./log-auth-failure";
+import { logUndeclaredErrors } from "./log-undeclared-errors";
 import {
   createStripeSupport,
   parseStripeWebhook,
