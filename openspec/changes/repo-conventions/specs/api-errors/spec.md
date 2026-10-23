@@ -74,11 +74,22 @@ An error message SHALL be shown as text near the action that failed, SHALL be an
 - **THEN** the conflict message is announced and the save control can still be reached by keyboard
 
 ### Requirement: Server logging
-Every program that logs (the API server, the database scripts, and the tools) SHALL write logs through one It-owned logging package with levels (debug, info, warn, error), as one structured line per event on the console. The API server SHALL log every undeclared error at error level with its cause.
+The API server and the database scripts SHALL write logs through one It-owned logging package with levels (debug, info, warn, error), as one structured line per event on the console. The tools print output for a person and SHALL keep using the console (founder, 2026-10-23).
+
+#### Scenario: Tool output
+- **WHEN** a tool in `tools/` reports its result
+- **THEN** it prints to the console for the person running it, without the logging package
+
+### Requirement: Undeclared failures logged by cause
+The API server SHALL log a failure it didn't expect (a server error, including an undeclared error sent as an internal server error) at error level with its operation and cause. It SHALL log an undeclared failure caused by a bad request, such as input that fails validation, at warn level with its operation but not its cause, because the cause holds the input (founder, 2026-10-23).
 
 #### Scenario: Undeclared error logged
-- **WHEN** an operation fails with an undeclared error
+- **WHEN** an operation fails with an undeclared error that becomes an internal server error
 - **THEN** one error-level line is written with the operation name and the cause
+
+#### Scenario: Bad request logged
+- **WHEN** an operation rejects input that fails validation
+- **THEN** one warn-level line is written with the operation name, and the input is not in it
 
 ### Requirement: Log privacy
 Logs SHALL NOT contain secrets, passwords, sign-in codes, session tokens, payment details, or a person's onboarding answers, contributions, or free text. Logs SHALL identify an account only by its ID, and only after signup. The one exception is local development, which may log sign-in codes when no email server is configured.
