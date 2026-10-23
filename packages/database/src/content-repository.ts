@@ -7,7 +7,7 @@ import {
 } from "@it/domain/content";
 import type { OnboardingDraft } from "@it/domain/onboarding";
 import { sql, type Kysely } from "kysely";
-import type { Database } from "./types";
+import type { DB } from "./db";
 import type { ItDatabase } from "./database";
 
 export type ContentValidationIssue = { path: string; message: string };
@@ -584,7 +584,7 @@ export async function rollbackToVersion(
   });
 }
 
-async function lockDraftState(db: Kysely<Database>) {
+async function lockDraftState(db: Kysely<DB>) {
   const state = await db
     .selectFrom("content_draft_state")
     .select("revision")
@@ -596,7 +596,7 @@ async function lockDraftState(db: Kysely<Database>) {
 }
 
 async function saveDraftInTransaction(
-  trx: Kysely<Database>,
+  trx: Kysely<DB>,
   graph: ContentGraph,
   options: { expectedRevision: number; actor: string; changeNote: string },
   currentRevision: number,
@@ -625,7 +625,7 @@ async function saveDraftInTransaction(
 }
 
 async function insertPublishedVersion(
-  trx: Kysely<Database>,
+  trx: Kysely<DB>,
   revision: number,
   graph: ContentGraph,
   actor: string,
