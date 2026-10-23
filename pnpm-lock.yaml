@@ -72,6 +72,12 @@ importers:
         specifier: 4.6.7
         version: 4.6.7
     devDependencies:
+      '@it/content':
+        specifier: workspace:*
+        version: link:../../packages/content
+      '@orpc/client':
+        specifier: ^1.15.6
+        version: 1.15.6(@opentelemetry/api@1.9.1)
       '@scalar/api-reference':
         specifier: 1.75.1
         version: 1.75.1(supports-color@8.1.1)(tailwindcss@4.3.3)(typescript@5.9.3)(zod@4.6.7)
