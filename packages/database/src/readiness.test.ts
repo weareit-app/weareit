@@ -8,7 +8,10 @@ import {
 } from "./content-repository";
 import { checkDatabaseReadiness } from "./readiness";
 import { buildTier1ContentGraph } from "@it/content/tier-1-graph";
-import { createTestDatabase } from "./test-database.test-support";
+import {
+  createTestDatabase,
+  testDatabaseUrl,
+} from "./test-database.test-support";
 
 describe("database readiness", () => {
   it("reports a local database nobody is listening for", async () => {
@@ -37,7 +40,7 @@ describe("database readiness", () => {
 // Runs against a disposable Postgres server, for example:
 // docker run --rm -e POSTGRES_PASSWORD=it -p 54346:5432 postgres:17-alpine
 // TEST_DATABASE_URL=postgres://postgres:it@localhost:54346/postgres pnpm test:unit
-const connectionString = process.env.TEST_DATABASE_URL;
+const connectionString = testDatabaseUrl();
 
 describe.skipIf(!connectionString)("database readiness in Postgres", () => {
   const name = "it_test_readiness";

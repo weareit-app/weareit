@@ -17,12 +17,15 @@ import {
 } from "@it/domain/support";
 import type { ItDatabase } from "./database";
 import { migrateToLatest } from "./migrator";
-import { createTestDatabase } from "./test-database.test-support";
+import {
+  createTestDatabase,
+  testDatabaseUrl,
+} from "./test-database.test-support";
 
 // Runs against a disposable Postgres server, for example:
 // docker run --rm -e POSTGRES_PASSWORD=it -p 54346:5432 postgres:17-alpine
 // TEST_DATABASE_URL=postgres://postgres:it@localhost:54346/postgres pnpm test:unit
-const connectionString = process.env.TEST_DATABASE_URL;
+const connectionString = testDatabaseUrl();
 
 // The Zod enum each enum CHECK constraint must list exactly, by table.column.
 // A new CHECK enum fails the test until it is added here.
