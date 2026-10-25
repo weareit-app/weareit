@@ -1,0 +1,43 @@
+import { createORPCClient, ORPCError } from "@orpc/client";
+import { RPCLink } from "@orpc/client/fetch";
+import type { ContractRouterClient } from "@orpc/contract";
+import type { apiContract } from "./contract";
+
+// Typed from the contract alone, so a program that calls the API never
+// compiles the router or what it imports (the database and its driver).
+export type ApiClient = ContractRouterClient<typeof apiContract>;
+
+export interface ApiClientOptions {
+  // The RPC endpoint, such as http://localhost:3001/rpc. The caller reads it
+  // from its own config; this package reads no environment.
+  url: string;
+  // Headers for each call, such as the CMS token or a session cookie.
+  headers?: () => Promise<Record<string, string>>;
+  // Whether the browser sends cookies with each call.
+  credentials?: "include" | "omit";
+}
+
+export function createApiClient({
+  url,
+  headers = async () => ({}),
+  credentials = "omit",
+}: ApiClientOptions): ApiClient {
+  const link = new RPCLink({
+    url,
+    headers,
+    fetch: (request, init) => fetch(request, { ...init, credentials }),
+  });
+  return createORPCClient<ApiClient>(link);
+}
+
+// For developers only: what went wrong with a call, in a sentence. When a
+// call never reaches the API, fetch rejects with a TypeError (checked
+// 2026-10-21 against the WHATWG Fetch Standard, fetch() method step 12.3);
+// its message varies by platform, for example "fetch failed" in Node 24.
+export function describeApiFailure(error: unknown, url: string) {
+  if (error instanceof ORPCError)
+    return `The API at ${url} answered ${error.status}: ${error.message}`;
+  if (error instanceof TypeError)
+    return `Couldn't reach the API at ${url}. Start it with \`pnpm dev\`, or check EXPO_PUBLIC_API_URL.`;
+  return `The call to the API at ${url} failed: ${error instanceof Error ? error.message : String(error)}`;
+}

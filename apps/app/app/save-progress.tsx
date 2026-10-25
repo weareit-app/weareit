@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Pressable, TextInput, View } from "react-native";
 import { Text } from "../src/components/text";
 import { useShallow } from "zustand/react/shallow";
-import { apiClient } from "@it/api/client";
+import { apiClient } from "../src/api-client";
 import { usePublishedContent } from "../src/content/use-published-content";
 import { Page } from "../src/components/page";
 import { authClient } from "../src/auth/auth-client";

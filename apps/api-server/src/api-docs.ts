@@ -47,7 +47,7 @@ async function readScalarScript() {
 async function loadOpenApi(router: ApiRouter) {
   const [{ OpenAPIHandler }, { generateOpenApiDocument }] = await Promise.all([
     import("@orpc/openapi/fetch"),
-    import("@it/api/openapi"),
+    import("@it/api-contract/openapi"),
   ]);
   return { handler: new OpenAPIHandler(router), generateOpenApiDocument };
 }

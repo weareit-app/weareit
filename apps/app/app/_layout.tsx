@@ -7,7 +7,7 @@ import { useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useOnboardingStore } from "../src/state/onboarding-store";
 import { getSessionCookie } from "../src/auth/auth-client";
-import { setSessionCookieProvider } from "@it/api/client";
+import { setSessionCookieProvider } from "../src/api-client";
 import { appFonts } from "../src/theme/fonts";
 import { useIsDark, useThemeStore } from "../src/state/theme-store";
 import { applyColorScheme } from "../src/theme/apply-color-scheme";

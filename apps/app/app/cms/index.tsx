@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { TextInput, View } from "react-native";
 import { Text } from "../../src/components/text";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { apiClient, setCmsToken } from "@it/api/client";
+import { apiClient, setCmsToken } from "../../src/api-client";
 import type { ContentGraph } from "@it/domain/content";
 import { Page } from "../../src/components/page";
 import {

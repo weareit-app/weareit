@@ -25,7 +25,7 @@ jest.mock("../src/storage", () => {
   };
 });
 // The published content is seeded into the query cache below.
-jest.mock("@it/api/client", () => ({ apiClient: {} }));
+jest.mock("../src/api-client", () => ({ apiClient: {} }));
 jest.mock("../src/components/content-query-state", () => ({
   ContentQueryState: () => null,
 }));

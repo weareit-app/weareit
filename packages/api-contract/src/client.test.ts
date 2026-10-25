@@ -1,6 +1,6 @@
 import { ORPCError } from "@orpc/client";
 import { describe, expect, it } from "vitest";
-import { describeApiFailure } from "../src/client";
+import { describeApiFailure } from "./client";
 
 const url = "http://localhost:3001/rpc";
 

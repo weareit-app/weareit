@@ -13,7 +13,7 @@ import {
   saveDraftContent,
   validatePublishableGraph,
 } from "@it/database/content-repository";
-import { apiContract } from "./contract";
+import { apiContract } from "@it/api-contract/contract";
 
 export interface ApiContext {
   db: ItDatabase;

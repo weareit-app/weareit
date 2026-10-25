@@ -13,6 +13,7 @@
   "dependencies": {
     "@better-auth/expo": "1.7.8",
     "@it/api": "workspace:*",
+    "@it/api-contract": "workspace:*",
     "@it/database": "workspace:*",
     "@it/domain": "workspace:*",
     "@orpc/openapi": "1.15.6",

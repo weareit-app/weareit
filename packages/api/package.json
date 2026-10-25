@@ -4,21 +4,13 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./contract": "./src/contract.ts",
-    "./router": "./src/router.ts",
-    "./client": "./src/client.ts",
-    "./openapi": "./src/openapi.ts"
+    "./router": "./src/router.ts"
   },
   "dependencies": {
-    "@it/content": "workspace:*",
+    "@it/api-contract": "workspace:*",
     "@it/database": "workspace:*",
     "@it/domain": "workspace:*",
-    "@orpc/client": "^1.15.6",
-    "@orpc/contract": "^1.15.6",
-    "@orpc/openapi": "1.15.6",
-    "@orpc/server": "^1.15.6",
-    "@orpc/zod": "1.15.6",
-    "zod": "4.6.7"
+    "@orpc/server": "^1.15.6"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"
