@@ -15,7 +15,7 @@ const drafts: Partial<Record<string, Essay>> = __DEV__
   : {};
 
 /** An essay is reachable only when it is published and in the link list. */
-export function isEssayLive(slug: string) {
+function isEssayLive(slug: string) {
   return Boolean(published[slug] && isListedPage(`/${slug}`));
 }
 

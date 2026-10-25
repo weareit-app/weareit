@@ -33,7 +33,7 @@ interface Support<K extends keyof ApiInputs["support"]> {
 
 // The payment service the support operations call. Its shapes come from the
 // contract, plus the signed-in account the router has checked.
-export interface SupportPayments {
+interface SupportPayments {
   createCheckout(
     input: Support<"createCheckout">["input"] & { userId: string },
   ): Support<"createCheckout">["output"];
