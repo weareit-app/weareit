@@ -2,9 +2,12 @@ import { createServer } from "node:http";
 import { RPCHandler } from "@orpc/server/fetch";
 import { createApiRouter } from "./router";
 import { createDatabase } from "@it/database/database";
+import { createLog } from "@it/log/log";
 import { checkDatabaseReadiness } from "@it/database/readiness";
 import { createApiDocs } from "./api-docs";
 import { createAuth } from "./auth";
+import { logAuthFailure } from "./log-auth-failure";
+import { logUndeclaredErrors } from "./log-undeclared-errors";
 import {
   PaymentsNotConfiguredError,
   WebhookNotConfiguredError,
@@ -20,6 +23,8 @@ import {
   verifyRevenueCatWebhook,
 } from "./revenuecat-support";
 
+// The level becomes configurable with the server's env schema (repo-conventions, group 6).
+const log = createLog({ level: "info" });
 const connectionString = process.env.DATABASE_URL;
 const cmsAdminToken = process.env.CMS_ADMIN_TOKEN;
 if (!connectionString)
@@ -29,15 +34,17 @@ if (!cmsAdminToken)
 
 const readiness = await checkDatabaseReadiness(connectionString);
 if (!readiness.ready) {
-  console.error(readiness.message);
+  log.error("database_not_ready", { message: readiness.message });
   process.exit(1);
 }
 
 const db = createDatabase(connectionString);
-const auth = createAuth(db);
+const auth = createAuth(db, log);
 const router = createApiRouter(db);
 const supportPayments = createStripeSupport(db);
-const handler = new RPCHandler(router);
+const handler = new RPCHandler(router, {
+  clientInterceptors: [logUndeclaredErrors(log)],
+});
 // Only the dev script sets API_DOCS (docs/architecture/decisions.md, 2026-10-21).
 const apiDocsEnabled = process.env.API_DOCS === "1";
 const apiDocs = createApiDocs({ router, enabled: apiDocsEnabled });
@@ -114,7 +121,7 @@ const server = createServer(async (incoming, outgoing) => {
         outgoing.writeHead(503).end("Stripe webhooks are not configured");
         return;
       }
-      console.error("Stripe webhook signature or payload rejected", error);
+      log.warn("stripe_webhook_rejected", { cause: error });
       outgoing.writeHead(400).end("Invalid Stripe webhook");
       return;
     }
@@ -122,7 +129,7 @@ const server = createServer(async (incoming, outgoing) => {
       await processStripeWebhook(db, event, rawBody);
       outgoing.writeHead(200).end("ok");
     } catch (error) {
-      console.error("Stripe webhook processing failed", error);
+      log.error("stripe_webhook_failed", { cause: error });
       outgoing.writeHead(500).end("Stripe webhook processing failed");
     }
     return;
@@ -142,7 +149,7 @@ const server = createServer(async (incoming, outgoing) => {
         outgoing.writeHead(503).end("RevenueCat webhook is not configured");
         return;
       }
-      console.error("RevenueCat webhook signature or payload rejected", error);
+      log.warn("revenuecat_webhook_rejected", { cause: error });
       outgoing.writeHead(400).end("Invalid RevenueCat webhook");
       return;
     }
@@ -150,7 +157,7 @@ const server = createServer(async (incoming, outgoing) => {
       await processRevenueCatWebhook(db, event);
       outgoing.writeHead(200).end("ok");
     } catch (error) {
-      console.error("RevenueCat webhook processing failed", error);
+      log.error("revenuecat_webhook_failed", { cause: error });
       outgoing.writeHead(500).end("RevenueCat webhook processing failed");
     }
     return;
@@ -162,6 +169,7 @@ const server = createServer(async (incoming, outgoing) => {
   try {
     if (new URL(request.url).pathname.startsWith("/auth/")) {
       const response = await auth.handler(request);
+      logAuthFailure(log, new URL(request.url), response.status);
       for (const [name, value] of response.headers)
         if (name.toLowerCase() !== "set-cookie")
           outgoing.setHeader(name, value);
@@ -191,16 +199,19 @@ const server = createServer(async (incoming, outgoing) => {
     outgoing.writeHead(response.status);
     outgoing.end(Buffer.from(await response.arrayBuffer()));
   } catch (error) {
-    console.error(error);
+    log.error("request_failed", {
+      path: new URL(request.url).pathname,
+      cause: error,
+    });
     outgoing.writeHead(500, { "Content-Type": "application/json" });
     outgoing.end(JSON.stringify({ error: "Internal server error" }));
   }
 });
 
 server.listen(port, "0.0.0.0", () => {
-  console.log(`It API listening on http://localhost:${port}/rpc`);
+  log.info("api_listening", { url: `http://localhost:${port}/rpc` });
   if (apiDocsEnabled)
-    console.log(`API docs for developers: http://localhost:${port}/docs`);
+    log.info("api_docs_listening", { url: `http://localhost:${port}/docs` });
 });
 
 for (const signal of ["SIGINT", "SIGTERM"] as const) {

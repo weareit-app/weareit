@@ -1,6 +1,9 @@
 import { createDatabase } from "../src/database";
 import { initializeContent } from "../src/content-repository";
 import { buildTier1ContentGraph } from "@it/content/tier-1-graph";
+import { createLog } from "@it/log/log";
+
+const log = createLog({ level: "info" });
 
 const connectionString = process.env.DATABASE_URL;
 if (!connectionString)
@@ -9,9 +12,14 @@ const db = createDatabase(connectionString);
 try {
   const graph = buildTier1ContentGraph();
   const result = await initializeContent(db, graph);
-  console.log(
-    `Imported ${graph.pains.length} pains, ${graph.dreams.length} dreams, ${graph.fixes.length} ways forward, and ${graph.firstActions.length} first actions; published version 1 (revision ${result.revision}).`,
-  );
+  log.info("content_seeded", {
+    pains: graph.pains.length,
+    dreams: graph.dreams.length,
+    waysForward: graph.fixes.length,
+    firstActions: graph.firstActions.length,
+    publishedVersion: 1,
+    revision: result.revision,
+  });
 } finally {
   await db.destroy();
 }

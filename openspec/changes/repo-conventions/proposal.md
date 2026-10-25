@@ -22,7 +22,7 @@ What contributors (people and agents) see:
 - **Tests beside their code**, found by glob, with one check that fails on a test no runner owns or that breaks the layout. CI fails without Postgres. ([#150](https://github.com/weareit-app/weareit/issues/150))
 - **Typed API errors** with domain-named codes, error classes on the server, and app-owned error copy. ([#170](https://github.com/weareit-app/weareit/issues/170))
 - **Environment variables** validated once per program at its entry point, with example files kept in step by a test. ([#171](https://github.com/weareit-app/weareit/issues/171))
-- **Logging** through one small It-owned package, `@it/log`, with levels, writing structured lines to the console, shared by the API server, the database scripts, and the tools. (Map, carried item.)
+- **Logging** through one small It-owned package, `@it/log`, with levels, writing structured lines to the console, shared by the API server and the database scripts. The tools keep printing to the console for a person. (Map, carried item.)
 - **Generated files** stay committed, and CI fails if regenerating them changes anything. (Map, carried item.)
 - **Python tools** in `tools/` are linted and formatted by ruff, pinned. (Map, carried item.)
 - **Docs and steering**: one root `AGENTS.md` with guardrails and pointers, judgement rules only in `CODING_STANDARDS.md`, workflow detail in `docs/agents/`, decision records only in `docs/architecture/decisions.md`. ([#152](https://github.com/weareit-app/weareit/issues/152))

@@ -5,10 +5,12 @@ import { createDatabase } from "../src/database";
 import { migrateToLatest } from "../src/migrator";
 import { checkDatabaseReadiness, isLocalDatabase } from "../src/readiness";
 import { buildTier1ContentGraph } from "@it/content/tier-1-graph";
+import { createLog } from "@it/log/log";
 
 // Runs before `pnpm dev`: brings the local database to the point where the
 // API starts, or stops with one message saying what to do. A database that
 // is already reachable (an OrbStack container, a Neon branch) is used as is.
+const log = createLog({ level: "info" });
 const connectionString = process.env.DATABASE_URL;
 if (!connectionString)
   fail("Set DATABASE_URL in .env first (copy .env.example to start).");
@@ -21,7 +23,7 @@ if (!readiness.ready && readiness.problem === "unreachable") {
     fail(
       `Nothing is running Postgres at ${new URL(connectionString).host}, and neither OrbStack nor Docker is running to start it. Start one and run \`pnpm dev\` again, or set DATABASE_URL in .env to any running Postgres, such as a Neon branch.`,
     );
-  console.log("Starting Postgres with docker compose…");
+  log.info("postgres_starting", { with: "docker compose" });
   const started = spawnSync(
     "docker",
     ["compose", "up", "--detach", "--wait", "postgres"],
@@ -40,7 +42,7 @@ if (!readiness.ready && readiness.problem === "unreachable") {
 if (!readiness.ready && readiness.problem === "migrations-pending") {
   await withDatabase(async (db) => {
     for (const name of await migrateToLatest(db))
-      console.log(`Migrated: ${name}`);
+      log.info("migrated", { migration: name });
   });
   readiness = await checkDatabaseReadiness(connectionString);
 }
@@ -48,13 +50,13 @@ if (!readiness.ready && readiness.problem === "migrations-pending") {
 if (!readiness.ready && readiness.problem === "no-published-content") {
   await withDatabase(async (db) => {
     const result = await initializeContentIfEmpty(db, buildTier1ContentGraph());
-    if (result.seeded) console.log("Imported and published the seed content.");
+    if (result.seeded) log.info("content_seeded", { published: true });
   });
   readiness = await checkDatabaseReadiness(connectionString);
 }
 
 if (!readiness.ready) fail(readiness.message);
-console.log("The database is ready.");
+log.info("database_ready");
 
 async function withDatabase(
   work: (db: ReturnType<typeof createDatabase>) => Promise<void>,
@@ -72,6 +74,6 @@ function dockerIsRunning() {
 }
 
 function fail(message: string): never {
-  console.error(message);
+  log.error("database_not_ready", { message });
   process.exit(1);
 }

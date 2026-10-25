@@ -1,0 +1,12 @@
+{
+  "name": "@it/log",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./log": "./src/log.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  }
+}
