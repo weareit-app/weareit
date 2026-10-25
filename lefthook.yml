@@ -26,3 +26,6 @@ pre-commit:
     - name: story coverage
       glob: "*.tsx"
       run: node tools/story-coverage/check-story-coverage.mjs
+    # Decision records live in docs/architecture/decisions.md; fails if docs/adr/ exists.
+    - name: no adr folder
+      run: node tools/decision-records/check-no-adr-folder.mjs
