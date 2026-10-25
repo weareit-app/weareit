@@ -14,6 +14,7 @@ import {
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import { createApiRouter } from "../src/router";
 import type { ItDatabase } from "@it/database/database";
+import type { StripeConfig } from "../src/env";
 import { createStripeSupport } from "../src/stripe-support";
 
 const ownerId = "user_owner";
@@ -86,6 +87,7 @@ const db = new Kysely({
 
 let stripeServer: Server;
 let portalCustomers: string[] = [];
+let stripe: StripeConfig;
 
 beforeAll(async () => {
   stripeServer = createServer((request, response) => {
@@ -110,13 +112,15 @@ beforeAll(async () => {
     stripeServer.listen(0, "127.0.0.1", resolve),
   );
   const { port } = stripeServer.address() as AddressInfo;
-  process.env.STRIPE_SECRET_KEY = "sk_test_support_access";
-  process.env.STRIPE_API_BASE = `http://127.0.0.1:${port}`;
+  stripe = {
+    secretKey: "sk_test_support_access",
+    productId: "prod_test_support_access",
+    webhookSecret: "whsec_test_support_access",
+    apiBase: new URL(`http://127.0.0.1:${port}`),
+  };
 });
 
 afterAll(async () => {
-  delete process.env.STRIPE_SECRET_KEY;
-  delete process.env.STRIPE_API_BASE;
   await new Promise((resolve) => stripeServer.close(resolve));
 });
 
@@ -130,7 +134,10 @@ function clientFor(userId: string | null) {
       db,
       cmsActor: null,
       userId,
-      supportPayments: createStripeSupport(db),
+      supportPayments: createStripeSupport(db, {
+        stripe,
+        publicAppUrl: "http://localhost:8082",
+      }),
     },
   });
 }
