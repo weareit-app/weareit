@@ -55,7 +55,7 @@ Order (design decision 13): write the conventions down, move packages, then turn
 - [x] 7.3 Add ESLint 10.12.0 over TS files with typescript-eslint 8.71.1 `recommendedTypeChecked` (type-aware rules only), `eslint-plugin-react-hooks` 7.1.1 `recommended`, eslint-comments `require-description`, unused directives as errors, and `no-restricted-syntax` for `new ORPCError` in the router and for `.strict()`, `.passthrough()`, and deprecated Zod string formats. Fix every finding, including the three promise bugs in `apps/api-server`; this may land as one PR per plugin, each rule on only once its findings are fixed. Needs 4.4. Verify `eslint --max-warnings 0` passes in CI and lefthook runs it on staged TS files
 - [x] 7.4 Turn on Biome's naming rules (#165) with their overrides, after checking each rule and option against the Biome 2.5.15 docs. Fix the about 10 `ID`, `URL`, and `OTP` spellings, give the two lab screens named exports, and settle `shaders/index.ts`. Verify lint fails on a sample `userID` and a default export in `apps/app/src`, and passes on `_layout.tsx`
 - [x] 7.5 Turn on Biome's `noProcessEnv` everywhere except the env files and `test-env.ts`. Needs group 6. Verify lint fails on a sample `process.env` read in a service file
-- [ ] 7.6 Record the naming decision (#165) in `decisions.md`, beside the Biome entry from 7.1. Verify the entry lists the overrides
+- [x] 7.6 Record the naming decision (#165) in `decisions.md`, beside the Biome entry from 7.1. Verify the entry lists the overrides
 
 ## 8. Package boundaries
 
