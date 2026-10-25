@@ -40,18 +40,27 @@ jobs:
           fetch-depth: 2
 
       - id: classify
+        env:
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
           docs_only=false
           if [ "$GITHUB_EVENT_NAME" = pull_request ]; then
-            # --no-renames lists a moved file under its old path too, so moving code
-            # into a .md file outside the code folders isn't read as docs-only.
-            changed=$(git diff --name-only --no-renames HEAD^1 HEAD)
-            printf 'Changed files:\n%s\n' "$changed"
-            # Not docs-only when any file isn't Markdown or sits in a code folder.
-            if [ -n "$changed" ] \
-              && ! printf '%s\n' "$changed" | grep -q -v -E '\.md$' \
-              && ! printf '%s\n' "$changed" | grep -q -E '^(apps|packages|tools|\.github)/'; then
-              docs_only=true
+            # The diff below assumes the merge commit's first parent is the base, which
+            # GitHub doesn't document. If the second parent isn't the head, run everything.
+            if [ "$(git rev-parse HEAD^2 2>/dev/null)" != "$PR_HEAD_SHA" ]; then
+              echo "Unexpected merge commit parents; running everything."
+            else
+              # --no-renames lists a moved file under its old path too, so moving code
+              # into a docs folder isn't read as docs-only.
+              changed=$(git diff --name-only --no-renames HEAD^1 HEAD)
+              printf 'Changed files:\n%s\n' "$changed"
+              # Docs-only when every file is Markdown at the root or under a docs folder.
+              # An allowlist, so a new folder runs everything until it's added here. A
+              # here-string rather than a pipe, so pipefail can't flip the result.
+              if [ -n "$changed" ] && ! grep -q -v -E \
+                '^([^/]+|(docs|openspec|specs|\.specify)/.+)\.md$' <<<"$changed"; then
+                docs_only=true
+              fi
             fi
           fi
           echo "Docs only: $docs_only"
