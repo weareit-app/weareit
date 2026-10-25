@@ -1,4 +1,5 @@
 import Purchases from "react-native-purchases";
+import { appEnv } from "../env";
 
 const supportProducts = ["it_support_5", "it_support_15", "it_support_30"];
 
@@ -6,7 +7,7 @@ let configured = false;
 
 async function configure() {
   if (configured) return;
-  const apiKey = process.env.EXPO_PUBLIC_REVENUECAT_IOS_API_KEY;
+  const apiKey = appEnv.revenueCatIosApiKey;
   if (!apiKey)
     throw new Error("RevenueCat App Store purchases are not configured yet.");
   Purchases.configure({ apiKey });

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-native-web-vite";
 import { fn } from "storybook/test";
-import { describeApiFailure } from "../api-client";
+import { describeApiFailure } from "@it/api-contract/client";
 import { ContentQueryState } from "./content-query-state";
 
 const meta = {
@@ -25,6 +25,11 @@ export const Failed: Story = {
 export const FailedWithDeveloperDetail: Story = {
   args: {
     error: new Error("fetch failed"),
-    developerDetail: describeApiFailure(new TypeError("fetch failed")),
+    // The development address from apps/app/.env.example. Storybook doesn't
+    // load the app's environment, so the story passes it in.
+    developerDetail: describeApiFailure(
+      new TypeError("fetch failed"),
+      "http://localhost:3001/rpc",
+    ),
   },
 };
