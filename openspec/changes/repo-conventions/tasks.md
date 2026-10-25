@@ -46,7 +46,7 @@ Order (design decision 13): write the conventions down, move packages, then turn
 - [x] 6.2 Add `packages/database/scripts/env.ts` and use it in the three database scripts. Verify each script refuses to start without `DATABASE_URL` and names it
 - [x] 6.3 Add `apps/app/src/env.ts` (each `EXPO_PUBLIC_*` read by name, `satisfies` for completeness), replace `app.json` with `app.config.ts` that parses it, remove the localhost fallbacks, and move every public variable, including `EXPO_PUBLIC_REVENUECAT_IOS_API_KEY`, into `apps/app/.env.example`. Verify `expo export` fails with a bad `EXPO_PUBLIC_API_URL` and the web and iOS builds still start with the example values
 - [x] 6.4 Add a Vitest test that parses each `.env.example` with its schema and compares keys. Verify it fails when a key is added to a schema only
-- [ ] 6.5 Record the env decision (#171), including the shared root `.env` as a deliberate exception to per-app env files, in `decisions.md`. Verify the entry names the exception and its reason
+- [x] 6.5 Record the env decision (#171), including the shared root `.env` as a deliberate exception to per-app env files, in `decisions.md`. Verify the entry names the exception and its reason
 
 ## 7. Lint and format
 
