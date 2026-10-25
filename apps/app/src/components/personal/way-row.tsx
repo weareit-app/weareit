@@ -49,7 +49,7 @@ export const kindCopy: Record<
 // A Live feature is in It now, so its explanation can't say it isn't.
 const liveFeatureDetail = "Available to use.";
 
-export function typeDetail(fix: ContentFix) {
+function typeDetail(fix: ContentFix) {
   return fix.kind === "feature" && fix.featureStatus === "live"
     ? liveFeatureDetail
     : kindCopy[fix.kind].detail;
