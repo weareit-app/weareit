@@ -33,7 +33,8 @@ NativeWind 5.0.0-rc.0 and react-native-css 3.1.0-rc.0 are an intentional prerele
 
 ## Other toolchain pins
 
-- Prettier 3.9.10 and Turborepo 2.11.8 are current releases within their existing major versions.
+- Turborepo 2.11.8 is a current release within its existing major version.
+- Biome 2.5.15 (`@biomejs/biome`, MIT OR Apache-2.0, pinned exactly in the root and `@it/content`) formats JavaScript and TypeScript, replacing Prettier (weareit-app/weareit#148). It is the newest release at least two weeks old: 2.5.15 came out 2026-09-30, and 2.6.0 (2026-10-21) was too new (`npm view @biomejs/biome time`, checked 2026-10-25). It ships one native binary per platform as optional dependencies and has no install script (`npm view @biomejs/biome@2.5.15 scripts`, the same day). Prettier 3.9.10 stays in the lockfile only as Storybook's optional peer. After an upgrade, run `pnpm run format` and review the diff: a formatter change shows there, and `essays:check` fails if the essay modules would change.
 - Zod 4.6.7 and Zustand 5.0.15 are current releases within their existing major versions.
 - TypeScript remains at 5.9.3, the latest 5.x release. Do not adopt TypeScript 7 as a major toolchain change until Expo and workspace tooling compatibility is established.
 - Lefthook 2.1.17 runs the git pre-commit hook (`lefthook.yml`; chosen 2026-10-20 as the newest release at least two weeks old). Its postinstall only runs `lefthook install` (skipped when `CI` is set), so it is allowed in `pnpm-workspace.yaml` `allowBuilds`. It is one Go binary with staged-file filtering and restaging built in, so no lint-staged is needed.
@@ -79,7 +80,7 @@ The essay build script (`packages/content/scripts/build-essays.ts`, public-pages
 - `micromark-extension-math` 3.1.0 and `mdast-util-math` 3.0.0 (inline `$…$`)
 - `yaml` 2.9.1 (front matter and block data files; no dependencies)
 
-The script runs with `tsx` (the range the database package already uses) and formats its output with the workspace's Prettier. To update, pick newer releases at least two weeks old, read their changelogs, and run the essay fixture tests.
+The script runs with `tsx` (the range the database package already uses) and formats its output with the workspace's Biome (`biome format --stdin-file-path`), so the modules match `pnpm run lint`. To update, pick newer releases at least two weeks old, read their changelogs, and run the essay fixture tests.
 
 ## Generator pages
 

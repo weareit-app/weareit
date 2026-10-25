@@ -22,6 +22,7 @@
     "essays:check": "tsx scripts/build-essays.ts --check"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.5.15",
     "@types/mdast": "4.0.4",
     "@types/node": "^26.6.5",
     "mdast-util-directive": "3.1.1",
@@ -33,7 +34,6 @@
     "micromark-extension-gfm-footnote": "2.1.0",
     "micromark-extension-gfm-table": "2.1.2",
     "micromark-extension-math": "3.1.0",
-    "prettier": "3.9.10",
     "tsx": "^4.21.0",
     "yaml": "2.9.1"
   }

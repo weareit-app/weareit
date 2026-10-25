@@ -8,9 +8,10 @@
 //   `?draft` preview only. The app requires it behind `__DEV__`, so a release
 //   bundle never carries an unapproved essay.
 
+import { execFileSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
+import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
-import { format, resolveConfig } from "prettier";
 import { loadEssays } from "../essay-build/load";
 import { EssayError } from "../essay-build/parse";
 
@@ -25,11 +26,18 @@ const header = [
   "",
 ];
 
+const biome = createRequire(import.meta.url).resolve(
+  "@biomejs/biome/bin/biome",
+);
+
+// Formats through the workspace's Biome, which reads the root `biome.jsonc`, so
+// the modules match what `pnpm run lint` expects.
 async function render(path: string, lines: string[]) {
-  return format([...header, ...lines].join("\n"), {
-    ...(await resolveConfig(path)),
-    filepath: path,
-  });
+  return execFileSync(
+    process.execPath,
+    [biome, "format", `--stdin-file-path=${path}`],
+    { input: [...header, ...lines].join("\n"), encoding: "utf8" },
+  );
 }
 
 async function main() {

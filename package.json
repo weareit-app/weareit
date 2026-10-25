@@ -23,16 +23,16 @@
     "test:tools": "python3 -m unittest discover -s tools/pains/tests && python3 -m unittest discover -s tools/possibilities/tests && python3 -m unittest discover -s tools/style/tests",
     "typecheck": "turbo typecheck typecheck:root",
     "typecheck:root": "tsc -p tsconfig.json",
-    "lint": "prettier --check . && pnpm --filter @it/content essays:check",
-    "format": "prettier --write .",
+    "lint": "biome ci . && pnpm --filter @it/content essays:check",
+    "format": "biome format --write .",
     "storybook": "pnpm --filter @it/app storybook",
     "storybook:review": "pnpm --filter @it/app storybook:review"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.5.15",
     "@playwright/test": "^1.64.0",
     "@types/node": "^26.6.5",
     "lefthook": "2.1.17",
-    "prettier": "3.9.10",
     "turbo": "2.11.8",
     "typescript": "5.9.3",
     "vitest": "^5.0.4"
