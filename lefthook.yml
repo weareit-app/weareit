@@ -29,3 +29,6 @@ pre-commit:
     # Decision records live in docs/architecture/decisions.md; fails if docs/adr/ exists.
     - name: no adr folder
       run: node tools/decision-records/check-no-adr-folder.mjs
+    # .claude/skills is the source; fails naming each skill whose .agents/skills copy differs.
+    - name: skills in step
+      run: node tools/skills-sync/sync-skills.mjs --check

@@ -52,6 +52,8 @@ jobs:
 
       # Decision records live in docs/architecture/decisions.md; fails if docs/adr/ exists.
       - run: node tools/decision-records/check-no-adr-folder.mjs
+      # .claude/skills is the source; .agents/skills must be its copy (openspec-* skipped).
+      - run: node tools/skills-sync/sync-skills.mjs --check
 
       - uses: ./.github/actions/setup
 
