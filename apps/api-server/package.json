@@ -12,9 +12,10 @@
   },
   "dependencies": {
     "@better-auth/expo": "1.7.8",
-    "@it/api": "workspace:*",
+    "@it/api-contract": "workspace:*",
     "@it/database": "workspace:*",
     "@it/domain": "workspace:*",
+    "@orpc/contract": "^1.15.6",
     "@orpc/openapi": "1.15.6",
     "@orpc/server": "^1.15.6",
     "@types/nodemailer": "^7.0.12",
@@ -24,6 +25,8 @@
     "zod": "4.6.7"
   },
   "devDependencies": {
+    "@it/content": "workspace:*",
+    "@orpc/client": "^1.15.6",
     "@scalar/api-reference": "1.75.1",
     "@types/node": "^26.6.5",
     "kysely": "^0.28.17",

@@ -14,6 +14,7 @@ import {
   processRevenueCatWebhook,
   verifyRevenueCatWebhook,
 } from "../src/revenuecat-support";
+import { WebhookSignatureError } from "../src/payment-errors";
 
 const webhookSecret = "rc_whsec_test_payments";
 
@@ -45,10 +46,10 @@ describe("RevenueCat support webhooks", () => {
     expect(() => verifyRevenueCatWebhook(rawBody, header)).not.toThrow();
     expect(() =>
       verifyRevenueCatWebhook(Buffer.from(`${rawBody.toString()} `), header),
-    ).toThrow("INVALID_REVENUECAT_SIGNATURE");
+    ).toThrow(WebhookSignatureError);
     expect(() =>
       verifyRevenueCatWebhook(rawBody, signedHeader(rawBody, 1)),
-    ).toThrow("INVALID_REVENUECAT_SIGNATURE");
+    ).toThrow(WebhookSignatureError);
   });
 
   it("rejects malformed RevenueCat payloads before persistence", () => {

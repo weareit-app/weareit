@@ -16,7 +16,7 @@ const [babelJest, babelOptions] = require("jest-expo/jest-preset").transform[
 ];
 const webPreset = require("jest-expo/web/jest-preset");
 
-// oRPC (behind @it/api/client) ships only ES modules, as .mjs files (checked
+// oRPC (behind @it/api-contract/client) ships only ES modules, as .mjs files (checked
 // 2026-10-21 against @orpc/client 1.15.6's package.json "exports"). Both
 // jest-expo presets run Babel only on .js/.jsx/.ts/.tsx and ignore node_modules
 // packages missing from their allowlist (checked 2026-10-21 against jest-expo

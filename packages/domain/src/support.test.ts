@@ -1,13 +1,14 @@
 import { describe, expect, it } from "vitest";
 import {
   contributionStatusSchema,
+  paymentEventProcessorSchema,
   paymentProcessorSchema,
   supportFrequencySchema,
   transactionStatusSchema,
 } from "./support";
 
 // These values are stored in the support tables, whose SQL checks list the
-// same ones (migration 003). A change here needs a migration too.
+// same ones (migrations 003 and 008). A change here needs a migration too.
 describe("support enums", () => {
   it("lists the frequencies", () => {
     expect(supportFrequencySchema.options).toEqual(["once", "monthly"]);
@@ -18,6 +19,13 @@ describe("support enums", () => {
       "stripe",
       "app_store",
       "play_store",
+    ]);
+  });
+
+  it("lists the payment event processors", () => {
+    expect(paymentEventProcessorSchema.options).toEqual([
+      "stripe",
+      "revenuecat",
     ]);
   });
 

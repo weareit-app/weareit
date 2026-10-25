@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { apiClient, describeApiFailure } from "@it/api/client";
+import { apiClient, describeApiFailure } from "../api-client";
 
 export const publishedContentQueryKey = ["content", "published"] as const;
 

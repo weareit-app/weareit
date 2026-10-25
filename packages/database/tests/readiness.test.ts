@@ -73,7 +73,7 @@ describe.skipIf(!connectionString)("database readiness in Postgres", () => {
       ready: false,
       problem: "migrations-pending",
       message:
-        "The database is missing 7 migrations, starting with 001_initial_content. Run `pnpm db:migrate`.",
+        "The database is missing 8 migrations, starting with 001_initial_content. Run `pnpm db:migrate`.",
     });
   });
 

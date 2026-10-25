@@ -1,7 +1,7 @@
 import { isContractProcedure } from "@orpc/contract";
 import { describe, expect, it } from "vitest";
-import { apiContract } from "../src/contract";
-import { generateOpenApiDocument } from "../src/openapi";
+import { apiContract } from "./contract";
+import { generateOpenApiDocument } from "./openapi";
 
 // Every procedure path in the contract, at any depth, so a new operation
 // without docs text fails here.
@@ -61,5 +61,29 @@ describe("generated OpenAPI document", () => {
         expect(security, id).toEqual([{ cmsAdminToken: [] }]);
       else expect(security, id).toBeUndefined();
     }
+  });
+
+  // oRPC 1.15.6 writes each declared error as a response under its status:
+  // a oneOf of the declared shape (defined: true, its code and data) and the
+  // generic undeclared shape (checked against the generated document,
+  // 2026-10-22).
+  it("lists each declared error under its status", async () => {
+    const { operations } = await operationsById();
+    const responses = operations.get("cms.saveDraft")?.responses as Record<
+      string,
+      { content: { "application/json": { schema: { oneOf: object[] } } } }
+    >;
+    const codes = (status: string) =>
+      responses[status]?.content["application/json"].schema.oneOf.flatMap(
+        (shape) => {
+          const code = (shape as { properties?: { code?: { const?: string } } })
+            .properties?.code?.const;
+          return code ? [code] : [];
+        },
+      );
+
+    expect(codes("409")).toEqual(["REVISION_CONFLICT"]);
+    expect(codes("400")).toEqual(["STATUS_NOTE_REQUIRED"]);
+    expect(codes("401")).toEqual(["UNAUTHORIZED"]);
   });
 });

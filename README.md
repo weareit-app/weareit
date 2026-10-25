@@ -28,6 +28,8 @@ Contributors who prefer Docker can let `pnpm dev` start the same PostgreSQL conf
 
 The seed command is intentionally one-time: it imports the sourced Tier 1 corpus and publishes version 1 only when the content database is empty. Later runs of `pnpm db:seed` fail instead of overwriting CMS edits, and `pnpm dev` skips the seed once content exists. Use the CMS for subsequent changes.
 
+The database table types in `packages/database/src/db.ts` are generated, not written by hand. After adding a migration, run `pnpm db:types` with `TEST_DATABASE_URL` pointing at a Postgres server you can create databases on (the Docker one from `compose.yaml` works: `postgres://it:it@localhost:5432/postgres`); it migrates a scratch database named `it_codegen` there and regenerates the file. CI fails when the committed file differs.
+
 The app lives in `apps/app`; shared product content and behavior live in packages under `packages/`. See [CONTRIBUTING.md](CONTRIBUTING.md) and [docs/architecture/decisions.md](docs/architecture/decisions.md) for current project conventions and choices.
 
 ## Status

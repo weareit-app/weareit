@@ -9,6 +9,12 @@ import {
   recordStripeEvent,
   readSupportContributionForPortal,
 } from "@it/database/support-repository";
+import {
+  PaymentsNotConfiguredError,
+  SupportContributionNotFoundError,
+  SupportNotRecurringError,
+  WebhookNotConfiguredError,
+} from "./payment-errors";
 
 function objectId(value: string | { id: string } | null | undefined) {
   return typeof value === "string" ? value : (value?.id ?? null);
@@ -61,7 +67,7 @@ export function createStripeSupport(db: ItDatabase) {
       frequency: SupportFrequency;
       userId: string;
     }) {
-      if (!stripe || !productId) throw new Error("STRIPE_NOT_CONFIGURED");
+      if (!stripe || !productId) throw new PaymentsNotConfiguredError();
 
       const id = randomUUID();
       await createPendingStripeContribution(db, {
@@ -133,22 +139,22 @@ export function createStripeSupport(db: ItDatabase) {
     },
     async getStatus(reference: string, userId: string) {
       const record = await readSupportContributionStatus(db, reference, userId);
-      if (!record) throw new Error("SUPPORT_CONTRIBUTION_NOT_FOUND");
+      if (!record) throw new SupportContributionNotFoundError();
       return record;
     },
     async createPortal(reference: string, userId: string) {
-      if (!stripe) throw new Error("STRIPE_NOT_CONFIGURED");
+      if (!stripe) throw new PaymentsNotConfiguredError();
       const contribution = await readSupportContributionForPortal(
         db,
         reference,
         userId,
       );
-      if (!contribution) throw new Error("SUPPORT_CONTRIBUTION_NOT_FOUND");
+      if (!contribution) throw new SupportContributionNotFoundError();
       if (
         !contribution.stripe_customer_id ||
         !contribution.stripe_subscription_id
       )
-        throw new Error("SUPPORT_PORTAL_NOT_AVAILABLE");
+        throw new SupportNotRecurringError();
       const session = await stripe.billingPortal.sessions.create({
         customer: contribution.stripe_customer_id,
         return_url: `${appUrl}/support-it`,
@@ -160,11 +166,11 @@ export function createStripeSupport(db: ItDatabase) {
 
 export function parseStripeWebhook(rawBody: Buffer, signature: string) {
   const secret = process.env.STRIPE_WEBHOOK_SECRET;
-  if (!secret) throw new Error("STRIPE_WEBHOOK_NOT_CONFIGURED");
+  if (!secret) throw new WebhookNotConfiguredError("stripe");
   const stripe = process.env.STRIPE_SECRET_KEY
     ? stripeClient(process.env.STRIPE_SECRET_KEY)
     : null;
-  if (!stripe) throw new Error("STRIPE_NOT_CONFIGURED");
+  if (!stripe) throw new PaymentsNotConfiguredError();
   return stripe.webhooks.constructEvent(rawBody, signature, secret);
 }
 

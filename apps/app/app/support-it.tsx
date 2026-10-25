@@ -3,13 +3,14 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { Platform, Pressable, TextInput, View } from "react-native";
 import { Text } from "../src/components/text";
-import { apiClient } from "@it/api/client";
+import { apiClient } from "../src/api-client";
 import {
   supportFrequencySchema,
   type SupportFrequency,
 } from "@it/domain/support";
 import { Page } from "../src/components/page";
 import { purchaseStoreSupport } from "../src/payments/store-purchases";
+import { describeSupportError } from "../src/api-errors/describe-support-error";
 
 const webLevels = ["$5", "$15", "$30", "Another amount"];
 const iosStoreLevels = [
@@ -52,37 +53,54 @@ export default function SupportItScreen() {
     (option) => option.label === amount,
   );
 
+  // While a call is in flight, a press does nothing. The buttons stay enabled
+  // rather than disabled, because a browser moves focus off a button that
+  // becomes disabled, and the person couldn't retry from the keyboard.
   async function continueToPayment() {
+    if (isLoading) return;
     setNotice("");
+    if (iosStore) {
+      await supportWithApple();
+      return;
+    }
+
+    let amountMinor: number;
+    if (amount === "Another amount") {
+      const dollars = customAmount.trim();
+      amountMinor = /^\d{1,4}(?:\.\d{1,2})?$/.test(dollars)
+        ? Math.round(Number(dollars) * 100)
+        : 0;
+    } else {
+      amountMinor = Number(amount.slice(1)) * 100;
+    }
+    if (amountMinor < 100 || amountMinor > 100_000) {
+      setNotice("Enter an amount between $1 and $1,000.");
+      return;
+    }
+
     setIsLoading(true);
     try {
-      if (iosStore) {
-        if (!selectedStoreProduct)
-          throw new Error("Choose an available App Store support amount.");
-        await purchaseStoreSupport(selectedStoreProduct.id);
-        setNotice(
-          "Apple confirmed your support purchase. It will appear in our records shortly.",
-        );
-        return;
-      }
-
-      let amountMinor: number;
-      if (amount === "Another amount") {
-        const dollars = customAmount.trim();
-        if (!/^\d{1,4}(?:\.\d{1,2})?$/.test(dollars))
-          throw new Error("Enter an amount between $1 and $1,000.");
-        amountMinor = Math.round(Number(dollars) * 100);
-      } else {
-        amountMinor = Number(amount.slice(1)) * 100;
-      }
-      if (amountMinor < 100 || amountMinor > 100_000)
-        throw new Error("Enter an amount between $1 and $1,000.");
-
       const { url } = await apiClient.support.createCheckout({
         amountMinor,
         frequency,
       });
       window.location.assign(url);
+    } catch (error) {
+      setNotice(describeSupportError(error));
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  async function supportWithApple() {
+    setIsLoading(true);
+    try {
+      if (!selectedStoreProduct)
+        throw new Error("Choose an available App Store support amount.");
+      await purchaseStoreSupport(selectedStoreProduct.id);
+      setNotice(
+        "Apple confirmed your support purchase. It will appear in our records shortly.",
+      );
     } catch (error) {
       setNotice(
         error instanceof Error
@@ -127,18 +145,14 @@ export default function SupportItScreen() {
   const canceled = params.status === "cancelled";
 
   async function manageSubscription() {
-    if (!reference) return;
+    if (!reference || isLoading) return;
     setIsLoading(true);
     setNotice("");
     try {
       const { url } = await apiClient.support.createPortal({ reference });
       window.location.assign(url);
     } catch (error) {
-      setNotice(
-        error instanceof Error
-          ? error.message
-          : "We couldn't open subscription management.",
-      );
+      setNotice(describeSupportError(error));
     } finally {
       setIsLoading(false);
     }
@@ -159,9 +173,9 @@ export default function SupportItScreen() {
           {paymentStatus.data?.frequency === "monthly" && reference ? (
             <Pressable
               accessibilityRole="button"
-              disabled={isLoading}
+              accessibilityState={{ busy: isLoading }}
               onPress={() => void manageSubscription()}
-              className="min-h-12 self-start justify-center rounded-full bg-ember px-6 disabled:opacity-50"
+              className={`min-h-12 self-start justify-center rounded-full bg-ember px-6 ${isLoading ? "opacity-50" : ""}`}
             >
               <Text className="font-ui-semibold text-on-ember">
                 Manage monthly support
@@ -257,9 +271,10 @@ export default function SupportItScreen() {
           ) : null}
           <Pressable
             accessibilityRole="button"
-            disabled={isLoading || (iosStore && !selectedStoreProduct)}
+            accessibilityState={{ busy: isLoading }}
+            disabled={iosStore && !selectedStoreProduct}
             onPress={() => void continueToPayment()}
-            className="min-h-12 self-start justify-center rounded-full bg-ember px-6 disabled:opacity-50"
+            className={`min-h-12 self-start justify-center rounded-full bg-ember px-6 disabled:opacity-50 ${isLoading ? "opacity-50" : ""}`}
           >
             <Text className="font-ui-semibold text-on-ember">
               {isLoading
@@ -272,7 +287,11 @@ export default function SupportItScreen() {
         </>
       )}
       {notice ? (
-        <View accessibilityRole="alert" className="rounded-3xl bg-sun-wash p-5">
+        <View
+          accessible
+          accessibilityRole="alert"
+          className="rounded-3xl bg-sun-wash p-5"
+        >
           <Text className="leading-6 text-ink-soft">{notice}</Text>
         </View>
       ) : null}

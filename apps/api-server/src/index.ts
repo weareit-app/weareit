@@ -1,10 +1,14 @@
 import { createServer } from "node:http";
 import { RPCHandler } from "@orpc/server/fetch";
-import { createApiRouter } from "@it/api/router";
+import { createApiRouter } from "./router";
 import { createDatabase } from "@it/database/database";
 import { checkDatabaseReadiness } from "@it/database/readiness";
 import { createApiDocs } from "./api-docs";
 import { createAuth } from "./auth";
+import {
+  PaymentsNotConfiguredError,
+  WebhookNotConfiguredError,
+} from "./payment-errors";
 import {
   createStripeSupport,
   parseStripeWebhook,
@@ -104,9 +108,8 @@ const server = createServer(async (incoming, outgoing) => {
       event = parseStripeWebhook(rawBody, signature);
     } catch (error) {
       if (
-        error instanceof Error &&
-        (error.message === "STRIPE_NOT_CONFIGURED" ||
-          error.message === "STRIPE_WEBHOOK_NOT_CONFIGURED")
+        error instanceof PaymentsNotConfiguredError ||
+        error instanceof WebhookNotConfiguredError
       ) {
         outgoing.writeHead(503).end("Stripe webhooks are not configured");
         return;
@@ -135,10 +138,7 @@ const server = createServer(async (incoming, outgoing) => {
       verifyRevenueCatWebhook(rawBody, signature);
       event = parseRevenueCatWebhook(rawBody);
     } catch (error) {
-      if (
-        error instanceof Error &&
-        error.message === "REVENUECAT_WEBHOOK_NOT_CONFIGURED"
-      ) {
+      if (error instanceof WebhookNotConfiguredError) {
         outgoing.writeHead(503).end("RevenueCat webhook is not configured");
         return;
       }
