@@ -11,24 +11,20 @@ import {
 } from "./payment-errors";
 import type { RevenueCatConfig } from "./env";
 
-const webhookSchema = z
-  .object({
-    event: z
-      .object({
-        id: z.string().min(1),
-        type: z.string().min(1),
-        store: z.string().optional().default(""),
-        transaction_id: z.string().nullish(),
-        original_transaction_id: z.string().nullish(),
-        product_id: z.string().nullish(),
-        price_in_purchased_currency: z.number().nullish(),
-        currency: z.string().nullish(),
-        event_timestamp_ms: z.number().nullish(),
-        cancel_reason: z.string().nullish(),
-      })
-      .passthrough(),
-  })
-  .passthrough();
+const webhookSchema = z.looseObject({
+  event: z.looseObject({
+    id: z.string().min(1),
+    type: z.string().min(1),
+    store: z.string().optional().default(""),
+    transaction_id: z.string().nullish(),
+    original_transaction_id: z.string().nullish(),
+    product_id: z.string().nullish(),
+    price_in_purchased_currency: z.number().nullish(),
+    currency: z.string().nullish(),
+    event_timestamp_ms: z.number().nullish(),
+    cancel_reason: z.string().nullish(),
+  }),
+});
 
 export function verifyRevenueCatWebhook(
   rawBody: Buffer,

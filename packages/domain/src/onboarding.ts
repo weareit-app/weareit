@@ -18,44 +18,40 @@ export const helpInterestIds = [
 export type HelpInterestId = (typeof helpInterestIds)[number];
 
 // The full pain → future → way path a person chose for one pain.
-export const personalPathSchema = z
-  .object({
-    painId: z.string().min(1),
-    dreamIds: idListSchema,
-    fixIds: idListSchema,
-  })
-  .strict();
+export const personalPathSchema = z.strictObject({
+  painId: z.string().min(1),
+  dreamIds: idListSchema,
+  fixIds: idListSchema,
+});
 export type PersonalPath = z.infer<typeof personalPathSchema>;
 
-export const onboardingDraftSchema = z
-  .object({
-    personalPainIds: idListSchema,
-    worldPainIds: idListSchema,
-    personalDreamIds: idListSchema,
-    worldDreamIds: idListSchema,
-    // Older drafts have no paths; their pains and dreams still load.
-    worldPaths: z
-      .array(personalPathSchema)
-      .max(500)
-      .refine(
-        (paths) =>
-          new Set(paths.map(({ painId }) => painId)).size === paths.length,
-        "Each pain has one path.",
-      )
-      .default([]),
-    personalPaths: z
-      .array(personalPathSchema)
-      .max(500)
-      .refine(
-        (paths) =>
-          new Set(paths.map(({ painId }) => painId)).size === paths.length,
-        "Each pain has one path.",
-      )
-      .default([]),
-    helpInterests: z.array(z.enum(helpInterestIds)).max(helpInterestIds.length),
-    draftUpdatedAt: z.number().int().nonnegative(),
-  })
-  .strict();
+export const onboardingDraftSchema = z.strictObject({
+  personalPainIds: idListSchema,
+  worldPainIds: idListSchema,
+  personalDreamIds: idListSchema,
+  worldDreamIds: idListSchema,
+  // Older drafts have no paths; their pains and dreams still load.
+  worldPaths: z
+    .array(personalPathSchema)
+    .max(500)
+    .refine(
+      (paths) =>
+        new Set(paths.map(({ painId }) => painId)).size === paths.length,
+      "Each pain has one path.",
+    )
+    .default([]),
+  personalPaths: z
+    .array(personalPathSchema)
+    .max(500)
+    .refine(
+      (paths) =>
+        new Set(paths.map(({ painId }) => painId)).size === paths.length,
+      "Each pain has one path.",
+    )
+    .default([]),
+  helpInterests: z.array(z.enum(helpInterestIds)).max(helpInterestIds.length),
+  draftUpdatedAt: z.number().int().nonnegative(),
+});
 
 export type OnboardingDraft = z.infer<typeof onboardingDraftSchema>;
 /** A draft as stored, before parsing fills in what older drafts lack. */
