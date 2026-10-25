@@ -10,6 +10,11 @@ pre-commit:
       # by name, and `--no-errors-on-unmatched` exits 0 when all are ignored.
       run: pnpm exec biome check --write --error-on-warnings --no-errors-on-unmatched {staged_files}
       stage_fixed: true
+    # The Python tools (ruff.toml): lint, then format and restage. Same pin as `lint:py`.
+    - name: ruff
+      glob: "tools/**/*.py"
+      run: uvx -q ruff@0.17.0 check {staged_files} && uvx -q ruff@0.17.0 format {staged_files}
+      stage_fixed: true
     # The type-aware pass (eslint.config.mjs) on staged TypeScript; `--no-warn-ignored`
     # keeps a staged file that the config ignores from counting as a warning.
     - name: eslint
