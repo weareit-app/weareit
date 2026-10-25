@@ -19,6 +19,41 @@ export class InvalidOnboardingDraftError extends Error {
   }
 }
 
+// The draft was saved by someone else (another tab, another person) since
+// the caller loaded it.
+export class RevisionConflictError extends Error {
+  constructor(
+    readonly expectedRevision: number,
+    readonly actualRevision: number,
+  ) {
+    super(
+      `Draft changed since revision ${expectedRevision} (now ${actualRevision}); reload before saving.`,
+    );
+    this.name = "RevisionConflictError";
+  }
+}
+
+// The next two are not declared in the contract, because no caller can act
+// on them: an empty content database is a setup step (`pnpm db:prepare` or
+// `pnpm db:seed`), and the CMS only offers rollback to versions it has listed.
+// They reach the client as an internal server error and the server logs them.
+// They are classes rather than plain Errors so a log line names the failure.
+
+// The content tables are empty.
+class ContentNotSeededError extends Error {
+  constructor() {
+    super("The CMS has not been seeded yet.");
+    this.name = "ContentNotSeededError";
+  }
+}
+
+class PublishedVersionNotFoundError extends Error {
+  constructor(readonly version: number) {
+    super(`Published content version ${version} was not found.`);
+    this.name = "PublishedVersionNotFoundError";
+  }
+}
+
 export function validatePublishableGraph(input: unknown): {
   graph?: ContentGraph;
   issues: ContentValidationIssue[];
@@ -214,7 +249,7 @@ export async function readDraftContent(db: ItDatabase): Promise<{
     .select("revision")
     .where("id", "=", 1)
     .executeTakeFirst();
-  if (!state) throw new Error("The CMS has not been seeded yet.");
+  if (!state) throw new ContentNotSeededError();
 
   const [
     domains,
@@ -432,12 +467,9 @@ export async function saveDraftContent(
       .where("id", "=", 1)
       .forUpdate()
       .executeTakeFirst();
-    if (!state) throw new Error("The CMS has not been seeded yet.");
-    if (state.revision !== options.expectedRevision) {
-      throw new Error(
-        `Draft changed since revision ${options.expectedRevision}; reload before saving.`,
-      );
-    }
+    if (!state) throw new ContentNotSeededError();
+    if (state.revision !== options.expectedRevision)
+      throw new RevisionConflictError(options.expectedRevision, state.revision);
     const previous = await readDraftContent(trx);
     const today = options.today ?? new Date().toISOString().slice(0, 10);
     const { fixes, issues } = applyFeatureStatusChanges(
@@ -553,8 +585,7 @@ export async function rollbackToVersion(
     .select(["version", "content"])
     .where("version", "=", version)
     .executeTakeFirst();
-  if (!target)
-    throw new Error(`Published content version ${version} was not found.`);
+  if (!target) throw new PublishedVersionNotFoundError(version);
   const graph = contentGraphSchema.parse(target.content);
   return db.transaction().execute(async (trx) => {
     const state = await lockDraftState(trx);
@@ -591,7 +622,7 @@ async function lockDraftState(db: Kysely<DB>) {
     .where("id", "=", 1)
     .forUpdate()
     .executeTakeFirst();
-  if (!state) throw new Error("The CMS has not been seeded yet.");
+  if (!state) throw new ContentNotSeededError();
   return state;
 }
 
@@ -602,9 +633,7 @@ async function saveDraftInTransaction(
   currentRevision: number,
 ) {
   if (currentRevision !== options.expectedRevision)
-    throw new Error(
-      `Draft changed since revision ${options.expectedRevision}; reload before saving.`,
-    );
+    throw new RevisionConflictError(options.expectedRevision, currentRevision);
   await replaceNormalizedContent(trx, graph);
   const revision = currentRevision + 1;
   await trx
