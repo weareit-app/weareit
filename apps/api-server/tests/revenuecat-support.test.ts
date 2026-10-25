@@ -1,5 +1,5 @@
 import { createHmac } from "node:crypto";
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const { recordRevenueCatSupportEvent } = vi.hoisted(() => ({
   recordRevenueCatSupportEvent: vi.fn(),
@@ -17,6 +17,7 @@ import {
 import { WebhookSignatureError } from "../src/payment-errors";
 
 const webhookSecret = "rc_whsec_test_payments";
+const revenueCat = { webhookSecret };
 
 function signedHeader(
   rawBody: Buffer,
@@ -30,12 +31,7 @@ function signedHeader(
 }
 
 beforeEach(() => {
-  vi.stubEnv("REVENUECAT_WEBHOOK_SECRET", webhookSecret);
   vi.clearAllMocks();
-});
-
-afterEach(() => {
-  vi.unstubAllEnvs();
 });
 
 describe("RevenueCat support webhooks", () => {
@@ -43,12 +39,18 @@ describe("RevenueCat support webhooks", () => {
     const rawBody = Buffer.from('{"api_version":"1.0","event":{}}');
     const header = signedHeader(rawBody);
 
-    expect(() => verifyRevenueCatWebhook(rawBody, header)).not.toThrow();
     expect(() =>
-      verifyRevenueCatWebhook(Buffer.from(`${rawBody.toString()} `), header),
+      verifyRevenueCatWebhook(rawBody, header, revenueCat),
+    ).not.toThrow();
+    expect(() =>
+      verifyRevenueCatWebhook(
+        Buffer.from(`${rawBody.toString()} `),
+        header,
+        revenueCat,
+      ),
     ).toThrow(WebhookSignatureError);
     expect(() =>
-      verifyRevenueCatWebhook(rawBody, signedHeader(rawBody, 1)),
+      verifyRevenueCatWebhook(rawBody, signedHeader(rawBody, 1), revenueCat),
     ).toThrow(WebhookSignatureError);
   });
 

@@ -9,6 +9,7 @@ import {
   WebhookNotConfiguredError,
   WebhookSignatureError,
 } from "./payment-errors";
+import type { RevenueCatConfig } from "./env";
 
 const webhookSchema = z
   .object({
@@ -29,9 +30,13 @@ const webhookSchema = z
   })
   .passthrough();
 
-export function verifyRevenueCatWebhook(rawBody: Buffer, signature: string) {
-  const secret = process.env.REVENUECAT_WEBHOOK_SECRET;
-  if (!secret) throw new WebhookNotConfiguredError("revenuecat");
+export function verifyRevenueCatWebhook(
+  rawBody: Buffer,
+  signature: string,
+  config: RevenueCatConfig | null,
+) {
+  if (!config) throw new WebhookNotConfiguredError("revenuecat");
+  const secret = config.webhookSecret;
   const parts = Object.fromEntries(
     signature.split(",").map((part) => {
       const separator = part.indexOf("=");
