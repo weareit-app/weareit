@@ -13,9 +13,12 @@ pre-commit:
     - name: typecheck
       glob: "*.{ts,tsx,mts,cts}"
       run: pnpm -s typecheck --output-logs=errors-only
+    # The Postgres tests skip here even when TEST_DATABASE_URL is set; CI runs them.
     - name: unit tests
       glob: "*.{ts,tsx,mts,cts,js,jsx,mjs,cjs,json}"
       run: pnpm -s test:unit
+      env:
+        TEST_DATABASE_URL: ""
     # The coverage checks read git's tracked files, so here, after staging, they see new
     # files that a run before `git add` would miss. CI runs them too.
     - name: typecheck coverage
