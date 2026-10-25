@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { mix } from "./mix.ts";
 import {
-  deriveKS,
+  deriveKs,
   hexToLinear,
   layerReflectance,
   luminance,
@@ -42,7 +42,7 @@ function hue([r, g, b]: readonly number[]): number {
 
 describe("Kubelka-Munk pigments", () => {
   it("derives K and S that match the tint's lightness at TINT_DENSITY", () => {
-    const { k, s } = deriveKS(blue);
+    const { k, s } = deriveKs(blue);
     const wash = [0, 1, 2].map((c) =>
       layerReflectance(k[c]!, s[c]!, TINT_DENSITY, 1),
     ) as unknown as Rgb;
@@ -50,12 +50,12 @@ describe("Kubelka-Munk pigments", () => {
   });
 
   it("returns the paper color when no pigment is present", () => {
-    expect(mix([deriveKS(blue)], [0], paper)).toEqual(paper);
+    expect(mix([deriveKs(blue)], [0], paper)).toEqual(paper);
   });
 
   it("mixes blue and yellow into a green, darker than either tint (FR-015)", () => {
-    const b = deriveKS(blue);
-    const y = deriveKS(yellow);
+    const b = deriveKs(blue);
+    const y = deriveKs(yellow);
     const green = mix([b, y], [0.6, 0.6], paper);
     const h = hue(green);
     expect(h).toBeGreaterThan(70);
@@ -65,7 +65,7 @@ describe("Kubelka-Munk pigments", () => {
   });
 
   it("gets darker as density rises", () => {
-    const b = deriveKS(blue);
+    const b = deriveKs(blue);
     expect(luminance(mix([b], [1], paper))).toBeLessThan(
       luminance(mix([b], [0.2], paper)),
     );

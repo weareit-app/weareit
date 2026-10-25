@@ -40,9 +40,9 @@ describe("WatercolorLoader", () => {
   });
 
   // Only iOS announces; the Android run skips this case.
-  const onIOS = Platform.OS === "ios" ? it : it.skip;
+  const onIos = Platform.OS === "ios" ? it : it.skip;
 
-  onIOS("announces loading once on iOS (FR-020)", async () => {
+  onIos("announces loading once on iOS (FR-020)", async () => {
     const announce = jest
       .spyOn(AccessibilityInfo, "announceForAccessibility")
       .mockImplementation(() => {});

@@ -1,13 +1,13 @@
 import { Image, type ImageSourcePropType, Pressable, View } from "react-native";
 import { Text } from "./text";
 
-type ChoiceCardProps = {
+interface ChoiceCardProps {
   title: string;
   description: string;
   selected: boolean;
   onPress: () => void;
   illustration?: ImageSourcePropType | undefined;
-};
+}
 
 export function ChoiceCard({
   title,

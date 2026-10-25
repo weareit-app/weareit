@@ -34,6 +34,7 @@ jest.mock("react-native-reanimated", () => {
     jest.requireActual<typeof import("react-native")>("react-native");
   const fade = { duration: () => fade };
   return {
+    // biome-ignore lint/style/useNamingConvention: the interop flag that marks a mocked module as an ES module.
     __esModule: true,
     default: { View },
     FadeIn: fade,

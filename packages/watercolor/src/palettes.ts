@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { mix } from "./mix.ts";
 import {
-  deriveKS,
+  deriveKs,
   hexToLinear,
   luminance,
   pigmentSchema,
@@ -30,7 +30,7 @@ export const VISIBILITY_DENSITY = 0.5;
 export const MIN_LUMINANCE_DIFFERENCE = 0.15;
 
 export function paletteOptics(palette: Palette): PigmentOptics[] {
-  return palette.pigments.map(deriveKS);
+  return palette.pigments.map(deriveKs);
 }
 
 export function isVisible(palette: Palette): boolean {

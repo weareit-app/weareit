@@ -21,7 +21,7 @@ export function MathBlock({ block }: BlockProps<"math">) {
       ) : (
         <div
           className="text-ink"
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: KaTeX's output for TeX from a committed essay; KaTeX escapes the TeX and runs no trusted commands.
+          // biome-ignore lint/security/noDangerouslySetInnerHtml lint/style/useNamingConvention: KaTeX's output for TeX from a committed essay; KaTeX escapes the TeX and runs no trusted commands; React names the `__html` key.
           dangerouslySetInnerHTML={{ __html: html }}
         />
       )}
@@ -41,7 +41,7 @@ export function InlineMath({ tex }: { tex: string }) {
     <Text className="font-mono text-base">{tex}</Text>
   ) : (
     <span
-      // biome-ignore lint/security/noDangerouslySetInnerHtml: KaTeX's output for TeX from a committed essay; KaTeX escapes the TeX and runs no trusted commands.
+      // biome-ignore lint/security/noDangerouslySetInnerHtml lint/style/useNamingConvention: KaTeX's output for TeX from a committed essay; KaTeX escapes the TeX and runs no trusted commands; React names the `__html` key.
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );

@@ -31,9 +31,10 @@
       // Served as static files: `src/essays/blocks/katex.ts` links the stylesheet by URL.
       "ignoreFiles": ["public/**"],
       "ignoreIssues": {
-        // The essay blocks lab route loads this with `require()` behind `__DEV__`, so
-        // release builds drop it; knip doesn't follow a required module's members.
-        "src/essays/lab/blocks-lab.tsx": ["exports"]
+        // The essay blocks lab routes load these with `require()` behind `__DEV__`, so
+        // release builds drop them; knip doesn't follow a required module's members.
+        "src/essays/lab/blocks-lab.tsx": ["exports"],
+        "src/essays/blocks/lab/essay-blocks-lab.tsx": ["exports"]
       },
       "ignoreDependencies": [
         // Knip's Expo plugin expects expo-updates unless the config sets

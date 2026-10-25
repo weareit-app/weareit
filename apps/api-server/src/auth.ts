@@ -29,6 +29,7 @@ export function createAuth(
 
   return betterAuth({
     appName: "It",
+    // biome-ignore lint/style/useNamingConvention: better-auth names this option.
     baseURL: env.auth.baseUrl,
     basePath: "/auth",
     secret: env.auth.secret,
@@ -40,7 +41,9 @@ export function createAuth(
         otpLength: 8,
         expiresIn: 10 * 60,
         allowedAttempts: 5,
+        // biome-ignore lint/style/useNamingConvention: better-auth names this option.
         storeOTP: "hashed",
+        // biome-ignore lint/style/useNamingConvention: better-auth names this option.
         async sendVerificationOTP({ email, otp, type }) {
           // The env schema requires SMTP in production, so this is only
           // ever local development or tests.

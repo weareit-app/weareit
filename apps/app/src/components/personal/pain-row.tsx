@@ -19,9 +19,13 @@ import { useTokenColor } from "../../theme/use-token-color";
 import { joinFutureLines } from "./future-sentence";
 import { kindCopy, statusCopy, WayRow, type WayChip } from "./way-row";
 
-type Copy = { id: string; title: string; description: string };
+interface Copy {
+  id: string;
+  title: string;
+  description: string;
+}
 
-export type PainRowProps = {
+export interface PainRowProps {
   pain: Copy;
   dreams: Copy[];
   selected: boolean;
@@ -39,7 +43,7 @@ export type PainRowProps = {
   onToggleFix: (fixId: string) => void;
   onChip: (fixId: string, chip: WayChip) => void;
   onClose: () => void;
-};
+}
 
 // The future whose art the row shows: the one in focus if it has art,
 // else the first chosen future that does.

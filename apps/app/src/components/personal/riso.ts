@@ -2,7 +2,11 @@
 // other presets stay in /lab/riso). grain: 0 to 1, how much paper shows
 // through the ink; frequency: noise per grid unit (icons are 48 units
 // across); offset: how far, in grid units, spot inks sit off the ink.
-export type RisoLook = { grain: number; frequency: number; offset: number };
+export interface RisoLook {
+  grain: number;
+  frequency: number;
+  offset: number;
+}
 
 export const printLook: RisoLook = { grain: 0.55, frequency: 2.6, offset: 0.3 };
 

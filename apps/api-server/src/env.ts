@@ -102,26 +102,28 @@ const groups = {
 type ServerEnvInput = z.input<typeof serverEnvSchema>;
 type ParsedServerEnv = z.output<typeof serverEnvSchema>;
 
-type SmtpConfig = {
+interface SmtpConfig {
   host: string;
   port: number;
   isSecure: boolean;
   user: string;
   password: string;
   from: string;
-};
+}
 
-export type StripeConfig = {
+export interface StripeConfig {
   secretKey: string;
   productId: string;
   webhookSecret: string;
   // A local mock's origin; the real Stripe API when absent.
   apiBase?: URL;
-};
+}
 
-export type RevenueCatConfig = { webhookSecret: string };
+export interface RevenueCatConfig {
+  webhookSecret: string;
+}
 
-export type ServerEnv = {
+export interface ServerEnv {
   nodeEnv: (typeof nodeEnvs)[number];
   isProduction: boolean;
   databaseUrl: string;
@@ -135,7 +137,7 @@ export type ServerEnv = {
   smtp: SmtpConfig | null;
   stripe: StripeConfig | null;
   revenueCat: RevenueCatConfig | null;
-};
+}
 
 export class InvalidEnvError extends Error {
   constructor(issues: z.core.$ZodIssue[]) {

@@ -9,15 +9,15 @@ import {
 } from "./index.ts";
 
 type CanvasKit = Awaited<ReturnType<typeof CanvasKitInit>>;
-let CK: CanvasKit;
+let canvasKit: CanvasKit;
 
 beforeAll(async () => {
-  CK = await CanvasKitInit();
+  canvasKit = await CanvasKitInit();
 });
 
 function compile(source: string) {
   const errors: string[] = [];
-  const effect = CK.RuntimeEffect.Make(source, (e) => errors.push(e));
+  const effect = canvasKit.RuntimeEffect.Make(source, (e) => errors.push(e));
   return { effect, errors };
 }
 
@@ -58,16 +58,16 @@ describe("SkSL shaders", () => {
       effect!.getUniformName(i),
     );
     const shader = effect!.makeShader(order.flatMap((n) => values[n]!));
-    const surface = CK.MakeSurface(64, 64)!;
-    const paint = new CK.Paint();
+    const surface = canvasKit.MakeSurface(64, 64)!;
+    const paint = new canvasKit.Paint();
     paint.setShader(shader);
-    surface.getCanvas().drawRect(CK.XYWHRect(0, 0, 64, 64), paint);
+    surface.getCanvas().drawRect(canvasKit.XYWHRect(0, 0, 64, 64), paint);
     const px = surface.makeImageSnapshot().readPixels(0, 0, {
       width: 64,
       height: 64,
-      colorType: CK.ColorType.RGBA_8888,
-      alphaType: CK.AlphaType.Unpremul,
-      colorSpace: CK.ColorSpace.SRGB,
+      colorType: canvasKit.ColorType.RGBA_8888,
+      alphaType: canvasKit.AlphaType.Unpremul,
+      colorSpace: canvasKit.ColorSpace.SRGB,
     }) as Uint8Array;
     const at = (x: number, y: number) =>
       Array.from(px.slice((y * 64 + x) * 4, (y * 64 + x) * 4 + 4));

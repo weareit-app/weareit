@@ -21,7 +21,7 @@ export function DiagramBlock({ block }: BlockProps<"diagram">) {
         <div
           aria-hidden
           style={{ display: "flex", justifyContent: "center" }}
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: Mermaid's SVG for a diagram in a committed essay, rendered with securityLevel "strict", which sanitizes it.
+          // biome-ignore lint/security/noDangerouslySetInnerHtml lint/style/useNamingConvention: Mermaid's SVG for a diagram in a committed essay, rendered with securityLevel "strict", which sanitizes it; React names the `__html` key.
           dangerouslySetInnerHTML={{ __html: svg }}
         />
       )}

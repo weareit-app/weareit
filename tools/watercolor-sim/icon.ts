@@ -94,13 +94,13 @@ function drawIcon(
     drawDot(canvas, x + size / 2, y + size / 2, size * 0.34, seed);
     return;
   }
-  const { mark, ...MARK } = MARKS[variant as keyof typeof MARKS];
+  const { mark, ...box } = MARKS[variant as keyof typeof MARKS];
   const fill = Number(arg("fill", variant === "it" ? "0.68" : "0.8"));
-  const scale = (size * fill) / Math.max(MARK.w, MARK.h);
+  const scale = (size * fill) / Math.max(box.w, box.h);
   canvas.save();
   canvas.translate(
-    x + (size - MARK.w * scale) / 2 - MARK.x * scale,
-    y + (size - MARK.h * scale) / 2 - MARK.y * scale,
+    x + (size - box.w * scale) / 2 - box.x * scale,
+    y + (size - box.h * scale) / 2 - box.y * scale,
   );
   canvas.scale(scale, scale);
   const ink = new CK.Paint();

@@ -303,6 +303,7 @@ export const contentGraphSchema = z
         domain: domainIds,
         pain: painIds,
         dream: dreamIds,
+        // biome-ignore lint/style/useNamingConvention: keyed by the provenance entity type, whose stored value is first_action.
         first_action: actionIds,
         fix: fixIds,
       }[reference.entityType];
@@ -345,7 +346,10 @@ export function resolveFeatureStatuses(
   });
 }
 
-type StatusChangeIssue = { path: string; message: string };
+interface StatusChangeIssue {
+  path: string;
+  message: string;
+}
 
 // A saved status change needs a new note saying what changed, and records the
 // date: today, unless the founder set a different date with the change. A new

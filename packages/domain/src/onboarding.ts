@@ -57,10 +57,10 @@ export type OnboardingDraft = z.infer<typeof onboardingDraftSchema>;
 /** A draft as stored, before parsing fills in what older drafts lack. */
 export type OnboardingDraftInput = z.input<typeof onboardingDraftSchema>;
 
-export type SelectionState = {
+export interface SelectionState {
   personalPainIds: string[];
   worldPainIds: string[];
-};
+}
 
 export const emptySelection: SelectionState = {
   personalPainIds: [],
@@ -74,10 +74,10 @@ export function toggleSelection<T extends string>(current: T[], id: T): T[] {
 }
 
 /** One page's choices: the pains picked and the path under each. */
-export type PathSelection = {
+export interface PathSelection {
   painIds: string[];
   paths: PersonalPath[];
-};
+}
 
 /** Every future chosen under any pain, once each, in the order chosen. */
 export function chosenDreamIds(paths: PersonalPath[]): string[] {

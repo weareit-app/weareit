@@ -99,7 +99,9 @@ export const StatusChangeRefused: Story = {
   },
 };
 
-export const DateNotACalendarDate: Story = {
+// `name` keeps the title Storybook gave the old export, DateNotACalendarDate.
+export const InvalidStatusDate: Story = {
+  name: "Date Not A Calendar Date",
   args: {
     content: {
       ...saved,

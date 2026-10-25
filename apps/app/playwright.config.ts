@@ -1,6 +1,6 @@
 import { defineConfig } from "@playwright/test";
 import { e2ePort as port } from "./e2e/env";
-const baseURL = `http://127.0.0.1:${port}`;
+const baseUrl = `http://127.0.0.1:${port}`;
 
 export default defineConfig({
   testDir: "./e2e",
@@ -9,13 +9,14 @@ export default defineConfig({
   fullyParallel: true,
   reporter: "list",
   use: {
-    baseURL,
+    // biome-ignore lint/style/useNamingConvention: Playwright names this option.
+    baseURL: baseUrl,
     browserName: "chromium",
     trace: "retain-on-failure",
   },
   webServer: {
     command: `pnpm exec expo start --web --port ${port}`,
-    url: baseURL,
+    url: baseUrl,
     // Always start this checkout's own server: a server already on the port may be
     // another worktree's, and the tests would silently run against its code.
     reuseExistingServer: false,

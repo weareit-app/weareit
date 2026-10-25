@@ -22,6 +22,7 @@ config.resolver.resolveRequest = (context, moduleName, platform) => {
   const resolve = resolveRequest ?? context.resolveRequest;
   if (moduleName === "vega-canvas") {
     return resolve(
+      // biome-ignore lint/style/useNamingConvention: Metro names this resolver option.
       { ...context, unstable_conditionNames: ["browser", "import", "default"] },
       moduleName,
       platform,
@@ -29,6 +30,7 @@ config.resolver.resolveRequest = (context, moduleName, platform) => {
   }
   if (moduleName === "d3") {
     return resolve(
+      // biome-ignore lint/style/useNamingConvention: Metro names this resolver option.
       { ...context, unstable_conditionNames: ["umd"] },
       moduleName,
       platform,

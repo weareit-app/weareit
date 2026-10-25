@@ -5,12 +5,12 @@ import { Text } from "react-native";
 // build calls require at runtime, "require is not defined"). Stories only
 // need links to render, so Link becomes a plain anchor and navigation does
 // nothing. Aliased in main.ts.
-type LinkProps = {
+interface LinkProps {
   href: string;
   asChild?: boolean;
   onPress?: () => void;
   children?: ReactNode;
-};
+}
 
 export type Href = string;
 

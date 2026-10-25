@@ -37,6 +37,7 @@ const publishSchema = z.discriminatedUnion("published", [
   }),
 ]);
 
+// biome-ignore-start lint/style/useNamingConvention: the CMS API's version fields keep the publication table's column names; renaming them changes the API.
 const versionSchema = z.strictObject({
   version: z.number().int().positive(),
   source_revision: z.number().int().positive(),
@@ -45,6 +46,7 @@ const versionSchema = z.strictObject({
   rollback_from: z.number().int().positive().nullable(),
   published_at: z.date(),
 });
+// biome-ignore-end lint/style/useNamingConvention: the CMS API's version fields keep the publication table's column names; renaming them changes the API.
 
 // Each route carries developer docs text, and each group's tag names it
 // (docs/architecture/decisions.md, 2026-10-21). No route sets a path, so the

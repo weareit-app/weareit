@@ -1,4 +1,4 @@
-import { createORPCClient, ORPCError } from "@orpc/client";
+import { createORPCClient, isDefinedError, ORPCError } from "@orpc/client";
 import { RPCLink } from "@orpc/client/fetch";
 import type {
   AnySchema,
@@ -10,7 +10,7 @@ import type {
 import type { apiContract } from "./contract";
 
 // The app narrows a failed call with isDefinedError before reading its code.
-export { isDefinedError } from "@orpc/client";
+export { isDefinedError };
 
 // Typed from the contract alone, so a program that calls the API never
 // compiles the router or what it imports (the database and its driver).
@@ -19,11 +19,11 @@ export type ApiClient = ContractRouterClient<typeof apiContract>;
 // The declared errors of every operation in a group, such as "cms", as one
 // union keyed by code, so `switch (error.code)` types each error's data.
 type DeclaredErrors<T> =
-  T extends ContractProcedure<AnySchema, AnySchema, infer TErrorMap, Meta>
-    ? ORPCErrorFromErrorMap<TErrorMap>
+  T extends ContractProcedure<AnySchema, AnySchema, infer Errors, Meta>
+    ? ORPCErrorFromErrorMap<Errors>
     : { [K in keyof T]: DeclaredErrors<T[K]> }[keyof T];
-export type DeclaredApiError<TGroup extends keyof typeof apiContract> =
-  DeclaredErrors<(typeof apiContract)[TGroup]>;
+export type DeclaredApiError<Group extends keyof typeof apiContract> =
+  DeclaredErrors<(typeof apiContract)[Group]>;
 
 export interface ApiClientOptions {
   // The RPC endpoint, such as http://localhost:3001/rpc. The caller reads it

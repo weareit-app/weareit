@@ -22,6 +22,7 @@ const otherId = "user_other";
 const monthlyRef = "00000000-0000-4000-8000-000000000001";
 const guestRef = "00000000-0000-4000-8000-000000000002";
 
+// biome-ignore-start lint/style/useNamingConvention: rows of the support_contributions table, by its column names.
 const contributions: Record<string, unknown>[] = [
   {
     id: monthlyRef,
@@ -42,6 +43,7 @@ const contributions: Record<string, unknown>[] = [
     stripe_subscription_id: "sub_guest",
   },
 ];
+// biome-ignore-end lint/style/useNamingConvention: rows of the support_contributions table, by its column names.
 
 // Evaluates the simple `"column" = $n and ...` selects the support repository
 // issues, so a missing ownership filter would return another account's row.

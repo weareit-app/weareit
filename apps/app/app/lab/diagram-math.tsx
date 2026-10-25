@@ -8,7 +8,7 @@ import type { ComponentType } from "react";
 const DiagramMathLab: ComponentType | null = __DEV__
   ? (
       require("../../src/essays/blocks/lab/essay-blocks-lab") as typeof import("../../src/essays/blocks/lab/essay-blocks-lab")
-    ).default
+    ).EssayBlocksLab
   : null;
 
 export default function DiagramMathLabScreen() {
