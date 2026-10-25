@@ -37,6 +37,8 @@ pnpm run typecheck
 pnpm run lint
 ```
 
+`pnpm run check:generated` (CI runs it) fails, naming the file, when regenerating the essay modules or the database table types would change them. Like `pnpm db:types`, it needs `TEST_DATABASE_URL` (see the README).
+
 `pnpm run typecheck` only sees files a tsconfig `include` covers. CI also runs `node tools/typecheck-coverage/check-typecheck-coverage.mjs`, which fails on any tracked TypeScript file outside every typechecked project; when you add a folder of TypeScript, add it to the nearest tsconfig.
 
 `pnpm install` also installs a git pre-commit hook ([Lefthook](https://lefthook.dev), configured in `lefthook.yml`). The hook formats and lints the staged JavaScript and TypeScript files with [Biome](https://biomejs.dev), applying safe fixes and restaging them, then, when the commit includes code, runs ESLint's type-aware pass on the staged TypeScript (`eslint.config.mjs`), the typecheck, and the Vitest unit tests. `files.includes` in `biome.jsonc` decides which files Biome formats and lints, both in the hook and in `pnpm run lint` (which CI runs); docs are not formatted. To skip it once, use `git commit --no-verify`.
