@@ -17,7 +17,7 @@ export function setSessionCookieProvider(
   sessionCookieProvider = provider;
 }
 
-export const apiUrl = appEnv.apiUrl;
+const apiUrl = appEnv.apiUrl;
 
 // The web app sends the session cookie itself; native passes it as a header.
 export const apiClient = createApiClient({

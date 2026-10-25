@@ -10,6 +10,11 @@ pre-commit:
       # by name, and `--no-errors-on-unmatched` exits 0 when all are ignored.
       run: pnpm exec biome check --write --error-on-warnings --no-errors-on-unmatched {staged_files}
       stage_fixed: true
+    # Package boundaries (.dependency-cruiser.cjs). The whole graph, since a staged file
+    # can close a cycle elsewhere; `--cache` skips files unchanged since the last run.
+    - name: package boundaries
+      glob: "*.{ts,tsx,mts,cts,js,jsx,mjs,cjs,json}"
+      run: pnpm -s lint:deps --cache --no-progress
     - name: typecheck
       glob: "*.{ts,tsx,mts,cts}"
       run: pnpm -s typecheck --output-logs=errors-only

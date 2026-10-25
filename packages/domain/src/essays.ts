@@ -16,9 +16,9 @@ import {
 // below, checked with these schemas. The app renders the tree and never
 // parses Markdown.
 
-export { essayStatusLabels, essayStatusLabelSchema };
+export { essayStatusLabels };
 export type { DataColumn, DataContext, DataRow } from "./essays/blocks/shared";
-export type EssayStatusLabel = z.infer<typeof essayStatusLabelSchema>;
+type EssayStatusLabel = z.infer<typeof essayStatusLabelSchema>;
 
 export const essaySourceSchema = z.strictObject({
   id: slugIdSchema,
@@ -34,7 +34,7 @@ export const essaySourceSchema = z.strictObject({
 });
 export type EssaySource = z.infer<typeof essaySourceSchema>;
 
-export const essayChangeSchema = z.strictObject({
+const essayChangeSchema = z.strictObject({
   date: isoDateSchema,
   note: nonEmptyTextSchema,
 });
@@ -77,7 +77,6 @@ export const essayFrontMatterSchema = z
       seen.add(source.id);
     });
   });
-export type EssayFrontMatter = z.infer<typeof essayFrontMatterSchema>;
 
 export { blockSchemas, dataBlockTypes, type BlockType, type DataBlockType };
 
@@ -198,8 +197,6 @@ const nodeSchema: z.ZodType<EssayNode> = z.lazy(() =>
     z.strictObject({ type: z.literal("block"), block: blockSchema }),
   ]),
 );
-
-export const essayNodeSchema = nodeSchema;
 
 export const essaySchema = z.strictObject({
   slug: slugIdSchema,
