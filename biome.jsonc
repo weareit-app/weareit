@@ -92,6 +92,7 @@
       },
       "style": {
         "noNonNullAssertion": "error",
+        "noProcessEnv": "error",
         "useArrayLiterals": "error",
         "useExponentiationOperator": "error",
         "useNodejsImportProtocol": "error",
@@ -105,6 +106,11 @@
     }
   },
   "overrides": [
+    // Only each program's env file reads the environment (#171).
+    {
+      "includes": ["**/env.ts", "packages/database/src/test-env.ts"],
+      "linter": { "rules": { "style": { "noProcessEnv": "off" } } }
+    },
     // Non-null assertions are fine in tests, the Playwright specs, and tools/ (#148).
     {
       "includes": [

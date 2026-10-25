@@ -260,6 +260,7 @@ function baseBuild(): { sha: string; staticDir: string } | null {
     // CI=1 stops Lefthook's postinstall from running `lefthook install`, which
     // would rewrite the git hooks this checkout shares with the temporary one
     // (lefthook 2.1.17 postinstall.js, read 2026-10-20).
+    // biome-ignore lint/style/noProcessEnv: passes this process's whole environment on to the child install; it reads no setting from it.
     const { LEFTHOOK: _lefthook, ...env } = process.env;
     execFileSync("pnpm", ["install", "--frozen-lockfile", "--prefer-offline"], {
       cwd: checkout,

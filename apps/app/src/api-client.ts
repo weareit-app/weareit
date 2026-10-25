@@ -2,6 +2,7 @@ import {
   createApiClient,
   describeApiFailure as describeFailureAt,
 } from "@it/api-contract/client";
+import { Platform } from "react-native";
 import { appEnv } from "./env";
 
 let cmsToken: string | null = null;
@@ -22,11 +23,11 @@ const apiUrl = appEnv.apiUrl;
 // The web app sends the session cookie itself; native passes it as a header.
 export const apiClient = createApiClient({
   url: apiUrl,
-  credentials: process.env.EXPO_OS === "web" ? "include" : "omit",
+  credentials: Platform.OS === "web" ? "include" : "omit",
   headers: async () => {
     const headers: Record<string, string> = {};
     if (cmsToken) headers.Authorization = `Bearer ${cmsToken}`;
-    if (process.env.EXPO_OS !== "web" && sessionCookieProvider) {
+    if (Platform.OS !== "web" && sessionCookieProvider) {
       const cookie = await sessionCookieProvider();
       if (cookie) headers.Cookie = cookie;
     }

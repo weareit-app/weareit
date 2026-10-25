@@ -3,6 +3,7 @@ import { sql } from "kysely";
 import { Cli } from "kysely-codegen";
 import { createDatabase } from "../src/database";
 import { migrateToLatest } from "../src/migrator";
+import { testEnv } from "../src/test-env";
 
 // Regenerates src/db.ts from a scratch database, migrated to latest on the
 // disposable server named by TEST_DATABASE_URL, so the output never depends on
@@ -12,7 +13,7 @@ import { migrateToLatest } from "../src/migrator";
 // 2026-10-22); docs/architecture/dependency-policy.md has the pin.
 
 const verify = process.argv.includes("--verify");
-const serverUrl = process.env.TEST_DATABASE_URL;
+const serverUrl = testEnv.databaseUrl;
 if (!serverUrl)
   throw new Error(
     "Set TEST_DATABASE_URL to a disposable Postgres server before generating table types.",
