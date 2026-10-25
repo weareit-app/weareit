@@ -5,7 +5,7 @@ import { ChoiceCard } from "../src/components/choice-card";
 import { ClearDraftControl } from "../src/components/clear-draft-control";
 import { Page } from "../src/components/page";
 import { useOnboardingStore } from "../src/state/onboarding-store";
-import { helpInterestIds } from "@it/domain/onboarding";
+import type { helpInterestIds } from "@it/domain/onboarding";
 
 const options = [
   {

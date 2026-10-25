@@ -32,7 +32,9 @@ const ICONS = [
 export default function RisoLab() {
   const [preset, setPreset] = useState(2);
   if (!__DEV__) return <Redirect href="/" />;
-  const look = risoPresets[preset]!.look;
+  const current = risoPresets[preset];
+  if (!current) throw new Error(`No riso preset ${preset}`);
+  const { look } = current;
   return (
     <ScrollView className="flex-1 bg-paper">
       <View className="mx-auto w-full max-w-3xl gap-6 px-5 pb-10 pt-16">
@@ -72,9 +74,7 @@ export default function RisoLab() {
               </View>
               <View className="items-center gap-2">
                 <GroupIcon id={id} size={240} riso={look} />
-                <Text className="text-sm text-ink-soft">
-                  {risoPresets[preset]!.name}
-                </Text>
+                <Text className="text-sm text-ink-soft">{current.name}</Text>
               </View>
               <View className="items-center gap-2">
                 <View className="flex-row gap-3">

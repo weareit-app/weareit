@@ -11,6 +11,14 @@ import { inflateSync } from "node:zlib";
 
 const file = process.argv[2] ?? "docs/research/watercolor/reference-dot.png";
 
+// Indexes in this script are in range by construction; this says so loudly if
+// one isn't.
+function at<T>(list: ArrayLike<T>, i: number): T {
+  const value = list[i];
+  if (value === undefined) throw new Error(`Index ${i} is out of range`);
+  return value;
+}
+
 function decodeRgbaPng(buf: Buffer): {
   width: number;
   height: number;
@@ -37,13 +45,13 @@ function decodeRgbaPng(buf: Buffer): {
   const stride = width * 4;
   const data = new Uint8Array(height * stride);
   for (let y = 0; y < height; y += 1) {
-    const filter = raw[y * (stride + 1)]!;
+    const filter = at(raw, y * (stride + 1));
     const row = raw.subarray(y * (stride + 1) + 1, (y + 1) * (stride + 1));
     for (let x = 0; x < stride; x += 1) {
-      const a = x >= 4 ? data[y * stride + x - 4]! : 0;
-      const b = y > 0 ? data[(y - 1) * stride + x]! : 0;
-      const c = x >= 4 && y > 0 ? data[(y - 1) * stride + x - 4]! : 0;
-      let v = row[x]!;
+      const a = x >= 4 ? at(data, y * stride + x - 4) : 0;
+      const b = y > 0 ? at(data, (y - 1) * stride + x) : 0;
+      const c = x >= 4 && y > 0 ? at(data, (y - 1) * stride + x - 4) : 0;
+      let v = at(row, x);
       if (filter === 1) v += a;
       else if (filter === 2) v += b;
       else if (filter === 3) v += (a + b) >> 1;
@@ -88,8 +96,12 @@ const groups = new Map<
   { l: number; rgb: [number, number, number] }[]
 >();
 for (let i = 0; i < data.length; i += 4) {
-  if (data[i + 3]! < 200) continue;
-  const rgb: [number, number, number] = [data[i]!, data[i + 1]!, data[i + 2]!];
+  if (at(data, i + 3) < 200) continue;
+  const rgb: [number, number, number] = [
+    at(data, i),
+    at(data, i + 1),
+    at(data, i + 2),
+  ];
   const [h, s, l] = hsl(rgb[0] / 255, rgb[1] / 255, rgb[2] / 255);
   if (s < 0.2 || l > 0.97) continue;
   const fam = families.find((f) => h >= f.hue[0] && h <= f.hue[1]);
@@ -102,9 +114,9 @@ for (let i = 0; i < data.length; i += 4) {
 const toHex = (rgb: readonly number[]) =>
   `#${rgb.map((c) => Math.round(c).toString(16).padStart(2, "0")).join("")}`;
 function median(px: { rgb: [number, number, number] }[]): number[] {
-  return [0, 1, 2].map((c) => {
-    const v = px.map((p) => p.rgb[c]!).sort((a, b) => a - b);
-    return v[Math.floor(v.length / 2)]!;
+  return ([0, 1, 2] as const).map((c) => {
+    const v = px.map((p) => p.rgb[c]).sort((a, b) => a - b);
+    return at(v, Math.floor(v.length / 2));
   });
 }
 

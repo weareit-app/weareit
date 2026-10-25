@@ -37,7 +37,11 @@ export default function SupportItScreen() {
   const reference = typeof params.ref === "string" ? params.ref : undefined;
   const paymentStatus = useQuery({
     queryKey: ["support", "status", reference],
-    queryFn: () => apiClient.support.getStatus({ reference: reference! }),
+    queryFn: () => {
+      // `enabled` keeps this from running without a reference.
+      if (!reference) throw new Error("No support reference to check");
+      return apiClient.support.getStatus({ reference });
+    },
     enabled: isWebSuccess && Boolean(reference),
     retry: (failureCount, error) =>
       !["UNAUTHORIZED", "NOT_FOUND"].includes(errorCode(error)) &&

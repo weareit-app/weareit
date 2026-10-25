@@ -60,7 +60,7 @@ log.info("database_ready");
 async function withDatabase(
   work: (db: ReturnType<typeof createDatabase>) => Promise<void>,
 ) {
-  const db = createDatabase(connectionString!);
+  const db = createDatabase(connectionString);
   try {
     await work(db);
   } finally {

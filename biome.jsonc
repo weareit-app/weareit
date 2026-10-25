@@ -48,10 +48,75 @@
       "bracketSameLine": false
     }
   },
-  // Lint rules come in their own change (repo-conventions task 7.2).
+  // Lint: the recommended rules plus the React and project domains (#148). The
+  // two hook rules are off because the type-aware ESLint pass owns every hook
+  // rule. Warnings fail CI and the hook (`--error-on-warnings`), so a rule is
+  // either an error or off. A suppression needs a reason after the colon.
   "linter": {
-    "enabled": false
+    "enabled": true,
+    "domains": {
+      "react": "recommended",
+      "project": "recommended"
+    },
+    "rules": {
+      "preset": "recommended",
+      // Recommended rules that Biome 2.5.15 reports as "info" by default, which
+      // no CLI flag fails on, are raised to "error" (`biome explain <rule>`,
+      // checked 2026-10-25). Recheck the list after a Biome upgrade.
+      "complexity": {
+        "noExtraBooleanCast": "error",
+        "noFlatMapIdentity": "error",
+        "noUselessCatch": "error",
+        "noUselessConstructor": "error",
+        "noUselessContinue": "error",
+        "noUselessEmptyExport": "error",
+        "noUselessEscapeInRegex": "error",
+        "noUselessFragments": "error",
+        "noUselessLabel": "error",
+        "noUselessLoneBlockStatements": "error",
+        "noUselessRename": "error",
+        "noUselessStringRaw": "error",
+        "noUselessSwitchCase": "error",
+        "noUselessTernary": "error",
+        "noUselessThisAlias": "error",
+        "noUselessTypeConstraint": "error",
+        "noUselessUndefinedInitialization": "error",
+        "useFlatMap": "error",
+        "useIndexOf": "error",
+        "useLiteralKeys": "error"
+      },
+      "correctness": {
+        "useExhaustiveDependencies": "off",
+        "useHookAtTopLevel": "off",
+        "useParseIntRadix": "error"
+      },
+      "style": {
+        "noNonNullAssertion": "error",
+        "useArrayLiterals": "error",
+        "useExponentiationOperator": "error",
+        "useNodejsImportProtocol": "error",
+        "useShorthandFunctionType": "error",
+        "useTemplate": "error"
+      },
+      "suspicious": {
+        "noDuplicateFields": "error",
+        "noQuickfixBiome": "error"
+      }
+    }
   },
+  "overrides": [
+    // Non-null assertions are fine in tests, the Playwright specs, and tools/ (#148).
+    {
+      "includes": [
+        "**/*.test.ts",
+        "**/*.test.tsx",
+        "**/*.test.*.tsx",
+        "apps/app/e2e/**",
+        "tools/**"
+      ],
+      "linter": { "rules": { "style": { "noNonNullAssertion": "off" } } }
+    }
+  ],
   "assist": {
     "enabled": false
   }

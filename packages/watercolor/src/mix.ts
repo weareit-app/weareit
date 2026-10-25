@@ -8,23 +8,19 @@ export function mix(
   densities: readonly number[],
   paper: Rgb,
 ): Rgb {
-  const out: number[] = [0, 0, 0];
   let total = 0;
   for (const d of densities) total += Math.max(d, 0);
-  for (let c = 0; c < 3; c += 1) {
-    if (total <= 0) {
-      out[c] = paper[c]!;
-      continue;
-    }
+  const channel = (c: 0 | 1 | 2): number => {
+    if (total <= 0) return paper[c];
     let k = 0;
     let s = 0;
     pigments.forEach((p, i) => {
       const d = Math.max(densities[i] ?? 0, 0);
-      k += d * p.k[c]!;
-      s += d * p.s[c]!;
+      k += d * p.k[c];
+      s += d * p.s[c];
     });
     // Thickness is folded into the summed K and S, so x = 1.
-    out[c] = layerReflectance(k, s, 1, paper[c]!);
-  }
-  return [out[0]!, out[1]!, out[2]!];
+    return layerReflectance(k, s, 1, paper[c]);
+  };
+  return [channel(0), channel(1), channel(2)];
 }

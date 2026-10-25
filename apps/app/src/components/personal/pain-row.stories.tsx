@@ -12,6 +12,7 @@ import { PainRow } from "./pain-row";
 // Anxiety is a pain with stage art, futures and ways in the content package.
 const anxiety = personalPain("anxiety");
 const [steady, calm] = anxiety.dreams;
+if (!steady || !calm) throw new Error("Anxiety needs two futures.");
 
 const meta = {
   component: PainRow,
@@ -56,15 +57,15 @@ export const OpenWithFuturePicked: Story = {
   args: {
     selected: true,
     open: true,
-    path: { painId: anxiety.id, dreamIds: [steady!.id], fixIds: [] },
-    focusDreamId: steady!.id,
+    path: { painId: anxiety.id, dreamIds: [steady.id], fixIds: [] },
+    focusDreamId: steady.id,
   },
 };
 
 export const SummaryWithoutPlan: Story = {
   args: {
     selected: true,
-    path: { painId: anxiety.id, dreamIds: [steady!.id], fixIds: [] },
+    path: { painId: anxiety.id, dreamIds: [steady.id], fixIds: [] },
   },
 };
 
@@ -73,7 +74,7 @@ export const SummaryWithPlan: Story = {
     selected: true,
     path: {
       painId: anxiety.id,
-      dreamIds: [steady!.id, calm!.id],
+      dreamIds: [steady.id, calm.id],
       fixIds: [
         "find-affordable-counseling",
         "daily-wind-down",

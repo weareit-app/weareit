@@ -5,10 +5,18 @@ import { CheckCircle, CheckSquare, Chevron } from "./marks";
 
 function Marks() {
   const rows = [
-    ["CheckCircle", <CheckCircle checked={false} />, <CheckCircle checked />],
-    ["CheckSquare", <CheckSquare checked={false} />, <CheckSquare checked />],
-    ["Chevron", <Chevron open={false} />, <Chevron open />],
-  ] as const;
+    {
+      name: "CheckCircle",
+      off: <CheckCircle checked={false} />,
+      on: <CheckCircle checked />,
+    },
+    {
+      name: "CheckSquare",
+      off: <CheckSquare checked={false} />,
+      on: <CheckSquare checked />,
+    },
+    { name: "Chevron", off: <Chevron open={false} />, on: <Chevron open /> },
+  ];
   return (
     <View className="gap-4">
       <View className="flex-row gap-6">
@@ -16,7 +24,7 @@ function Marks() {
         <Text className="w-16 text-sm text-ink-soft">Off</Text>
         <Text className="w-16 text-sm text-ink-soft">On</Text>
       </View>
-      {rows.map(([name, off, on]) => (
+      {rows.map(({ name, off, on }) => (
         <View key={name} className="flex-row items-center gap-6">
           <Text className="w-28 text-sm text-ink">{name}</Text>
           <View className="w-16 items-start">{off}</View>

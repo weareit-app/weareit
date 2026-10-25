@@ -37,6 +37,7 @@ export function MarkView({
         <g fill={color}>
           {mark.paths.map(({ d, place, evenOdd }, i) => (
             <path
+              // biome-ignore lint/suspicious/noArrayIndexKey: a mark's paths are a fixed list from its artwork, never reordered, and their index is their identity.
               key={i}
               d={d}
               fillRule={evenOdd ? "evenodd" : undefined}

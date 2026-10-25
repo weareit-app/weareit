@@ -21,15 +21,14 @@ export default function FuturesScreen() {
   );
   const contentQuery = usePublishedContent();
   if (!contentQuery.data) {
-    const state = (
+    return (
       <ContentQueryState
         content="futures"
         {...contentQueryStateProps(contentQuery)}
       />
     );
-    if (state) return state;
   }
-  const content = contentQuery.data!.content;
+  const content = contentQuery.data.content;
   // Futures are chosen on the personal and societal pages; here they are a
   // reminder.
   const personalDreams = content.dreams.filter(({ id }) =>

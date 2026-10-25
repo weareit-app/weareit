@@ -182,7 +182,8 @@ export function buildTier1ContentGraph(): ContentGraph {
     });
   }
   for (const action of firstActionRows) {
-    const original = firstActions.find(({ id }) => id === action.id)!;
+    const original = firstActions.find(({ id }) => id === action.id);
+    if (!original) throw new Error(`No first action ${action.id}`);
     provenance.push({
       entityType: "first_action",
       entityId: action.id,

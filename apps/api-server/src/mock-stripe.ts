@@ -46,6 +46,12 @@ function id(prefix: string) {
   return `${prefix}_${randomUUID().replaceAll("-", "")}`;
 }
 
+// The ID captured by a route pattern's one group, or undefined when the path
+// doesn't match.
+function routeId(pathname: string, pattern: RegExp) {
+  return pattern.exec(pathname)?.[1];
+}
+
 async function readBody(request: IncomingMessage) {
   const chunks: Buffer[] = [];
   let size = 0;
@@ -208,7 +214,7 @@ const server = createServer(async (request, response) => {
       const checkout = [...checkouts.values()].find(
         (candidate) => candidate.customerId === customerId,
       );
-      if (!checkout || checkout.mode !== "subscription") {
+      if (checkout?.mode !== "subscription") {
         response.writeHead(404).end("No local subscription for this customer");
         return;
       }
@@ -231,9 +237,9 @@ const server = createServer(async (request, response) => {
       return;
     }
 
-    const checkoutRoute = url.pathname.match(/^\/checkout\/([^/]+)$/);
-    if (request.method === "GET" && checkoutRoute) {
-      const checkout = checkouts.get(checkoutRoute[1]!);
+    const checkoutId = routeId(url.pathname, /^\/checkout\/([^/]+)$/);
+    if (request.method === "GET" && checkoutId) {
+      const checkout = checkouts.get(checkoutId);
       if (!checkout) {
         response.writeHead(404).end("Local Checkout session not found");
         return;
@@ -246,9 +252,9 @@ const server = createServer(async (request, response) => {
       return;
     }
 
-    const completeRoute = url.pathname.match(/^\/checkout\/([^/]+)\/complete$/);
-    if (request.method === "POST" && completeRoute) {
-      const checkout = checkouts.get(completeRoute[1]!);
+    const completeId = routeId(url.pathname, /^\/checkout\/([^/]+)\/complete$/);
+    if (request.method === "POST" && completeId) {
+      const checkout = checkouts.get(completeId);
       if (!checkout) {
         response.writeHead(404).end("Local Checkout session not found");
         return;
@@ -290,10 +296,13 @@ const server = createServer(async (request, response) => {
       return;
     }
 
-    const refundRoute = url.pathname.match(/^\/checkout\/([^/]+)\/refund$/);
-    if (request.method === "POST" && refundRoute) {
-      const checkout = checkouts.get(refundRoute[1]!);
-      if (!checkout || checkout.mode !== "payment" || !checkout.completed) {
+    const refundCheckoutId = routeId(
+      url.pathname,
+      /^\/checkout\/([^/]+)\/refund$/,
+    );
+    if (request.method === "POST" && refundCheckoutId) {
+      const checkout = checkouts.get(refundCheckoutId);
+      if (checkout?.mode !== "payment" || !checkout.completed) {
         response.writeHead(409).end("No completed one-time payment to refund");
         return;
       }
@@ -335,9 +344,9 @@ const server = createServer(async (request, response) => {
       return;
     }
 
-    const cancelRoute = url.pathname.match(/^\/checkout\/([^/]+)\/cancel$/);
-    if (request.method === "POST" && cancelRoute) {
-      const checkout = checkouts.get(cancelRoute[1]!);
+    const cancelId = routeId(url.pathname, /^\/checkout\/([^/]+)\/cancel$/);
+    if (request.method === "POST" && cancelId) {
+      const checkout = checkouts.get(cancelId);
       if (!checkout) {
         response.writeHead(404).end("Local Checkout session not found");
         return;
@@ -355,9 +364,9 @@ const server = createServer(async (request, response) => {
       return;
     }
 
-    const portalRoute = url.pathname.match(/^\/portal\/([^/]+)$/);
-    if (request.method === "GET" && portalRoute) {
-      const portal = portals.get(portalRoute[1]!);
+    const portalId = routeId(url.pathname, /^\/portal\/([^/]+)$/);
+    if (request.method === "GET" && portalId) {
+      const portal = portals.get(portalId);
       if (!portal) {
         response.writeHead(404).end("Local billing portal session not found");
         return;
@@ -370,9 +379,9 @@ const server = createServer(async (request, response) => {
       return;
     }
 
-    const cancelPortalRoute = url.pathname.match(/^\/portal\/([^/]+)\/cancel$/);
-    if (request.method === "POST" && cancelPortalRoute) {
-      const portal = portals.get(cancelPortalRoute[1]!);
+    const cancelPortalId = routeId(url.pathname, /^\/portal\/([^/]+)\/cancel$/);
+    if (request.method === "POST" && cancelPortalId) {
+      const portal = portals.get(cancelPortalId);
       if (!portal) {
         response.writeHead(404).end("Local billing portal session not found");
         return;

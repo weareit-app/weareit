@@ -57,10 +57,11 @@ const DOMAIN_MODULES = {
 const TEST_FILE = "\\.test\\.ts$";
 const packageNames = (names) => names.map((name) => `@it/${name}`).join(", ");
 const either = (names) => `(${names.join("|")})`;
-const escape = (name) => name.replace(/[.*+?^${}()|[\]\\/]/g, "\\$&");
+const escapeRegExp = (name) => name.replace(/[.*+?^${}()|[\]\\/]/g, "\\$&");
 // pnpm's isolated layout resolves a library to
 // `node_modules/.pnpm/<name>@<version>/node_modules/<name>/`.
-const libraries = (names) => `/node_modules/${either(names.map(escape))}/`;
+const libraries = (names) =>
+  `/node_modules/${either(names.map(escapeRegExp))}/`;
 
 /** @type {import('dependency-cruiser').IConfiguration} */
 module.exports = {

@@ -151,9 +151,12 @@ export function RoadmapEditor({
   function move(offset: -1 | 1) {
     const index = items.findIndex(({ id }) => id === selectedId);
     const target = index + offset;
-    if (index < 0 || target < 0 || target >= items.length) return;
+    const moving = items[index];
+    const displaced = items[target];
+    if (!moving || !displaced) return;
     const next = [...items];
-    [next[index], next[target]] = [next[target]!, next[index]!];
+    next[index] = displaced;
+    next[target] = moving;
     onChange({ ...content, roadmapItems: renumber(next) });
   }
 

@@ -23,7 +23,7 @@
     "test:tools": "python3 -m unittest discover -s tools/pains/tests && python3 -m unittest discover -s tools/possibilities/tests && python3 -m unittest discover -s tools/style/tests",
     "typecheck": "turbo typecheck typecheck:root",
     "typecheck:root": "tsc -p tsconfig.json",
-    "lint": "biome ci . && pnpm run lint:deps && pnpm --filter @it/content essays:check",
+    "lint": "biome ci --error-on-warnings . && pnpm run lint:deps && pnpm --filter @it/content essays:check",
     "lint:deps": "depcruise apps packages tools *.mts --output-type err-long",
     "knip": "knip",
     "sherif": "sherif --fail-on-warnings",

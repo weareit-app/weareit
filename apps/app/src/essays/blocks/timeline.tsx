@@ -22,8 +22,8 @@ const fullDate = new Intl.DateTimeFormat("en-US", {
  */
 function formatTimelineDate(date: string) {
   const [year, month, day] = date.split("-").map(Number);
-  if (month === undefined) return date;
-  const value = new Date(Date.UTC(year!, month - 1, day ?? 1));
+  if (year === undefined || month === undefined) return date;
+  const value = new Date(Date.UTC(year, month - 1, day ?? 1));
   const exists =
     value.getUTCMonth() === month - 1 && value.getUTCDate() === (day ?? 1);
   if (!exists) return date;
@@ -45,6 +45,7 @@ export function TimelineBlock({ block }: BlockProps<"timeline">) {
       ) : null}
       <ol className="flex flex-col gap-5 border-l-2 border-tide-tint pl-5">
         {entries.map((entry, index) => (
+          // biome-ignore lint/suspicious/noArrayIndexKey: block data is static, from the essay build, so entries are never added, removed, or reordered.
           <li key={index} className="relative flex flex-col gap-1">
             <span
               aria-hidden

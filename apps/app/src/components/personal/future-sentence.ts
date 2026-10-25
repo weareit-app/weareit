@@ -6,8 +6,9 @@
 export function joinFutureLines(lines: string[]) {
   const bare = lines.map((line) => line.trim().replace(/[.!]$/, ""));
   const parts = bare.map((line, i) => {
-    if (i === 0) return line;
-    if (/^I /.test(line) && /^I /.test(bare[i - 1]!)) return line.slice(2);
+    const previous = bare[i - 1];
+    if (previous === undefined) return line;
+    if (/^I /.test(line) && /^I /.test(previous)) return line.slice(2);
     return /^I\b/.test(line)
       ? line
       : line.charAt(0).toLowerCase() + line.slice(1);

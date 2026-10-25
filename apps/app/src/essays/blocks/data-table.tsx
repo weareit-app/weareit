@@ -51,6 +51,7 @@ export function DataTable({
         </thead>
         <tbody>
           {rows.map((row, index) => (
+            // biome-ignore lint/suspicious/noArrayIndexKey: block data is static, from the essay build, so rows are never added, removed, or reordered.
             <tr key={index}>
               {columns.map((column, columnIndex) =>
                 columnIndex === 0 ? (

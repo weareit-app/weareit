@@ -103,8 +103,8 @@ export function deriveKS(pigment: Pigment): PigmentOptics {
   const target = luminance(hexToLinear(pigment.tint));
   const lumAt = (s: number) =>
     luminance(
-      [0, 1, 2].map((c) =>
-        layerReflectance(ratio[c]! * s, s, TINT_DENSITY, 1),
+      ([0, 1, 2] as const).map((c) =>
+        layerReflectance(ratio[c] * s, s, TINT_DENSITY, 1),
       ) as unknown as Rgb,
     );
   let lo = Math.log(1e-4);
@@ -115,5 +115,5 @@ export function deriveKS(pigment: Pigment): PigmentOptics {
     else hi = mid;
   }
   const s = Math.exp((lo + hi) / 2);
-  return { k: [ratio[0]! * s, ratio[1]! * s, ratio[2]! * s], s: [s, s, s] };
+  return { k: [ratio[0] * s, ratio[1] * s, ratio[2] * s], s: [s, s, s] };
 }

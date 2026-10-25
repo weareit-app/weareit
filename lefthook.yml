@@ -3,12 +3,12 @@
 pre-commit:
   parallel: true
   jobs:
-    - name: format
-      # Formats only what `files.includes` in `biome.jsonc` lets through (code, not docs),
-      # the same files CI checks with `pnpm run lint`. No glob here, so that list stays the
-      # one definition: Biome skips ignored files passed by name, and
-      # `--no-errors-on-unmatched` exits 0 when all are ignored.
-      run: pnpm exec biome format --write --no-errors-on-unmatched {staged_files}
+    - name: biome
+      # Formats and lints only what `files.includes` in `biome.jsonc` lets through (code,
+      # not docs), the same files CI checks with `pnpm run lint`, applying safe fixes. No
+      # glob here, so that list stays the one definition: Biome skips ignored files passed
+      # by name, and `--no-errors-on-unmatched` exits 0 when all are ignored.
+      run: pnpm exec biome check --write --error-on-warnings --no-errors-on-unmatched {staged_files}
       stage_fixed: true
     # Package boundaries (.dependency-cruiser.cjs). The whole graph, since a staged file
     # can close a cycle elsewhere; `--cache` skips files unchanged since the last run.

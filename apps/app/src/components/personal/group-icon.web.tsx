@@ -49,6 +49,7 @@ export function GroupIcon({
           {parts.map((part, i) =>
             part.fill === "riso-paper" || part.fill === "paper" ? null : (
               <filter
+                // biome-ignore lint/suspicious/noArrayIndexKey: an icon's parts are a fixed list from its artwork, never reordered, and their index is their identity.
                 key={i}
                 id={`${uid}-grain-${i}`}
                 x="-5%"
@@ -78,8 +79,9 @@ export function GroupIcon({
         </defs>
       ) : null}
       {parts.map((part, i) => {
-        const spot = isSpot(part.fill);
-        const shift = riso && spot ? drift(part.fill!, riso.offset) : null;
+        const { fill } = part;
+        const spot = isSpot(fill);
+        const shift = riso && spot ? drift(fill, riso.offset) : null;
         const inked = part.fill !== "riso-paper" && part.fill !== "paper";
         const grained = grain && inked;
         const transform = shift
@@ -87,9 +89,10 @@ export function GroupIcon({
           : undefined;
         return (
           <g
+            // biome-ignore lint/suspicious/noArrayIndexKey: an icon's parts are a fixed list from its artwork, never reordered, and their index is their identity.
             key={i}
             style={
-              riso && spot && i < inkAt && !part.fill!.startsWith("skin-")
+              riso && spot && i < inkAt && !fill.startsWith("skin-")
                 ? { mixBlendMode: "multiply" }
                 : undefined
             }
