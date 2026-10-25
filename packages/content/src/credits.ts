@@ -1,7 +1,7 @@
 // Credit text for outside work It uses, kept in one place so the pages that
 // show it can't disagree: the /licensing essay (public-pages, licensing-page)
 // and the Help build It page (help-build-it task 1.1). The essay repeats each
-// `text` word for word; tests/credits.test.ts checks that it does.
+// `text` word for word; credits.test.ts checks that it does.
 
 export type Credit = {
   /** The credit sentence, plain text with no Markdown. */
