@@ -4,10 +4,11 @@ pre-commit:
   parallel: true
   jobs:
     - name: format
-      # Formats only what `.prettierignore` lets through (code, not docs), the same files
-      # CI checks with `pnpm run lint`. No glob here, so that file stays the one definition:
-      # Prettier 3 skips ignored files passed by name and exits 0, even when all are ignored.
-      run: pnpm exec prettier --write {staged_files}
+      # Formats only what `files.includes` in `biome.jsonc` lets through (code, not docs),
+      # the same files CI checks with `pnpm run lint`. No glob here, so that list stays the
+      # one definition: Biome skips ignored files passed by name, and
+      # `--no-errors-on-unmatched` exits 0 when all are ignored.
+      run: pnpm exec biome format --write --no-errors-on-unmatched {staged_files}
       stage_fixed: true
     - name: typecheck
       glob: "*.{ts,tsx,mts,cts}"

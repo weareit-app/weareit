@@ -60,7 +60,8 @@ export default function CmsScreen() {
 
   const records = graph?.[kind] ?? [];
   const selected = records.find((record) => record.id === selectedId) as
-    ContentGraph[Kind][number] | undefined;
+    | ContentGraph[Kind][number]
+    | undefined;
   const selectedProvenance = useMemo(
     () =>
       graph?.provenance.find(
@@ -72,8 +73,8 @@ export default function CmsScreen() {
   );
   const hasUnsavedChanges = Boolean(
     graph &&
-    draftQuery.data &&
-    JSON.stringify(graph) !== JSON.stringify(draftQuery.data.content),
+      draftQuery.data &&
+      JSON.stringify(graph) !== JSON.stringify(draftQuery.data.content),
   );
 
   const saveMutation = useMutation({
