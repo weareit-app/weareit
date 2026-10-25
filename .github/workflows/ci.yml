@@ -81,7 +81,11 @@ jobs:
         env:
           TEST_DATABASE_URL: postgres://postgres:it@localhost:54346/postgres
 
+      # jest-expo reads the app config, which parses the app's public variables
+      # (apps/app/src/env.ts); CI has no apps/app/.env, so it gets the example's.
       - run: pnpm run test:expo
+        env:
+          EXPO_PUBLIC_API_URL: http://localhost:3001/rpc
 
       # The research tools (pain catalog, possibility generator, copy checks) are stdlib Python.
       - run: pnpm run test:tools
