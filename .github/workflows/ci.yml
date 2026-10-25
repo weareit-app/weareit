@@ -50,6 +50,9 @@ jobs:
       # the setup action so its pins are checked before they run; the runner's Node is enough.
       - run: node tools/action-pins/check-action-pins.mjs
 
+      # .claude/skills is the source; .agents/skills must be its copy (openspec-* skipped).
+      - run: node tools/skills-sync/sync-skills.mjs --check
+
       - uses: ./.github/actions/setup
 
       - run: pnpm run typecheck

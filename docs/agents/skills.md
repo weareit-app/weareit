@@ -2,6 +2,10 @@
 
 How agents run the repo's skills. `AGENTS.md` points here.
 
+## Editing a skill
+
+Edit the skill in `.claude/skills`, then run `node tools/skills-sync/sync-skills.mjs` to copy it to `.agents/skills`, the folder Codex reads. Lefthook and CI fail while the two differ. OpenSpec writes its own `openspec-*` skills into both folders (`openspec update`), so the script skips them.
+
 ## Manual-only skills
 
 Skills whose `SKILL.md` sets `disable-model-invocation: true` (such as `/grill-with-docs`, `/implement`, and `/retro`) start only when the founder types them. When a flow reaches one, give the founder the exact command to type.
