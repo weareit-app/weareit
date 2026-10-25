@@ -65,7 +65,7 @@ Order (design decision 13): write the conventions down, move packages, then turn
 
 ## 9. Test layout check
 
-- [ ] 9.1 Extend `tools/test-coverage` to fail on a `tests/` or `__tests__` folder holding JavaScript or TypeScript files (the Python tests in `tools/*/tests` are exempt, founder 2026-10-25), a test inside `apps/app/app/`, and a `*.spec.ts` outside `apps/app/e2e`, alongside its existing check that every test belongs to a runner. Needs 5.1. Verify with a test per rule in the tool's own test file
+- [x] 9.1 Extend `tools/test-coverage` to fail on a `tests/` or `__tests__` folder holding JavaScript or TypeScript files (the Python tests in `tools/*/tests` are exempt, founder 2026-10-25), a test inside `apps/app/app/`, and a `*.spec.ts` outside `apps/app/e2e`, alongside its existing check that every test belongs to a runner. Needs 5.1. Verify with a test per rule in the tool's own test file
 
 ## 10. Generated files and Python tools
 
