@@ -7,7 +7,8 @@ import { execFileSync } from "node:child_process";
 import { join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const TEST_FILE = /\.test\.(ts|tsx|mts|cts|js|jsx|mjs|cjs)$/;
+const TEST_FILE =
+  /\.test(\.(ios|android|native|web|node))?\.(ts|tsx|mts|cts|js|jsx|mjs|cjs)$/;
 
 /**
  * @param {{ tracked: string[], collected: string[] }} input repo-relative paths

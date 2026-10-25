@@ -25,25 +25,40 @@ Each runner SHALL find its tests by glob over whole packages, apps, and tools. N
 - **THEN** Vitest runs it
 
 ### Requirement: Universal component tests
-Component tests SHALL run on jest-expo's universal preset, covering iOS, Android, web, and Node. Tests that apply to one platform only, such as the web-only essay block tests, SHALL use jest-expo's platform-specific test file names.
+Component tests SHALL run on jest-expo's universal preset, on the platforms each test targets, using jest-expo's platform-specific test file names: a `*.test.tsx` runs on iOS, Android, web, and Node; a `*.test.native.tsx` on iOS and Android; a `*.test.web.tsx` on web only. A case for one native platform SHALL be guarded by `Platform.OS` or go in a `*.test.ios.tsx` or `*.test.android.tsx` file.
 
 #### Scenario: Web-only block test
 - **WHEN** the essay block tests run
 - **THEN** they run only on the web platform
 
+#### Scenario: iOS-only case
+- **WHEN** a component test checks behavior only iOS has, such as a screen reader announcement
+- **THEN** it runs on iOS and is skipped or absent on Android
+
+### Requirement: Native-only component tests
+A component test that React Native Testing Library can't render on web or Node SHALL be named `*.test.native.tsx`. Its web behavior SHALL be covered by the Playwright journeys instead.
+
+#### Scenario: Native component test
+- **WHEN** a contributor adds `apps/app/src/components/choice-card.test.native.tsx`
+- **THEN** jest-expo runs it on iOS and Android, not on web or Node
+
 ### Requirement: Tests beside their code
-A test SHALL sit beside the file it tests (`foo.ts` and `foo.test.ts`) in every package, app, and tool. Tests SHALL NOT go inside `apps/app/app/`. Shared helpers, such as the per-file Postgres harness, SHALL go in a test-support file.
+A JavaScript or TypeScript test SHALL sit beside the file it tests (`foo.ts` and `foo.test.ts`) in every package, app, and tool. Python tests are exempt: they stay in their tool's `tests/` folder (for example `tools/pains/tests/`), where `pnpm run test:tools` finds them with `unittest` discovery. Tests SHALL NOT go inside `apps/app/app/`. Shared helpers, such as the per-file Postgres harness, SHALL go in a test-support file.
 
 #### Scenario: Test under the routes folder
 - **WHEN** a contributor adds a test inside `apps/app/app/`
 - **THEN** the layout check fails, because Expo Router treats every file there as a route
 
 ### Requirement: Layout check
-One check, run in CI and the pre-commit hook, SHALL fail when a test file belongs to no runner, a `tests/` or `__tests__` folder exists, a test file sits inside `apps/app/app/`, or a `*.spec.ts` file sits outside `apps/app/e2e`.
+One check, run in CI and the pre-commit hook, SHALL fail when a JavaScript or TypeScript test file belongs to no runner, a `tests/` or `__tests__` folder holding JavaScript or TypeScript files exists, a test file sits inside `apps/app/app/`, or a `*.spec.ts` file sits outside `apps/app/e2e`.
 
 #### Scenario: Tests folder
 - **WHEN** a contributor adds `packages/content/tests/graph.test.ts`
 - **THEN** the check fails and says the test belongs beside its file
+
+#### Scenario: Python tests folder
+- **WHEN** `tools/possibilities/tests/` holds only `test_*.py` files
+- **THEN** the check passes, because the layout rules cover JavaScript and TypeScript tests only
 
 #### Scenario: Spec file in a package
 - **WHEN** a `*.spec.ts` file is added in `packages/database`

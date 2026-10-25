@@ -18,6 +18,19 @@ describe("uncollectedTests", () => {
     ).toEqual(["packages/api/tests/new-folder/forgotten.test.ts"]);
   });
 
+  it("counts jest-expo's platform-specific test names as tests", () => {
+    expect(
+      uncollectedTests({
+        tracked: [
+          "apps/app/src/components/choice-card.test.native.tsx",
+          "apps/app/src/essays/blocks/table.test.web.tsx",
+          "apps/app/dynamic-import-to-require.test-support.cjs",
+        ],
+        collected: ["apps/app/src/components/choice-card.test.native.tsx"],
+      }),
+    ).toEqual(["apps/app/src/essays/blocks/table.test.web.tsx"]);
+  });
+
   it("ignores files that aren't tests, including Playwright specs", () => {
     expect(
       uncollectedTests({

@@ -82,7 +82,7 @@ The Postgres harness reads `TEST_DATABASE_URL` from the shared `test-env.ts`; wh
 
 The move is one mechanical PR (`git mv` plus globs). The `jest-expo/universal` switch is a separate PR because it changes snapshots.
 
-*Check when implementing:* jest-expo's platform-specific test file names for the web-only essay block tests.
+*Checked when implementing (2026-10-25, jest-expo 58.0.11's `config/getPlatformPreset.js`):* outside `__tests__`, jest-expo matches `foo.test.<platform>.tsx`, not the README's `-test.<platform>.*`. Essay block tests are `*.test.web.tsx`, and the Node project leaves out `web` so they run on web only. Ten component suites failed on web and Node under the universal preset, because React Native Testing Library can't render react-native-web's DOM elements; the founder chose to name them `*.test.native.tsx`, leaving web behavior to Playwright (2026-10-25). Python tests keep their `tests/` folders and are outside the layout rules (founder, 2026-10-25).
 
 ### 9. Typed errors in the contract, classes on the server ([#170](https://github.com/weareit-app/weareit/issues/170))
 
