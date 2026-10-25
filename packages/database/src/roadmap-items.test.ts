@@ -10,13 +10,16 @@ import {
   rollbackToVersion,
   saveDraftContent,
 } from "./content-repository";
-import { createTestDatabase } from "./test-database.test-support";
+import {
+  createTestDatabase,
+  testDatabaseUrl,
+} from "./test-database.test-support";
 import { buildTier1ContentGraph } from "@it/content/tier-1-graph";
 
 // Runs against a disposable Postgres server, for example:
 // docker run --rm -e POSTGRES_PASSWORD=it -p 54346:5432 postgres:17-alpine
 // TEST_DATABASE_URL=postgres://postgres:it@localhost:54346/postgres pnpm test:unit
-const connectionString = process.env.TEST_DATABASE_URL;
+const connectionString = testDatabaseUrl();
 
 const spanish = {
   id: "use-it-in-spanish",
