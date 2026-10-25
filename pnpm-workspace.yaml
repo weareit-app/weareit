@@ -1,7 +1,9 @@
 packages:
   - apps/*
   - packages/*
-  - tools/*
+  # Only the tools with a package.json of their own; the rest are folders of scripts
+  # run from the root (sherif's packages-without-package-json rule).
+  - tools/watercolor-sim
 
 allowBuilds:
   # Skia 2.14.0 publishes no install script (npm view, 2026-10-20); its libraries come in the react-native-skia-* packages.
