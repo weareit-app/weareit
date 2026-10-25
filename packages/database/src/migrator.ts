@@ -19,6 +19,9 @@ export function createMigrator(db: ItDatabase) {
 // failure.
 export async function migrateToLatest(db: ItDatabase) {
   const { error, results } = await createMigrator(db).migrateToLatest();
-  if (error) throw error;
+  if (error !== undefined)
+    throw error instanceof Error
+      ? error
+      : new Error("A migration failed", { cause: error });
   return (results ?? []).map((result) => result.migrationName);
 }

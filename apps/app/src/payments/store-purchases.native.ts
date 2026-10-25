@@ -5,7 +5,7 @@ const supportProducts = ["it_support_5", "it_support_15", "it_support_30"];
 
 let configured = false;
 
-async function configure() {
+function configure() {
   if (configured) return;
   const apiKey = appEnv.revenueCatIosApiKey;
   if (!apiKey)
@@ -17,7 +17,7 @@ async function configure() {
 export async function purchaseStoreSupport(optionId: string) {
   if (!supportProducts.includes(optionId))
     throw new Error("Choose one of the available support amounts.");
-  await configure();
+  configure();
   const offerings = await Purchases.getOfferings();
   const item = offerings.current?.availablePackages.find(
     (candidate) => candidate.product.identifier === optionId,

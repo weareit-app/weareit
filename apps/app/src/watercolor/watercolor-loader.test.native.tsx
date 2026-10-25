@@ -7,14 +7,16 @@ import { LOADER_DELAY_MS, WatercolorLoader } from "./watercolor-loader";
 // The dot itself is drawn by Skia or Reanimated; here it only needs to exist.
 jest.mock("./gather-dot", () => ({
   GatherDot: () => {
-    const { View: MockView } = jest.requireActual("react-native");
+    const { View: MockView } =
+      jest.requireActual<typeof import("react-native")>("react-native");
     return <MockView testID="watercolor-dot" />;
   },
 }));
 // The page header's logo is drawn with Skia too.
 jest.mock("./brand-mark", () => ({
   BrandMark: () => {
-    const { View: MockView } = jest.requireActual("react-native");
+    const { View: MockView } =
+      jest.requireActual<typeof import("react-native")>("react-native");
     return <MockView testID="brand-mark" />;
   },
 }));

@@ -28,7 +28,7 @@ describe.skipIf(!connectionString)("five feature statuses in Postgres", () => {
       "it_test_feature_statuses",
     ));
     const { error } = await migrator.migrateTo("005_content_fixes");
-    if (error) throw error;
+    expect(error).toBeUndefined();
   });
 
   afterAll(async () => {
@@ -52,7 +52,7 @@ describe.skipIf(!connectionString)("five feature statuses in Postgres", () => {
       .execute();
 
     const { error } = await migrator.migrateToLatest();
-    if (error) throw error;
+    expect(error).toBeUndefined();
 
     const after = await db
       .selectFrom("content_fixes")
@@ -182,7 +182,7 @@ describe.skipIf(!connectionString)("five feature statuses in Postgres", () => {
     expect(draft.revision).toBeGreaterThan(1);
 
     const { error } = await migrator.migrateTo("005_content_fixes");
-    if (error) throw error;
+    expect(error).toBeUndefined();
 
     const columns = await sql<{ column_name: string }>`
       select column_name from information_schema.columns

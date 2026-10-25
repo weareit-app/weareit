@@ -5,7 +5,9 @@ function captureConsole() {
   const out = vi.spyOn(console, "log").mockImplementation(() => {});
   const err = vi.spyOn(console, "error").mockImplementation(() => {});
   const lines = (spy: typeof out) =>
-    spy.mock.calls.map(([line]) => JSON.parse(String(line)));
+    spy.mock.calls.map(
+      ([line]) => JSON.parse(String(line)) as Record<string, unknown>,
+    );
   return { out: () => lines(out), err: () => lines(err) };
 }
 
@@ -20,7 +22,7 @@ describe("createLog", () => {
 
     expect(console.out()).toEqual([
       {
-        time: expect.stringMatching(/^\d{4}-\d{2}-\d{2}T/),
+        time: expect.stringMatching(/^\d{4}-\d{2}-\d{2}T/) as unknown,
         level: "info",
         event: "server_started",
         port: 3001,
@@ -57,7 +59,7 @@ describe("createLog", () => {
       cause: new TypeError("query failed", { cause }),
     });
 
-    expect(console.err()[0].cause).toMatchObject({
+    expect(console.err()[0]?.cause).toMatchObject({
       name: "TypeError",
       message: "query failed",
       cause: { name: "Error", message: "connection refused" },

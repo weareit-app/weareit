@@ -1,11 +1,27 @@
 // The type-aware lint pass (weareit-app/weareit#148): only what Biome can't
-// check. Biome lints every file; ESLint adds the React hooks and React
-// Compiler rules, reasons on suppressions, and two syntax bans. Every rule is
-// an error or off.
+// check. Biome lints every file; ESLint adds typescript-eslint's type-aware
+// rules, the React hooks and React Compiler rules, reasons on suppressions,
+// and two syntax bans. Every rule is an error or off.
 import eslintComments from "@eslint-community/eslint-plugin-eslint-comments";
 import { defineConfig } from "eslint/config";
 import reactHooks from "eslint-plugin-react-hooks";
 import tseslint from "typescript-eslint";
+
+// recommendedTypeChecked, keeping only the rules that need type information;
+// Biome covers the rest.
+const typeAwareRules = Object.fromEntries(
+  tseslint.configs.recommendedTypeChecked
+    .flatMap((config) => Object.entries(config.rules ?? {}))
+    .filter(([name]) => {
+      const rule =
+        tseslint.plugin.rules?.[name.replace("@typescript-eslint/", "")];
+      return (
+        name.startsWith("@typescript-eslint/") &&
+        rule?.meta?.docs?.requiresTypeChecking === true
+      );
+    })
+    .map(([name, setting]) => [name, asError(setting)]),
+);
 
 // The hooks plugin's recommended set, with its warnings raised to errors.
 const hooksRules = Object.fromEntries(
@@ -79,6 +95,7 @@ export default defineConfig(
       "@eslint-community/eslint-comments": eslintComments,
     },
     rules: {
+      ...typeAwareRules,
       ...hooksRules,
       "@eslint-community/eslint-comments/require-description": "error",
       "no-restricted-syntax": ["error", ...zodStyle],

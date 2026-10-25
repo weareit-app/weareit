@@ -9,7 +9,8 @@ const mockReanimated = {
 };
 
 jest.mock("react-native-reanimated", () => {
-  const { View } = jest.requireActual("react-native");
+  const { View } =
+    jest.requireActual<typeof import("react-native")>("react-native");
   return {
     __esModule: true,
     default: { View },

@@ -60,7 +60,7 @@ describe.skipIf(!connectionString)("roadmap items in Postgres", () => {
       "it_test_roadmap_items",
     ));
     const { error } = await migrator.migrateToLatest();
-    if (error) throw error;
+    expect(error).toBeUndefined();
     const graph = buildTier1ContentGraph();
     featureIds = graph.fixes
       .filter(({ kind }) => kind === "feature")
@@ -266,7 +266,7 @@ describe.skipIf(!connectionString)("roadmap items in Postgres", () => {
     await rollbackToVersion(db, firstVersion, "test");
 
     const { error } = await migrator.migrateTo("006_feature_statuses");
-    if (error) throw error;
+    expect(error).toBeUndefined();
 
     const tables = await sql<{ table_name: string }>`
       select table_name from information_schema.tables

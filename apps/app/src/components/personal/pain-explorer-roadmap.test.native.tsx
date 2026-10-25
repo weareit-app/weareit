@@ -30,7 +30,8 @@ jest.mock("../content-query-state", () => ({
   ContentQueryState: () => null,
 }));
 jest.mock("react-native-reanimated", () => {
-  const { View } = jest.requireActual("react-native");
+  const { View } =
+    jest.requireActual<typeof import("react-native")>("react-native");
   const fade = { duration: () => fade };
   return {
     __esModule: true,

@@ -32,7 +32,7 @@ const biome = createRequire(import.meta.url).resolve(
 
 // Formats through the workspace's Biome, which reads the root `biome.jsonc`, so
 // the modules match what `pnpm run lint` expects.
-async function render(path: string, lines: string[]) {
+function render(path: string, lines: string[]) {
   return execFileSync(
     process.execPath,
     [biome, "format", `--stdin-file-path=${path}`],
@@ -40,7 +40,7 @@ async function render(path: string, lines: string[]) {
   );
 }
 
-async function main() {
+function main() {
   const essays = loadEssays(root);
   const bySlug = (published: boolean) =>
     JSON.stringify(
@@ -54,20 +54,17 @@ async function main() {
     Object.fromEntries(essays.map((essay) => [essay.slug, essay.published])),
   );
   const outputs = {
-    [target("essays.generated.ts")]: await render(
-      target("essays.generated.ts"),
-      [
-        "/** Every essay's `published` front matter, by slug. */",
-        `export const essayPublished = ${flags} as const;`,
-        "",
-        "export type EssaySlug = keyof typeof essayPublished;",
-        "",
-        "/** Published essays only. */",
-        `export const essays: Partial<Record<EssaySlug, Essay>> = ${bySlug(true)};`,
-        "",
-      ],
-    ),
-    [target("essay-drafts.generated.ts")]: await render(
+    [target("essays.generated.ts")]: render(target("essays.generated.ts"), [
+      "/** Every essay's `published` front matter, by slug. */",
+      `export const essayPublished = ${flags} as const;`,
+      "",
+      "export type EssaySlug = keyof typeof essayPublished;",
+      "",
+      "/** Published essays only. */",
+      `export const essays: Partial<Record<EssaySlug, Essay>> = ${bySlug(true)};`,
+      "",
+    ]),
+    [target("essay-drafts.generated.ts")]: render(
       target("essay-drafts.generated.ts"),
       [
         "/** Unpublished essays, for the development `?draft` preview only. */",
@@ -98,10 +95,12 @@ async function main() {
   console.log(`Built ${essays.length} essay(s).`);
 }
 
-main().catch((error: unknown) => {
+try {
+  main();
+} catch (error: unknown) {
   if (error instanceof EssayError) {
     console.error(`Essays have problems:\n${error.message}`);
     process.exit(1);
   }
   throw error;
-});
+}

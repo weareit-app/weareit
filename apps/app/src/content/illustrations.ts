@@ -8,13 +8,17 @@ import {
 
 // Presentation-only mapping: domain content stays independent of React Native.
 export const painIllustrations: Record<string, ImageSourcePropType> = {
-  "no-accountability": require("../../assets/brand/icon-corruption.jpg"),
-  "dont-know-whats-true": require("../../assets/brand/icon-misinformation.jpg"),
-  "shouting-into-void": require("../../assets/brand/icon-advocacy.jpg"),
+  "no-accountability":
+    require("../../assets/brand/icon-corruption.jpg") as ImageSourcePropType,
+  "dont-know-whats-true":
+    require("../../assets/brand/icon-misinformation.jpg") as ImageSourcePropType,
+  "shouting-into-void":
+    require("../../assets/brand/icon-advocacy.jpg") as ImageSourcePropType,
 };
 
 export const dreamIllustrations: Record<string, ImageSourcePropType> = {
-  "found-my-people": require("../../assets/brand/icon-connection.jpg"),
+  "found-my-people":
+    require("../../assets/brand/icon-connection.jpg") as ImageSourcePropType,
 };
 
 // Personal page stage art (riso, onboarding prototype 2026-10-18), traced

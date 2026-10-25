@@ -1,5 +1,5 @@
 import { Link } from "expo-router";
-import { Image, Pressable, View } from "react-native";
+import { Image, type ImageSourcePropType, Pressable, View } from "react-native";
 import { Text } from "../../src/components/text";
 import { FirstActionCard } from "../../src/components/first-action-card";
 import { Page } from "../../src/components/page";
@@ -56,7 +56,9 @@ export default function FuturesScreen() {
     >
       <View className="h-40 w-full items-center justify-center overflow-hidden rounded-3xl bg-white">
         <Image
-          source={require("../../assets/brand/clouds.jpg")}
+          source={
+            require("../../assets/brand/clouds.jpg") as ImageSourcePropType
+          }
           resizeMode="contain"
           className="h-full w-full"
           accessibilityLabel="Soft watercolor clouds in blue and warm yellow"
@@ -152,7 +154,9 @@ export default function FuturesScreen() {
       ) : null}
       <View className="gap-3 rounded-3xl border border-rule bg-paper-raised p-6 md:p-8">
         <Image
-          source={require("../../assets/brand/house-wide.jpg")}
+          source={
+            require("../../assets/brand/house-wide.jpg") as ImageSourcePropType
+          }
           resizeMode="contain"
           className="h-40 w-full"
           accessibilityLabel="Watercolor home surrounded by a garden"

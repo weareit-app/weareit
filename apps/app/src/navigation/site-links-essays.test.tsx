@@ -9,7 +9,7 @@ function linksWithWhy(published: boolean) {
       essayPublished: { why: published },
       essays: {},
     }));
-    links = require("./site-links");
+    links = require("./site-links") as typeof SiteLinks;
   });
   const about = links
     .visibleGroups(links.siteGroups, { signedIn: false })

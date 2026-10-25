@@ -3,9 +3,9 @@ import { createRoot } from "react-dom/client";
 import { ChartBlock } from "./chart";
 import { chartFixture, sourcesFixture } from "../lab/block-fixtures";
 
-const mockEmbed = jest.fn(async (element: HTMLElement) => {
+const mockEmbed = jest.fn((element: HTMLElement) => {
   element.innerHTML = "<svg></svg>";
-  return { finalize: jest.fn() };
+  return Promise.resolve({ finalize: jest.fn() });
 });
 jest.mock("vega-embed", () => ({
   __esModule: true,
@@ -21,8 +21,10 @@ async function renderChart() {
   const container = document.createElement("div");
   document.body.append(container);
   const root = createRoot(container);
-  await act(async () => {
+  // A callback that returns a promise makes act() wait for the async work.
+  await act(() => {
     root.render(<ChartBlock block={chartFixture} sources={sourcesFixture} />);
+    return Promise.resolve();
   });
   // Let the lazy import and the drawing settle.
   await act(async () => {
@@ -61,9 +63,14 @@ describe("ChartBlock in the browser", () => {
 
   it("releases the chart when it leaves the page", async () => {
     const { root } = await renderChart();
-    const { finalize } = await mockEmbed.mock.results[0]!.value;
+    const { finalize } = (await mockEmbed.mock.results[0]!.value) as {
+      finalize: jest.Mock;
+    };
 
-    await act(async () => root.unmount());
+    await act(() => {
+      root.unmount();
+      return Promise.resolve();
+    });
 
     expect(finalize).toHaveBeenCalledTimes(1);
   });

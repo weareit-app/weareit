@@ -9,7 +9,9 @@ const published: Partial<Record<string, Essay>> = essays;
 // Unpublished essays exist only in development builds: Metro drops this
 // require from release bundles, so they never carry an unapproved essay.
 const drafts: Partial<Record<string, Essay>> = __DEV__
-  ? require("@it/content/essay-drafts").draftEssays
+  ? (
+      require("@it/content/essay-drafts") as typeof import("@it/content/essay-drafts")
+    ).draftEssays
   : {};
 
 /** An essay is reachable only when it is published and in the link list. */
