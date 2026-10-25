@@ -6,14 +6,13 @@ import { migrateToLatest } from "../src/migrator";
 import { checkDatabaseReadiness, isLocalDatabase } from "../src/readiness";
 import { buildTier1ContentGraph } from "@it/content/tier-1-graph";
 import { createLog } from "@it/log/log";
+import { readEnv } from "./env";
 
 // Runs before `pnpm dev`: brings the local database to the point where the
 // API starts, or stops with one message saying what to do. A database that
 // is already reachable (an OrbStack container, a Neon branch) is used as is.
+const connectionString = readEnv().DATABASE_URL;
 const log = createLog({ level: "info" });
-const connectionString = process.env.DATABASE_URL;
-if (!connectionString)
-  fail("Set DATABASE_URL in .env first (copy .env.example to start).");
 
 let readiness = await checkDatabaseReadiness(connectionString);
 

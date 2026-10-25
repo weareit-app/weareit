@@ -14,7 +14,8 @@
     "@it/domain": "workspace:*",
     "@it/log": "workspace:*",
     "kysely": "^0.28.17",
-    "pg": "^8.23.1"
+    "pg": "^8.23.1",
+    "zod": "4.6.7"
   },
   "devDependencies": {
     "@types/node": "^26.6.5",
