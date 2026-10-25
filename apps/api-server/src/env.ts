@@ -102,7 +102,7 @@ const groups = {
 type ServerEnvInput = z.input<typeof serverEnvSchema>;
 type ParsedServerEnv = z.output<typeof serverEnvSchema>;
 
-export type SmtpConfig = {
+type SmtpConfig = {
   host: string;
   port: number;
   isSecure: boolean;
@@ -160,7 +160,7 @@ function orExit<T>(parse: () => T): T {
 
 // An empty string counts as unset, so `KEY=` in a `.env` file is the same as
 // leaving the line out.
-export function withoutEmpty(source: Record<string, string | undefined>) {
+function withoutEmpty(source: Record<string, string | undefined>) {
   return Object.fromEntries(
     Object.entries(source).filter(([, value]) => value !== ""),
   );

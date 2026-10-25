@@ -11,7 +11,7 @@ export type LogLevel = (typeof logLevels)[number];
 // Values are written as JSON. Callers pass fields, never strings with values
 // interpolated into them, so what a line holds can be reviewed at the call
 // site (CODING_STANDARDS.md, "Logging").
-export type LogFields = Record<string, unknown>;
+type LogFields = Record<string, unknown>;
 
 export interface Log {
   debug(event: string, fields?: LogFields): void;
