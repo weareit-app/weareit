@@ -243,6 +243,35 @@ Decided with the founder in weareit-app/weareit#171 ([resolution](https://github
 - **The root `.env` is shared, a deliberate exception to per-app env files.** Turborepo recommends `.env` files in the application packages that use them, not one at the repository root (turborepo.dev "Using environment variables", "Use `.env` files in Application Packages", checked 2026-10-21 in #171 and again 2026-10-25). The root `.env` and `.env.example` hold the server and database variables together, because the API server and the database scripts both read `DATABASE_URL`. `apps/app/.env` and its example hold every `EXPO_PUBLIC_*` variable, which is where Expo loads them; that moved `EXPO_PUBLIC_REVENUECAT_IOS_API_KEY` out of the root example, where Expo never read it.
 - *Alternatives:* T3 Env (an extra dependency for what plain Zod does) and one shared env package (it would mix public and secret names in one place).
 
+### Package boundaries
+
+Decided with the founder in weareit-app/weareit#149 ([resolution](https://github.com/weareit-app/weareit/issues/149#issuecomment-6324025075)), from the boundaries research ([#144](https://github.com/weareit-app/weareit/issues/144)); carried out in group 8 of the [`repo-conventions` change](../../openspec/changes/repo-conventions/tasks.md). Spec: `package-boundaries` in that change.
+
+- **The allowed package graph.** A workspace package, app, or tool imports only what its row lists. Any other edge fails the check:
+
+  | Package, app, or tool | May depend on (workspace) | May import from outside the workspace |
+  | --- | --- | --- |
+  | `@it/domain` | nothing | `zod` only |
+  | `@it/watercolor` | nothing | `zod` only |
+  | `@it/log` | nothing | nothing |
+  | `@it/content` | `@it/domain` | `zod` only, in `src/` |
+  | `@it/api-contract` | `@it/domain` | `zod`, `@orpc/contract`, `@orpc/client`, `@orpc/openapi`, `@orpc/zod` |
+  | `@it/database` | `@it/domain`, `@it/content`, `@it/log` | anything |
+  | `apps/api-server` | `@it/api-contract`, `@it/database`, `@it/domain`, `@it/content`, `@it/log` | anything |
+  | `apps/app` | `@it/api-contract`, `@it/content`, `@it/domain`, `@it/watercolor` | anything |
+  | `tools/*` | any package except `@it/log` | anything |
+
+  Nothing depends on an app or a tool. Only `apps/api-server` and `@it/database` import `@it/log` (founder, 2026-10-23). The founder added `@orpc/openapi` and `@orpc/zod` to `@it/api-contract`'s list so the OpenAPI generator could stay in the package (2026-10-22).
+- **Imports cross packages by name.** An import from another package uses its name and one of its `exports` subpaths, never a relative path into its folder. Each library lists named subpaths that point at source, with no `"."` root export.
+- **The pure packages use an allowlist, not a denylist.** This is how the `AGENTS.md` line that domain and content stay free of Expo, React Native, UI, and provider imports is checked. Adding a library to one of them means editing the list, so review sees it.
+- **The allowlist covers each pure package's `src/`.** The essay build (`packages/content/essay-build` and `scripts`) and `packages/watercolor/scripts` are build tools with their own dev dependencies, and `src/` never imports them. This reading of "`@it/content` uses only `zod`" was an assumption in the change's design, recorded here. Tests in `src/` never ship, so they may also import Node's built-ins, Vitest, and the package's own dev dependencies, and nothing else.
+- **Module edges inside `@it/domain`:** onboarding → content → primitives; support → primitives; essays → primitives. Any other edge between modules fails.
+- **oRPC stays in the server.** Only `apps/api-server` imports `@orpc/server`, and `@it/database` and `@it/domain` import no oRPC library (#170).
+- **Type-only imports count** the same as runtime imports in every rule. **Circular imports fail,** between packages and between files.
+- **dependency-cruiser owns every rule above,** in one `.dependency-cruiser.cjs` whose tables are the ones in this entry. It runs in `pnpm run lint` in CI and as a lefthook pre-commit job with `--cache`. It started with no baseline: every violation was fixed when it landed. An exception goes only in that config, with a comment giving its reason. Pin and config notes: `docs/architecture/dependency-policy.md`.
+- **knip and sherif run in CI only,** not in the pre-commit hook, since each reads the whole repo. knip (`knip.jsonc`) fails on unused files, exports, and dependencies, and on dependencies used but not declared; for the libraries it also fails on an export subpath or name nothing imports. sherif fails when two workspace packages declare different versions of one dependency, warnings included.
+- *Alternatives:* Turborepo boundaries (experimental, with no file-level or third-party rules) and Biome `noRestrictedImports` overrides plus a script (rules in three places). Revisit Turborepo boundaries if it leaves experimental and covers both, since it would drop a dev dependency. pnpm catalogs, instead of sherif, fight `npx expo install`.
+
 ### Naming
 
 Decided with the founder in weareit-app/weareit#165 ([resolution](https://github.com/weareit-app/weareit/issues/165#issuecomment-6323530477)), building on the linter decision (#148); the property-name exceptions were settled with the founder on 2026-10-25, when the rules were turned on. Carried out in task 7.4 of the [`repo-conventions` change](../../openspec/changes/repo-conventions/tasks.md). Spec: `code-checks` in that change ("Mechanical naming", "Naming exceptions at the edges", "Property names", "Naming judged in review").
@@ -307,3 +336,4 @@ Decided with the founder in weareit-app/weareit#165 ([resolution](https://github
 - 2026-10-25: added the naming decision (weareit-app/weareit#165, task 7.6 of `repo-conventions`): Biome enforces kebab-case files, strict-acronym identifiers, named exports, no barrels, `interface`, and import extensions per folder, with the overrides listed under "Naming", including the property-name exceptions the founder chose that day.
 - 2026-10-25: added the test decision (weareit-app/weareit#150): tests beside their code with one layout check, Vitest projects by glob plus jest-expo on `jest-expo/universal` with `*.test.native.tsx` for native-only component tests, Python tests exempt from the layout rules, Postgres tests that fail in CI without a database, and no coverage targets.
 - 2026-10-25: added the environment variables decision (weareit-app/weareit#171): one plain-Zod schema per program parsed once at its entry point, all-or-none Stripe, SMTP, and RevenueCat groups required in production, `app.config.ts` parsing the public schema, errors without values, a test keeping each `.env.example` in step, and the shared root `.env` as a deliberate exception to per-app env files.
+- 2026-10-25: added the package boundaries decision (weareit-app/weareit#149): the allowed package graph with a third-party allowlist for the pure packages' `src/`, `@it/domain` module edges, oRPC kept in the server, and no cycles, all enforced by dependency-cruiser with type-only imports included and no baseline, plus knip and sherif in CI.
