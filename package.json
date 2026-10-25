@@ -23,18 +23,22 @@
     "test:tools": "python3 -m unittest discover -s tools/pains/tests && python3 -m unittest discover -s tools/possibilities/tests && python3 -m unittest discover -s tools/style/tests",
     "typecheck": "turbo typecheck typecheck:root",
     "typecheck:root": "tsc -p tsconfig.json",
-    "lint": "biome ci --error-on-warnings . && pnpm --filter @it/content essays:check",
+    "lint": "biome ci --error-on-warnings . && eslint --max-warnings 0 . && pnpm --filter @it/content essays:check",
     "format": "biome format --write .",
     "storybook": "pnpm --filter @it/app storybook",
     "storybook:review": "pnpm --filter @it/app storybook:review"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.15",
+    "@eslint-community/eslint-plugin-eslint-comments": "4.8.1",
     "@playwright/test": "^1.64.0",
     "@types/node": "^26.6.5",
+    "eslint": "10.12.0",
+    "eslint-plugin-react-hooks": "7.1.1",
     "lefthook": "2.1.17",
     "turbo": "2.11.8",
     "typescript": "5.9.3",
+    "typescript-eslint": "8.71.1",
     "vitest": "^5.0.4"
   }
 }

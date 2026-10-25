@@ -39,7 +39,7 @@ pnpm run lint
 
 `pnpm run typecheck` only sees files a tsconfig `include` covers. CI also runs `node tools/typecheck-coverage/check-typecheck-coverage.mjs`, which fails on any tracked TypeScript file outside every typechecked project; when you add a folder of TypeScript, add it to the nearest tsconfig.
 
-`pnpm install` also installs a git pre-commit hook ([Lefthook](https://lefthook.dev), configured in `lefthook.yml`). The hook formats and lints the staged JavaScript and TypeScript files with [Biome](https://biomejs.dev), applying safe fixes and restaging them, then, when the commit includes code, runs the typecheck and the Vitest unit tests. `files.includes` in `biome.jsonc` decides which files Biome formats and lints, both in the hook and in `pnpm run lint` (which CI runs); docs are not formatted. To skip it once, use `git commit --no-verify`.
+`pnpm install` also installs a git pre-commit hook ([Lefthook](https://lefthook.dev), configured in `lefthook.yml`). The hook formats and lints the staged JavaScript and TypeScript files with [Biome](https://biomejs.dev), applying safe fixes and restaging them, then, when the commit includes code, runs ESLint's type-aware pass on the staged TypeScript (`eslint.config.mjs`), the typecheck, and the Vitest unit tests. `files.includes` in `biome.jsonc` decides which files Biome formats and lints, both in the hook and in `pnpm run lint` (which CI runs); docs are not formatted. To skip it once, use `git commit --no-verify`.
 
 ## Components and Storybook
 

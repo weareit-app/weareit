@@ -10,6 +10,11 @@ pre-commit:
       # by name, and `--no-errors-on-unmatched` exits 0 when all are ignored.
       run: pnpm exec biome check --write --error-on-warnings --no-errors-on-unmatched {staged_files}
       stage_fixed: true
+    # The type-aware pass (eslint.config.mjs) on staged TypeScript; `--no-warn-ignored`
+    # keeps a staged file that the config ignores from counting as a warning.
+    - name: eslint
+      glob: "*.{ts,tsx,mts,cts}"
+      run: pnpm exec eslint --max-warnings 0 --no-warn-ignored {staged_files}
     - name: typecheck
       glob: "*.{ts,tsx,mts,cts}"
       run: pnpm -s typecheck --output-logs=errors-only

@@ -31,6 +31,12 @@ const isSpot = (tone: IconTone | undefined): tone is keyof typeof spotInks =>
 const isPaper = (tone: IconTone | undefined) =>
   tone === "riso-paper" || tone === "paper";
 
+// A theme color by CSS variable name, or the fallback before it resolves.
+function useTone(name: string, fallback: string) {
+  const value = useNativeVariable(name);
+  return typeof value === "string" ? value : fallback;
+}
+
 // A personal group's icon (iOS: drawn with Skia). Decorative: the group name
 // is always beside it. `riso` adds a print look, as on web: grain in each
 // inked layer, spot inks slightly off register, overprinting the ink.
@@ -43,16 +49,12 @@ export function GroupIcon({
   size: number;
   riso?: RisoLook | undefined;
 }) {
-  const tone = (name: string, fallback: string) => {
-    const value = useNativeVariable(name);
-    return typeof value === "string" ? value : fallback;
-  };
   const tones: Record<IconTone, string> = {
-    ink: tone("--color-ink", "#1F2021"),
-    paper: tone("--color-paper-raised", "#FFFFFF"),
-    "riso-ink": tone("--color-riso-ink", "#1F2021"),
-    "riso-paper": tone("--color-riso-paper", "#FFFFFF"),
-    "riso-line": tone("--color-riso-line", "#1F2021"),
+    ink: useTone("--color-ink", "#1F2021"),
+    paper: useTone("--color-paper-raised", "#FFFFFF"),
+    "riso-ink": useTone("--color-riso-ink", "#1F2021"),
+    "riso-paper": useTone("--color-riso-paper", "#FFFFFF"),
+    "riso-line": useTone("--color-riso-line", "#1F2021"),
     ...spotInks,
   };
   const parts = useMemo(

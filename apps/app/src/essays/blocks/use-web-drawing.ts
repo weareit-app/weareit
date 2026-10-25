@@ -27,7 +27,7 @@ export function useWebDrawing<Library>(
     return () => {
       current = false;
     };
-    // The caller's deps cover everything `draw` reads.
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- the caller's deps cover everything `load` and `draw` read.
   }, deps);
   return drawing;
 }

@@ -1,5 +1,5 @@
 import type { PaletteId } from "@it/watercolor/palettes";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Platform, Pressable, ScrollView, Text, View } from "react-native";
 import { useFrameCallback, useSharedValue } from "react-native-reanimated";
 import type { WatercolorApproach } from "../approach";
@@ -139,14 +139,18 @@ function useFrameSampler(
   });
 
   const done = useRef(onDone);
-  done.current = onDone;
+  useLayoutEffect(() => {
+    done.current = onDone;
+  });
 
+  // `set`, not `.value =`: Reanimated's form for values the React Compiler
+  // can see.
   return () => {
-    max.value = 0;
-    count.value = 0;
-    started.value = 0;
-    hist.value = new Array(BINS).fill(0);
-    running.value = true;
+    max.set(0);
+    count.set(0);
+    started.set(0);
+    hist.set(new Array<number>(BINS).fill(0));
+    running.set(true);
     setTimeout(
       () => {
         const h = hist.value;
@@ -207,8 +211,7 @@ export default function LabScreen() {
 
   useEffect(() => {
     if (measuring) start();
-    // start only when a new measurement begins
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- start only when a new measurement begins; `start` is a new function each render.
   }, [measuring]);
 
   useEffect(() => {
