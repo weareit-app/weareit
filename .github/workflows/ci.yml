@@ -58,6 +58,14 @@ jobs:
 
       - uses: ./.github/actions/setup
 
+      # Regenerating the committed generated files must change nothing: the essay modules
+      # (packages/content/src/*.generated.ts) and the table types (packages/database/src/db.ts,
+      # from a freshly migrated database), so neither can land stale. It runs before the
+      # typecheck, whose turbo `essays` dependency would rebuild the modules first.
+      - run: pnpm run check:generated
+        env:
+          TEST_DATABASE_URL: postgres://postgres:it@localhost:54346/postgres
+
       - run: pnpm run typecheck
 
       # Every tracked TypeScript file must be in a project the typecheck above ran.
@@ -80,13 +88,6 @@ jobs:
 
       # Two workspace packages declaring different versions of one dependency.
       - run: pnpm run sherif
-
-      # Regenerating the committed generated files must change nothing: the essay modules
-      # (packages/content/src/*.generated.ts) and the table types (packages/database/src/db.ts,
-      # from a freshly migrated database), so neither can land stale.
-      - run: pnpm run check:generated
-        env:
-          TEST_DATABASE_URL: postgres://postgres:it@localhost:54346/postgres
 
       - run: pnpm run test:unit
         env:
