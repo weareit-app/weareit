@@ -23,7 +23,8 @@
     "test:tools": "python3 -m unittest discover -s tools/pains/tests && python3 -m unittest discover -s tools/possibilities/tests && python3 -m unittest discover -s tools/style/tests",
     "typecheck": "turbo typecheck typecheck:root",
     "typecheck:root": "tsc -p tsconfig.json",
-    "lint": "biome ci . && pnpm --filter @it/content essays:check",
+    "lint": "biome ci . && pnpm run lint:deps && pnpm --filter @it/content essays:check",
+    "lint:deps": "depcruise apps packages tools *.mts --output-type err-long",
     "format": "biome format --write .",
     "storybook": "pnpm --filter @it/app storybook",
     "storybook:review": "pnpm --filter @it/app storybook:review"
@@ -32,6 +33,7 @@
     "@biomejs/biome": "2.5.15",
     "@playwright/test": "^1.64.0",
     "@types/node": "^26.6.5",
+    "dependency-cruiser": "18.6.0",
     "lefthook": "2.1.17",
     "turbo": "2.11.8",
     "typescript": "5.9.3",
