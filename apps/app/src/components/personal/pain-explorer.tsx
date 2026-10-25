@@ -1,6 +1,6 @@
 import { Link, type Href } from "expo-router";
 import { CornerLeftDown } from "lucide-react-native";
-import { useMemo, useRef, useState, type ReactNode } from "react";
+import { createRef, useMemo, useRef, useState, type ReactNode } from "react";
 import {
   Pressable,
   ScrollView,
@@ -85,7 +85,6 @@ export function PainExplorer({
 
   const scrollRef = useRef<ScrollViewInstance>(null);
   const contentRef = useRef<ViewInstance>(null);
-  const painRefs = useRef(new Map<string, { current: ViewInstance | null }>());
 
   const content = contentQuery.data?.content;
   const model = useMemo(() => {
@@ -101,6 +100,9 @@ export function PainExplorer({
           .sort((a, b) => a.sortOrder - b.sortOrder)
           .map((pain) => ({
             ...pain,
+            // The row's view, for keeping the person's place when it opens
+            // or closes.
+            ref: createRef<ViewInstance>(),
             dreams: content.painDreamLinks
               .filter((link) => link.painId === pain.id)
               .map((link) => dreamsById.get(link.dreamId))
@@ -111,6 +113,11 @@ export function PainExplorer({
     const fixes = resolveFeatureStatuses(content);
     return {
       groups,
+      painRefs: new Map(
+        groups.flatMap((group) =>
+          group.pains.map((pain) => [pain.id, pain.ref]),
+        ),
+      ),
       fixes: new Map(fixes.map((fix) => [fix.id, fix])),
       fixOrder: [...fixes]
         .sort((a, b) => a.sortOrder - b.sortOrder)
@@ -129,14 +136,7 @@ export function PainExplorer({
 
   const pathFor = (painId: string) =>
     paths.find((path) => path.painId === painId);
-  const painRef = (painId: string) => {
-    let ref = painRefs.current.get(painId);
-    if (!ref) {
-      ref = { current: null };
-      painRefs.current.set(painId, ref);
-    }
-    return ref;
-  };
+  const painRef = (painId: string) => model.painRefs.get(painId);
 
   // Keeps the person's place: brings a view back near the top of the screen.
   function scrollTo(view: ViewInstance | null | undefined) {
@@ -160,7 +160,7 @@ export function PainExplorer({
   function close(painId: string, keepPlace: boolean) {
     setOpenPain(null);
     setOpenChip(null);
-    if (keepPlace) afterLayout(() => scrollTo(painRef(painId).current));
+    if (keepPlace) afterLayout(() => scrollTo(painRef(painId)?.current));
   }
 
   const interacted = selected.length > 0 || paths.length > 0;
@@ -288,7 +288,7 @@ export function PainExplorer({
                             fixOrder={model.fixOrder}
                             focusDreamId={focus[pain.id]}
                             openChip={openChip}
-                            rowRef={painRef(pain.id)}
+                            rowRef={pain.ref}
                             onCheck={() => {
                               if (!isSelected) return open(pain.id, group.id);
                               unselectPain(pain.id);
@@ -351,7 +351,7 @@ export function PainExplorer({
                   accessibilityLabel={`Open ${pain.title}`}
                   onPress={() => {
                     open(pain.id, group.id);
-                    afterLayout(() => scrollTo(painRef(pain.id).current));
+                    afterLayout(() => scrollTo(painRef(pain.id)?.current));
                   }}
                   className="min-h-10 justify-center rounded-full border border-ink bg-paper-raised px-3.5"
                 >

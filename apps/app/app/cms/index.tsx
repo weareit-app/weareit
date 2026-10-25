@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { TextInput, View } from "react-native";
 import { Text } from "../../src/components/text";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -49,14 +49,15 @@ export default function CmsScreen() {
     queryFn: () => apiClient.cms.listVersions(),
     enabled: connected,
   });
-  useEffect(() => {
-    if (draftQuery.data) {
-      setGraph(draftQuery.data.content);
-      setSelectedId(
-        (current) => current || draftQuery.data.content[kind][0]?.id || "",
-      );
-    }
-  }, [draftQuery.data]);
+  // A newly loaded draft replaces the local copy (React's "adjusting state
+  // when a prop changes": set during render, not in an effect).
+  const [loadedDraft, setLoadedDraft] = useState<typeof draftQuery.data>();
+  if (draftQuery.data && draftQuery.data !== loadedDraft) {
+    const draft = draftQuery.data;
+    setLoadedDraft(draft);
+    setGraph(draft.content);
+    setSelectedId((current) => current || draft.content[kind][0]?.id || "");
+  }
 
   const records = graph?.[kind] ?? [];
   const selected = records.find((record) => record.id === selectedId) as

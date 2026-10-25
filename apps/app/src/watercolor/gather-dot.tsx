@@ -57,8 +57,7 @@ export function GatherDot({ size, accessibilityLabel }: GatherDotProps) {
   const start = useSharedValue(0);
   useEffect(() => {
     start.value = clock.value;
-    // Restart only when mounted; pausing keeps the clock running.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- restart only when mounted; pausing keeps the clock running.
   }, []);
 
   const palettes = useMemo(

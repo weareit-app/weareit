@@ -1,5 +1,5 @@
 import { Redirect } from "expo-router";
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useSyncExternalStore } from "react";
 import { Platform, Text, View } from "react-native";
 
 // Fidelity proof for the watercolor dot (spec 007). Development builds only.
@@ -23,9 +23,15 @@ function Loading() {
   );
 }
 
+const noSubscription = () => () => {};
+
 export default function WatercolorLab() {
-  const [mounted, setMounted] = useState(Platform.OS !== "web");
-  useEffect(() => setMounted(true), []);
+  // False while a static web page renders or hydrates, then true.
+  const mounted = useSyncExternalStore(
+    noSubscription,
+    () => true,
+    () => Platform.OS !== "web",
+  );
   if (!__DEV__) return <Redirect href="/" />;
   if (!mounted) return <Loading />;
   return (

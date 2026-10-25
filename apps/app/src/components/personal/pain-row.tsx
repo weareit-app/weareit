@@ -48,8 +48,8 @@ function stageFuture(chosen: string[], focus: string | undefined) {
   return chosen.find((id) => dreamStageArt[id]);
 }
 
-export function PainRow(props: PainRowProps) {
-  const { pain, dreams, selected, open, path } = props;
+export function PainRow({ rowRef, ...props }: PainRowProps) {
+  const { pain, dreams, selected, open, path, onCheck, onRowPress } = props;
   const chosen = path?.dreamIds ?? [];
   const pickedFixes = path?.fixIds ?? [];
   const summary = !open && chosen.length > 0;
@@ -148,7 +148,7 @@ export function PainRow(props: PainRowProps) {
 
   return (
     <View
-      ref={props.rowRef}
+      ref={rowRef}
       className={
         open
           ? "rounded-2xl border border-rule bg-paper-raised"
@@ -173,7 +173,7 @@ export function PainRow(props: PainRowProps) {
             accessibilityState={{ checked: selected }}
             aria-checked={selected}
             accessibilityLabel={pain.title}
-            onPress={props.onCheck}
+            onPress={onCheck}
             className="h-11 w-[46px] items-center justify-center"
           >
             <CheckCircle checked={selected} />
@@ -182,7 +182,7 @@ export function PainRow(props: PainRowProps) {
             // Tapping the art opens the pain, like the text; it is
             // decorative, so assistive tech skips it.
             <Pressable
-              onPress={props.onRowPress}
+              onPress={onRowPress}
               aria-hidden
               focusable={false}
               importantForAccessibility="no-hide-descendants"
@@ -198,7 +198,7 @@ export function PainRow(props: PainRowProps) {
           accessibilityLabel={
             summary ? summaryLabel : `${pain.title}: ${pain.description}`
           }
-          onPress={props.onRowPress}
+          onPress={onRowPress}
           className={`flex-1 flex-row items-start gap-3 ${thumb && wide ? "ml-3" : ""}`}
         >
           {/* Short text centres on the art; longer text runs on below it. */}
@@ -235,7 +235,7 @@ export function PainRow(props: PainRowProps) {
       {summary && planBody && !wide ? (
         // Opens the pain like the row; its text is in the row's label.
         <Pressable
-          onPress={props.onRowPress}
+          onPress={onRowPress}
           aria-hidden
           focusable={false}
           importantForAccessibility="no-hide-descendants"
@@ -286,7 +286,7 @@ function OpenPain({
   onChip,
   onClose,
   chosen,
-}: PainRowProps & {
+}: Omit<PainRowProps, "rowRef"> & {
   chosen: string[];
 }) {
   const ways = rankWays(chosen, fixDreamLinks, fixOrder).flatMap(

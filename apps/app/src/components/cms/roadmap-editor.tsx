@@ -78,6 +78,16 @@ function disconnect(
 }
 
 // Keeps sortOrder 0, 1, 2… in the given order.
+// A fresh ID, outside the component so render stays pure: the time in base
+// 36, with a suffix if that's taken.
+function newRoadmapItemId(items: readonly ContentRoadmapItem[]) {
+  const baseId = `new-roadmap-item-${Date.now().toString(36)}`;
+  let id = baseId;
+  let suffix = 2;
+  while (items.some((item) => item.id === id)) id = `${baseId}-${suffix++}`;
+  return id;
+}
+
 function renumber(items: ContentRoadmapItem[]) {
   return items.map((item, sortOrder) => ({ ...item, sortOrder }));
 }
@@ -128,10 +138,7 @@ export function RoadmapEditor({
   }
 
   function addItem() {
-    const baseId = `new-roadmap-item-${Date.now().toString(36)}`;
-    let id = baseId;
-    let suffix = 2;
-    while (items.some((item) => item.id === id)) id = `${baseId}-${suffix++}`;
+    const id = newRoadmapItemId(items);
     onChange({
       ...content,
       roadmapItems: [

@@ -8,7 +8,7 @@ import {
   paletteUniforms,
   skslToGlsl,
 } from "@it/watercolor/shaders";
-import { createElement, useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { View } from "react-native";
 import { useReducedMotion } from "react-native-reanimated";
 import { AnimatedPaintedOrb } from "./animated-painted-orb";
@@ -138,10 +138,12 @@ function GatherCanvas({ size, onFail }: { size: number; onFail: () => void }) {
     };
   }, [size, ratio, reduce, onFail]);
 
-  return createElement("canvas", {
-    ref: canvasRef,
-    width: Math.round(size * ratio),
-    height: Math.round(size * ratio),
-    style: { width: size, height: size, display: "block" },
-  });
+  return (
+    <canvas
+      ref={canvasRef}
+      width={Math.round(size * ratio)}
+      height={Math.round(size * ratio)}
+      style={{ width: size, height: size, display: "block" }}
+    />
+  );
 }

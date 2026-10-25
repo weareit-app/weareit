@@ -10,7 +10,7 @@ import {
   FULLSCREEN_VERTEX_GLSL,
   paletteUniforms,
 } from "@it/watercolor/shaders";
-import { createElement, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useReducedMotion } from "react-native-reanimated";
 
 // Dot B drawn with the browser's own WebGL: the same shader as iOS, translated
@@ -123,10 +123,12 @@ export function WebGLDot({
     };
   }, [size, palette, motion, seed, reduce, ratio, onFail]);
 
-  return createElement("canvas", {
-    ref: canvasRef,
-    width: Math.round(size * ratio),
-    height: Math.round(size * ratio),
-    style: { width: size, height: size, display: "block" },
-  });
+  return (
+    <canvas
+      ref={canvasRef}
+      width={Math.round(size * ratio)}
+      height={Math.round(size * ratio)}
+      style={{ width: size, height: size, display: "block" }}
+    />
+  );
 }
