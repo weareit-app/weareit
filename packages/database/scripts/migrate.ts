@@ -1,13 +1,11 @@
 import { createDatabase } from "../src/database";
 import { migrateToLatest } from "../src/migrator";
 import { createLog } from "@it/log/log";
+import { readEnv } from "./env";
 
+const env = readEnv();
 const log = createLog({ level: "info" });
-
-const connectionString = process.env.DATABASE_URL;
-if (!connectionString)
-  throw new Error("Set DATABASE_URL before running migrations.");
-const db = createDatabase(connectionString);
+const db = createDatabase(env.DATABASE_URL);
 
 try {
   for (const name of await migrateToLatest(db))

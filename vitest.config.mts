@@ -6,6 +6,7 @@ export default defineConfig({
       "packages/domain/src/**/*.test.ts",
       "packages/log/src/**/*.test.ts",
       "packages/content/tests/**/*.test.ts",
+      "packages/database/scripts/**/*.test.ts",
       "packages/database/tests/**/*.test.ts",
       "packages/api-contract/src/**/*.test.ts",
       "apps/api-server/src/**/*.test.ts",
