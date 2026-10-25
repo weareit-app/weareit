@@ -1,5 +1,6 @@
 import type { Essay } from "@it/domain/essays";
-import { Link, type Href } from "expo-router";
+import { Link } from "expo-router";
+import { toHref } from "../navigation/to-href";
 import { View } from "react-native";
 import { Page } from "../components/page";
 import { Text } from "../components/text";
@@ -60,7 +61,7 @@ export function EssayPage({ essay }: { essay: Essay }) {
                 </Text>
                 <Text className="flex-1 text-base leading-6 text-ink">
                   <Link
-                    href={source.url as Href}
+                    href={toHref(source.url)}
                     className="text-tide-deep underline underline-offset-4"
                   >
                     {source.title}
