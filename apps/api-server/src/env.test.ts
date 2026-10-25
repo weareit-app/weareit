@@ -1,5 +1,12 @@
+import { readFileSync } from "node:fs";
+import { parseEnv as parseDotenv } from "node:util";
 import { describe, expect, it } from "vitest";
-import { InvalidEnvError, parseEnv } from "./env";
+import {
+  InvalidEnvError,
+  localMockEnvSchema,
+  parseEnv,
+  serverEnvSchema,
+} from "./env";
 
 const base = {
   NODE_ENV: "development",
@@ -137,5 +144,30 @@ describe("server env", () => {
     for (const value of Object.values(values))
       expect(message).not.toContain(value);
     expect(message).not.toContain("secret-");
+  });
+});
+
+// The root example is shared with the database scripts, which read only
+// DATABASE_URL, a server variable too; their own test checks it is listed.
+// If they ever read a variable the server doesn't, list it here.
+describe("root .env.example", () => {
+  const example = parseDotenv(
+    readFileSync(new URL("../../../.env.example", import.meta.url), "utf8"),
+  );
+  const read = new Set([
+    ...Object.keys(serverEnvSchema.shape),
+    ...Object.keys(localMockEnvSchema.shape),
+  ]);
+
+  it("lists exactly the variables the server and its local mock read", () => {
+    const listed = Object.keys(example);
+    expect({
+      missingFromExample: [...read].filter((key) => !listed.includes(key)),
+      readByNothing: listed.filter((key) => !read.has(key)),
+    }).toEqual({ missingFromExample: [], readByNothing: [] });
+  });
+
+  it("parses with the server schema", () => {
+    expect(() => parseEnv(example)).not.toThrow();
   });
 });

@@ -1,5 +1,7 @@
+import { readFileSync } from "node:fs";
+import { parseEnv as parseDotenv } from "node:util";
 import { describe, expect, it } from "vitest";
-import { InvalidEnvError, parseEnv } from "./env";
+import { databaseEnvSchema, InvalidEnvError, parseEnv } from "./env";
 
 describe("database scripts env", () => {
   it("reads DATABASE_URL", () => {
@@ -22,5 +24,26 @@ describe("database scripts env", () => {
     expect(parse).toThrow("DATABASE_URL");
     expect(parse).toThrow(rule);
     if (value) expect(parse).not.toThrow(value);
+  });
+});
+
+// The scripts share the root example with the API server, whose test checks
+// that nothing else is listed there.
+describe("root .env.example", () => {
+  const example = parseDotenv(
+    readFileSync(new URL("../../../.env.example", import.meta.url), "utf8"),
+  );
+
+  it("lists every variable the database scripts read", () => {
+    const listed = Object.keys(example);
+    expect(
+      Object.keys(databaseEnvSchema.shape).filter(
+        (key) => !listed.includes(key),
+      ),
+    ).toEqual([]);
+  });
+
+  it("parses with the database scripts' schema", () => {
+    expect(() => parseEnv(example)).not.toThrow();
   });
 });
