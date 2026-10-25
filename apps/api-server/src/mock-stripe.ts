@@ -6,16 +6,15 @@ import {
 } from "node:http";
 import Stripe from "stripe";
 import { createLog } from "@it/log/log";
+import { readLocalMockEnv } from "./env";
 
-if (process.env.NODE_ENV === "production") {
-  throw new Error("The local Stripe simulator cannot run in production.");
-}
-
+// The schema refuses NODE_ENV=production.
+const env = readLocalMockEnv();
 const log = createLog({ level: "info" });
-const port = Number(process.env.MOCK_STRIPE_PORT ?? 12111);
-const apiBase = process.env.MOCK_IT_API_BASE ?? "http://localhost:3001";
-const appBase = process.env.PUBLIC_APP_URL ?? "http://localhost:8082";
-const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET ?? "whsec_local_mock";
+const port = env.MOCK_STRIPE_PORT;
+const apiBase = env.MOCK_IT_API_BASE;
+const appBase = env.PUBLIC_APP_URL;
+const webhookSecret = env.STRIPE_WEBHOOK_SECRET;
 
 type MockCheckout = {
   id: string;

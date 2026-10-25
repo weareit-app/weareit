@@ -15,6 +15,7 @@ import {
   SupportNotRecurringError,
   WebhookNotConfiguredError,
 } from "./payment-errors";
+import type { ServerEnv, StripeConfig } from "./env";
 
 function objectId(value: string | { id: string } | null | undefined) {
   return typeof value === "string" ? value : (value?.id ?? null);
@@ -30,36 +31,22 @@ function contributionStatus(
   return "pending";
 }
 
-function stripeClient(secretKey: string) {
-  const apiBase = process.env.STRIPE_API_BASE;
+function stripeClient({ secretKey, apiBase }: StripeConfig) {
   if (!apiBase) return new Stripe(secretKey);
-  if (process.env.NODE_ENV === "production") {
-    throw new Error("STRIPE_API_BASE is only allowed outside production.");
-  }
-
-  const url = new URL(apiBase);
-  if (
-    !["http:", "https:"].includes(url.protocol) ||
-    url.pathname !== "/" ||
-    url.search ||
-    url.hash ||
-    url.username ||
-    url.password
-  ) {
-    throw new Error("STRIPE_API_BASE must be a bare HTTP(S) origin.");
-  }
   return new Stripe(secretKey, {
-    host: url.hostname,
-    ...(url.port ? { port: Number(url.port) } : {}),
-    protocol: url.protocol.slice(0, -1) as "http" | "https",
+    host: apiBase.hostname,
+    ...(apiBase.port ? { port: Number(apiBase.port) } : {}),
+    protocol: apiBase.protocol.slice(0, -1) as "http" | "https",
   });
 }
 
-export function createStripeSupport(db: ItDatabase) {
-  const secretKey = process.env.STRIPE_SECRET_KEY;
-  const productId = process.env.STRIPE_SUPPORT_PRODUCT_ID;
-  const stripe = secretKey ? stripeClient(secretKey) : null;
-  const appUrl = process.env.PUBLIC_APP_URL ?? "http://localhost:8082";
+export function createStripeSupport(
+  db: ItDatabase,
+  env: Pick<ServerEnv, "stripe" | "publicAppUrl">,
+) {
+  const stripe = env.stripe ? stripeClient(env.stripe) : null;
+  const productId = env.stripe?.productId;
+  const appUrl = env.publicAppUrl;
 
   return {
     async createCheckout(input: {
@@ -164,14 +151,17 @@ export function createStripeSupport(db: ItDatabase) {
   };
 }
 
-export function parseStripeWebhook(rawBody: Buffer, signature: string) {
-  const secret = process.env.STRIPE_WEBHOOK_SECRET;
-  if (!secret) throw new WebhookNotConfiguredError("stripe");
-  const stripe = process.env.STRIPE_SECRET_KEY
-    ? stripeClient(process.env.STRIPE_SECRET_KEY)
-    : null;
-  if (!stripe) throw new PaymentsNotConfiguredError();
-  return stripe.webhooks.constructEvent(rawBody, signature, secret);
+export function parseStripeWebhook(
+  rawBody: Buffer,
+  signature: string,
+  config: StripeConfig | null,
+) {
+  if (!config) throw new WebhookNotConfiguredError("stripe");
+  return stripeClient(config).webhooks.constructEvent(
+    rawBody,
+    signature,
+    config.webhookSecret,
+  );
 }
 
 export async function processStripeWebhook(

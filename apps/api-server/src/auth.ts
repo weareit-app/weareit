@@ -4,46 +4,34 @@ import { emailOTP } from "better-auth/plugins";
 import nodemailer from "nodemailer";
 import type { ItDatabase } from "@it/database/database";
 import type { Log } from "@it/log/log";
+import type { ServerEnv } from "./env";
 
-export function createAuth(db: ItDatabase, log: Log) {
-  const secret = process.env.BETTER_AUTH_SECRET;
-  if (!secret || secret.length < 32)
-    throw new Error(
-      "Set BETTER_AUTH_SECRET to a random value of at least 32 characters.",
-    );
-
-  const smtpHost = process.env.SMTP_HOST;
-  const mailer = smtpHost
+export function createAuth(
+  db: ItDatabase,
+  log: Log,
+  env: Pick<ServerEnv, "auth" | "smtp" | "webOrigins" | "isProduction">,
+) {
+  const { smtp } = env;
+  const mailer = smtp
     ? nodemailer.createTransport({
-        host: smtpHost,
-        port: Number(process.env.SMTP_PORT ?? 587),
-        secure: process.env.SMTP_SECURE === "true",
-        auth:
-          process.env.SMTP_USER && process.env.SMTP_PASSWORD
-            ? {
-                user: process.env.SMTP_USER,
-                pass: process.env.SMTP_PASSWORD,
-              }
-            : undefined,
+        host: smtp.host,
+        port: smtp.port,
+        secure: smtp.isSecure,
+        auth: { user: smtp.user, pass: smtp.password },
       })
     : null;
 
   const trustedOrigins = [
-    ...(
-      process.env.WEB_ORIGINS ?? "http://localhost:8081,http://127.0.0.1:8081"
-    )
-      .split(",")
-      .map((origin) => origin.trim())
-      .filter(Boolean),
+    ...env.webOrigins,
     "weareit://",
-    ...(process.env.NODE_ENV === "production" ? [] : ["exp://**"]),
+    ...(env.isProduction ? [] : ["exp://**"]),
   ];
 
   return betterAuth({
     appName: "It",
-    baseURL: process.env.BETTER_AUTH_URL ?? "http://localhost:3001",
+    baseURL: env.auth.baseUrl,
     basePath: "/auth",
-    secret,
+    secret: env.auth.secret,
     database: { db, type: "postgres", schemaName: "public", transaction: true },
     trustedOrigins,
     plugins: [
@@ -54,21 +42,16 @@ export function createAuth(db: ItDatabase, log: Log) {
         allowedAttempts: 5,
         storeOTP: "hashed",
         async sendVerificationOTP({ email, otp, type }) {
-          if (!mailer) {
-            if (process.env.NODE_ENV === "production")
-              throw new Error(
-                "Configure SMTP_HOST before enabling email sign-in.",
-              );
+          // The env schema requires SMTP in production, so this is only
+          // ever local development or tests.
+          if (!(mailer && smtp)) {
             // Local development only, with no email server: the one place a
             // log may hold a sign-in code (CODING_STANDARDS.md, "Logging").
             log.info("development_sign_in_code", { type, otp });
             return;
           }
-          const from = process.env.SMTP_FROM;
-          if (!from)
-            throw new Error("Set SMTP_FROM to send email sign-in codes.");
           await mailer.sendMail({
-            from,
+            from: smtp.from,
             to: email,
             subject: "Your It sign-in code",
             text: `Your It sign-in code is ${otp}. It expires in 10 minutes.`,

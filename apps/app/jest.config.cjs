@@ -34,7 +34,7 @@ const webBabel = [
   {
     ...babelOptions,
     caller: { ...babelOptions.caller, platform: "web" },
-    plugins: ["./tests/essays/dynamic-import-to-require.cjs"],
+    plugins: ["./dynamic-import-to-require.test-support.cjs"],
   },
 ];
 
@@ -48,8 +48,11 @@ module.exports = {
       transformIgnorePatterns: letOrpcThrough(
         require("jest-expo/jest-preset").transformIgnorePatterns,
       ),
-      testMatch: ["<rootDir>/tests/**/*.test.[jt]s?(x)"],
-      testPathIgnorePatterns: ["<rootDir>/tests/essays/"],
+      testMatch: ["<rootDir>/**/*.test.tsx"],
+      testPathIgnorePatterns: [
+        "/node_modules/",
+        "<rootDir>/src/essays/blocks/",
+      ],
     },
     {
       // Essays are web-only, so their blocks are tested as web pages.
@@ -66,9 +69,9 @@ module.exports = {
       ),
       setupFiles: [
         ...webPreset.setupFiles,
-        "<rootDir>/tests/essays/web-streams.cjs",
+        "<rootDir>/web-streams.test-support.cjs",
       ],
-      testMatch: ["<rootDir>/tests/essays/**/*.test.[jt]s?(x)"],
+      testMatch: ["<rootDir>/src/essays/blocks/**/*.test.tsx"],
     },
   ],
 };
