@@ -8,57 +8,43 @@ import {
   supportFrequencySchema,
 } from "@it/domain/support";
 
-const publishedContentSchema = z
-  .object({
-    version: z.number().int().positive(),
-    content: contentGraphSchema,
-    checksum: z.string().regex(/^[a-f0-9]{64}$/),
-    publishedAt: isoDatetimeSchema,
-  })
-  .strict();
+const publishedContentSchema = z.strictObject({
+  version: z.number().int().positive(),
+  content: contentGraphSchema,
+  checksum: z.string().regex(/^[a-f0-9]{64}$/),
+  publishedAt: isoDatetimeSchema,
+});
 
-const draftSchema = z
-  .object({
-    revision: z.number().int().nonnegative(),
-    content: contentGraphSchema,
-  })
-  .strict();
+const draftSchema = z.strictObject({
+  revision: z.number().int().nonnegative(),
+  content: contentGraphSchema,
+});
 
-const validationSchema = z
-  .object({
-    valid: z.boolean(),
-    issues: z.array(
-      z.object({ path: z.string(), message: z.string() }).strict(),
-    ),
-  })
-  .strict();
+const validationSchema = z.strictObject({
+  valid: z.boolean(),
+  issues: z.array(z.strictObject({ path: z.string(), message: z.string() })),
+});
 
 const publishSchema = z.discriminatedUnion("published", [
-  z
-    .object({
-      published: z.literal(true),
-      version: z.number().int().positive(),
-      checksum: z.string(),
-    })
-    .strict(),
-  z
-    .object({
-      published: z.literal(false),
-      issues: validationSchema.shape.issues,
-    })
-    .strict(),
+  z.strictObject({
+    published: z.literal(true),
+    version: z.number().int().positive(),
+    checksum: z.string(),
+  }),
+  z.strictObject({
+    published: z.literal(false),
+    issues: validationSchema.shape.issues,
+  }),
 ]);
 
-const versionSchema = z
-  .object({
-    version: z.number().int().positive(),
-    source_revision: z.number().int().positive(),
-    checksum: z.string(),
-    published_by: z.string(),
-    rollback_from: z.number().int().positive().nullable(),
-    published_at: z.date(),
-  })
-  .strict();
+const versionSchema = z.strictObject({
+  version: z.number().int().positive(),
+  source_revision: z.number().int().positive(),
+  checksum: z.string(),
+  published_by: z.string(),
+  rollback_from: z.number().int().positive().nullable(),
+  published_at: z.date(),
+});
 
 // Each route carries developer docs text, and each group's tag names it
 // (docs/architecture/decisions.md, 2026-10-21). No route sets a path, so the
@@ -131,20 +117,16 @@ export const apiContract = {
         },
       })
       .input(
-        z
-          .object({
-            contentVersion: z.number().int().positive(),
-            draft: onboardingDraftSchema,
-          })
-          .strict(),
+        z.strictObject({
+          contentVersion: z.number().int().positive(),
+          draft: onboardingDraftSchema,
+        }),
       )
       .output(
-        z
-          .object({
-            contentVersion: z.number().int().positive(),
-            savedAt: isoDatetimeSchema,
-          })
-          .strict(),
+        z.strictObject({
+          contentVersion: z.number().int().positive(),
+          savedAt: isoDatetimeSchema,
+        }),
       ),
   }),
   support: oc.tag("support").router({
@@ -156,18 +138,12 @@ export const apiContract = {
       })
       .errors(paymentsNotConfigured)
       .input(
-        z
-          .object({
-            amountMinor: z.number().int().min(100).max(100_000),
-            frequency: supportFrequencySchema,
-          })
-          .strict(),
+        z.strictObject({
+          amountMinor: z.number().int().min(100).max(100_000),
+          frequency: supportFrequencySchema,
+        }),
       )
-      .output(
-        z
-          .object({ url: z.string().url(), reference: z.string().uuid() })
-          .strict(),
-      ),
+      .output(z.strictObject({ url: z.url(), reference: z.uuid() })),
     getStatus: signedIn
       .route({
         summary: "Get the status of a support payment",
@@ -175,14 +151,12 @@ export const apiContract = {
           "Returns the frequency and status of a support payment by its reference. Needs the session of the account that made it; any other reference reads as not found.",
       })
       .errors(supportNotFound)
-      .input(z.object({ reference: z.string().uuid() }).strict())
+      .input(z.strictObject({ reference: z.uuid() }))
       .output(
-        z
-          .object({
-            frequency: supportFrequencySchema,
-            status: contributionStatusSchema,
-          })
-          .strict(),
+        z.strictObject({
+          frequency: supportFrequencySchema,
+          status: contributionStatusSchema,
+        }),
       ),
     createPortal: signedIn
       .route({
@@ -198,8 +172,8 @@ export const apiContract = {
           message: "This support has no subscription to manage.",
         },
       })
-      .input(z.object({ reference: z.string().uuid() }).strict())
-      .output(z.object({ url: z.string().url() }).strict()),
+      .input(z.strictObject({ reference: z.uuid() }))
+      .output(z.strictObject({ url: z.url() })),
   }),
   cms: oc.tag("cms").router({
     getDraft: cmsAdmin
@@ -221,29 +195,25 @@ export const apiContract = {
         REVISION_CONFLICT: {
           status: 409,
           message: "The draft changed since expectedRevision.",
-          data: z
-            .object({
-              expectedRevision: z.number().int().nonnegative(),
-              actualRevision: z.number().int().nonnegative(),
-            })
-            .strict(),
+          data: z.strictObject({
+            expectedRevision: z.number().int().nonnegative(),
+            actualRevision: z.number().int().nonnegative(),
+          }),
         },
         STATUS_NOTE_REQUIRED: {
           status: 400,
           message: "A status change needs a new note.",
-          data: z.object({ issues: validationSchema.shape.issues }).strict(),
+          data: z.strictObject({ issues: validationSchema.shape.issues }),
         },
       })
       .input(
-        z
-          .object({
-            expectedRevision: z.number().int().nonnegative(),
-            changeNote: nonEmptyTextSchema.max(500),
-            content: contentGraphSchema,
-          })
-          .strict(),
+        z.strictObject({
+          expectedRevision: z.number().int().nonnegative(),
+          changeNote: nonEmptyTextSchema.max(500),
+          content: contentGraphSchema,
+        }),
       )
-      .output(z.object({ revision: z.number().int().positive() }).strict()),
+      .output(z.strictObject({ revision: z.number().int().positive() })),
     validateDraft: cmsAdmin
       .route(
         cmsRoute(
@@ -259,7 +229,7 @@ export const apiContract = {
           "Returns the draft as it would be published. Pass content to preview unsaved changes.",
         ),
       )
-      .input(z.object({ content: contentGraphSchema.optional() }).strict())
+      .input(z.strictObject({ content: contentGraphSchema.optional() }))
       .output(draftSchema),
     publishDraft: cmsAdmin
       .route(
@@ -289,24 +259,20 @@ export const apiContract = {
           status: 422,
           message:
             "The version was restored to the draft but can't be published.",
-          data: z
-            .object({
-              revision: z.number().int().positive(),
-              issues: validationSchema.shape.issues,
-            })
-            .strict(),
+          data: z.strictObject({
+            revision: z.number().int().positive(),
+            issues: validationSchema.shape.issues,
+          }),
         },
       })
-      .input(z.object({ version: z.number().int().positive() }).strict())
+      .input(z.strictObject({ version: z.number().int().positive() }))
       .output(
-        z
-          .object({
-            revision: z.number().int().positive(),
-            published: z.literal(true),
-            version: z.number().int().positive(),
-            checksum: z.string(),
-          })
-          .strict(),
+        z.strictObject({
+          revision: z.number().int().positive(),
+          published: z.literal(true),
+          version: z.number().int().positive(),
+          checksum: z.string(),
+        }),
       ),
   }),
 };

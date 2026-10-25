@@ -17,66 +17,56 @@ export type FixKind = (typeof fixKinds)[number];
 export type FeatureStatus = (typeof featureStatuses)[number];
 export type EvidenceLevel = (typeof evidenceLevels)[number];
 
-export const contentDomainSchema = z
-  .object({
-    id: slugIdSchema,
-    scope: z.enum(["personal", "world"]),
-    title: copySchema,
-    sortOrder: z.number().int().nonnegative(),
-  })
-  .strict();
+export const contentDomainSchema = z.strictObject({
+  id: slugIdSchema,
+  scope: z.enum(["personal", "world"]),
+  title: copySchema,
+  sortOrder: z.number().int().nonnegative(),
+});
 
-const contentPainSchema = z
-  .object({
-    id: slugIdSchema,
-    domainId: slugIdSchema,
-    title: copySchema,
-    description: copySchema,
-    sortOrder: z.number().int().nonnegative(),
-  })
-  .strict();
+const contentPainSchema = z.strictObject({
+  id: slugIdSchema,
+  domainId: slugIdSchema,
+  title: copySchema,
+  description: copySchema,
+  sortOrder: z.number().int().nonnegative(),
+});
 
-const contentDreamSchema = z
-  .object({
-    id: slugIdSchema,
-    title: copySchema,
-    description: copySchema,
-    sortOrder: z.number().int().nonnegative(),
-  })
-  .strict();
+const contentDreamSchema = z.strictObject({
+  id: slugIdSchema,
+  title: copySchema,
+  description: copySchema,
+  sortOrder: z.number().int().nonnegative(),
+});
 
-export const contentFirstActionSchema = z
-  .object({
-    id: slugIdSchema,
-    title: copySchema,
-    description: copySchema,
-    firstStep: copySchema,
-    effortMinutes: z.number().int().positive().max(120),
-    evidence: z.enum(["candidate", "practical"]),
-    safetyNote: copySchema.optional(),
-    sortOrder: z.number().int().nonnegative(),
-  })
-  .strict();
+export const contentFirstActionSchema = z.strictObject({
+  id: slugIdSchema,
+  title: copySchema,
+  description: copySchema,
+  firstStep: copySchema,
+  effortMinutes: z.number().int().positive().max(120),
+  evidence: z.enum(["candidate", "practical"]),
+  safetyNote: copySchema.optional(),
+  sortOrder: z.number().int().nonnegative(),
+});
 
-const contentFixFields = z
-  .object({
-    id: slugIdSchema,
-    title: copySchema,
-    description: copySchema,
-    kind: z.enum(fixKinds),
-    featureStatus: z.enum(featureStatuses).optional(),
-    // When the status last changed and a short note of what changed. Content
-    // from before five statuses has neither.
-    statusChangedOn: isoDateSchema.optional(),
-    statusNote: copySchema.max(500).optional(),
-    // A Feature fix connected to a roadmap item takes the item's status and
-    // has none of its own.
-    roadmapItemId: slugIdSchema.optional(),
-    evidence: z.enum(evidenceLevels),
-    evidenceNote: copySchema,
-    sortOrder: z.number().int().nonnegative(),
-  })
-  .strict();
+const contentFixFields = z.strictObject({
+  id: slugIdSchema,
+  title: copySchema,
+  description: copySchema,
+  kind: z.enum(fixKinds),
+  featureStatus: z.enum(featureStatuses).optional(),
+  // When the status last changed and a short note of what changed. Content
+  // from before five statuses has neither.
+  statusChangedOn: isoDateSchema.optional(),
+  statusNote: copySchema.max(500).optional(),
+  // A Feature fix connected to a roadmap item takes the item's status and
+  // has none of its own.
+  roadmapItemId: slugIdSchema.optional(),
+  evidence: z.enum(evidenceLevels),
+  evidenceNote: copySchema,
+  sortOrder: z.number().int().nonnegative(),
+});
 
 // The status rules every fix follows, in the graph and in the tier-1 data. A
 // fix connected to a roadmap item is checked against the item in the graph.
@@ -127,62 +117,55 @@ export const contentFixSchema = contentFixFields.superRefine(checkFixStatus);
 
 // A piece of It's work on the roadmap, for example "Use It in Spanish". The
 // ID stays the same when the title changes.
-export const contentRoadmapItemSchema = z
-  .object({
-    id: slugIdSchema,
-    title: copySchema.max(200),
-    line: copySchema.max(300),
-    status: z.enum(featureStatuses),
-    statusChangedOn: isoDateSchema.optional(),
-    statusNote: copySchema.max(500).optional(),
-    sortOrder: z.number().int().nonnegative(),
-  })
-  .strict();
+export const contentRoadmapItemSchema = z.strictObject({
+  id: slugIdSchema,
+  title: copySchema.max(200),
+  line: copySchema.max(300),
+  status: z.enum(featureStatuses),
+  statusChangedOn: isoDateSchema.optional(),
+  statusNote: copySchema.max(500).optional(),
+  sortOrder: z.number().int().nonnegative(),
+});
 
-export const contentSourceSchema = z
-  .object({
-    id: slugIdSchema,
-    title: copySchema,
-    documentPath: copySchema,
-    sourceType: z.enum(["research_registry", "content_spec", "fix_corpus"]),
-    rights: copySchema,
-  })
-  .strict();
+export const contentSourceSchema = z.strictObject({
+  id: slugIdSchema,
+  title: copySchema,
+  documentPath: copySchema,
+  sourceType: z.enum(["research_registry", "content_spec", "fix_corpus"]),
+  rights: copySchema,
+});
 
-export const contentProvenanceSchema = z
-  .object({
-    entityType: z.enum(["domain", "pain", "dream", "first_action", "fix"]),
-    entityId: slugIdSchema,
-    sourceId: slugIdSchema,
-    locator: copySchema,
-    evidenceType: copySchema,
-    rights: z.enum(["CC0-1.0", "CC-BY-SA-4.0"]),
-    reviewStatus: z.enum(["unreviewed", "reviewed", "approved"]),
-  })
-  .strict();
+export const contentProvenanceSchema = z.strictObject({
+  entityType: z.enum(["domain", "pain", "dream", "first_action", "fix"]),
+  entityId: slugIdSchema,
+  sourceId: slugIdSchema,
+  locator: copySchema,
+  evidenceType: copySchema,
+  rights: z.enum(["CC0-1.0", "CC-BY-SA-4.0"]),
+  reviewStatus: z.enum(["unreviewed", "reviewed", "approved"]),
+});
 
 export const contentGraphSchema = z
-  .object({
+  .strictObject({
     domains: z.array(contentDomainSchema),
     pains: z.array(contentPainSchema),
     dreams: z.array(contentDreamSchema),
     painDreamLinks: z.array(
-      z.object({ painId: slugIdSchema, dreamId: slugIdSchema }).strict(),
+      z.strictObject({ painId: slugIdSchema, dreamId: slugIdSchema }),
     ),
     firstActions: z.array(contentFirstActionSchema),
     actionPainLinks: z.array(
-      z.object({ actionId: slugIdSchema, painId: slugIdSchema }).strict(),
+      z.strictObject({ actionId: slugIdSchema, painId: slugIdSchema }),
     ),
     // Defaults keep content versions published before fixes existed readable.
     fixes: z.array(contentFixSchema).default([]),
     fixDreamLinks: z
-      .array(z.object({ fixId: slugIdSchema, dreamId: slugIdSchema }).strict())
+      .array(z.strictObject({ fixId: slugIdSchema, dreamId: slugIdSchema }))
       .default([]),
     roadmapItems: z.array(contentRoadmapItemSchema).default([]),
     sources: z.array(contentSourceSchema),
     provenance: z.array(contentProvenanceSchema),
   })
-  .strict()
   .superRefine((graph, context) => {
     const uniqueIds = (key: string, ids: string[]) => {
       if (new Set(ids).size !== ids.length) {
