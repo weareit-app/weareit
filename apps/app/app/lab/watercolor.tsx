@@ -7,8 +7,9 @@ import { Platform, Text, View } from "react-native";
 // else; static rendering on the server only shows the loading message.
 const LabScreen = lazy(async () => {
   if (Platform.OS === "web") {
-    const { LoadSkiaWeb } =
-      await import("@shopify/react-native-skia/lib/module/web");
+    const { LoadSkiaWeb } = await import(
+      "@shopify/react-native-skia/lib/module/web"
+    );
     await LoadSkiaWeb({ locateFile: (file: string) => `/${file}` });
   }
   return import("../../src/watercolor/lab/lab-screen");
