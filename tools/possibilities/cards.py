@@ -4,6 +4,7 @@
 import argparse
 import datetime
 import importlib.util
+import itertools
 import json
 import random
 import re
@@ -786,7 +787,7 @@ def dreams_ingest(run, decisions_path):
         )
     decisions, issues = export.get("decisions"), []
     if not isinstance(decisions, dict):
-        raise ValueError("decisions must be keyed by dream ID")
+        raise ValueError("decisions must be keyed by dream ID")  # noqa: TRY004 -- main() reports ValueError as a usage error; TypeError would be a traceback
     issues += [f"unknown dream {key}" for key in sorted(set(decisions) - set(dreams))]
     undecided = sorted(set(dreams) - set(decisions))
     if undecided:
@@ -1074,7 +1075,7 @@ def fixes_ingest(run, decisions_path):
         )
     decisions, issues = export.get("decisions"), []
     if not isinstance(decisions, dict):
-        raise ValueError("decisions must be keyed by fix ID")
+        raise ValueError("decisions must be keyed by fix ID")  # noqa: TRY004 -- main() reports ValueError as a usage error; TypeError would be a traceback
     accepted = set(accepted_dreams(run))
     issues += [f"unknown fix {key}" for key in sorted(set(decisions) - set(order))]
     undecided = sorted(set(order) - set(decisions))
@@ -1856,7 +1857,7 @@ def validate_links(doc, fixes, passed, accepted, issues, pain=None):
         # and once the review is ingested, the founder's final links may leave a dream with fewer than 2.
         require(
             reviewed or len(entries) >= 2,
-            ("dream {}: {:d} linked fix{}; the assembler links 2-{:d}").format(
+            "dream {}: {:d} linked fix{}; the assembler links 2-{:d}".format(
                 dream, len(entries), "" if len(entries) == 1 else "es", MAX_LINKS
             ),
             issues,
@@ -2161,7 +2162,7 @@ def hedge_rules(modal_hits):
     if len(modal_hits) > 1:
         yield (
             "stacked-hedges",
-            ("soft modals used {:d} times ({}); keep at most one plain limit").format(
+            "soft modals used {:d} times ({}); keep at most one plain limit".format(
                 len(modal_hits), ", ".join(modal_hits)
             ),
         )
@@ -2340,7 +2341,7 @@ def lint_staged_run(run, root):
             add(
                 "*",
                 "lens-coverage",
-                ("only {:d} lenses among linked fixes: {}").format(
+                "only {:d} lenses among linked fixes: {}".format(
                     len(lenses), ", ".join(lenses)
                 ),
             )
@@ -2605,7 +2606,7 @@ def lint_run(run, root):
         add(
             "*",
             "lens-coverage",
-            ("only {:d} lenses: {}").format(len(lenses), ", ".join(lenses)),
+            "only {:d} lenses: {}".format(len(lenses), ", ".join(lenses)),
         )
     if it_ideas < 3:
         add(
@@ -3362,13 +3363,13 @@ PAUSE_MINUTES = 10  # a longer gap between two decisions is a break, not review 
 
 
 def moment(stamp):
-    return datetime.datetime.fromisoformat(stamp.replace("Z", "+00:00"))
+    return datetime.datetime.fromisoformat(stamp)
 
 
 def gaps(stamps):
     """Minutes before each decision after the first, in time order; a break counts as nothing."""
     times = sorted(moment(t) for t in stamps)
-    minutes = [(b - a).total_seconds() / 60 for a, b in zip(times, times[1:])]
+    minutes = [(b - a).total_seconds() / 60 for a, b in itertools.pairwise(times)]
     return [m if m <= PAUSE_MINUTES else 0 for m in minutes]
 
 

@@ -172,10 +172,13 @@ def fix(text):
 def main(paths):
     status = 0
     for path in paths:
-        for n, line in enumerate(open(path, encoding="utf-8"), 1):
-            for hit in find(line):
-                print(('{}:{:d}: no serial comma in "{}"').format(path, n, hit["list"]))
-                status = 1
+        with open(path, encoding="utf-8") as lines:
+            for n, line in enumerate(lines, 1):
+                for hit in find(line):
+                    print(
+                        '{}:{:d}: no serial comma in "{}"'.format(path, n, hit["list"])
+                    )
+                    status = 1
     return status
 
 

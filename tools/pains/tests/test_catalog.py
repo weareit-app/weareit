@@ -73,6 +73,7 @@ class Base(unittest.TestCase):
         return subprocess.run(
             [sys.executable, str(SCRIPT), *args, "--root", str(self.tmp)],
             capture_output=True,
+            check=False,
             text=True,
         )
 
@@ -924,7 +925,7 @@ class ReviewTest(Base):
         self.assertNotIn('"payload"', html)
 
     def test_later_proposals_return(self):
-        sweep, refine = fixture_runs(self.tmp)
+        _sweep, refine = fixture_runs(self.tmp)
         catalog.write(
             self.tmp / catalog.LATER,
             {
@@ -953,7 +954,7 @@ class ReviewTest(Base):
         )
 
     def test_duplicates_across_sweeps_and_similar_catalog_pains_are_flagged(self):
-        sweep, refine = fixture_runs(self.tmp)
+        sweep, _refine = fixture_runs(self.tmp)
         other = self.tmp / catalog.sweep_new(self.tmp, "personal")["run"]
         catalog.write(
             other / "candidates.json",
@@ -986,7 +987,7 @@ class ReviewTest(Base):
         self.assertNotIn("twins", by["insurance-costs"])
 
     def test_similar_pain_in_catalog_is_listed(self):
-        sweep, refine = fixture_runs(self.tmp)
+        sweep, _refine = fixture_runs(self.tmp)
         doc = catalog.load(self.tmp)
         doc["pains"]["scam-worry"] = pain(
             "scam-worry", name="Scam worry", line="I lost money to a scam once."
@@ -1001,7 +1002,7 @@ class ReviewTest(Base):
         self.assertEqual([q["id"] for q in add["similar"]], ["scam-worry"])
 
     def test_same_proposal_from_two_runs_is_shown_once(self):
-        sweep, refine = fixture_runs(self.tmp)
+        _sweep, refine = fixture_runs(self.tmp)
         out = catalog.review_build(self.tmp, [refine, refine])
         self.assertEqual(out["byKind"]["merge"], 1)
         self.assertEqual(out["byKind"]["reword"], 1)
@@ -1019,7 +1020,7 @@ class ReviewTest(Base):
         self.assertEqual(out["byKind"], {"add": 2, "merge": 1, "move": 1, "reword": 1})
 
     def test_unchecked_run_is_refused(self):
-        sweep, refine = fixture_runs(self.tmp)
+        _sweep, refine = fixture_runs(self.tmp)
         for sort in (refine / "sorts").glob("*.json"):
             sort.unlink()  # refine-check now fails: no blind sorts
         with self.assertRaises(catalog.CheckError):
@@ -1346,7 +1347,7 @@ class IngestTest(Base):
             },
             first["id"]: {"decision": "reject", "duplicateOf": ["insurance-costs"]},
         }
-        after, touched, log, later, issues = catalog.apply_decisions(
+        after, _touched, _log, _later, issues = catalog.apply_decisions(
             catalog.load(self.tmp), doc, {"decisions": decisions}
         )
         self.assertEqual(issues, [])
@@ -1499,7 +1500,7 @@ class IngestTest(Base):
                 },
             }
         )
-        after, touched, log, later, issues = catalog.apply_decisions(
+        after, _touched, _log, _later, issues = catalog.apply_decisions(
             catalog.load(self.tmp), doc, {"decisions": {"p999": {"decision": "accept"}}}
         )
         self.assertEqual(issues, [])

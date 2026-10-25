@@ -878,18 +878,21 @@ class Cli(Base):
         bad = subprocess.run(
             base + ["new-run", "not-a-pain", "--root", str(self.tmp)],
             capture_output=True,
+            check=False,
             text=True,
         )
         self.assertEqual(bad.returncode, 2)
         escape = subprocess.run(
             base + ["lint", str(self.tmp), "--root", str(self.tmp)],
             capture_output=True,
+            check=False,
             text=True,
         )
         self.assertEqual(escape.returncode, 2)
         ok = subprocess.run(
             base + ["new-run", "burnout", "--root", str(self.tmp)],
             capture_output=True,
+            check=False,
             text=True,
         )
         self.assertEqual(ok.returncode, 0, ok.stderr)
@@ -917,6 +920,7 @@ class Cli(Base):
                 str(self.tmp),
             ],
             capture_output=True,
+            check=False,
             text=True,
         )
         self.assertEqual(result.returncode, 0, result.stderr)
@@ -940,6 +944,7 @@ class Cli(Base):
                 str(self.tmp),
             ],
             capture_output=True,
+            check=False,
             text=True,
         )
         self.assertEqual(result.returncode, 0, result.stdout)

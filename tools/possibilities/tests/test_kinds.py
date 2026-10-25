@@ -86,7 +86,7 @@ def with_kinds(*kinds):
     def change(doc):
         for kind in kinds:
             fix = {"ask": ask_fix, "resource": resource_fix}.get(
-                kind, lambda d: trial_fix(d, kind)
+                kind, lambda d, kind=kind: trial_fix(d, kind)
             )("burnout-d00")
             doc["fixes"][f"burnout-d00-{kind}1"] = fix
             doc["pools"][kind] = {"shortfalls": {}}

@@ -13,6 +13,7 @@ def cli(root, *args):
     return subprocess.run(
         [sys.executable, str(SCRIPT), *args, "--root", str(root)],
         capture_output=True,
+        check=False,
         text=True,
     )
 
@@ -27,7 +28,10 @@ TITLES = (
 )
 
 
-def dreams_doc(pain="burnout", count=len(TITLES)):
+DREAM_COUNT = len(TITLES)
+
+
+def dreams_doc(pain="burnout", count=DREAM_COUNT):
     """Drafted dreams: a title, a line, and provenance each. Dreams carry no lens, ambition, or examples (2026-10-20)."""
     dreams = {}
     for i, title in enumerate(TITLES[:count]):

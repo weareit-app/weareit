@@ -761,12 +761,12 @@ def coverage_markdown(result):
     ]
     for row in result["lists"].values():
         share = (
-            ("{:d}%").format(round(row["share"] * 100))
+            "{:d}%".format(round(row["share"] * 100))
             if row["share"] is not None
             else "–"
         )
         lines.append(
-            ("| [{}]({}) | {:d} of {:d} | {} | {} |").format(
+            "| [{}]({}) | {:d} of {:d} | {} | {} |".format(
                 cell(row["name"]),
                 row["url"],
                 row["covered"],
@@ -1385,7 +1385,7 @@ def refine_proposals(catalog, run):
             }
         )
     flags = [
-        ("{} has {:d} shown pains (page median {:g}): {}").format(
+        "{} has {:d} shown pains (page median {:g}): {}".format(
             names[f["group"]], f["shown"], f["median"], f["flag"]
         )
         for f in (
@@ -1690,7 +1690,7 @@ def archive(root, set_dirs, name=None):
                 ", ".join(sorted(refine_runs))
             )
         )
-    out = root / ARCHIVE / ((name or batch_name(sorted(sets)[0])) + ".jsonl")
+    out = root / ARCHIVE / ((name or batch_name(min(sets))) + ".jsonl")
     if out.exists():
         raise CheckError(
             f"{out.relative_to(root)} already exists; archives are never overwritten"
@@ -1829,7 +1829,7 @@ def apply_decisions(catalog, proposals_doc, decisions_doc, date=None):
             "note": d.get("note", ""),
         }
 
-        def note(pain_id, **fields):
+        def note(pain_id, entry=entry, **fields):
             pains[pain_id]["history"].append({**entry, **fields})
             touched[pain_id] = True
 
@@ -2427,13 +2427,15 @@ def render(catalog, root):
     lines = [
         "# Pain catalog",
         "",
-        "Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py render`; edit the JSON through the "
-        "pipeline, not this page. Rules and commands: [tools/pains/README.md](../../../tools/pains/README.md).",
+        (
+            "Generated from [catalog.json](catalog.json) by `python3 tools/pains/catalog.py render`; edit the JSON through the "
+            "pipeline, not this page. Rules and commands: [tools/pains/README.md](../../../tools/pains/README.md)."
+        ),
         "",
     ]
     counts = {s: sum(p["status"] == s for p in pains) for s in STATUSES}
     lines += [
-        ("{:d} pains: {:d} shown, {}.").format(
+        "{:d} pains: {:d} shown, {}.".format(
             len(pains),
             sum(p["role"] == "shown" for p in pains),
             ", ".join((f"{n:d} {s}") for s, n in counts.items() if n),
@@ -2448,7 +2450,7 @@ def render(catalog, root):
         ):
             members = [p for p in pains if p["group"] == g["id"]]
             lines += [
-                ("### {} ({:d} shown)").format(
+                "### {} ({:d} shown)".format(
                     g["name"], sum(p["role"] == "shown" for p in members)
                 ),
                 "",
