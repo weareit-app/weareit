@@ -2,6 +2,7 @@ import {
   createApiClient,
   describeApiFailure as describeFailureAt,
 } from "@it/api-contract/client";
+import { appEnv } from "./env";
 
 let cmsToken: string | null = null;
 let sessionCookieProvider: (() => Promise<string | null>) | null = null;
@@ -16,8 +17,7 @@ export function setSessionCookieProvider(
   sessionCookieProvider = provider;
 }
 
-export const apiUrl =
-  process.env.EXPO_PUBLIC_API_URL ?? "http://localhost:3001/rpc";
+export const apiUrl = appEnv.apiUrl;
 
 // The web app sends the session cookie itself; native passes it as a header.
 export const apiClient = createApiClient({

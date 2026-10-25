@@ -1,4 +1,4 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const purchases = vi.hoisted(() => ({
   configure: vi.fn(),
@@ -7,15 +7,16 @@ const purchases = vi.hoisted(() => ({
 }));
 
 vi.mock("react-native-purchases", () => ({ default: purchases }));
+vi.mock("../env", () => ({
+  appEnv: {
+    apiUrl: "http://localhost:3001/rpc",
+    revenueCatIosApiKey: "rc_public_test",
+  },
+}));
 
 beforeEach(() => {
   vi.resetModules();
   vi.clearAllMocks();
-  vi.stubEnv("EXPO_PUBLIC_REVENUECAT_IOS_API_KEY", "rc_public_test");
-});
-
-afterEach(() => {
-  vi.unstubAllEnvs();
 });
 
 describe("iOS support purchases", () => {
