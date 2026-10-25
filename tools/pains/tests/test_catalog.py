@@ -19,7 +19,7 @@ def pain(pain_id, group="money", page="personal", **extra):
     record = {
         "id": pain_id,
         "name": pain_id.replace("-", " ").capitalize(),
-        "line": "I worry about {}.".format(pain_id),
+        "line": f"I worry about {pain_id}.",
         "page": page,
         "group": group,
         "secondaryGroups": [],
@@ -281,7 +281,7 @@ def candidate(cid, **extra):
     c = {
         "id": cid,
         "name": cid.replace("-", " ").capitalize(),
-        "line": "I lost money to {}.".format(cid),
+        "line": f"I lost money to {cid}.",
         "page": "personal",
         "group": "money",
         "sources": [source()],
@@ -640,7 +640,7 @@ class RefineTest(Base):
     def sorts(self, *placements):
         for n, pl in enumerate(placements, 1):
             catalog.write(
-                self.run / "sorts" / ("%d.json" % n),
+                self.run / "sorts" / (f"{n:d}.json"),
                 {"sorter": "isolated", "placements": pl},
             )
 
@@ -804,7 +804,7 @@ class RefineTest(Base):
             {"id": "safety", "name": "Safety", "page": "societal", "order": 7}
         )
         for i in range(6):
-            doc["pains"]["e%d" % i] = pain("e%d" % i, "economy", "societal")
+            doc["pains"][(f"e{i:d}")] = pain((f"e{i:d}"), "economy", "societal")
         doc["pains"]["crime"] = pain("crime", "safety", "societal")
         flags = catalog.balance(doc, "societal")["flags"]
         self.assertIn(
@@ -899,7 +899,7 @@ def fixture_runs(base):
     full = {k: p["group"] for k, p in doc["pains"].items() if p["page"] == "personal"}
     for n, moved in enumerate(({"homeless": "money"}, {"homeless": "money"}, {}), 1):
         catalog.write(
-            refine / "sorts" / ("%d.json" % n),
+            refine / "sorts" / (f"{n:d}.json"),
             {"sorter": "isolated", "placements": {**full, **moved}},
         )
     assert catalog.refine_check(base, refine)["issues"] == []
@@ -1601,7 +1601,7 @@ class CmsClientTest(unittest.TestCase):
         self.addCleanup(server.server_close)
         self.addCleanup(server.shutdown)
         client = catalog.CmsClient(
-            "http://127.0.0.1:%d" % server.server_port, "test-token"
+            (f"http://127.0.0.1:{server.server_port:d}"), "test-token"
         )
         self.assertEqual(client.get_draft()["revision"], 7)
         self.assertEqual(client.save_draft(7, "note", {})["revision"], 8)

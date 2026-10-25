@@ -20,7 +20,7 @@ class StagedFlow(StagedBase):
     def setUp(self):
         super().setUp()
         for page in ("dream-review", "fix-review"):
-            template = "tools/possibilities/config/{}-page.template.html".format(page)
+            template = f"tools/possibilities/config/{page}-page.template.html"
             shutil.copy(ROOT / template, self.tmp / template)
         result = cli(self.tmp, "new-run", "burnout", "--staged", "--pilot")
         self.assertEqual(result.returncode, 0, result.stderr)
@@ -43,7 +43,7 @@ class StagedFlow(StagedBase):
     def founder_stop(self, stage, build):
         refused = cli(self.tmp, "start", str(self.run_dir), stage)
         self.assertEqual(refused.returncode, 2)
-        self.assertIn("{} is a founder stop".format(stage), refused.stderr)
+        self.assertIn(f"{stage} is a founder stop", refused.stderr)
         return self.ok(build, str(self.run_dir))
 
     def save(self, name, decisions):
@@ -129,7 +129,7 @@ class StagedFlow(StagedBase):
         self.assertEqual(self.next(), "judge")
         self.ok("start", str(self.run_dir), "judge")
         for n in (1, 2, 3):
-            cards.write(self.run_dir / ("judgments-%d.json" % n), dream_judgments())
+            cards.write(self.run_dir / (f"judgments-{n:d}.json"), dream_judgments())
         self.ok("consensus", str(self.run_dir))
         self.ok("select", str(self.run_dir))
 

@@ -12,7 +12,7 @@ FIX = "burnout-d00-t1"
 class StagedCopyLint(GraphLint):
     def write_age_limit_examples(self):
         """ex-1 is Australia's age limit; ex-2 is a Minnesota warning label, so Minnesota is a place the run knows."""
-        examples = {"ex-%d" % i: exemplar(i) for i in range(12)}
+        examples = {(f"ex-{i:d}"): exemplar(i) for i in range(12)}
         examples["ex-1"].update(
             name="Social media minimum age",
             place="Australia",
@@ -76,7 +76,7 @@ class Sourcing(StagedCopyLint):
         )
 
     def test_fix_citing_an_unverified_example_is_flagged(self):
-        examples = {"ex-%d" % i: exemplar(i, verified=i != 1) for i in range(12)}
+        examples = {(f"ex-{i:d}"): exemplar(i, verified=i != 1) for i in range(12)}
         cards.write(
             self.run_dir / "exemplars.json",
             {"schemaVersion": 1, "painId": "burnout", "exemplars": examples},
@@ -85,7 +85,7 @@ class Sourcing(StagedCopyLint):
 
     def test_fix_with_no_name_or_number_anywhere_is_not_specific(self):
         examples = {
-            "ex-%d" % i: dict(exemplar(i), name="a local cooperative")
+            (f"ex-{i:d}"): dict(exemplar(i), name="a local cooperative")
             for i in range(12)
         }
         cards.write(
@@ -333,7 +333,7 @@ class Malformed(StagedCopyLint):
         self.assertIn("it-led-coverage", {i["rule"] for i in self.lint(change)})
 
     def test_exemplar_that_is_not_a_record_does_not_crash_lint(self):
-        examples = {"ex-%d" % i: exemplar(i) for i in range(12)}
+        examples = {(f"ex-{i:d}"): exemplar(i) for i in range(12)}
         examples["ex-1"] = "not a record"
         cards.write(
             self.run_dir / "exemplars.json",

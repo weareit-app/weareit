@@ -19,7 +19,7 @@ class StagedCalibration(Judging):
         fixes = cards.read(self.run_dir / "fixes.json")
         for key, fix in fixes["fixes"].items():
             fix["whatChanges"] = (
-                "The laptop stays by the door for {}, so work ends there.".format(key)
+                f"The laptop stays by the door for {key}, so work ends there."
             )
         cards.write(self.run_dir / "fixes.json", fixes)
         self.write("judgments.json", dream_judgments(failing=("burnout-d00",)))
@@ -32,18 +32,18 @@ class StagedCalibration(Judging):
         baseline = {}
         for pain in cards.KNOWN_PAINS:
             for j in range(2):
-                baseline["old-%s-%d" % (pain, j)] = {
+                baseline[(f"old-{pain}-{j:d}")] = {
                     "painId": pain,
                     "title": "Rested",
                     "line": "I wake up rested and ready.",
                     "fixes": [
                         {
-                            "id": "fx-{}-a".format(pain),
+                            "id": f"fx-{pain}-a",
                             "title": "Find sleep care",
                             "whatChanges": "Get help.",
                         },
                         {
-                            "id": "fx-{}-b".format(pain),
+                            "id": f"fx-{pain}-b",
                             "title": "Share the load",
                             "whatChanges": "Agree duties.",
                         },
@@ -79,7 +79,7 @@ class StagedCalibration(Judging):
         self.assertEqual(
             [f["whatChanges"] for f in item["fixes"]],
             [
-                "The laptop stays by the door for {}, so work ends there.".format(k)
+                f"The laptop stays by the door for {k}, so work ends there."
                 for k in ("burnout-d02-t1", "burnout-d02-t2", SHARED)
             ],
         )
@@ -127,7 +127,7 @@ class StagedCalibration(Judging):
                     k: {
                         "rating": rating_for(v),
                         "reason": "Clear and real.",
-                        "ratedAt": "2026-10-20T10:%02d:00Z" % i,
+                        "ratedAt": (f"2026-10-20T10:{i:02d}:00Z"),
                     }
                     for i, (k, v) in enumerate(sorted(key.items()))
                 }

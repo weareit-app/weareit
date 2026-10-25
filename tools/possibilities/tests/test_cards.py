@@ -20,10 +20,10 @@ AMBITION_CYCLE = ("tonight", "this-year", "together")
 
 def exemplar(i, verified=True):
     e = {
-        "name": "Example %d Cooperative" % i,
+        "name": (f"Example {i:d} Cooperative"),
         "place": "Preston",
         "year": 2011 + i,
-        "outcome": "%d homes" % (10 * i),
+        "outcome": (f"{10 * i:d} homes"),
         "lens": LENS_CYCLE[i % len(LENS_CYCLE)],
         "verified": verified,
         "limits": "One town; self-reported.",
@@ -31,7 +31,7 @@ def exemplar(i, verified=True):
     if verified:
         e.update(
             {
-                "url": "https://example.org/%d" % i,
+                "url": (f"https://example.org/{i:d}"),
                 "accessed": "2026-10-17",
                 "locator": "section 2",
             }
@@ -49,11 +49,11 @@ def card(i):
         "status": "real_now",
         "fixes": [
             {
-                "id": "f%d-a" % i,
+                "id": (f"f{i:d}-a"),
                 "title": "Switch to a forward-moving shift schedule",
                 "whatChanges": "A Preston co-op moved shifts later, not earlier.",
                 "who": "Workers and their scheduler",
-                "exemplarRef": "ex-%d" % i,
+                "exemplarRef": (f"ex-{i:d}"),
                 "speculative": False,
                 "firstStep": "Write down your last 14 shift start times.",
                 "firstStepMinutes": 10,
@@ -61,7 +61,7 @@ def card(i):
                 "kind": "task",
             },
             {
-                "id": "f%d-b" % i,
+                "id": (f"f{i:d}-b"),
                 "title": "Start a 9pm drawer pact with 3 housemates",
                 "whatChanges": "Reminds everyone at 9pm."
                 if it_idea
@@ -138,7 +138,7 @@ class Base(unittest.TestCase):
             {
                 "schemaVersion": 1,
                 "painId": pain,
-                "exemplars": {"ex-%d" % i: exemplar(i) for i in range(n)},
+                "exemplars": {(f"ex-{i:d}"): exemplar(i) for i in range(n)},
             },
         )
         cs = {}
@@ -146,7 +146,7 @@ class Base(unittest.TestCase):
             c = card(i)
             for f in c["fixes"]:
                 f["id"] = pain + "-" + f["id"]
-            cs["%s-c%02d" % (pain, i)] = c
+            cs[(f"{pain}-c{i:02d}")] = c
         cards.write(
             run / "cards.json", {"schemaVersion": 1, "painId": pain, "cards": cs}
         )
@@ -630,14 +630,14 @@ class Calibration(Base):
             cards.write(run / "judgments.json", judgments(ids))
             cards.select(run)
             for j in range(2):
-                baseline["old-%s-%d" % (pain, j)] = {
+                baseline[(f"old-{pain}-{j:d}")] = {
                     "painId": pain,
                     "title": "Rested",
                     "line": "I wake up rested and ready.",
                     "scene": "",
                     "fixes": [
                         {
-                            "id": "fx-{}-a".format(pain),
+                            "id": f"fx-{pain}-a",
                             "title": "Find sleep care",
                             "whatChanges": "Get help.",
                         },
@@ -680,7 +680,10 @@ class Calibration(Base):
     def export(self, rating_for):
         key = cards.read(self.cal / "key.json")
         ratings = {
-            k: {"rating": rating_for(v), "ratedAt": "2026-10-18T10:%02d:00Z" % i}
+            k: {
+                "rating": rating_for(v),
+                "ratedAt": (f"2026-10-18T10:{i:02d}:00Z"),
+            }
             for i, (k, v) in enumerate(sorted(key.items()))
         }
         path = self.tmp / "export.json"

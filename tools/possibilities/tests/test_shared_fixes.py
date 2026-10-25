@@ -31,7 +31,7 @@ def shared_doc(*fixes):
     return {
         "schemaVersion": 2,
         "painId": "burnout",
-        "fixes": {"burnout-s%d" % i: f for i, f in enumerate(fixes, 1)},
+        "fixes": {(f"burnout-s{i:d}"): f for i, f in enumerate(fixes, 1)},
         "pools": {},
         "shared": {"draftedAt": "2026-10-20"},
     }

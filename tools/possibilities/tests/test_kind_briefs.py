@@ -74,9 +74,7 @@ class EveryKindHasABrief(unittest.TestCase):
         self.assertEqual(set(cards.KINDS) - RESERVED, set(cards.KIND_BRIEFS))
         self.assertEqual(files, set(cards.KIND_BRIEFS) | set(cards.TRIAL_KIND_BRIEFS))
         for kind, brief in {**cards.KIND_BRIEFS, **cards.TRIAL_KIND_BRIEFS}.items():
-            self.assertEqual(
-                brief, "tools/possibilities/briefs/kinds/{}.md".format(kind)
-            )
+            self.assertEqual(brief, f"tools/possibilities/briefs/kinds/{kind}.md")
 
 
 class EveryKindBriefSetsLensAndAmbition(unittest.TestCase):

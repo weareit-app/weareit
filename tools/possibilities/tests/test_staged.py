@@ -31,12 +31,12 @@ def dreams_doc(pain="burnout", count=len(TITLES)):
     """Drafted dreams: a title, a line, and provenance each. Dreams carry no lens, ambition, or examples (2026-10-20)."""
     dreams = {}
     for i, title in enumerate(TITLES[:count]):
-        dreams["%s-d%02d" % (pain, i)] = {
+        dreams[(f"{pain}-d{i:02d}")] = {
             "title": title,
             "line": "I stop work while there is still light outside.",
             "provenance": {
                 "sourceId": "generator-run-x",
-                "locator": "dreams.json#%s-d%02d" % (pain, i),
+                "locator": (f"dreams.json#{pain}-d{i:02d}"),
                 "evidenceType": "ai_generated_from_exemplars",
                 "rights": "CC-BY-SA-4.0",
                 "reviewStatus": "unreviewed",
@@ -87,7 +87,7 @@ class StagedBase(Base):
             {
                 "schemaVersion": 1,
                 "painId": "burnout",
-                "exemplars": {"ex-%d" % i: exemplar(i) for i in range(n)},
+                "exemplars": {(f"ex-{i:d}"): exemplar(i) for i in range(n)},
             },
         )
 
@@ -352,7 +352,7 @@ class DreamScreen(StagedBase):
         found = self.screen(change)
         for key in ("burnout-d00", "burnout-d01", "burnout-d02"):
             self.assertIn(
-                "dream screen {}: needs pass and a one-sentence reason".format(key),
+                f"dream screen {key}: needs pass and a one-sentence reason",
                 found,
             )
 
@@ -633,9 +633,7 @@ class DreamReview(StagedBase):
         result = self.ingest(path)
         self.assertEqual(result.returncode, 2, result.stdout)
         self.assertIn(
-            "the dream screen of {} is missing or out of date".format(
-                self.run_dir.name
-            ),
+            f"the dream screen of {self.run_dir.name} is missing or out of date",
             result.stderr,
         )
 

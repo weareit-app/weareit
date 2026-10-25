@@ -63,9 +63,7 @@ def unique_keys(pairs):
     seen = {}
     for key, value in pairs:
         if key in seen:
-            raise CheckError(
-                'duplicate key "{}"; an ID can only be used once'.format(key)
-            )
+            raise CheckError(f'duplicate key "{key}"; an ID can only be used once')
         seen[key] = value
     return seen
 
@@ -440,9 +438,7 @@ def scope_pains(catalog, scope):
             for p in catalog["pains"].values()
             if scope in [p["group"]] + p.get("secondaryGroups", [])
         ]
-    raise KeyError(
-        "Unknown scope {}: use a group ID, personal, societal or all".format(scope)
-    )
+    raise KeyError(f"Unknown scope {scope}: use a group ID, personal, societal or all")
 
 
 def sweep_new(root, scope):
@@ -528,8 +524,7 @@ def check_candidates(catalog, doc, origin=None):
             origin
             and record
             and any(
-                "({}, review ".format(origin) in h.get("prompt", "")
-                for h in record["history"]
+                f"({origin}, review " in h.get("prompt", "") for h in record["history"]
             )
         ):
             skipped.append(
@@ -569,8 +564,7 @@ def check_candidates(catalog, doc, origin=None):
         for number in re.findall(r"\d[\d,.]*\d|\d", str(c.get("prevalence", ""))):
             require(
                 number.replace(",", "").rstrip(".") in passages,
-                where
-                + ": prevalence figure {} is not in any cited passage".format(number),
+                where + f": prevalence figure {number} is not in any cited passage",
                 issues,
             )
         # Duplicates: same wording or alias, or a source entry already covered.
@@ -689,7 +683,7 @@ def coverage(root, run, origin=None):
     for list_id, info in lists.items():
         covered, uncovered = [], []
         for entry_id, entry in info.get("entries", {}).items():
-            key = "{}/{}".format(list_id, entry_id)
+            key = f"{list_id}/{entry_id}"
             m = mapping.get(key, {})
             pain = by_entry.get(key) or catalog["pains"].get(m.get("painId"))
             if pain and pain["status"] == "rejected":
@@ -721,7 +715,7 @@ def coverage(root, run, origin=None):
                     else None
                 )
                 if not reason:
-                    issues.append("{}: uncovered entry has no reason".format(key))
+                    issues.append(f"{key}: uncovered entry has no reason")
                 uncovered.append(
                     {
                         "entry": entry_id,
@@ -758,17 +752,21 @@ def coverage_markdown(result):
     lines = [
         "# Coverage",
         "",
-        "Target: %d%% of each list, counted per list. Each uncovered entry has a reason."
-        % (result["target"] * 100),
+        (
+            "Target: {:d}% of each list, counted per list. Each uncovered entry has a reason."
+        ).format(int(result["target"] * 100)),
         "",
         "| List | Covered | Share | Target met |",
         "| --- | --- | --- | --- |",
     ]
     for row in result["lists"].values():
-        share = "%d%%" % round(row["share"] * 100) if row["share"] is not None else "–"
+        share = (
+            ("{:d}%").format(round(row["share"] * 100))
+            if row["share"] is not None
+            else "–"
+        )
         lines.append(
-            "| [%s](%s) | %d of %d | %s | %s |"
-            % (
+            ("| [{}]({}) | {:d} of {:d} | {} | {} |").format(
                 cell(row["name"]),
                 row["url"],
                 row["covered"],
@@ -855,12 +853,12 @@ def lint_wording(name, line, pain_id, sensitive, config):
     if len(tokens(line, config["stopwords"])) <= 1:
         add(
             "vague-line",
-            'nothing to picture in "{}"; say what it looks like in a day'.format(line),
+            f'nothing to picture in "{line}"; say what it looks like in a day',
         )
     if len(name.split()) > 3:
         add(
             "name-length",
-            "name has %d words; a name is a short label" % len(name.split()),
+            (f"name has {len(name.split()):d} words; a name is a short label"),
         )
     id_words = [
         w for w in pain_id.split("-") if w not in config["stopwords"] and len(w) > 2
@@ -870,9 +868,7 @@ def lint_wording(name, line, pain_id, sensitive, config):
         # A note, not a failure: IDs are often deliberate phrases ("they-dont-listen"), and an ID never changes.
         add(
             "id-mismatch",
-            'ID {}, name "{}" and line "{}" share no word; propose a rewording only if the wording has drifted from what the ID names'.format(
-                pain_id, name, line
-            ),
+            f'ID {pain_id}, name "{name}" and line "{line}" share no word; propose a rewording only if the wording has drifted from what the ID names',
             "note",
         )
     for rule, key, field_text in (
@@ -882,7 +878,7 @@ def lint_wording(name, line, pain_id, sensitive, config):
         ("clinical-term", "clinical", line),
     ):
         for m in config[key].finditer(field_text) if config[key] else ():
-            add(rule, '"{}"'.format(m[0]))
+            add(rule, f'"{m[0]}"')
     for text in (name, line):
         for hit in serial_comma.find(text):
             add(
@@ -894,16 +890,14 @@ def lint_wording(name, line, pain_id, sensitive, config):
     for m in (
         config["acronyms"].finditer(name + " " + line) if config["acronyms"] else ()
     ):
-        add("regional-word", '"{}"'.format(m[0]))
+        add("regional-word", f'"{m[0]}"')
     if sensitive:
         for m in (
             config["graphic"].finditer(name + " " + line) if config["graphic"] else ()
         ):
             add(
                 "graphic-wording",
-                '"{}": check it is plain, not graphic. This never blocks the pain'.format(
-                    m[0]
-                ),
+                f'"{m[0]}": check it is plain, not graphic. This never blocks the pain',
                 "note",
             )
     return found
@@ -1068,7 +1062,7 @@ def refine_check(root, run):
     for pain_id in lint["failing"]:
         require(
             alternatives.get(pain_id),
-            "pain {} fails lint but has no alternatives".format(pain_id),
+            f"pain {pain_id} fails lint but has no alternatives",
             issues,
         )
     for pain_id, options in alternatives.items():
@@ -1076,7 +1070,7 @@ def refine_check(root, run):
         require(record, "alternatives for unknown pain " + pain_id, issues)
         require(
             isinstance(options, list) and 1 <= len(options) <= 2,
-            "pain {}: offer one or two alternatives".format(pain_id),
+            f"pain {pain_id}: offer one or two alternatives",
             issues,
         )
         for option in options if record and isinstance(options, list) else ():
@@ -1159,7 +1153,7 @@ def refine_check(root, run):
     moves, disagreements = [], []
     if len(sorts) < 3:
         issues.append(
-            "need at least 3 blind card sorts in sorts/; found %d" % len(sorts)
+            f"need at least 3 blind card sorts in sorts/; found {len(sorts):d}"
         )
     else:
         placements = []
@@ -1224,7 +1218,7 @@ def wording(p, **extra):
 def sweep_proposals(catalog, run):
     check = read(run / "check.json")
     if check["issues"]:
-        raise CheckError("{} has sweep-check issues; fix them first".format(run))
+        raise CheckError(f"{run} has sweep-check issues; fix them first")
     cands = read(run / "candidates.json")["candidates"]
     out = []
     for item, draft in [(c, False) for c in check["proposed"]] + [
@@ -1259,7 +1253,7 @@ def sweep_proposals(catalog, run):
 def refine_proposals(catalog, run):
     check = read(run / "refine-check.json")
     if check["issues"]:
-        raise CheckError("{} has refine-check issues; fix them first".format(run))
+        raise CheckError(f"{run} has refine-check issues; fix them first")
     pains = catalog["pains"]
     lint = read(run / "lint.json")["issues"] if (run / "lint.json").is_file() else []
     out = []
@@ -1391,8 +1385,9 @@ def refine_proposals(catalog, run):
             }
         )
     flags = [
-        "%s has %d shown pains (page median %g): %s"
-        % (names[f["group"]], f["shown"], f["median"], f["flag"])
+        ("{} has {:d} shown pains (page median {:g}): {}").format(
+            names[f["group"]], f["shown"], f["median"], f["flag"]
+        )
         for f in (
             read(run / "balance.json")["flags"]
             if (run / "balance.json").is_file()
@@ -1592,13 +1587,13 @@ def review_build(root, runs, name=None, extra=(), stage=None):
     for n, p in enumerate(proposals, 1):
         p.setdefault("draft", False)
         p.setdefault("side", [])
-        p["id"] = "p%03d" % n
+        p["id"] = f"p{n:03d}"
     set_id = base = (
         (name or "review") + "-" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
     )
     n = 2
     while (root / REVIEWS / set_id).exists():  # two sets built in the same second
-        set_id, n = "%s-%d" % (base, n), n + 1
+        set_id, n = (f"{base}-{n:d}"), n + 1
     folder = root / REVIEWS / set_id
     folder.mkdir(parents=True, exist_ok=False)
     doc = {
@@ -1698,9 +1693,7 @@ def archive(root, set_dirs, name=None):
     out = root / ARCHIVE / ((name or batch_name(sorted(sets)[0])) + ".jsonl")
     if out.exists():
         raise CheckError(
-            "{} already exists; archives are never overwritten".format(
-                out.relative_to(root)
-            )
+            f"{out.relative_to(root)} already exists; archives are never overwritten"
         )
     folders = [
         (("sweep" if (root / r / "sweep.json").is_file() else "refine"), root / r)
@@ -2038,7 +2031,7 @@ def slug(name, pains):
     base = re.sub(r"[^a-z0-9]+", "-", normalize(name)).strip("-") or "pain"
     candidate, n = base, 2
     while candidate in pains:
-        candidate, n = "%s-%d" % (base, n), n + 1
+        candidate, n = (f"{base}-{n:d}"), n + 1
     return candidate
 
 
@@ -2098,9 +2091,7 @@ def draft_patch(before, after, touched, draft):
                     {
                         "painId": pain_id,
                         "reason": "the editor has no retired state yet (pain-pages change); "
-                        "retire {} with {} as its replacement once it lands".format(
-                            pain_id, survivor
-                        ),
+                        f"retire {pain_id} with {survivor} as its replacement once it lands",
                     }
                 )
                 continue
@@ -2171,8 +2162,9 @@ def draft_patch(before, after, touched, draft):
         if not p.get("retired"):
             counts[p["domainId"]] = counts.get(p["domainId"], 0) + 1
     warnings = [
-        "%s would have %d shown pains (aim for %d-%d); nothing was cut or added because of it"
-        % (d["title"], counts.get(d["id"], 0), HEADING_MIN, HEADING_MAX)
+        (
+            "{} would have {:d} shown pains (aim for {:d}-{:d}); nothing was cut or added because of it"
+        ).format(d["title"], counts.get(d["id"], 0), HEADING_MIN, HEADING_MAX)
         for d in content["domains"]
         if not HEADING_MIN <= counts.get(d["id"], 0) <= HEADING_MAX
     ]
@@ -2220,12 +2212,10 @@ class CmsClient:
                 return json.loads(response.read() or b"{}").get("json")
         except urllib.error.HTTPError as error:
             detail = error.read().decode(errors="replace")[:300]
-            raise CheckError("cms.%s failed (%d): %s" % (operation, error.code, detail))
+            raise CheckError(f"cms.{operation} failed ({error.code:d}): {detail}")
         except urllib.error.URLError as error:
             raise CheckError(
-                "cannot reach the content editor API at {}: {}".format(
-                    self.url, error.reason
-                )
+                f"cannot reach the content editor API at {self.url}: {error.reason}"
             )
 
     def get_draft(self):
@@ -2245,7 +2235,7 @@ class CmsClient:
 def ingest(root, set_dir, decisions_path, client=None, dry_run=False, date=None):
     root, set_dir = Path(root), Path(set_dir)
     if (set_dir / "ingested.json").is_file():
-        raise CheckError("{} was already ingested".format(set_dir.name))
+        raise CheckError(f"{set_dir.name} was already ingested")
     proposals_doc, decisions_doc = (
         read(set_dir / "proposals.json"),
         read(decisions_path),
@@ -2443,11 +2433,10 @@ def render(catalog, root):
     ]
     counts = {s: sum(p["status"] == s for p in pains) for s in STATUSES}
     lines += [
-        "%d pains: %d shown, %s."
-        % (
+        ("{:d} pains: {:d} shown, {}.").format(
             len(pains),
             sum(p["role"] == "shown" for p in pains),
-            ", ".join("%d %s" % (n, s) for s, n in counts.items() if n),
+            ", ".join((f"{n:d} {s}") for s, n in counts.items() if n),
         ),
         "",
     ]
@@ -2459,8 +2448,9 @@ def render(catalog, root):
         ):
             members = [p for p in pains if p["group"] == g["id"]]
             lines += [
-                "### %s (%d shown)"
-                % (g["name"], sum(p["role"] == "shown" for p in members)),
+                ("### {} ({:d} shown)").format(
+                    g["name"], sum(p["role"] == "shown" for p in members)
+                ),
                 "",
                 "| ID | Name | Line | Status | Shown | Runs |",
                 "| --- | --- | --- | --- | --- | --- |",

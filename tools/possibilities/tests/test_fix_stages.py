@@ -56,7 +56,7 @@ def task_fix(dream, n):
             "keepsWorking": True,
             "lever": "remove-hassle",
         },
-        "exemplarRef": "ex-%d" % n,
+        "exemplarRef": (f"ex-{n:d}"),
         "speculative": False,
         "firstStep": "Clear a spot on the hall shelf tonight.",
         "firstStepMinutes": 5,
@@ -73,9 +73,7 @@ def task_fix(dream, n):
 def fixes_doc():
     """Two Task fixes for each accepted dream: a full pool against plan_doc(), after a shared pass that found none."""
     fixes = {
-        "%s-t%d" % (dream, n): task_fix(dream, n)
-        for dream in DREAMS[:5]
-        for n in (1, 2)
+        (f"{dream}-t{n:d}"): task_fix(dream, n) for dream in DREAMS[:5] for n in (1, 2)
     }
     return {
         "schemaVersion": 2,
@@ -124,7 +122,7 @@ def link(fix, dream, order, by="assembler"):
 def links_doc():
     """Each accepted dream linked to its own two Task fixes, plus one path candidate."""
     links = [
-        link("%s-t%d" % (dream, n), dream, n) for dream in DREAMS[:5] for n in (1, 2)
+        link((f"{dream}-t{n:d}"), dream, n) for dream in DREAMS[:5] for n in (1, 2)
     ]
     return {
         "schemaVersion": 2,
@@ -534,7 +532,7 @@ class Gate(FixStages):
             result = self.start(stage)
             self.assertEqual(result.returncode, 2, stage)
             self.assertIn(
-                "{} cannot start: {} is not complete".format(stage, pending),
+                f"{stage} cannot start: {pending} is not complete",
                 result.stderr,
             )
         self.write("plan.json", plan_doc())
