@@ -18,7 +18,7 @@ export const helpInterestIds = [
 export type HelpInterestId = (typeof helpInterestIds)[number];
 
 // The full pain → future → way path a person chose for one pain.
-export const personalPathSchema = z.strictObject({
+const personalPathSchema = z.strictObject({
   painId: z.string().min(1),
   dreamIds: idListSchema,
   fixIds: idListSchema,

@@ -22,7 +22,7 @@ const months = [
 ];
 
 // "2026-10-20" → "October 20, 2026", the same on the server and the client.
-export function formatEssayDate(date: string) {
+function formatEssayDate(date: string) {
   const [year, month, day] = date.split("-");
   return `${months[Number(month) - 1]} ${Number(day)}, ${Number(year)}`;
 }

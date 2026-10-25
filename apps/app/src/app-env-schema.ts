@@ -18,7 +18,7 @@ export const appEnvSchema = z.object({
 
 export type AppEnvInput = z.input<typeof appEnvSchema>;
 
-export class InvalidAppEnvError extends Error {
+class InvalidAppEnvError extends Error {
   constructor(error: z.ZodError) {
     super(`Invalid environment variables:\n${z.prettifyError(error)}`);
     this.name = "InvalidAppEnvError";

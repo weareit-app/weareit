@@ -7,7 +7,7 @@ export interface WebDownload {
   fitsBudget: boolean;
 }
 
-export const WEB_BUDGET_BYTES = 1024 * 1024; // FR-011
+const WEB_BUDGET_BYTES = 1024 * 1024; // FR-011
 
 export function measureWebDownload(): Promise<WebDownload> {
   const perf = globalThis.performance;
