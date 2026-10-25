@@ -55,8 +55,9 @@ jobs:
               changed=$(git diff --name-only --no-renames HEAD^1 HEAD)
               printf 'Changed files:\n%s\n' "$changed"
               # Docs-only when every file is Markdown at the root or under a docs folder.
-              # An allowlist, so a new folder runs everything until it's added here. A
-              # here-string rather than a pipe, so pipefail can't flip the result.
+              # An allowlist, so a new folder runs everything until it's added here.
+              # tools/docs-only-inputs fails if code these runs skip names a spec folder.
+              # A here-string rather than a pipe, so pipefail can't flip the result.
               if [ -n "$changed" ] && ! grep -q -v -E \
                 '^([^/]+|(docs|openspec|specs|\.specify)/.+)\.md$' <<<"$changed"; then
                 docs_only=true
@@ -101,6 +102,11 @@ jobs:
       # Every action must be SHA-pinned and reviewed in ci-actions.md. Runs before
       # the setup action so its pins are checked before they run; the runner's Node is enough.
       - run: node tools/action-pins/check-action-pins.mjs
+
+      # No code that docs-only pull requests skip may name a spec folder the docs-only
+      # allowlist covers. Runs on every pull request, since a spec reader arrives in a
+      # code pull request. Needs only the runner's Node.
+      - run: node tools/docs-only-inputs/check-docs-only-inputs.mjs
 
       # Decision records live in docs/architecture/decisions.md; fails if docs/adr/ exists.
       - run: node tools/decision-records/check-no-adr-folder.mjs

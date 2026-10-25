@@ -13,6 +13,7 @@ import { fileURLToPath } from "node:url";
 /** CI's `check` job, step by step; `verify.test.ts` fails if the two drift apart. */
 export const STEPS = [
   "node tools/action-pins/check-action-pins.mjs",
+  "node tools/docs-only-inputs/check-docs-only-inputs.mjs",
   "node tools/decision-records/check-no-adr-folder.mjs",
   "node tools/skills-sync/sync-skills.mjs --check",
   "pnpm run check:generated",
