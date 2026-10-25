@@ -453,7 +453,7 @@ def sweep_new(root, scope):
             "schemaVersion": 1,
             "scope": scope,
             "runId": stamp,
-            "startedAt": datetime.datetime.now(datetime.UTC)
+            "startedAt": datetime.datetime.now(datetime.timezone.utc)
             .replace(microsecond=0)
             .isoformat(),
             "finishedAt": None,
@@ -1785,7 +1785,9 @@ def apply_decisions(catalog, proposals_doc, decisions_doc, date=None):
     import copy
 
     date = date or today()
-    stamp = datetime.datetime.now(datetime.UTC).replace(microsecond=0).isoformat()
+    stamp = (
+        datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat()
+    )
     catalog = copy.deepcopy(catalog)
     pains = catalog["pains"]
     decisions = decisions_doc["decisions"]

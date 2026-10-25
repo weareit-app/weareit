@@ -4,7 +4,6 @@
 import argparse
 import datetime
 import importlib.util
-import itertools
 import json
 import random
 import re
@@ -138,7 +137,9 @@ def write(path, data):
 
 
 def now():
-    return datetime.datetime.now(datetime.UTC).replace(microsecond=0).isoformat()
+    return (
+        datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat()
+    )
 
 
 DATA_ROOT = (
@@ -3363,13 +3364,13 @@ PAUSE_MINUTES = 10  # a longer gap between two decisions is a break, not review 
 
 
 def moment(stamp):
-    return datetime.datetime.fromisoformat(stamp)
+    return datetime.datetime.fromisoformat(stamp.replace("Z", "+00:00"))
 
 
 def gaps(stamps):
     """Minutes before each decision after the first, in time order; a break counts as nothing."""
     times = sorted(moment(t) for t in stamps)
-    minutes = [(b - a).total_seconds() / 60 for a, b in itertools.pairwise(times)]
+    minutes = [(b - a).total_seconds() / 60 for a, b in zip(times, times[1:])]
     return [m if m <= PAUSE_MINUTES else 0 for m in minutes]
 
 

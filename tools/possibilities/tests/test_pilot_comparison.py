@@ -195,7 +195,7 @@ class BlindSet(Pilot):
 
 def stamp(seconds):
     return (
-        datetime.datetime(2026, 10, 21, 9, 0, tzinfo=datetime.UTC)
+        datetime.datetime(2026, 10, 21, 9, 0, tzinfo=datetime.timezone.utc)
         + datetime.timedelta(seconds=seconds)
     ).isoformat()
 
