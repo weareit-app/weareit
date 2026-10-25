@@ -1,0 +1,80 @@
+// knip finds unused files, exports, and dependencies, and dependencies used but not
+// declared (repo-conventions decision 4, #149). CI only, through `pnpm run knip`;
+// not in the pre-commit hook, since it reads the whole repo. Plugins find most entry
+// points (package.json scripts, Vitest, Jest, Playwright, Storybook, Expo Router's
+// `app/`); the entries below are the ones they can't see. An exception (`ignore*`)
+// goes here only, with a comment giving its reason.
+//
+// Syntax: knip 6.41.0's `schema-jsonc.json` and knip.dev ("Configuration",
+// "Monorepos and workspaces", the Expo, Expo Router, and Metro plugin pages),
+// checked 2026-10-25.
+{
+  "$schema": "./node_modules/knip/schema-jsonc.json",
+  "workspaces": {
+    ".": {
+      "entry": ["*.mts", "tools/*/*.mjs"]
+    },
+    "apps/app": {
+      "entry": [
+        // Metro picks a platform file (`group-icon.web.tsx`) over its base file at
+        // bundle time, so no import names it. Knip's Metro plugin would add this
+        // pattern, but it loads `metro.config.js`, whose NativeWind wrapper writes
+        // `nativewind-env.d.ts` into the folder knip runs from; it is off below.
+        "src/**/*.{ios,android,native,web}.{ts,tsx}",
+        "metro.config.js",
+        // Storybook's Vite config aliases `expo-router` to this stub by path.
+        ".storybook/expo-router-stub.tsx",
+        // The Jest config names its Babel plugin by path.
+        "dynamic-import-to-require.test-support.cjs"
+      ],
+      "metro": false,
+      // Served as static files: `src/essays/blocks/katex.ts` links the stylesheet by URL.
+      "ignoreFiles": ["public/**"],
+      "ignoreIssues": {
+        // The essay blocks lab routes load these with `require()` behind `__DEV__`, so
+        // release builds drop them; knip doesn't follow a required module's members.
+        "src/essays/lab/blocks-lab.tsx": ["exports"],
+        "src/essays/blocks/lab/essay-blocks-lab.tsx": ["exports"]
+      },
+      "ignoreDependencies": [
+        // Knip's Expo plugin expects expo-updates unless the config sets
+        // `updates.enabled: false`; the app doesn't use EAS Update.
+        "expo-updates",
+        // jest-expo's preset names these in the config the Jest plugin reads; they
+        // come with jest-expo, which the app declares.
+        "babel-jest",
+        "@expo/vector-icons",
+        "jest-watch-typeahead",
+        "jest-watch-select-projects",
+        "jest-environment-jsdom"
+      ]
+    },
+    "apps/api-server": {},
+    // Each package's `exports` files are entries (the generated essay modules,
+    // `packages/content/src/*.generated.ts`, among them). Knip skips an entry's
+    // unused exports by default; for the libraries it reports them, so an export
+    // subpath or a name that nothing else imports fails.
+    "packages/*": { "includeEntryExports": true },
+    "packages/content": {
+      "entry": ["scripts/*.ts"],
+      "ignoreDependencies": [
+        // `scripts/build-essays.ts` runs Biome's binary through
+        // `createRequire(...).resolve("@biomejs/biome/bin/biome")`, which knip
+        // doesn't follow.
+        "@biomejs/biome"
+      ]
+    },
+    "packages/database": {
+      // Kysely's FileMigrationProvider loads every file in the folder at run time.
+      "entry": ["scripts/*.ts", "src/migrations/*.ts"]
+    },
+    "packages/watercolor": {
+      // Run by hand: `node --experimental-strip-types packages/watercolor/scripts/...`.
+      "entry": ["scripts/*.ts"]
+    },
+    "tools/watercolor-sim": {
+      // Each is a command run by hand (see the folder's README).
+      "entry": ["*.ts"]
+    }
+  }
+}

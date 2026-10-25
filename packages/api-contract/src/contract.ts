@@ -278,7 +278,3 @@ export const apiContract = {
       ),
   }),
 };
-
-export type ApiContract = typeof apiContract;
-export type PublishedContent = z.infer<typeof publishedContentSchema>;
-export type CmsDraft = z.infer<typeof draftSchema>;
