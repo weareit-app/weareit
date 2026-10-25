@@ -1,21 +1,20 @@
-if (process.env.NODE_ENV === "production") {
+import { readEnv, readLocalMockEnv } from "./env";
+import { startApiServer } from "./server";
+
+// Runs the API with a fake Stripe group that routes every Stripe SDK call to
+// the local simulator (`mock-stripe.ts`). The values live only in this
+// process; it refuses to run in production.
+const mock = readLocalMockEnv();
+const env = readEnv();
+if (env.isProduction)
   throw new Error("The local Stripe mock API cannot run in production.");
-}
 
-const mockStripePort = Number(process.env.MOCK_STRIPE_PORT || "12111");
-if (
-  !Number.isInteger(mockStripePort) ||
-  mockStripePort < 1 ||
-  mockStripePort > 65535
-) {
-  throw new Error("MOCK_STRIPE_PORT must be a valid TCP port.");
-}
-
-process.env.STRIPE_API_BASE = `http://127.0.0.1:${mockStripePort}`;
-process.env.STRIPE_SECRET_KEY = "sk_test_local_mock";
-process.env.STRIPE_SUPPORT_PRODUCT_ID = "prod_local_support_it";
-process.env.STRIPE_WEBHOOK_SECRET = "whsec_local_mock";
-
-export {};
-
-await import("./index");
+await startApiServer({
+  ...env,
+  stripe: {
+    secretKey: "sk_test_local_mock",
+    productId: "prod_local_support_it",
+    webhookSecret: "whsec_local_mock",
+    apiBase: new URL(`http://127.0.0.1:${mock.MOCK_STRIPE_PORT}`),
+  },
+});
