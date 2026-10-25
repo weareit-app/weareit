@@ -1,3 +1,4 @@
+// biome-ignore-all lint/style/useNamingConvention: the keys are the family names @expo-google-fonts exports and global.css refers to.
 import {
   Bitter_400Regular,
   Bitter_400Regular_Italic,

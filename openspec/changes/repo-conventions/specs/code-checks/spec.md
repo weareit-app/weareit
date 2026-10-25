@@ -71,11 +71,22 @@ Lint SHALL enforce: kebab-case file and folder names; camelCase values, PascalCa
 - **THEN** lint fails and asks for `apiUrl`
 
 ### Requirement: Naming exceptions at the edges
-Naming rules SHALL allow only these exceptions: Expo Router file names (`_layout`, `+not-found`, `[id]`) and numbered snake_case migrations; snake_case property names in database table types and typed vendor payloads; default exports in `apps/app/app/**`, stories, and config files; and `packages/watercolor`'s `./shaders` entry.
+Naming rules SHALL allow only these exceptions: Expo Router file names (`_layout`, `+not-found`, `[id]`) and numbered snake_case migrations; any property name in `packages/database` (its table types and queries) and in the Stripe and RevenueCat code; default exports in `apps/app/app/**`, stories, and config files; `packages/watercolor`'s `./shaders` entry; and the property names below.
 
 #### Scenario: Route file
 - **WHEN** lint runs on `apps/app/app/_layout.tsx`
 - **THEN** its name and default export pass
+
+#### Scenario: Column name in a query
+- **WHEN** a repository in `packages/database` inserts `{ amount_minor: 500 }`
+- **THEN** lint passes
+
+### Requirement: Property names
+Object property names SHALL be camelCase, PascalCase, or CONSTANT_CASE, and camelCase only in `@it/domain`. A name a library or the API requires in another form (such as `baseURL`, `__html`, or the CMS API's snake_case version fields) SHALL carry an inline suppression that gives the reason.
+
+#### Scenario: Environment variable name in an env schema
+- **WHEN** an `env.ts` schema has a property named `DATABASE_URL`
+- **THEN** lint passes
 
 #### Scenario: snake_case in a domain type
 - **WHEN** a type in `@it/domain` has a snake_case property

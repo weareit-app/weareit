@@ -10,7 +10,10 @@ import { sql, type Kysely } from "kysely";
 import type { DB } from "./db";
 import type { ItDatabase } from "./database";
 
-export type ContentValidationIssue = { path: string; message: string };
+export interface ContentValidationIssue {
+  path: string;
+  message: string;
+}
 
 export class InvalidOnboardingDraftError extends Error {
   constructor(message: string) {

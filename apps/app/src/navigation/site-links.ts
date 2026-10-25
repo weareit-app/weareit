@@ -7,16 +7,19 @@ import { essayPublished } from "@it/content/essays";
 
 export const CONTACT_EMAIL = "hello@weareit.app";
 
-export type SiteLink = {
+export interface SiteLink {
   label: string;
   href: string;
   /** Who sees it: everyone, or only signed-in or signed-out people. */
   when: "always" | "signed-in" | "signed-out";
   /** Flip to true when the page ships; unpublished links never render. */
   published: boolean;
-};
+}
 
-export type SiteGroup = { title: string; links: SiteLink[] };
+export interface SiteGroup {
+  title: string;
+  links: SiteLink[];
+}
 
 const page = (label: string, href: string, published = false): SiteLink => ({
   label,
@@ -87,7 +90,9 @@ export function isListedPage(
   );
 }
 
-type Viewer = { signedIn: boolean };
+interface Viewer {
+  signedIn: boolean;
+}
 
 export function visibleLinks(links: SiteLink[], { signedIn }: Viewer) {
   return links.filter(

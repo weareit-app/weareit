@@ -26,14 +26,14 @@ import { chromium, type Browser } from "@playwright/test";
 
 const themes = ["light", "dark"] as const;
 type Theme = (typeof themes)[number];
-type Shot = {
+interface Shot {
   id: string;
   title: string;
   name: string;
   theme: Theme;
   file: string;
   error?: string;
-};
+}
 
 const appDir = resolve(import.meta.dirname, "..");
 const outDir = join(appDir, "storybook-review");
@@ -145,6 +145,7 @@ async function shoot(
           () => {
             const current = (
               window as {
+                // biome-ignore lint/style/useNamingConvention: Storybook names this internal global.
                 __STORYBOOK_PREVIEW__?: {
                   currentRender?: { phase?: string };
                 };

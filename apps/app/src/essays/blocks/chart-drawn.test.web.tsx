@@ -8,14 +8,16 @@ const mockEmbed = jest.fn((element: HTMLElement) => {
   return Promise.resolve({ finalize: jest.fn() });
 });
 jest.mock("vega-embed", () => ({
+  // biome-ignore lint/style/useNamingConvention: the interop flag that marks a mocked module as an ES module.
   __esModule: true,
   default: (...args: unknown[]) => mockEmbed(...(args as [HTMLElement])),
 }));
 
 // Tells React this test drives updates through act().
-(
-  globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }
-).IS_REACT_ACT_ENVIRONMENT = true;
+
+// biome-ignore lint/style/useNamingConvention: React names this global.
+const reactGlobals = globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean };
+reactGlobals.IS_REACT_ACT_ENVIRONMENT = true;
 
 async function renderChart() {
   const container = document.createElement("div");

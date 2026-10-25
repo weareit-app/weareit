@@ -171,7 +171,7 @@ function useFrameSampler(
   };
 }
 
-export default function LabScreen() {
+export function LabScreen() {
   const [palette, setPalette] = useState<PaletteId>("it-orb");
   const [motion, setMotion] = useState<DotMotion>("still");
   const [measuring, setMeasuring] = useState<{

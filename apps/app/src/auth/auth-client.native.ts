@@ -4,10 +4,11 @@ import { emailOTPClient } from "better-auth/client/plugins";
 import { appEnv } from "../env";
 import * as SecureStore from "expo-secure-store";
 
-const baseURL = appEnv.apiUrl.replace(/\/rpc\/?$/, "");
+const baseUrl = appEnv.apiUrl.replace(/\/rpc\/?$/, "");
 
 export const authClient = createAuthClient({
-  baseURL,
+  // biome-ignore lint/style/useNamingConvention: better-auth names this option.
+  baseURL: baseUrl,
   basePath: "/auth",
   plugins: [
     emailOTPClient(),

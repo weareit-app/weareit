@@ -7,7 +7,7 @@ import {
   dotAccessibility,
   type WatercolorDotProps,
 } from "./types";
-import { WebGLDot } from "./webgl-dot.web";
+import { WebGlDot } from "./webgl-dot.web";
 
 // It's watercolor dot on web: dot B drawn with WebGL (a few KB, within the
 // 1 MB budget; Skia's web runtime is not loaded). If WebGL is unavailable, or
@@ -30,7 +30,7 @@ export function WatercolorDot({
       {...dotAccessibility(accessibilityLabel)}
     >
       {generated ? (
-        <WebGLDot
+        <WebGlDot
           size={size}
           palette={palette}
           motion={motion}

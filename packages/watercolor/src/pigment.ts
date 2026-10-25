@@ -94,7 +94,7 @@ const MAX_R = 0.999;
 // ratio, and the scattering is scaled so a thin wash matches the tint's
 // lightness. (Fitting S per channel let bright channels of one pigment
 // overpower another's absorption, so blue + yellow came out orange.)
-export function deriveKS(pigment: Pigment): PigmentOptics {
+export function deriveKs(pigment: Pigment): PigmentOptics {
   const m = hexToLinear(pigment.masstone);
   const ratio = m.map((c) => {
     const r = Math.min(Math.max(c, MIN_R), MAX_R);

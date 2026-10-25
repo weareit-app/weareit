@@ -36,12 +36,12 @@ export type IconTone =
   | "riso-line"
   | keyof typeof spotInks;
 
-export type IconPart = {
+export interface IconPart {
   d: string;
   evenOdd?: boolean;
   fill?: IconTone;
   stroke?: IconTone;
   strokeWidth?: number;
-};
+}
 
 export const groupIcons: Record<string, IconPart[]> = groupIconArt;

@@ -29,7 +29,10 @@ export const Task: Story = {};
 
 export const Habit: Story = { args: { fix: fixOfKind("habit") } };
 
-export const TakesAGroup: Story = { args: { fix: fixOfKind("group") } };
+export const GroupFix: Story = {
+  name: "Takes A Group",
+  args: { fix: fixOfKind("group") },
+};
 
 export const PlannedFeature: Story = {
   args: { fix: fixOfKind("feature", "planned") },

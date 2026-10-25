@@ -70,7 +70,7 @@ const nodes: EssayNode[] = [
   },
 ];
 
-export default function EssayBlocksLab() {
+export function EssayBlocksLab() {
   return (
     <ScrollView className="flex-1 bg-paper" contentContainerClassName="p-6">
       <View className="mx-auto w-full max-w-2xl gap-4">

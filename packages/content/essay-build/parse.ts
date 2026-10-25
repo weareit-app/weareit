@@ -39,12 +39,12 @@ export class EssayError extends Error {
   }
 }
 
-export type EssayInput = {
+export interface EssayInput {
   slug: string;
   markdown: string;
   /** Block data files beside the essay, by file name. */
   files: Record<string, string>;
-};
+}
 
 const frontMatterPattern = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?/;
 

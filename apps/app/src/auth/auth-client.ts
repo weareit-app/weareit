@@ -2,10 +2,11 @@ import { createAuthClient } from "better-auth/react";
 import { emailOTPClient } from "better-auth/client/plugins";
 import { appEnv } from "../env";
 
-const baseURL = appEnv.apiUrl.replace(/\/rpc\/?$/, "");
+const baseUrl = appEnv.apiUrl.replace(/\/rpc\/?$/, "");
 
 export const authClient = createAuthClient({
-  baseURL,
+  // biome-ignore lint/style/useNamingConvention: better-auth names this option.
+  baseURL: baseUrl,
   basePath: "/auth",
   plugins: [emailOTPClient()],
   fetchOptions: { credentials: "include" },

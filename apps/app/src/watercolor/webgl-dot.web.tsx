@@ -37,7 +37,7 @@ function buildProgram(gl: WebGL2RenderingContext) {
   return gl.getProgramParameter(program, gl.LINK_STATUS) ? program : null;
 }
 
-export function WebGLDot({
+export function WebGlDot({
   size,
   palette,
   motion,

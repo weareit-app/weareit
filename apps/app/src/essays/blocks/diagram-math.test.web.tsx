@@ -8,6 +8,7 @@ const mockRender = jest.fn(() =>
   Promise.resolve({ svg: '<svg aria-roledescription="flowchart-v2"></svg>' }),
 );
 jest.mock("mermaid", () => ({
+  // biome-ignore lint/style/useNamingConvention: the interop flag that marks a mocked module as an ES module.
   __esModule: true,
   default: {
     initialize: jest.fn(),
@@ -16,9 +17,10 @@ jest.mock("mermaid", () => ({
 }));
 
 // Tells React this test drives updates through act().
-(
-  globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }
-).IS_REACT_ACT_ENVIRONMENT = true;
+
+// biome-ignore lint/style/useNamingConvention: React names this global.
+const reactGlobals = globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean };
+reactGlobals.IS_REACT_ACT_ENVIRONMENT = true;
 
 const nodes: EssayNode[] = [
   {

@@ -3,14 +3,14 @@
 // and the Help build It page (help-build-it task 1.1). The essay repeats each
 // `text` word for word; credits.test.ts checks that it does.
 
-export type Credit = {
+export interface Credit {
   /** The credit sentence, plain text with no Markdown. */
   text: string;
   /** Where the work is published. */
   url: string;
   /** The license text, when the reuse terms are known. */
   licenseUrl?: string;
-};
+}
 
 export const escoCredit: Credit = {
   text: "Occupation and skill names come from ESCO, the European classification of skills, competences and occupations, published by the European Commission under the Creative Commons Attribution 4.0 International license (CC BY 4.0). We've changed some of the names to make them clearer, so a name you see in It may differ from ESCO's.",

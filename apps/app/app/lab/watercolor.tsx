@@ -12,7 +12,9 @@ const LabScreen = lazy(async () => {
     );
     await LoadSkiaWeb({ locateFile: (file: string) => `/${file}` });
   }
-  return import("../../src/watercolor/lab/lab-screen");
+  // lazy() wants a default export; the screen has a named one.
+  const { LabScreen } = await import("../../src/watercolor/lab/lab-screen");
+  return { default: LabScreen };
 });
 
 function Loading() {

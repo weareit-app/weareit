@@ -26,10 +26,10 @@ import {
 
 type ApiInputs = InferContractRouterInputs<typeof apiContract>;
 type ApiOutputs = InferContractRouterOutputs<typeof apiContract>;
-type Support<K extends keyof ApiInputs["support"]> = {
+interface Support<K extends keyof ApiInputs["support"]> {
   input: ApiInputs["support"][K];
   output: Promise<ApiOutputs["support"][K]>;
-};
+}
 
 // The payment service the support operations call. Its shapes come from the
 // contract, plus the signed-in account the router has checked.
@@ -63,9 +63,10 @@ const os = implement(apiContract).$context<ApiContext>();
 // message "Internal server error", keeping the original only as the error's
 // cause on the server (toORPCError in the installed @orpc/client 1.15.6 dist,
 // checked 2026-10-22).
-type Unauthorized = {
+interface Unauthorized {
+  // biome-ignore lint/style/useNamingConvention: the contract names this error code.
   UNAUTHORIZED: (options?: { message?: string }) => Error;
-};
+}
 
 function requireCmsActor(actor: string | null, errors: Unauthorized) {
   if (!actor) throw errors.UNAUTHORIZED();

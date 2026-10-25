@@ -17,7 +17,7 @@ const apiBase = env.MOCK_IT_API_BASE;
 const appBase = env.PUBLIC_APP_URL;
 const webhookSecret = env.STRIPE_WEBHOOK_SECRET;
 
-type MockCheckout = {
+interface MockCheckout {
   id: string;
   customerId: string;
   contributionId: string;
@@ -32,13 +32,13 @@ type MockCheckout = {
   created: number;
   completed: boolean;
   refunded: boolean;
-};
+}
 
-type MockPortal = {
+interface MockPortal {
   id: string;
   checkout: MockCheckout;
   returnUrl: string;
-};
+}
 
 const checkouts = new Map<string, MockCheckout>();
 const portals = new Map<string, MockPortal>();

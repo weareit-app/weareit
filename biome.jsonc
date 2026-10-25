@@ -63,6 +63,10 @@
       // Recommended rules that Biome 2.5.15 reports as "info" by default, which
       // no CLI flag fails on, are raised to "error" (`biome explain <rule>`,
       // checked 2026-10-25). Recheck the list after a Biome upgrade.
+      "performance": {
+        "noBarrelFile": "error",
+        "noReExportAll": "error"
+      },
       "complexity": {
         "noExtraBooleanCast": "error",
         "noFlatMapIdentity": "error",
@@ -91,8 +95,51 @@
         "useParseIntRadix": "error"
       },
       "style": {
+        "noDefaultExport": "error",
+        "useConsistentTypeDefinitions": {
+          "level": "error",
+          "options": { "style": "interface" }
+        },
+        "useFilenamingConvention": {
+          "level": "error",
+          "options": { "filenameCases": ["kebab-case"] }
+        },
+        "useNamingConvention": {
+          "level": "error",
+          "options": {
+            "strictCase": true,
+            // Property names may also be PascalCase (components in a mocked
+            // module) or CONSTANT_CASE (env var names, oRPC error codes); see
+            // the overrides for @it/domain and the snake_case edges (#165).
+            "conventions": [
+              {
+                "selector": { "kind": "objectLiteralMember" },
+                "formats": ["camelCase", "PascalCase", "CONSTANT_CASE"]
+              }
+            ]
+          }
+        },
         "noNonNullAssertion": "error",
         "noProcessEnv": "error",
+        // Bundled code imports TypeScript without an extension: Metro picks
+        // `foo.native.ts` over `foo.ts` only for an extensionless import (#165).
+        // tools/ and packages/watercolor, which Node runs, are the other way.
+        "noRestrictedImports": {
+          "level": "error",
+          "options": {
+            "patterns": [
+              {
+                "group": [
+                  "./*.{ts,tsx,mts,cts}",
+                  "./**/*.{ts,tsx,mts,cts}",
+                  "../*.{ts,tsx,mts,cts}",
+                  "../**/*.{ts,tsx,mts,cts}"
+                ],
+                "message": "Import TypeScript without its extension here; only tools/ and packages/watercolor write `.ts`."
+              }
+            ]
+          }
+        },
         "useArrayLiterals": "error",
         "useExponentiationOperator": "error",
         "useNodejsImportProtocol": "error",
@@ -110,6 +157,100 @@
     {
       "includes": ["**/env.ts", "packages/database/src/test-env.ts"],
       "linter": { "rules": { "style": { "noProcessEnv": "off" } } }
+    },
+    // Default exports only where a framework needs them (#165): Expo Router
+    // routes, stories, Storybook's config, and config files.
+    {
+      "includes": [
+        "apps/app/app/**",
+        "**/*.stories.tsx",
+        "apps/app/.storybook/**",
+        "**/*.config.*"
+      ],
+      "linter": { "rules": { "style": { "noDefaultExport": "off" } } }
+    },
+    // The package's `./shaders` entry: shader sources from its sibling files
+    // plus the uniforms built from them (#165).
+    {
+      "includes": ["packages/watercolor/src/shaders/index.ts"],
+      "linter": { "rules": { "performance": { "noBarrelFile": "off" } } }
+    },
+    // @it/domain's property names are camelCase only: no snake_case or
+    // CONSTANT_CASE in domain types (#165).
+    {
+      "includes": ["packages/domain/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useNamingConvention": {
+              "level": "error",
+              "options": {
+                "strictCase": true,
+                "conventions": [
+                  {
+                    "selector": { "kind": "objectLiteralMember" },
+                    "formats": ["camelCase"]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    // snake_case at the edges (#165): database columns in packages/database
+    // (table types and queries) and Stripe's and RevenueCat's payloads. Other
+    // names keep their checks.
+    {
+      "includes": [
+        "packages/database/**",
+        "apps/api-server/src/stripe-support*.ts",
+        "apps/api-server/src/revenuecat-support*.ts",
+        "apps/api-server/src/mock-stripe.ts"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useNamingConvention": {
+              "level": "error",
+              "options": {
+                "strictCase": true,
+                "conventions": [
+                  {
+                    "selector": { "kind": "objectLiteralMember" },
+                    "match": ".*"
+                  },
+                  { "selector": { "kind": "typeMember" }, "match": ".*" }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    // Node runs these with type stripping, which needs the full extension.
+    {
+      "includes": ["tools/**", "packages/watercolor/**"],
+      "linter": {
+        "rules": {
+          "style": { "noRestrictedImports": "off" },
+          "correctness": { "useImportExtensions": "error" }
+        }
+      }
+    },
+    // Migrations are numbered and snake_case: 001_initial_content.ts (#165).
+    {
+      "includes": ["packages/database/src/migrations/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useFilenamingConvention": {
+              "level": "error",
+              "options": { "filenameCases": ["snake_case"] }
+            }
+          }
+        }
+      }
     },
     // Non-null assertions are fine in tests, the Playwright specs, and tools/ (#148).
     {
