@@ -7,13 +7,13 @@ import {
 } from "@it/content/tier-1";
 
 // Presentation-only mapping: domain content stays independent of React Native.
-export const painIllustrations: Record<string, ImageSourcePropType> = {
+const painIllustrations: Record<string, ImageSourcePropType> = {
   "no-accountability": require("../../assets/brand/icon-corruption.jpg"),
   "dont-know-whats-true": require("../../assets/brand/icon-misinformation.jpg"),
   "shouting-into-void": require("../../assets/brand/icon-advocacy.jpg"),
 };
 
-export const dreamIllustrations: Record<string, ImageSourcePropType> = {
+const dreamIllustrations: Record<string, ImageSourcePropType> = {
   "found-my-people": require("../../assets/brand/icon-connection.jpg"),
 };
 

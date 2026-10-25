@@ -10,7 +10,8 @@ import {
 } from "@shopify/react-native-skia";
 import { useMemo, type ReactNode } from "react";
 import { useNativeVariable as useNativeVariableTyped } from "react-native-css";
-import { groupIcons, spotInks, type IconTone } from "../../content/group-icons";
+import { groupIcons } from "../../content/group-icons";
+import { spotInks, type IconTone } from "../../content/icon-part";
 import { toSkPath } from "../../watercolor/sk-path";
 import {
   drift,

@@ -3,7 +3,7 @@ import { isoDateSchema, nonEmptyTextSchema, slugIdSchema } from "./primitives";
 
 const copySchema = nonEmptyTextSchema.max(4000);
 
-export const fixKinds = ["once", "habit", "group", "feature"] as const;
+const fixKinds = ["once", "habit", "group", "feature"] as const;
 // Roadmap order: live, being built, decided, being looked into, undecided.
 export const featureStatuses = [
   "live",
@@ -12,12 +12,7 @@ export const featureStatuses = [
   "exploring",
   "idea",
 ] as const;
-export const evidenceLevels = [
-  "strong",
-  "some",
-  "limited",
-  "untested",
-] as const;
+const evidenceLevels = ["strong", "some", "limited", "untested"] as const;
 export type FixKind = (typeof fixKinds)[number];
 export type FeatureStatus = (typeof featureStatuses)[number];
 export type EvidenceLevel = (typeof evidenceLevels)[number];
@@ -31,7 +26,7 @@ export const contentDomainSchema = z
   })
   .strict();
 
-export const contentPainSchema = z
+const contentPainSchema = z
   .object({
     id: slugIdSchema,
     domainId: slugIdSchema,
@@ -41,7 +36,7 @@ export const contentPainSchema = z
   })
   .strict();
 
-export const contentDreamSchema = z
+const contentDreamSchema = z
   .object({
     id: slugIdSchema,
     title: copySchema,
@@ -449,20 +444,20 @@ export function applyRoadmapItemStatusChanges(
 // Tier-1 authoring: the nested shape the tier-1 data is written in, before
 // buildTier1ContentGraph flattens it into the graph above.
 
-export const dreamSchema = contentDreamSchema.pick({
+const dreamSchema = contentDreamSchema.pick({
   id: true,
   title: true,
   description: true,
 });
 
-export const painSchema = contentPainSchema
+const painSchema = contentPainSchema
   .pick({ id: true, title: true, description: true })
   .extend({
     // Empty until futures are written; the page says so (CONFLICTS.md P7).
     dreams: z.array(dreamSchema),
   });
 
-export const painDomainSchema = contentDomainSchema
+const painDomainSchema = contentDomainSchema
   .pick({ id: true, title: true })
   .extend({ pains: z.array(painSchema).min(1) });
 
