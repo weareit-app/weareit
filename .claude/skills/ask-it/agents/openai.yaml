@@ -1,0 +1,5 @@
+interface:
+  display_name: "Ask It"
+  short_description: "Ask which skill or flow fits your situation."
+policy:
+  allow_implicit_invocation: false
