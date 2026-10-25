@@ -88,7 +88,7 @@ def with_kinds(*kinds):
             fix = {"ask": ask_fix, "resource": resource_fix}.get(
                 kind, lambda d: trial_fix(d, kind)
             )("burnout-d00")
-            doc["fixes"]["burnout-d00-%s1" % kind] = fix
+            doc["fixes"]["burnout-d00-{}1".format(kind)] = fix
             doc["pools"][kind] = {"shortfalls": {}}
 
     return change
@@ -226,7 +226,7 @@ class TrialKinds(Kinds):
 
         def empty(doc):
             for kind in TRIALS:
-                doc["fixes"]["burnout-d00-%s1" % kind]["method"] = {}
+                doc["fixes"]["burnout-d00-{}1".format(kind)]["method"] = {}
 
         found = self.pool("leave", "switch", change=empty, pilot=True)
         for fix, fields in (
@@ -235,7 +235,7 @@ class TrialKinds(Kinds):
         ):
             for field in fields:
                 self.assertIn(
-                    "fix burnout-d00-%s: method needs %s" % (fix, field), found
+                    "fix burnout-d00-{}: method needs {}".format(fix, field), found
                 )
 
     def test_only_a_pilot_run_plans_and_drafts_the_trial_kinds(self):
@@ -279,7 +279,7 @@ class Briefs(unittest.TestCase):
             ("Leave", "door-open"),
             ("Switch", "arrow-left-right"),
         ):
-            self.assertIn("`%s`" % icon, rows.get(name, ""), name)
+            self.assertIn("`{}`".format(icon), rows.get(name, ""), name)
         for name in ("Leave", "Switch"):
             self.assertIn("trial", rows[name].lower(), name)
 

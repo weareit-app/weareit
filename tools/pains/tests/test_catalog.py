@@ -19,7 +19,7 @@ def pain(pain_id, group="money", page="personal", **extra):
     record = {
         "id": pain_id,
         "name": pain_id.replace("-", " ").capitalize(),
-        "line": "I worry about %s." % pain_id,
+        "line": "I worry about {}.".format(pain_id),
         "page": page,
         "group": group,
         "secondaryGroups": [],
@@ -281,7 +281,7 @@ def candidate(cid, **extra):
     c = {
         "id": cid,
         "name": cid.replace("-", " ").capitalize(),
-        "line": "I lost money to %s." % cid,
+        "line": "I lost money to {}.".format(cid),
         "page": "personal",
         "group": "money",
         "sources": [source()],

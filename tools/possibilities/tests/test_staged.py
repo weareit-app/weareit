@@ -352,7 +352,8 @@ class DreamScreen(StagedBase):
         found = self.screen(change)
         for key in ("burnout-d00", "burnout-d01", "burnout-d02"):
             self.assertIn(
-                "dream screen %s: needs pass and a one-sentence reason" % key, found
+                "dream screen {}: needs pass and a one-sentence reason".format(key),
+                found,
             )
 
     def test_a_fail_names_the_check_it_failed(self):
@@ -632,7 +633,9 @@ class DreamReview(StagedBase):
         result = self.ingest(path)
         self.assertEqual(result.returncode, 2, result.stdout)
         self.assertIn(
-            "the dream screen of %s is missing or out of date" % self.run_dir.name,
+            "the dream screen of {} is missing or out of date".format(
+                self.run_dir.name
+            ),
             result.stderr,
         )
 

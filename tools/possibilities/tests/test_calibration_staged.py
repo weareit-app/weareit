@@ -19,7 +19,7 @@ class StagedCalibration(Judging):
         fixes = cards.read(self.run_dir / "fixes.json")
         for key, fix in fixes["fixes"].items():
             fix["whatChanges"] = (
-                "The laptop stays by the door for %s, so work ends there." % key
+                "The laptop stays by the door for {}, so work ends there.".format(key)
             )
         cards.write(self.run_dir / "fixes.json", fixes)
         self.write("judgments.json", dream_judgments(failing=("burnout-d00",)))
@@ -38,12 +38,12 @@ class StagedCalibration(Judging):
                     "line": "I wake up rested and ready.",
                     "fixes": [
                         {
-                            "id": "fx-%s-a" % pain,
+                            "id": "fx-{}-a".format(pain),
                             "title": "Find sleep care",
                             "whatChanges": "Get help.",
                         },
                         {
-                            "id": "fx-%s-b" % pain,
+                            "id": "fx-{}-b".format(pain),
                             "title": "Share the load",
                             "whatChanges": "Agree duties.",
                         },
@@ -79,7 +79,7 @@ class StagedCalibration(Judging):
         self.assertEqual(
             [f["whatChanges"] for f in item["fixes"]],
             [
-                "The laptop stays by the door for %s, so work ends there." % k
+                "The laptop stays by the door for {}, so work ends there.".format(k)
                 for k in ("burnout-d02-t1", "burnout-d02-t2", SHARED)
             ],
         )

@@ -15,9 +15,9 @@ OUT = "docs/research/possibilities/evaluations/pilot-2026-10"
 
 def drafted_text(fix):
     """Fix text that tells fixes apart without naming an ID, which the blind set must not show."""
-    return "The laptop stays by door %s, so work ends there." % fix.replace(
-        "burnout-d", ""
-    ).replace("-t", ".")
+    return "The laptop stays by door {}, so work ends there.".format(
+        fix.replace("burnout-d", "").replace("-t", ".")
+    )
 
 
 class Pilot(Judging):

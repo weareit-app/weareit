@@ -20,7 +20,7 @@ class StagedFlow(StagedBase):
     def setUp(self):
         super().setUp()
         for page in ("dream-review", "fix-review"):
-            template = "tools/possibilities/config/%s-page.template.html" % page
+            template = "tools/possibilities/config/{}-page.template.html".format(page)
             shutil.copy(ROOT / template, self.tmp / template)
         result = cli(self.tmp, "new-run", "burnout", "--staged", "--pilot")
         self.assertEqual(result.returncode, 0, result.stderr)
@@ -43,7 +43,7 @@ class StagedFlow(StagedBase):
     def founder_stop(self, stage, build):
         refused = cli(self.tmp, "start", str(self.run_dir), stage)
         self.assertEqual(refused.returncode, 2)
-        self.assertIn("%s is a founder stop" % stage, refused.stderr)
+        self.assertIn("{} is a founder stop".format(stage), refused.stderr)
         return self.ok(build, str(self.run_dir))
 
     def save(self, name, decisions):

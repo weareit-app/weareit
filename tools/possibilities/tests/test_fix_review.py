@@ -358,7 +358,8 @@ class Refused(FixReview):
         result = self.ingest(path)
         self.assertEqual(result.returncode, 2)
         self.assertIn(
-            "changed since the fix review page was built (%s)" % SHARED, result.stderr
+            "changed since the fix review page was built ({})".format(SHARED),
+            result.stderr,
         )
 
     def test_review_is_ingested_once(self):

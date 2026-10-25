@@ -534,7 +534,8 @@ class Gate(FixStages):
             result = self.start(stage)
             self.assertEqual(result.returncode, 2, stage)
             self.assertIn(
-                "%s cannot start: %s is not complete" % (stage, pending), result.stderr
+                "{} cannot start: {} is not complete".format(stage, pending),
+                result.stderr,
             )
         self.write("plan.json", plan_doc())
         self.assertIn("shared-fixes is not complete", self.start("assemble").stderr)

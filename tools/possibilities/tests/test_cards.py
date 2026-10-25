@@ -637,7 +637,7 @@ class Calibration(Base):
                     "scene": "",
                     "fixes": [
                         {
-                            "id": "fx-%s-a" % pain,
+                            "id": "fx-{}-a".format(pain),
                             "title": "Find sleep care",
                             "whatChanges": "Get help.",
                         },

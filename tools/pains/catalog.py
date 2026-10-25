@@ -63,7 +63,9 @@ def unique_keys(pairs):
     seen = {}
     for key, value in pairs:
         if key in seen:
-            raise CheckError('duplicate key "%s"; an ID can only be used once' % key)
+            raise CheckError(
+                'duplicate key "{}"; an ID can only be used once'.format(key)
+            )
         seen[key] = value
     return seen
 
@@ -115,13 +117,17 @@ def validate(catalog):
     groups = {}
     for g in catalog.get("groups", []):
         require(
-            ID.fullmatch(str(g.get("id", ""))), "group %s: bad ID" % g.get("id"), issues
+            ID.fullmatch(str(g.get("id", ""))),
+            "group {}: bad ID".format(g.get("id")),
+            issues,
         )
-        require(g.get("id") not in groups, "group %s: duplicate" % g.get("id"), issues)
-        require(g.get("name"), "group %s: missing name" % g.get("id"), issues)
+        require(
+            g.get("id") not in groups, "group {}: duplicate".format(g.get("id")), issues
+        )
+        require(g.get("name"), "group {}: missing name".format(g.get("id")), issues)
         require(
             g.get("page") in PAGES,
-            "group %s: page must be personal or societal" % g.get("id"),
+            "group {}: page must be personal or societal".format(g.get("id")),
             issues,
         )
         groups[g.get("id")] = g
@@ -146,7 +152,8 @@ def validate(catalog):
         if group:
             require(
                 group["page"] == p.get("page"),
-                where + ": group %s is on the %s page" % (group["id"], group["page"]),
+                where
+                + ": group {} is on the {} page".format(group["id"], group["page"]),
                 issues,
             )
         for extra in p.get("secondaryGroups", []):
@@ -231,7 +238,7 @@ def resolve(catalog, pain_id):
         target = next(
             r["id"] for r in current["relations"] if r["kind"] == "merged-into"
         )
-        notes.append("%s was merged into %s" % (current["id"], target))
+        notes.append("{} was merged into {}".format(current["id"], target))
         current = pains[target]
     return current, notes
 
@@ -358,8 +365,9 @@ def seed(root, inventory_path=None, published_path=None):
         group = shown.get(p["id"]) or by_name.get((p["page"], p["heading"]))
         if not group:
             raise CheckError(
-                "%s: heading %s is not a group on the %s page"
-                % (p["id"], p["heading"], p["page"])
+                "{}: heading {} is not a group on the {} page".format(
+                    p["id"], p["heading"], p["page"]
+                )
             )
         maps = {k: p["maps"].get(k, []) for k in MAP_KEYS}
         wikidata = p["maps"].get("wikidata")
@@ -433,7 +441,7 @@ def scope_pains(catalog, scope):
             if scope in [p["group"]] + p.get("secondaryGroups", [])
         ]
     raise KeyError(
-        "Unknown scope %s: use a group ID, personal, societal or all" % scope
+        "Unknown scope {}: use a group ID, personal, societal or all".format(scope)
     )
 
 
@@ -480,7 +488,7 @@ def sweep_new(root, scope):
 
 
 def entry_key(item):
-    return "%s/%s" % (item.get("list"), item.get("entry"))
+    return "{}/{}".format(item.get("list"), item.get("entry"))
 
 
 def pain_index(catalog):
@@ -520,7 +528,7 @@ def check_candidates(catalog, doc, origin=None):
             origin
             and record
             and any(
-                "(%s, review " % origin in h.get("prompt", "")
+                "({}, review ".format(origin) in h.get("prompt", "")
                 for h in record["history"]
             )
         ):
@@ -551,8 +559,9 @@ def check_candidates(catalog, doc, origin=None):
         for field in ("name", "line"):
             for hit in serial_comma.find(str(c.get(field, ""))):
                 issues.append(
-                    '%s: no serial comma in %s "%s"; add the Oxford comma before the last "and" or "or"'
-                    % (where, field, hit["list"])
+                    '{}: no serial comma in {} "{}"; add the Oxford comma before the last "and" or "or"'.format(
+                        where, field, hit["list"]
+                    )
                 )
         sources = c.get("sources", [])
         validate_evidence(sources, where, issues)
@@ -560,7 +569,8 @@ def check_candidates(catalog, doc, origin=None):
         for number in re.findall(r"\d[\d,.]*\d|\d", str(c.get("prevalence", ""))):
             require(
                 number.replace(",", "").rstrip(".") in passages,
-                where + ": prevalence figure %s is not in any cited passage" % number,
+                where
+                + ": prevalence figure {} is not in any cited passage".format(number),
                 issues,
             )
         # Duplicates: same wording or alias, or a source entry already covered.
@@ -679,7 +689,7 @@ def coverage(root, run, origin=None):
     for list_id, info in lists.items():
         covered, uncovered = [], []
         for entry_id, entry in info.get("entries", {}).items():
-            key = "%s/%s" % (list_id, entry_id)
+            key = "{}/{}".format(list_id, entry_id)
             m = mapping.get(key, {})
             pain = by_entry.get(key) or catalog["pains"].get(m.get("painId"))
             if pain and pain["status"] == "rejected":
@@ -711,7 +721,7 @@ def coverage(root, run, origin=None):
                     else None
                 )
                 if not reason:
-                    issues.append("%s: uncovered entry has no reason" % key)
+                    issues.append("{}: uncovered entry has no reason".format(key))
                 uncovered.append(
                     {
                         "entry": entry_id,
@@ -771,7 +781,7 @@ def coverage_markdown(result):
         if row["uncovered"]:
             lines += ["", "## Not covered: " + row["name"], ""]
             lines += [
-                "- [%s](%s): %s" % (cell(u["name"]), u["url"], u["reason"])
+                "- [{}]({}): {}".format(cell(u["name"]), u["url"], u["reason"])
                 for u in row["uncovered"]
             ]
     return "\n".join(lines) + "\n"
@@ -845,7 +855,7 @@ def lint_wording(name, line, pain_id, sensitive, config):
     if len(tokens(line, config["stopwords"])) <= 1:
         add(
             "vague-line",
-            'nothing to picture in "%s"; say what it looks like in a day' % line,
+            'nothing to picture in "{}"; say what it looks like in a day'.format(line),
         )
     if len(name.split()) > 3:
         add(
@@ -860,8 +870,9 @@ def lint_wording(name, line, pain_id, sensitive, config):
         # A note, not a failure: IDs are often deliberate phrases ("they-dont-listen"), and an ID never changes.
         add(
             "id-mismatch",
-            'ID %s, name "%s" and line "%s" share no word; propose a rewording only if the wording has drifted from what the ID names'
-            % (pain_id, name, line),
+            'ID {}, name "{}" and line "{}" share no word; propose a rewording only if the wording has drifted from what the ID names'.format(
+                pain_id, name, line
+            ),
             "note",
         )
     for rule, key, field_text in (
@@ -871,26 +882,28 @@ def lint_wording(name, line, pain_id, sensitive, config):
         ("clinical-term", "clinical", line),
     ):
         for m in config[key].finditer(field_text) if config[key] else ():
-            add(rule, '"%s"' % m[0])
+            add(rule, '"{}"'.format(m[0]))
     for text in (name, line):
         for hit in serial_comma.find(text):
             add(
                 "serial-comma",
-                'add the Oxford comma before the last "and" or "or" in "%s"'
-                % hit["list"],
+                'add the Oxford comma before the last "and" or "or" in "{}"'.format(
+                    hit["list"]
+                ),
             )
     for m in (
         config["acronyms"].finditer(name + " " + line) if config["acronyms"] else ()
     ):
-        add("regional-word", '"%s"' % m[0])
+        add("regional-word", '"{}"'.format(m[0]))
     if sensitive:
         for m in (
             config["graphic"].finditer(name + " " + line) if config["graphic"] else ()
         ):
             add(
                 "graphic-wording",
-                '"%s": check it is plain, not graphic. This never blocks the pain'
-                % m[0],
+                '"{}": check it is plain, not graphic. This never blocks the pain'.format(
+                    m[0]
+                ),
                 "note",
             )
     return found
@@ -986,8 +999,9 @@ def refine_lint(root, run):
                     "group": g["id"],
                     "rule": "mixed-labels",
                     "severity": "fail",
-                    "detail": "%s mixes problem labels and area labels; pick one style for the heading"
-                    % g["name"],
+                    "detail": "{} mixes problem labels and area labels; pick one style for the heading".format(
+                        g["name"]
+                    ),
                 }
             )
     failing = sorted(
@@ -1054,7 +1068,7 @@ def refine_check(root, run):
     for pain_id in lint["failing"]:
         require(
             alternatives.get(pain_id),
-            "pain %s fails lint but has no alternatives" % pain_id,
+            "pain {} fails lint but has no alternatives".format(pain_id),
             issues,
         )
     for pain_id, options in alternatives.items():
@@ -1062,7 +1076,7 @@ def refine_check(root, run):
         require(record, "alternatives for unknown pain " + pain_id, issues)
         require(
             isinstance(options, list) and 1 <= len(options) <= 2,
-            "pain %s: offer one or two alternatives" % pain_id,
+            "pain {}: offer one or two alternatives".format(pain_id),
             issues,
         )
         for option in options if record and isinstance(options, list) else ():
@@ -1079,8 +1093,9 @@ def refine_check(root, run):
             ]
             require(
                 not failing,
-                'pain %s: alternative "%s" fails lint (%s)'
-                % (pain_id, option.get("line"), ", ".join(failing)),
+                'pain {}: alternative "{}" fails lint ({})'.format(
+                    pain_id, option.get("line"), ", ".join(failing)
+                ),
                 issues,
             )
     overlaps = (
@@ -1093,7 +1108,7 @@ def refine_check(root, run):
         pair = (o.get("a"), o.get("b"))
         require(
             all(x in catalog["pains"] for x in pair),
-            "overlap %s/%s: unknown pain" % pair,
+            "overlap {}/{}: unknown pain".format(*pair),
             issues,
         )
         require(
@@ -1104,25 +1119,27 @@ def refine_check(root, run):
         )
         require(
             o.get("action") != "merge" or o.get("survivor") in pair,
-            "overlap %s/%s: a merge names the surviving ID" % pair,
+            "overlap {}/{}: a merge names the surviving ID".format(*pair),
             issues,
         )
         require(
             o.get("action") != "split" or (o.get("splitOf") in pair and o.get("into")),
-            "overlap %s/%s: a split names the pain and what it splits into" % pair,
+            "overlap {}/{}: a split names the pain and what it splits into".format(
+                *pair
+            ),
             issues,
         )
         require(
             o.get("action") != "other-page"
             or len({catalog["pains"][x]["page"] for x in pair if x in catalog["pains"]})
             == 2,
-            "overlap %s/%s: other-page links pains on different pages" % pair,
+            "overlap {}/{}: other-page links pains on different pages".format(*pair),
             issues,
         )
         reason = str(o.get("reason", "")).strip()
         require(
             reason and len(re.findall(r"[^.!?]+[.!?]+", reason)) <= 1,
-            "overlap %s/%s: give a one-sentence reason" % pair,
+            "overlap {}/{}: give a one-sentence reason".format(*pair),
             issues,
         )
         decided.add(frozenset(pair))
@@ -1135,7 +1152,7 @@ def refine_check(root, run):
             ):
                 require(
                     frozenset((p["id"], r["id"])) in decided,
-                    "overlap %s/%s has no proposed action" % (p["id"], r["id"]),
+                    "overlap {}/{} has no proposed action".format(p["id"], r["id"]),
                     issues,
                 )
     sorts = sorted((run / "sorts").glob("*.json"))
@@ -1207,7 +1224,7 @@ def wording(p, **extra):
 def sweep_proposals(catalog, run):
     check = read(run / "check.json")
     if check["issues"]:
-        raise CheckError("%s has sweep-check issues; fix them first" % run)
+        raise CheckError("{} has sweep-check issues; fix them first".format(run))
     cands = read(run / "candidates.json")["candidates"]
     out = []
     for item, draft in [(c, False) for c in check["proposed"]] + [
@@ -1242,7 +1259,7 @@ def sweep_proposals(catalog, run):
 def refine_proposals(catalog, run):
     check = read(run / "refine-check.json")
     if check["issues"]:
-        raise CheckError("%s has refine-check issues; fix them first" % run)
+        raise CheckError("{} has refine-check issues; fix them first".format(run))
     pains = catalog["pains"]
     lint = read(run / "lint.json")["issues"] if (run / "lint.json").is_file() else []
     out = []
@@ -1255,7 +1272,7 @@ def refine_proposals(catalog, run):
         p = pains[pain_id]
         rules = sorted(
             {
-                "%s (%s)" % (i["rule"], i["severity"])
+                "{} ({})".format(i["rule"], i["severity"])
                 for i in lint
                 if i["painId"] == pain_id
             }
@@ -1520,19 +1537,20 @@ def review_build(root, runs, name=None, extra=(), stage=None):
     """Build a review set. `stage` is 'wording' or 'structure' (see STAGES); None keeps every kind."""
     root, catalog = Path(root), load(root)
     if stage is not None and stage not in STAGES:
-        raise CheckError("stage must be one of %s" % ", ".join(STAGES))
+        raise CheckError("stage must be one of {}".format(", ".join(STAGES)))
     if stage == "structure":
         waiting = unsettled_rewords(root, runs)
         if waiting:
             sets = sorted({s for v in waiting.values() for s in v})
             where = (
-                ("ingest %s first" % ", ".join(sets))
+                ("ingest {} first".format(", ".join(sets)))
                 if sets
                 else "build and ingest a wording set for these runs first (--stage wording)"
             )
             raise CheckError(
-                "rewordings not decided yet (%s): %s"
-                % (", ".join(sorted(waiting)), where)
+                "rewordings not decided yet ({}): {}".format(
+                    ", ".join(sorted(waiting)), where
+                )
             )
     kinds = STAGES[stage] if stage else None
     proposals, covered, flags, sources = list(extra), [], [], []
@@ -1663,7 +1681,7 @@ def archive(root, set_dirs, name=None):
     )
     if open_sets:
         raise CheckError(
-            "not archived: %s still open; ingest it first" % ", ".join(open_sets)
+            "not archived: {} still open; ingest it first".format(", ".join(open_sets))
         )
     refine_runs = [r for r in runs if not (root / r / "sweep.json").is_file()]
     kinds = {
@@ -1673,13 +1691,16 @@ def archive(root, set_dirs, name=None):
     }
     if refine_runs and not kinds & set(STAGES["structure"]):
         raise CheckError(
-            "not archived: no structure set was built for %s; build and ingest it first (--stage structure)"
-            % ", ".join(sorted(refine_runs))
+            "not archived: no structure set was built for {}; build and ingest it first (--stage structure)".format(
+                ", ".join(sorted(refine_runs))
+            )
         )
     out = root / ARCHIVE / ((name or batch_name(sorted(sets)[0])) + ".jsonl")
     if out.exists():
         raise CheckError(
-            "%s already exists; archives are never overwritten" % out.relative_to(root)
+            "{} already exists; archives are never overwritten".format(
+                out.relative_to(root)
+            )
         )
     folders = [
         (("sweep" if (root / r / "sweep.json").is_file() else "refine"), root / r)
@@ -1792,21 +1813,26 @@ def apply_decisions(catalog, proposals_doc, decisions_doc, date=None):
             continue
         kind, decision = p["kind"], d["decision"]
         if decision not in DECISIONS:
-            issues.append("%s: unknown decision %s" % (p["id"], decision))
+            issues.append("{}: unknown decision {}".format(p["id"], decision))
             continue
         if decision == "own" and not p.get("allowOwn"):
-            issues.append("%s: own wording is not possible for a %s" % (p["id"], kind))
+            issues.append(
+                "{}: own wording is not possible for a {}".format(p["id"], kind)
+            )
             continue
         if p.get("draft") and decision == "alternative":
             issues.append(
-                "%s: a draft without an opened source has no alternatives" % p["id"]
+                "{}: a draft without an opened source has no alternatives".format(
+                    p["id"]
+                )
             )
             continue
         entry = {
             "date": date,
             "at": stamp,
-            "prompt": "%s (%s, review %s %s)"
-            % (p["why"].get("prompt", ""), p.get("origin", ""), set_id, p["id"]),
+            "prompt": "{} ({}, review {} {})".format(
+                p["why"].get("prompt", ""), p.get("origin", ""), set_id, p["id"]
+            ),
             "note": d.get("note", ""),
         }
 
@@ -1819,7 +1845,7 @@ def apply_decisions(catalog, proposals_doc, decisions_doc, date=None):
                 c = p["payload"]["candidate"]
                 if c["id"] in pains:
                     issues.append(
-                        "%s: %s is already in the catalog" % (p["id"], c["id"])
+                        "{}: {} is already in the catalog".format(p["id"], c["id"])
                     )
                     continue
                 pains[c["id"]] = new_record(c, c, "rejected", "not-shown")
@@ -1834,8 +1860,9 @@ def apply_decisions(catalog, proposals_doc, decisions_doc, date=None):
                 missing = [t for t in twins if t not in pains]
                 if missing:
                     issues.append(
-                        "%s: duplicate of unknown pain %s"
-                        % (p["id"], ", ".join(missing))
+                        "{}: duplicate of unknown pain {}".format(
+                            p["id"], ", ".join(missing)
+                        )
                     )
                     continue
                 if twins:
@@ -1868,7 +1895,9 @@ def apply_decisions(catalog, proposals_doc, decisions_doc, date=None):
         if kind == "add":
             c = p["payload"]["candidate"]
             if c["id"] in pains:
-                issues.append("%s: %s is already in the catalog" % (p["id"], c["id"]))
+                issues.append(
+                    "{}: {} is already in the catalog".format(p["id"], c["id"])
+                )
                 continue
             no_source = bool(p.get("draft"))
             # Every accepted new pain waits for ranking, whatever role an older set's alternative offered.
@@ -1936,7 +1965,7 @@ def apply_decisions(catalog, proposals_doc, decisions_doc, date=None):
             )
             new_id = p["payload"].get("newId") or slug(second["name"], pains)
             if new_id in pains:
-                issues.append("%s: split ID %s is already used" % (p["id"], new_id))
+                issues.append("{}: split ID {} is already used".format(p["id"], new_id))
                 continue
             before = {"name": original["name"], "line": original["line"]}
             original["name"], original["line"] = first["name"], first["line"]
@@ -2069,8 +2098,9 @@ def draft_patch(before, after, touched, draft):
                     {
                         "painId": pain_id,
                         "reason": "the editor has no retired state yet (pain-pages change); "
-                        "retire %s with %s as its replacement once it lands"
-                        % (pain_id, survivor),
+                        "retire {} with {} as its replacement once it lands".format(
+                            pain_id, survivor
+                        ),
                     }
                 )
                 continue
@@ -2193,8 +2223,9 @@ class CmsClient:
             raise CheckError("cms.%s failed (%d): %s" % (operation, error.code, detail))
         except urllib.error.URLError as error:
             raise CheckError(
-                "cannot reach the content editor API at %s: %s"
-                % (self.url, error.reason)
+                "cannot reach the content editor API at {}: {}".format(
+                    self.url, error.reason
+                )
             )
 
     def get_draft(self):
@@ -2214,15 +2245,16 @@ class CmsClient:
 def ingest(root, set_dir, decisions_path, client=None, dry_run=False, date=None):
     root, set_dir = Path(root), Path(set_dir)
     if (set_dir / "ingested.json").is_file():
-        raise CheckError("%s was already ingested" % set_dir.name)
+        raise CheckError("{} was already ingested".format(set_dir.name))
     proposals_doc, decisions_doc = (
         read(set_dir / "proposals.json"),
         read(decisions_path),
     )
     if decisions_doc.get("setId") != proposals_doc["setId"]:
         raise CheckError(
-            "decisions are for %s, not %s"
-            % (decisions_doc.get("setId"), proposals_doc["setId"])
+            "decisions are for {}, not {}".format(
+                decisions_doc.get("setId"), proposals_doc["setId"]
+            )
         )
     before = load(root)
     client = client or CmsClient()
@@ -2284,9 +2316,11 @@ def ingest(root, set_dir, decisions_path, client=None, dry_run=False, date=None)
     if dry_run:
         return summary
     if patch["changes"]:
-        note = "Pain catalog review %s: %s" % (
+        note = "Pain catalog review {}: {}".format(
             proposals_doc["setId"],
-            ", ".join("%s %s" % (c["change"], c["painId"]) for c in patch["changes"]),
+            ", ".join(
+                "{} {}".format(c["change"], c["painId"]) for c in patch["changes"]
+            ),
         )
         summary["editor"]["revision"] = client.save_draft(
             draft["revision"], note[:500], patch["content"]
@@ -2434,8 +2468,7 @@ def render(catalog, root):
             for p in sorted(members, key=lambda p: (p["role"] != "shown", p["id"])):
                 status = p["status"] + (" · sensitive" if p["sensitive"] else "")
                 lines.append(
-                    "| `%s` | %s | %s | %s | %s | %s |"
-                    % (
+                    "| `{}` | {} | {} | {} | {} | {} |".format(
                         p["id"],
                         cell(p["name"]),
                         cell(p["line"]),

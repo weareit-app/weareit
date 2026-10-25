@@ -183,7 +183,7 @@ def resolve_pain(root, pain_id):
         target = next(
             r["id"] for r in records[pain_id]["relations"] if r["kind"] == "merged-into"
         )
-        notes.append("%s was merged into %s" % (pain_id, target))
+        notes.append("{} was merged into {}".format(pain_id, target))
         pain_id = target
     return pain_id, notes
 
@@ -543,8 +543,9 @@ def is_staged(run):
 def require_staged(run):
     if not is_staged(run):
         raise ValueError(
-            "%s is not a staged run (run.json schemaVersion 2); start one with new-run --staged"
-            % run.name
+            "{} is not a staged run (run.json schemaVersion 2); start one with new-run --staged".format(
+                run.name
+            )
         )
 
 
@@ -603,21 +604,24 @@ def start(run, stage, root):
     """Refuse a stage until every stage before it is complete (a usage error), then name its brief."""
     require_staged(run)
     if stage not in STAGES:
-        raise ValueError("unknown stage %s; stages are %s" % (stage, ", ".join(STAGES)))
+        raise ValueError(
+            "unknown stage {}; stages are {}".format(stage, ", ".join(STAGES))
+        )
     pending = next_stage(run)
     if stage_index(pending) < STAGES.index(stage):
-        raise ValueError("%s cannot start: %s is not complete" % (stage, pending))
+        raise ValueError("{} cannot start: {} is not complete".format(stage, pending))
     if pending == "done":
         raise ValueError(
-            "%s cannot start: the fix review of %s is ingested, so the run is done"
-            % (stage, run.name)
+            "{} cannot start: the fix review of {} is ingested, so the run is done".format(
+                stage, run.name
+            )
         )
     if stage in FOUNDER_STOPS:
         raise ValueError(
-            "%s is a founder stop: run %s, then %s" % (stage, *FOUNDER_STOPS[stage])
+            "{} is a founder stop: run {}, then {}".format(stage, *FOUNDER_STOPS[stage])
         )
     if stage not in STAGE_BRIEFS:
-        raise ValueError("%s is not built yet" % stage)
+        raise ValueError("{} is not built yet".format(stage))
     result = {"run": run.name, "stage": stage, "brief": STAGE_BRIEFS[stage]}
     if stage == "dream-screen":
         result["relatedPains"] = related_pains(root, read(run / "run.json")["painId"])
@@ -641,7 +645,9 @@ def record_stage_tokens(run, stage, tokens):
     """finish-run --stage: one stage's tokens in tokensByStage (a rerun replaces them); tokens becomes their sum."""
     require_staged(run)
     if stage not in STAGES:
-        raise ValueError("unknown stage %s; stages are %s" % (stage, ", ".join(STAGES)))
+        raise ValueError(
+            "unknown stage {}; stages are {}".format(stage, ", ".join(STAGES))
+        )
     if tokens is None:
         raise ValueError("finish-run --stage needs --tokens")
     meta = read(run / "run.json")
@@ -656,7 +662,7 @@ def record_stage_tokens(run, stage, tokens):
 
 def review_set_id(run):
     meta = read(run / "run.json")
-    return "%s-%s" % (meta["painId"], meta["runId"])
+    return "{}-{}".format(meta["painId"], meta["runId"])
 
 
 def dreams_review_build(run, root):
@@ -664,7 +670,9 @@ def dreams_review_build(run, root):
     require_staged(run)
     pending = next_stage(run)
     if pending != "dream-review":
-        raise ValueError("dream review cannot be built: next stage is %s" % pending)
+        raise ValueError(
+            "dream review cannot be built: next stage is {}".format(pending)
+        )
     issues = validate_run(run)
     if issues:
         raise ValueError("fix validation first: " + "; ".join(issues))
@@ -749,22 +757,25 @@ def dreams_ingest(run, decisions_path):
     """Apply the founder's exported dream decisions: record each one, keep the drafted wording beside an edit."""
     require_staged(run)
     if dream_review_ingested(run):
-        raise ValueError("the dream review of %s was already ingested" % run.name)
+        raise ValueError("the dream review of {} was already ingested".format(run.name))
     if not (run / "reviews/proposals.json").is_file():
         raise ValueError(
-            "no dream review was built for %s; run dreams-review-build first" % run.name
+            "no dream review was built for {}; run dreams-review-build first".format(
+                run.name
+            )
         )
     if not dream_screen_done(run):
         raise ValueError(
-            "the dream screen of %s is missing or out of date (unscreened %s); screen the dreams and rebuild "
-            "the review page" % (run.name, ", ".join(unscreened_dreams(run)))
+            "the dream screen of {} is missing or out of date (unscreened {}); screen the dreams and rebuild "
+            "the review page".format(run.name, ", ".join(unscreened_dreams(run)))
         )
     export, doc = read(decisions_path), read(run / "dreams.json")
     set_id, dreams = review_set_id(run), doc["dreams"]
     if not isinstance(export, dict) or export.get("setId") != set_id:
         raise ValueError(
-            "decisions are for %s, not %s"
-            % (export.get("setId") if isinstance(export, dict) else None, set_id)
+            "decisions are for {}, not {}".format(
+                export.get("setId") if isinstance(export, dict) else None, set_id
+            )
         )
     shown = {p["id"]: p for p in read(run / "reviews/proposals.json")["proposals"]}
     changed = sorted(
@@ -777,24 +788,28 @@ def dreams_ingest(run, decisions_path):
     )
     if changed:
         raise ValueError(
-            "dreams.json changed since the review page was built (%s); rebuild it with dreams-review-build"
-            % ", ".join(changed)
+            "dreams.json changed since the review page was built ({}); rebuild it with dreams-review-build".format(
+                ", ".join(changed)
+            )
         )
     decisions, issues = export.get("decisions"), []
     if not isinstance(decisions, dict):
         raise ValueError("decisions must be keyed by dream ID")
-    issues += ["unknown dream %s" % key for key in sorted(set(decisions) - set(dreams))]
+    issues += [
+        "unknown dream {}".format(key) for key in sorted(set(decisions) - set(dreams))
+    ]
     undecided = sorted(set(dreams) - set(decisions))
     if undecided:
         issues.append("undecided: " + ", ".join(undecided))
     for key, d in sorted(decisions.items()):
         if not isinstance(d, dict) or d.get("decision") not in DREAM_DECISIONS:
             issues.append(
-                "%s: unknown decision %s"
-                % (key, d.get("decision") if isinstance(d, dict) else d)
+                "{}: unknown decision {}".format(
+                    key, d.get("decision") if isinstance(d, dict) else d
+                )
             )
         elif d["decision"] == "edit" and not has_wording(d.get("edit")):
-            issues.append("%s: an edit needs a title and a line" % key)
+            issues.append("{}: an edit needs a title and a line".format(key))
     if issues:
         raise ValueError("; ".join(issues))
     ingested, verdicts = now(), read(run / "dream-screen.json")["results"]
@@ -837,7 +852,7 @@ def accepted_dreams(run):
     """The dreams later stages work from: accepted or edited ones, with the founder's wording."""
     require_staged(run)
     if not dream_review_ingested(run):
-        raise ValueError("dream-review is not complete for %s" % run.name)
+        raise ValueError("dream-review is not complete for {}".format(run.name))
     keys = reviewed_dreams(run)
     return {
         key: d for key, d in read(run / "dreams.json")["dreams"].items() if key in keys
@@ -875,7 +890,7 @@ FIX_WORDING = (
     "whatChanges",
     "firstStep",
 )  # the copy an edit may change; the drafted copy is kept beside it
-FIX_WORDING_TEXT = "%s, %s, and %s" % FIX_WORDING
+FIX_WORDING_TEXT = "{}, {}, and {}".format(*FIX_WORDING)
 
 
 def has_fix_wording(value):
@@ -921,7 +936,7 @@ def fixes_review_build(run, root):
     require_staged(run)
     pending = next_stage(run)
     if pending != "fix-review":
-        raise ValueError("fix review cannot be built: next stage is %s" % pending)
+        raise ValueError("fix review cannot be built: next stage is {}".format(pending))
     issues = validate_run(run)
     if issues:
         raise ValueError("fix validation first: " + "; ".join(issues))
@@ -1029,10 +1044,12 @@ def fixes_ingest(run, decisions_path):
     links, which replace the assembler's in links.json (removed links are kept under review.removed)."""
     require_staged(run)
     if fix_review_ingested(run):
-        raise ValueError("the fix review of %s was already ingested" % run.name)
+        raise ValueError("the fix review of {} was already ingested".format(run.name))
     if not (run / "reviews/fix-proposals.json").is_file():
         raise ValueError(
-            "no fix review was built for %s; run fixes-review-build first" % run.name
+            "no fix review was built for {}; run fixes-review-build first".format(
+                run.name
+            )
         )
     export, fix_doc, link_doc = (
         read(decisions_path),
@@ -1042,8 +1059,9 @@ def fixes_ingest(run, decisions_path):
     set_id, fixes, links = review_set_id(run), fix_doc["fixes"], link_doc["links"]
     if not isinstance(export, dict) or export.get("setId") != set_id:
         raise ValueError(
-            "decisions are for %s, not %s"
-            % (export.get("setId") if isinstance(export, dict) else None, set_id)
+            "decisions are for {}, not {}".format(
+                export.get("setId") if isinstance(export, dict) else None, set_id
+            )
         )
     shown = {p["id"]: p for p in read(run / "reviews/fix-proposals.json")["proposals"]}
     order = reviewed_fix_order(run)
@@ -1063,38 +1081,41 @@ def fixes_ingest(run, decisions_path):
     )
     if changed:
         raise ValueError(
-            "fixes.json or links.json changed since the fix review page was built (%s); rebuild it with "
-            "fixes-review-build" % ", ".join(changed)
+            "fixes.json or links.json changed since the fix review page was built ({}); rebuild it with "
+            "fixes-review-build".format(", ".join(changed))
         )
     decisions, issues = export.get("decisions"), []
     if not isinstance(decisions, dict):
         raise ValueError("decisions must be keyed by fix ID")
     accepted = set(accepted_dreams(run))
-    issues += ["unknown fix %s" % key for key in sorted(set(decisions) - set(order))]
+    issues += [
+        "unknown fix {}".format(key) for key in sorted(set(decisions) - set(order))
+    ]
     undecided = sorted(set(order) - set(decisions))
     if undecided:
         issues.append("undecided: " + ", ".join(undecided))
     for key, d in sorted(decisions.items()):
         if not isinstance(d, dict) or d.get("decision") not in FIX_DECISIONS:
             issues.append(
-                "%s: unknown decision %s"
-                % (key, d.get("decision") if isinstance(d, dict) else d)
+                "{}: unknown decision {}".format(
+                    key, d.get("decision") if isinstance(d, dict) else d
+                )
             )
             continue
         if d["decision"] == "edit" and not has_fix_wording(d.get("edit")):
-            issues.append("%s: an edit needs a %s" % (key, FIX_WORDING_TEXT))
+            issues.append("{}: an edit needs a {}".format(key, FIX_WORDING_TEXT))
         chosen = d.get("links")
         if not isinstance(chosen, list) or not all(
             isinstance(dream, str) for dream in chosen
         ):
-            issues.append("%s: links must be a list of dream IDs" % key)
+            issues.append("{}: links must be a list of dream IDs".format(key))
             continue
         issues += [
-            "%s: %s is linked twice" % (key, dream)
+            "{}: {} is linked twice".format(key, dream)
             for dream in sorted({x for x in chosen if chosen.count(x) > 1})
         ]
         issues += [
-            "%s: %s is not an accepted dream" % (key, dream)
+            "{}: {} is not an accepted dream".format(key, dream)
             for dream in sorted(set(chosen) - accepted)
         ]
     if issues:
@@ -1330,7 +1351,7 @@ def validate_verdict(result, where, issues):
     if result.get("pass") is False:
         require(
             result.get("check") in DREAM_CHECKS,
-            where + ": a fail names its check (%s)" % " or ".join(DREAM_CHECKS),
+            where + ": a fail names its check ({})".format(" or ".join(DREAM_CHECKS)),
             issues,
         )
     else:
@@ -1360,7 +1381,7 @@ def validate_dreams(doc, issues, pain=None):
                 issues,
             )
         issues += [
-            "%s: a dream has no %s" % (where, field)
+            "{}: a dream has no {}".format(where, field)
             for field in NOT_ON_DREAMS
             if field in d
         ]
@@ -1392,12 +1413,12 @@ def validate_dreams(doc, issues, pain=None):
         )
         require(
             isinstance(o.get("reason"), str) and o["reason"].strip(),
-            "overlap %s/%s needs a reason" % (o.get("a"), o.get("b")),
+            "overlap {}/{} needs a reason".format(o.get("a"), o.get("b")),
             issues,
         )
         require(
             pair not in pairs,
-            "overlap %s/%s is flagged twice" % (o.get("a"), o.get("b")),
+            "overlap {}/{} is flagged twice".format(o.get("a"), o.get("b")),
             issues,
         )
         pairs.add(pair)
@@ -1447,9 +1468,8 @@ def is_count(value):
 def refused_kind(kind, kinds):
     """Why a kind is refused in this run: a trial kind outside a pilot run, or a kind with no brief."""
     if kind in TRIAL_KIND_BRIEFS and kind not in kinds:
-        return (
-            '%s is a trial kind, accepted only in a pilot run ("pilot": true in run.json)'
-            % kind
+        return '{} is a trial kind, accepted only in a pilot run ("pilot": true in run.json)'.format(
+            kind
         )
     return "kinds with a brief are " + ", ".join(kinds)
 
@@ -1479,20 +1499,20 @@ def validate_plan(doc, accepted, issues, pain=None, kinds=KIND_BRIEFS):
         for key in sorted(accepted - set(ceilings))
     ]
     issues += [
-        "plan: %s is not an accepted dream" % key
+        "plan: {} is not an accepted dream".format(key)
         for key in sorted(set(ceilings) - accepted)
     ]
     for key, row in sorted(ceilings.items()):
         if not isinstance(row, dict):
-            issues.append("plan %s: ceilings must be keyed by kind" % key)
+            issues.append("plan {}: ceilings must be keyed by kind".format(key))
             continue
         issues += [
-            "plan %s: no ceiling for %s" % (key, kind)
+            "plan {}: no ceiling for {}".format(key, kind)
             for kind in kinds
             if kind not in row
         ]
         for kind, ceiling in sorted(row.items()):
-            where = "plan %s %s" % (key, kind)
+            where = "plan {} {}".format(key, kind)
             if kind not in kinds:
                 issues.append(where + ": " + refused_kind(kind, kinds))
                 continue
@@ -1519,17 +1539,19 @@ def check_method(kind, method, where, issues):
         if isinstance(rule, tuple):
             require(
                 value in rule,
-                "%s: method needs %s (%s)" % (where, field, ", ".join(rule)),
+                "{}: method needs {} ({})".format(where, field, ", ".join(rule)),
                 issues,
             )
         elif rule is bool:
             require(
-                isinstance(value, bool), "%s: method needs %s" % (where, field), issues
+                isinstance(value, bool),
+                "{}: method needs {}".format(where, field),
+                issues,
             )
         else:
             require(
                 isinstance(value, str) and value.strip() != "",
-                "%s: method needs %s" % (where, field),
+                "{}: method needs {}".format(where, field),
                 issues,
             )
 
@@ -1553,7 +1575,7 @@ def check_proposed_links(fix, accepted, where, issues):
             if isinstance(entry.get("dreamId"), str)
             else repr(entry.get("dreamId"))
         )
-        at = "%s: proposed link to %s" % (where, dream)
+        at = "{}: proposed link to {}".format(where, dream)
         require(dream in accepted, at + ", which is not an accepted dream", issues)
         require(dream not in seen, at + " is listed twice", issues)
         require(
@@ -1615,12 +1637,14 @@ def validate_fixes(
             check_proposed_links(f, accepted, where, issues)
         else:
             require(
-                f.get("origin") == "kind:%s" % kind,
+                f.get("origin") == "kind:{}".format(kind),
                 where + ": origin must be shared or kind:<its kind>",
                 issues,
             )
             require(
-                kind in pools, where + ": no %s pool records this fix" % kind, issues
+                kind in pools,
+                where + ": no {} pool records this fix".format(kind),
+                issues,
             )
             require(
                 f.get("draftedFor") in accepted,
@@ -1654,8 +1678,9 @@ def validate_fixes(
         if kind in KIND_STATUSES:
             require(
                 f.get("status") in KIND_STATUSES[kind],
-                "%s: a %s fix has status %s"
-                % (where, kind, " or ".join(KIND_STATUSES[kind])),
+                "{}: a {} fix has status {}".format(
+                    where, kind, " or ".join(KIND_STATUSES[kind])
+                ),
                 issues,
             )
         check_method(kind, f.get("method"), where, issues)
@@ -1702,14 +1727,14 @@ def validate_fixes(
                 )
     for kind, pool in sorted(pools.items()):
         if kind not in kinds:
-            issues.append("pool %s: %s" % (kind, refused_kind(kind, kinds)))
+            issues.append("pool {}: {}".format(kind, refused_kind(kind, kinds)))
             continue
         shortfalls = pool.get("shortfalls", {}) if isinstance(pool, dict) else None
         if not isinstance(shortfalls, dict):
-            issues.append("%s pool: shortfalls must be keyed by dream ID" % kind)
+            issues.append("{} pool: shortfalls must be keyed by dream ID".format(kind))
             continue
         issues += [
-            "%s pool: shortfall for %s, which is not an accepted dream" % (kind, d)
+            "{} pool: shortfall for {}, which is not an accepted dream".format(kind, d)
             for d in sorted(set(shortfalls) - accepted)
         ]
         for dream in sorted(accepted):
@@ -1719,7 +1744,7 @@ def validate_fixes(
                 f.get("kind") == kind and f.get("draftedFor") == dream
                 for f in fixes.values()
             )
-            where = "%s pool for %s" % (kind, dream)
+            where = "{} pool for {}".format(kind, dream)
             if drafted > limit:
                 issues.append(
                     "%s: %d fixes, over the ceiling of %d" % (where, drafted, limit)
@@ -1761,13 +1786,14 @@ def validate_screen(doc, fixes, issues, pain=None):
     # A fix that fails the screen stays in fixes.json (spec, "Fix screen"), so the two files list the same fixes.
     require(
         not missing,
-        "screen.json must screen every fix exactly once (missing %s)"
-        % ", ".join(missing),
+        "screen.json must screen every fix exactly once (missing {})".format(
+            ", ".join(missing)
+        ),
         issues,
     )
     require(
         not gone,
-        "screen.json names fixes no longer in fixes.json (%s)" % ", ".join(gone),
+        "screen.json names fixes no longer in fixes.json ({})".format(", ".join(gone)),
         issues,
     )
     for key, result in sorted(results.items()):
@@ -1777,7 +1803,7 @@ def validate_screen(doc, fixes, issues, pain=None):
             require(
                 isinstance(verdict.get("pass"), bool)
                 and one_line(verdict.get("reason")),
-                "screen %s: %s needs pass and reason" % (key, check),
+                "screen {}: {} needs pass and reason".format(key, check),
                 issues,
             )
     return {key for key, result in results.items() if screen_passed(result)}
@@ -1809,21 +1835,21 @@ def validate_links(doc, fixes, passed, accepted, issues, pain=None):
     for entry in links:
         entry = entry if isinstance(entry, dict) else {}
         fix, dream = entry.get("fixId"), entry.get("dreamId")
-        where = "link %s → %s" % (fix, dream)
-        require(fix in fixes, "%s: %s is not in fixes.json" % (where, fix), issues)
+        where = "link {} → {}".format(fix, dream)
+        require(fix in fixes, "{}: {} is not in fixes.json".format(where, fix), issues)
         require(
             passed is None or fix not in fixes or fix in passed,
-            "%s: %s was screened out" % (where, fix),
+            "{}: {} was screened out".format(where, fix),
             issues,
         )
         require(
             dream in accepted,
-            "%s: %s is not an accepted dream" % (where, dream),
+            "{}: {} is not an accepted dream".format(where, dream),
             issues,
         )
         require(
             fix not in rejected,
-            "%s: %s was rejected in the fix review" % (where, fix),
+            "{}: {} was rejected in the fix review".format(where, fix),
             issues,
         )
         # A link the founder adds in review may leave out how; the assembler always says it.
@@ -1865,7 +1891,7 @@ def validate_links(doc, fixes, passed, accepted, issues, pain=None):
                 isinstance(o, int) and not isinstance(o, bool) and o > 0 for o in orders
             )
             and len(set(orders)) == len(orders),
-            "dream %s: each link needs its own order, a positive integer" % dream,
+            "dream {}: each link needs its own order, a positive integer".format(dream),
             issues,
         )
     for index, candidate in enumerate(doc.get("pathCandidates", []), 1):
@@ -1897,7 +1923,7 @@ def validate_judgments(doc, cards, issues, noun="card"):
     )
     require(
         set(scores) == set(cards),
-        "judgments must score every %s exactly once" % noun,
+        "judgments must score every {} exactly once".format(noun),
         issues,
     )
     for key, s in scores.items():
@@ -1921,7 +1947,7 @@ def validate_judgments(doc, cards, issues, noun="card"):
             p.get("a") in cards
             and p.get("b") in cards
             and p.get("winner") in (p.get("a"), p.get("b")),
-            "pairwise entry must name two %ss and one winner" % noun.split()[-1],
+            "pairwise entry must name two {}s and one winner".format(noun.split()[-1]),
             issues,
         )
 
@@ -1934,8 +1960,9 @@ def validate_dream_judgments(doc, dreams, fixes, issues, pain=None):
     )
     require(
         not scored_fixes,
-        "judgments score fixes (%s); score each dream with its linked fixes"
-        % ", ".join(scored_fixes),
+        "judgments score fixes ({}); score each dream with its linked fixes".format(
+            ", ".join(scored_fixes)
+        ),
         issues,
     )
     validate_judgments(doc, dreams, issues, "accepted dream")
@@ -1973,8 +2000,9 @@ def validate_staged_run(run, judgments=True):
     if dream_review_ingested(run):
         require(
             dream_screen_done(run),
-            "the dream review needs a dream screen of every dream (unscreened %s)"
-            % ", ".join(unscreened_dreams(run)),
+            "the dream review needs a dream screen of every dream (unscreened {})".format(
+                ", ".join(unscreened_dreams(run))
+            ),
             issues,
         )
     accepted = reviewed_dreams(run)
@@ -1995,8 +2023,9 @@ def validate_staged_run(run, judgments=True):
         missing = [k for k in planned_kinds(run) if k not in drafted_pools(run)]
         require(
             not missing,
-            "screen.json needs a pool for every planned kind (missing %s)"
-            % ", ".join(missing),
+            "screen.json needs a pool for every planned kind (missing {})".format(
+                ", ".join(missing)
+            ),
             issues,
         )
         passed = validate_screen(read(run / "screen.json"), fixes, issues, pain)
@@ -2017,7 +2046,7 @@ def validate_staged_run(run, judgments=True):
             )
             require(
                 not undecided,
-                "the fix review left fixes undecided (%s)" % ", ".join(undecided),
+                "the fix review left fixes undecided ({})".format(", ".join(undecided)),
                 issues,
             )
     if judgments and (run / "judgments.json").is_file():
@@ -2077,8 +2106,9 @@ def dream_rules(title, line, card=False):
     ):
         yield (
             "dream-not-outcome",
-            'dream title "%s" is an action; name the outcome, e.g. "I get limits on addictive app design"'
-            % title[:40],
+            'dream title "{}" is an action; name the outcome, e.g. "I get limits on addictive app design"'.format(
+                title[:40]
+            ),
         )
     if len(SENTENCE.findall(line.strip())) > 1:
         yield "line-length", "dream line should be one sentence"
@@ -2096,7 +2126,7 @@ def copy_patterns(root):
     acronyms = [w for w in regional_words if w.isupper() or "-" in w]
     # British words match in any case; an acronym matches as written, unless it may be spelled out in the text.
     alternatives = [
-        "(?i:%s)" % re.escape(w) for w in regional_words if w not in acronyms
+        "(?i:{})".format(re.escape(w)) for w in regional_words if w not in acronyms
     ]
     alternatives += [
         re.escape(w) for w in acronyms if w not in banned.get("spelledOutInText", [])
@@ -2122,18 +2152,18 @@ def copy_patterns(root):
 def phrase_rules(field, text, patterns):
     """(rule, detail) for generic phrases, the serial comma, exclamation marks and boilerplate caveats in one field."""
     for m in patterns["generic"].finditer(text) if patterns["generic"] else ():
-        yield "generic-phrase", '%s: "%s"' % (field, m[0])
+        yield "generic-phrase", '{}: "{}"'.format(field, m[0])
     for hit in serial_comma.find(text):
         yield (
             "serial-comma",
-            '%s: add the Oxford comma in "%s"' % (field, hit["list"][:80]),
+            '{}: add the Oxford comma in "{}"'.format(field, hit["list"][:80]),
         )
     if "!" in text:
         yield "exclamation", field + ": no exclamation marks"
     for m in patterns["boilerplate"].finditer(text) if patterns["boilerplate"] else ():
         yield (
             "boilerplate-caveat",
-            '%s: "%s" (status labels carry this)' % (field, m[0]),
+            '{}: "{}" (status labels carry this)'.format(field, m[0]),
         )
 
 
@@ -2224,8 +2254,9 @@ def lint_staged_fixes(fixes, add_fix, exemplars, patterns):
                 add_fix(
                     key,
                     "template-copy",
-                    '%s: "%s…" is a method template; keep the method in its fields and say what changes'
-                    % (field, m[0][:40]),
+                    '{}: "{}…" is a method template; keep the method in its fields and say what changes'.format(
+                        field, m[0][:40]
+                    ),
                 )
     # Agents on the same model converge (design, "Isolation and homogenization"), so compare titles across the pain's pool.
     words = sorted((key, title_words(f.get("title"))) for key, f in fixes.items())
@@ -2239,8 +2270,9 @@ def lint_staged_fixes(fixes, add_fix, exemplars, patterns):
                 add_fix(
                     key,
                     "near-duplicate-fix",
-                    'title nearly matches %s ("%s"); keep one, or make each say what is different'
-                    % (other, fixes[other].get("title", "")[:60]),
+                    'title nearly matches {} ("{}"); keep one, or make each say what is different'.format(
+                        other, fixes[other].get("title", "")[:60]
+                    ),
                 )
 
 
@@ -2269,13 +2301,13 @@ def lint_staged_run(run, root):
                 add(
                     key,
                     "regional-word",
-                    '%s: "%s" (use the everyday American word)' % (field, m[0]),
+                    '{}: "{}" (use the everyday American word)'.format(field, m[0]),
                 )
         for m in acronym_titles.finditer(copy["title"]) if acronym_titles else ():
             add(
                 key,
                 "acronym-in-title",
-                '"%s" in a title; spell it out or rephrase' % m[0],
+                '"{}" in a title; spell it out or rephrase'.format(m[0]),
             )
         for rule, detail in hedge_rules(soft_modals(patterns, *copy.values())):
             add(key, rule, detail)
@@ -2422,26 +2454,31 @@ def fix_copy_rules(f, patterns, card_copy=None):
         for m in regional.finditer(value) if regional else ():
             yield (
                 "regional-word",
-                '%s: "%s" (use the everyday American word)' % (field, m[0]),
+                '{}: "{}" (use the everyday American word)'.format(field, m[0]),
             )
     for m in (
         acronym_titles.finditer(title + " " + card_copy.get("title", ""))
         if acronym_titles
         else ()
     ):
-        yield "acronym-in-title", '"%s" in a title; spell it out or rephrase' % m[0]
+        yield (
+            "acronym-in-title",
+            '"{}" in a title; spell it out or rephrase'.format(m[0]),
+        )
     learnish = re.match(r"(Learn|Read|Know|Understand|Study|Find out)\b", title)
     if learnish and f.get("kind") not in ("feature", "learn"):
         yield (
             "not-an-action",
-            'fix title "%s" asks the reader to learn; if it gives a usable skill or knowledge make it kind learn, otherwise say what they do with it'
-            % title[:40],
+            'fix title "{}" asks the reader to learn; if it gives a usable skill or knowledge make it kind learn, otherwise say what they do with it'.format(
+                title[:40]
+            ),
         )
     elif f.get("kind") == "learn" and ABOUT_OTHERS.search(title):
         yield (
             "learn-about-others",
-            'Learn fix "%s" is about someone else\'s example; turn it into what the reader does, with the example in the text'
-            % title[:40],
+            'Learn fix "{}" is about someone else\'s example; turn it into what the reader does, with the example in the text'.format(
+                title[:40]
+            ),
         )
 
 
@@ -2456,8 +2493,9 @@ def fix_sourcing_rules(f, ex, allowed, known):
         if missing:
             yield (
                 "unsourced-detail",
-                "speculative fix names %s with no opened source; cite a verified exemplar or remove the name"
-                % ", ".join(missing),
+                "speculative fix names {} with no opened source; cite a verified exemplar or remove the name".format(
+                    ", ".join(missing)
+                ),
             )
     else:
         source = " ".join(
@@ -2470,8 +2508,9 @@ def fix_sourcing_rules(f, ex, allowed, known):
         if missing:
             yield (
                 "unsourced-detail",
-                "not in exemplar %s: %s. Add it to the exemplar record from the opened source, or remove it"
-                % (f["exemplarRef"], ", ".join(missing)),
+                "not in exemplar {}: {}. Add it to the exemplar record from the opened source, or remove it".format(
+                    f["exemplarRef"], ", ".join(missing)
+                ),
             )
     if ex:
         names = {
@@ -2493,15 +2532,17 @@ def fix_sourcing_rules(f, ex, allowed, known):
         if hit:
             yield (
                 "title-assumes-example",
-                "title names the example (%s); describe the action, introduce the example in the text"
-                % ", ".join(sorted(hit)),
+                "title names the example ({}); describe the action, introduce the example in the text".format(
+                    ", ".join(sorted(hit))
+                ),
             )
     if not f.get("speculative"):
         if ex and not ex.get("verified"):
             yield (
                 "unverified-example",
-                "cites unverified exemplar %s; open the source or mark speculative"
-                % f["exemplarRef"],
+                "cites unverified exemplar {}; open the source or mark speculative".format(
+                    f["exemplarRef"]
+                ),
             )
         text = " ".join(
             [f.get("title", ""), f.get("whatChanges", ""), (ex or {}).get("name", "")]
@@ -2517,14 +2558,16 @@ def fix_sourcing_rules(f, ex, allowed, known):
         if starts and feature:
             yield (
                 "feature-pitch",
-                'feature text starts with "%s"; the Feature tag already says It would build this. Describe the behavior, verb first ("Shows…", "Finds…")'
-                % sentence[:24],
+                'feature text starts with "{}"; the Feature tag already says It would build this. Describe the behavior, verb first ("Shows…", "Finds…")'.format(
+                    sentence[:24]
+                ),
             )
         elif starts:
             yield (
                 "ambiguous-it",
-                'sentence starts with "%s"; readers may take it for the product. Name the thing instead'
-                % sentence[:24],
+                'sentence starts with "{}"; readers may take it for the product. Name the thing instead'.format(
+                    sentence[:24]
+                ),
             )
     if feature and re.search(r",? with It\b|\bIt\b", f.get("title", "")):
         yield "feature-pitch", "feature title mentions It; the Feature tag carries that"
@@ -2640,11 +2683,12 @@ def judged_dreams(run):
     """Each accepted dream with its linked fixes in link order. A fix linked to several dreams is repeated under each."""
     pending = next_stage(run)
     if stage_index(pending) < STAGES.index("judge"):
-        raise ValueError("judging cannot start: %s is not complete" % pending)
+        raise ValueError("judging cannot start: {} is not complete".format(pending))
     if pending == "done":
         raise ValueError(
-            "judging cannot start: the fix review of %s is ingested, so the run is done"
-            % run.name
+            "judging cannot start: the fix review of {} is ingested, so the run is done".format(
+                run.name
+            )
         )
     issues = validate_staged_run(
         run, judgments=False
@@ -2978,8 +3022,9 @@ def latest_run(root, pain, require_selection=True, staged=None):
     ]
     if not runs:
         raise FileNotFoundError(
-            "No selected %srun for %s"
-            % ({True: "staged ", False: "card "}.get(staged, ""), pain)
+            "No selected {}run for {}".format(
+                {True: "staged ", False: "card "}.get(staged, ""), pain
+            )
         )
     return runs[-1]
 
@@ -3309,11 +3354,12 @@ def compare_build(root, pilot_pains, seed=20261020):
             if found:
                 # Both sides must answer the same pain text (design, "Pilot comparison"): rerun the old flow first.
                 raise ValueError(
-                    "%s is stale: %s%s; rerun it on the current wording first"
-                    % (
+                    "{} is stale: {}{}; rerun it on the current wording first".format(
                         found["run"],
                         found["reason"],
-                        " (%r, now %r)" % (found["old"]["line"], found["new"]["line"])
+                        " ({!r}, now {!r})".format(
+                            found["old"]["line"], found["new"]["line"]
+                        )
                         if "old" in found
                         else "",
                     )
