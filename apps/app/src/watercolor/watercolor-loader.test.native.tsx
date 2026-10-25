@@ -1,5 +1,5 @@
 import { act, render, screen } from "@testing-library/react-native";
-import { AccessibilityInfo } from "react-native";
+import { AccessibilityInfo, Platform } from "react-native";
 import { ContentQueryState } from "../components/content-query-state";
 import { dotAccessibility } from "./types";
 import { LOADER_DELAY_MS, WatercolorLoader } from "./watercolor-loader";
@@ -37,7 +37,10 @@ describe("WatercolorLoader", () => {
     expect(screen.getByTestId("watercolor-dot")).toBeTruthy();
   });
 
-  it("announces loading once on iOS (FR-020)", async () => {
+  // Only iOS announces; the Android run skips this case.
+  const onIOS = Platform.OS === "ios" ? it : it.skip;
+
+  onIOS("announces loading once on iOS (FR-020)", async () => {
     const announce = jest
       .spyOn(AccessibilityInfo, "announceForAccessibility")
       .mockImplementation(() => {});

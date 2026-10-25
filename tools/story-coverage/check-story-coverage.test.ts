@@ -53,6 +53,7 @@ describe("storyGaps", () => {
         tracked: [
           "apps/app/src/components/personal/riso.ts",
           "apps/app/src/components/page.test.tsx",
+          "apps/app/src/components/page.test.native.tsx",
           "apps/app/src/watercolor/lab/lab-screen.tsx",
           "apps/app/app/index.tsx",
         ],
