@@ -6,7 +6,9 @@ import type { ComponentType } from "react";
 // builds fold `__DEV__` to false and drop the require, so the fixtures and
 // blocks stay out of the bundle every page loads.
 const DiagramMathLab: ComponentType | null = __DEV__
-  ? require("../../src/essays/blocks/lab/essay-blocks-lab").default
+  ? (
+      require("../../src/essays/blocks/lab/essay-blocks-lab") as typeof import("../../src/essays/blocks/lab/essay-blocks-lab")
+    ).default
   : null;
 
 export default function DiagramMathLabScreen() {

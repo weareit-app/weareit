@@ -1,4 +1,9 @@
-import { ORPCError, validateORPCError, type AnyProcedure } from "@orpc/server";
+import {
+  type AnyProcedure,
+  type ErrorMap,
+  ORPCError,
+  validateORPCError,
+} from "@orpc/server";
 import type { Log } from "@it/log/log";
 
 // An oRPC client interceptor that logs failures the contract doesn't declare.
@@ -36,7 +41,9 @@ async function logError(
     log.error("api_error_undeclared", { operation, cause: error });
     return;
   }
-  const checked = await validateORPCError(procedure["~orpc"].errorMap, error);
+  // AnyProcedure types its error map as any.
+  const errorMap = procedure["~orpc"].errorMap as ErrorMap;
+  const checked = await validateORPCError(errorMap, error);
   if (checked.defined) return;
   if (checked.status >= 500)
     log.error("api_error_undeclared", {

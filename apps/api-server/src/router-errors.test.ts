@@ -39,10 +39,14 @@ const draft = {
   draftUpdatedAt: 1760000000000,
 };
 
-const supportPayments: ApiContext["supportPayments"] = {
-  createCheckout: vi.fn(),
-  getStatus: vi.fn(),
-  createPortal: vi.fn(),
+type SupportPayments = ApiContext["supportPayments"];
+const createCheckout = vi.fn<SupportPayments["createCheckout"]>();
+const getStatus = vi.fn<SupportPayments["getStatus"]>();
+const createPortal = vi.fn<SupportPayments["createPortal"]>();
+const supportPayments: SupportPayments = {
+  createCheckout,
+  getStatus,
+  createPortal,
 };
 
 // Calls go over the RPC wire, through the server's handler and the
@@ -203,9 +207,7 @@ describe("declared errors", () => {
   });
 
   it("PAYMENTS_NOT_CONFIGURED: starting a checkout", async () => {
-    vi.mocked(supportPayments.createCheckout).mockRejectedValue(
-      new PaymentsNotConfiguredError(),
-    );
+    createCheckout.mockRejectedValue(new PaymentsNotConfiguredError());
 
     const error = await failure(
       client().support.createCheckout({ amountMinor: 500, frequency: "once" }),
@@ -219,9 +221,7 @@ describe("declared errors", () => {
   });
 
   it("PAYMENTS_NOT_CONFIGURED: opening subscription management", async () => {
-    vi.mocked(supportPayments.createPortal).mockRejectedValue(
-      new PaymentsNotConfiguredError(),
-    );
+    createPortal.mockRejectedValue(new PaymentsNotConfiguredError());
 
     const error = await failure(client().support.createPortal({ reference }));
 
@@ -230,12 +230,8 @@ describe("declared errors", () => {
   });
 
   it("NOT_FOUND: support that isn't the caller's", async () => {
-    vi.mocked(supportPayments.getStatus).mockRejectedValue(
-      new SupportContributionNotFoundError(),
-    );
-    vi.mocked(supportPayments.createPortal).mockRejectedValue(
-      new SupportContributionNotFoundError(),
-    );
+    getStatus.mockRejectedValue(new SupportContributionNotFoundError());
+    createPortal.mockRejectedValue(new SupportContributionNotFoundError());
 
     for (const call of [
       client().support.getStatus({ reference }),
@@ -248,9 +244,7 @@ describe("declared errors", () => {
   });
 
   it("SUPPORT_NOT_RECURRING: managing one-time support", async () => {
-    vi.mocked(supportPayments.createPortal).mockRejectedValue(
-      new SupportNotRecurringError(),
-    );
+    createPortal.mockRejectedValue(new SupportNotRecurringError());
 
     const error = await failure(client().support.createPortal({ reference }));
 

@@ -1,6 +1,11 @@
 import { expect, test } from "@playwright/test";
 import { buildTier1ContentGraph } from "@it/content/tier-1-graph";
 
+// The onboarding draft as the app persists it in local storage.
+interface SavedDraft {
+  state: Record<string, unknown>;
+}
+
 test.beforeEach(async ({ page }) => {
   const content = buildTier1ContentGraph();
   await page.route("**/rpc/**", (route) =>
@@ -56,8 +61,11 @@ test("keeps choices on device and connects them to futures and first actions", a
     page.getByText("Invite one person to explore with you"),
   ).toBeVisible();
 
-  const savedDraft = await page.evaluate(() =>
-    JSON.parse(window.localStorage.getItem("it-onboarding-draft-v1") ?? "null"),
+  const savedDraft = await page.evaluate(
+    () =>
+      JSON.parse(
+        window.localStorage.getItem("it-onboarding-draft-v1") ?? "null",
+      ) as SavedDraft,
   );
   expect(savedDraft.state.personalPainIds).toContain("procrastination");
   expect(savedDraft.state.personalPaths).toEqual([
@@ -86,8 +94,11 @@ test("keeps choices on device and connects them to futures and first actions", a
   await helpInterest.click();
   await expect(helpInterest).toHaveAttribute("aria-checked", "true");
 
-  const savedHelpInterest = await page.evaluate(() =>
-    JSON.parse(window.localStorage.getItem("it-onboarding-draft-v1") ?? "null"),
+  const savedHelpInterest = await page.evaluate(
+    () =>
+      JSON.parse(
+        window.localStorage.getItem("it-onboarding-draft-v1") ?? "null",
+      ) as SavedDraft,
   );
   expect(savedHelpInterest.state.helpInterests).toContain("recruiting");
 });

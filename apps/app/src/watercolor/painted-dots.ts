@@ -18,7 +18,7 @@ function entry(manifest: unknown, atlas: number): PaintedDot | undefined {
 export const PAINTED_DOTS: Record<string, PaintedDot | undefined> = {
   "orb-01": entry(
     require("../../assets/watercolor/orb-01/manifest.json"),
-    require("../../assets/watercolor/orb-01/atlas.png"),
+    require("../../assets/watercolor/orb-01/atlas.png") as number,
   ),
 };
 

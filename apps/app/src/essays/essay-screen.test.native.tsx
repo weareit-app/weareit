@@ -14,22 +14,31 @@ jest.mock("@it/content/essays", () => ({
 }));
 jest.mock("@it/content/essay-drafts", () => ({ draftEssays: {} }));
 jest.mock("expo-router", () => ({
-  ...jest.requireActual("expo-router"),
+  ...jest.requireActual<typeof import("expo-router")>("expo-router"),
   useLocalSearchParams: () => mockParams,
   Unmatched: () => {
-    const { createElement } = jest.requireActual("react");
-    const { Text } = jest.requireActual("react-native");
+    const { createElement } =
+      jest.requireActual<typeof import("react")>("react");
+    const { Text } =
+      jest.requireActual<typeof import("react-native")>("react-native");
     return createElement(Text, null, "This screen doesn't exist.");
   },
 }));
 jest.mock("../navigation/site-links", () => {
-  const actual = jest.requireActual("../navigation/site-links");
+  const actual = jest.requireActual<typeof import("../navigation/site-links")>(
+    "../navigation/site-links",
+  );
   const siteGroups = [
     {
       title: "About It",
       links: [
-        { label: "Why", href: "/why", when: "always", published: true },
-        { label: "AI", href: "/ai", when: "always", published: false },
+        {
+          label: "Why",
+          href: "/why",
+          when: "always" as const,
+          published: true,
+        },
+        { label: "AI", href: "/ai", when: "always" as const, published: false },
       ],
     },
   ];
@@ -37,7 +46,7 @@ jest.mock("../navigation/site-links", () => {
     {
       label: "Licensing",
       href: "/licensing",
-      when: "always",
+      when: "always" as const,
       published: true,
     },
   ];
@@ -161,7 +170,7 @@ describe("essay page", () => {
     await render(<EssayPage essay={essay} />);
 
     const changes = screen.getAllByText(/^(October|First|Added)/);
-    expect(changes.map((node) => node.props.children)).toEqual([
+    expect(changes.map((node) => node.props.children as unknown)).toEqual([
       "October 20, 2026",
       "Added the milestones.",
       "October 1, 2026",

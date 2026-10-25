@@ -6,7 +6,7 @@ const read = (name: string) => readFileSync(`apps/app/${name}`, "utf8");
 const vars = (css: string) =>
   Object.fromEntries(
     [...css.matchAll(/^\s*(--color-[a-z0-9-]+):\s*([^;]+);/gm)].map(
-      ([, name, value]) => [name, value!.toLowerCase()],
+      ([, name, value]): [string, string] => [name!, value!.toLowerCase()],
     ),
   );
 const block = (css: string, start: string) => {

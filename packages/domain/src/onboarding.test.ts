@@ -146,7 +146,7 @@ describe("stored onboarding drafts", () => {
   it.each(storedDrafts)(
     "parses a draft $name as before",
     ({ stored, parsed }) => {
-      const value = JSON.parse(stored);
+      const value = JSON.parse(stored) as Record<string, unknown>;
       const draft = "state" in value ? value.state : value;
 
       expect(onboardingDraftSchema.parse(draft)).toEqual(parsed);

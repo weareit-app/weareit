@@ -8,6 +8,7 @@ import { PALETTES, type PaletteId } from "@it/watercolor/palettes";
 import {
   DOT_B_GLSL,
   FULLSCREEN_VERTEX_GLSL,
+  type PaletteUniforms,
   paletteUniforms,
 } from "@it/watercolor/shaders";
 import { useEffect, useRef } from "react";
@@ -84,7 +85,12 @@ export function WebGLDot({
 
     const at = (name: string) => gl.getUniformLocation(program, name);
     const pal = paletteUniforms(PALETTES[palette]);
-    for (const [name, value] of Object.entries(pal)) {
+    // Every field is a vec3; Object.entries can't know that.
+    const entries = Object.entries(pal) as [
+      string,
+      PaletteUniforms[keyof PaletteUniforms],
+    ][];
+    for (const [name, value] of entries) {
       gl.uniform3fv(at(name), value);
     }
     gl.uniform2f(at("uSize"), size, size);

@@ -6,7 +6,8 @@ import type {
   EssayNode,
   EssaySource,
 } from "@it/domain/essays";
-import { Link, type Href } from "expo-router";
+import { Link } from "expo-router";
+import { toHref } from "../navigation/to-href";
 import type { ComponentType } from "react";
 import { Platform, View } from "react-native";
 import { Text } from "../components/text";
@@ -64,7 +65,7 @@ function InlineNode({
     case "link":
       return (
         <Link
-          href={node.href as Href}
+          href={toHref(node.href)}
           className="font-body text-tide-deep underline underline-offset-4"
         >
           <Inline nodes={node.children} sources={sources} />
@@ -79,7 +80,7 @@ function InlineNode({
       const number = index + 1;
       return (
         <Link
-          href={source.url as Href}
+          href={toHref(source.url)}
           aria-label={`Source ${number}: ${source.title}`}
           className="align-super font-ui text-xs text-tide-deep underline-offset-2 hover:underline"
         >

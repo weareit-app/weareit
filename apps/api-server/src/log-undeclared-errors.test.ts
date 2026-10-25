@@ -6,7 +6,8 @@ import { logUndeclaredErrors } from "./log-undeclared-errors";
 
 function captureLines() {
   const lines: Record<string, unknown>[] = [];
-  const capture = (line: unknown) => lines.push(JSON.parse(String(line)));
+  const capture = (line: unknown) =>
+    lines.push(JSON.parse(String(line)) as Record<string, unknown>);
   vi.spyOn(console, "log").mockImplementation(capture);
   vi.spyOn(console, "error").mockImplementation(capture);
   return lines;
@@ -55,7 +56,7 @@ describe("logUndeclaredErrors", () => {
         operation: "content.getPublished",
         cause: expect.objectContaining({
           message: "connection terminated unexpectedly",
-        }),
+        }) as unknown,
       }),
     ]);
   });

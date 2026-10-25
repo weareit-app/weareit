@@ -37,7 +37,7 @@ export interface ApiClientOptions {
 
 export function createApiClient({
   url,
-  headers = async () => ({}),
+  headers = () => Promise.resolve({}),
   credentials = "omit",
 }: ApiClientOptions): ApiClient {
   const link = new RPCLink({

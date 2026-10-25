@@ -9,7 +9,7 @@ export interface WebDownload {
 
 const WEB_BUDGET_BYTES = 1024 * 1024; // FR-011
 
-export async function measureWebDownload(): Promise<WebDownload> {
+export function measureWebDownload(): Promise<WebDownload> {
   const perf = globalThis.performance;
   const entries = (perf?.getEntriesByType?.("resource") ??
     []) as PerformanceResourceTiming[];
@@ -33,10 +33,10 @@ export async function measureWebDownload(): Promise<WebDownload> {
   const compressed = entries.some(
     (e) => e.transferSize > 0 && e.transferSize < e.decodedBodySize,
   );
-  return {
+  return Promise.resolve({
     items,
     totalBytes,
     compressed,
     fitsBudget: totalBytes <= WEB_BUDGET_BYTES,
-  };
+  });
 }

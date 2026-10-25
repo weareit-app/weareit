@@ -65,14 +65,14 @@ function selectContributions(query: CompiledQuery): QueryResult<unknown> {
 }
 
 class FakeDriver extends DummyDriver {
-  override async acquireConnection(): Promise<DatabaseConnection> {
-    return {
-      executeQuery: async <R>(query: CompiledQuery) =>
-        selectContributions(query) as QueryResult<R>,
+  override acquireConnection(): Promise<DatabaseConnection> {
+    return Promise.resolve({
+      executeQuery: <R>(query: CompiledQuery) =>
+        Promise.resolve(selectContributions(query) as QueryResult<R>),
       streamQuery: () => {
         throw new Error("Streaming is not supported.");
       },
-    };
+    });
   }
 }
 

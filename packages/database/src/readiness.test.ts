@@ -82,7 +82,7 @@ describe.skipIf(!connectionString)("database readiness in Postgres", () => {
 
   it("asks for the seed once every migration has run", async () => {
     const { error } = await migrator.migrateToLatest();
-    if (error) throw error;
+    expect(error).toBeUndefined();
 
     expect(await checkDatabaseReadiness(databaseUrl)).toEqual({
       ready: false,

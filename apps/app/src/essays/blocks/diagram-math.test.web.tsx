@@ -4,9 +4,9 @@ import { createRoot } from "react-dom/client";
 import { renderToString } from "react-dom/server";
 import { EssayBody } from "../essay-body";
 
-const mockRender = jest.fn(async () => ({
-  svg: '<svg aria-roledescription="flowchart-v2"></svg>',
-}));
+const mockRender = jest.fn(() =>
+  Promise.resolve({ svg: '<svg aria-roledescription="flowchart-v2"></svg>' }),
+);
 jest.mock("mermaid", () => ({
   __esModule: true,
   default: {
@@ -55,8 +55,10 @@ async function renderEssay() {
   const container = document.createElement("div");
   document.body.append(container);
   const root = createRoot(container);
-  await act(async () => {
+  // A callback that returns a promise makes act() wait for the async work.
+  await act(() => {
     root.render(<EssayBody nodes={nodes} sources={[]} />);
+    return Promise.resolve();
   });
   // Let the lazy imports and the drawing settle.
   await act(async () => {
@@ -102,6 +104,9 @@ describe("diagram and math in an essay", () => {
       document.querySelector('link[href="/katex/katex.min.css"]'),
     ).not.toBeNull();
 
-    await act(async () => root.unmount());
+    await act(() => {
+      root.unmount();
+      return Promise.resolve();
+    });
   });
 });

@@ -170,7 +170,7 @@ const blockSchema: z.ZodType<EssayBlock> = z.lazy(() =>
       children: z.array(nodeSchema).min(1),
     }),
   ]),
-) as z.ZodType<EssayBlock>;
+);
 
 const nodeSchema: z.ZodType<EssayNode> = z.lazy(() =>
   z.discriminatedUnion("type", [

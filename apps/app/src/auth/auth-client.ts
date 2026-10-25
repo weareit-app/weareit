@@ -11,6 +11,7 @@ export const authClient = createAuthClient({
   fetchOptions: { credentials: "include" },
 });
 
-export async function getSessionCookie() {
-  return null;
+// Web sends the session cookie itself; only native reads it (auth-client.native.ts).
+export function getSessionCookie(): Promise<string | null> {
+  return Promise.resolve(null);
 }

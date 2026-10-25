@@ -1,9 +1,10 @@
-import { Image, View } from "react-native";
+import { Image, type ImageSourcePropType, View } from "react-native";
 
 // The painted orb (brand/watercolor-orb.jpg) cropped to its dot, at any size.
 // It is the reference in the lab and the fallback wherever a generated dot is
 // not ready or cannot be drawn (FR-010).
-const SOURCE = require("../../assets/brand/watercolor-orb.jpg");
+const SOURCE =
+  require("../../assets/brand/watercolor-orb.jpg") as ImageSourcePropType;
 const SOURCE_WIDTH = 1000;
 const SOURCE_HEIGHT = 740;
 // Where the dot sits in the source image, in source pixels.

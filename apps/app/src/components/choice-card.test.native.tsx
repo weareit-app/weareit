@@ -27,7 +27,7 @@ describe("ChoiceCard", () => {
       />,
     );
 
-    fireEvent.press(screen.getByRole("checkbox"));
+    await fireEvent.press(screen.getByRole("checkbox"));
 
     expect(onPress).toHaveBeenCalledTimes(1);
   });

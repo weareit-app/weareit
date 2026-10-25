@@ -303,7 +303,7 @@ export default function CmsScreen() {
       },
     };
     const entityType = entityTypeFor(kind);
-    const nextGraph = {
+    const nextGraph: ContentGraph = {
       ...graph,
       [kind]: [...graph[kind], defaults[kind]],
       provenance: firstSource
@@ -320,7 +320,7 @@ export default function CmsScreen() {
             },
           ]
         : graph.provenance,
-    } as ContentGraph;
+    };
     setGraph(nextGraph);
     setSelectedId(id);
     setNotice(
@@ -355,9 +355,9 @@ export default function CmsScreen() {
     if (!graph || !selectedSourceId) return;
     setGraph({
       ...graph,
-      sources: graph.sources.map((source) =>
+      sources: graph.sources.map<ContentGraph["sources"][number]>((source) =>
         source.id === selectedSourceId ? { ...source, [field]: value } : source,
-      ) as ContentGraph["sources"],
+      ),
     });
   }
 
@@ -514,12 +514,12 @@ export default function CmsScreen() {
         rights: "CC0-1.0",
         reviewStatus: "unreviewed",
         [field]: value,
-      } as ContentGraph["provenance"][number]);
+      });
     } else {
       next[index] = {
         ...current,
         [field]: value,
-      } as ContentGraph["provenance"][number];
+      };
     }
     setGraph({ ...graph, provenance: next });
   }

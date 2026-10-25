@@ -121,7 +121,9 @@ describe("Support It error copy", () => {
   let SupportItScreen: ComponentType;
   beforeAll(() => {
     jest.replaceProperty(Platform, "OS", "web");
-    SupportItScreen = jest.requireActual("../../app/support-it").default;
+    SupportItScreen = jest.requireActual<typeof import("../../app/support-it")>(
+      "../../app/support-it",
+    ).default;
   });
 
   it("announces the fallback for an undeclared error, not the server's message", async () => {
