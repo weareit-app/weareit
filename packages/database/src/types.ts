@@ -1,6 +1,7 @@
 import type { ContentGraph, FeatureStatus } from "@it/domain/content";
 import type {
   ContributionStatus,
+  PaymentEventProcessor,
   PaymentProcessor,
   SupportFrequency,
   TransactionStatus,
@@ -167,7 +168,7 @@ export interface SupportContributionsTable {
 }
 
 export interface SupportPaymentEventsTable {
-  processor: "stripe" | "revenuecat";
+  processor: PaymentEventProcessor;
   event_id: string;
   body_sha256: string;
   received_at: Timestamp;

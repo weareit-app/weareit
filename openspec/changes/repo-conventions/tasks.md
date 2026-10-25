@@ -21,7 +21,7 @@ Order (design decision 13): write the conventions down, move packages, then turn
 ## 3. Database types
 
 - [ ] 3.1 First check kysely-codegen 0.20.0's `--overrides` and `--custom-imports` syntax and `Table` naming against its docs; if 21 overrides don't fit, stop and ask the founder. Then generate the table types from the migrated database with overrides pointing at `@it/domain` types, commit the output, delete the hand-written `types.ts`, and add a `db:types` script plus a `--verify` step in CI's `check` job. Verify CI fails on a branch that adds a migration without regenerating
-- [ ] 3.2 Add a Postgres-backed test in `packages/database` that reads each enum `CHECK` constraint from the catalog and compares it with its Zod enum. Verify it fails when a value is added to a Zod enum only
+- [x] 3.2 Add a Postgres-backed test in `packages/database` that reads each enum `CHECK` constraint from the catalog and compares it with its Zod enum. Verify it fails when a value is added to a Zod enum only
 - [ ] 3.3 Add the generated-table-types part of the #147 decision entry (codegen with `--verify`, the `CHECK` test, generated names kept). Verify the entry names both checks
 
 ## 4. API contract, errors, and logging

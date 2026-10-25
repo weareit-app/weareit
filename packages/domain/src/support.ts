@@ -12,6 +12,11 @@ export const paymentProcessorSchema = z.enum([
 ]);
 export type PaymentProcessor = z.infer<typeof paymentProcessorSchema>;
 
+// Which processor's webhook sent a payment event. RevenueCat reports App Store
+// and Play Store payments, so it stands in for both here.
+export const paymentEventProcessorSchema = z.enum(["stripe", "revenuecat"]);
+export type PaymentEventProcessor = z.infer<typeof paymentEventProcessorSchema>;
+
 export const contributionStatusSchema = z.enum([
   "pending",
   "active",
