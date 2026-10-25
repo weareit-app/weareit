@@ -82,7 +82,10 @@ export function cyclePaletteUniforms(
   const n = cycle.length;
   const i = ((Math.floor(position) % n) + n) % n;
   const f = position - Math.floor(position);
-  return blendPaletteUniforms(cycle[i]!, cycle[(i + 1) % n]!, f);
+  const from = cycle[i];
+  const to = cycle[(i + 1) % n];
+  if (!from || !to) throw new Error("A palette cycle needs a palette");
+  return blendPaletteUniforms(from, to, f);
 }
 
 // Uniforms for the gathering loader: It's palette in slots 0–2 and a guest
@@ -111,13 +114,8 @@ export function gatherUniforms(
   };
   for (let i = 0; i < 10; i += 1) {
     const o = i * 8;
-    u[`uDropA${i}`] = [drops[o]!, drops[o + 1]!, drops[o + 2]!, drops[o + 3]!];
-    u[`uDropB${i}`] = [
-      drops[o + 4]!,
-      drops[o + 5]!,
-      drops[o + 6]!,
-      drops[o + 7]!,
-    ];
+    u[`uDropA${i}`] = drops.slice(o, o + 4);
+    u[`uDropB${i}`] = drops.slice(o + 4, o + 8);
   }
   return u;
 }

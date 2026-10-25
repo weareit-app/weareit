@@ -23,7 +23,7 @@
     "test:tools": "python3 -m unittest discover -s tools/pains/tests && python3 -m unittest discover -s tools/possibilities/tests && python3 -m unittest discover -s tools/style/tests",
     "typecheck": "turbo typecheck typecheck:root",
     "typecheck:root": "tsc -p tsconfig.json",
-    "lint": "biome ci . && pnpm --filter @it/content essays:check",
+    "lint": "biome ci --error-on-warnings . && pnpm --filter @it/content essays:check",
     "format": "biome format --write .",
     "storybook": "pnpm --filter @it/app storybook",
     "storybook:review": "pnpm --filter @it/app storybook:review"

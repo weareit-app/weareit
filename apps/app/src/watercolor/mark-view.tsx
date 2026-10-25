@@ -11,8 +11,11 @@ const useNativeVariable = useNativeVariableTyped as unknown as (
   name: string,
 ) => unknown;
 
-function toSkia(mark: Mark): SkPath[] {
-  return mark.paths.map(({ d, evenOdd }) => toSkPath(d, evenOdd));
+function toSkia(mark: Mark): { path: SkPath; part: Mark["paths"][number] }[] {
+  return mark.paths.map((part) => ({
+    path: toSkPath(part.d, part.evenOdd),
+    part,
+  }));
 }
 
 // matrix(s 0 0 s x y): scale, then offset. Skia applies the last listed
@@ -75,9 +78,10 @@ export function MarkView({
             { translateY: -layout.box.y },
           ]}
         >
-          {paths.map((p, i) => (
-            <Group key={i} transform={placed(mark.paths[i]!)}>
-              <Path path={p} color={fill} />
+          {paths.map(({ path, part }, i) => (
+            // biome-ignore lint/suspicious/noArrayIndexKey: a mark's paths are a fixed list from its artwork, never reordered, and their index is their identity.
+            <Group key={i} transform={placed(part)}>
+              <Path path={path} color={fill} />
             </Group>
           ))}
         </Group>

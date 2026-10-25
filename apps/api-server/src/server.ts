@@ -78,9 +78,9 @@ export async function startApiServer(env: ServerEnv) {
     const rawBody = Buffer.concat(chunks);
     const headers = new Headers();
     for (const [name, value] of Object.entries(incoming.headers)) {
-      if (Array.isArray(value))
-        value.forEach((item) => headers.append(name, item));
-      else if (value !== undefined) headers.set(name, value);
+      if (Array.isArray(value)) {
+        for (const item of value) headers.append(name, item);
+      } else if (value !== undefined) headers.set(name, value);
     }
     const method = incoming.method ?? "GET";
     const request = new Request(
@@ -132,7 +132,7 @@ export async function startApiServer(env: ServerEnv) {
         outgoing.writeHead(400).end("Missing RevenueCat signature");
         return;
       }
-      let event;
+      let event: ReturnType<typeof parseRevenueCatWebhook>;
       try {
         verifyRevenueCatWebhook(rawBody, signature, env.revenueCat);
         event = parseRevenueCatWebhook(rawBody);

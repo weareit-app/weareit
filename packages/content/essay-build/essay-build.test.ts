@@ -271,7 +271,7 @@ describe("essay format README", () => {
   const fenced = (language: string) =>
     [
       ...readme.matchAll(
-        new RegExp("```" + language + "\\n([\\s\\S]*?)```", "g"),
+        new RegExp(`\`\`\`${language}\\n([\\s\\S]*?)\`\`\``, "g"),
       ),
     ].map((match) => match[1]);
   const fixtureFile = (name: string) =>

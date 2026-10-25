@@ -2,7 +2,8 @@ import { SourceLink } from "./source-link";
 import { formatEssayDate } from "./format";
 import type { BlockProps } from "./types";
 
-const capitalize = (text: string) => text[0]!.toUpperCase() + text.slice(1);
+const capitalize = (text: string) =>
+  text.slice(0, 1).toUpperCase() + text.slice(1);
 
 // An evidence card: a claim with its source, date, status and main
 // limitation. Essays are web-only, so blocks render plain HTML that reads

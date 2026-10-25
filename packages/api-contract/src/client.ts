@@ -1,8 +1,10 @@
 import { createORPCClient, ORPCError } from "@orpc/client";
 import { RPCLink } from "@orpc/client/fetch";
 import type {
+  AnySchema,
   ContractProcedure,
   ContractRouterClient,
+  Meta,
   ORPCErrorFromErrorMap,
 } from "@orpc/contract";
 import type { apiContract } from "./contract";
@@ -17,7 +19,7 @@ export type ApiClient = ContractRouterClient<typeof apiContract>;
 // The declared errors of every operation in a group, such as "cms", as one
 // union keyed by code, so `switch (error.code)` types each error's data.
 type DeclaredErrors<T> =
-  T extends ContractProcedure<any, any, infer TErrorMap, any>
+  T extends ContractProcedure<AnySchema, AnySchema, infer TErrorMap, Meta>
     ? ORPCErrorFromErrorMap<TErrorMap>
     : { [K in keyof T]: DeclaredErrors<T[K]> }[keyof T];
 export type DeclaredApiError<TGroup extends keyof typeof apiContract> =

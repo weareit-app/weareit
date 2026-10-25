@@ -217,7 +217,9 @@ async function shoot(
 // only once. A build counts only once it has finished.
 function baseBuild(): { sha: string; staticDir: string } | null {
   const root = run("git", ["rev-parse", "--show-toplevel"], appDir);
-  const remote = baseRef.includes("/") ? baseRef.split("/")[0]! : null;
+  const remote = baseRef.includes("/")
+    ? baseRef.slice(0, baseRef.indexOf("/"))
+    : null;
   if (remote && run("git", ["remote"], root).split("\n").includes(remote)) {
     try {
       run("git", ["fetch", "--quiet", remote], root);
@@ -283,11 +285,14 @@ const digest = (file: string) =>
     ? createHash("sha256").update(readFileSync(file)).digest("hex")
     : null;
 
-const escape = (text: string) =>
-  text.replace(
-    /[&<>"]/g,
-    (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!,
-  );
+const htmlEntities: Record<string, string> = {
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': "&quot;",
+};
+const escapeHtml = (text: string) =>
+  text.replace(/[&<>"]/g, (c) => htmlEntities[c] ?? c);
 
 // The "after" shot faded, with every pixel that differs from "before" in
 // magenta, so small changes are easy to find.
@@ -299,7 +304,7 @@ async function diffImage(
 ) {
   const page = await browser.newPage();
   const dataUrl = await page.evaluate(
-    async ([a, b]) => {
+    async ([a, b]: readonly [string, string]) => {
       const load = (src: string) =>
         new Promise<HTMLImageElement>((done, fail) => {
           const image = new Image();
@@ -307,12 +312,13 @@ async function diffImage(
           image.onerror = () => fail(new Error("Couldn't read a screenshot."));
           image.src = `data:image/png;base64,${src}`;
         });
-      const [first, second] = await Promise.all([load(a!), load(b!)]);
+      const [first, second] = await Promise.all([load(a), load(b)]);
       const width = Math.max(first.width, second.width);
       const height = Math.max(first.height, second.height);
       const pixels = (image: HTMLImageElement) => {
         const canvas = new OffscreenCanvas(width, height);
-        const context = canvas.getContext("2d")!;
+        const context = canvas.getContext("2d");
+        if (!context) throw new Error("This browser has no 2D canvas.");
         context.drawImage(image, 0, 0);
         return context.getImageData(0, 0, width, height);
       };
@@ -325,21 +331,24 @@ async function diffImage(
           old[i + 1] === now[i + 1] &&
           old[i + 2] === now[i + 2] &&
           old[i + 3] === now[i + 3];
-        for (let c = 0; c < 3; c++)
-          now[i + c] = same
-            ? 255 - (255 - now[i + c]!) * 0.25
-            : [255, 0, 170][c]!;
+        for (const [c, magenta] of [255, 0, 170].entries())
+          now[i + c] = same ? 255 - (255 - (now[i + c] ?? 0)) * 0.25 : magenta;
         now[i + 3] = 255;
       }
       const canvas = document.createElement("canvas");
       canvas.width = width;
       canvas.height = height;
-      canvas.getContext("2d")!.putImageData(diff, 0, 0);
+      const context = canvas.getContext("2d");
+      if (!context) throw new Error("This browser has no 2D canvas.");
+      context.putImageData(diff, 0, 0);
       return canvas.toDataURL("image/png");
     },
-    [readFileSync(before, "base64"), readFileSync(after, "base64")],
+    [readFileSync(before, "base64"), readFileSync(after, "base64")] as const,
   );
-  writeFileSync(out, Buffer.from(dataUrl.split(",")[1]!, "base64"));
+  writeFileSync(
+    out,
+    Buffer.from(dataUrl.slice(dataUrl.indexOf(",") + 1), "base64"),
+  );
   await page.close();
 }
 
@@ -369,8 +378,9 @@ async function report(
   const diffDir = join(outDir, "diff");
   rmSync(diffDir, { recursive: true, force: true });
   mkdirSync(diffDir, { recursive: true });
+  // A changed shot's base shot has the same file name (`baseByFile`'s key).
   for (const shot of changed) {
-    const before = join(outDir, "base", baseByFile.get(shot.file)!.file);
+    const before = join(outDir, "base", shot.file);
     if (existsSync(before))
       await diffImage(
         browser,
@@ -386,7 +396,7 @@ async function report(
       ? `<figure><figcaption>${captions[side]}</figcaption><img src="${side}/${shot.file}" loading="lazy"></figure>`
       : "";
   const card = (shot: Shot, body: string) =>
-    `<section><h3>${escape(shot.title)} · ${escape(shot.name)} <small>${shot.theme}</small></h3><div class="pair">${body}</div></section>`;
+    `<section><h3>${escapeHtml(shot.title)} · ${escapeHtml(shot.name)} <small>${shot.theme}</small></h3><div class="pair">${body}</div></section>`;
   const group = (
     heading: string,
     shots: Shot[],
@@ -407,10 +417,10 @@ async function report(
   pre { background: #ededee; padding: 12px; white-space: pre-wrap; max-width: 900px; }
 </style>
 <h1>${base ? "Component changes" : "Components"}</h1>
-<p>${escape(baseLabel)} · ${head.length / themes.length} stories, light and dark.
+<p>${escapeHtml(baseLabel)} · ${head.length / themes.length} stories, light and dark.
 ${base && broken.length + changed.length + added.length + removed.length === 0 ? "<strong>No visible changes.</strong>" : ""}</p>
-${group("Fails to render", broken, (shot) => `<pre>${escape(shot.error ?? "")}</pre>${img("head", shot)}`)}
-${group("Changed", changed, (shot) => img("base", baseByFile.get(shot.file)!) + img("head", shot) + img("diff", shot))}
+${group("Fails to render", broken, (shot) => `<pre>${escapeHtml(shot.error ?? "")}</pre>${img("head", shot)}`)}
+${group("Changed", changed, (shot) => img("base", shot) + img("head", shot) + img("diff", shot))}
 ${group(base ? "New" : "All stories", added, (shot) => img("head", shot))}
 ${group("Removed", removed, (shot) => img("base", shot))}`;
   const file = join(outDir, "index.html");

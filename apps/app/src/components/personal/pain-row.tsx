@@ -55,7 +55,6 @@ export function PainRow(props: PainRowProps) {
   const summary = !open && chosen.length > 0;
   const future = stageFuture(chosen, props.focusDreamId);
   const thumb = future ? dreamStageArt[future] : painStageArt[pain.id];
-  const titleOf = (id: string) => dreams.find((d) => d.id === id)?.title ?? "";
   const sentence = joinFutureLines(
     dreams.filter((d) => chosen.includes(d.id)).map((d) => d.description),
   );
@@ -245,7 +244,7 @@ export function PainRow(props: PainRowProps) {
           {planBody}
         </Pressable>
       ) : null}
-      {open ? <OpenPain {...props} chosen={chosen} titleOf={titleOf} /> : null}
+      {open ? <OpenPain {...props} chosen={chosen} /> : null}
     </View>
   );
 }
@@ -287,13 +286,14 @@ function OpenPain({
   onChip,
   onClose,
   chosen,
-  titleOf,
 }: PainRowProps & {
   chosen: string[];
-  titleOf: (id: string) => string;
 }) {
-  const ways = rankWays(chosen, fixDreamLinks, fixOrder).filter(({ fixId }) =>
-    fixes.has(fixId),
+  const ways = rankWays(chosen, fixDreamLinks, fixOrder).flatMap(
+    ({ fixId }) => {
+      const fix = fixes.get(fixId);
+      return fix ? [{ fixId, fix }] : [];
+    },
   );
   const pickedFixes = path?.fixIds ?? [];
   return (
@@ -370,10 +370,10 @@ function OpenPain({
               >
                 Ways it can be better
               </Text>
-              {ways.map(({ fixId, dreamIds }) => (
+              {ways.map(({ fixId, fix }) => (
                 <WayRow
                   key={fixId}
-                  fix={fixes.get(fixId)!}
+                  fix={fix}
                   picked={pickedFixes.includes(fixId)}
                   onToggle={() => onToggleFix(fixId)}
                   openChip={openChip?.fixId === fixId ? openChip.chip : null}

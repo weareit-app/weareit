@@ -268,6 +268,9 @@ export default function CmsScreen() {
           Math.max(maximum, (item as { sortOrder: number }).sortOrder),
         -1,
       ) + 1;
+    const firstDomain = graph.domains[0];
+    if (!firstDomain) throw new Error("The content graph has no domains");
+    const firstSource = graph.sources[0];
     const defaults = {
       domains: {
         id,
@@ -277,7 +280,7 @@ export default function CmsScreen() {
       },
       pains: {
         id,
-        domainId: graph.domains[0]!.id,
+        domainId: firstDomain.id,
         title: "New pain",
         description: "Describe this concern.",
         sortOrder,
@@ -302,13 +305,13 @@ export default function CmsScreen() {
     const nextGraph = {
       ...graph,
       [kind]: [...graph[kind], defaults[kind]],
-      provenance: graph.sources.length
+      provenance: firstSource
         ? [
             ...graph.provenance,
             {
               entityType,
               entityId: id,
-              sourceId: graph.sources[0]!.id,
+              sourceId: firstSource.id,
               locator: "Add a specific source locator before publishing.",
               evidenceType: "Product curation",
               rights: kind === "firstActions" ? "CC-BY-SA-4.0" : "CC0-1.0",
@@ -436,7 +439,7 @@ export default function CmsScreen() {
     );
   }
 
-  function toggleRelation(targetKind: "dream" | "pain", targetId: string) {
+  function toggleRelation(targetId: string) {
     if (!graph || !selectedId) return;
     if (kind === "pains") {
       const exists = graph.painDreamLinks.some(
@@ -499,7 +502,8 @@ export default function CmsScreen() {
       (item) => item.entityType === entityType && item.entityId === selectedId,
     );
     const next = [...graph.provenance];
-    if (index < 0) {
+    const current = next[index];
+    if (!current) {
       next.push({
         entityType,
         entityId: selectedId,
@@ -512,7 +516,7 @@ export default function CmsScreen() {
       } as ContentGraph["provenance"][number]);
     } else {
       next[index] = {
-        ...next[index]!,
+        ...current,
         [field]: value,
       } as ContentGraph["provenance"][number];
     }
@@ -646,6 +650,9 @@ export default function CmsScreen() {
     );
   }
 
+  const selectedSource = graph.sources.find(
+    ({ id }) => id === selectedSourceId,
+  );
   return (
     <Page
       brand
@@ -697,40 +704,30 @@ export default function CmsScreen() {
             onPress={deleteSource}
           />
         </View>
-        {graph.sources.find(({ id }) => id === selectedSourceId) ? (
+        {selectedSource ? (
           <>
             <Text className="text-sm text-ink-soft">
               Stable ID: {selectedSourceId}
             </Text>
             <Field
               label="Title"
-              value={
-                graph.sources.find(({ id }) => id === selectedSourceId)!.title
-              }
+              value={selectedSource.title}
               onChangeText={(value) => updateSource("title", value)}
             />
             <Field
               label="Document path or URL"
-              value={
-                graph.sources.find(({ id }) => id === selectedSourceId)!
-                  .documentPath
-              }
+              value={selectedSource.documentPath}
               onChangeText={(value) => updateSource("documentPath", value)}
             />
             <SelectField
               label="Source type"
-              value={
-                graph.sources.find(({ id }) => id === selectedSourceId)!
-                  .sourceType
-              }
+              value={selectedSource.sourceType}
               options={["research_registry", "content_spec", "fix_corpus"]}
               onChange={(value) => updateSource("sourceType", value)}
             />
             <Field
               label="Source rights"
-              value={
-                graph.sources.find(({ id }) => id === selectedSourceId)!.rights
-              }
+              value={selectedSource.rights}
               onChangeText={(value) => updateSource("rights", value)}
             />
           </>
@@ -850,7 +847,7 @@ export default function CmsScreen() {
               selectedIds={graph.painDreamLinks
                 .filter(({ painId }) => painId === selectedId)
                 .map(({ dreamId }) => dreamId)}
-              onToggle={(id) => toggleRelation("dream", id)}
+              onToggle={(id) => toggleRelation(id)}
             />
           ) : null}
           {kind === "dreams" ? (
@@ -860,7 +857,7 @@ export default function CmsScreen() {
               selectedIds={graph.painDreamLinks
                 .filter(({ dreamId }) => dreamId === selectedId)
                 .map(({ painId }) => painId)}
-              onToggle={(id) => toggleRelation("pain", id)}
+              onToggle={(id) => toggleRelation(id)}
             />
           ) : null}
           {kind === "firstActions" ? (
@@ -870,7 +867,7 @@ export default function CmsScreen() {
               selectedIds={graph.actionPainLinks
                 .filter(({ actionId }) => actionId === selectedId)
                 .map(({ painId }) => painId)}
-              onToggle={(id) => toggleRelation("pain", id)}
+              onToggle={(id) => toggleRelation(id)}
             />
           ) : null}
           <View className="gap-2 border-t border-rule pt-4">
@@ -980,5 +977,5 @@ function entityTypeFor(
 function labelForKind(kind: Kind) {
   return kind === "firstActions"
     ? "First actions"
-    : kind[0]!.toUpperCase() + kind.slice(1);
+    : kind.slice(0, 1).toUpperCase() + kind.slice(1);
 }

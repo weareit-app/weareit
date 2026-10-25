@@ -7,7 +7,8 @@ import type { BlockProps } from "./types";
 
 type Item = BlockProps<"status-board">["block"]["data"]["items"][number];
 
-const capitalize = (text: string) => text[0]!.toUpperCase() + text.slice(1);
+const capitalize = (text: string) =>
+  text.slice(0, 1).toUpperCase() + text.slice(1);
 
 function groupByStatus(items: Item[]) {
   const groups = new Map<Item["status"], Item[]>();
@@ -47,6 +48,7 @@ export function StatusBoardBlock({ block }: BlockProps<"status-board">) {
               <ul aria-labelledby={statusId} className="flex flex-col gap-2">
                 {group.map((item, index) => (
                   <li
+                    // biome-ignore lint/suspicious/noArrayIndexKey: block data is static, from the essay build, so items are never added, removed, or reordered.
                     key={index}
                     className="flex flex-col gap-1 rounded-md border border-rule bg-paper-raised px-3 py-2"
                   >

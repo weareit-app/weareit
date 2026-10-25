@@ -89,8 +89,12 @@ export function GroupIcon({
               ) : null}
             </>
           );
-          if (!riso) return <Group key={i}>{layer}</Group>;
-          const spot = isSpot(part.fill);
+          if (!riso) {
+            // biome-ignore lint/suspicious/noArrayIndexKey: an icon's parts are a fixed list from its artwork, never reordered, and their index is their identity.
+            return <Group key={i}>{layer}</Group>;
+          }
+          const { fill } = part;
+          const spot = isSpot(fill);
           if (riso.grain > 0 && !isPaper(part.fill)) {
             layer = (
               <Mask
@@ -113,16 +117,17 @@ export function GroupIcon({
               </Mask>
             );
           }
-          const shift = spot ? drift(part.fill!, riso.offset) : null;
+          const shift = spot ? drift(fill, riso.offset) : null;
           return (
             <Group
+              // biome-ignore lint/suspicious/noArrayIndexKey: an icon's parts are a fixed list from its artwork, never reordered, and their index is their identity.
               key={i}
               {...(shift && {
                 transform: [{ translateX: shift.x }, { translateY: shift.y }],
               })}
               {...(spot &&
                 i < inkAt &&
-                !part.fill!.startsWith("skin-") && {
+                !fill.startsWith("skin-") && {
                   layer: <Paint blendMode="multiply" />,
                 })}
             >

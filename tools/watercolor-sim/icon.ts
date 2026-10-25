@@ -12,7 +12,7 @@
 // Options: --seed N (1), --fill F (share of the icon the mark's longer side
 // fills: 0.68 for "it", 0.8 for "we are it", so iOS's rounded corners
 // don't clip it), --size PX (1024).
-import CanvasKitInit from "canvaskit-wasm";
+import CanvasKitInit, { type Canvas } from "canvaskit-wasm";
 import { writeFileSync } from "node:fs";
 import { IT_MARK, WE_ARE_IT_MARK } from "@it/watercolor/marks";
 import { PALETTES } from "@it/watercolor/palettes";
@@ -49,7 +49,13 @@ function uniforms(values: Record<string, number[]>): number[] {
   }).flat();
 }
 
-function drawDot(canvas: any, cx: number, cy: number, r: number, seed: number) {
+function drawDot(
+  canvas: Canvas,
+  cx: number,
+  cy: number,
+  r: number,
+  seed: number,
+) {
   const side = (2 * r) / DOT_REACH;
   canvas.save();
   canvas.translate(cx - side / 2, cy - side / 2);
@@ -74,7 +80,7 @@ function drawDot(canvas: any, cx: number, cy: number, r: number, seed: number) {
 }
 
 function drawIcon(
-  canvas: any,
+  canvas: Canvas,
   x: number,
   y: number,
   size: number,
@@ -126,7 +132,7 @@ const width = cell * columns;
 const height = cell * rows;
 const surface = CK.MakeSurface(width, height)!;
 const canvas = surface.getCanvas();
-seeds.forEach((seed, i) =>
+for (const [i, seed] of seeds.entries()) {
   drawIcon(
     canvas,
     (i % columns) * cell,
@@ -134,8 +140,8 @@ seeds.forEach((seed, i) =>
     cell,
     variant,
     seed,
-  ),
-);
+  );
+}
 
 const rgba = canvas.readPixels(0, 0, {
   width,

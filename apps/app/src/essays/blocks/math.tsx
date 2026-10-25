@@ -19,7 +19,11 @@ export function MathBlock({ block }: BlockProps<"math">) {
           {tex}
         </Text>
       ) : (
-        <div className="text-ink" dangerouslySetInnerHTML={{ __html: html }} />
+        <div
+          className="text-ink"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: KaTeX's output for TeX from a committed essay; KaTeX escapes the TeX and runs no trusted commands.
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
       )}
       {description ? (
         <Text className="text-center font-body text-sm text-ink-soft">
@@ -36,7 +40,10 @@ export function InlineMath({ tex }: { tex: string }) {
   return html === null ? (
     <Text className="font-mono text-base">{tex}</Text>
   ) : (
-    <span dangerouslySetInnerHTML={{ __html: html }} />
+    <span
+      // biome-ignore lint/security/noDangerouslySetInnerHtml: KaTeX's output for TeX from a committed essay; KaTeX escapes the TeX and runs no trusted commands.
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
   );
 }
 

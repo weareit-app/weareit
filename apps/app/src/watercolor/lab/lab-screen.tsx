@@ -183,6 +183,8 @@ export default function LabScreen() {
   const [replay, setReplay] = useState(0);
 
   const start = useFrameSampler(({ p99, max, frames }) => {
+    // Sampling starts only once something is being measured.
+    if (!measuring) throw new Error("Frame samples with nothing measured");
     setResults((r) => [
       ...r.filter(
         (x) =>
@@ -192,8 +194,8 @@ export default function LabScreen() {
           ),
       ),
       {
-        approach: measuring!.approach,
-        scenario: measuring!.scenario,
+        approach: measuring.approach,
+        scenario: measuring.scenario,
         device: device(),
         frameMsP99: Number(p99.toFixed(1)),
         frameMsMax: Number(max.toFixed(1)),

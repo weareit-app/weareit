@@ -58,14 +58,15 @@ function zodProblems(where: string, error: z.ZodError) {
 export function parseEssay({ slug, markdown, files }: EssayInput): Essay {
   const file = `${slug}/essay.md`;
   const match = frontMatterPattern.exec(markdown);
-  if (!match)
+  const frontMatterYaml = match?.[1];
+  if (!match || frontMatterYaml === undefined)
     throw new EssayError([
       `${file}: start with front matter between --- lines`,
     ]);
 
   let rawFrontMatter: unknown;
   try {
-    rawFrontMatter = parseYaml(match[1]!);
+    rawFrontMatter = parseYaml(frontMatterYaml);
   } catch (error) {
     throw new EssayError([
       `${file}: front matter is not valid YAML: ${(error as Error).message}`,
@@ -109,6 +110,12 @@ export function parseEssay({ slug, markdown, files }: EssayInput): Essay {
     `${file} line ${node.position?.start.line ?? "?"}`;
   const fail = (node: MdastNode, message: string) => {
     problems.push(`${at(node)}: ${message}`);
+  };
+  // The Markdown a node was parsed from. The parser gives every node a
+  // position, so a missing one is a bug here, not in the essay.
+  const sourceOf = (node: MdastNode) => {
+    if (!node.position) throw new Error(`${at(node)}: node has no position`);
+    return source.slice(node.position.start.offset, node.position.end.offset);
   };
   let lastHeading = 1;
 
@@ -168,10 +175,7 @@ export function parseEssay({ slug, markdown, files }: EssayInput): Essay {
           if (node.name !== "status")
             push({
               type: "text",
-              value: source.slice(
-                node.position!.start.offset,
-                node.position!.end.offset,
-              ),
+              value: sourceOf(node),
             });
           else if (!(essayStatusLabels as readonly string[]).includes(label))
             fail(
@@ -208,14 +212,15 @@ export function parseEssay({ slug, markdown, files }: EssayInput): Essay {
     const name = [`${id}.json`, `${id}.yaml`, `${id}.yml`].find(
       (candidate) => candidate in files,
     );
-    if (!name) {
+    const text = name === undefined ? undefined : files[name];
+    if (!name || text === undefined) {
       fail(node, `::${type} "${id}" has no data file (${id}.json or .yaml)`);
       return undefined;
     }
     const where = `${slug}/${name}`;
     let raw: unknown;
     try {
-      raw = parseYaml(files[name]!); // YAML is a superset of JSON.
+      raw = parseYaml(text); // YAML is a superset of JSON.
     } catch (error) {
       problems.push(`${where}: can't be read: ${(error as Error).message}`);
       return undefined;

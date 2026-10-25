@@ -6,10 +6,12 @@ import { GroupIcon } from "./group-icon";
 import { printLook } from "./riso";
 
 const ids = Object.keys(groupIcons);
+const [firstId] = ids;
+if (!firstId) throw new Error("There are no group icons.");
 
 const meta = {
   component: GroupIcon,
-  args: { id: ids[0]!, size: 96, riso: undefined },
+  args: { id: firstId, size: 96, riso: undefined },
   argTypes: { id: { control: "select", options: ids } },
 } satisfies Meta<typeof GroupIcon>;
 

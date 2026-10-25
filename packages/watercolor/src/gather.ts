@@ -54,11 +54,10 @@ export function gatherAt(elapsedMs: number): GatherState {
 
   // The first four: It's three pigments and one mix, different sizes, from
   // evenly spread directions with a little jitter.
-  for (let i = 0; i < 4; i += 1) {
+  for (const [i, size] of [0.2, 0.13, 0.17, 0.1].entries()) {
     const stagger = 220 * hash(i + 11);
     const travel = easeOut((elapsedMs - stagger) / FIRST_TRAVEL_MS);
     const angle = i * (Math.PI / 2) + 0.5 + 0.4 * (hash(i + 3) - 0.5);
-    const size = [0.2, 0.13, 0.17, 0.1][i]!;
     // Start a little smaller and swell as they travel, so they can start
     // farther out without touching the edge.
     const startR = Math.min(

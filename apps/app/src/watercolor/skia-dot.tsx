@@ -119,7 +119,9 @@ function DotShape({
   start,
   motion,
 }: DotShapeProps) {
-  const effect = EFFECTS[approach]!;
+  // Rendered only once the canvas is ready, which needs the effect.
+  const effect = EFFECTS[approach];
+  if (!effect) throw new Error(`The ${approach} dot effect didn't compile`);
   const pal = useMemo(() => paletteUniforms(PALETTES[palette]), [palette]);
   const m = PAINTED_DOTS[dot]?.manifest;
 
@@ -260,6 +262,7 @@ export function SkiaDotField({
         <Canvas style={{ width, height }}>
           {Array.from({ length: columns * rows }, (_, i) => (
             <DotShape
+              // biome-ignore lint/suspicious/noArrayIndexKey: a cell's index is its place in the grid, which is what identifies it.
               key={i}
               x={(i % columns) * (dotSize + gap)}
               y={Math.floor(i / columns) * (dotSize + gap)}

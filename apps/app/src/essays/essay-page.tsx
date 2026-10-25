@@ -22,8 +22,8 @@ const months = [
 
 // "2026-10-20" → "October 20, 2026", the same on the server and the client.
 export function formatEssayDate(date: string) {
-  const [year, month, day] = date.split("-").map(Number);
-  return `${months[month! - 1]} ${day}, ${year}`;
+  const [year, month, day] = date.split("-");
+  return `${months[Number(month) - 1]} ${Number(day)}, ${Number(year)}`;
 }
 
 function SectionHeading({ children }: { children: string }) {

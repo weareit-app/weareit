@@ -4,14 +4,14 @@
 // across); offset: how far, in grid units, spot inks sit off the ink.
 export type RisoLook = { grain: number; frequency: number; offset: number };
 
+export const printLook: RisoLook = { grain: 0.55, frequency: 2.6, offset: 0.3 };
+
 export const risoPresets: { name: string; look: RisoLook | undefined }[] = [
   { name: "Clean", look: undefined },
   { name: "Subtle", look: { grain: 0.3, frequency: 3.2, offset: 0.4 } },
-  { name: "Print", look: { grain: 0.55, frequency: 2.6, offset: 0.3 } },
+  { name: "Print", look: printLook },
   { name: "Heavy", look: { grain: 0.85, frequency: 2, offset: 1 } },
 ];
-
-export const printLook = risoPresets[2]!.look!;
 
 /** A fixed direction per spot ink, as if each drum sat slightly off the ink. */
 export function drift(tone: string, amount: number) {

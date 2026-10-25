@@ -195,11 +195,12 @@ export async function recordStripeEvent(
       query = query.set({ stripe_payment_intent_id: event.paymentIntentId });
 
     const updated = await query.returning("id").executeTakeFirst();
+    const { amountMinor, transactionStatus } = event;
     if (
       event.transactionId &&
-      event.amountMinor !== undefined &&
+      amountMinor !== undefined &&
       event.currency &&
-      event.transactionStatus
+      transactionStatus
     ) {
       await trx
         .insertInto("support_transactions")
@@ -208,17 +209,17 @@ export async function recordStripeEvent(
           contribution_id: contribution.id,
           processor: "stripe",
           provider_transaction_id: event.transactionId,
-          amount_minor: event.amountMinor,
+          amount_minor: amountMinor,
           currency: event.currency,
-          status: event.transactionStatus,
+          status: transactionStatus,
           occurred_at: event.createdAt,
         })
         .onConflict((conflict) =>
           conflict
             .columns(["processor", "provider_transaction_id"])
             .doUpdateSet({
-              status: event.transactionStatus!,
-              amount_minor: event.amountMinor!,
+              status: transactionStatus,
+              amount_minor: amountMinor,
               occurred_at: event.createdAt,
             })
             .whereRef(

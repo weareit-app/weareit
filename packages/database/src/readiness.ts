@@ -48,11 +48,12 @@ export async function checkDatabaseReadiness(
     const pending = (await createMigrator(db).getMigrations()).filter(
       (migration) => !migration.executedAt,
     );
-    if (pending.length)
+    const [firstPending] = pending;
+    if (firstPending)
       return {
         ready: false,
         problem: "migrations-pending",
-        message: `The database is missing ${pending.length} migration${pending.length === 1 ? "" : "s"}, starting with ${pending[0]!.name}. Run \`pnpm db:migrate\`.`,
+        message: `The database is missing ${pending.length} migration${pending.length === 1 ? "" : "s"}, starting with ${firstPending.name}. Run \`pnpm db:migrate\`.`,
       };
     const published = await db
       .selectFrom("published_content_versions")
