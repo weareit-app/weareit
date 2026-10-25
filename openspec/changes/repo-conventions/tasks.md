@@ -59,13 +59,13 @@ Order (design decision 13): write the conventions down, move packages, then turn
 
 ## 8. Package boundaries
 
-- [ ] 8.1 Add dependency-cruiser with one config for the package graph, cross-package relative paths, the third-party allowlist for `@it/domain`, `@it/watercolor`, `@it/content` (`src/` only), and `@it/api-contract`, `@it/log` (no dependencies, imported only by `apps/api-server`, `@it/database`, and `tools/*`), the `@it/domain` module edges, the `@orpc/server` rule, and no cycles, with type-only imports included. Run it in `pnpm run lint` and as a lefthook job with `--cache`. Needs groups 2 and 4. Verify with a sample violation of each rule on a scratch branch that CI fails and names it
+- [x] 8.1 Add dependency-cruiser with one config for the package graph, cross-package relative paths, the third-party allowlist for `@it/domain`, `@it/watercolor`, `@it/content` (`src/` only), and `@it/api-contract`, `@it/log` (no dependencies, imported only by `apps/api-server`, `@it/database`, and `tools/*`), the `@it/domain` module edges, the `@orpc/server` rule, and no cycles, with type-only imports included. Run it in `pnpm run lint` and as a lefthook job with `--cache`. Needs groups 2 and 4. Verify with a sample violation of each rule on a scratch branch that CI fails and names it
 - [x] 8.2 Add knip (with entries for Expo Router routes, stories, and generated essays) and sherif to CI only, and fix every finding, including the about 7 export entries nobody imports. Verify both pass in CI
 - [ ] 8.3 Record the boundaries decision (#149: allowed graph, allowlist, dependency-cruiser with type-only imports and no baseline, knip and sherif in CI) in `decisions.md`, including the reading of the `@it/content` allowlist as `src/` only. Verify the entry includes the graph table
 
 ## 9. Test layout check
 
-- [ ] 9.1 Extend `tools/test-coverage` to fail on a `tests/` or `__tests__` folder holding JavaScript or TypeScript files (the Python tests in `tools/*/tests` are exempt, founder 2026-10-25), a test inside `apps/app/app/`, and a `*.spec.ts` outside `apps/app/e2e`, alongside its existing check that every test belongs to a runner. Needs 5.1. Verify with a test per rule in the tool's own test file
+- [x] 9.1 Extend `tools/test-coverage` to fail on a `tests/` or `__tests__` folder holding JavaScript or TypeScript files (the Python tests in `tools/*/tests` are exempt, founder 2026-10-25), a test inside `apps/app/app/`, and a `*.spec.ts` outside `apps/app/e2e`, alongside its existing check that every test belongs to a runner. Needs 5.1. Verify with a test per rule in the tool's own test file
 
 ## 10. Generated files and Python tools
 
