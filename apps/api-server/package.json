@@ -19,7 +19,6 @@
     "@orpc/contract": "^1.15.6",
     "@orpc/openapi": "1.15.6",
     "@orpc/server": "^1.15.6",
-    "@types/nodemailer": "^7.0.12",
     "better-auth": "1.7.8",
     "nodemailer": "^7.0.13",
     "stripe": "^23.0.0",
@@ -30,6 +29,7 @@
     "@orpc/client": "^1.15.6",
     "@scalar/api-reference": "1.75.1",
     "@types/node": "^26.6.5",
+    "@types/nodemailer": "^7.0.12",
     "kysely": "^0.28.17",
     "tsx": "^4.21.0"
   }
