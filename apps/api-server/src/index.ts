@@ -1,6 +1,6 @@
 import { createServer } from "node:http";
 import { RPCHandler } from "@orpc/server/fetch";
-import { createApiRouter } from "@it/api/router";
+import { createApiRouter } from "./router";
 import { createDatabase } from "@it/database/database";
 import { checkDatabaseReadiness } from "@it/database/readiness";
 import { createApiDocs } from "./api-docs";

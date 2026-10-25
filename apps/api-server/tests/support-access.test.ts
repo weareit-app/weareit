@@ -12,7 +12,7 @@ import {
   type QueryResult,
 } from "kysely";
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
-import { createApiRouter } from "@it/api/router";
+import { createApiRouter } from "../src/router";
 import type { ItDatabase } from "@it/database/database";
 import { createStripeSupport } from "../src/stripe-support";
 
