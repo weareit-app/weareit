@@ -11,6 +11,7 @@ export default defineConfig({
       "packages/api-contract/src/**/*.test.ts",
       "apps/api-server/src/**/*.test.ts",
       "apps/api-server/tests/**/*.test.ts",
+      "apps/app/src/*.test.ts",
       "apps/app/src/payments/**/*.test.ts",
       "apps/app/src/theme/**/*.test.ts",
       "apps/app/src/essays/**/*.test.ts",
