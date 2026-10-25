@@ -79,7 +79,7 @@ Order (design decision 13): write the conventions down, move packages, then turn
 - [x] 11.2 Using `/writing-for-agents`, add the repo skill `/ask-it` (Codex: `$ask-it`), manual-only (`disable-model-invocation: true`), that routes OpenSpec, the vendored skills that stay, and the `pains-*` and `possibilities-*` skills, and add its pointer to `AGENTS.md`. Verify every skill in `.claude/skills` is named in it
 - [x] 11.3 Add a check in `tools/` that fails if `docs/adr/` exists, run in lefthook and CI, with a test. Verify the test covers both a present and an absent folder
 - [ ] 11.4 Add `tools/skills-sync/sync-skills.mjs`, which copies `.claude/skills` to `.agents/skills` skipping `openspec-*`, with `--check` for drift in lefthook and CI and a test. Run it once to fix the stale `pains-ingest` and `pains-review`. Verify `--check` passes and fails after editing one copy
-- [ ] 11.5 Record the skills decision (#151) in `decisions.md`. Verify the entry lists the removed skills and the sync rule
+- [x] 11.5 Record the skills decision (#151) in `decisions.md`. Verify the entry lists the removed skills and the sync rule
 
 ## 12. Integration check
 
