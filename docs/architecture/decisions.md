@@ -180,7 +180,7 @@ Decided with the founder in weareit-app/weareit#147; carried out in group 2 of t
 Decided with the founder in weareit-app/weareit#147; carried out in group 3 of the [`repo-conventions` change](../../openspec/changes/repo-conventions/tasks.md).
 
 - **Table types are generated, not written by hand.** kysely-codegen writes `packages/database/src/db.ts` from a scratch database migrated to latest (`pnpm db:types`). Enum columns narrowed by `CHECK` and the `jsonb` columns are typed with their `@it/domain` types through column overrides, so the domain stays the one owner of those shapes. Pin and option notes: `docs/architecture/dependency-policy.md`.
-- **CI regenerates the types and compares:** the `check` job runs `pnpm db:types --verify` and fails if the committed `db.ts` differs from fresh output, so a migration can't land without its types.
+- **CI regenerates the types and compares:** `pnpm db:types --verify`, part of `pnpm run check:generated` in the `check` job (see Generated files below), fails if the committed `db.ts` differs from fresh output, so a migration can't land without its types.
 - **A Postgres test keeps SQL enums equal to Zod enums:** `packages/database/tests/check-enums.test.ts` fails when an enum `CHECK` constraint's values differ from its Zod enum, naming the column and the values, and when an enum `CHECK` has no Zod enum mapped to it. Neither this test nor the codegen check alone catches both a missing column type and SQL-versus-Zod drift.
 - **Table interfaces end in `Table`, set through codegen; other generated names are kept:** a `singularize` rule that appends `_table` gives `ContentPainsTable` and the rest, so the `Table`-suffix naming rule holds without hand edits. The database interface keeps kysely-codegen's name, `DB`. It includes Better Auth's four tables (account, session, user, and verification): they're real tables, and generated output isn't edited by hand (founder, 2026-10-23). How the rule works: `docs/architecture/dependency-policy.md`.
 - *Alternatives:* hand-written table types derived from Zod types. Kysely's docs call hand-written types good enough in many cases (weareit-app/weareit#145, checked 2026-10-21), but a new column can go untyped without failing anything.
@@ -291,6 +291,24 @@ Decided with the founder in weareit-app/weareit#165 ([resolution](https://github
 - **Judged in review** (`CODING_STANDARDS.md`): CONSTANT_CASE only for fixed module-level primitives and frozen lookups of them; a file named after its main export; boolean names starting with `is`, `has`, `can`, or `should`; table interfaces ending in `Table` where the type generator can name them so; schemas named `fooSchema` with the type `Foo` (and `FooInput` where the input differs); and packages named `@it/<kebab>`, with each export subpath named after its file.
 - **Not adopted:** Kysely's `CamelCasePlugin` (the database keeps snake_case at its edge), and turning property-name checks off everywhere (it would let snake_case into domain types).
 
+### Generated files
+
+A carried item from the repo-conventions map (design decision 12); carried out in task 10.1 of the [`repo-conventions` change](../../openspec/changes/repo-conventions/tasks.md).
+
+- **Generated files are committed and never edited by hand:** the essay modules (`packages/content/src/essays.generated.ts` and `essay-drafts.generated.ts`, from `pnpm --filter @it/content essays`) and the table types (`packages/database/src/db.ts`, from `pnpm db:types`).
+- **One check owns "regenerating changes nothing":** `pnpm run check:generated` runs `essays:check`, which fails naming each stale essay module, then `pnpm db:types --verify`. **Where it runs:** CI's `check` job, as its own step with the Postgres service's `TEST_DATABASE_URL`, before the typecheck, because turbo's `typecheck` depends on the `essays` task and would rebuild the modules first. Contributors can run it locally with the same variable. It is not a pre-commit job: the table types need a Postgres server.
+- `essays:check` left `pnpm run lint`, so lint needs no database and the generated-files check lives in one place.
+- *Alternatives:* keeping `essays:check` inside `lint` and the table types as their own step. That is two places for one rule, and in CI it ran after the typecheck had already rebuilt the modules, so it could not fail.
+
+### Python tools
+
+A carried item from the repo-conventions map (design decision 12); carried out in task 10.2 of the [`repo-conventions` change](../../openspec/changes/repo-conventions/tasks.md).
+
+- **ruff lints and formats the Python tools in `tools/`,** with one pinned version (0.17.0): its default rules plus import sorting (`ruff.toml`), targeting Python 3.9, the oldest version the tools' tests pass on. It started with no baseline: every finding was fixed when it landed, and the one kept exception (`TRY004`, twice in `tools/possibilities/cards.py`) is inline with its reason.
+- **Installed through uv, not mise:** every route runs `uvx ruff@0.17.0`, and `required-version` in `ruff.toml` fails any other ruff. CI installs uv with the runner image's pipx. Contributors install uv once to commit Python. Pin notes: `docs/architecture/dependency-policy.md`.
+- **Where it runs:** CI's `check` job runs `pnpm run lint:py` (`ruff check` and `ruff format --check` over `tools/`) after `pnpm run lint`. The lefthook `ruff` job runs on staged `tools/**/*.py`: lint fails the commit, and the formatter fixes and restages.
+- *Alternatives:* a pinned dev requirement installed with pip (needs a virtual environment, or writes into a system Python that refuses it), ruff through mise (contributors aren't required to use mise), and flake8 with Black (two tools to pin for what ruff does alone).
+
 ## Open implementation decisions
 
 - Sender identity (from-address and reply-to) for service email.
@@ -337,3 +355,5 @@ Decided with the founder in weareit-app/weareit#165 ([resolution](https://github
 - 2026-10-25: added the test decision (weareit-app/weareit#150): tests beside their code with one layout check, Vitest projects by glob plus jest-expo on `jest-expo/universal` with `*.test.native.tsx` for native-only component tests, Python tests exempt from the layout rules, Postgres tests that fail in CI without a database, and no coverage targets.
 - 2026-10-25: added the environment variables decision (weareit-app/weareit#171): one plain-Zod schema per program parsed once at its entry point, all-or-none Stripe, SMTP, and RevenueCat groups required in production, `app.config.ts` parsing the public schema, errors without values, a test keeping each `.env.example` in step, and the shared root `.env` as a deliberate exception to per-app env files.
 - 2026-10-25: added the package boundaries decision (weareit-app/weareit#149): the allowed package graph with a third-party allowlist for the pure packages' `src/`, `@it/domain` module edges, oRPC kept in the server, and no cycles, all enforced by dependency-cruiser with type-only imports included and no baseline, plus knip and sherif in CI.
+- 2026-10-25: added the generated files decision (task 10.1 of `repo-conventions`): `pnpm run check:generated` runs the essay and table-types checks as one CI step, before the typecheck.
+- 2026-10-25: added the Python tools decision (task 10.2 of `repo-conventions`): ruff 0.17.0 through `uvx` lints and formats `tools/`, in CI's `check` job and a lefthook job.
