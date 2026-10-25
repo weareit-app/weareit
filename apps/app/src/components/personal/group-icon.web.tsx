@@ -1,5 +1,6 @@
 import { useId } from "react";
-import { groupIcons, spotInks, type IconTone } from "../../content/group-icons";
+import { groupIcons } from "../../content/group-icons";
+import { spotInks, type IconTone } from "../../content/icon-part";
 import {
   drift,
   grainMatrix,
