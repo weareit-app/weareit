@@ -10,6 +10,9 @@
 // checked 2026-10-25.
 {
   "$schema": "./node_modules/knip/schema-jsonc.json",
+  // `lint:py` runs ruff through uv's `uvx`, installed outside npm on purpose
+  // (dependency-policy.md, ruff).
+  "ignoreBinaries": ["uvx"],
   "workspaces": {
     ".": {
       "entry": ["*.mts", "tools/*/*.mjs"]
