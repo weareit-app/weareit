@@ -1,4 +1,5 @@
-import { Link, type Href } from "expo-router";
+import { Link } from "expo-router";
+import { toHref } from "../navigation/to-href";
 import { View } from "react-native";
 import {
   siteBottomLine,
@@ -22,7 +23,7 @@ export function SiteLinkText({
   onPress?: () => void;
 }) {
   return (
-    <Link href={link.href as Href} {...(onPress ? { onPress } : {})} asChild>
+    <Link href={toHref(link.href)} {...(onPress ? { onPress } : {})} asChild>
       <Text role="link" className={className}>
         {link.label}
       </Text>

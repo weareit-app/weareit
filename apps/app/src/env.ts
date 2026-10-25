@@ -9,10 +9,18 @@ import { type AppEnv, type AppEnvInput, parseAppEnv } from "./app-env-schema";
 // may hold a secret. `app.config.ts` imports this file, so every Expo command
 // fails on a bad value.
 
+// Expo inlines each value as a string, or leaves it undefined. Without the
+// expo-env.d.ts that `expo start` generates (as in CI), `process.env` is typed
+// `any`, so this says what the value is.
+function text(value: unknown) {
+  return typeof value === "string" ? value : undefined;
+}
+
 const source = {
-  EXPO_PUBLIC_API_URL: process.env.EXPO_PUBLIC_API_URL,
-  EXPO_PUBLIC_REVENUECAT_IOS_API_KEY:
+  EXPO_PUBLIC_API_URL: text(process.env.EXPO_PUBLIC_API_URL),
+  EXPO_PUBLIC_REVENUECAT_IOS_API_KEY: text(
     process.env.EXPO_PUBLIC_REVENUECAT_IOS_API_KEY,
+  ),
 } satisfies Record<keyof AppEnvInput, string | undefined>;
 
 export const appEnv: AppEnv = parseAppEnv(source);
