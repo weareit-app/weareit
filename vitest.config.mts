@@ -18,6 +18,7 @@ export default defineConfig({
       "tools/typecheck-coverage/tests/**/*.test.ts",
       "tools/test-coverage/tests/**/*.test.ts",
       "tools/story-coverage/tests/**/*.test.ts",
+      "tools/decision-records/tests/**/*.test.ts",
       "tools/skills-sync/tests/**/*.test.ts",
     ],
     environment: "node",

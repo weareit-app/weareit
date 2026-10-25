@@ -11,7 +11,7 @@ How a change to what the app does goes from idea to shipped. `AGENTS.md` points 
 ## Steps
 
 1. Interview the founder with `/grill-with-docs` (or `/grill-me`), reading the matching old Spec Kit material as evidence (`docs/agents/spec-kit.md`).
-2. Write the change with `/opsx:propose` (Codex: `$openspec-propose`). Specs live in OpenSpec; `/to-spec` (which publishes a spec as a GitHub issue) is installed but is not the spec home.
+2. Write the change with `/opsx:propose` (Codex: `$openspec-propose`). Specs live only in OpenSpec.
 3. Build with `/opsx:apply` plus `/tdd` or `/implement`; review with `/code-review`; `/opsx:archive` when shipped.
 
 Developer tooling, or a stack change with no user-facing behaviour, skips OpenSpec: grill, record the decision in `docs/architecture/decisions.md`, then build and review as in step 3.
