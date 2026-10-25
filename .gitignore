@@ -38,3 +38,7 @@ docs/research/pains/reviews/*/review.html
 # Possibility generator: the review pages are rebuilt from the run by dreams-review-build and fixes-review-build
 docs/research/possibilities/runs/**/reviews/review.html
 docs/research/possibilities/runs/**/reviews/fix-review.html
+
+# Expo's eas-workflows skill caches fetched docs beside its script
+.claude/skills/eas-workflows/scripts/.cache/
+.agents/skills/eas-workflows/scripts/.cache/
