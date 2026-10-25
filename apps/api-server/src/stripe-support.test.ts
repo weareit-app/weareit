@@ -1,5 +1,5 @@
 import Stripe from "stripe";
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const { recordStripeEvent } = vi.hoisted(() => ({
   recordStripeEvent: vi.fn(),
@@ -16,6 +16,11 @@ vi.mock("@it/database/support-repository", () => ({
 import { parseStripeWebhook, processStripeWebhook } from "./stripe-support";
 
 const webhookSecret = "whsec_test_payments";
+const stripe = {
+  secretKey: "sk_test_payments",
+  productId: "prod_test_payments",
+  webhookSecret,
+};
 
 function signedEvent(event: Record<string, unknown>) {
   const rawBody = Buffer.from(JSON.stringify(event));
@@ -28,13 +33,6 @@ function signedEvent(event: Record<string, unknown>) {
 
 beforeEach(() => {
   vi.clearAllMocks();
-  vi.stubEnv("STRIPE_SECRET_KEY", "sk_test_payments");
-  vi.stubEnv("STRIPE_WEBHOOK_SECRET", webhookSecret);
-  vi.stubEnv("STRIPE_API_BASE", "");
-});
-
-afterEach(() => {
-  vi.unstubAllEnvs();
 });
 
 describe("Stripe support webhooks", () => {
@@ -51,9 +49,15 @@ describe("Stripe support webhooks", () => {
     };
     const { rawBody, signature } = signedEvent(event);
 
-    expect(parseStripeWebhook(rawBody, signature).id).toBe("evt_checkout");
+    expect(parseStripeWebhook(rawBody, signature, stripe).id).toBe(
+      "evt_checkout",
+    );
     expect(() =>
-      parseStripeWebhook(Buffer.from(`${rawBody.toString()} `), signature),
+      parseStripeWebhook(
+        Buffer.from(`${rawBody.toString()} `),
+        signature,
+        stripe,
+      ),
     ).toThrow();
   });
 
@@ -64,7 +68,7 @@ describe("Stripe support webhooks", () => {
       secret: "whsec_another_endpoint",
     });
 
-    expect(() => parseStripeWebhook(rawBody, wrongSignature)).toThrow();
+    expect(() => parseStripeWebhook(rawBody, wrongSignature, stripe)).toThrow();
   });
 
   it("records a successful one-time checkout with its It contribution reference", async () => {
