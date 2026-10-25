@@ -23,8 +23,9 @@ jobs:
     name: Typecheck, lint and unit tests
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    # A disposable Postgres server for the repository tests in packages/database/tests,
-    # which skip without TEST_DATABASE_URL. Image pin: docs/architecture/ci-actions.md.
+    # A disposable Postgres server for the repository tests in packages/database/src,
+    # which fail in CI without TEST_DATABASE_URL (locally they skip).
+    # Image pin: docs/architecture/ci-actions.md.
     # GitHub's PostgreSQL service-container guide uses these health-check options to
     # "wait until postgres has started", and a job on the runner reaches the service at
     # localhost through the mapped port (checked 2026-10-21 against docs.github.com,
@@ -80,7 +81,11 @@ jobs:
         env:
           TEST_DATABASE_URL: postgres://postgres:it@localhost:54346/postgres
 
+      # jest-expo reads the app config, which parses the app's public variables
+      # (apps/app/src/env.ts); CI has no apps/app/.env, so it gets the example's.
       - run: pnpm run test:expo
+        env:
+          EXPO_PUBLIC_API_URL: http://localhost:3001/rpc
 
       # The research tools (pain catalog, possibility generator, copy checks) are stdlib Python.
       - run: pnpm run test:tools

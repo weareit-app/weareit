@@ -98,7 +98,7 @@ Each block type has its schema in `packages/domain/src/essays/blocks/<type>.ts` 
 
 ## Example
 
-This essay, with the data files in `tests/essay-fixtures/every-node/`, uses every node and block type. The tests build it, so it stays correct.
+This essay, with the data files in `essay-build/fixtures/every-node/`, uses every node and block type. The tests build it, so it stays correct.
 
 ```markdown
 ---

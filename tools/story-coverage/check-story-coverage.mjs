@@ -7,7 +7,8 @@ import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const COMPONENT = /^apps\/app\/src\/(components\/.+|watercolor\/[^/]+)\.tsx$/;
-const NOT_A_COMPONENT = /\.(stories|test)\.tsx$/;
+const NOT_A_COMPONENT =
+  /\.(stories|test)(\.(web|native|ios|android|node))?\.tsx$/;
 const PLATFORM = /\.(web|native|ios|android)$/;
 
 // Components without stories yet, by base path (no platform suffix or `.tsx`).

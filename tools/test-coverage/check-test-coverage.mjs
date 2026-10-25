@@ -1,5 +1,5 @@
 // Fails when a tracked test file isn't collected by any runner, so a test in a
-// folder missing from Vitest's `include` or Jest's `testMatch` can't sit unrun.
+// folder or with a name no runner matches can't sit unrun.
 // It asks the runners themselves: `vitest list --filesOnly` and
 // `jest --listTests` (the app's jest-expo config).
 // Run from the repo root: `node tools/test-coverage/check-test-coverage.mjs`.
@@ -7,7 +7,8 @@ import { execFileSync } from "node:child_process";
 import { join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const TEST_FILE = /\.test\.(ts|tsx|mts|cts|js|jsx|mjs|cjs)$/;
+const TEST_FILE =
+  /\.test(\.(ios|android|native|web|node))?\.(ts|tsx|mts|cts|js|jsx|mjs|cjs)$/;
 
 /**
  * @param {{ tracked: string[], collected: string[] }} input repo-relative paths
@@ -41,7 +42,7 @@ export function checkRepo(root) {
   const tracked = run(root, "git", ["ls-files"]).split("\n").filter(Boolean);
   return uncollectedTests({ tracked, collected }).map(
     (path) =>
-      `${path} is run by no test runner; add its folder to vitest.config.mts "include" (or the app's jest testMatch)`,
+      `${path} is run by no test runner; name it "*.test.ts" for Vitest, or "*.test.tsx" under apps/app for jest-expo`,
   );
 }
 
