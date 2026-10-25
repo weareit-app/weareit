@@ -77,6 +77,30 @@ function cmsRoute(summary: string, description: string) {
   };
 }
 
+// Declared errors (docs/architecture/decisions.md, #170). The caller acts on
+// each by its code; the message is for developers, and the app writes its
+// own copy. A failure several operations share is declared once, on the base
+// they build from. A signed-out call fails with UNAUTHORIZED, and so does a
+// CMS call without the admin token.
+const signedIn = oc.errors({
+  UNAUTHORIZED: { status: 401, message: "Sign in first." },
+});
+const cmsAdmin = oc.errors({
+  UNAUTHORIZED: { status: 401, message: "CMS access is required." },
+});
+
+// Support that isn't the signed-in account's reads as not found, so support
+// references can't be probed.
+const supportNotFound = {
+  NOT_FOUND: { status: 404, message: "Support checkout was not found." },
+} as const;
+const paymentsNotConfigured = {
+  PAYMENTS_NOT_CONFIGURED: {
+    status: 503,
+    message: "Stripe is not configured on this server.",
+  },
+} as const;
+
 export const apiContract = {
   content: oc.tag("content").router({
     getPublished: oc
@@ -85,14 +109,26 @@ export const apiContract = {
         description:
           "Returns the newest published content snapshot: its version, the content graph, a checksum, and when it was published. Anyone may call it.",
       })
+      .errors({
+        CONTENT_NOT_PUBLISHED: {
+          status: 404,
+          message: "No content has been published yet.",
+        },
+      })
       .output(publishedContentSchema),
   }),
   account: oc.tag("account").router({
-    saveOnboarding: oc
+    saveOnboarding: signedIn
       .route({
         summary: "Save onboarding answers",
         description:
           "Saves the signed-in person's onboarding draft against a content version. Needs a signed-in session.",
+      })
+      .errors({
+        ONBOARDING_DRAFT_INVALID: {
+          status: 400,
+          message: "The draft doesn't match the content version it names.",
+        },
       })
       .input(
         z
@@ -112,12 +148,13 @@ export const apiContract = {
       ),
   }),
   support: oc.tag("support").router({
-    createCheckout: oc
+    createCheckout: signedIn
       .route({
         summary: "Start a support checkout",
         description:
           "Creates a Stripe Checkout for a one-time or monthly support amount, in minor units, and returns its URL and reference. Needs a signed-in session.",
       })
+      .errors(paymentsNotConfigured)
       .input(
         z
           .object({
@@ -131,12 +168,13 @@ export const apiContract = {
           .object({ url: z.string().url(), reference: z.string().uuid() })
           .strict(),
       ),
-    getStatus: oc
+    getStatus: signedIn
       .route({
         summary: "Get the status of a support payment",
         description:
           "Returns the frequency and status of a support payment by its reference. Needs the session of the account that made it; any other reference reads as not found.",
       })
+      .errors(supportNotFound)
       .input(z.object({ reference: z.string().uuid() }).strict())
       .output(
         z
@@ -146,17 +184,25 @@ export const apiContract = {
           })
           .strict(),
       ),
-    createPortal: oc
+    createPortal: signedIn
       .route({
         summary: "Open subscription management",
         description:
           "Returns a Stripe billing portal URL for managing a monthly support payment. Needs the session of the account that made it.",
       })
+      .errors({
+        ...supportNotFound,
+        ...paymentsNotConfigured,
+        SUPPORT_NOT_RECURRING: {
+          status: 409,
+          message: "This support has no subscription to manage.",
+        },
+      })
       .input(z.object({ reference: z.string().uuid() }).strict())
       .output(z.object({ url: z.string().url() }).strict()),
   }),
   cms: oc.tag("cms").router({
-    getDraft: oc
+    getDraft: cmsAdmin
       .route(
         cmsRoute(
           "Get the CMS draft",
@@ -164,13 +210,30 @@ export const apiContract = {
         ),
       )
       .output(draftSchema),
-    saveDraft: oc
+    saveDraft: cmsAdmin
       .route(
         cmsRoute(
           "Save the CMS draft",
           "Replaces the draft content graph with a change note. Fails if expectedRevision is not the current revision.",
         ),
       )
+      .errors({
+        REVISION_CONFLICT: {
+          status: 409,
+          message: "The draft changed since expectedRevision.",
+          data: z
+            .object({
+              expectedRevision: z.number().int().nonnegative(),
+              actualRevision: z.number().int().nonnegative(),
+            })
+            .strict(),
+        },
+        STATUS_NOTE_REQUIRED: {
+          status: 400,
+          message: "A status change needs a new note.",
+          data: z.object({ issues: validationSchema.shape.issues }).strict(),
+        },
+      })
       .input(
         z
           .object({
@@ -181,7 +244,7 @@ export const apiContract = {
           .strict(),
       )
       .output(z.object({ revision: z.number().int().positive() }).strict()),
-    validateDraft: oc
+    validateDraft: cmsAdmin
       .route(
         cmsRoute(
           "Check the CMS draft",
@@ -189,7 +252,7 @@ export const apiContract = {
         ),
       )
       .output(validationSchema),
-    previewDraft: oc
+    previewDraft: cmsAdmin
       .route(
         cmsRoute(
           "Preview the CMS draft",
@@ -198,7 +261,7 @@ export const apiContract = {
       )
       .input(z.object({ content: contentGraphSchema.optional() }).strict())
       .output(draftSchema),
-    publishDraft: oc
+    publishDraft: cmsAdmin
       .route(
         cmsRoute(
           "Publish the CMS draft",
@@ -206,7 +269,7 @@ export const apiContract = {
         ),
       )
       .output(publishSchema),
-    listVersions: oc
+    listVersions: cmsAdmin
       .route(
         cmsRoute(
           "List published versions",
@@ -214,13 +277,26 @@ export const apiContract = {
         ),
       )
       .output(z.array(versionSchema)),
-    rollback: oc
+    rollback: cmsAdmin
       .route(
         cmsRoute(
           "Roll back to a version",
           "Publishes an earlier version's content again as a new version.",
         ),
       )
+      .errors({
+        ROLLBACK_NOT_PUBLISHABLE: {
+          status: 422,
+          message:
+            "The version was restored to the draft but can't be published.",
+          data: z
+            .object({
+              revision: z.number().int().positive(),
+              issues: validationSchema.shape.issues,
+            })
+            .strict(),
+        },
+      })
       .input(z.object({ version: z.number().int().positive() }).strict())
       .output(
         z

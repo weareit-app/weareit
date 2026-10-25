@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-native-web-vite";
 import { fn } from "storybook/test";
-import { describeApiFailure } from "@it/api/client";
+import { describeApiFailure } from "../api-client";
 import { ContentQueryState } from "./content-query-state";
 
 const meta = {

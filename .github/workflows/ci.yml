@@ -65,6 +65,12 @@ jobs:
 
       - run: pnpm run lint
 
+      # The committed table types (packages/database/src/db.ts) must equal what kysely-codegen
+      # generates from a freshly migrated database, so a migration can't land without them.
+      - run: pnpm db:types --verify
+        env:
+          TEST_DATABASE_URL: postgres://postgres:it@localhost:54346/postgres
+
       - run: pnpm run test:unit
         env:
           TEST_DATABASE_URL: postgres://postgres:it@localhost:54346/postgres
