@@ -35,7 +35,7 @@ Order (design decision 13): write the conventions down, move packages, then turn
 
 ## 5. Tests beside their code
 
-- [ ] 5.1 In one mechanical PR, `git mv` every test out of `tests/` folders to beside the file it tests, move shared helpers into test-support files, switch `vitest.config.mts` to `test.projects` by glob, and set jest-expo's `testMatch` to `apps/app/**/*.test.tsx`. Verify the number of tests each runner reports is the same before and after (counts in the PR body)
+- [x] 5.1 In one mechanical PR, `git mv` every test out of `tests/` folders to beside the file it tests, move shared helpers into test-support files, switch `vitest.config.mts` to `test.projects` by glob, and set jest-expo's `testMatch` to `apps/app/**/*.test.tsx`. Verify the number of tests each runner reports is the same before and after (counts in the PR body)
 - [ ] 5.2 Add the shared `test-env.ts`, and make the Postgres harness fail when `CI` is set and `TEST_DATABASE_URL` is missing, while skipping locally. Verify by running the database tests with `CI=1` and no URL (fails) and with neither (skips)
 - [ ] 5.3 In a separate PR, switch jest-expo to `jest-expo/universal` and rename the web-only essay block tests to jest-expo's platform-specific names (check the naming in jest-expo's docs first). Verify `pnpm test:expo` passes and the block tests run on web only
 - [ ] 5.4 Record the test decision (#150: colocated tests with a layout check, Vitest projects plus jest-expo on `jest-expo/universal`, failing in CI without Postgres, no coverage targets) in `decisions.md`. Verify the entry names the layout check
