@@ -175,6 +175,16 @@ Decided with the founder in weareit-app/weareit#147; carried out in group 2 of t
 - **Tier-1 authoring schemas are built from the graph schemas** with `pick` and `extend`. A rule both share, such as a feature status being required exactly when a way's kind is feature, lives on the graph schema.
 - *Alternatives:* a separate `@it/primitives` package, splitting `@it/content` into schema and data packages, or no move. Each kept a package-edge question for every shared shape; modules in one package remove it.
 
+### Generated table types
+
+Decided with the founder in weareit-app/weareit#147; carried out in group 3 of the [`repo-conventions` change](../../openspec/changes/repo-conventions/tasks.md).
+
+- **Table types are generated, not written by hand.** kysely-codegen writes `packages/database/src/db.ts` from a scratch database migrated to latest (`pnpm db:types`). Enum columns narrowed by `CHECK` and the `jsonb` columns are typed with their `@it/domain` types through column overrides, so the domain stays the one owner of those shapes. Pin and option notes: `docs/architecture/dependency-policy.md`.
+- **CI regenerates the types and compares:** the `check` job runs `pnpm db:types --verify` and fails if the committed `db.ts` differs from fresh output, so a migration can't land without its types.
+- **A Postgres test keeps SQL enums equal to Zod enums:** `packages/database/tests/check-enums.test.ts` fails when an enum `CHECK` constraint's values differ from its Zod enum, naming the column and the values, and when an enum `CHECK` has no Zod enum mapped to it. Neither this test nor the codegen check alone catches both a missing column type and SQL-versus-Zod drift.
+- **Table interfaces end in `Table`, set through codegen; other generated names are kept:** a `singularize` rule that appends `_table` gives `ContentPainsTable` and the rest, so the `Table`-suffix naming rule holds without hand edits. The database interface keeps kysely-codegen's name, `DB`. It includes Better Auth's four tables (account, session, user, and verification): they're real tables, and generated output isn't edited by hand (founder, 2026-10-23). How the rule works: `docs/architecture/dependency-policy.md`.
+- *Alternatives:* hand-written table types derived from Zod types. Kysely's docs call hand-written types good enough in many cases (weareit-app/weareit#145, checked 2026-10-21), but a new column can go untyped without failing anything.
+
 ### API contract package
 
 Decided with the founder in weareit-app/weareit#147 ([resolution](https://github.com/weareit-app/weareit/issues/147#issuecomment-6323742599)); carried out in group 4 of the [`repo-conventions` change](../../openspec/changes/repo-conventions/tasks.md).
@@ -227,5 +237,6 @@ Decided with the founder in weareit-app/weareit#170 ([resolution](https://github
 - 2026-10-21: founder moved the v0.1 launch from Oct 26 to Nov 2 with the full launch bar, because none of the four launch features was built yet (weareit-app/weareit#157, #160); added a Wed Oct 28 checkpoint.
 - 2026-10-21: added the code conventions topic with the docs and steering decision (weareit-app/weareit#152): decision records only in this file, `AGENTS.md` as guardrails and pointers and the one source of the privacy invariants, judgement rules only in `CODING_STANDARDS.md`, workflow detail in `docs/agents/`, and no `CLAUDE.md`.
 - 2026-10-21: added the domain model package decision (weareit-app/weareit#147): every domain schema in one Zod-only `@it/domain` with a module per domain, `@it/content` reduced to data and the essay build, types derived from schemas, and tier-1 authoring schemas built from the graph schemas.
+- 2026-10-22: added the generated table types decision (weareit-app/weareit#147): kysely-codegen output checked in CI with `--verify`, a Postgres test that each enum `CHECK` matches its Zod enum, the `Table` suffix set through codegen, and the generated `DB` name kept.
 - 2026-10-22: added the API contract package decision (weareit-app/weareit#147): the contract, a contract-typed client, and the OpenAPI document in `@it/api-contract`, and the router in `apps/api-server` with service types derived from the contract.
 - 2026-10-22: added the API errors and logging decision (weareit-app/weareit#170): typed contract errors with domain-named codes, error classes on the server, return values in the domain, app-owned error copy, and logging through `@it/log`.
