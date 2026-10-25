@@ -56,6 +56,7 @@
     "vega": "6.4.0",
     "vega-embed": "7.3.0",
     "vega-lite": "6.4.3",
+    "zod": "4.6.7",
     "zustand": "5.0.15"
   },
   "devDependencies": {
@@ -74,6 +75,7 @@
     "postcss": "8.5.30",
     "storybook": "10.6.1",
     "tailwindcss": "4.3.3",
+    "tsx": "^4.21.0",
     "vite": "7.3.6"
   }
 }

@@ -35,7 +35,7 @@ Stripe's official [`stripe-mock`](https://github.com/stripe/stripe-mock) can val
 
 For a complete web flow without Stripe credentials, run the stateful It simulator in one terminal with `pnpm --filter @it/api-server mock-stripe`. In a second terminal, run the API with its local mock configuration using `pnpm --filter @it/api-server dev:mock`. The simulator serves Checkout and billing portal pages on `http://127.0.0.1:12111`, then sends Stripe-signed simulated events to the local It API. The checkout page can simulate success or cancellation; after a successful one-time payment, reopen that checkout URL to simulate a full refund. The portal can simulate cancellation at the end of a monthly billing period. The `dev:mock` command sets a fake Stripe key, product ID, webhook secret, and API origin in process memory, always routing Stripe SDK calls to the local simulator. It never contacts Stripe and refuses to run when `NODE_ENV=production`. Run Stripe test mode separately before launch.
 
-`.env.example` lists all app-side values. Credentials belong only in the ignored `.env` file or the deployment secret store. Do not use live Stripe keys for local development.
+The root `.env.example` lists the server's values, and `apps/app/.env.example` lists the app's public `EXPO_PUBLIC_*` values, which must never hold a secret. Credentials belong only in the ignored `.env` file or the deployment secret store. Do not use live Stripe keys for local development.
 
 ## Operational notes
 

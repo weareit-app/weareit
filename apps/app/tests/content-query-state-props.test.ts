@@ -2,7 +2,11 @@ import { describeApiFailure } from "../src/api-client";
 import { contentQueryStateProps } from "../src/content/use-published-content";
 
 // Uses the real API client, so this file fails to load if Jest can't run
-// the oRPC packages it imports.
+// the oRPC packages it imports. Its config comes from the app's env file,
+// which reads nothing here.
+jest.mock("../src/env", () => ({
+  appEnv: { apiUrl: "http://localhost:3001/rpc", revenueCatIosApiKey: null },
+}));
 describe("contentQueryStateProps", () => {
   it("gives no developer detail while the query is fine", () => {
     const props = contentQueryStateProps({
