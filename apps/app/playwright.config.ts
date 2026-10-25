@@ -1,8 +1,5 @@
 import { defineConfig } from "@playwright/test";
-
-// Set E2E_PORT to run beside something else on 4173, such as another worktree's tests
-// or the brand-preview server in .claude/launch.json.
-const port = Number(process.env.E2E_PORT ?? 4173);
+import { e2ePort as port } from "./e2e/env";
 const baseURL = `http://127.0.0.1:${port}`;
 
 export default defineConfig({
