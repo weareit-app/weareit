@@ -30,6 +30,8 @@ The research tools under `tools/pains`, `tools/possibilities` and `tools/style` 
 pnpm run test:tools
 ```
 
+[ruff](https://docs.astral.sh/ruff/) lints and formats them (`ruff.toml`), run through [uv](https://docs.astral.sh/uv/)'s `uvx`, so install uv once to work on them. `pnpm run lint:py` checks them as CI does, and the pre-commit hook runs ruff on staged files in `tools/`, formatting and restaging them.
+
 Run the TypeScript and formatting checks with:
 
 ```sh

@@ -1,0 +1,10 @@
+# Lints and formats the Python tools in tools/ (repo-conventions decision 12): ruff's
+# default rules plus import sorting. Run through `pnpm run lint:py`, the lefthook `ruff`
+# job, and CI, each with `uvx ruff@0.17.0`; pin and install notes are in
+# docs/architecture/dependency-policy.md. required-version fails any other ruff.
+required-version = "==0.17.0"
+# The tools' tests pass on Python 3.9, so fixes must not need anything newer.
+target-version = "py39"
+
+[lint]
+extend-select = ["I"]

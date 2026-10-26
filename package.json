@@ -25,6 +25,7 @@
     "typecheck:root": "tsc -p tsconfig.json",
     "lint": "biome ci --error-on-warnings . && pnpm run lint:deps && eslint --max-warnings 0 .",
     "check:generated": "pnpm --filter @it/content essays:check && pnpm db:types --verify",
+    "lint:py": "uvx ruff@0.17.0 check tools && uvx ruff@0.17.0 format --check tools",
     "lint:deps": "depcruise apps packages tools *.mts --output-type err-long",
     "knip": "knip",
     "sherif": "sherif --fail-on-warnings",

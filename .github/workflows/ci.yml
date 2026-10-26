@@ -79,6 +79,11 @@ jobs:
 
       - run: pnpm run lint
 
+      # The Python tools, with ruff through uv (ruff.toml). The runner image ships pipx;
+      # uv's pin: docs/architecture/dependency-policy.md.
+      - run: pipx install uv==0.13.0
+      - run: pnpm run lint:py
+
       # Unused files, exports, and dependencies, and dependencies used but not
       # declared (knip.jsonc). Knip's Expo plugin loads the app config, which parses
       # the app's public variables, so it gets the example's, as the jest-expo step does.
