@@ -120,6 +120,7 @@ jobs:
       # from a freshly migrated database), so neither can land stale. It runs before the
       # typecheck, whose turbo `essays` dependency would rebuild the modules first.
       - run: pnpm run check:generated
+        if: needs.changes.outputs.docs-only != 'true'
         env:
           TEST_DATABASE_URL: postgres://postgres:it@localhost:54346/postgres
 
@@ -139,21 +140,26 @@ jobs:
         if: needs.changes.outputs.docs-only != 'true'
 
       - run: pnpm run lint
+        if: needs.changes.outputs.docs-only != 'true'
 
       # The Python tools, with ruff through uv (ruff.toml). The runner image ships pipx;
       # uv's pin: docs/architecture/dependency-policy.md.
       - run: pipx install uv==0.13.0
+        if: needs.changes.outputs.docs-only != 'true'
       - run: pnpm run lint:py
+        if: needs.changes.outputs.docs-only != 'true'
 
       # Unused files, exports, and dependencies, and dependencies used but not
       # declared (knip.jsonc). Knip's Expo plugin loads the app config, which parses
       # the app's public variables, so it gets the example's, as the jest-expo step does.
       - run: pnpm run knip
+        if: needs.changes.outputs.docs-only != 'true'
         env:
           EXPO_PUBLIC_API_URL: http://localhost:3001/rpc
 
       # Two workspace packages declaring different versions of one dependency.
       - run: pnpm run sherif
+        if: needs.changes.outputs.docs-only != 'true'
 
       - run: pnpm run test:unit
         if: needs.changes.outputs.docs-only != 'true'
