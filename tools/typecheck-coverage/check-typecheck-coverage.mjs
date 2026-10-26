@@ -12,6 +12,9 @@ const TYPESCRIPT = /\.(ts|tsx|mts|cts)$/;
 const TYPECHECK_SCRIPT = /^typecheck(:.+)?$/;
 const TSC = /(?:^|\s|&&)tsc(?:\s|$)/;
 const PROJECT_FLAG = /\s(?:-p|--project)\s+(\S+)/;
+// `tsc --listFilesOnly` prints every absolute path it loads (about 4,000), which
+// passes Node's default 1 MB buffer in a deeply nested checkout (ENOBUFS).
+const MAX_BUFFER = 64 * 1024 * 1024;
 
 /**
  * @param {{ dir: string, scripts: Record<string, string> }[]} packages
@@ -55,6 +58,7 @@ export function checkRepo(root) {
     execFileSync(tsc, ["-p", project, "--listFilesOnly"], {
       cwd: root,
       encoding: "utf8",
+      maxBuffer: MAX_BUFFER,
     })
       .split("\n")
       .filter(Boolean)

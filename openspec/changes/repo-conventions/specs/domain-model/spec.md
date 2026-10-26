@@ -18,7 +18,7 @@ Every domain schema SHALL live in `@it/domain`, which holds schemas and pure dom
 - **THEN** it is in `@it/watercolor`, because no other layer restates it
 
 ### Requirement: Shared primitives written once
-The slug ID, non-empty text, ISO date, and ISO datetime SHALL each be defined once, in the primitives module, and every other schema SHALL use that definition.
+The slug ID, non-empty text, ISO date, and ISO datetime SHALL each be defined once, in the primitives module, and every schema in a package allowed to depend on `@it/domain` SHALL use that definition. `@it/watercolor` depends on nothing (see package-boundaries), so its rendering schemas keep their own patterns.
 
 #### Scenario: Slug pattern
 - **WHEN** a schema needs a slug ID

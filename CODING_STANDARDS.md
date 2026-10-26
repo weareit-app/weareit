@@ -29,12 +29,13 @@ Mechanical naming rules (file names, acronyms, default exports) belong to lint. 
 - **A file is named after its main export**, in kebab-case: `choice-card.tsx` exports `ChoiceCard`, and `use-draft.ts` exports `useDraft`. Helpers can share the file.
 - **Boolean values and props start with `is`, `has`, `can`, or `should`.**
 - **Database table interfaces end in `Table`** (`ContentPainsTable`) where the type generator can name them so. Generated names are otherwise kept as generated.
-- **Packages are named `@it/<kebab>`,** and each export subpath is named after the file it points to (`./graph-schema` → `src/graph-schema.ts`).
+- **Packages are named `@it/<kebab>`,** and each export subpath is named after the file it points to (`./graph-schema` → `src/graph-schema.ts`). A library's `exports` lists named subpaths that point at source, with no root (`"."`) export.
 
 ## Errors
 
 - **Expected failures are error classes, not message strings.** A repository or service that can fail in a way its caller acts on throws an `Error` subclass, defined in the package that throws it, with its details as fields. Matching on `error.message` is a finding.
 - **The app writes the words people see for an API failure,** keyed by error code and following `docs/style/copy-style-guide.md`. Showing a server's `error.message` to a person is a finding; the server's message is for developers and logs.
+- **API error codes name what happened in the domain** (`REVISION_CONFLICT`, `PAYMENTS_NOT_CONFIGURED`), not a generic HTTP name. `UNAUTHORIZED` and `NOT_FOUND` keep their names. A failure several operations share is declared once, on a contract base those operations build from.
 - **Pure domain logic returns expected outcomes as values** (a list of issues, a `safeParse` result) and throws only when an invariant is broken.
 
 ## Logging

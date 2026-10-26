@@ -83,7 +83,7 @@ Order (design decision 13): write the conventions down, move packages, then turn
 
 ## 12. Integration check
 
-- [ ] 12.1 On a fresh clone of `master` after every group has landed, run `pnpm install`, `pnpm run lint`, `pnpm run typecheck`, `pnpm test`, and a commit through lefthook. Confirm every requirement in this change's specs has its check or `CODING_STANDARDS.md` rule, and every ticket in design.md's traceability table has its `decisions.md` entry. Verify by listing each in the PR that ticks this box
+- [x] 12.1 On a fresh clone of `master` after every group has landed, run `pnpm install`, `pnpm run lint`, `pnpm run typecheck`, `pnpm test`, and a commit through lefthook. Confirm every requirement in this change's specs has its check or `CODING_STANDARDS.md` rule, and every ticket in design.md's traceability table has its `decisions.md` entry. Verify by listing each in the PR that ticks this box
 
 ## Workflow follow-up
 
