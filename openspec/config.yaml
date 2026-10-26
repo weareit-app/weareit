@@ -25,3 +25,5 @@ rules:
   design:
     - Follow the judgement rules in CODING_STANDARDS.md and the decisions to preserve in AGENTS.md; don't restate them here.
     - Changing an agreed stack choice or privacy invariant needs a decision record in docs/architecture/decisions.md.
+  tasks:
+    - Separate task checkboxes with a blank line, so pull requests that tick neighbouring tasks merge without a conflict.

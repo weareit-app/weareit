@@ -24,7 +24,7 @@ The privacy invariants SHALL be written only in `AGENTS.md`. `docs/architecture/
 
 #### Scenario: Invariant changes
 - **WHEN** the founder changes the measurement invariant
-- **THEN** `AGENTS.md` is edited and `decisions.md` gains a dated entry that links to it
+- **THEN** `AGENTS.md` is edited and `decisions.md` is updated and `docs/architecture/decision-log/` gains a dated file that links to it
 
 ### Requirement: Judgement rules in one file
 Rules that review judges and no check can enforce SHALL live only in `CODING_STANDARDS.md`. `AGENTS.md` and `openspec/config.yaml` SHALL point to it instead of copying its rules. A rule a check can enforce SHALL be a check instead.
@@ -34,7 +34,7 @@ Rules that review judges and no check can enforce SHALL live only in `CODING_STA
 - **THEN** it finds it in `CODING_STANDARDS.md` and only there
 
 ### Requirement: Decision records in one file
-Decision records SHALL live in `docs/architecture/decisions.md`: current decisions grouped by topic and edited in place, plus a dated change log. A `docs/adr/` folder SHALL fail a check in CI and the pre-commit hook.
+Decision records SHALL live in `docs/architecture/decisions.md`: current decisions grouped by topic and edited in place, with the dated history as one file per change in `docs/architecture/decision-log/`. A `docs/adr/` folder SHALL fail a check in CI and the pre-commit hook.
 
 #### Scenario: Skill creates an ADR folder
 - **WHEN** a commit adds `docs/adr/0001-something.md`

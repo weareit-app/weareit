@@ -22,10 +22,11 @@ This repo has one context:
 ├── AGENTS.md                          ← privacy invariants and binding stack lines
 └── docs/
     └── architecture/
-        └── decisions.md               ← every decision record, by topic, plus a change log
+        ├── decisions.md               ← every current decision, by topic
+        └── decision-log/              ← one dated file per change to those decisions
 ```
 
-Decision records never go in a `docs/adr/` folder (a check for this comes with the `repo-conventions` change). When a skill says to write an ADR, add or edit the topic in `docs/architecture/decisions.md` and add a dated line to its change log.
+Decision records never go in a `docs/adr/` folder (`tools/decision-records/` fails if one appears). When a skill says to write an ADR, add or edit the topic in `docs/architecture/decisions.md` and add a dated file to `docs/architecture/decision-log/`.
 
 ## Use the glossary's vocabulary
 

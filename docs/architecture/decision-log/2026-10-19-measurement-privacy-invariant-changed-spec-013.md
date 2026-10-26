@@ -1,0 +1,3 @@
+# 2026-10-19
+
+Measurement privacy invariant changed (spec 013, founder answers Q1–Q12). Changed: the signup/sign-in visit is linked to the account (reverses 008 FR-028 "never linked"); per-page views including each pain page (reverses the per-pain part of 012 FR-020); each opened pain recorded by ID (reverses 008's "opened pains not sent"); deleted accounts' visits unlinked and kept; exact receive times; records kept indefinitely; no opt-out. Kept: no picks or selected fixes sent before signup; visit ID in memory only; no cross-visit link before signup; how a visit arrived is not recorded; never public. Open: when account linking switches on (010 Q37).
