@@ -16,6 +16,16 @@ The app targets iOS and responsive web through Expo Router. Use the Expo Go app 
 
 ## Checks and tests
 
+Run everything CI's `check` job runs, in the same order, with:
+
+```sh
+pnpm verify
+```
+
+It prints one line per check and a summary, and keeps going after a failure so one run shows every problem; re-run a failing check on its own to see its output. It skips the table types check without `TEST_DATABASE_URL` (the Postgres unit tests skip then too) and the Python lint without uv. A unit test fails if its list drifts from `.github/workflows/ci.yml`.
+
+The app reads its public variables from `apps/app/.env`, which Expo, the jest-expo tests, and knip all load. Copy `apps/app/.env.example` to `apps/app/.env` once on a new checkout or worktree; without it they fail with "Invalid environment variables". `pnpm verify` fills them from the example file instead.
+
 Run the complete test suite with:
 
 ```sh
@@ -48,6 +58,8 @@ pnpm run lint
 ## Components and Storybook
 
 UI components have stories next to them (`*.stories.tsx`). Browse them with `pnpm storybook`. To see what a branch changed in the components, run `pnpm storybook:review`, which compares every story, in light and dark, with `origin/master` and writes a report. See `docs/architecture/storybook.md`.
+
+If `pnpm run sherif` reports `packages-without-package-json` for a package that has been removed, delete the leftover folder: it holds only ignored files such as `node_modules` and `.turbo`, which git leaves behind.
 
 ## Project boundaries
 
