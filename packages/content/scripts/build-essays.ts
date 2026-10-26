@@ -11,6 +11,7 @@
 import { execFileSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
 import { createRequire } from "node:module";
+import { relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadEssays } from "../essay-build/load";
 import { EssayError } from "../essay-build/parse";
@@ -83,9 +84,12 @@ function main() {
       }
     });
     if (stale.length) {
+      const repoRoot = fileURLToPath(new URL("../../..", import.meta.url));
       console.error(
         "Generated essay modules are out of date: run `pnpm --filter @it/content essays`.",
       );
+      for (const [path] of stale)
+        console.error(`  ${relative(repoRoot, path)}`);
       process.exit(1);
     }
     return;
