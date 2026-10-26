@@ -71,7 +71,7 @@ Order (design decision 13): write the conventions down, move packages, then turn
 
 - [x] 10.1 Add a `check:generated` script that runs `essays:check` and the kysely-codegen `--verify` step, and call it from CI in place of the two separate steps. Verify CI fails on a branch with an essay changed but not rebuilt
 - [x] 10.2 Add ruff, pinned, to lint and format `tools/**/*.py`, in lefthook and CI beside Biome, through an install route that doesn't need mise. Fix every finding and record the pin in `dependency-policy.md`. Verify `pnpm run test:tools` still passes and CI fails on a sample unused import
-- [ ] 10.3 Record the generated-files and ruff decisions in `decisions.md`. Verify each entry says where its check runs
+- [x] 10.3 Record the generated-files and ruff decisions in `decisions.md`. Verify each entry says where its check runs
 
 ## 11. Skills and docs checks
 
