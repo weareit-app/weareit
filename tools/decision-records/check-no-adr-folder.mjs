@@ -12,7 +12,7 @@ const DECISIONS_PATH = "docs/architecture/decisions.md";
 export function checkRepo(root) {
   if (!existsSync(join(root, ADR_DIR))) return [];
   return [
-    `${ADR_DIR}/ exists; record decisions in ${DECISIONS_PATH} instead (edit the topic's entry and add a dated change-log line), then delete ${ADR_DIR}/`,
+    `${ADR_DIR}/ exists; record decisions in ${DECISIONS_PATH} instead (edit the topic's entry and add a dated file to docs/architecture/decision-log/), then delete ${ADR_DIR}/`,
   ];
 }
 
