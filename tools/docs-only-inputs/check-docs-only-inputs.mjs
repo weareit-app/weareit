@@ -60,15 +60,15 @@ export function specFolderReferences({ files, allowlist }) {
     if (!SCANNED.test(path) || path.startsWith(SELF)) continue;
     const entries = allowlist[path] ?? [];
     const script = PACKAGE_JSON.test(path);
-    text.split("\n").forEach((content, index) => {
+    for (const [index, content] of text.split("\n").entries()) {
       const names =
         SPEC_FOLDER.test(content) ||
         (script && SCRIPT_SPEC_FOLDER.test(content));
-      if (!names) return;
+      if (!names) continue;
       const covering = entries.filter((entry) => content.includes(entry.text));
-      covering.forEach((entry) => used.add(entry));
+      for (const entry of covering) used.add(entry);
       if (covering.length === 0) found.push({ path, line: index + 1 });
-    });
+    }
   }
   const stale = Object.entries(allowlist).flatMap(([path, entries]) =>
     entries

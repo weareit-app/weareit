@@ -16,7 +16,7 @@ describe("specFolderReferences", () => {
             "packages/a/src/load.ts",
             'const dir = path.join(root, "specs");\nconst b = "../../openspec/x";',
           ),
-          file("tools/b/read.mjs", "readFileSync(`${root}/openspec/changes`)"),
+          file("tools/b/read.mjs", "readFileSync(root + `/openspec/changes`)"),
           file("apps/app/tests/c.test.ts", "x\nconst p = '.specify/memory';"),
         ],
         allowlist: {},
