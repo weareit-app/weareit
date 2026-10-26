@@ -61,6 +61,7 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-parameters": "7.29.7",
+    "@expo/env": "2.5.2",
     "@orpc/client": "^1.15.6",
     "@playwright/test": "^1.64.0",
     "@storybook/react-native-web-vite": "10.6.1",

@@ -1,9 +1,12 @@
 // Expo's app config. Importing another TypeScript file needs the `tsx/cjs`
 // hook (docs.expo.dev "Using TypeScript", "app.config.js", checked
-// 2026-10-25). Importing `./src/env` parses the public variables, so every
-// Expo command, `expo export` included, fails on a bad value.
+// 2026-10-25). `./load-env-files` loads `apps/app/.env` for tools that read
+// this config without the Expo CLI; importing `./src/env` then parses the
+// public variables, so every Expo command, `expo export` included, fails on a
+// bad value.
 import "tsx/cjs";
 import type { ExpoConfig } from "expo/config";
+import "./load-env-files";
 import "./src/env";
 
 const config: ExpoConfig = {
