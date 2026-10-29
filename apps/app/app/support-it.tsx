@@ -179,9 +179,9 @@ export default function SupportItScreen() {
               accessibilityRole="button"
               accessibilityState={{ busy: isLoading }}
               onPress={() => void manageSubscription()}
-              className={`min-h-12 self-start justify-center rounded-full bg-ember px-6 ${isLoading ? "opacity-50" : ""}`}
+              className={`min-h-12 self-start justify-center rounded-full bg-tide px-6 ${isLoading ? "opacity-50" : ""}`}
             >
-              <Text className="font-ui-semibold text-on-ember">
+              <Text className="font-ui-semibold text-on-tide">
                 Manage monthly support
               </Text>
             </Pressable>
@@ -278,9 +278,9 @@ export default function SupportItScreen() {
             accessibilityState={{ busy: isLoading }}
             disabled={iosStore && !selectedStoreProduct}
             onPress={() => void continueToPayment()}
-            className={`min-h-12 self-start justify-center rounded-full bg-ember px-6 disabled:opacity-50 ${isLoading ? "opacity-50" : ""}`}
+            className={`min-h-12 self-start justify-center rounded-full bg-tide px-6 disabled:opacity-50 ${isLoading ? "opacity-50" : ""}`}
           >
-            <Text className="font-ui-semibold text-on-ember">
+            <Text className="font-ui-semibold text-on-tide">
               {isLoading
                 ? "Opening checkout…"
                 : iosStore
