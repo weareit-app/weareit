@@ -308,6 +308,12 @@ A carried item from the repo-conventions map (design decision 12); carried out i
 - **Where it runs:** CI's `check` job runs `pnpm run lint:py` (`ruff check` and `ruff format --check` over `tools/`) after `pnpm run lint`. The lefthook `ruff` job runs on staged `tools/**/*.py`: lint fails the commit, and the formatter fixes and restages.
 - *Alternatives:* a pinned dev requirement installed with pip (needs a virtual environment, or writes into a system Python that refuses it), ruff through mise (contributors aren't required to use mise), and flake8 with Black (two tools to pin for what ruff does alone).
 
+## Color
+
+Details in `docs/brand/colors.md`.
+
+- Support It actions use `tide` buttons like every other action, not `ember` (2026-10-28). `ember` stays available for illustration and the watercolor orb.
+
 ## Open implementation decisions
 
 - Sender identity (from-address and reply-to) for service email.

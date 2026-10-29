@@ -176,8 +176,8 @@ export default function FuturesScreen() {
           </Pressable>
         </Link>
         <Link href="/support-it" asChild>
-          <Pressable className="min-h-12 items-center justify-center rounded-xl border border-ember px-5">
-            <Text className="font-ui-semibold text-ember-deep">Support It</Text>
+          <Pressable className="min-h-12 items-center justify-center rounded-xl border border-tide px-5">
+            <Text className="font-ui-semibold text-tide-deep">Support It</Text>
           </Pressable>
         </Link>
       </View>
