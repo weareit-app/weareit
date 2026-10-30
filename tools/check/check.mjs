@@ -1,6 +1,6 @@
 // Runs the checks CI's `check` job runs, in the same order, and prints one line per step
 // with a summary at the end. Every step runs even after one fails, so one run shows every
-// problem. Run from the repo root: `pnpm verify`.
+// problem. Run from the repo root: `pnpm check`.
 //
 // Locally it fills the app's public variables from `apps/app/.env.example` when they are
 // unset (CI sets the same values), skips `check:generated` without `TEST_DATABASE_URL`
@@ -10,7 +10,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-/** CI's `check` job, step by step; `verify.test.ts` fails if the two drift apart. */
+/** CI's `check` job, step by step; `check.test.ts` fails if the two drift apart. */
 export const STEPS = [
   "node tools/action-pins/check-action-pins.mjs",
   "node tools/docs-only-inputs/check-docs-only-inputs.mjs",
@@ -69,7 +69,7 @@ function main(root) {
   const appExample = parseEnvExample(
     readFileSync(join(root, "apps/app/.env.example"), "utf8"),
   );
-  // biome-ignore lint/style/noProcessEnv: verify passes the caller's environment on to each check, filling only the app's unset public variables from its example file.
+  // biome-ignore lint/style/noProcessEnv: `pnpm check` passes the caller's environment on to each check, filling only the app's unset public variables from its example file.
   const env = { ...appExample, ...process.env };
   const hasUvx =
     spawnSync("uvx", ["--version"], { stdio: "ignore" }).status === 0;
@@ -91,7 +91,7 @@ function main(root) {
   const failed = results.filter((result) => result === "fail").length;
   const skipped = results.filter((result) => result === "skip").length;
   console.log(
-    `\nVerify: ${results.length - failed - skipped} passed, ${failed} failed, ${skipped} skipped.` +
+    `\nCheck: ${results.length - failed - skipped} passed, ${failed} failed, ${skipped} skipped.` +
       (failed ? " Re-run a failing step on its own to see its output." : ""),
   );
   return failed ? 1 : 0;

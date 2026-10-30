@@ -16,7 +16,7 @@
     "db:prepare": "pnpm --filter @it/database db:prepare",
     "db:seed": "pnpm --filter @it/database db:seed",
     "db:types": "pnpm --filter @it/database db:types",
-    "verify": "node tools/verify/verify.mjs",
+    "check": "node tools/check/check.mjs",
     "test": "pnpm run test:unit && pnpm run test:expo && pnpm run test:e2e",
     "test:unit": "vitest run",
     "test:expo": "pnpm --filter @it/app test:expo",
