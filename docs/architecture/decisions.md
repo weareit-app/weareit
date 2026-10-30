@@ -308,6 +308,12 @@ A carried item from the repo-conventions map (design decision 12); carried out i
 - **Where it runs:** CI's `check` job runs `pnpm run lint:py` (`ruff check` and `ruff format --check` over `tools/`) after `pnpm run lint`. The lefthook `ruff` job runs on staged `tools/**/*.py`: lint fails the commit, and the formatter fixes and restages.
 - *Alternatives:* a pinned dev requirement installed with pip (needs a virtual environment, or writes into a system Python that refuses it), ruff through mise (contributors aren't required to use mise), and flake8 with Black (two tools to pin for what ruff does alone).
 
+### Local checks
+
+Decided by the founder 2026-10-30 for every It JavaScript and TypeScript project, so the same command works in each.
+
+- **`pnpm check` runs everything CI's `check` job runs,** named after that job: its steps in the same order, continuing after a failure, with one line per step and a summary (`tools/check/`). A unit test fails if the steps drift from `.github/workflows/ci.yml`. It was `pnpm verify` until then; only the name changed.
+
 ## Open implementation decisions
 
 - Sender identity (from-address and reply-to) for service email.
