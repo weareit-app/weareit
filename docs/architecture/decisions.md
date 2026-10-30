@@ -324,6 +324,19 @@ Decided by the founder 2026-10-30 for every It JavaScript and TypeScript project
 - DCO versus CLA for outside contributions.
 - Corporate form, mission protections, and trademark policy.
 
+### Proposed before launch: data shapes that are cheap to choose now
+
+Proposed 2026-10-30, for the founder to decide; none is agreed and none changes code. Each is cheap before launch and needs a migration after it. Details, reasons and alternatives are in the dated files.
+
+- **Content snapshots named by checksum** over a canonical serialization, stored on saved picks next to the version number (`decision-log/2026-10-30-proposed-content-snapshots-named-by-checksum.md`).
+- **Account IDs stay opaque, and sign-in stays extensible:** `user.id` is never public, the auth boundary stays in one place, and later credentials link to the existing account (`decision-log/2026-10-30-proposed-account-ids-opaque-sign-in-extensible.md`).
+- **CMS authorship names the editor**, decided with role-based CMS authorization above (`decision-log/2026-10-30-proposed-cms-authorship-names-the-editor.md`).
+- **Saved picks merge as per-pick records** (an observed-remove set) to implement spec 008 FR-019 (`decision-log/2026-10-30-proposed-saved-picks-merge-as-per-pick-records.md`).
+- **Consent as an append-only log** when signup builds it (`decision-log/2026-10-30-proposed-consent-as-append-only-log.md`).
+- **Visits kept apart from accounts** when measurement is built, weighed against the 2026-10-19 measurement decision (`decision-log/2026-10-30-proposed-visits-kept-apart-from-accounts.md`).
+- **Count protection by category**, with a default list of sensitive fix categories whose counts are coarsened (`decision-log/2026-10-30-proposed-count-protection-by-category.md`).
+- **Privacy wording that claims only what v0.1 does** (`decision-log/2026-10-30-proposed-launch-security-wording.md`).
+
 ## Change log
 
 The dated history of changes to these decisions is in `docs/architecture/decision-log/`, one file per entry.

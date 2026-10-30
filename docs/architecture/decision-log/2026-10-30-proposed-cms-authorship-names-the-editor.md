@@ -1,0 +1,3 @@
+# 2026-10-30
+
+Proposed, not decided: when role-based CMS authorization is decided (already open in `decisions.md`), record the editor's account ID as `created_by` and `published_by` instead of the literal `"cms-admin"`, keeping the role only as an extra field. Why: with one shared admin string, the content history can't say who made a change. That matters as soon as there is more than one editor, for review, rollback and the existing rule that every content-graph link records who made it. The change is local now and loses history the longer it waits. Alternatives: keep the shared token until outside editors arrive (fine for one editor, but everything written meanwhile has no author). No code changes with this record.
