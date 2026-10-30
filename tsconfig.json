@@ -17,6 +17,6 @@
     "tools/story-coverage/**/*",
     "tools/decision-records/**/*",
     "tools/skills-sync/**/*",
-    "tools/verify/**/*"
+    "tools/check/**/*"
   ]
 }
