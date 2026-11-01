@@ -18,7 +18,7 @@ _Avoid_: the It app, it (lowercase)
 Something wrong in a person's life or in society, named in the first person.
 
 **Dream**:
-A desired end state for one pain: what it's like when that pain is resolved, said in the first person. It is not a means to something else within the pain, and it would not fit a different pain unchanged.
+A desired end state for a pain: what it's like when that pain is resolved, said in the first person. It is not a means to something else within the pain. It may also be the end state of neighboring pains, but it still names this pain's domain, and it is more specific than a general value such as being happy.
 _Avoid_: future, possible future, goal, outcome
 
 **Means**:
