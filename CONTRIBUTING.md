@@ -19,12 +19,12 @@ The app targets iOS and responsive web through Expo Router. Use the Expo Go app 
 Run everything CI's `check` job runs, in the same order, with:
 
 ```sh
-pnpm verify
+pnpm check
 ```
 
 It prints one line per check and a summary, and keeps going after a failure so one run shows every problem; re-run a failing check on its own to see its output. It skips the table types check without `TEST_DATABASE_URL` (the Postgres unit tests skip then too) and the Python lint without uv. A unit test fails if its list drifts from `.github/workflows/ci.yml`.
 
-The app reads its public variables from `apps/app/.env`, which Expo, the jest-expo tests, and knip all load (`app.config.ts` loads it through Expo's own loader). Copy `apps/app/.env.example` to `apps/app/.env` once on a new checkout or worktree; without it they fail with "Invalid environment variables". `pnpm verify` fills them from the example file instead.
+The app reads its public variables from `apps/app/.env`, which Expo, the jest-expo tests, and knip all load (`app.config.ts` loads it through Expo's own loader). Copy `apps/app/.env.example` to `apps/app/.env` once on a new checkout or worktree; without it they fail with "Invalid environment variables". `pnpm check` fills them from the example file instead.
 
 Run the complete test suite with:
 

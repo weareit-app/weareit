@@ -1,8 +1,8 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { ciCheckSteps, parseEnvExample, STEPS, skipReason } from "./verify.mjs";
+import { ciCheckSteps, parseEnvExample, STEPS, skipReason } from "./check.mjs";
 
-describe("verify", () => {
+describe("check", () => {
   it("runs exactly the checks CI's check job runs, in the same order", () => {
     const workflow = readFileSync(".github/workflows/ci.yml", "utf8");
     expect(STEPS).toEqual(ciCheckSteps(workflow));
