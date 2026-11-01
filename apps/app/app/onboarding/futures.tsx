@@ -10,6 +10,10 @@ import {
 } from "../../src/content/use-published-content";
 import { ContentQueryState } from "../../src/components/content-query-state";
 
+// A style prop, not a className: on web, react-native-web sets a bundled image's
+// pixel size as an inline style, which beats classes and overflows the screen.
+const imageFit = { width: "100%", height: 160 } as const;
+
 export default function FuturesScreen() {
   const personalIds = useOnboardingStore((state) => state.personalPainIds);
   const worldIds = useOnboardingStore((state) => state.worldPainIds);
@@ -60,7 +64,7 @@ export default function FuturesScreen() {
             require("../../assets/brand/clouds.jpg") as ImageSourcePropType
           }
           resizeMode="contain"
-          className="h-full w-full"
+          style={imageFit}
           accessibilityLabel="Soft watercolor clouds in blue and warm yellow"
         />
       </View>
@@ -158,7 +162,7 @@ export default function FuturesScreen() {
             require("../../assets/brand/house-wide.jpg") as ImageSourcePropType
           }
           resizeMode="contain"
-          className="h-40 w-full"
+          style={imageFit}
           accessibilityLabel="Watercolor home surrounded by a garden"
         />
         <Text className="font-heading text-2xl text-ink">
