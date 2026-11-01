@@ -78,8 +78,8 @@ export default function WaysToHelpScreen() {
           </Pressable>
         </Link>
         <Link href="/support-it" asChild>
-          <Pressable className="min-h-12 rounded-full border border-ember px-6 py-3">
-            <Text className="font-ui-semibold text-ember-deep">Support It</Text>
+          <Pressable className="min-h-12 rounded-full border border-tide px-6 py-3">
+            <Text className="font-ui-semibold text-tide-deep">Support It</Text>
           </Pressable>
         </Link>
         <Link href="/save-progress" asChild>

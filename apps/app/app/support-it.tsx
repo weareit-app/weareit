@@ -169,7 +169,7 @@ export default function SupportItScreen() {
       description="People can contribute time, ideas, introductions, or money. Supporting It is optional and does not unlock a better version of the product."
     >
       {isWebSuccess ? (
-        <View className="gap-3 rounded-3xl bg-sun-wash p-5">
+        <View className="gap-3">
           <Text className="text-lg font-ui-semibold text-ink">
             {paymentTitle}
           </Text>
@@ -179,9 +179,9 @@ export default function SupportItScreen() {
               accessibilityRole="button"
               accessibilityState={{ busy: isLoading }}
               onPress={() => void manageSubscription()}
-              className={`min-h-12 self-start justify-center rounded-full bg-ember px-6 ${isLoading ? "opacity-50" : ""}`}
+              className={`min-h-12 self-start justify-center rounded-full bg-tide px-6 ${isLoading ? "opacity-50" : ""}`}
             >
-              <Text className="font-ui-semibold text-on-ember">
+              <Text className="font-ui-semibold text-on-tide">
                 Manage monthly support
               </Text>
             </Pressable>
@@ -278,9 +278,9 @@ export default function SupportItScreen() {
             accessibilityState={{ busy: isLoading }}
             disabled={iosStore && !selectedStoreProduct}
             onPress={() => void continueToPayment()}
-            className={`min-h-12 self-start justify-center rounded-full bg-ember px-6 disabled:opacity-50 ${isLoading ? "opacity-50" : ""}`}
+            className={`min-h-12 self-start justify-center rounded-full bg-tide px-6 disabled:opacity-50 ${isLoading ? "opacity-50" : ""}`}
           >
-            <Text className="font-ui-semibold text-on-ember">
+            <Text className="font-ui-semibold text-on-tide">
               {isLoading
                 ? "Opening checkout…"
                 : iosStore

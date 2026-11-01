@@ -314,6 +314,12 @@ Decided by the founder 2026-10-30 for every It JavaScript and TypeScript project
 
 - **`pnpm check` runs everything CI's `check` job runs,** named after that job: its steps in the same order, continuing after a failure, with one line per step and a summary (`tools/check/`). A unit test fails if the steps drift from `.github/workflows/ci.yml`. It was `pnpm verify` until then; only the name changed.
 
+## Color
+
+Details in `docs/brand/colors.md`.
+
+- Support It actions use `tide` buttons like every other action, not `ember` (2026-10-28). `ember` stays available for illustration and the watercolor orb.
+
 ## Open implementation decisions
 
 - Sender identity (from-address and reply-to) for service email.

@@ -130,7 +130,7 @@ Light mode:
 | `sun` | Sunflower (custom) | 116 U | Risotto | Warmth, "coming soon" | `#FFEDC0` | `#FFCA70` | `#FFB000` | `#96610B` |
 | `gilt` | Metallic Gold (special) | 872 U | Risotto | Gold (metallic on paper only) | `#F4ECE3` | `#E1CBAF` | `#BD935C` | `#806034` |
 | `clay` | Brown | — | Shop sheet | Craft, making, grounding | `#F7EAE6` | `#ECC5BA` | `#925F52` | `#875548` |
-| `ember` | Orange | 021 U | Risotto | Energy, Support It | `#FFE7DC` | `#FFB596` | `#FF6627` | `#C03B02` |
+| `ember` | Orange | 021 U | Risotto | Energy | `#FFE7DC` | `#FFB596` | `#FF6627` | `#C03B02` |
 | `flame` | Warm Red | Warm Red U | Risotto | Errors, urgency, vermilion | `#FEE8E3` | `#FFB7A6` | `#F24822` | `#CD2909` |
 | `berry` | Burgundy | 235 U | Risotto | Serious emphasis, deep red | `#F7EAEC` | `#EEC7D0` | `#73404E` | `#86515F` |
 | `bloom` | Fluro Pink | 806 U | Risotto | Joy, rare accent | `#FFE3FB` | `#FFB0EF` | `#F272DD` | `#A52594` |
@@ -188,13 +188,13 @@ Run `palette-preview.html` with "All inks" to compare side by side. Closest rema
 
 `apps/app/global.css` defines, for each ink, `--color-{name}` (the spot, the same in both modes) plus `-wash`, `-tint` and `-deep`, which flip in dark mode. It also defines `--color-on-{name}`, a fixed text color for each spot: white on tide, harbor, dusk and clay, and ink (`#1F2021`) on the rest. Neutrals are `paper`, `paper-raised`, `paper-sunk`, `rule`, `ink-faint`, `ink-soft` and `ink`. Use `bg-tide text-on-tide` for buttons, never `bg-tide-deep text-white`, because `deep` turns light in dark mode. `ink-faint` is darkened to 4.5:1 on paper (`#727374` light, `#818283` dark).
 
-Old tokens were mapped: `muted` → `ink-soft`, `card` → `paper-raised`, `blue`/`leaf` → `tide` (`text-tide-deep` for text), the cream panel `#f2e8d5` → `sun-wash`, grey borders → `rule`, light-blue fills → `tide-wash`. Support It actions use `ember`.
+Old tokens were mapped: `muted` → `ink-soft`, `card` → `paper-raised`, `blue`/`leaf` → `tide` (`text-tide-deep` for text), the cream panel `#f2e8d5` → `sun-wash`, grey borders → `rule`, light-blue fills → `tide-wash`. Support It actions use `tide`, like every other action.
 
 ## Roles
 
 - Main call to action: `tide` button with white text (4.7:1). `ink` stays the plain "Continue" button.
 - Links, focus and selection: `tide-deep` text, `tide` ring, `tide-wash` fill plus a check mark.
-- Support It: `ember-deep` button on a `sun-wash` panel.
+- Support It: the same `tide` buttons as every other action (2026-10-28). `ember` stays an illustration color.
 - Status: success `sprout`, "coming soon" `sun`, error `poppy` (`poppy-deep` text on `poppy-wash`), ideas `dusk`.
 - Illustration and riso spots: any token. Watercolor: the orb palettes above.
 
