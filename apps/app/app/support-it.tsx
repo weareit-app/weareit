@@ -169,7 +169,7 @@ export default function SupportItScreen() {
       description="People can contribute time, ideas, introductions, or money. Supporting It is optional and does not unlock a better version of the product."
     >
       {isWebSuccess ? (
-        <View className="gap-3 rounded-3xl bg-sun-wash p-5">
+        <View className="gap-3">
           <Text className="text-lg font-ui-semibold text-ink">
             {paymentTitle}
           </Text>
