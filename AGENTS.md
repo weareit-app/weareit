@@ -40,7 +40,7 @@ Help people see a better personal and shared future as possible, find a concrete
 - Running a grilling round, a manual-only skill, or the possibility content skills: `docs/agents/skills.md`.
 - Choosing which skill or flow fits: `.claude/skills/ask-it/SKILL.md`, the one list of skills (the founder runs it as `/ask-it`; Codex: `$ask-it`).
 - Adding a dependency, skill, or other community component: review its source and pin it per `docs/architecture/dependency-policy.md`; CI actions: `docs/architecture/ci-actions.md`.
-- Expo Router, native UI, or NativeWind setup: the installed Expo skills.
+- Expo Router, native UI, or NativeWind setup: the installed Expo skills. Build UI components from React Native primitives styled with NativeWind; `expo-ui` is not installed, so pass over `expo-overview`'s rule to consult it first.
 - Building or changing a UI component: `docs/architecture/storybook.md`.
 - Writing copy or doc prose: `docs/style/copy-style-guide.md`.
 - Filing or reading issues: `docs/agents/issue-tracker.md` (GitHub issues on `weareit-app/weareit`); triage labels: `docs/agents/triage-labels.md`.

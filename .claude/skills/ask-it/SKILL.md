@@ -50,6 +50,7 @@ Each drives a Python tool; read the tool's README first.
 - **`/wizard`** scripts steps only a human can take (dashboards, secrets, one-off cutovers).
 - **`/wait-what`** re-pitches a message that didn't land, in plain words.
 - **`/teach`** runs a multi-session lesson in the current folder.
+- **`/expo-overview`** routes Expo work (routing, native UI, animation, data fetching, dev builds, SDK upgrades, App Store releases) to Expo's other vendored skills, which agents also load on their own; `AGENTS.md` says which of its suggestions to pass over.
 - **`/writing-for-agents`** is the reference for skills, `AGENTS.md`, and docs agents read.
 - **`/setup-matt-pocock-skills`** has already been run here (`docs/agents/issue-tracker.md`, `triage-labels.md`, `domain.md`); rerun it only to change those.
 - **`/ask-it`** is this map.
