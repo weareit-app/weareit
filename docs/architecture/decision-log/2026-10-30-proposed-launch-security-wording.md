@@ -1,0 +1,3 @@
+# 2026-10-30
+
+Proposed, not decided: what v0.1 says about privacy and security claims only what it does: choices before signup stay on the device; It keeps what it needs to run and does not sell it; counts follow the count-protection record; and It can see a person's account and what they save. It makes no broader claim, such as end-to-end encryption or protection from its own operators, until the system actually provides it. Why: privacy statements are promises people rely on and are hard to walk back, and wording that matches the implementation can be checked against the code and kept true as the code changes. Alternatives: general reassurance ("your data is safe"), which nothing in v0.1 can back. No code changes with this record.

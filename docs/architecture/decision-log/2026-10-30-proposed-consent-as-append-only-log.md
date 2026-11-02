@@ -1,0 +1,3 @@
+# 2026-10-30
+
+Proposed, not decided: when signup builds the consent record spec 008 specifies (whether the person opted in, when, and which wording version; withdrawal by unsubscribe), store it as an append-only log of grant and withdrawal events (account, checksum of the wording shown, time) rather than a mutable flag on the account. Why: consent needs to be provable at a point in time, including which wording the person saw and when they withdrew. A log keeps that history, can be exported to the person on request, and never needs rewriting. Nothing exists yet, so the shape costs nothing to choose now. Alternatives: a boolean plus timestamp on the account (simpler, but loses history and needs a migration to change). No code changes with this record.
