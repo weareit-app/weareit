@@ -5,6 +5,7 @@
   "type": "module",
   "exports": {
     "./content": "./src/content.ts",
+    "./content-edits": "./src/content-edits.ts",
     "./essays": "./src/essays.ts",
     "./onboarding": "./src/onboarding.ts",
     "./primitives": "./src/primitives.ts",
