@@ -51,3 +51,6 @@ pre-commit:
     # .claude/skills is the source; fails naming each skill whose .agents/skills copy differs.
     - name: skills in step
       run: node tools/skills-sync/sync-skills.mjs --check
+    - name: docs-only inputs
+      glob: "*.{ts,tsx,mts,cts,js,jsx,mjs,cjs}"
+      run: node tools/docs-only-inputs/check-docs-only-inputs.mjs
