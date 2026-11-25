@@ -4,6 +4,7 @@ import { Text } from "../../src/components/text";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiClient, setCmsToken } from "../../src/api-client";
 import type { ContentGraph } from "@it/domain/content";
+import { removeRecord, type ContentRecordKind } from "@it/domain/content-edits";
 import { Page } from "../../src/components/page";
 import {
   Button,
@@ -22,7 +23,7 @@ import {
 import { publishedContentQueryKey } from "../../src/content/use-published-content";
 import { describeCmsError } from "../../src/api-errors/describe-cms-error";
 
-type Kind = "domains" | "pains" | "dreams" | "firstActions";
+type Kind = ContentRecordKind;
 const cmsQueryKey = ["cms", "draft"] as const;
 const versionQueryKey = ["cms", "versions"] as const;
 
@@ -378,61 +379,7 @@ export default function CmsScreen() {
 
   function deleteSelectedRecord() {
     if (!graph || !selected) return;
-    const removeIds = new Set([selectedId]);
-    if (kind === "domains") {
-      for (const pain of graph.pains)
-        if (pain.domainId === selectedId) removeIds.add(pain.id);
-    }
-    const painsToRemove =
-      kind === "pains"
-        ? removeIds
-        : kind === "domains"
-          ? new Set(
-              graph.pains
-                .filter((pain) => removeIds.has(pain.id))
-                .map(({ id }) => id),
-            )
-          : new Set<string>();
-    const nextGraph: ContentGraph = {
-      ...graph,
-      domains:
-        kind === "domains"
-          ? graph.domains.filter(({ id }) => id !== selectedId)
-          : graph.domains,
-      pains:
-        kind === "pains"
-          ? graph.pains.filter(({ id }) => id !== selectedId)
-          : kind === "domains"
-            ? graph.pains.filter(({ domainId }) => domainId !== selectedId)
-            : graph.pains,
-      dreams:
-        kind === "dreams"
-          ? graph.dreams.filter(({ id }) => id !== selectedId)
-          : graph.dreams,
-      firstActions:
-        kind === "firstActions"
-          ? graph.firstActions.filter(({ id }) => id !== selectedId)
-          : graph.firstActions,
-      painDreamLinks: graph.painDreamLinks.filter(
-        ({ painId, dreamId }) =>
-          !(kind === "dreams" && dreamId === selectedId) &&
-          !painsToRemove.has(painId),
-      ),
-      actionPainLinks: graph.actionPainLinks.filter(
-        ({ actionId, painId }) =>
-          !(kind === "firstActions" && actionId === selectedId) &&
-          !painsToRemove.has(painId),
-      ),
-      provenance: graph.provenance.filter(
-        ({ entityType, entityId }) =>
-          !(entityType === entityTypeFor(kind) && removeIds.has(entityId)) &&
-          !(
-            kind === "domains" &&
-            entityType === "pain" &&
-            painsToRemove.has(entityId)
-          ),
-      ),
-    };
+    const nextGraph = removeRecord(graph, kind, selectedId);
     setGraph(nextGraph);
     setSelectedId(nextGraph[kind][0]?.id ?? "");
     setNotice(
